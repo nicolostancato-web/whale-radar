@@ -48,6 +48,20 @@ for pg in range(1, PAGES+1):
     except Exception as e:
         print("pool pg", pg, "err", str(e)[:50]); break
 
+# 1.5) ACCUMULATORE ARCHIVIO: fotografa TUTTA la chain ogni ora (cresce all'infinito, gratis).
+# Registriamo i token MENTRE sono vivi -> quando muoiono abbiamo ancora i dati -> aggiusta survivorship.
+# File COMPRESSO IMMUTABILE per ora (poco spazio, niente gonfiore git: scritto 1 volta, mai riscritto).
+if mkt:
+    import gzip
+    day = time.strftime("%Y-%m-%d", time.gmtime(NOW))
+    hm = time.strftime("%H%M", time.gmtime(NOW))
+    os.makedirs(f"data/snapshots/{day}", exist_ok=True)
+    with gzip.open(f"data/snapshots/{day}/{hm}.jsonl.gz", "wt") as f:
+        for addr, m in mkt.items():
+            f.write(json.dumps({"ts": NOW, "a": addr, "n": m["name"], "p": m["price"],
+                                "liq": round(m["liq"]), "v1": round(m["vh1"]), "v24": round(m["vh24"]),
+                                "pc1": m["pc1"]}) + "\n")
+
 # 2) rileva NUOVI segnali
 new_sig=0
 for addr,m in mkt.items():
