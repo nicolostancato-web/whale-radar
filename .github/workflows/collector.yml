@@ -1,0 +1,31 @@
+name: collector
+# REPARTO COLLECTOR: accumula STORICO (candele daily+orarie + whale + pressione) in file immutabili.
+# Seriale, pacato, resumable (checkpoint). Ogni 4h da IP GitHub (rate-limit fresco). Commit dati. €0.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "23 */4 * * *"   # ogni 4 ore
+permissions:
+  contents: write
+concurrency:
+  group: collector
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: python agents/collector.py || echo "ko, riprovo al prossimo giro"
+      - name: Salva dati (file immutabili)
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add data/ 2>/dev/null || true
+          git commit -m "collector $(date -u +%Y-%m-%dT%H:%MZ)" || { echo niente; exit 0; }
+          for i in 1 2 3; do
+            git pull --no-rebase --no-edit -X ours origin main || true
+            git push origin main && exit 0; sleep 4
+          done
+          exit 0
