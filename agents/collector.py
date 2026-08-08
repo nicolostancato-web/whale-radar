@@ -6,7 +6,7 @@ e accumula lo storico. File IMMUTABILI per giro (no corruzione). Lista pool CACH
 Candele daily+orarie + whale $10k + pressione. Compresso, dedup, resumable. Gratis. NO live.
 """
 import urllib.request, json, time, os, gzip, glob
-GT="https://api.geckoterminal.com/api/v2"; PAUSE=2.6; WHALE=10000; BATCH=25
+GT="https://api.geckoterminal.com/api/v2"; PAUSE=2.6; WHALE=10000; BATCH=int(__import__("os").environ.get("BATCH",25))
 CK="data/collector_checkpoint.json"; POOLS="data/pools.json"
 def get(url, tries=2):
     last=None
@@ -19,23 +19,34 @@ os.makedirs("data/raw/candles", exist_ok=True); os.makedirs("data/raw/whales", e
 ck=json.load(open(CK)) if os.path.exists(CK) else {}
 now=int(time.time())
 
-# lista pool CACHATA (rinfresca ogni 24h)
-pools=None
-if os.path.exists(POOLS):
-    pj=json.load(open(POOLS))
-    if now-pj.get("ts",0) < 24*3600: pools=pj["pools"]
-if pools is None:
-    pools=[]
-    for pg in range(1,10):
+# REGISTRO POOL che CRESCE: top-volume + NUOVI NATI (deep-search #9). Mai rimuove -> accumula tutti i token
+# mai visti, catturandoli alla NASCITA (sono giovani -> cosi' avremo la loro storia completa nel tempo).
+reg=json.load(open(POOLS)) if os.path.exists(POOLS) else {"ts":0,"pools":{}}
+# migrazione dal vecchio formato lista -> dict
+if isinstance(reg.get("pools"), list):
+    reg["pools"]={p["addr"]:{"name":p.get("name"),"vol":p.get("vol",0),"first_seen":now} for p in reg["pools"] if p.get("addr")}
+if now-reg.get("ts",0) >= 6*3600:
+    for pg in range(1,10):   # top per volume
         d=get(f"{GT}/networks/robinhood/pools?page={pg}")
         if not d or not d.get("data"): break
         for p in d["data"]:
-            a=p.get("attributes",{})
-            pools.append({"addr":a.get("address"),"name":a.get("name"),"vol":float((a.get("volume_usd") or {}).get("h24") or 0)})
+            a=p.get("attributes",{}); addr=a.get("address")
+            if addr:
+                e=reg["pools"].setdefault(addr,{"first_seen":now})
+                e["name"]=a.get("name"); e["vol"]=float((a.get("volume_usd") or {}).get("h24") or 0); e["created"]=a.get("pool_created_at")
         time.sleep(PAUSE)
-    pools=sorted([p for p in pools if p["addr"]], key=lambda x:-x["vol"])[:150]
-    json.dump({"ts":now,"pools":pools}, open(POOLS,"w"))
-print(f"pool in lista: {len(pools)}", flush=True)
+    for pg in range(1,4):    # NUOVI NATI (catturali subito)
+        d=get(f"{GT}/networks/robinhood/new_pools?page={pg}")
+        if not d or not d.get("data"): break
+        for p in d["data"]:
+            a=p.get("attributes",{}); addr=a.get("address")
+            if addr:
+                e=reg["pools"].setdefault(addr,{"first_seen":now,"born":now})
+                e["name"]=a.get("name"); e["created"]=a.get("pool_created_at")
+        time.sleep(PAUSE)
+    reg["ts"]=now; json.dump(reg, open(POOLS,"w"))
+pools=[{"addr":k,"name":v.get("name"),"vol":v.get("vol",0)} for k,v in reg["pools"].items()]
+print(f"registro pool: {len(pools)} (cresce nel tempo, include i nuovi nati)", flush=True)
 
 # dedup dagli immutabili
 def load_keys(folder, keyfn):
