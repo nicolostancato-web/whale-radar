@@ -21,3 +21,10 @@ Campi: `ts` epoch · `a` pool address · `n` nome · `p` prezzo USD · `liq` liq
  "r6":0.05,"r24":-0.02,"r72":0.40,"peak72":0.90,"drawdown72":-0.30,"hours_to_peak":18}
 ```
 `flat_24h`/`prior_ret_24h`/`vol_ratio` = setup PRIMA · `r6/r24/r72`/`peak72`/`drawdown72`/`hours_to_peak` = esito DOPO.
+
+## `data/raw/whales/backfill_*.jsonl.gz` — whale storiche (buy on-chain >= $10k)
+```json
+{"tx":"0x..","li":"0x..","ts":1786..,"blk":31209649,"pool":"0x..","name":"CASHCAT / WETH 0.3%",
+ "wallet":"0x4e0e..","router":"0x8876..","usd":15355}
+```
+`wallet` = EOA vero (tx.from) · `router` = recipient del log (spesso contratto router) · `usd` = valore dal lato quote (WETH/stable) · `blk` blocco · `ts` epoch stimato da modello blocco→tempo. Dedup per `tx`+`li`.
