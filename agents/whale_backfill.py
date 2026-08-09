@@ -152,9 +152,11 @@ def main():
 
     pools = [kv for kv in reg["pools"].items() if len(kv[0]) == 42]
     pools.sort(key=lambda kv: kv[1].get("vol", 0), reverse=True)
-    # scegli i pool NON completati, meno recentemente toccati
-    todo = sorted([p for p in pools if not ck.get(p[0], {}).get("done")],
-                  key=lambda kv: ck.get(kv[0], {}).get("ts", 0))[:BATCH]
+    # cattura CONTINUA: prendi i pool non ancora completati OPPURE completati ma "stantii" (>REFRESH):
+    # un pool 'done' viene riaperto dall'ultimo blocco al nuovo latest per catturare i BUY NUOVI.
+    REFRESH = int(os.environ.get("REFRESH_SEC", 4 * 3600))
+    cand_pools = [p for p in pools if (not ck.get(p[0], {}).get("done")) or (now - ck.get(p[0], {}).get("ts", 0) > REFRESH)]
+    todo = sorted(cand_pools, key=lambda kv: ck.get(kv[0], {}).get("ts", 0))[:BATCH]
 
     out = f"data/raw/whales/backfill_{now}.jsonl.gz"
     fw = gzip.open(out, "wt"); total = 0
