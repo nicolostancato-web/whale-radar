@@ -5,7 +5,7 @@ name: whale_backfill
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: "48 */4 * * *"   # ogni 4 ore, a :48 (collector e' a :23)
+    - cron: "18 */2 * * *"   # ogni 2 ore, a :18 (Leva 1: accumulo piu' veloce)
 permissions:
   contents: write
 concurrency:
@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.11" }
-      - run: BATCH=12 MAX_CALLS=350 python agents/whale_backfill.py || echo "ko, riprovo al prossimo giro"
+      - run: BATCH=16 MAX_CALLS=550 python agents/whale_backfill.py || echo "ko, riprovo al prossimo giro"
       - name: Salva dati (file immutabili)
         run: |
           git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
