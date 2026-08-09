@@ -17,7 +17,8 @@ GT = "https://api.geckoterminal.com/api/v2"
 RPC = "https://rpc.mainnet.chain.robinhood.com"
 PAUSE = 2.6            # GeckoTerminal gentile
 RPC_PAUSE = 0.45      # ~2 req/s sul RPC (testato tollerante)
-WHALE = 10000
+WHALE = int(os.environ.get("WHALE", 3000))   # soglia cattura: $3k (accumula anche le whale memecoin piu' piccole; si filtra dopo in analisi)
+MONEY = {"weth", "eth", "usdg", "usdc", "usdt", "dai", "usdb", "weth9"}  # token "denaro": una coppia con ENTRAMBI = arbitraggio, non memecoin
 WIN0 = 40000          # finestra iniziale; si adatta: dimezza se il RPC va in errore (troppi log), cresce se scarsa
 WIN_MIN = 1000
 WIN_MAX = 120000
@@ -176,6 +177,10 @@ def main():
             print(f"  retry-later {addr[:10]} (meta ko, transitorio)", flush=True); continue   # non marcare done: riprova prossimo run
         if meta["quote_price"] <= 0:
             print(f"  skip {addr[:10]} (quote senza prezzo USD)", flush=True); ck[addr] = {"done": True, "ts": now}; continue
+        # salta le coppie di puro arbitraggio (es. USDG/WETH): entrambi i lati sono token "denaro", non memecoin
+        parts = [p.strip().split(" ")[0].lower() for p in (meta["name"] or "").split("/")]
+        if len(parts) == 2 and parts[0] in MONEY and parts[1] in MONEY:
+            print(f"  skip {meta['name'][:20]} (coppia arbitraggio, non memecoin)", flush=True); ck[addr] = {"done": True, "ts": now}; continue
         # blocco di partenza: dove eravamo rimasti, oppure la creazione del pool
         if st.get("blk"):
             start = st["blk"]
