@@ -189,9 +189,11 @@ def main():
         else:
             try:
                 ep = calendar.timegm(time.strptime(meta["created"].split(".")[0].replace("Z", ""), "%Y-%m-%dT%H:%M:%S"))
-                start = max(m["b0"], int(m["b0"] + (ep - m["t0"]) / m["spb"]))
+                # BUG-FIX: NON clampare a b0 (recente) -> per i token vecchi si partiva dal presente perdendo tutto lo storico.
+                # Ora si parte dal blocco di CREAZIONE vero (min 1), cosi' catturiamo le whale vecchie con 72h/168h gia' pronti.
+                start = min(latest, max(1, int(m["b0"] + (ep - m["t0"]) / m["spb"])))
             except Exception:
-                start = max(0, latest - 300000)
+                start = max(1, latest - 300000)
         tag = st.get("tag")
         if not tag:
             tag, topic = detect_version(addr, start, latest)
