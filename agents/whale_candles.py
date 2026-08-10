@@ -8,7 +8,7 @@ ogni memecoin. Su piu' run copre tutti i ~185. File immutabili, dedup, resumable
 import urllib.request, json, time, os, gzip, glob
 
 GT = "https://api.geckoterminal.com/api/v2"; PAUSE = 2.6; LIMIT = 1000
-BATCH = int(os.environ.get("CANDLE_BATCH", 70))     # pool per run (70*2 chiamate ~ 6-7 min)
+BATCH = int(os.environ.get("CANDLE_BATCH", 45))     # pool per run (45*2 chiamate ~ 8-9 min, margine sul timeout 20min)
 MONEY = {"weth", "eth", "usdg", "usdc", "usdt", "dai", "usdb"}
 POOLS = "data/pools.json"; CK = "data/whale_candles_checkpoint.json"
 
