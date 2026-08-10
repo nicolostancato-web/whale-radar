@@ -1,0 +1,47 @@
+{
+"ts": 1786384567,
+"verdict": "DATI INSUFFICIENTI",
+"edge_found": false,
+"n_gap": 5,
+"results": {
+"24": {
+"tutti": {
+"n_trades": 846,
+"n_token": 31,
+"n_wallet": 308,
+"mean": -0.1391,
+"median": -0.0559,
+"win_rate": 0.431,
+"x2": 1,
+"x3": 1,
+"x5": 0,
+"dead": 0,
+"best": 3.29,
+"worst": -0.98,
+"affidabile": false
+}
+},
+"72": {
+"tutti": {
+"n_trades": 231,
+"n_token": 1,
+"n_wallet": 126,
+"mean": 0.2399,
+"median": 0.1182,
+"win_rate": 0.983,
+"x2": 0,
+"x3": 0,
+"x5": 0,
+"dead": 0,
+"best": 0.63,
+"worst": -0.01,
+"affidabile": false
+}
+},
+"168": {
+"tutti": null
+}
+},
+"tokens_whale": 62,
+"whales": 969
+}
