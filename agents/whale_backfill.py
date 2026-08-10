@@ -96,12 +96,15 @@ def pool_meta(addr):
             "quote_is_t0": (quote_addr == t0), "created": a.get("pool_created_at")}
 
 
-def detect_version(addr, lo, hi):
-    for tag, topic in (("v3", SWAP_V3), ("v2", SWAP_V2)):
-        res = rpc("eth_getLogs", [{"address": addr, "fromBlock": hex(lo), "toBlock": hex(min(lo + 20000, hi)), "topics": [topic]}])
-        time.sleep(RPC_PAUSE)
-        if isinstance(res, list) and len(res) > 0:
-            return tag, topic
+def detect_version(addr, latest):
+    """Rileva V2/V3 su finestre RECENTI (attivita' garantita), piccole-prima per evitare il cap di risultati."""
+    for span in (2000, 20000, 120000):
+        lo = max(1, latest - span)
+        for tag, topic in (("v3", SWAP_V3), ("v2", SWAP_V2)):
+            res = rpc("eth_getLogs", [{"address": addr, "fromBlock": hex(lo), "toBlock": hex(latest), "topics": [topic]}])
+            time.sleep(RPC_PAUSE)
+            if isinstance(res, list) and len(res) > 0:
+                return tag, topic
     return None, None
 
 
@@ -196,7 +199,7 @@ def main():
                 start = max(1, latest - 300000)
         tag = st.get("tag")
         if not tag:
-            tag, topic = detect_version(addr, start, latest)
+            tag, topic = detect_version(addr, latest)
             if not tag:
                 print(f"  {meta['name'][:16]:16} nessuno Swap log", flush=True); ck[addr] = {"done": True, "ts": now}; continue
         else:
