@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """
-WHALE_CANDLES — accumulo FOCALIZZATO di candele sui pool DOVE CI SONO LE WHALE.
-Il collector generico si spalma su tutti i pool e lascia buchi (es. BLINK: 174 whale, 0 candele).
-Qui: leggo i pool con whale dai file backfill, e ad OGNI run scarico le loro candele orarie (1000 = ~41gg)
-+ daily, per TUTTI (sono ~25 -> ci stanno in un run). Cosi' la finestra 72h/168h dopo ogni buy si riempie
-e si aggiorna in continuo -> sblocca la verifica della tesi (tieni-e-5x nei giorni dopo). File immutabili,
-dedup, gratis (GeckoTerminal). NO live, NO trading.
+WHALE_CANDLES — candele (orarie+daily) su TUTTO l'universo memecoin, non solo sui pool con whale.
+Serve a misurare l'esito (72h/168h) su MOLTI token diversi -> senza diversita' ogni numero e' un aneddoto.
+Legge il registro pool, salta le coppie di arbitraggio, e a batch (per arretrato) scarica le candele di
+ogni memecoin. Su piu' run copre tutti i ~185. File immutabili, dedup, resumable. Gratis (GeckoTerminal). NO live.
 """
 import urllib.request, json, time, os, gzip, glob
 
-GT = "https://api.geckoterminal.com/api/v2"; PAUSE = 2.6
-LIMIT_HOURS = 1000
+GT = "https://api.geckoterminal.com/api/v2"; PAUSE = 2.6; LIMIT = 1000
+BATCH = int(os.environ.get("CANDLE_BATCH", 70))     # pool per run (70*2 chiamate ~ 6-7 min)
+MONEY = {"weth", "eth", "usdg", "usdc", "usdt", "dai", "usdb"}
+POOLS = "data/pools.json"; CK = "data/whale_candles_checkpoint.json"
 
 
 def get(url, tries=4, pause=2.5):
@@ -24,27 +24,31 @@ def get(url, tries=4, pause=2.5):
     return None
 
 
+def is_meme(name):
+    parts = [x.strip().split(" ")[0].lower() for x in (name or "").split("/")]
+    return not (len(parts) == 2 and parts[0] in MONEY and parts[1] in MONEY)
+
+
 def main():
     os.makedirs("data/raw/candles", exist_ok=True)
     now = int(time.time())
+    reg = json.load(open(POOLS)) if os.path.exists(POOLS) else {"pools": {}}
+    ck = json.load(open(CK)) if os.path.exists(CK) else {}
+    # UNIVERSO = registro (include i morti, catturati alla nascita) UNITO alla lista fresca GeckoTerminal (i vivi).
+    universe = {a: v.get("name") for a, v in reg["pools"].items() if len(a) == 42}
+    for pg in range(1, 11):                            # tutte le pagine GT (fino a ~200 pool vivi)
+        d = get(f"{GT}/networks/robinhood/pools?page={pg}")
+        rows = d.get("data", []) if d else []
+        if not rows: break
+        for p in rows:
+            a = p.get("attributes", {})
+            if a.get("address"): universe[a["address"]] = a.get("name")
+        time.sleep(PAUSE)
+    pools = [(a, n) for a, n in universe.items() if len(a) == 42 and is_meme(n)]
+    pools.sort(key=lambda kv: ck.get(kv[0], 0))       # i meno recentemente aggiornati prima
+    todo = pools[:BATCH]
+    print(f"memecoin nel registro: {len(pools)} | copro in questo run: {len(todo)}", flush=True)
 
-    # pool con whale (dai backfill): sono quelli che contano davvero
-    wp = {}
-    for f in glob.glob("data/raw/whales/backfill_*.jsonl.gz"):
-        try:
-            for l in gzip.open(f, "rt"):
-                try:
-                    d = json.loads(l)
-                    if d.get("usd") and d.get("pool") and len(d["pool"]) == 42:
-                        wp[d["pool"]] = d.get("name", "?")
-                except: pass
-        except EOFError: pass
-    pools = list(wp.items())
-    print(f"pool-whale da coprire: {len(pools)}", flush=True)
-    if not pools:
-        print("nessun pool-whale ancora; esco."); return
-
-    # dedup dagli immutabili
     seen = set()
     for f in glob.glob("data/raw/candles/*.jsonl.gz"):
         try:
@@ -55,11 +59,10 @@ def main():
                     except: pass
         except EOFError: pass
 
-    cf = f"data/raw/candles/whalepools_{now}.jsonl.gz"
-    fc = gzip.open(cf, "wt"); nc = 0
-    for i, (addr, name) in enumerate(pools):
+    cf = f"data/raw/candles/meme_{now}.jsonl.gz"; fc = gzip.open(cf, "wt"); nc = 0
+    for i, (addr, name) in enumerate(todo):
         for tf in ("hour", "day"):
-            d = get(f"{GT}/networks/robinhood/pools/{addr}/ohlcv/{tf}?aggregate=1&limit={LIMIT_HOURS}")
+            d = get(f"{GT}/networks/robinhood/pools/{addr}/ohlcv/{tf}?aggregate=1&limit={LIMIT}")
             time.sleep(PAUSE)
             if not d: continue
             for x in d.get("data", {}).get("attributes", {}).get("ohlcv_list", []):
@@ -67,12 +70,15 @@ def main():
                 if sid in seen: continue
                 seen.add(sid); nc += 1
                 fc.write(json.dumps({"pool": addr, "tf": tf, "ts": int(x[0]), "o": x[1], "h": x[2], "l": x[3], "cl": x[4], "v": round(x[5])}) + "\n")
-        if (i + 1) % 10 == 0:
-            print(f"  ...{i+1}/{len(pools)} pool, +{nc} candele", flush=True)
+        ck[addr] = now
+        if (i + 1) % 20 == 0:
+            print(f"  ...{i+1}/{len(todo)} pool, +{nc} candele", flush=True)
     fc.close()
     if nc == 0:
         os.remove(cf)
-    print(f"✅ whale_candles: {len(pools)} pool-whale | +{nc} candele nuove | archivio: {len(seen):,} candele", flush=True)
+    json.dump(ck, open(CK, "w"))
+    done = sum(1 for a, _ in pools if ck.get(a, 0) > now - 12 * 3600)
+    print(f"✅ whale_candles: +{nc} candele | memecoin aggiornati nelle ultime 12h: {done}/{len(pools)} | archivio: {len(seen):,}", flush=True)
 
 
 if __name__ == "__main__":
