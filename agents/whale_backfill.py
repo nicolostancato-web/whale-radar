@@ -173,9 +173,10 @@ def main():
         txfrom[tx] = w; return w
 
     calls = 0
+    START = time.time(); MAX_SECONDS = int(os.environ.get("MAX_SECONDS", 720))   # budget tempo: committa e riprende (no timeout GHA)
     for addr, info in todo:
-        if calls >= MAX_CALLS:
-            print(f"  (budget {MAX_CALLS} chiamate esaurito, i restanti pool al prossimo run)", flush=True); break
+        if calls >= MAX_CALLS or time.time() - START > MAX_SECONDS:
+            print(f"  (budget esaurito calls={calls} sec={int(time.time()-START)}, resto al prossimo run)", flush=True); break
         st = ck.get(addr, {})
         meta = pool_meta(addr); time.sleep(PAUSE)
         if not meta:
@@ -205,7 +206,7 @@ def main():
         else:
             topic = SWAP_V3 if tag == "v3" else SWAP_V2
         b = start; new = 0; found = 0; win = WIN0; scanned = 0
-        while b < latest and scanned < MAX_BLOCKS and calls < MAX_CALLS:
+        while b < latest and scanned < MAX_BLOCKS and calls < MAX_CALLS and time.time() - START < MAX_SECONDS:
             to = min(b + win, latest)
             res = rpc("eth_getLogs", [{"address": addr, "fromBlock": hex(b), "toBlock": hex(to), "topics": [topic]}])
             time.sleep(RPC_PAUSE); calls += 1
