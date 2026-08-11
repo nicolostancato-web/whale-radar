@@ -1,5 +1,5 @@
 {
-"updated": 1786414752,
+"updated": 1786425371,
 "n_wallet": 352,
 "wallets": [
 {
@@ -185,15 +185,15 @@
 {
 "wallet": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
 "n_buys": 22,
-"n_meas24": 21,
+"n_meas24": 22,
 "usd_tot": 130887,
 "pools": 5,
 "first_ts": 1786073979,
 "last_ts": 1786319171,
-"avg24": -0.1033,
+"avg24": -0.1327,
 "med24": -0.0558,
-"pos24": 0.19,
-"n24": 21,
+"pos24": 0.18,
+"n24": 22,
 "avg72": 0.2944,
 "med72": 0.3521,
 "pos72": 1.0,
@@ -393,11 +393,15 @@
 {
 "wallet": "0xa219966bd6217c06d13e5788386fed7e0ac77575",
 "n_buys": 8,
-"n_meas24": 0,
+"n_meas24": 1,
 "usd_tot": 59566,
 "pools": 8,
 "first_ts": 1786229349,
 "last_ts": 1786353212,
+"avg24": -0.0334,
+"med24": -0.0334,
+"pos24": 0.0,
+"n24": 1,
 "tag": "thin"
 },
 {
@@ -495,11 +499,15 @@
 {
 "wallet": "0x777a1e72cb4bc15cd171eb8a5584599d71ae72ff",
 "n_buys": 5,
-"n_meas24": 0,
+"n_meas24": 1,
 "usd_tot": 36885,
 "pools": 5,
 "first_ts": 1786306954,
 "last_ts": 1786348854,
+"avg24": -0.0213,
+"med24": -0.0213,
+"pos24": 0.0,
+"n24": 1,
 "tag": "thin"
 },
 {
@@ -769,12 +777,16 @@
 {
 "wallet": "0xd26dd6889c49e7844db42e00e342afd98fd1aa90",
 "n_buys": 4,
-"n_meas24": 0,
+"n_meas24": 4,
 "usd_tot": 14045,
 "pools": 1,
 "first_ts": 1786316940,
 "last_ts": 1786344715,
-"tag": "thin"
+"avg24": -0.8139,
+"med24": -0.8094,
+"pos24": 0.0,
+"n24": 4,
+"tag": "dumb"
 },
 {
 "wallet": "0x824ad98fbcb4220f49ed80051815f649ace4b465",
@@ -931,15 +943,15 @@
 {
 "wallet": "0xb4d7530b5bc8d40840f72a4a60e95efb490e7f88",
 "n_buys": 3,
-"n_meas24": 1,
+"n_meas24": 3,
 "usd_tot": 13075,
 "pools": 3,
 "first_ts": 1786287479,
 "last_ts": 1786320799,
-"avg24": -0.6628,
+"avg24": -0.7678,
 "med24": -0.6628,
 "pos24": 0.0,
-"n24": 1,
+"n24": 3,
 "tag": "thin"
 },
 {
@@ -1699,15 +1711,15 @@
 {
 "wallet": "0x6b422465b5124344608c9d33b27bfb88bce09558",
 "n_buys": 2,
-"n_meas24": 1,
+"n_meas24": 2,
 "usd_tot": 7707,
 "pools": 1,
 "first_ts": 1786307546,
 "last_ts": 1786313590,
-"avg24": 0.58,
-"med24": 0.58,
-"pos24": 1.0,
-"n24": 1,
+"avg24": -0.6364,
+"med24": -0.6364,
+"pos24": 0.0,
+"n24": 2,
 "tag": "thin"
 },
 {
@@ -2997,11 +3009,15 @@
 {
 "wallet": "0x10c5a3a934952cbbe9258430e2533de3930e6657",
 "n_buys": 1,
-"n_meas24": 0,
+"n_meas24": 1,
 "usd_tot": 4567,
 "pools": 1,
 "first_ts": 1786325780,
 "last_ts": 1786325780,
+"avg24": -1.0,
+"med24": -1.0,
+"pos24": 0.0,
+"n24": 1,
 "tag": "thin"
 },
 {
@@ -3095,11 +3111,15 @@
 {
 "wallet": "0x393c2a3a5768413852259bac453055037fe434ab",
 "n_buys": 1,
-"n_meas24": 0,
+"n_meas24": 1,
 "usd_tot": 4352,
 "pools": 1,
 "first_ts": 1786336923,
 "last_ts": 1786336923,
+"avg24": -1.0,
+"med24": -1.0,
+"pos24": 0.0,
+"n24": 1,
 "tag": "thin"
 },
 {
@@ -3381,11 +3401,15 @@
 {
 "wallet": "0x1983c3a321bd3d121dfc21422b06cfcc679dbfc7",
 "n_buys": 1,
-"n_meas24": 0,
+"n_meas24": 1,
 "usd_tot": 3947,
 "pools": 1,
 "first_ts": 1786333748,
 "last_ts": 1786333748,
+"avg24": -1.0,
+"med24": -1.0,
+"pos24": 0.0,
+"n24": 1,
 "tag": "thin"
 },
 {
@@ -3627,11 +3651,15 @@
 {
 "wallet": "0x142713d8e56ae4957fd276bb926599b96a5cdd40",
 "n_buys": 1,
-"n_meas24": 0,
+"n_meas24": 1,
 "usd_tot": 3840,
 "pools": 1,
 "first_ts": 1786328170,
 "last_ts": 1786328170,
+"avg24": -1.0,
+"med24": -1.0,
+"pos24": 0.0,
+"n24": 1,
 "tag": "thin"
 },
 {
@@ -3647,21 +3675,29 @@
 {
 "wallet": "0x684c1b7bb3c373abd25472906cc61ba296206e3d",
 "n_buys": 1,
-"n_meas24": 0,
+"n_meas24": 1,
 "usd_tot": 3840,
 "pools": 1,
 "first_ts": 1786319082,
 "last_ts": 1786319082,
+"avg24": -0.7514,
+"med24": -0.7514,
+"pos24": 0.0,
+"n24": 1,
 "tag": "thin"
 },
 {
 "wallet": "0x4522dfe0a8d94904483f5c7da0c1b93ace9d634f",
 "n_buys": 1,
-"n_meas24": 0,
+"n_meas24": 1,
 "usd_tot": 3821,
 "pools": 1,
 "first_ts": 1786333544,
 "last_ts": 1786333544,
+"avg24": -1.0,
+"med24": -1.0,
+"pos24": 0.0,
+"n24": 1,
 "tag": "thin"
 },
 {
@@ -3831,11 +3867,15 @@
 {
 "wallet": "0x965f01dd56a2cc45a40110a39c6fc4daddcca4fe",
 "n_buys": 1,
-"n_meas24": 0,
+"n_meas24": 1,
 "usd_tot": 3801,
 "pools": 1,
 "first_ts": 1786325179,
 "last_ts": 1786325179,
+"avg24": -1.0,
+"med24": -1.0,
+"pos24": 0.0,
+"n24": 1,
 "tag": "thin"
 },
 {
@@ -4033,11 +4073,15 @@
 {
 "wallet": "0x6e5405168e2cf81b0ef0d0eacdc3ecb5613ac1a4",
 "n_buys": 1,
-"n_meas24": 0,
+"n_meas24": 1,
 "usd_tot": 3765,
 "pools": 1,
 "first_ts": 1786336036,
 "last_ts": 1786336036,
+"avg24": -1.0,
+"med24": -1.0,
+"pos24": 0.0,
+"n24": 1,
 "tag": "thin"
 },
 {
@@ -4123,11 +4167,15 @@
 {
 "wallet": "0x4daa85a42772a80f1ecf9e849fc2ab84b4170055",
 "n_buys": 1,
-"n_meas24": 0,
+"n_meas24": 1,
 "usd_tot": 3691,
 "pools": 1,
 "first_ts": 1786331850,
 "last_ts": 1786331850,
+"avg24": -1.0,
+"med24": -1.0,
+"pos24": 0.0,
+"n24": 1,
 "tag": "thin"
 },
 {
@@ -4285,11 +4333,15 @@
 {
 "wallet": "0x88067b8d00824bdc295015b0c6fb62ed45e6a3fb",
 "n_buys": 1,
-"n_meas24": 0,
+"n_meas24": 1,
 "usd_tot": 3578,
 "pools": 1,
 "first_ts": 1786334560,
 "last_ts": 1786334560,
+"avg24": -1.0,
+"med24": -1.0,
+"pos24": 0.0,
+"n24": 1,
 "tag": "thin"
 },
 {
@@ -4341,11 +4393,15 @@
 {
 "wallet": "0x47c2382c426881947686124b892cdd52e2afb4ed",
 "n_buys": 1,
-"n_meas24": 0,
+"n_meas24": 1,
 "usd_tot": 3537,
 "pools": 1,
 "first_ts": 1786328368,
 "last_ts": 1786328368,
+"avg24": -1.0,
+"med24": -1.0,
+"pos24": 0.0,
+"n24": 1,
 "tag": "thin"
 },
 {
@@ -4401,11 +4457,15 @@
 {
 "wallet": "0x617f6619ffcaf24e47ffa7d754a393e119519e93",
 "n_buys": 1,
-"n_meas24": 0,
+"n_meas24": 1,
 "usd_tot": 3498,
 "pools": 1,
 "first_ts": 1786322495,
 "last_ts": 1786322495,
+"avg24": -1.0,
+"med24": -1.0,
+"pos24": 0.0,
+"n24": 1,
 "tag": "thin"
 },
 {
@@ -4615,11 +4675,15 @@
 {
 "wallet": "0xd97340d7d61e31cb419757975935679db6bd8b79",
 "n_buys": 1,
-"n_meas24": 0,
+"n_meas24": 1,
 "usd_tot": 3367,
 "pools": 1,
 "first_ts": 1786337801,
 "last_ts": 1786337801,
+"avg24": -1.0,
+"med24": -1.0,
+"pos24": 0.0,
+"n24": 1,
 "tag": "thin"
 },
 {
@@ -4779,11 +4843,15 @@
 {
 "wallet": "0x5e3c19d1ed0dc9c393b7a899b0fb75502ed046ac",
 "n_buys": 1,
-"n_meas24": 0,
+"n_meas24": 1,
 "usd_tot": 3276,
 "pools": 1,
 "first_ts": 1786333147,
 "last_ts": 1786333147,
+"avg24": -1.0,
+"med24": -1.0,
+"pos24": 0.0,
+"n24": 1,
 "tag": "thin"
 },
 {
@@ -4931,11 +4999,15 @@
 {
 "wallet": "0x58e840b2dbeeb8cbfb65d185eb8c447f0d617a2f",
 "n_buys": 1,
-"n_meas24": 0,
+"n_meas24": 1,
 "usd_tot": 3191,
 "pools": 1,
 "first_ts": 1786325754,
 "last_ts": 1786325754,
+"avg24": -1.0,
+"med24": -1.0,
+"pos24": 0.0,
+"n24": 1,
 "tag": "thin"
 },
 {
@@ -5083,11 +5155,15 @@
 {
 "wallet": "0xf811eefab34aed5c23228e73e3a222fd452f8d48",
 "n_buys": 1,
-"n_meas24": 0,
+"n_meas24": 1,
 "usd_tot": 3110,
 "pools": 1,
 "first_ts": 1786323940,
 "last_ts": 1786323940,
+"avg24": -1.0,
+"med24": -1.0,
+"pos24": 0.0,
+"n24": 1,
 "tag": "thin"
 },
 {
@@ -5199,11 +5275,15 @@
 {
 "wallet": "0x2b3b63dafbf2333ae327100277e50ab1e99bf144",
 "n_buys": 1,
-"n_meas24": 0,
+"n_meas24": 1,
 "usd_tot": 3001,
 "pools": 1,
 "first_ts": 1786336943,
 "last_ts": 1786336943,
+"avg24": -1.0,
+"med24": -1.0,
+"pos24": 0.0,
+"n24": 1,
 "tag": "thin"
 }
 ]
