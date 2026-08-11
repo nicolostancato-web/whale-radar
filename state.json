@@ -1,13 +1,13 @@
 {
  "current_phase": "ACCUMULO",
- "cycle_id": 2,
+ "cycle_id": 3,
  "boot_ts": 1786384567,
- "last_analysis_ts": 1786414919,
+ "last_analysis_ts": 1786439459,
  "last_verdict": "NESSUN EDGE",
- "consecutive_no_edge": 2,
+ "consecutive_no_edge": 3,
  "metrics": {
-  "token_whale": 62,
-  "token_candele": 422,
-  "whales": 969
+  "token_whale": 66,
+  "token_candele": 454,
+  "whales": 1722
  }
 }
