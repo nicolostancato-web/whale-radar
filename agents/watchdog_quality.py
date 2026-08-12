@@ -9,7 +9,7 @@ import gzip, json, glob, os, re, time
 
 now = int(time.time())
 SNAP = "data/health_snapshot.json"
-STALE_H = 6          # se un tipo di dato non viene scritto da >6h = reparto fermo (cron e' 2-4h)
+STALE_H = 10         # se un dato non viene scritto da >10h = reparto davvero fermo (GitHub schedula i cron in modo irregolare -> soglia larga per non gridare a vuoto)
 
 
 def newest_ts(pattern):
