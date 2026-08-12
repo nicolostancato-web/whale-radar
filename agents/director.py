@@ -97,6 +97,8 @@ def main():
     try:
         m = json.load(open("metrics.json")) if os.path.exists("metrics.json") else {}
         state["metrics"]["whales"] = m.get("whales", state["metrics"].get("whales", "?"))
+        state["phase2"] = {"ready": m.get("ready", {}), "phase2_ready": m.get("phase2_ready", False),
+                           "note": m.get("trigger_note", "?")}
     except: pass
     directives = json.load(open("directives.json")) if os.path.exists("directives.json") else {"directives": []}
 

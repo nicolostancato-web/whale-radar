@@ -85,12 +85,18 @@ def main():
     def agg(trades, key="net"):
         if not trades: return None
         r = [t[key] for t in trades]
-        ntok = len(set(t["pool"] for t in trades))
+        # EQUAL-WEIGHT PER TOKEN: 1 voto a token (media dei suoi trade) -> evita che i token con tanti buy
+        # o un singolo token fortunato gonfino il risultato (lezione: il per-trade mente).
+        bt = defaultdict(list)
+        for t in trades: bt[t["pool"]].append(t[key])
+        per_tok = [st.mean(v) for v in bt.values()]
+        ntok = len(per_tok)
         return {"n_trades": len(r), "n_token": ntok, "n_wallet": len(set(t["wallet"] for t in trades)),
-                "mean": round(st.mean(r), 4), "median": round(st.median(r), 4),
-                "win_rate": round(sum(1 for x in r if x > 0) / len(r), 3),
-                "x2": sum(1 for x in r if x >= 1), "x3": sum(1 for x in r if x >= 2), "x5": sum(1 for x in r if x >= 4),
-                "dead": sum(1 for t in trades if t["dead"]), "best": round(max(r), 2), "worst": round(min(r), 2),
+                "mean": round(st.mean(per_tok), 4), "median": round(st.median(per_tok), 4),   # per-token
+                "mean_pertrade": round(st.mean(r), 4),                                          # per-trade (per confronto)
+                "win_rate": round(sum(1 for x in per_tok if x > 0) / ntok, 3),                  # % TOKEN positivi
+                "x2": sum(1 for x in per_tok if x >= 1), "x5": sum(1 for x in per_tok if x >= 4),
+                "best": round(max(per_tok), 2), "worst": round(min(per_tok), 2),
                 "affidabile": ntok >= MIN_TOKENS}
 
     results = {H: {"tutti": agg(sims[H])} for H in HORIZONS}
@@ -131,25 +137,37 @@ def main():
         else: verdict = "NESSUN EDGE"; edge_found = False
         verdict_note = f"rendimento netto medio 24h {net*100:+.1f}% su {a24['n_token']} token, win {a24['win_rate']*100:.0f}%"
 
+    # ---- TRIGGER FASE 2: la finestra multi-giorno misurabile su 40+ token diversi ----
+    ready = {H: (results[H]["tutti"]["n_token"] if results[H]["tutti"] else 0) for H in HORIZONS}
+    phase2_ready = ready[72] >= MIN_TOKENS            # la tesi vive nel multi-giorno -> il 72h e' il trigger
+    trigger_note = f"72h su {ready[72]}/{MIN_TOKENS} token, 168h su {ready[168]}/{MIN_TOKENS}"
+
     # ---- OUTPUT ----
     metrics = {"ts": now, "verdict": verdict, "edge_found": edge_found, "n_gap": len(gaps),
-               "results": results, "tokens_whale": len(tokens_whale), "whales": len(whales)}
+               "results": results, "tokens_whale": len(tokens_whale), "whales": len(whales),
+               "ready": ready, "phase2_ready": phase2_ready, "trigger_note": trigger_note}
     json.dump(metrics, open("metrics.json", "w"), indent=0)
     json.dump({"generated_at": now, "generator": "analyst_core", "directives": gaps}, open("directives.json", "w"), indent=1)
 
     # report leggibile
     R = [f"# ANALISI FASE-2 — {time.strftime('%Y-%m-%d %H:%M UTC', time.gmtime(now))}", "",
          f"**Verdetto: {verdict}** — {verdict_note}", "",
-         "## Risultati per finestra (netti di slippage, survivorship-corretti)",
-         "| Finestra | n_trade | **n_token** | netto medio | mediana | %win | 2x+ | 5x+ | morti | affidabile? |",
-         "|---|---|---|---|---|---|---|---|---|---|"]
+         "## Risultati per finestra (EQUAL-WEIGHT PER TOKEN, netti di slippage, survivorship-corretti)",
+         "| Finestra | **n_token** | netto medio/token | mediana | %token positivi | 2x+ | 5x+ | (per-trade) | affidabile? |",
+         "|---|---|---|---|---|---|---|---|---|"]
     for H in HORIZONS:
         a = results[H]["tutti"]
         if a:
-            R.append(f"| {H}h | {a['n_trades']} | **{a['n_token']}** | {a['mean']*100:+.1f}% | {a['median']*100:+.1f}% | {a['win_rate']*100:.0f}% | {a['x2']} | {a['x5']} | {a['dead']} | {'SI' if a['affidabile'] else 'NO (aneddoto)'} |")
+            R.append(f"| {H}h | **{a['n_token']}** | {a['mean']*100:+.1f}% | {a['median']*100:+.1f}% | {a['win_rate']*100:.0f}% | {a['x2']} | {a['x5']} | {a['mean_pertrade']*100:+.1f}% | {'SI' if a['affidabile'] else 'NO (aneddoto)'} |")
         else:
-            R.append(f"| {H}h | 0 | 0 | - | - | - | - | - | - | NO |")
+            R.append(f"| {H}h | 0 | - | - | - | - | - | - | NO |")
     R += ["", f"> Ogni numero e' calcolato sul n. di TOKEN diversi indicato. Sotto {MIN_TOKENS} token = aneddoto, non fidarsi.", "",
+          "## 🎯 TRIGGER FASE 2 (analisi multi-giorno affidabile)",
+          f"La tesi 'tieni per giorni -> 5x' si giudica sul 72h/168h. Serve 40+ token diversi per finestra.",
+          f"- 24h: **{ready[24]}/{MIN_TOKENS}** {'PRONTO' if ready[24]>=MIN_TOKENS else ''}",
+          f"- **72h: {ready[72]}/{MIN_TOKENS}** {'PRONTO' if ready[72]>=MIN_TOKENS else f'({int(ready[72]/MIN_TOKENS*100)}%)'} <- il trigger",
+          f"- 168h: **{ready[168]}/{MIN_TOKENS}** {'PRONTO' if ready[168]>=MIN_TOKENS else f'({int(ready[168]/MIN_TOKENS*100)}%)'}",
+          f"- **STATO: {'✅ FASE 2 PRONTA — verdetto multi-giorno affidabile' if phase2_ready else '⏳ ancora accumulo (72h sotto 40 token)'}**", "",
           "## Gap di dati rilevati (ordini per la Fase 1)"]
     for g in gaps:
         R.append(f"- **[{g['priority']}]** {g['reason']}")
