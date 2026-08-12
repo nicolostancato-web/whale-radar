@@ -7,7 +7,12 @@
  "consecutive_no_edge": 6,
  "metrics": {
   "token_whale": 86,
-  "token_candele": 620,
+  "token_candele": 648,
   "whales": 2537
+ },
+ "phase2": {
+  "ready": {},
+  "phase2_ready": false,
+  "note": "?"
  }
 }
