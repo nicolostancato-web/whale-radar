@@ -12,6 +12,7 @@ Uso:
   BATCH=8 python3 agents/whale_backfill.py        # batch resumable (adatto a GitHub Actions)
 """
 import urllib.request, json, time, os, gzip, glob, sys, calendar
+from collections import defaultdict
 
 GT = "https://api.geckoterminal.com/api/v2"
 RPC = "https://rpc.mainnet.chain.robinhood.com"
@@ -163,6 +164,8 @@ def main():
 
     out = f"data/raw/whales/backfill_{now}.jsonl.gz"
     fw = gzip.open(out, "wt"); total = 0
+    os.makedirs("data/raw/flow", exist_ok=True)
+    flow = defaultdict(lambda: [0, 0, 0.0, 0.0])   # (pool, ora) -> [n_buy, n_sell, buy_usd, sell_usd] su TUTTI gli swap (gratis: gia' li decodifichiamo)
     def blk_ts(bn): return int(m["t0"] + (bn - m["b0"]) * m["spb"])
     txfrom = {}
     def real_wallet(tx):
@@ -218,13 +221,18 @@ def main():
                 d = decode(lg, tag, meta)
                 if not d: continue
                 usd, is_buy, router = d
+                bn = int(lg.get("blockNumber", "0x0"), 16)
+                # FLUSSO STORICO: aggrega OGNI swap (volume+pressione) per ora -> dato ricco, zero chiamate extra
+                hr = blk_ts(bn) // 3600 * 3600
+                fl = flow[(addr, hr)]
+                if is_buy: fl[0] += 1; fl[2] += usd
+                else: fl[1] += 1; fl[3] += usd
                 if is_buy and usd >= WHALE:
                     found += 1
                     tx = lg.get("transactionHash")
                     k = f"{tx}_{lg.get('logIndex')}"
                     if k in seen: continue
                     seen.add(k)
-                    bn = int(lg.get("blockNumber", "0x0"), 16)
                     fw.write(json.dumps({"tx": tx, "li": lg.get("logIndex"),
                                          "ts": blk_ts(bn), "blk": bn, "pool": addr, "name": meta["name"],
                                          "wallet": real_wallet(tx), "router": router, "usd": round(usd)}) + "\n")
@@ -243,9 +251,17 @@ def main():
     fw.close()
     if total == 0:
         os.remove(out)
+    # scrivi il FLUSSO storico (volume+pressione orari su tutti gli swap) - file immutabile per run
+    nfl = 0
+    if flow:
+        ff = f"data/raw/flow/flow_{now}.jsonl.gz"
+        with gzip.open(ff, "wt") as fo:
+            for (addr, hr), v in flow.items():
+                fo.write(json.dumps({"pool": addr, "hour": hr, "nbuy": v[0], "nsell": v[1],
+                                     "buyusd": round(v[2]), "sellusd": round(v[3])}) + "\n"); nfl += 1
     json.dump(ck, open(CK, "w"))
     ndone = sum(1 for v in ck.values() if v.get("done"))
-    print(f"\n✅ backfill batch {len(todo)} pool | +{total} whale nuove | pool completati {ndone}/{len(pools)} | archivio: {len(seen):,} chiavi", flush=True)
+    print(f"\n✅ backfill batch {len(todo)} pool | +{total} whale | +{nfl} righe-flusso (volume/pressione orari) | completati {ndone}/{len(pools)} | archivio: {len(seen):,}", flush=True)
 
 
 if __name__ == "__main__":
