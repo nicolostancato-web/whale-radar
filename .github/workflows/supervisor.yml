@@ -1,0 +1,38 @@
+name: supervisor
+# SUPERVISORE DEL LOOP: verifica via API che OGNI reparto giri nella sua finestra. Scrive SUPERVISOR.md.
+# Se un reparto e' fermo -> esce con errore -> mail di alert. Gira a orario E a ogni fine reparto (non si spegne in silenzio). €0.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "35 */3 * * *"   # ogni 3 ore
+  workflow_run:
+    workflows: [whale_backfill, whale_candles, director, collector, wallet_scores]
+    types: [completed]
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: supervisor
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Controllo loop + salva SUPERVISOR.md
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          python agents/supervisor.py && echo "EXIT=0" > /tmp/s_exit || echo "EXIT=1" > /tmp/s_exit
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add SUPERVISOR.md data/supervisor_snapshot.json 2>/dev/null || true
+          git commit -m "supervisor $(date -u +%Y-%m-%dT%H:%MZ)" || { echo niente; }
+          for i in 1 2 3; do
+            git pull --no-rebase --no-edit -X ours origin main || true
+            git push origin main && break; sleep 4
+          done
+      - name: Fallisci (mail alert) se un reparto e' fermo
+        run: test "$(cat /tmp/s_exit)" = "EXIT=0"
