@@ -1,17 +1,17 @@
 {
-"ts": 1786485509,
+"ts": 1786510558,
 "verdict": "NESSUN EDGE",
 "edge_found": false,
 "n_gap": 4,
 "results": {
 "24": {
 "tutti": {
-"n_trades": 2391,
-"n_token": 77,
-"n_wallet": 978,
-"mean": -0.1063,
-"median": -0.1108,
-"win_rate": 0.248,
+"n_trades": 2451,
+"n_token": 75,
+"n_wallet": 1009,
+"mean": -0.1044,
+"median": -0.1099,
+"win_rate": 0.26,
 "x2": 78,
 "x3": 8,
 "x5": 1,
@@ -23,12 +23,12 @@
 },
 "72": {
 "tutti": {
-"n_trades": 1801,
-"n_token": 25,
-"n_wallet": 783,
-"mean": 0.176,
-"median": -0.0958,
-"win_rate": 0.345,
+"n_trades": 2063,
+"n_token": 34,
+"n_wallet": 832,
+"mean": 0.1125,
+"median": -0.0968,
+"win_rate": 0.343,
 "x2": 201,
 "x3": 117,
 "x5": 17,
