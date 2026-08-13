@@ -29,16 +29,17 @@ def main():
                 if l.strip(): json.loads(l); rows += 1
         except Exception:
             corr += 1
-    if corr: problems.append(f"{corr} file corrotti")
+    if corr: problems.append(f"{corr} file corrotti")   # SOLO la corruzione fa fallire (allarme vero)
 
-    # (2) FRESCHEZZA (i reparti scrivono?)
+    # (2) FRESCHEZZA -> solo WARNING (l'esecuzione dei reparti la controlla il SUPERVISOR, con finestre giuste).
+    warnings = []
     fresh = {"whale": newest_ts("data/raw/whales/backfill_*.jsonl.gz"),
              "candele": max(newest_ts("data/raw/candles/meme_*.jsonl.gz"),
                             newest_ts("data/raw/candles/whalepools_*.jsonl.gz"),
                             newest_ts("data/raw/candles/run_*.jsonl.gz"))}
     for k, t in fresh.items():
         age = (now - t) / 3600 if t else 999
-        if age > STALE_H: problems.append(f"{k}: nessun dato nuovo da {age:.0f}h (reparto fermo?)")
+        if age > STALE_H: warnings.append(f"{k}: nessun dato nuovo da {age:.0f}h")
 
     # (3) CONTENUTO + COPERTURA
     w = []
@@ -73,7 +74,9 @@ def main():
     lines = [f"# HEALTH — whale-radar accumulo", "",
              f"**Stato: {status}**  ·  aggiornato {time.strftime('%Y-%m-%d %H:%M UTC', time.gmtime(now))}", ""]
     if problems:
-        lines += ["## ⚠️ Problemi rilevati"] + [f"- {p}" for p in problems] + [""]
+        lines += ["## 🔴 Problemi (fanno fallire il job)"] + [f"- {p}" for p in problems] + [""]
+    if warnings:
+        lines += ["## 🟡 Warning (non bloccanti — l'esecuzione la controlla il supervisor)"] + [f"- {p}" for p in warnings] + [""]
     lines += ["## Metriche",
               f"- Whale accumulate: **{metrics['whale']}** (+{growth['whale']} dall'ultimo check)",
               f"- Wallet distinti: **{metrics['wallet']}**",
