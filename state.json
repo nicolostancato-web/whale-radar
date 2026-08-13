@@ -6,8 +6,8 @@
  "last_verdict": "NESSUN EDGE",
  "consecutive_no_edge": 10,
  "metrics": {
-  "token_whale": 101,
-  "token_candele": 763,
+  "token_whale": 103,
+  "token_candele": 808,
   "whales": 2982
  },
  "phase2": {
