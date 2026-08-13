@@ -42,3 +42,14 @@ Quando si torna in Fase 2, l'analisi NON deve guardare solo il rendimento delle 
 3. Usare l'origine come FEATURE: i wallet finanziati da certe entità rendono di più? le sub-wallet della
    stessa entità comprano gli stessi token insieme (segnale anticipato)?
 Il database forense e le metriche di rendimento vanno uniti nella stessa analisi.
+
+---
+## 🕵️ REQUISITO FASE 2 (Nicolò, 13/08): CACCIA AGLI INSIDER
+I wallet piccoli vincenti potrebbero essere INSIDER (l'insider crypto non viene beccato; entra piccolo per non
+farsi notare, da un wallet grosso, ed esce grosso — ripetuto). In Fase 2 costruire uno **SCORE INSIDER** per wallet:
+1. Entry piccola ($2-10k) ma return outsized (5x-20x)
+2. Entra PRIMA del pump/volume-spike (ha informazione) — ts buy vs partenza volume
+3. RIPETUTO su piu' token diversi (non fortuna)
+4. FINANZIATO da wallet/entita' piu' grande (dal database forense)
+5. Early buyer / vicino al lancio del token
+I wallet con score alto = candidati insider da SEGUIRE. Unire con il database forense.
