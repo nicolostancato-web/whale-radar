@@ -1,15 +1,15 @@
 # 🛡️ SUPERVISOR — controllo del loop
-*2026-08-12 23:53 UTC*
+*2026-08-13 02:35 UTC*
 
 ## 🟢 LOOP SANO
 
 | Reparto | Ultimo successo | Stato |
 |---|---|---|
-| whale_backfill | 0.9h fa | 🟢 ok |
-| whale_candles | 0.7h fa | 🟢 ok |
-| collector | 2.8h fa | 🟢 ok |
-| wallet_scores | 3.0h fa | 🟢 ok |
-| director | 0.0h fa | 🟢 ok |
-| watchdog_quality | 1.5h fa | 🟢 ok |
+| whale_backfill | 3.6h fa | 🟢 ok |
+| whale_candles | 3.4h fa | 🟢 ok |
+| collector | 5.5h fa | 🟢 ok |
+| wallet_scores | 0.0h fa | 🟢 ok |
+| director | 2.7h fa | 🟢 ok |
+| watchdog_quality | 4.2h fa | 🟢 ok |
 
 **Balene: 2854** (+0 dall'ultimo controllo)
