@@ -123,8 +123,13 @@ def main():
     win, lose = target_wallets()
     ck = json.load(open(CK)) if os.path.exists(CK) else {"done": []}
     done = set(ck["done"])
-    # bilancia: alterna vincenti e perdenti non ancora fatti
-    todo = [(w, "win") for w in win if w not in done] + [(w, "lose") for w in lose if w not in done]
+    # bilancia: ALTERNA vincenti e perdenti (cosi' il gruppo di controllo si riempie in parallelo)
+    tw = [(w, "win") for w in win if w not in done]
+    tl = [(w, "lose") for w in lose if w not in done]
+    todo = []
+    for i in range(max(len(tw), len(tl))):
+        if i < len(tw): todo.append(tw[i])
+        if i < len(tl): todo.append(tl[i])
     todo = todo[:BATCH]
     print(f"target: {len(win)} vincenti, {len(lose)} perdenti | gia' fatti {len(done)} | questo run {len(todo)}", flush=True)
 
@@ -158,9 +163,9 @@ def main():
          f"- Vincenti che condividono l'origine con un altro vincente: **{pw:.0f}%**",
          f"- Perdenti che condividono l'origine con un altro perdente: **{pl:.0f}%** (controllo)",
          "",
-         ("✅ **SEGNALE:** i vincenti si raggruppano PIU' dei perdenti -> possibili sub-wallet coordinati." if pw > pl + 15
-          else "❌ **NESSUN SEGNALE:** vincenti e perdenti si raggruppano uguale -> e' solo infrastruttura (bridge), non balene coordinate." if ol
-          else "⏳ dati insufficienti sul gruppo di controllo, continuo a tracciare."), "",
+         ("⏳ **CONTROLLO INSUFFICIENTE:** servono >=15 perdenti tracciati per un confronto valido (ora %d). Continuo." % len(ol) if len(ol) < 15
+          else "✅ **SEGNALE:** i vincenti si raggruppano PIU' dei perdenti (%.0f%% vs %.0f%%) -> possibili sub-wallet coordinati." % (pw, pl) if pw > pl + 15
+          else "❌ **NESSUN SEGNALE:** vincenti e perdenti si raggruppano uguale (%.0f%% vs %.0f%%) -> e' solo il bridge, non balene coordinate." % (pw, pl)), "",
          "## Origini che finanziano piu' VINCENTI (candidate 'entita' balena')"]
     for o, c in cw.most_common(6):
         if c >= 2: L.append(f"- `{o}` -> {c} wallet vincenti")
