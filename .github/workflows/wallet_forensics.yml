@@ -4,7 +4,7 @@ name: wallet_forensics
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: "40 */3 * * *"
+    - cron: "40 */2 * * *"   # ogni 2h
 permissions:
   contents: write
 concurrency:
@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.11" }
-      - run: FORENSIC_BATCH=10 python agents/wallet_forensics.py || echo "ko, riprovo"
+      - run: FORENSIC_BATCH=14 python agents/wallet_forensics.py || echo "ko, riprovo"
       - name: Salva
         run: |
           git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
