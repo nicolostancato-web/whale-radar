@@ -32,3 +32,13 @@ Non c'è edge dal naive, ma ci sono **2 piste vere** (fade + size) troppo poco c
 
 ---
 **In una riga:** il "segui la balena" è morto, MA abbiamo scoperto due indizi promettenti — *forse va fatto il CONTRARIO (fade)* e *la size $10-30k conta*. Servono più dati per dire se sono oro o rumore. → Fase 1, spingere fino a 300-500 token, poi ri-testare.
+
+---
+## ⚠️ REQUISITO FASE 2 (Nicolò, 13/08): incrociare il DATABASE FORENSE
+Quando si torna in Fase 2, l'analisi NON deve guardare solo il rendimento delle balene, ma incrociare
+`data/raw/forensics/` (funding-graph, EOA origine per wallet):
+1. Raggruppare i wallet per ENTITÀ-origine (stessa fonte di capitale, oltre i contratti-bridge).
+2. Testare la strategia "segui l'ENTITÀ" (tutte le sue sub-wallet) invece del singolo wallet.
+3. Usare l'origine come FEATURE: i wallet finanziati da certe entità rendono di più? le sub-wallet della
+   stessa entità comprano gli stessi token insieme (segnale anticipato)?
+Il database forense e le metriche di rendimento vanno uniti nella stessa analisi.
