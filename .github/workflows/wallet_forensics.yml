@@ -1,0 +1,31 @@
+name: wallet_forensics
+# FORENSICA WALLET: testa se i wallet piccoli profittevoli sono sub-wallet di balene (funding-graph + gruppo
+# di controllo). Paced (Blockscout restrittivo), resumable. Scrive FORENSICS.md. Ogni 3h. €0.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "40 */3 * * *"
+permissions:
+  contents: write
+concurrency:
+  group: wallet_forensics
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: FORENSIC_BATCH=10 python agents/wallet_forensics.py || echo "ko, riprovo"
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add data/raw/forensics data/forensics_checkpoint.json FORENSICS.md 2>/dev/null || true
+          git commit -m "forensics $(date -u +%Y-%m-%dT%H:%MZ)" || { echo niente; exit 0; }
+          for i in 1 2 3; do
+            git pull --no-rebase --no-edit -X ours origin main || true
+            git push origin main && exit 0; sleep 4
+          done
+          exit 0
