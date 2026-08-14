@@ -1,5 +1,5 @@
 # 🛡️ SUPERVISOR — guardiano auto-riparante
-*2026-08-14 14:05 UTC*
+*2026-08-14 14:06 UTC*
 
 ## 🟠 riavviati reparti fermi
 
@@ -10,7 +10,7 @@
 | director | 0.5h | 🟢 ok |
 | wallet_forensics | 0.1h | 🟢 ok |
 | wallet_scores | 0.7h | 🟢 ok |
-| watchdog | 0.0h | 🟢 ok |
+| watchdog | 0.1h | 🟢 ok |
 | watchdog_quality | 0.0h | 🟢 ok |
 | whale_backfill | 0.4h | 🟢 ok |
 | whale_candles | 999.0h | 🟠 riavviato → ri-lancio (auto-heal) |
