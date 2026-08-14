@@ -6,9 +6,9 @@
 | Reparto | Ultimo successo | Stato |
 |---|---|---|
 | accumulator | 0.3h | 🟢 ok |
-| collector | 0.1h | 🟢 ok |
+| collector | 0.2h | 🟢 ok |
 | director | 0.4h | 🟢 ok |
-| wallet_forensics | 2.6h | 🟢 ok |
+| wallet_forensics | 2.6h | 🟢 in corso |
 | wallet_scores | 0.6h | 🟢 ok |
 | watchdog | 1.5h | 🟢 ok |
 | watchdog_quality | 3.3h | 🟢 ok |
