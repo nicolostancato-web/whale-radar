@@ -9,7 +9,7 @@
 | collector | 0.2h | 🟢 ok |
 | director | 0.5h | 🟢 ok |
 | wallet_forensics | 0.1h | 🟢 ok |
-| wallet_scores | 0.6h | 🟢 ok |
+| wallet_scores | 0.7h | 🟢 ok |
 | watchdog | 1.6h | 🟢 ok |
 | watchdog_quality | 3.3h | 🟢 ok |
 | whale_backfill | 0.4h | 🟢 ok |
