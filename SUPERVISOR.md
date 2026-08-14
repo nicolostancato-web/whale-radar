@@ -1,20 +1,17 @@
 # 🛡️ SUPERVISOR — guardiano auto-riparante
-*2026-08-14 18:52 UTC*
+*2026-08-14 19:08 UTC*
 
-## 🟠 riavviati reparti fermi
+## 🟢 LOOP SANO
 
 | Reparto | Ultimo successo | Stato |
 |---|---|---|
-| accumulator | 0.8h | 🟢 ok |
-| collector | 2.7h | 🟢 ok |
-| director | 1.8h | 🟢 ok |
-| wallet_forensics | 1.3h | 🟢 ok |
-| wallet_scores | 1.9h | 🟢 ok |
-| watchdog | 0.3h | 🟢 ok |
-| watchdog_quality | 2.3h | 🟢 ok |
-| whale_backfill | 0.8h | 🟢 ok |
-| whale_candles | 2.7h | 🟠 riavviato → ri-lancio (auto-heal) |
-| whale_enrich | 1.7h | 🟢 ok |
-
-## Riavviati da solo (auto-heal)
-- whale_candles.yml (fermo da 2.7h)
+| accumulator | 1.0h | 🟢 ok |
+| collector | 3.0h | 🟢 ok |
+| director | 0.0h | 🟢 ok |
+| wallet_forensics | 1.6h | 🟢 ok |
+| wallet_scores | 2.1h | 🟢 ok |
+| watchdog | 0.6h | 🟢 ok |
+| watchdog_quality | 2.5h | 🟢 ok |
+| whale_backfill | 1.0h | 🟢 ok |
+| whale_candles | 3.0h | 🟢 in corso |
+| whale_enrich | 2.0h | 🟢 ok |
