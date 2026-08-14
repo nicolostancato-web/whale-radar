@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.11" }
-      - run: python agents/whale_candles.py || echo "ko, riprovo al prossimo giro"
+      - run: CANDLE_BATCH=55 python agents/whale_candles.py || echo "ko, riprovo al prossimo giro"
       - name: Salva dati (file immutabili)
         run: |
           git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"

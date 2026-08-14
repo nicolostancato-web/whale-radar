@@ -4,7 +4,7 @@ name: collector
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: "23 */4 * * *"   # ogni 4 ore
+    - cron: "23 */3 * * *"   # ogni 3 ore
 permissions:
   contents: write
 concurrency:
