@@ -5,7 +5,7 @@
 
 | Reparto | Ultimo successo | Stato |
 |---|---|---|
-| accumulator | 0.3h | 🟢 ok |
+| accumulator | 0.4h | 🟢 ok |
 | collector | 1.7h | 🟢 ok |
 | director | 0.4h | 🟢 ok |
 | wallet_forensics | 0.1h | 🟢 ok |
