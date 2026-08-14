@@ -11,7 +11,7 @@ import urllib.request, json, os, time, glob, gzip, re
 REPO = "nicolostancato-web/whale-radar"
 # reparto -> ore massime tollerate senza un run di SUCCESSO (larghe: GitHub schedula i cron in modo irregolare)
 WF = {"whale_backfill.yml": 8, "whale_candles.yml": 8, "collector.yml": 12,
-      "wallet_scores.yml": 16, "director.yml": 6, "watchdog_quality.yml": 12}
+      "wallet_scores.yml": 16, "whale_enrich.yml": 14, "wallet_forensics.yml": 20, "director.yml": 6, "watchdog_quality.yml": 12}
 now = int(time.time())
 
 
