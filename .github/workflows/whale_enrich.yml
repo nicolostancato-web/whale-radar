@@ -4,7 +4,7 @@ name: whale_enrich
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: "12 */4 * * *"
+    - cron: "12 */2 * * *"   # ogni 2h (calcolo locale, gratis)
 permissions:
   contents: write
 concurrency:
@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.11" }
-      - run: ENRICH_SEC=700 python agents/whale_enrich.py || echo "ko, riprovo"
+      - run: ENRICH_SEC=950 python agents/whale_enrich.py || echo "ko, riprovo"
       - name: Salva
         run: |
           git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
