@@ -122,7 +122,8 @@ def main():
     days = (now - state["bot_start"]) / 86400
     L = [f"# 🤖 PAPER BOT — strategia coda grassa (soldi FINTI)",
          f"*{time.strftime('%Y-%m-%d %H:%M UTC', time.gmtime(now))} · attivo da {days:.1f} giorni*", "",
-         f"**Strategia:** compra ${SIZE:.0f} su ogni memecoin +{ENTRY_DELAY_H}h dal listing · TP {TP:.0f}x · trailing -{TRAIL*100:.0f}% · slippage {SLIP*100:.0f}%", "",
+         f"**Strategia:** €{SIZE:.0f}/token · +{ENTRY_DELAY_H}h dal listing · TP {TP:.0f}x · trailing -{TRAIL*100:.0f}% · cap €{CAP:.0f}", "",
+         f"**Costi REALI modellati:** slippage {ENTRY_SLIP*100:.0f}%+{EXIT_SLIP*100:.0f}% · fee DEX {DEX_FEE*100:.0f}%×2 · gas ${GAS_USD*2:.3f} · latenza {LAT_PEN*100:.0f}% su uscite", "",
          f"## Portafoglio (chiuse)",
          f"- Trade chiusi: **{n_closed}** | aperti: **{n_open}**",
          f"- **Rendimento portafoglio: {port:+.1f}%**",
