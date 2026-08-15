@@ -9,8 +9,14 @@ storico chiuse in data/paper_ledger.jsonl.gz. Scrive PAPER.md. Nessuna chiamata 
 import gzip, json, glob, os, time, statistics as st
 
 now = int(time.time())
-ENTRY_DELAY_H = 3; TP = 5.0; TRAIL = 0.60; SIZE = 10.0; SLIP = 0.30
-MAX_HOLD_D = 30; RECENT_D = 10        # entra solo token nati negli ultimi 10gg (semi-forward, no storico vecchio)
+ENTRY_DELAY_H = 3; TP = 5.0; TRAIL = 0.60; SIZE = 2.0
+# COSTI REALI AL 100% (lezione Solana: modellare TUTTO)
+ENTRY_SLIP = 0.15      # slippage in entrata (compri, muovi il prezzo su)
+EXIT_SLIP = 0.15       # slippage in uscita (vendi, muovi il prezzo giu)
+DEX_FEE = 0.01         # fee del pool per lato (~0.3-1%)
+GAS_USD = 0.014        # gas per tx (misurato on-chain); round-trip = 2x
+LAT_PEN = 0.08         # LATENZA: sull'uscita esegui in ritardo -> prezzo gia' sceso ~8% peggio
+CAP = 100.0; MAX_HOLD_D = 30; RECENT_D = 10        # entra solo token nati negli ultimi 10gg (semi-forward, no storico vecchio)
 MONEY = {"weth", "eth", "usdg", "usdc", "usdt", "dai", "usdb", "weth9"}
 ST = "data/paper_bot_state.json"; LED = "data/paper_bot_ledger.jsonl.gz"
 
@@ -51,7 +57,9 @@ def main():
 
     # ---- ENTRATE: nuove memecoin, eta' >= 3h, nate negli ultimi RECENT_D giorni ----
     new_entries = 0
+    max_open = int(CAP / SIZE)
     for nm, p in byname.items():
+        if len(positions) >= max_open: break        # capitale pieno: salta (come nel reale)
         if p in entered: continue
         lt = first_ts[p]
         if now - lt < ENTRY_DELAY_H * 3600: continue           # troppo giovane: entrera' al prossimo giro
@@ -75,7 +83,12 @@ def main():
         if exitp is None and now - pos["entry_ts"] > MAX_HOLD_D * 86400:
             exitp = ser[-1][1]; reason = "timeout"; ex_ts = ser[-1][0]
         if exitp is not None:
-            ret = (exitp * (1 - SLIP)) / (pos["entry_price"] * (1 + SLIP)) - 1
+            # entrata: prezzo peggiore per slippage+fee ; uscita: slippage+fee (+ latenza se trailing)
+            eff_entry = pos["entry_price"] * (1 + ENTRY_SLIP) * (1 + DEX_FEE)
+            lat = LAT_PEN if reason == "trailing" else 0.0
+            eff_exit = exitp * (1 - EXIT_SLIP) * (1 - DEX_FEE) * (1 - lat)
+            gas_pct = (GAS_USD * 2) / pos["size"]                 # gas fisso come % della size
+            ret = eff_exit / eff_entry - 1 - gas_pct
             closed.append({"pool": p, "name": pos["name"], "entry_ts": pos["entry_ts"], "exit_ts": ex_ts,
                            "ret": round(ret, 3), "reason": reason, "size": pos["size"]})
             del positions[p]
