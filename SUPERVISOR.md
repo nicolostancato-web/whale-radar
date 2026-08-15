@@ -11,7 +11,7 @@
 | wallet_forensics | 0.2h | 🟢 ok |
 | wallet_scores | 2.7h | 🟢 ok |
 | watchdog | 0.1h | 🟢 ok |
-| watchdog_quality | 0.0h | 🟢 ok |
+| watchdog_quality | 0.1h | 🟢 ok |
 | whale_backfill | 0.4h | 🟢 ok |
 | whale_candles | 999.0h | 🟠 riavviato → ri-lancio (auto-heal) |
 | whale_enrich | 0.4h | 🟢 ok |
