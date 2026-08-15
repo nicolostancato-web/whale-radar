@@ -10,8 +10,8 @@
 | director | 0.2h | 🟢 ok |
 | wallet_forensics | 2.1h | 🟢 ok |
 | wallet_scores | 2.4h | 🟢 ok |
-| watchdog | 1.0h | 🟢 ok |
+| watchdog | 1.1h | 🟢 ok |
 | watchdog_quality | 2.8h | 🟢 ok |
-| whale_backfill | 1.4h | 🟢 in corso |
+| whale_backfill | 0.1h | 🟢 ok |
 | whale_candles | 3.0h | 🟢 in corso |
 | whale_enrich | 0.1h | 🟢 ok |
