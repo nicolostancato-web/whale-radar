@@ -7,7 +7,7 @@
 |---|---|---|
 | accumulator | 0.6h | 🟢 ok |
 | collector | 0.5h | 🟢 ok |
-| director | 0.6h | 🟢 ok |
+| director | 0.7h | 🟢 ok |
 | wallet_forensics | 0.4h | 🟢 ok |
 | wallet_scores | 2.9h | 🟢 ok |
 | watchdog | 0.3h | 🟢 ok |
