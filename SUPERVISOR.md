@@ -7,10 +7,10 @@
 |---|---|---|
 | accumulator | 0.7h | 🟢 ok |
 | collector | 0.6h | 🟢 ok |
-| director | 0.7h | 🟢 ok |
+| director | 0.7h | 🟢 in corso |
 | wallet_forensics | 0.5h | 🟢 ok |
 | wallet_scores | 3.0h | 🟢 ok |
-| watchdog | 0.3h | 🟢 ok |
+| watchdog | 0.4h | 🟢 ok |
 | watchdog_quality | 0.3h | 🟢 ok |
 | whale_backfill | 0.7h | 🟢 ok |
 | whale_candles | 999.0h | 🟠 riavviato → ri-lancio (auto-heal) |
