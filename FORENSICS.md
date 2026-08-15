@@ -1,13 +1,13 @@
 # 🕵️ WALLET FORENSICS — sub-wallet di balene?
-*2026-08-15 02:02 UTC*
+*2026-08-15 03:20 UTC*
 
-Tracciati finora: **103 vincenti**, **86 perdenti** (dei 134+183 target).
+Tracciati finora: **103 vincenti**, **93 perdenti** (dei 134+184 target).
 
 ## Test: i VINCENTI condividono un'origine comune piu' dei PERDENTI?
 - Vincenti che condividono l'origine con un altro vincente: **34%**
-- Perdenti che condividono l'origine con un altro perdente: **36%** (controllo)
+- Perdenti che condividono l'origine con un altro perdente: **34%** (controllo)
 
-❌ **NESSUN SEGNALE:** vincenti e perdenti si raggruppano uguale (34% vs 36%) -> e' solo il bridge, non balene coordinate.
+❌ **NESSUN SEGNALE:** vincenti e perdenti si raggruppano uguale (34% vs 34%) -> e' solo il bridge, non balene coordinate.
 
 ## Origini che finanziano piu' VINCENTI (candidate 'entita' balena')
 - `0x07ae8551be970cb1cca11dd7a11f47ae82e70e67` -> 19 wallet vincenti
