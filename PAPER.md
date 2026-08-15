@@ -1,13 +1,15 @@
 # 🤖 PAPER BOT — strategia coda grassa (soldi FINTI)
-*2026-08-15 19:04 UTC · attivo da 0.1 giorni*
+*2026-08-15 20:09 UTC · attivo da 0.0 giorni*
 
-**Strategia:** compra $10 su ogni memecoin +3h dal listing · TP 5x · trailing -60% · slippage 30%
+**Strategia:** €2/token · +3h dal listing · TP 5x · trailing -60% · cap €100
+
+**Costi REALI modellati:** slippage 15%+15% · fee DEX 1%×2 · gas $0.028 · latenza 8% su uscite
 
 ## Portafoglio (chiuse)
-- Trade chiusi: **67** | aperti: **188**
-- **Rendimento portafoglio: -8.8%**
-- Vinti: 27% | trade 5x+: 0
-- (+14 nuove entrate questo giro)
+- Trade chiusi: **36** | aperti: **40**
+- **Rendimento portafoglio: +6.4%**
+- Vinti: 25% | trade 5x+: 0
+- (+26 nuove entrate questo giro)
 
 > Coda grassa: si perde sulla maggioranza, i pochi mostri pagano. Serve TEMPO (settimane) per giudicare.
 > Se dopo 2-4 settimane il portafoglio e' positivo su tanti token diversi -> edge reale -> size vera piccola.
