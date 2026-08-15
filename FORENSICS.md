@@ -1,17 +1,18 @@
 # 🕵️ WALLET FORENSICS — sub-wallet di balene?
-*2026-08-15 10:53 UTC*
+*2026-08-15 13:12 UTC*
 
-Tracciati finora: **119 vincenti**, **122 perdenti** (dei 152+208 target).
+Tracciati finora: **124 vincenti**, **127 perdenti** (dei 154+249 target).
 
 ## Test: i VINCENTI condividono un'origine comune piu' dei PERDENTI?
-- Vincenti che condividono l'origine con un altro vincente: **31%**
-- Perdenti che condividono l'origine con un altro perdente: **32%** (controllo)
+- Vincenti che condividono l'origine con un altro vincente: **33%**
+- Perdenti che condividono l'origine con un altro perdente: **33%** (controllo)
 
-❌ **NESSUN SEGNALE:** vincenti e perdenti si raggruppano uguale (31% vs 32%) -> e' solo il bridge, non balene coordinate.
+❌ **NESSUN SEGNALE:** vincenti e perdenti si raggruppano uguale (33% vs 33%) -> e' solo il bridge, non balene coordinate.
 
 ## Origini che finanziano piu' VINCENTI (candidate 'entita' balena')
-- `0x07ae8551be970cb1cca11dd7a11f47ae82e70e67` -> 19 wallet vincenti
-- `0xf70da97812cb96acdf810712aa562db8dfa3dbef` -> 11 wallet vincenti
+- `0x07ae8551be970cb1cca11dd7a11f47ae82e70e67` -> 20 wallet vincenti
+- `0xf70da97812cb96acdf810712aa562db8dfa3dbef` -> 12 wallet vincenti
 - `0x4a25d28d10b02bcf13a16068f56d167d8f96d093` -> 3 wallet vincenti
+- `0x34716d493d69b11fd52d3242cf1eeec8585a1491` -> 2 wallet vincenti
 - `0x6004299b4de624ed09571d9140b194556acf371a` -> 2 wallet vincenti
 - `0x394311a6aaa0d8e3411d8b62de4578d41322d1bd` -> 2 wallet vincenti
