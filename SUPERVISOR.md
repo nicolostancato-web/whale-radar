@@ -1,5 +1,5 @@
 # 🛡️ SUPERVISOR — guardiano auto-riparante
-*2026-08-15 07:37 UTC*
+*2026-08-15 07:38 UTC*
 
 ## 🟠 riavviati reparti fermi
 
@@ -7,7 +7,7 @@
 |---|---|---|
 | accumulator | 0.7h | 🟢 ok |
 | collector | 0.6h | 🟢 ok |
-| director | 0.7h | 🟢 in corso |
+| director | 0.0h | 🟢 ok |
 | wallet_forensics | 0.5h | 🟢 ok |
 | wallet_scores | 3.0h | 🟢 ok |
 | watchdog | 0.4h | 🟢 ok |
