@@ -5,11 +5,11 @@
 
 | Reparto | Ultimo successo | Stato |
 |---|---|---|
-| accumulator | 0.6h | 🟢 ok |
-| collector | 0.5h | 🟢 ok |
+| accumulator | 0.7h | 🟢 ok |
+| collector | 0.6h | 🟢 ok |
 | director | 0.7h | 🟢 ok |
 | wallet_forensics | 0.5h | 🟢 ok |
-| wallet_scores | 2.9h | 🟢 ok |
+| wallet_scores | 3.0h | 🟢 ok |
 | watchdog | 0.3h | 🟢 ok |
 | watchdog_quality | 0.3h | 🟢 ok |
 | whale_backfill | 0.7h | 🟢 ok |
