@@ -1,18 +1,18 @@
 {
-"ts": 1786836573,
+"ts": 1786858626,
 "verdict": "NESSUN EDGE",
 "edge_found": false,
 "n_gap": 2,
 "results": {
 "24": {
 "tutti": {
-"n_trades": 11406,
-"n_token": 105,
-"n_wallet": 3267,
-"mean": -0.3465,
-"median": -0.2493,
-"mean_pertrade": 0.0272,
-"win_rate": 0.048,
+"n_trades": 11522,
+"n_token": 109,
+"n_wallet": 3292,
+"mean": -0.3424,
+"median": -0.2091,
+"mean_pertrade": 0.0249,
+"win_rate": 0.046,
 "x2": 0,
 "x5": 0,
 "best": 0.69,
@@ -22,13 +22,13 @@
 },
 "72": {
 "tutti": {
-"n_trades": 11111,
-"n_token": 106,
-"n_wallet": 3169,
-"mean": -0.3381,
-"median": -0.2699,
-"mean_pertrade": 0.4164,
-"win_rate": 0.057,
+"n_trades": 11219,
+"n_token": 109,
+"n_wallet": 3197,
+"mean": -0.3378,
+"median": -0.2733,
+"mean_pertrade": 0.4118,
+"win_rate": 0.055,
 "x2": 2,
 "x5": 0,
 "best": 2.48,
@@ -38,28 +38,28 @@
 },
 "168": {
 "tutti": {
-"n_trades": 9732,
-"n_token": 44,
-"n_wallet": 2710,
-"mean": -0.0965,
-"median": -0.2091,
-"mean_pertrade": 1.0515,
-"win_rate": 0.25,
+"n_trades": 9993,
+"n_token": 54,
+"n_wallet": 2752,
+"mean": -0.1639,
+"median": -0.2015,
+"mean_pertrade": 1.0107,
+"win_rate": 0.185,
 "x2": 2,
 "x5": 1,
-"best": 4.94,
+"best": 4.83,
 "worst": -1.0,
 "affidabile": true
 }
 }
 },
-"tokens_whale": 115,
-"whales": 11579,
+"tokens_whale": 122,
+"whales": 11714,
 "ready": {
-"24": 105,
-"72": 106,
-"168": 44
+"24": 109,
+"72": 109,
+"168": 54
 },
 "phase2_ready": true,
-"trigger_note": "72h su 106/40 token, 168h su 44/40"
+"trigger_note": "72h su 109/40 token, 168h su 54/40"
 }
