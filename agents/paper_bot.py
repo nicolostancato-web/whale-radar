@@ -24,6 +24,25 @@ MIN_SELLRATIO = 0.15   # sellUSD/buyUSD minimo (uccide gli honeypot: se nessuno 
 L1, L2 = 2.0, 3.5; TRAIL = 0.50; HARD_STOP = 0.70
 MONEY = {"weth", "eth", "usdg", "usdc", "usdt", "dai", "usdb", "weth9"}
 ST = "data/paper_bot_state.json"; LED = "data/paper_bot_ledger.jsonl.gz"
+MODEL = "data/selection_model.json"   # scritto dal learner: quando 'active', seleziona le entrate
+
+
+def _sig(z):
+    import math; return 1 / (1 + math.exp(-max(-30, min(30, z))))
+
+
+def load_model():
+    import os, json
+    if not os.path.exists(MODEL): return None
+    m = json.load(open(MODEL))
+    return m if m.get("active") else None
+
+
+def model_score(m, hrs, bu, su, accel, dump):
+    import math
+    f = [hrs, math.log10(bu + su + 1), su / (bu + 1), math.log10(accel + 0.01), dump]
+    z = sum(m["w"][j] * (f[j] - m["mu"][j]) / m["sd"][j] for j in range(len(f))) + m["b"]
+    return _sig(z)
 
 
 def is_meme(n):
@@ -69,7 +88,10 @@ def main():
     state.setdefault("entered", []); state.setdefault("rejected", {})
     entered = set(state["entered"]); positions = state["positions"]; rejected = state["rejected"]
 
-    # ---- ENTRATE: filtro tradeabilita (no-lookahead) su token nati negli ultimi RECENT_D giorni ----
+    # ---- ENTRATE: filtro tradeabilita (no-lookahead) + SELEZIONE del learner (se ha imparato) ----
+    import math
+    model = load_model()   # None finche' il learner non ha un segnale affidabile (AUC>=0.60)
+    n_selskip = 0
     new_entries = 0; max_open = int(CAP / SIZE)
     for nm, p in byname.items():
         if len(positions) >= max_open: break
@@ -85,6 +107,15 @@ def main():
             past = [v for h, v in fl.items() if h <= t]
             hrs = len(past); bu = sum(v[0] for v in past); su = sum(v[1] for v in past)
             if hrs >= MIN_HOURS and (bu + su) >= MIN_VOL and su / (bu + 1) >= MIN_SELLRATIO:
+                # SELEZIONE appresa: se il modello e' attivo, entra solo se predice alta P(vincita)
+                if model is not None:
+                    bb = sorted(v[0] for v in [x for h, x in fl.items() if h <= t])
+                    last2 = sum(bb[-2:]); earlier = bb[:-2]
+                    accel = (last2 / 2) / (st.mean(earlier) + 1) if earlier else 1.0
+                    ks = [k for k in sorted(cand[p]) if k <= t]
+                    dump = cand[p][ks[-1]] / cand[p][sorted(cand[p])[0]] if cand[p].get(sorted(cand[p])[0]) else 1.0
+                    if model_score(model, hrs, bu, su, accel, dump) < model.get("thr", 0.5):
+                        n_selskip += 1; entered.add(p); ent = None; break
                 ent, ep, einfo = t, cand[p][t], (hrs, round(bu), round(su)); break
         if ent is None:
             past = list(fl.values()); rejected[p] = {"name": memepools[p], "hrs": len(fl),
