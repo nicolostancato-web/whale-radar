@@ -74,6 +74,20 @@ Verificato su JAMCAT: listing → spike +40% → dump a 0,4x del listing → il 
 - Il pattern "listing spike → dump → run" quanto è ripetibile? % di token che lo fanno?
 
 ## 📓 DIARIO DELL'APPRENDIMENTO
+- **2026-08-16 (sera)** — Costruito e messo LIVE forward il **bot v2** col cervello del trader:
+  (a) FILTRO tradeabilita (≥4h flow, ≥$3000 vol, sell/buy≥0.15) → scarta honeypot LWOOD e spike TOAD ✅,
+      ma NON becca ancora HOOPLA ($12 liq, moriva DOPO) → serve il dato LIQUIDITA on-chain.
+  (b) USCITA a scaglioni: 1/3 a 2x, 1/3 a 3.5x, ULTIMO 1/3 cavalca il trailing -50% senza tetto →
+      becca i mostri (djt 14x→+188%). Hard-stop -70% pre-lock → da respiro al moonshot
+      (PUNK -46%→+123%, TROLL -41%→+110%).
+  (c) VERITA CRUDA sulla finestra storica: realistico = **-22% (senza HOOPLA -36%), mediana -80%, vinti 29%**.
+      La strage memecoin e' brutale: i mostri veri li becchiamo ma NON bastano a coprire i morti.
+  (d) LA PROSSIMA FRONTIERA (dove sta la vittoria): il filtro toglie gli scam ma ENTRA SU TUTTO il resto,
+      e tutto il resto muore all'80%. L'edge NON e' "compra tutto il vendibile" → e' **"compra solo cio'
+      che sta per correre"**. Serve un SEGNALE DI SELEZIONE pre-entrata (accelerazione buy-pressure dal flow,
+      wallet vincenti ricorrenti, pattern listing→dump→run). Questo e' il prossimo blocco da costruire.
+  (e) NON overfitto sulla finestra storica: il giudice vero e' il paper FORWARD nelle prossime settimane.
+
 - **2026-08-16** — Prima analisi manuale dei "vincenti" col fondatore su DexScreener. Scoperto:
   (a) lista vincenti inquinata da honeypot (LWOOD) e miraggi di liquidità (HOOPLA $12);
   (b) dati candele close-only = parzialmente ciechi;
