@@ -1,5 +1,5 @@
 # 🤖 PAPER BOT — strategia coda grassa (soldi FINTI)
-*2026-08-16 02:11 UTC · attivo da 0.3 giorni*
+*2026-08-16 04:21 UTC · attivo da 0.3 giorni*
 
 **Strategia:** €2/token · +3h dal listing · TP 5x · trailing -60% · cap €100
 
@@ -9,7 +9,7 @@
 - Trade chiusi: **38** | aperti: **50**
 - **Rendimento portafoglio: +1.7%**
 - Vinti: 24% | trade 5x+: 0
-- (+2 nuove entrate questo giro)
+- (+0 nuove entrate questo giro)
 
 > Coda grassa: si perde sulla maggioranza, i pochi mostri pagano. Serve TEMPO (settimane) per giudicare.
 > Se dopo 2-4 settimane il portafoglio e' positivo su tanti token diversi -> edge reale -> size vera piccola.
