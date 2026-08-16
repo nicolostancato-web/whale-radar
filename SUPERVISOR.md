@@ -14,6 +14,6 @@
 | wallet_scores | 2.3h | 🟢 ok |
 | watchdog | 0.9h | 🟢 ok |
 | watchdog_quality | 2.8h | 🟢 ok |
-| whale_backfill | 1.3h | 🟢 in corso |
+| whale_backfill | 0.1h | 🟢 ok |
 | whale_candles | 2.0h | 🟢 ok |
 | whale_enrich | 0.1h | 🟢 ok |
