@@ -27,6 +27,11 @@ ST = "data/paper_bot_state.json"; LED = "data/paper_bot_ledger.jsonl.gz"
 MODEL = "data/selection_model.json"   # scritto dal learner: quando 'active', seleziona le entrate
 
 
+import sys
+sys.path.insert(0, "agents")
+import learner  # una sola definizione delle feature (no drift tra learner e bot)
+
+
 def _sig(z):
     import math; return 1 / (1 + math.exp(-max(-30, min(30, z))))
 
@@ -38,10 +43,8 @@ def load_model():
     return m if m.get("active") else None
 
 
-def model_score(m, hrs, bu, su, accel, dump):
-    import math
-    f = [hrs, math.log10(bu + su + 1), su / (bu + 1), math.log10(accel + 0.01), dump]
-    z = sum(m["w"][j] * (f[j] - m["mu"][j]) / m["sd"][j] for j in range(len(f))) + m["b"]
+def score_model(m, feats):
+    z = sum(m["w"][j] * (feats[j] - m["mu"][j]) / m["sd"][j] for j in range(len(feats))) + m["b"]
     return _sig(z)
 
 
@@ -78,6 +81,17 @@ def main():
                     flow.setdefault(d["pool"], {})[int(d["hour"])] = (d["buyusd"], d["sellusd"])
         except: pass
     first_ts = {p: min(cand[p]) for p in cand if cand[p]}
+    # first-buyers per lo scoring smart-money (usati solo se il modello e' attivo)
+    fb_pool = {}
+    for f in glob.glob("data/raw/firstbuyers/*.jsonl.gz"):
+        try:
+            for l in gzip.open(f, "rt"):
+                d = json.loads(l); fb_pool.setdefault(d["pool"], []).append((d["wallet"], int(d["ts"])))
+        except: pass
+    wallet_listings = {}
+    for pp, lst in fb_pool.items():
+        lt = first_ts.get(pp, min((t for _, t in lst), default=0))
+        for wlt, _ in lst: wallet_listings.setdefault(wlt, []).append(lt)
     byname = {}
     for p in cand:
         nm = (memepools[p] or "").split(" ")[0]
@@ -109,12 +123,8 @@ def main():
             if hrs >= MIN_HOURS and (bu + su) >= MIN_VOL and su / (bu + 1) >= MIN_SELLRATIO:
                 # SELEZIONE appresa: se il modello e' attivo, entra solo se predice alta P(vincita)
                 if model is not None:
-                    bb = sorted(v[0] for v in [x for h, x in fl.items() if h <= t])
-                    last2 = sum(bb[-2:]); earlier = bb[:-2]
-                    accel = (last2 / 2) / (st.mean(earlier) + 1) if earlier else 1.0
-                    ks = [k for k in sorted(cand[p]) if k <= t]
-                    dump = cand[p][ks[-1]] / cand[p][sorted(cand[p])[0]] if cand[p].get(sorted(cand[p])[0]) else 1.0
-                    if model_score(model, hrs, bu, su, accel, dump) < model.get("thr", 0.5):
+                    feats = learner.features_at_entry(p, t, cand, flow, fb_pool, wallet_listings, first_ts)
+                    if feats is None or score_model(model, feats) < model.get("thr", 0.5):
                         n_selskip += 1; entered.add(p); ent = None; break
                 ent, ep, einfo = t, cand[p][t], (hrs, round(bu), round(su)); break
         if ent is None:
