@@ -21,6 +21,53 @@ derivate se non tornano col dato on-chain. Distinguo sempre 3 cose che sembrano 
 
 Un "5x" che non puoi vendere vale **-100%**, non +400%. Un "30x" con $12 di liquidità è un **miraggio**.
 
+---
+
+## 🔄 COME IMPARO — il ciclo di auto-apprendimento (il mio schema di gioco)
+Non improvviso. Imparo con un ciclo preciso, ripetuto ad ogni giro sul cloud:
+
+1. **RACCOLGO ESITI.** Ogni trade chiuso del paper bot = un esempio etichettato nel ledger
+   (`data/paper_bot_ledger.jsonl.gz`): feature al momento dell'entrata → esito (vinto/perso, picco raggiunto).
+2. **RICOSTRUISCO LE FEATURE (no-lookahead).** `agents/learner.py` per ogni trade ricava SOLO ciò che si
+   sapeva PRIMA di entrare: ore di flow, log(volume), sell/buy ratio, accelerazione buy-pressure, profondità del dump.
+   **Mai usare dati futuri** — sarebbe barare e illudersi (errore Solana).
+3. **ADDESTRO.** Regressione logistica: feature → P(vincita). I pesi li impara dai DATI, non li decido io.
+4. **VERIFICO ONESTO (out-of-sample).** Split temporale: alleno sui trade vecchi, testo sui recenti mai visti.
+   Misuro l'**AUC**: 0.5 = caso, ≥0.60 = segnale utile. Se non batte il caso, **non ho imparato niente di vero**.
+5. **ATTIVO SOLO SE AFFIDABILE.** La selezione si accende (`selection_model.json` → `active:true`) SOLO con
+   ≥60 esempi E AUC≥0.60. Sotto soglia resta spenta e lo dichiara. **Niente attivazione su illusioni.**
+6. **AGISCO.** Quando attivo, il paper bot entra solo sui token con P(vincita) alta → alza il tasso di mostri.
+7. **RI-ALLENO.** Ad ogni giro con nuovi trade → il modello migliora da solo. Più vive, più è bravo.
+
+**Come divento più intelligente:** non toccando i pesi (li impara lui) ma **dando feature migliori**. Feature
+debole → AUC basso. La frontiera: wallet vincenti ricorrenti tra i first-buyers (smart-money), liquidità on-chain,
+pattern fini di buy-pressure. Aggiungere una feature = modificare `features_at_entry()` in learner.py + paper_bot.
+
+## 🔬 COME ANALIZZO — la disciplina anti-illusione (regole ferme)
+Ogni volta che valuto un risultato applico SEMPRE:
+- **Equal-weight PER TOKEN, mai per-trade.** Un token = un voto. Pesare per trade gonfia i risultati (artefatto).
+- **Survivorship: il token morto vale il suo ultimo prezzo (spesso ~0), non si ignora.** Ignorarlo = mentire in positivo.
+- **No-lookahead assoluto.** Entrata e uscita usano solo dati fino a quel momento.
+- **Real vs miraggio, 3 test:** (a) pump reale? (b) TRADEABILE — liquidità + puoi vendere (sell-side)? (c) dato
+  affidabile o candela close-only su pool sottile? Sì a tutti e tre, altrimenti scarto.
+- **Matematica coda grassa (la bussola):** perdente-tipo ~−72%, vincente-tipo (6x scale-out) ~+98% →
+  **break-even = 42% di trade 6x-like.** Oggi siamo al 21%. Ogni analisi punta a chiudere quel gap.
+- **Verifica on-chain quando un numero sorprende.** Creazione pool + Swap events dall'RPC Robinhood.
+
+## 📈 COME MIGLIORO — il ciclo di perfezionamento (senza overfitting)
+Leggo il ledger → **ipotesi** ("forse la buy-pressure predice i mostri") → **la testo sui dati storici** →
+se regge la **deployo** → il **giudice vero è il paper FORWARD** (settimane), NON la finestra storica →
+**aggiorno il DIARIO qui sotto**. Regola d'oro: **non mi innamoro di un parametro che va bene su UNA finestra.**
+Se un cambio migliora solo il passato ma non il forward = overfitting → si scarta.
+
+## 🗺️ IL SISTEMA CHE GUIDO (reparti + dati)
+- **Accumulo Fase 1 (input):** `collector` (storico candele/whale/pressione), `accumulator` (snapshot orario),
+  `director` (regista loop), + whale_backfill / whale_candles / whale_enrich / first_buyers / flow.
+- **Paper bot** (`agents/paper_bot.py`): entra +3h sui token tradeabili, uscita a scaglioni, costi 100% reali, €0.
+- **Learner** (`agents/learner.py`): il ciclo qui sopra. Scrive `LEARNING.md` + `selection_model.json`.
+- **Guardiani** (`supervisor`, `watchdog`, `watchdog_quality`): auto-riparano i reparti. Tutto pubblico, cloud, €0.
+- **Dove leggo lo stato:** `PAPER.md` (portafoglio) · `LEARNING.md` (cosa ho imparato) · `TRADER.md` (questo, il cervello) · `STATE.md` (pannello news).
+
 ## 📉 LIMITE DATI NOTO (da risolvere)
 Le nostre candele GeckoTerminal sono spesso **close-only** (`open/high/low = null`). Siamo parzialmente
 ciechi intra-ora: un singolo micro-swap può fissare un close falso su pool sottili. → **Ogni multiplo
