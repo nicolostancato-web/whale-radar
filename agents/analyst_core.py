@@ -44,6 +44,7 @@ def main():
     cand = load_candles()
     whales = [x for x in load_whales() if x["pool"] in cand]
     last_ts = {p: max(ks) for p, ks in cand.items() if ks}
+    birth = {p: min(ks) for p, ks in cand.items() if ks}   # nascita token ~ prima candela (proxy free per l'eta')
 
     def price(p, ts):
         ks = cand[p]; b = None
@@ -78,7 +79,8 @@ def main():
             s = slippage(vol)
             gross = exitp / entry - 1
             net = (exitp * (1 - s)) / (entry * (1 + s)) - 1
-            trades.append({"pool": p, "wallet": x["wallet"], "usd": x["usd"], "tag": x.get("tag"),
+            age_h = (x["ts"] - birth.get(p, x["ts"])) / 3600     # eta' del token quando la balena e' entrata
+            trades.append({"pool": p, "wallet": x["wallet"], "usd": x["usd"], "tag": x.get("tag"), "age_h": age_h,
                            "gross": gross, "net": net, "dead": exitp <= entry * 0.02})
         sims[H] = trades
 
@@ -100,6 +102,10 @@ def main():
                 "affidabile": ntok >= MIN_TOKENS}
 
     results = {H: {"tutti": agg(sims[H])} for H in HORIZONS}
+
+    # ---- ETA' DEL TOKEN quando la balena entra (feature chiave: early vs mature) ----
+    AGE_BUCKETS = [("<6h", 0, 6), ("6-24h", 6, 24), ("1-3g", 24, 72), ("3-7g", 72, 168), (">7g", 168, 1e12)]
+    age_res = {H: {name: agg([t for t in sims[H] if lo <= t["age_h"] < hi]) for name, lo, hi in AGE_BUCKETS} for H in HORIZONS}
 
     # ---- RILEVAMENTO GAP (deterministico) ----
     gaps = []
@@ -167,7 +173,20 @@ def main():
           f"- 24h: **{ready[24]}/{MIN_TOKENS}** {'PRONTO' if ready[24]>=MIN_TOKENS else ''}",
           f"- **72h: {ready[72]}/{MIN_TOKENS}** {'PRONTO' if ready[72]>=MIN_TOKENS else f'({int(ready[72]/MIN_TOKENS*100)}%)'} <- il trigger",
           f"- 168h: **{ready[168]}/{MIN_TOKENS}** {'PRONTO' if ready[168]>=MIN_TOKENS else f'({int(ready[168]/MIN_TOKENS*100)}%)'}",
-          f"- **STATO: {'✅ FASE 2 PRONTA — verdetto multi-giorno affidabile' if phase2_ready else '⏳ ancora accumulo (72h sotto 40 token)'}**", "",
+          f"- **STATO: {'✅ FASE 2 PRONTA — verdetto multi-giorno affidabile' if phase2_ready else '⏳ ancora accumulo (72h sotto 40 token)'}**", ""]
+    # ---- ETA' DEL TOKEN quando la balena entra (early vs mature) ----
+    for H in (24, 72):
+        R += [f"## Per ETA' del token all'ingresso della balena — finestra {H}h",
+              "| eta' token | n_token | netto medio/token | %token positivi | 5x+ | affidabile? |",
+              "|---|---|---|---|---|---|"]
+        for name, _, _ in AGE_BUCKETS:
+            a = age_res[H][name]
+            if a:
+                R.append(f"| {name} | {a['n_token']} | {a['mean']*100:+.1f}% | {a['win_rate']*100:.0f}% | {a['x5']} | {'SI' if a['affidabile'] else 'no'} |")
+            else:
+                R.append(f"| {name} | 0 | - | - | - | no |")
+        R.append("")
+    R += ["> Se una fascia d'eta' spicca (netto positivo su 40+ token), quello e' il candidato edge da simulare.", "",
           "## Gap di dati rilevati (ordini per la Fase 1)"]
     for g in gaps:
         R.append(f"- **[{g['priority']}]** {g['reason']}")
