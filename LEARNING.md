@@ -1,7 +1,7 @@
 # 🧠 LEARNER — il sistema impara dai propri trade
-*2026-08-17 03:57 UTC*
+*2026-08-17 07:12 UTC*
 
-Esempi etichettati: **33** (vincenti 10, perdenti 23)
+Esempi etichettati: **36** (vincenti 10, perdenti 26)
 
 ⏳ **Ancora pochi dati per imparare** (servono ≥60 trade e ≥8 per classe).
 Il sistema sta accumulando esiti. Come ogni AI: senza abbastanza esempi non generalizza.
