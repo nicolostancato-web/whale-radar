@@ -1,6 +1,6 @@
 {
-"updated": 1787042850,
-"n_wallet": 4587,
+"updated": 1787058042,
+"n_wallet": 4588,
 "wallets": [
 {
 "wallet": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
@@ -48,12 +48,12 @@
 },
 {
 "wallet": "0xa67d7eb4dc68fa6ce8e34ef8cadaf075b9893fbb",
-"n_buys": 534,
+"n_buys": 535,
 "n_meas24": 534,
-"usd_tot": 2918036,
-"pools": 31,
+"usd_tot": 2925667,
+"pools": 32,
 "first_ts": 1783701330,
-"last_ts": 1786832815,
+"last_ts": 1787009936,
 "avg24": 0.0194,
 "med24": -0.1075,
 "pos24": 0.36,
@@ -70,12 +70,12 @@
 },
 {
 "wallet": "0xada5bb90d0de0bd1b6f3938708f49295a8d1f7cb",
-"n_buys": 489,
+"n_buys": 490,
 "n_meas24": 489,
-"usd_tot": 2669918,
-"pools": 33,
+"usd_tot": 2673165,
+"pools": 34,
 "first_ts": 1783807597,
-"last_ts": 1786826628,
+"last_ts": 1787010128,
 "avg24": 0.0299,
 "med24": -0.1189,
 "pos24": 0.35,
@@ -356,12 +356,12 @@
 },
 {
 "wallet": "0xa5a5491bca93dd4c076e4906e79e7673f4a5a142",
-"n_buys": 64,
+"n_buys": 65,
 "n_meas24": 64,
-"usd_tot": 338451,
-"pools": 17,
+"usd_tot": 342154,
+"pools": 18,
 "first_ts": 1784926405,
-"last_ts": 1786839378,
+"last_ts": 1787015371,
 "avg24": 0.0008,
 "med24": -0.0044,
 "pos24": 0.45,
@@ -80306,6 +80306,16 @@
 "med168": -0.5335,
 "pos168": 0.0,
 "n168": 1,
+"tag": "thin"
+},
+{
+"wallet": "0x9cc2efb4707ec98a75d0b4e1939056f6671bd3ac",
+"n_buys": 1,
+"n_meas24": 0,
+"usd_tot": 3730,
+"pools": 1,
+"first_ts": 1787010314,
+"last_ts": 1787010314,
 "tag": "thin"
 },
 {
