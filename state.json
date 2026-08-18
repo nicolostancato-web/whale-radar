@@ -1,22 +1,22 @@
 {
  "current_phase": "ACCUMULO",
- "cycle_id": 28,
+ "cycle_id": 29,
  "boot_ts": 1786384567,
- "last_analysis_ts": 1787049605,
+ "last_analysis_ts": 1787071385,
  "last_verdict": "NESSUN EDGE",
- "consecutive_no_edge": 28,
+ "consecutive_no_edge": 29,
  "metrics": {
   "token_whale": 143,
-  "token_candele": 1486,
-  "whales": 19555
+  "token_candele": 1490,
+  "whales": 19636
  },
  "phase2": {
   "ready": {
-   "24": 128,
-   "72": 120,
-   "168": 102
+   "24": 129,
+   "72": 121,
+   "168": 107
   },
   "phase2_ready": true,
-  "note": "72h su 120/40 token, 168h su 102/40"
+  "note": "72h su 121/40 token, 168h su 107/40"
  }
 }
