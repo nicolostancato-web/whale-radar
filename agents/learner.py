@@ -113,16 +113,65 @@ def robust_auc(X, y, seeds=8):
     return st.mean(vals) if vals else 0.5
 
 
-def main():
-    if not os.path.exists(LED):
-        print("LEARNER | nessun trade ancora"); return
-    led = [json.loads(l) for l in gzip.open(LED, "rt")]
-    cand, flow, fb_pool, wallet_listings, first_ts = load_data()
+MONEY = {"weth", "eth", "usdg", "usdc", "usdt", "dai", "usdb", "weth9"}
+# stessi parametri del paper bot (uscita a scaglioni + costi reali) per etichettare gli esiti storici
+ENTRY_DELAY_H = 3; MIN_HOURS = 4; MIN_VOL = 3000; MIN_SELLRATIO = 0.15
+ES = XS = 0.15; FEE = 0.01; GAS = 0.014; SIZE = 2.0; LAT = 0.08; L1, L2 = 2.0, 3.5; TRAIL = 0.50; HARD = 0.70
+
+
+def _is_meme(n):
+    p = [x.strip().split(" ")[0].lower() for x in (n or "").split("/")]
+    return not (len(p) == 2 and p[0] in MONEY and p[1] in MONEY)
+
+
+def _net(m, tr=False):
+    ein = (1 + ES) * (1 + FEE); eout = m * (1 - XS) * (1 - FEE) * (1 - (LAT if tr else 0))
+    return eout / ein - 1 - (GAS * 2) / SIZE
+
+
+def _outcome(cs, ent, ep):
+    ser = [cs[t] for t in sorted(cs) if t >= ent and cs[t] > 0]
+    hi = ep; legs = []; h2 = h35 = False
+    for v in ser:
+        hi = max(hi, v); m = v / ep
+        if not h2 and m >= L1: legs.append(_net(L1)); h2 = True
+        if not h35 and m >= L2: legs.append(_net(L2)); h35 = True
+        if not h2:
+            if v <= ep * (1 - HARD): legs.append(_net(m)); break
+        elif v <= hi * (1 - TRAIL): legs.append(_net(hi * (1 - TRAIL) / ep, True)); break
+    while len(legs) < 3: legs.append(legs[-1] if legs else _net(ser[-1] / ep if ser else 1, True))
+    return sum(legs[:3]) / 3
+
+
+def build_dataset(cand, flow, fb_pool, wallet_listings, first_ts, reg):
+    """etichetta TUTTI i token tradeabili dello storico (no-lookahead): feature d'entrata → esito reale."""
+    mp = {a: reg[a].get("name") for a in reg if len(a) == 42 and _is_meme(reg[a].get("name"))}
+    byname = {}
+    for p in cand:
+        if p not in mp: continue
+        nm = (mp[p] or "").split(" ")[0]
+        if nm not in byname or first_ts[p] < first_ts[byname[nm]]: byname[nm] = p
     X, y = [], []
-    for c in led:
-        f = features_at_entry(c["pool"], c["entry_ts"], cand, flow, fb_pool, wallet_listings, first_ts)
+    for nm, p in byname.items():
+        lt = first_ts[p]; base = lt + ENTRY_DELAY_H * 3600; fl = flow.get(p, {}); ent = ep = None
+        for t in sorted(cand[p]):
+            if t < base: continue
+            past = [v for h, v in fl.items() if h <= t]
+            hrs = len(past); bu = sum(v[0] for v in past); su = sum(v[1] for v in past)
+            if hrs >= MIN_HOURS and (bu + su) >= MIN_VOL and su / (bu + 1) >= MIN_SELLRATIO:
+                ent, ep = t, cand[p][t]; break
+        if ent is None or not ep: continue
+        f = features_at_entry(p, ent, cand, flow, fb_pool, wallet_listings, first_ts)
         if f is None: continue
-        X.append(f); y.append(1 if c["ret"] > 0 else 0)
+        X.append(f); y.append(1 if _outcome(cand[p], ent, ep) > 0 else 0)
+    return X, y
+
+
+def main():
+    cand, flow, fb_pool, wallet_listings, first_ts = load_data()
+    reg = json.load(open("data/pools.json"))["pools"] if os.path.exists("data/pools.json") else {}
+    # impara da TUTTO lo storico tradeabile (non solo dai ~38 trade forward): come un vero modello AI
+    X, y = build_dataset(cand, flow, fb_pool, wallet_listings, first_ts, reg)
     n = len(X); npos = sum(y)
     lines = ["# 🧠 LEARNER — il sistema impara dai propri trade",
              f"*{time.strftime('%Y-%m-%d %H:%M UTC', time.gmtime(now))}*", "",
