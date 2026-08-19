@@ -1,13 +1,13 @@
 # 🧠 LEARNER — il sistema impara dai propri trade
-*2026-08-19 07:00 UTC*
+*2026-08-19 09:44 UTC*
 
-Esempi etichettati: **127** (vincenti 37, perdenti 90)
+Esempi etichettati: **128** (vincenti 37, perdenti 91)
 
 ## Performance out-of-sample (media multi-split, onesta): AUC = **0.75** (0.5 = caso)
 ## Cosa predice un vincente (peso appreso dai dati, non da me):
-- **sell_ratio**: -2.21  － abbassa P(vincita)
-- **log_n_firstbuyers**: +0.89  ＋ alza P(vincita)
-- **log_volume**: -0.83  － abbassa P(vincita)
+- **sell_ratio**: -2.20  － abbassa P(vincita)
+- **log_n_firstbuyers**: +0.90  ＋ alza P(vincita)
+- **log_volume**: -0.84  － abbassa P(vincita)
 - **ore_flow**: -0.68  － abbassa P(vincita)
 - **dump_depth**: +0.54  ＋ alza P(vincita)
 - **log_buy_accel**: -0.46  － abbassa P(vincita)
