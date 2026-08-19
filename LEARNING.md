@@ -1,5 +1,5 @@
 # 🧠 LEARNER — il sistema impara dai propri trade
-*2026-08-19 03:54 UTC*
+*2026-08-19 07:00 UTC*
 
 Esempi etichettati: **127** (vincenti 37, perdenti 90)
 
