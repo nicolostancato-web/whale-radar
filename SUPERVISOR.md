@@ -1,20 +1,20 @@
 # 🛡️ SUPERVISOR — guardiano auto-riparante
-*2026-08-19 07:04 UTC*
+*2026-08-19 07:17 UTC*
 
 ## 🟢 LOOP SANO
 
 | Reparto | Ultimo successo | Stato |
 |---|---|---|
-| accumulator | 1.3h | 🟢 ok |
-| collector | 3.0h | 🟢 ok |
-| director | 0.1h | 🟢 ok |
-| first_buyers | 2.0h | 🟢 ok |
-| learner | 0.1h | 🟢 ok |
-| paper_bot | 2.7h | 🟢 ok |
-| wallet_forensics | 2.0h | 🟢 ok |
-| wallet_scores | 2.3h | 🟢 ok |
-| watchdog | 1.0h | 🟢 ok |
-| watchdog_quality | 2.7h | 🟢 ok |
-| whale_backfill | 1.3h | 🟢 in corso |
-| whale_candles | 2.0h | 🟢 ok |
-| whale_enrich | 0.0h | 🟢 ok |
+| accumulator | 0.2h | 🟢 ok |
+| collector | 3.2h | 🟢 in corso |
+| director | 0.3h | 🟢 ok |
+| first_buyers | 2.2h | 🟢 ok |
+| learner | 0.3h | 🟢 ok |
+| paper_bot | 2.9h | 🟢 ok |
+| wallet_forensics | 2.2h | 🟢 ok |
+| wallet_scores | 2.6h | 🟢 ok |
+| watchdog | 1.2h | 🟢 ok |
+| watchdog_quality | 2.9h | 🟢 ok |
+| whale_backfill | 0.2h | 🟢 ok |
+| whale_candles | 2.2h | 🟢 ok |
+| whale_enrich | 0.2h | 🟢 ok |
