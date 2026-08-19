@@ -1,20 +1,20 @@
 # 🐋 WHALE-RADAR — pannello di stato
-*aggiornato 2026-08-19 03:06 UTC*
+*aggiornato 2026-08-19 05:39 UTC*
 
 ## Fase corrente: **ACCUMULO**
-- Ciclo #30
-- Ultima analisi: 3.6 h fa
+- Ciclo #31
+- Ultima analisi: 0.0 h fa
 - Ultimo verdetto: **NESSUN EDGE**
 
 ## Cosa stiamo facendo ORA (Fase 1 = accumulo)
 Colmiamo i gap che l'analisi ha trovato — priorita' ALTA:
-- 76 token con balena hanno <72 candele orarie -> scaricare piu' candele
+- 78 token con balena hanno <72 candele orarie -> scaricare piu' candele
 
 ## Metriche
-- Balene: **20405** | wallet: ?
-- Token con balene: **149** | token con candele: **1557**
+- Balene: **23337** | wallet: ?
+- Token con balene: **152** | token con candele: **1574**
 - Gap aperti: 2
 
-## Prossima analisi tra ~2.4h
+## Prossima analisi tra ~6.0h
 
 > Regola: nessun numero e' affidabile finche' non e' su 40+ token diversi. Zero soldi reali finche' l'edge non e' provato.
