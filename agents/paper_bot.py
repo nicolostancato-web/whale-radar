@@ -21,7 +21,7 @@ MIN_HOURS = 4          # ore di flow reale prima di fidarsi (uccide gli spike da
 MIN_VOL = 3000         # volume USD minimo accumulato (uccide i pool morti)
 MIN_SELLRATIO = 0.15   # sellUSD/buyUSD minimo (uccide gli honeypot: se nessuno vende, non entri)
 # --- uscita a scaglioni ---
-L1, L2 = 2.0, 3.5; TRAIL = 0.50; HARD_STOP = 0.70
+L1, L2 = 3.0, 6.0; TRAIL = 0.50; HARD_STOP = 0.70
 MONEY = {"weth", "eth", "usdg", "usdc", "usdt", "dai", "usdb", "weth9"}
 ST = "data/paper_bot_state.json"; LED = "data/paper_bot_ledger.jsonl.gz"
 MODEL = "data/selection_model.json"   # scritto dal learner: quando 'active', seleziona le entrate
@@ -145,8 +145,8 @@ def main():
         hi = ep; legs = []; ex_ts = None; done = False; h2 = h35 = False
         for t, v in ser:
             hi = max(hi, v); m = v / ep
-            if not h2 and m >= L1: legs.append(("2x", net(L1))); h2 = True
-            if not h35 and m >= L2: legs.append(("3.5x", net(L2))); h35 = True
+            if not h2 and m >= L1: legs.append(("3x", net(L1))); h2 = True
+            if not h35 and m >= L2: legs.append(("6x", net(L2))); h35 = True
             if not h2:                          # pre-lock: solo hard stop, lascio respirare
                 if v <= ep * (1 - HARD_STOP):
                     legs.append(("stop", net(m))); ex_ts = t; done = True; break

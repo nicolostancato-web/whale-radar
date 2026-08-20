@@ -30,8 +30,8 @@ def build_rows(cand, flow, fbp, wl, fts, reg):
         hi = ep; legs = []; h2 = h35 = False; xt = ser[-1][0] if ser else ent
         for t, v in ser:
             hi = max(hi, v); m = v / ep
-            if not h2 and m >= 2: legs.append(L._net(2)); h2 = True
-            if not h35 and m >= 3.5: legs.append(L._net(3.5)); h35 = True
+            if not h2 and m >= 3: legs.append(L._net(3)); h2 = True
+            if not h35 and m >= 6: legs.append(L._net(6)); h35 = True
             if not h2:
                 if v <= ep * 0.3: legs.append(L._net(m)); xt = t; break
             elif v <= hi * 0.5: legs.append(L._net(hi * 0.5 / ep, True)); xt = t; break

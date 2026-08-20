@@ -116,7 +116,7 @@ def robust_auc(X, y, seeds=8):
 MONEY = {"weth", "eth", "usdg", "usdc", "usdt", "dai", "usdb", "weth9"}
 # stessi parametri del paper bot (uscita a scaglioni + costi reali) per etichettare gli esiti storici
 ENTRY_DELAY_H = 3; MIN_HOURS = 4; MIN_VOL = 3000; MIN_SELLRATIO = 0.15
-ES = XS = 0.15; FEE = 0.01; GAS = 0.014; SIZE = 2.0; LAT = 0.08; L1, L2 = 2.0, 3.5; TRAIL = 0.50; HARD = 0.70
+ES = XS = 0.15; FEE = 0.01; GAS = 0.014; SIZE = 2.0; LAT = 0.08; L1, L2 = 3.0, 6.0; TRAIL = 0.50; HARD = 0.70
 
 
 def _is_meme(n):
