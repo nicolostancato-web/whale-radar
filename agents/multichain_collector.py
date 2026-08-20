@@ -12,7 +12,7 @@ GT = "https://api.geckoterminal.com/api/v2"
 MONEY = {"weth", "eth", "usdg", "usdc", "usdt", "dai", "usdb", "weth9", "sol", "wsol", "wbnb", "bnb", "busd", "usd1"}
 MAX_SECONDS = 480          # budget tempo per run (poi committa e riprende al prossimo)
 NEW_PAGES = 6              # pagine di new_pools per chain (20/pagina)
-CANDLE_BATCH = 40          # quante candele scaricare per chain per run
+CANDLE_BATCH = 60          # quante candele scaricare per chain per run
 now0 = time.time()
 
 
