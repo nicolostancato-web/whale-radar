@@ -1,22 +1,22 @@
 # 🛡️ SUPERVISOR — guardiano auto-riparante
-*2026-08-20 15:44 UTC*
+*2026-08-20 15:51 UTC*
 
 ## 🟢 LOOP SANO
 
 | Reparto | Ultimo successo | Stato |
 |---|---|---|
-| accumulator | 0.8h | 🟢 ok |
-| collector | 2.4h | 🟢 ok |
-| data_analyst | 8.3h | 🟢 ok |
-| director | 0.0h | 🟢 ok |
-| edge_eval | 8.4h | 🟢 ok |
-| first_buyers | 0.5h | 🟢 ok |
-| learner | 0.0h | 🟢 ok |
-| paper_bot | 2.2h | 🟢 ok |
-| wallet_forensics | 0.6h | 🟢 ok |
-| wallet_scores | 2.7h | 🟢 ok |
-| watchdog | 0.5h | 🟢 ok |
-| watchdog_quality | 2.2h | 🟢 ok |
-| whale_backfill | 0.8h | 🟢 ok |
-| whale_candles | 0.6h | 🟢 ok |
-| whale_enrich | 0.8h | 🟢 ok |
+| accumulator | 0.1h | 🟢 ok |
+| collector | 2.5h | 🟢 ok |
+| data_analyst | 8.4h | 🟢 ok |
+| director | 0.1h | 🟢 ok |
+| edge_eval | 8.5h | 🟢 ok |
+| first_buyers | 0.6h | 🟢 ok |
+| learner | 0.1h | 🟢 ok |
+| paper_bot | 2.3h | 🟢 ok |
+| wallet_forensics | 0.7h | 🟢 ok |
+| wallet_scores | 2.8h | 🟢 ok |
+| watchdog | 0.6h | 🟢 ok |
+| watchdog_quality | 2.3h | 🟢 ok |
+| whale_backfill | 0.1h | 🟢 ok |
+| whale_candles | 0.8h | 🟢 ok |
+| whale_enrich | 1.0h | 🟢 ok |
