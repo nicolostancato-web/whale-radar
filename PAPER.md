@@ -1,14 +1,14 @@
 # 🤖 PAPER BOT v2 — cervello del trader (soldi FINTI)
-*2026-08-20 13:34 UTC · attivo da 4.3 giorni · vedi TRADER.md*
+*2026-08-20 16:12 UTC · attivo da 4.4 giorni · vedi TRADER.md*
 
 **Filtro tradeabilita:** ≥4h flow · ≥$3000 volume · sell/buy ≥0.15 (anti honeypot/spike)
 **Uscita a scaglioni:** 1/3 a 3.0x · 1/3 a 6.0x · 1/3 cavalca trailing -50% (hard-stop -70% pre-lock)
 **Costi reali:** slippage 15%+15% · fee 1%×2 · gas $0.028 · latenza 8%
 
 ## Portafoglio (solo token tradeabili)
-- Chiusi: **42** | aperti: **24** | **scartati dal filtro: 297**
-- **Rendimento portafoglio: -28.1%** (equal-weight per token)
-- Mediana per-token: -80% | vinti: 29% | trade ≥3x: 1
+- Chiusi: **43** | aperti: **23** | **scartati dal filtro: 298**
+- **Rendimento portafoglio: -29.3%** (equal-weight per token)
+- Mediana per-token: -80% | vinti: 28% | trade ≥3x: 1
 - (+0 nuove entrate questo giro)
 
 ## Top uscite (per imparare)
