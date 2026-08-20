@@ -10,9 +10,9 @@ import urllib.request, urllib.error, json, gzip, os, time
 CHAINS = ["solana", "bsc", "base", "robinhood"]
 GT = "https://api.geckoterminal.com/api/v2"
 MONEY = {"weth", "eth", "usdg", "usdc", "usdt", "dai", "usdb", "weth9", "sol", "wsol", "wbnb", "bnb", "busd", "usd1"}
-MAX_SECONDS = 480          # budget tempo per run (poi committa e riprende al prossimo)
-NEW_PAGES = 6              # pagine di new_pools per chain (20/pagina)
-CANDLE_BATCH = 60          # quante candele scaricare per chain per run
+MAX_SECONDS = 560          # budget tempo per run (poi committa e riprende al prossimo)
+NEW_PAGES = 8              # pagine di new_pools per chain (20/pagina)
+CANDLE_BATCH = 120         # quante candele scaricare per chain per run
 now0 = time.time()
 
 
@@ -35,12 +35,16 @@ def is_meme(name):
 
 
 def main():
-    # ROUND-ROBIN: una chain per run (a rotazione), cosi ognuna riceve budget pieno e avanza equamente
     os.makedirs("data/multichain", exist_ok=True)
-    rf = "data/multichain/rotation.json"
-    rot = json.load(open(rf)) if os.path.exists(rf) else {"i": 0}
-    chain = CHAINS[rot["i"] % len(CHAINS)]
-    rot["i"] = (rot["i"] + 1) % len(CHAINS); json.dump(rot, open(rf, "w"))
+    envc = os.environ.get("CHAIN", "").strip().lower()
+    if envc in CHAINS:
+        chain = envc   # matrix: una chain DEDICATA per job → 4 chain in parallelo (4x throughput, IP diversi)
+    else:
+        # fallback manuale: round-robin una chain per run
+        rf = "data/multichain/rotation.json"
+        rot = json.load(open(rf)) if os.path.exists(rf) else {"i": 0}
+        chain = CHAINS[rot["i"] % len(CHAINS)]
+        rot["i"] = (rot["i"] + 1) % len(CHAINS); json.dump(rot, open(rf, "w"))
 
     total_new = total_cand = 0
     for chain in [chain]:

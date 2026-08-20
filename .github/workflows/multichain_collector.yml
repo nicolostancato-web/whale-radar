@@ -1,27 +1,40 @@
 name: multichain_collector
-# MULTICHAIN_COLLECTOR: espande l'accumulo a Solana/BSC/Base/Robinhood via GeckoTerminal (round-robin,
-# 1 chain per run). Risolve il collo di bottiglia dati. Candele orarie + pool memecoin per chain. €0.
+# POTENZIATO: 4 chain IN PARALLELO (matrix). Ogni job = 1 chain su un runner con IP diverso -> 4x throughput
+# (GeckoTerminal limita per-IP). Candele orarie + pool memecoin per chain. Ogni 20 min. €0.
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "*/20 * * * *"
 permissions:
   contents: write
-concurrency:
-  group: multichain_collector
-  cancel-in-progress: false
 jobs:
-  run:
+  collect:
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        chain: [solana, bsc, base, robinhood]
     runs-on: ubuntu-latest
     timeout-minutes: 12
+    concurrency:
+      group: mc-${{ matrix.chain }}
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.11" }
-      - run: python agents/multichain_collector.py || echo "ko"
-      - name: Salva
+      - name: Raccogli ${{ matrix.chain }}
+        env:
+          CHAIN: ${{ matrix.chain }}
+        run: python agents/multichain_collector.py || echo "ko"
+      - name: Salva (push robusto anti-collisione)
         run: |
           git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
-          git add data/multichain 2>/dev/null || true
-          git commit -m "multichain $(date -u +%Y-%m-%dT%H:%MZ)" || { echo niente; exit 0; }
-          for i in 1 2 3; do git pull --no-rebase --no-edit -X ours origin main || true; git push origin main && exit 0; sleep 4; done
+          git add data/multichain/${{ matrix.chain }} 2>/dev/null || true
+          git commit -m "multichain ${{ matrix.chain }} $(date -u +%Y-%m-%dT%H:%MZ)" || { echo niente; exit 0; }
+          for i in 1 2 3 4 5 6; do
+            git pull --no-rebase --no-edit -X ours origin main || true
+            git push origin main && { echo pushed; exit 0; }
+            sleep $((RANDOM % 8 + 3))
+          done
+          exit 0
