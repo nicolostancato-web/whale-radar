@@ -1,6 +1,6 @@
 {
-"updated": 1787201127,
-"n_wallet": 5627,
+"updated": 1787215756,
+"n_wallet": 5634,
 "wallets": [
 {
 "wallet": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
@@ -32781,6 +32781,16 @@
 "tag": "thin"
 },
 {
+"wallet": "0x7f29800f4e1548446ad19159e47b0be5adac1adf",
+"n_buys": 3,
+"n_meas24": 0,
+"usd_tot": 20839,
+"pools": 3,
+"first_ts": 1786727713,
+"last_ts": 1786732889,
+"tag": "thin"
+},
+{
 "wallet": "0x6e57b06db585174e942488905e2f38b9f05c6418",
 "n_buys": 3,
 "n_meas24": 3,
@@ -46508,6 +46518,28 @@
 "pools": 2,
 "first_ts": 1786585212,
 "last_ts": 1786587476,
+"tag": "thin"
+},
+{
+"wallet": "0x031f72deb03c509af42624ddcd1f63fce5ecb220",
+"n_buys": 2,
+"n_meas24": 1,
+"usd_tot": 14166,
+"pools": 2,
+"first_ts": 1783543114,
+"last_ts": 1787189728,
+"avg24": 0.0613,
+"med24": 0.0613,
+"pos24": 1.0,
+"n24": 1,
+"avg72": 0.8481,
+"med72": 0.8481,
+"pos72": 1.0,
+"n72": 1,
+"avg168": -0.1191,
+"med168": -0.1191,
+"pos168": 0.0,
+"n168": 1,
 "tag": "thin"
 },
 {
@@ -68361,28 +68393,6 @@
 "tag": "thin"
 },
 {
-"wallet": "0x031f72deb03c509af42624ddcd1f63fce5ecb220",
-"n_buys": 1,
-"n_meas24": 1,
-"usd_tot": 9648,
-"pools": 1,
-"first_ts": 1783543114,
-"last_ts": 1783543114,
-"avg24": 0.0613,
-"med24": 0.0613,
-"pos24": 1.0,
-"n24": 1,
-"avg72": 0.8481,
-"med72": 0.8481,
-"pos72": 1.0,
-"n72": 1,
-"avg168": -0.1191,
-"med168": -0.1191,
-"pos168": 0.0,
-"n168": 1,
-"tag": "thin"
-},
-{
 "wallet": "0x7800e4fb30d20f605062ae04c0cf6e6b766f780f",
 "n_buys": 1,
 "n_meas24": 1,
@@ -70287,11 +70297,15 @@
 {
 "wallet": "0xe7ecd00c96588a26931437b206ccdb6570070912",
 "n_buys": 1,
-"n_meas24": 0,
+"n_meas24": 1,
 "usd_tot": 8394,
 "pools": 1,
 "first_ts": 1786987647,
 "last_ts": 1786987647,
+"avg24": -0.2086,
+"med24": -0.2086,
+"pos24": 0.0,
+"n24": 1,
 "tag": "thin"
 },
 {
@@ -70861,11 +70875,15 @@
 {
 "wallet": "0x3d7863a23269367af48f12bc6f8c31832704e13f",
 "n_buys": 1,
-"n_meas24": 0,
+"n_meas24": 1,
 "usd_tot": 7916,
 "pools": 1,
 "first_ts": 1786987546,
 "last_ts": 1786987546,
+"avg24": -0.2086,
+"med24": -0.2086,
+"pos24": 0.0,
+"n24": 1,
 "tag": "thin"
 },
 {
@@ -70929,11 +70947,15 @@
 {
 "wallet": "0x2f4acb7d186834aaa9a06e4bd628dfa8426d9019",
 "n_buys": 1,
-"n_meas24": 0,
+"n_meas24": 1,
 "usd_tot": 7880,
 "pools": 1,
 "first_ts": 1786987834,
 "last_ts": 1786987834,
+"avg24": -0.1436,
+"med24": -0.1436,
+"pos24": 0.0,
+"n24": 1,
 "tag": "thin"
 },
 {
@@ -71455,11 +71477,15 @@
 {
 "wallet": "0x3f9092222092702c3cd2b5eefc1cad7baadd7ce7",
 "n_buys": 1,
-"n_meas24": 0,
+"n_meas24": 1,
 "usd_tot": 7546,
 "pools": 1,
 "first_ts": 1786980763,
 "last_ts": 1786980763,
+"avg24": -0.2881,
+"med24": -0.2881,
+"pos24": 0.0,
+"n24": 1,
 "tag": "thin"
 },
 {
@@ -72220,6 +72246,16 @@
 "med168": 0.034,
 "pos168": 1.0,
 "n168": 1,
+"tag": "thin"
+},
+{
+"wallet": "0xf1d2479f96da5c77c3aae78a0d05f6e668e64e4b",
+"n_buys": 1,
+"n_meas24": 0,
+"usd_tot": 7233,
+"pools": 1,
+"first_ts": 1786727111,
+"last_ts": 1786727111,
 "tag": "thin"
 },
 {
@@ -73703,6 +73739,16 @@
 "tag": "thin"
 },
 {
+"wallet": "0xb8d1043ae923a0a440b22b062bd0599380810dc3",
+"n_buys": 1,
+"n_meas24": 0,
+"usd_tot": 6555,
+"pools": 1,
+"first_ts": 1786734007,
+"last_ts": 1786734007,
+"tag": "thin"
+},
+{
 "wallet": "0x0a3d9ca46895d79434191c3557238b85e6563ba6",
 "n_buys": 1,
 "n_meas24": 1,
@@ -74070,6 +74116,16 @@
 "med168": -0.1856,
 "pos168": 0.0,
 "n168": 1,
+"tag": "thin"
+},
+{
+"wallet": "0xa0d2b7dea5e5bade019513d3fae12afb15d174d5",
+"n_buys": 1,
+"n_meas24": 0,
+"usd_tot": 6379,
+"pools": 1,
+"first_ts": 1786730168,
+"last_ts": 1786730168,
 "tag": "thin"
 },
 {
@@ -74587,6 +74643,16 @@
 "tag": "thin"
 },
 {
+"wallet": "0x5cdc66a1b004183810fb282159b7b9e0b1f17e22",
+"n_buys": 1,
+"n_meas24": 0,
+"usd_tot": 6191,
+"pools": 1,
+"first_ts": 1786731542,
+"last_ts": 1786731542,
+"tag": "thin"
+},
+{
 "wallet": "0xeb171ad68b25d87151350e31794239746d4765ff",
 "n_buys": 1,
 "n_meas24": 1,
@@ -74968,6 +75034,20 @@
 "med168": -0.4537,
 "pos168": 0.0,
 "n168": 1,
+"tag": "thin"
+},
+{
+"wallet": "0xdb7804c1516bf68e079224e6d8b0d82e6c619b61",
+"n_buys": 1,
+"n_meas24": 0,
+"usd_tot": 6079,
+"pools": 1,
+"first_ts": 1786729957,
+"last_ts": 1786729957,
+"avg72": 0.0042,
+"med72": 0.0042,
+"pos72": 1.0,
+"n72": 1,
 "tag": "thin"
 },
 {
@@ -81570,6 +81650,24 @@
 "med168": -0.0657,
 "pos168": 0.0,
 "n168": 1,
+"tag": "thin"
+},
+{
+"wallet": "0x93d7a83c262aa1dc64592b99b0ee9eb4d8abb024",
+"n_buys": 1,
+"n_meas24": 1,
+"usd_tot": 5023,
+"pools": 1,
+"first_ts": 1786614666,
+"last_ts": 1786614666,
+"avg24": -0.0348,
+"med24": -0.0348,
+"pos24": 0.0,
+"n24": 1,
+"avg72": -0.1332,
+"med72": -0.1332,
+"pos72": 0.0,
+"n72": 1,
 "tag": "thin"
 },
 {
