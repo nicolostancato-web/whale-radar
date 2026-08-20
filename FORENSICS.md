@@ -1,7 +1,7 @@
 # 🕵️ WALLET FORENSICS — sub-wallet di balene?
-*2026-08-20 02:04 UTC*
+*2026-08-20 03:26 UTC*
 
-Tracciati finora: **417 vincenti**, **408 perdenti** (dei 673+722 target).
+Tracciati finora: **421 vincenti**, **411 perdenti** (dei 673+722 target).
 
 ## Test: i VINCENTI condividono un'origine comune piu' dei PERDENTI?
 - Vincenti che condividono l'origine con un altro vincente: **35%**
