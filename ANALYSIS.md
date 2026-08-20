@@ -1,16 +1,16 @@
 # 🔬 DATA_ANALYST — materia prima per il loop
-*2026-08-20 06:04 UTC · 131 token tradeabili · correlazione != causa*
+*2026-08-20 07:25 UTC · 131 token tradeabili · correlazione != causa*
 
 ## (a) Feature attuali: chi porta segnale?
 | feature | forza (0.5=nulla) | media vincenti | media morti |
 |---|---|---|---|
 | sell_ratio | 0.72 | 0.89 | 1.18 |
-| log_n_firstbuyers | 0.67 | 1.60 | 1.19 |
-| dump_depth | 0.61 | 38.06 | 6.99 |
-| log_volume | 0.57 | 4.88 | 5.07 |
-| log_buy_accel | 0.56 | -0.23 | -0.01 |
-| smart_money_frac | 0.53 | 0.11 | 0.15 |
-| ore_flow | 0.50 | 5.21 | 6.65 |
+| log_n_firstbuyers | 0.64 | 1.55 | 1.21 |
+| dump_depth | 0.63 | 37.22 | 7.01 |
+| log_volume | 0.58 | 4.86 | 5.08 |
+| smart_money_frac | 0.54 | 0.11 | 0.15 |
+| log_buy_accel | 0.54 | -0.19 | -0.02 |
+| ore_flow | 0.51 | 5.21 | 6.66 |
 
 ## (b) Wallet candidati smart-money (first-buyer su ≥3 token, alto tasso di vittoria)
 | wallet | vinti/token | tasso |
@@ -24,7 +24,7 @@
 | `0x90924c7d483c…` | 3/4 | 75% |
 | `0xf55915820a27…` | 3/4 | 75% |
 
-→ **46 wallet** con ≥60% di vincite su ≥3 token = candidati per una feature 'segue-gli-smart' (da validare no-lookahead).
+→ **43 wallet** con ≥60% di vincite su ≥3 token = candidati per una feature 'segue-gli-smart' (da validare no-lookahead).
 
 ## (c) I MOSTRI (picco ≥6x): 25/131 token — cosa avevano all'entrata
 - **ore_flow** PIÙ BASSO nei mostri (4.04 vs 6.75)
