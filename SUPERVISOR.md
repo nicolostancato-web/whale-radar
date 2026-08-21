@@ -7,13 +7,13 @@
 |---|---|---|
 | accumulator | 0.1h | 🟢 ok |
 | collector | 1.0h | 🟢 ok |
-| data_analyst | 3.4h | 🟢 ok |
+| data_analyst | 3.5h | 🟢 ok |
 | director | 0.2h | 🟢 ok |
 | edge_eval | 3.5h | 🟢 ok |
 | first_buyers | 1.6h | 🟢 ok |
 | learner | 1.1h | 🟢 ok |
 | multichain_brain | 2.9h | 🟢 ok |
-| multichain_collector | 0.3h | 🟢 ok |
+| multichain_collector | 0.4h | 🟢 ok |
 | paper_bot | 0.7h | 🟢 ok |
 | wallet_forensics | 1.6h | 🟢 ok |
 | wallet_scores | 2.0h | 🟢 ok |
