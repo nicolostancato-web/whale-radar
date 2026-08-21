@@ -132,17 +132,23 @@ def main():
 
     lines = ["# 🌐 MULTICHAIN BRAIN — il loop che impara su TUTTE le chain",
              f"*{time.strftime('%Y-%m-%d %H:%M UTC', time.gmtime(now))} · walk-forward onesto (no-lookahead) · candele + FLOW + first-buyers*", "",
-             "## Per chain: dove rende di più?", "| chain | token | base | selezione | edge | vinti |", "|---|---|---|---|---|---|"]
+             "## 📊 MEDIA STRATEGIA per chain (quanto rende in media per token)",
+             "| chain | token | **MEDIA STRATEGIA** | (comprando tutto) | vinti |", "|---|---|---|---|---|"]
     for ch in CHAINS:
         rows = per[ch]
-        if len(rows) < 20: lines.append(f"| {ch} | {len(rows)} | (pochi dati) | | | |"); continue
+        if len(rows) < 20: lines.append(f"| {ch} | {len(rows)} | (pochi dati) | | |"); continue
         base = [r["ret"] for r in rows]; sel = walkforward(rows)
-        lines.append(f"| **{ch}** | {len(rows)} | {port(base):+.0f}% | {port(sel):+.0f}% | {port(sel)-port(base):+.1f}% | {win(sel):.0f}% |")
+        lines.append(f"| **{ch}** | {len(rows)} | **{port(sel):+.0f}%** | {port(base):+.0f}% | {win(sel):.0f}% |")
     # combinato (allena su tutte le chain insieme)
     if len(allrows) >= 40:
         base = [r["ret"] for r in allrows]; sel = walkforward(allrows)
+        no3 = port(sorted(sel, reverse=True)[3:]) if len(sel) > 5 else 0.0
+        aff = (f"✅ AFFIDABILE (senza i 3 mostri top: {no3:+.0f}%)" if no3 >= 0
+               else f"⚠️ INSTABILE (senza i 3 mostri top: {no3:+.0f}% → pochi colpi la tengono)")
         lines += ["", f"## Combinato ({len(allrows)} token, tutte le chain)",
-                  f"- Base: {port(base):+.0f}% | **Selezione: {port(sel):+.0f}%** | edge {port(sel)-port(base):+.1f}% | vinti {win(sel):.0f}%"]
+                  f"- **MEDIA STRATEGIA: {port(sel):+.0f}%** per token (su €100 → €{100*(1+port(sel)/100):.0f}) · comprando tutto: {port(base):+.0f}% · vinti {win(sel):.0f}%",
+                  f"- {aff}",
+                  "> Il numero e' affidabile quando resta stabile/cresce col crescere dei token."]
     lines += ["", "> Ora usa candele + FLOW (buy/sell) + first-buyers dai trade GeckoTerminal. Le feature forti si riempiono man mano che il trades collector accumula.",
               "> GOAL: edge robusto su abbastanza token. Si spinge in loop, si accumula, si aggiungono feature."]
     open("MULTICHAIN.md", "w").write("\n".join(lines))
