@@ -4,7 +4,7 @@ name: multichain_trades
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: "10,30,50 * * * *"
+    - cron: "35 * * * *"   # ogni ora (era 3x/ora): 1/3 dei minuti
 permissions:
   contents: write
 jobs:
