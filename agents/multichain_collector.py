@@ -54,8 +54,8 @@ def main():
         poolf = f"{base}/pools.json"
         pools = json.load(open(poolf)) if os.path.exists(poolf) else {}
         ckf = f"{base}/ckpt.json"
-        ck = json.load(open(ckf)) if os.path.exists(ckf) else {"done_candles": []}
-        done = set(ck["done_candles"])
+        ck = json.load(open(ckf)) if os.path.exists(ckf) else {}
+        ck.setdefault("last_fetch", {})   # addr -> epoch dell'ultimo scarico
 
         # --- 1. SCOPERTA: nuovi pool + trending (memecoin) ---
         for kind in ("new_pools", "trending_pools"):
@@ -67,27 +67,31 @@ def main():
                 for p in d["data"]:
                     a = p["attributes"]; addr = a.get("address"); nm = a.get("name")
                     if addr and is_meme(nm) and addr not in pools:
-                        pools[addr] = {"name": nm, "created": a.get("pool_created_at")}
+                        pools[addr] = {"name": nm, "created": a.get("pool_created_at"), "seen": int(now0)}
                         total_new += 1
         json.dump(pools, open(poolf, "w"))
 
-        # --- 2. CANDELE: scarica orarie per un batch di pool non ancora fatti ---
-        todo = [a for a in pools if a not in done][:CANDLE_BATCH]
+        # --- 2. CANDELE: priorita ai MAI scaricati, poi RI-scarica i GIOVANI (accumulano storia invecchiando) ---
+        lf = ck["last_fetch"]; nowi = int(now0)
+        never = [a for a in pools if a not in lf]
+        stale = [a for a in pools if a in lf and nowi - lf[a] > 20 * 3600
+                 and nowi - pools[a].get("seen", nowi) < 8 * 86400]   # giovane <8gg: la storia 168h non e' ancora piena
+        todo = (never + stale)[:CANDLE_BATCH]
         for addr in todo:
             if time.time() - now0 > MAX_SECONDS: break
             d = get(f"{GT}/networks/{chain}/pools/{addr}/ohlcv/hour?aggregate=1&limit=168")
             time.sleep(2.2)
-            done.add(addr)
+            lf[addr] = nowi
             if not d: continue
             lst = d.get("data", {}).get("attributes", {}).get("ohlcv_list", [])
             if not lst: continue
-            with gzip.open(f"{base}/candles/{addr}.jsonl.gz", "wt") as fo:
+            with gzip.open(f"{base}/candles/{addr}.jsonl.gz", "wt") as fo:  # sovrascrive con la storia piu' piena
                 for row in lst:  # [ts, o, h, l, c, vol]
                     fo.write(json.dumps({"ts": row[0], "op": row[1], "hi": row[2], "lo": row[3],
                                          "cl": row[4], "vol": row[5]}) + "\n")
             total_cand += 1
-        ck["done_candles"] = list(done); json.dump(ck, open(ckf, "w"))
-        print(f"  {chain}: {len(pools)} pool noti | +{len([a for a in pools if a in done])} candele fatte", flush=True)
+        json.dump(ck, open(ckf, "w"))
+        print(f"  {chain}: {len(pools)} pool | +{total_cand} candele (mai {len(never)}, giovani-stantii {len(stale)})", flush=True)
 
     print(f"MULTICHAIN | +{total_new} pool nuovi | +{total_cand} candele scaricate", flush=True)
 
