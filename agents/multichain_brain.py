@@ -13,7 +13,8 @@ import learner as L  # fit_logreg, sigmoid, auc, _net
 
 now = int(time.time())
 CHAINS = ["solana", "bsc", "base", "robinhood"]
-ENTRY_H = 3; MIN_CANDLES = 5; MIN_VOL = 500  # basso: esclude solo i pool morti, TIENE i mostri che partono quieti; WARMUP = 40; THR = 0.40
+ENTRY_H = 3; MIN_CANDLES = 5; MIN_VOL = 500  # basso: esclude solo i pool morti, TIENE i mostri che partono quieti
+WARMUP = 40; THR = 0.40
 FEAT = ["dump_depth", "log_vol", "buy_pressure", "volatilita", "log_vol_accel", "frac_verdi"]
 
 
