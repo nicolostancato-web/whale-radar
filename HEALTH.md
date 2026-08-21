@@ -1,14 +1,14 @@
 # HEALTH — whale-radar accumulo
 
-**Stato: 🟢 SANO**  ·  aggiornato 2026-08-21 07:31 UTC
+**Stato: 🟢 SANO**  ·  aggiornato 2026-08-21 10:14 UTC
 
 ## Metriche
-- Whale accumulate: **28934** (+1637 dall'ultimo check)
-- Wallet distinti: **6181**
+- Whale accumulate: **30924** (+1990 dall'ultimo check)
+- Wallet distinti: **6324**
 - Token con whale: **181**
-- Token con candele: **1789**
-- **Token UTILI (whale+candele): 181** (+4)
-- File dati: 727 · righe totali: 209,929 · corrotti: 0
+- Token con candele: **1811**
+- **Token UTILI (whale+candele): 181** (+0)
+- File dati: 739 · righe totali: 215,726 · corrotti: 0
 
 ## Freschezza
 - Ultima whale: 0.4h fa
