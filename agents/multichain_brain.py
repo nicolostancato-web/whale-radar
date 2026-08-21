@@ -15,7 +15,36 @@ now = int(time.time())
 CHAINS = ["solana", "bsc", "base", "robinhood"]
 ENTRY_H = 3; MIN_CANDLES = 5; MIN_VOL = 500  # basso: esclude solo i pool morti, TIENE i mostri che partono quieti
 WARMUP = 40; THR = 0.40
-FEAT = ["dump_depth", "log_vol", "buy_pressure", "volatilita", "log_vol_accel", "frac_verdi"]
+FEAT = ["dump_depth", "log_vol", "buy_pressure", "volatilita", "log_vol_accel", "frac_verdi",
+        "sell_ratio", "log_buyusd", "log_nfirstbuyers", "buy_accel"]
+
+
+def load_trades(chain, addr):
+    tf = f"data/multichain/{chain}/trades/{addr}.jsonl.gz"
+    if not os.path.exists(tf): return []
+    out = []
+    try:
+        for l in gzip.open(tf, "rt"):
+            r = json.loads(l)
+            if r.get("ts"): out.append(r)
+    except: pass
+    out.sort(key=lambda r: r["ts"]); return out
+
+
+def trade_features(trades, entry_ts):
+    """feature FORTI no-lookahead dai trade fino all'entrata (le stesse che danno edge su Robinhood)."""
+    pre = [t for t in trades if t["ts"] <= entry_ts]
+    if not pre: return [0.5, 0.0, 0.0, 1.0]   # neutro se non abbiamo ancora i trade
+    buy = sum(t["usd"] for t in pre if t["kind"] == "buy")
+    sell = sum(t["usd"] for t in pre if t["kind"] == "sell")
+    sell_ratio = sell / (buy + 1)
+    nfb = len(set(t["w"] for t in pre if t["kind"] == "buy"))
+    # accelerazione buy: ultimo 30% dei trade vs il resto
+    k = max(1, len(pre) // 3); last = pre[-k:]; rest = pre[:-k]
+    lb = sum(t["usd"] for t in last if t["kind"] == "buy") / max(1, len(last))
+    rb = sum(t["usd"] for t in rest if t["kind"] == "buy") / max(1, len(rest)) if rest else lb
+    accel = lb / (rb + 1)
+    return [sell_ratio, math.log10(buy + 1), math.log10(nfb + 1), math.log10(accel + 0.01)]
 
 
 def features(pre):
@@ -65,20 +94,26 @@ def load_rows(chain):
             if sum((c[5] or 0) for c in pre) < MIN_VOL: continue          # filtro junk (volume candele)
             after = [c[4] for c in cs[ei:]]
             r, pk = outcome(after)
-            rows.append({"ent": cs[ei][0], "xt": cs[-1][0], "f": features(pre), "ret": r, "peak": pk})
+            entry_ts = cs[ei][0]
+            addr = os.path.basename(f).replace(".jsonl.gz", "")
+            feats = features(pre) + trade_features(load_trades(chain, addr), entry_ts)   # candele + FLOW/first-buyers
+            rows.append({"ent": entry_ts, "xt": cs[-1][0], "f": feats, "ret": r, "peak": pk})
         except: pass
     rows.sort(key=lambda r: r["ent"])
     return rows
 
 
 def walkforward(rows, thr=THR):
-    sel = []
+    sel = []; model = None; last_n = 0
     for i, r in enumerate(rows):
         train = [q for q in rows[:i] if q["xt"] < r["ent"]]
         if len(train) < WARMUP: sel.append(r["ret"]); continue
-        X = [q["f"] for q in train]; y = [1 if q["ret"] > 0 else 0 for q in train]
-        if len(set(y)) < 2: sel.append(r["ret"]); continue
-        w, b, mu, sd = L.fit_logreg(X, y)
+        if model is None or len(train) - last_n >= 10:   # ri-allena ogni 10 token (veloce, non cambia molto)
+            y = [1 if q["ret"] > 0 else 0 for q in train]
+            if len(set(y)) >= 2:
+                model = L.fit_logreg([q["f"] for q in train], y, iters=800); last_n = len(train)
+        if model is None: sel.append(r["ret"]); continue
+        w, b, mu, sd = model
         s = L.sigmoid(sum(w[j] * (r["f"][j] - mu[j]) / sd[j] for j in range(len(r["f"]))) + b)
         if s >= thr: sel.append(r["ret"])
     return sel
@@ -96,7 +131,7 @@ def main():
     allrows.sort(key=lambda r: r["ent"])
 
     lines = ["# 🌐 MULTICHAIN BRAIN — il loop che impara su TUTTE le chain",
-             f"*{time.strftime('%Y-%m-%d %H:%M UTC', time.gmtime(now))} · walk-forward onesto (no-lookahead) · solo candele+volume*", "",
+             f"*{time.strftime('%Y-%m-%d %H:%M UTC', time.gmtime(now))} · walk-forward onesto (no-lookahead) · candele + FLOW + first-buyers*", "",
              "## Per chain: dove rende di più?", "| chain | token | base | selezione | edge | vinti |", "|---|---|---|---|---|---|"]
     for ch in CHAINS:
         rows = per[ch]
@@ -108,7 +143,7 @@ def main():
         base = [r["ret"] for r in allrows]; sel = walkforward(allrows)
         lines += ["", f"## Combinato ({len(allrows)} token, tutte le chain)",
                   f"- Base: {port(base):+.0f}% | **Selezione: {port(sel):+.0f}%** | edge {port(sel)-port(base):+.1f}% | vinti {win(sel):.0f}%"]
-    lines += ["", "> Solo candele+volume finora (buy-pressure = volume candele-verdi). Prossimo: flow/first-buyers per chain.",
+    lines += ["", "> Ora usa candele + FLOW (buy/sell) + first-buyers dai trade GeckoTerminal. Le feature forti si riempiono man mano che il trades collector accumula.",
               "> GOAL: edge robusto su abbastanza token. Si spinge in loop, si accumula, si aggiungono feature."]
     open("MULTICHAIN.md", "w").write("\n".join(lines))
     tot = sum(len(per[c]) for c in CHAINS)
