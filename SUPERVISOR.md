@@ -1,24 +1,24 @@
 # 🛡️ SUPERVISOR — guardiano auto-riparante
-*2026-08-21 09:04 UTC*
+*2026-08-21 09:14 UTC*
 
 ## 🟢 LOOP SANO
 
 | Reparto | Ultimo successo | Stato |
 |---|---|---|
-| accumulator | 0.1h | 🟢 ok |
-| collector | 1.9h | 🟢 ok |
-| data_analyst | 1.6h | 🟢 ok |
-| director | 0.2h | 🟢 ok |
-| edge_eval | 1.7h | 🟢 ok |
-| first_buyers | 1.6h | 🟢 ok |
-| learner | 2.0h | 🟢 ok |
-| multichain_brain | 1.1h | 🟢 ok |
-| multichain_collector | 1.1h | 🟢 in corso |
-| paper_bot | 1.6h | 🟢 ok |
-| wallet_forensics | 1.6h | 🟢 ok |
-| wallet_scores | 0.2h | 🟢 ok |
-| watchdog | 0.7h | 🟢 ok |
-| watchdog_quality | 1.6h | 🟢 ok |
-| whale_backfill | 1.1h | 🟢 in corso |
-| whale_candles | 1.7h | 🟢 ok |
-| whale_enrich | 0.1h | 🟢 ok |
+| accumulator | 0.3h | 🟢 ok |
+| collector | 2.0h | 🟢 ok |
+| data_analyst | 1.8h | 🟢 ok |
+| director | 0.4h | 🟢 ok |
+| edge_eval | 1.9h | 🟢 ok |
+| first_buyers | 1.8h | 🟢 ok |
+| learner | 2.2h | 🟢 ok |
+| multichain_brain | 1.2h | 🟢 ok |
+| multichain_collector | 0.2h | 🟢 ok |
+| paper_bot | 1.7h | 🟢 ok |
+| wallet_forensics | 1.8h | 🟢 ok |
+| wallet_scores | 0.4h | 🟢 ok |
+| watchdog | 0.9h | 🟢 ok |
+| watchdog_quality | 1.7h | 🟢 ok |
+| whale_backfill | 0.3h | 🟢 ok |
+| whale_candles | 1.8h | 🟢 in corso |
+| whale_enrich | 0.3h | 🟢 ok |
