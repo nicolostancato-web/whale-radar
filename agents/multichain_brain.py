@@ -135,26 +135,47 @@ def main():
              "## 📊 MEDIA STRATEGIA per chain (quanto rende in media per token)",
              "| chain | token analizzati | con trade | **MEDIA** | senza top3 | compra-tutto | vinti | mostri 6x+ |",
              "|---|---|---|---|---|---|---|---|"]
+    # Robinhood: usiamo i dati COMPLETI (edge_eval, pipeline RPC ricco) — non il multichain a meta'
+    rh = None
+    if os.path.exists("data/edge_history.jsonl"):
+        try:
+            recs = [json.loads(l) for l in open("data/edge_history.jsonl") if l.strip()]
+            if recs: rh = recs[-1]
+        except: pass
     for ch in CHAINS:
+        if ch == "robinhood" and rh:
+            a = "✅" if rh.get("sel_no3", 0) >= 0 else "⚠️"
+            lines.append(f"| **robinhood** *(dati completi)* | {rh['n_tok']} | ✓ pieni | **{rh['sel_port']:+.0f}%** | {a} {rh.get('sel_no3',0):+.0f}% | {rh['base_port']:+.0f}% | {rh['sel_win']:.0f}% | — |")
+            continue
         rows = per[ch]
         ntr = len(glob.glob(f"data/multichain/{ch}/trades/*.jsonl.gz"))
+        mon = sum(1 for r in rows if r["peak"] >= 6)
+        cov = ntr / max(1, len(rows))
         if len(rows) < 20:
             lines.append(f"| {ch} | {len(rows)} | {ntr} | (pochi dati) | | | | |"); continue
+        if cov < 0.6:   # dati flow ancora a meta': non mostro un numero fasullo, mostro il progresso
+            lines.append(f"| **{ch}** | {len(rows)} | {ntr} | ⏳ **in riempimento ({cov*100:.0f}%)** | attendi | | | {mon} |"); continue
         base = [r["ret"] for r in rows]; sel = walkforward(rows)
         no3 = port(sorted(sel, reverse=True)[3:]) if len(sel) > 5 else 0.0
-        mon = sum(1 for r in rows if r["peak"] >= 6)
         aff = "✅" if no3 >= 0 else "⚠️"
         lines.append(f"| **{ch}** | {len(rows)} | {ntr} | **{port(sel):+.0f}%** | {aff} {no3:+.0f}% | {port(base):+.0f}% | {win(sel):.0f}% | {mon} |")
+    lines += ["", "> **robinhood** = pipeline maturo (dati completi, il numero VERO). solana/bsc/base = nuovo pipeline **in riempimento** (colonna 'con trade' ancora a meta') → i loro numeri saliranno."]
     # combinato (allena su tutte le chain insieme)
-    if len(allrows) >= 40:
-        base = [r["ret"] for r in allrows]; sel = walkforward(allrows)
+    total_tr = sum(len(glob.glob(f"data/multichain/{ch}/trades/*.jsonl.gz")) for ch in CHAINS if ch != "robinhood")
+    total_tok = sum(len(per[ch]) for ch in CHAINS if ch != "robinhood")
+    ocov = total_tr / max(1, total_tok)
+    newchains = [r for ch in CHAINS if ch != "robinhood" for r in per[ch]]
+    if len(newchains) >= 40 and ocov >= 0.6:
+        base = [r["ret"] for r in newchains]; sel = walkforward(newchains)
         no3 = port(sorted(sel, reverse=True)[3:]) if len(sel) > 5 else 0.0
         aff = (f"✅ AFFIDABILE (senza i 3 mostri top: {no3:+.0f}%)" if no3 >= 0
-               else f"⚠️ INSTABILE (senza i 3 mostri top: {no3:+.0f}% → pochi colpi la tengono)")
-        lines += ["", f"## Combinato ({len(allrows)} token, tutte le chain)",
-                  f"- **MEDIA STRATEGIA: {port(sel):+.0f}%** per token (su €100 → €{100*(1+port(sel)/100):.0f}) · comprando tutto: {port(base):+.0f}% · vinti {win(sel):.0f}%",
-                  f"- {aff}",
-                  "> Il numero e' affidabile quando resta stabile/cresce col crescere dei token."]
+               else f"⚠️ INSTABILE (senza i 3 mostri top: {no3:+.0f}%)")
+        lines += ["", f"## Nuove chain combinate ({len(newchains)} token: solana+bsc+base)",
+                  f"- **MEDIA STRATEGIA: {port(sel):+.0f}%** per token (su €100 → €{100*(1+port(sel)/100):.0f}) · vinti {win(sel):.0f}%",
+                  f"- {aff}"]
+    else:
+        lines += ["", f"## Nuove chain (solana+bsc+base) — ⏳ in riempimento ({ocov*100:.0f}% dei token ha i trade)",
+                  "> I numeri multichain diventano validi sopra il 60% di copertura trade. Ora si accumula (€0, ogni ora)."]
     lines += ["", "> Ora usa candele + FLOW (buy/sell) + first-buyers dai trade GeckoTerminal. Le feature forti si riempiono man mano che il trades collector accumula.",
               "> GOAL: edge robusto su abbastanza token. Si spinge in loop, si accumula, si aggiungono feature."]
     open("MULTICHAIN.md", "w").write("\n".join(lines))
