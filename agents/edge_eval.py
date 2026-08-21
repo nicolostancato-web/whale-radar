@@ -78,10 +78,11 @@ def main():
     rows = build_rows(cand, flow, fbp, wl, fts, reg)
     base = [r["ret"] for r in rows]
     sel = walkforward(rows)
+    sel_no3 = port(sorted(sel, reverse=True)[3:]) if len(sel) > 5 else 0.0   # media SENZA i 3 mostri top
     rec = {"date": time.strftime("%Y-%m-%d", time.gmtime(now)), "n_tok": len(rows),
            "base_port": round(port(base), 1), "base_win": round(win(base), 0),
            "sel_n": len(sel), "sel_port": round(port(sel), 1), "sel_win": round(win(sel), 0),
-           "edge": round(port(sel) - port(base), 1)}
+           "sel_no3": round(sel_no3, 1), "edge": round(port(sel) - port(base), 1)}
     # log immutabile (una riga al giorno; sostituisce quella di oggi se rigira)
     hist = []
     if os.path.exists(HIST):
@@ -98,16 +99,19 @@ def main():
     trend = hist[-10:]
     L2 = ["# 📊 EDGE — cruscotto del loop (walk-forward ONESTO verso il goal)",
           f"*{time.strftime('%Y-%m-%d %H:%M UTC', time.gmtime(now))} · no-lookahead, come girerebbe live*", "",
-          f"## Oggi ({rec['n_tok']} token tradeabili)",
-          f"- Entra su tutti:  {rec['base_port']:+.0f}%  (vinti {rec['base_win']:.0f}%)",
-          f"- **Con selezione: {rec['sel_port']:+.0f}%**  (vinti {rec['sel_win']:.0f}%, {rec['sel_n']} entrati)",
-          f"- **EDGE della selezione: {rec['edge']:+.1f}%**", "",
-          "> GOAL: edge chiaramente positivo e ROBUSTO (non nel rumore) su abbastanza token → poi size vera piccola.",
-          "> Finche' non ci siamo: piu' dati + nuove leve. Si spinge in loop. Decide Nicolo quando basta.", "",
+          f"## 📊 MEDIA STRATEGIA: {rec['sel_port']:+.0f}% per token",
+          f"*Su €100 → €{100*(1+rec['sel_port']/100):.0f} · {rec['n_tok']} token · vinti {rec['sel_win']:.0f}% · walk-forward, costi reali dentro*", "",
+          (f"- ✅ **AFFIDABILE**: regge anche togliendo i 3 mostri top ({rec['sel_no3']:+.0f}%)"
+           if rec['sel_no3'] >= 0 else
+           f"- ⚠️ **INSTABILE**: togliendo i 3 mostri top scende a {rec['sel_no3']:+.0f}% → pochi colpi la tengono, serve piu' storia"),
+          f"- (comprando TUTTO senza selezionare: {rec['base_port']:+.0f}%)", "",
+          "> ✅ Il numero diventa AFFIDABILE quando resta stabile (o cresce) man mano che i token accumulano.", "",
+          "> GOAL: media chiaramente positiva e ROBUSTA (non nel rumore) su abbastanza token → poi size vera piccola.",
+          "> Il numero cresce man mano che l'auto-learning trova strategie migliori. Decide Nicolo quando basta.", "",
           "## Andamento (l'ago si muove?)",
-          "| data | token | edge selezione |", "|---|---|---|"]
+          "| data | token | MEDIA STRATEGIA |", "|---|---|---|"]
     for d in trend:
-        L2.append(f"| {d['date']} | {d['n_tok']} | {d.get('edge', 0):+.1f}% |")
+        L2.append(f"| {d['date']} | {d['n_tok']} | {d.get('sel_port', 0):+.0f}% |")
     open("EDGE.md", "w").write("\n".join(L2))
     print(f"EDGE_EVAL | {rec['n_tok']} token | base {rec['base_port']:+.0f}% | sel {rec['sel_port']:+.0f}% | edge {rec['edge']:+.1f}%", flush=True)
 
