@@ -133,12 +133,18 @@ def main():
     lines = ["# 🌐 MULTICHAIN BRAIN — il loop che impara su TUTTE le chain",
              f"*{time.strftime('%Y-%m-%d %H:%M UTC', time.gmtime(now))} · walk-forward onesto (no-lookahead) · candele + FLOW + first-buyers*", "",
              "## 📊 MEDIA STRATEGIA per chain (quanto rende in media per token)",
-             "| chain | token | **MEDIA STRATEGIA** | (comprando tutto) | vinti |", "|---|---|---|---|---|"]
+             "| chain | token analizzati | con trade | **MEDIA** | senza top3 | compra-tutto | vinti | mostri 6x+ |",
+             "|---|---|---|---|---|---|---|---|"]
     for ch in CHAINS:
         rows = per[ch]
-        if len(rows) < 20: lines.append(f"| {ch} | {len(rows)} | (pochi dati) | | |"); continue
+        ntr = len(glob.glob(f"data/multichain/{ch}/trades/*.jsonl.gz"))
+        if len(rows) < 20:
+            lines.append(f"| {ch} | {len(rows)} | {ntr} | (pochi dati) | | | | |"); continue
         base = [r["ret"] for r in rows]; sel = walkforward(rows)
-        lines.append(f"| **{ch}** | {len(rows)} | **{port(sel):+.0f}%** | {port(base):+.0f}% | {win(sel):.0f}% |")
+        no3 = port(sorted(sel, reverse=True)[3:]) if len(sel) > 5 else 0.0
+        mon = sum(1 for r in rows if r["peak"] >= 6)
+        aff = "✅" if no3 >= 0 else "⚠️"
+        lines.append(f"| **{ch}** | {len(rows)} | {ntr} | **{port(sel):+.0f}%** | {aff} {no3:+.0f}% | {port(base):+.0f}% | {win(sel):.0f}% | {mon} |")
     # combinato (allena su tutte le chain insieme)
     if len(allrows) >= 40:
         base = [r["ret"] for r in allrows]; sel = walkforward(allrows)
