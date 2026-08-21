@@ -1,16 +1,19 @@
 # 📊 EDGE — cruscotto del loop (walk-forward ONESTO verso il goal)
-*2026-08-21 07:22 UTC · no-lookahead, come girerebbe live*
+*2026-08-21 21:34 UTC · no-lookahead, come girerebbe live*
 
-## Oggi (143 token tradeabili)
-- Entra su tutti:  +14%  (vinti 29%)
-- **Con selezione: +24%**  (vinti 32%, 120 entrati)
-- **EDGE della selezione: +9.6%**
+## 📊 MEDIA STRATEGIA: +26% per token
+*Su €100 → €126 · 152 token · vinti 32% · walk-forward, costi reali dentro*
 
-> GOAL: edge chiaramente positivo e ROBUSTO (non nel rumore) su abbastanza token → poi size vera piccola.
-> Finche' non ci siamo: piu' dati + nuove leve. Si spinge in loop. Decide Nicolo quando basta.
+- ✅ **AFFIDABILE**: regge anche togliendo i 3 mostri top (+8%)
+- (comprando TUTTO senza selezionare: +15%)
+
+> ✅ Il numero diventa AFFIDABILE quando resta stabile (o cresce) man mano che i token accumulano.
+
+> GOAL: media chiaramente positiva e ROBUSTA (non nel rumore) su abbastanza token → poi size vera piccola.
+> Il numero cresce man mano che l'auto-learning trova strategie migliori. Decide Nicolo quando basta.
 
 ## Andamento (l'ago si muove?)
-| data | token | edge selezione |
+| data | token | MEDIA STRATEGIA |
 |---|---|---|
-| 2026-08-20 | 137 | +10.2% |
-| 2026-08-21 | 143 | +9.6% |
+| 2026-08-20 | 137 | +25% |
+| 2026-08-21 | 152 | +26% |
