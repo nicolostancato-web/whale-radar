@@ -1,5 +1,5 @@
 # 🛡️ SUPERVISOR — guardiano auto-riparante
-*2026-08-21 22:44 UTC*
+*2026-08-21 22:46 UTC*
 
 ## 🟢 LOOP SANO
 
@@ -12,13 +12,13 @@
 | edge_eval | 1.2h | 🟢 ok |
 | first_buyers | 1.8h | 🟢 ok |
 | learner | 1.2h | 🟢 ok |
-| multichain_brain | 0.1h | 🟢 ok |
-| multichain_collector | 0.3h | 🟢 ok |
+| multichain_brain | 0.2h | 🟢 ok |
+| multichain_collector | 0.4h | 🟢 ok |
 | multichain_trades | 0.9h | 🟢 ok |
-| paper_bot | 0.7h | 🟢 ok |
-| wallet_forensics | 1.8h | 🟢 ok |
+| paper_bot | 0.8h | 🟢 ok |
+| wallet_forensics | 1.9h | 🟢 ok |
 | wallet_scores | 2.2h | 🟢 ok |
-| watchdog | 0.7h | 🟢 ok |
+| watchdog | 0.8h | 🟢 ok |
 | watchdog_quality | 0.7h | 🟢 ok |
 | whale_backfill | 0.1h | 🟢 ok |
 | whale_candles | 1.9h | 🟢 ok |
