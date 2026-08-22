@@ -1,9 +1,9 @@
 # 🧠 LEARNER — il sistema impara dai propri trade
-*2026-08-22 09:36 UTC*
+*2026-08-22 12:56 UTC*
 
 Esempi etichettati: **158** (vincenti 43, perdenti 115)
 
-## Performance out-of-sample (media multi-split, onesta): AUC = **0.74** (0.5 = caso)
+## Performance out-of-sample (media multi-split, onesta): AUC = **0.75** (0.5 = caso)
 ## Cosa predice un vincente (peso appreso dai dati, non da me):
 - **sell_ratio**: -2.34  － abbassa P(vincita)
 - **log_n_firstbuyers**: +0.90  ＋ alza P(vincita)
@@ -13,5 +13,5 @@ Esempi etichettati: **158** (vincenti 43, perdenti 115)
 - **dump_depth**: +0.50  ＋ alza P(vincita)
 - **smart_money_frac**: -0.34  － abbassa P(vincita)
 
-✅ **Selezione ATTIVA**: AUC 0.74 ≥ 0.6. Il bot entra solo sui token
+✅ **Selezione ATTIVA**: AUC 0.75 ≥ 0.6. Il bot entra solo sui token
 con alta P(vincita) secondo il modello appreso. Si ri-allena ad ogni giro.
