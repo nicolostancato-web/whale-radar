@@ -25,22 +25,26 @@ def build_rows(cand, flow, fbp, wl, fts, reg):
         nm = (mp[p] or "").split(" ")[0]
         if nm not in byname or fts[p] < fts[byname[nm]]: byname[nm] = p
 
+    # strategia LIVE (auto-scelta dallo strategy_optimizer): entrata + uscita
+    S = json.load(open("data/strategy.json")) if os.path.exists("data/strategy.json") else {}
+    TP1 = S.get("tp1", 3.0); TP2 = S.get("tp2", 6.0); TRAIL = S.get("trail", 0.50); HARD = S.get("hard", 0.70); EH = S.get("entry_h", 3)
+
     def outcome_ts(cs, ent, ep):
         ser = [(t, cs[t]) for t in sorted(cs) if t >= ent and cs[t] > 0]
         hi = ep; legs = []; h2 = h35 = False; xt = ser[-1][0] if ser else ent
         for t, v in ser:
             hi = max(hi, v); m = v / ep
-            if not h2 and m >= 3: legs.append(L._net(3)); h2 = True
-            if not h35 and m >= 6: legs.append(L._net(6)); h35 = True
+            if not h2 and m >= TP1: legs.append(L._net(TP1)); h2 = True
+            if not h35 and m >= TP2: legs.append(L._net(TP2)); h35 = True
             if not h2:
-                if v <= ep * 0.3: legs.append(L._net(m)); xt = t; break
-            elif v <= hi * 0.5: legs.append(L._net(hi * 0.5 / ep, True)); xt = t; break
+                if v <= ep * (1 - HARD): legs.append(L._net(m)); xt = t; break
+            elif v <= hi * (1 - TRAIL): legs.append(L._net(hi * (1 - TRAIL) / ep, True)); xt = t; break
         while len(legs) < 3: legs.append(legs[-1] if legs else L._net(ser[-1][1] / ep if ser else 1, True))
         return sum(legs[:3]) / 3, xt
 
     rows = []
     for nm, p in byname.items():
-        lt = fts[p]; base = lt + 3 * 3600; fl = flow.get(p, {}); ent = ep = None
+        lt = fts[p]; base = lt + EH * 3600; fl = flow.get(p, {}); ent = ep = None
         for t in sorted(cand[p]):
             if t < base: continue
             past = [v for h, v in fl.items() if h <= t]
