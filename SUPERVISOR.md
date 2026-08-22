@@ -6,11 +6,11 @@
 | Reparto | Ultimo successo | Stato |
 |---|---|---|
 | accumulator | 0.1h | 🟢 ok |
-| collector | 0.7h | 🟢 ok |
+| collector | 0.8h | 🟢 ok |
 | data_analyst | 0.6h | 🟢 ok |
 | director | 0.2h | 🟢 ok |
 | edge_eval | 0.7h | 🟢 ok |
-| first_buyers | 0.5h | 🟢 ok |
+| first_buyers | 0.6h | 🟢 ok |
 | learner | 0.9h | 🟢 ok |
 | multichain_brain | 0.0h | 🟢 ok |
 | multichain_collector | 0.3h | 🟢 ok |
