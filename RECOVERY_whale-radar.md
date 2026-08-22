@@ -1,34 +1,41 @@
-# RECOVERY — whale-radar (snapshot 2026-08-21)
+# RECOVERY — whale-radar (snapshot 2026-08-22)
 
 ## Cosa stiamo facendo (1 frase)
-Sistema auto-apprendente che trova quali memecoin nuove pumperanno, per guadagnarci, senza rischiare soldi
-finche' l'edge non e' provato. GOAL: walk-forward onesto chiaramente positivo e ROBUSTO su abbastanza token.
+Macchina auto-apprendente multi-chain che indovina quali memecoin pumperanno, per guadagnarci, senza rischiare
+soldi finche' l'edge non e' provato robusto. €0 (repo PUBBLICO = Actions gratis, MAI privato). PC spento.
 
-## SVOLTA DI OGGI: ESPANSIONE MULTI-CHAIN
-Robinhood chain e' TROPPO SOTTILE (~3 tradeabili/giorno, e in raffreddamento -72% dal picco luglio → ricerca web).
-Robinhood resta la PALESTRA (dove abbiamo forgiato il metodo giusto), le CHAIN GROSSE sono la fabbrica.
-- Ricerca chain (agosto 2026): Solana domina ($3B DEX vol, pump.fun 30-80k lanci/gg), poi ETH/Base/BSC (~$1.2B),
-  Hyperliquid $609M. Solana non-EVM (rebuild), BSC/Base EVM (porting facile).
-- **MULTICHAIN_COLLECTOR live e POTENZIATO**: 4 chain in PARALLELO (matrix, IP diversi=4x), via GeckoTerminal
-  (1 API per tutte le chain), 120 candele/run ogni 20min. Accumula candele+pool per Solana/BSC/Base/Robinhood
-  in data/multichain/<chain>/. Ieri sera: gia' 1076 pool in 1 giorno (vs 866 Robinhood in 52gg).
+## NUMERO-VERITA' OGGI
+Robinhood MEDIA STRATEGIA **+26% per token** · AFFIDABILE (+8% senza i 3 mostri top) · 152 token · walk-forward, costi reali.
+Cresce e si rafforza coi dati (era +23%/+4%). Il numero VERO e' in EDGE.md. A "news?" leggo EDGE.md + MULTICHAIN.md.
 
-## STATO: accumulo multi-chain LIVE, cervello ANCORA solo Robinhood
-- Il learner/edge_eval/paper_bot leggono ANCORA solo Robinhood (data/raw/*).
-- I dati multi-chain (data/multichain/*) si accumulano ma NON sono ancora dati al modello.
+## COME COMUNICARE I NUMERI (regole di Nicolo)
+- Sempre "MEDIA STRATEGIA: +X% per token" (assoluto), MAI "+X% in piu' dell'edge".
+- +X% = per SINGOLO token, sulla sua VITA (giorni-settimane), NON al giorno. €2 -> €2,X.
+- Mostrare AFFIDABILITA (media senza i 3 mostri top): se resta positiva = solida, non 2 colpi fortunati.
+- Numero affidabile = resta stabile/cresce col crescere dei token.
 
-## PROSSIMO STEP (DOMANI, deciso con Nicolo)
-Costruire il CERVELLO + LOOP che impara su TUTTE le chain: adattare learner/edge_eval/data_analyst a leggere
-data/multichain/* (candele+volume, chain-agnostico) → walk-forward per-chain e combinato → capire QUALE chain rende
-di piu'. Poi portare le feature profonde (flow/first-buyers) per chain (EVM facile, Solana via endpoint trades GT).
-NB: solo candele oggi nel multichain (no flow/first-buyers) → partire con feature candle+volume.
+## I DUE MOTORI (auto-learn)
+1. SELEZIONE (quali token): learner.py, auto-impara ogni giorno (AUC ~0.73). AUTOMATICO.
+2. STRATEGIA (entrata/uscita): strategy_optimizer.py, prova strategie ogni 12h e APPLICA la piu' robusta da sola
+   (solo se robusta migliora >2pt, MAI peggiora). Scrive data/strategy.json che edge_eval legge. AUTOMATICO.
+   Guardrail: sceglie per robustezza (senza top3) = anti curve-fitting. Rischio overfitting -> si guarda il forward.
 
-## Metodo/loop (invariato, ci fidiamo)
-paper_bot (uscita scale-out 3x/6x, costi 100% reali) + learner (AUC out-of-sample, si attiva >=0.60) +
-edge_eval (walk-forward onesto -> EDGE.md) + data_analyst (candidati -> ANALYSIS.md). No-lookahead sempre.
-Ultimo edge Robinhood: base +15%, selezione +23% (ma concentrato su ~3 mostri = fragile, servono piu' dati).
+## MULTICHAIN (4 chain: solana/bsc/base/robinhood)
+Collector candele+trade via GeckoTerminal (matrix 4 chain, ORARIO per tenere basso il gross - vedi sotto).
+Dati ormai pieni. Numeri veri: robinhood +26% (feature RICCHE/RPC), base ~0%, solana -3% (MA 15 mostri!), bsc -31%.
+LEZIONE: le nuove chain sono negative NON perche' scarse ma perche' le FEATURE multichain (GeckoTerminal) sono
+DEBOLI vs quelle RPC di Robinhood. Solana ha 15 mostri non catturati = potenziale. PROSSIMA MANOVELLA:
+feature ricche per le nuove chain (storia trade profonda + first-buyers veri) -> poi possono avvicinare Robinhood.
+
+## COSTI (CFO) — falso allarme risolto 21/08
+Paghiamo €0. Il "€10/giorno" era il GROSS dei minuti Actions, scontato al 100% perche' repo PUBBLICO (net $0.00).
+Regola: repo SEMPRE pubblico. Guardare solo il NET sul dashboard, mai il gross. Tetto €100/mese, siamo a €0.
+Matrici multichain messe ORARIE per tenere basso il gross (peace of mind).
+
+## MINDSET (Nicolo)
+Mai proporre di mollare (decide LUI). Push in LOOP come bestie fino al goal. Onesto sui numeri, implacabile
+sull'obiettivo. Solana/BNB: SEMPRE costi reali (slippage/gas/fee) + entrata/uscita realistiche (+Xh, non "momento
+perfetto"). Ricorda l'errore Solana: simulazione troppo precisa = illusione.
 
 ## Come riprendere
-Nuova chat: leggi questo + TRADER.md (il cervello: come imparo/analizzo/miglioro). A "news?" leggo EDGE.md/PAPER.md/
-LEARNING.md + i contatori data/multichain/<chain>/pools.json. MINDSET: mai proporre di mollare (decide Nicolo),
-push in LOOP come bestie fino al goal, onesto sui numeri.
+Leggi questo + TRADER.md. A "news?": EDGE.md (Robinhood, numero vero) + MULTICHAIN.md (per chain) + STRATEGY_LOG.md.
