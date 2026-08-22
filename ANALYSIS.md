@@ -1,16 +1,16 @@
 # 🔬 DATA_ANALYST — materia prima per il loop
-*2026-08-21 21:34 UTC · 152 token tradeabili · correlazione != causa*
+*2026-08-22 07:15 UTC · 157 token tradeabili · correlazione != causa*
 
 ## (a) Feature attuali: chi porta segnale?
 | feature | forza (0.5=nulla) | media vincenti | media morti |
 |---|---|---|---|
-| sell_ratio | 0.73 | 0.88 | 1.14 |
-| log_n_firstbuyers | 0.65 | 1.61 | 1.20 |
-| dump_depth | 0.63 | 34.74 | 6.20 |
-| log_buy_accel | 0.57 | -0.27 | 0.04 |
-| log_volume | 0.57 | 4.92 | 5.10 |
-| smart_money_frac | 0.52 | 0.11 | 0.15 |
-| ore_flow | 0.52 | 5.17 | 6.37 |
+| sell_ratio | 0.73 | 0.87 | 1.13 |
+| log_n_firstbuyers | 0.64 | 1.62 | 1.19 |
+| dump_depth | 0.63 | 33.97 | 6.02 |
+| log_volume | 0.58 | 4.88 | 5.13 |
+| log_buy_accel | 0.58 | -0.29 | 0.09 |
+| ore_flow | 0.51 | 5.16 | 6.32 |
+| smart_money_frac | 0.51 | 0.11 | 0.15 |
 
 ## (b) Wallet candidati smart-money (first-buyer su ≥3 token, alto tasso di vittoria)
 | wallet | vinti/token | tasso |
@@ -24,13 +24,13 @@
 | `0x39447263e0ce…` | 3/4 | 75% |
 | `0x90924c7d483c…` | 3/4 | 75% |
 
-→ **47 wallet** con ≥60% di vincite su ≥3 token = candidati per una feature 'segue-gli-smart' (da validare no-lookahead).
+→ **48 wallet** con ≥60% di vincite su ≥3 token = candidati per una feature 'segue-gli-smart' (da validare no-lookahead).
 
-## (c) I MOSTRI (picco ≥6x): 29/152 token — cosa avevano all'entrata
-- **ore_flow** PIÙ BASSO nei mostri (4.34 vs 6.44)
-- **sell_ratio** PIÙ BASSO nei mostri (0.90 vs 1.11)
-- **log_buy_accel** PIÙ BASSO nei mostri (-0.31 vs 0.01)
-- **dump_depth** PIÙ BASSO nei mostri (11.27 vs 14.75)
+## (c) I MOSTRI (picco ≥6x): 30/157 token — cosa avevano all'entrata
+- **ore_flow** PIÙ BASSO nei mostri (4.37 vs 6.39)
+- **sell_ratio** PIÙ BASSO nei mostri (0.88 vs 1.10)
+- **log_buy_accel** PIÙ BASSO nei mostri (-0.33 vs 0.06)
+- **dump_depth** PIÙ BASSO nei mostri (10.94 vs 14.32)
 - **smart_money_frac** PIÙ BASSO nei mostri (0.08 vs 0.15)
 - **log_n_firstbuyers** PIÙ ALTO nei mostri (1.66 vs 1.23)
 
