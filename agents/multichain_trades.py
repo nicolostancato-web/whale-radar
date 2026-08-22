@@ -51,11 +51,14 @@ def main():
     ck = json.load(open(ckf)) if os.path.exists(ckf) else {"last": {}}
     ck.setdefault("last", {}); lf = ck["last"]; nowi = int(now0)
 
-    # priorita ai mai fatti, poi ai GIOVANI stantii (i loro primi trade vanno presi finche' sono raggiungibili)
+    # PRIORITA al PUNTO-ZERO: i pool giovanissimi vanno ri-scaricati SPESSO, prima che i primi trade scorrano
+    # via (GeckoTerminal da' solo gli ultimi ~300 → su chain veloci come Solana i primi buy spariscono in minuti).
     never = [a for a in pools if a not in lf]
-    stale = [a for a in pools if a in lf and nowi - lf[a] > 12 * 3600
+    young = [a for a in pools if a in lf and nowi - pools[a].get("seen", nowi) < 8 * 3600]   # <8h: ricattura ogni giro
+    stale = [a for a in pools if a in lf and a not in young and nowi - lf[a] > 12 * 3600
              and nowi - pools[a].get("seen", nowi) < 6 * 86400]
-    todo = (never + stale)[:TRADE_BATCH]
+    # ordine: mai-fatti + giovanissimi PRIMA (i piu' giovani in cima), poi gli stantii
+    todo = (sorted(never + young, key=lambda a: -pools[a].get("seen", 0)) + stale)[:TRADE_BATCH]
 
     total = 0
     for addr in todo:
