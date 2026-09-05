@@ -29,7 +29,7 @@ Se qualcuno non risponde all'appello, viene detto per nome. Quando tutti rispond
 la macchina è considerata in ordine — e solo allora ha senso guardare la lavagna.
 Scrive ISPEZIONE.md + data/ispezione.json. €0.
 """
-import json, os, re, glob, time, calendar, urllib.request
+import json, os, re, glob, gzip, time, calendar, urllib.request
 
 now = int(time.time())
 STORICO = "data/ispezione.json"
@@ -245,6 +245,33 @@ def congelate():
         return set()
 
 
+def maturita_validazione():
+    """QUANTI TOKEN SONO DAVVERO GIUDICABILI? (aggiunto 05/09)
+
+    Abbiamo passato giorni a guardare "quanti token abbiamo", ed e' la domanda sbagliata. Il verdetto
+    non lo sblocca il NUMERO di token nati dopo il sigillo: lo sblocca quanti di quelli hanno abbastanza
+    storia per essere valutati. Su base ce ne sono 1.463 nati dopo il sigillo e UNO SOLO valutabile —
+    scopriamo cosi' tanti token nuovi che non torniamo mai ad approfondirne nessuno.
+    Un contatore che sale mentre la cosa che serve resta ferma e' peggio di un contatore fermo: da'
+    l'impressione di progredire."""
+    try:
+        conf = int(json.load(open("data/holdout_config.json"))["confine_validazione"])
+    except Exception:
+        return []
+    out = []
+    for ch, _ in ACCUMULO:
+        dentro = ok = rotti = 0
+        for f in glob.glob(f"data/multichain/{ch}/candles/*.jsonl.gz")[:2500]:
+            try:
+                cs = [int(json.loads(l)["ts"]) for l in gzip.open(f, "rt") if json.loads(l).get("cl")]
+                if cs and min(cs) >= conf:
+                    dentro += 1
+                    if len(cs) >= 12: ok += 1
+            except Exception: rotti += 1
+        if dentro or rotti: out.append((ch, dentro, ok, rotti))
+    return out
+
+
 def archivi_crescono():
     """GLI ARCHIVI STANNO CRESCENDO? (aggiunto 02/09)
     Il perito aveva esaurito i candidati e l'accumulo si era fermato di colpo — ma l'ispezione lo dava
@@ -419,6 +446,7 @@ def main():
     proc = processi_vivi()
     acc, ora_acc = accumulo()
     arch, ora_arch = archivi_crescono()
+    matura = maturita_validazione()
     orfani = non_convocati()
     squadre = per_chain(esiti, cerv, acc)
     guasti = [e for e in esiti if e[5].startswith("❌")]
@@ -513,6 +541,13 @@ def main():
           "> domanda è se ogni personaggio del team sta facendo il suo lavoro, nei tempi, lasciando traccia.",
           f"> Quando l'ispezione è pulita per **{ISPEZIONI_PER_FIDARSI} giri di fila**, la macchina è in ordine",
           "> e possiamo tornare a guardare i numeri."]
+    if matura:
+        L += ["", "## 🔒 Quanto manca al verdetto", "",
+              "*Non conta quanti token sono nati dopo il sigillo, ma quanti hanno abbastanza storia per",
+              "essere giudicati. È questo numero che sblocca il test sigillato.*", "",
+              "| chain | nati dopo il sigillo | **valutabili** |", "|---|---|---|"]
+        L += [f"| {c} | {d} | **{o}** |" + (f"  ⚠️ {r} file illeggibili" if r else "")
+              for c, d, o, r in matura]
     open("ISPEZIONE.md", "w").write("\n".join(L))
     print(f"ISPEZIONE | {verdetto[:52]} | {len(guasti)} guasti, {len(ritardi)} ritardi | pulite di fila: {di_fila}",
           flush=True)
