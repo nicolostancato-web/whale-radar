@@ -1,5 +1,5 @@
 # 🎯 GOAL BASE — aprire trade ed essere in profitto
-*2026-09-05 04:37 UTC · conto attivo da 9.4 giorni*
+*2026-09-05 05:08 UTC · conto attivo da 9.4 giorni*
 
 ## Stato: 🟡 IN ATTESA del primo trade
 
@@ -9,15 +9,15 @@
 
 | stadio | quanti | |
 |---|---|---|
-| 1. token nuovi scoperti | **60** | ✅ |
-| 2. token sotto osservazione | **2170** | ✅ |
+| 1. token nuovi scoperti | **80** | ✅ |
+| 2. token sotto osservazione | **2181** | ✅ |
 | 3. token pronti da valutare | **1619** | ✅ |
 | 4. token valutati dal modello | **618** | ✅ |
 | 5. trade aperti o chiusi | **2** | ✅ |
 
-- token con pochi punti (stanno maturando): **138**
-- token presi troppo tardi (finestra +2h persa, giustamente scartati): **413**
-- ultimo campione raccolto: **37 minuti fa** ✅
+- token con pochi punti (stanno maturando): **140**
+- token presi troppo tardi (finestra +2h persa, giustamente scartati): **422**
+- ultimo campione raccolto: **30 minuti fa** ✅
 
 ## ✅ Catena integra: il forward gira da solo
 
@@ -25,8 +25,8 @@
 
 | | ciclo scorso | ora |
 |---|---|---|
-| token osservati | 2156 | 2170 |
-| pronti da valutare | 1607 | 1619 |
+| token osservati | 2170 | 2181 |
+| pronti da valutare | 1619 | 1619 |
 | trade | 2 | 2 |
 
 > Questo file si riscrive a ogni ciclo del motore. Se il forward si ferma, qui c'e' scritto DOVE.
