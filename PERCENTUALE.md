@@ -1,5 +1,5 @@
 # 📊 LA PERCENTUALE — com'è fatta, chain per chain
-*2026-09-05 15:24 UTC · walk-forward onesto · il cancello del live si apre a +40% robusta su 150+ token*
+*2026-09-05 16:00 UTC · walk-forward onesto · il cancello del live si apre a +40% robusta su 150+ token*
 
 | chain | media | **robusta** | trade in guadagno | peso dei 3 colpi migliori | giudizio |
 |---|---|---|---|---|---|
