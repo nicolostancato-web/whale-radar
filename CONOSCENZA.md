@@ -1,5 +1,5 @@
 # 🧠 CONOSCENZA — cosa ha imparato il team
-*2026-09-05 10:36 UTC · 2387 idee messe alla prova finora*
+*2026-09-05 10:46 UTC · 2387 idee messe alla prova finora*
 
 > Questa non è la cronaca di cosa è successo: è il sapere accumulato. Prima di riprovare una cosa,
 > il team guarda qui. Ciò che ha fallito 3 volte si mette da parte — ma il caso si RIAPRE quando i
@@ -20,9 +20,9 @@
 | `segnale:solana:concentrazione_top1 x sbilanciamento:filtro` | solana | 2 | +12 punti |
 | `segnale:solana:trade_al_minuto:filtro` | solana | 27 | +12 punti |
 | `segnale:solana:trade_al_minuto / sbilanciamento:filtro` | solana | 6 | +11 punti |
-| `segnale:solana:sbilanciamento:filtro` | solana | 38 | +11 punti |
+| `segnale:solana:sbilanciamento:filtro` | solana | 39 | +11 punti |
 | `segnale:solana:buy_medio x usd_primi20:filtro` | solana | 17 | +11 punti |
-| `segnale:solana:concentrazione_top5 x sbilanciamento:filtro` | solana | 10 | +11 punti |
+| `segnale:solana:concentrazione_top5 x sbilanciamento:filtro` | solana | 11 | +11 punti |
 | `segnale:bsc:buy_medio / drawdown_pre:filtro` | bsc | 34 | +11 punti |
 | `segnale:solana:trade_al_minuto x ampiezza:filtro` | solana | 10 | +11 punti |
 | `segnale:solana:buy_medio x ampiezza:filtro` | solana | 6 | +11 punti |
@@ -82,7 +82,7 @@
 | `segnale:base:buy_medio / compra_e_rivende:filtro` | base | 2 | +7 punti |
 | `segnale:solana:usd_primi20 / sbilanciamento:filtro` | solana | 4 | +7 punti |
 | `segnale:solana:n_compratori x volume_ultima_su_media:filtro` | solana | 27 | +7 punti |
-| `segnale:solana:n_compratori x drawdown_pre:filtro` | solana | 19 | +7 punti |
+| `segnale:solana:n_compratori x drawdown_pre:filtro` | solana | 20 | +7 punti |
 | `segnale:solana:trade_al_minuto / compra_e_rivende:filtro` | solana | 13 | +7 punti |
 | `segnale:solana:quota_wallet_nuovi / accelerazione_denaro:filtro` | solana | 2 | +7 punti |
 | `segnale:solana:buy_medio / sbilanciamento:filtro` | solana | 24 | +7 punti |
@@ -91,7 +91,7 @@
 | `segnale:solana:concentrazione_top1 / buy_medio:filtro` | solana | 14 | +6 punti |
 | `segnale:base:n_compratori / quota_wallet_nuovi:filtro` | base | 2 | +6 punti |
 | `segnale:solana:trade_al_minuto / accelerazione_denaro:filtro` | solana | 5 | +6 punti |
-| `segnale:solana:n_compratori x sbilanciamento:filtro` | solana | 21 | +6 punti |
+| `segnale:solana:n_compratori x sbilanciamento:filtro` | solana | 22 | +6 punti |
 | `segnale:solana:compra_e_rivende x volume_ultima_su_media:filtro` | solana | 5 | +6 punti |
 | `segnale:solana:compra_e_rivende x drawdown_pre:filtro` | solana | 13 | +6 punti |
 | `segnale:solana:trade_al_minuto / quota_wallet_reduci:filtro` | solana | 1 | +6 punti |
@@ -137,7 +137,7 @@
 | `segnale:solana:n_compratori / quota_wallet_vincenti:filtro` | solana | 16 | +5 punti |
 | `segnale:solana:trade_al_minuto / quota_wallet_vincenti:filtro` | solana | 8 | +5 punti |
 | `segnale:solana:concentrazione_top5 / compra_e_rivende:filtro` | solana | 2 | +5 punti |
-| `segnale:solana:sbilanciamento / volume_ultima_su_media:filtro` | solana | 6 | +5 punti |
+| `segnale:solana:sbilanciamento / volume_ultima_su_media:filtro` | solana | 7 | +5 punti |
 | `segnale:solana:concentrazione_top5 / volume_ultima_su_media:filtro` | solana | 7 | +5 punti |
 | `segnale:base:usd_primi20 x compra_e_rivende:filtro` | base | 2 | +5 punti |
 | `segnale:solana:drawdown_pre / volume_ultima_su_media:filtro` | solana | 6 | +5 punti |
@@ -157,7 +157,7 @@
 | `segnale:solana:sbilanciamento x ampiezza:filtro` | solana | 4 | +4 punti |
 | `segnale:solana:concentrazione_top1 / wallet_ripetuti:filtro` | solana | 2 | +4 punti |
 | `segnale:solana:buy_medio x compra_e_rivende:filtro` | solana | 2 | +4 punti |
-| `segnale:solana:trade_al_minuto x drawdown_pre:filtro` | solana | 8 | +4 punti |
+| `segnale:solana:trade_al_minuto x drawdown_pre:filtro` | solana | 9 | +4 punti |
 | `segnale:base:quota_wallet_nuovi x compra_e_rivende:filtro` | base | 10 | +4 punti |
 | `segnale:solana:n_compratori x compra_e_rivende:filtro` | solana | 1 | +4 punti |
 | `segnale:solana:sbilanciamento x accelerazione_denaro:filtro` | solana | 9 | +4 punti |
@@ -303,7 +303,7 @@
 | `segnale:solana:trade_al_minuto:filtro` | solana | 4 | +12 punti |
 | `segnale:solana:trade_al_minuto / sbilanciamento:filtro` | solana | 3 | +11 punti |
 | `segnale:solana:trade_al_minuto x ampiezza:filtro` | solana | 3 | +11 punti |
-| `segnale:solana:buy_medio x ampiezza:filtro` | solana | 3 | +11 punti |
+| `segnale:solana:buy_medio x ampiezza:filtro` | solana | 4 | +11 punti |
 | `segnale:solana:buy_medio / accelerazione_denaro:filtro` | solana | 5 | +10 punti |
 | `segnale:solana:buy_medio x sbilanciamento:filtro` | solana | 3 | +10 punti |
 | `segnale:solana:n_compratori / usd_primi20:filtro` | solana | 3 | +10 punti |
