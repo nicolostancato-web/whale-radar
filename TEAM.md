@@ -1,10 +1,10 @@
 # 👥 IL TEAM — verbale della riunione
-*2026-09-05 12:17 UTC · una riunione a ogni ciclo, ~ogni 30 minuti*
+*2026-09-05 12:48 UTC · una riunione a ogni ciclo, ~ogni 30 minuti*
 
 | ruolo | responsabilità | come è andata |
 |---|---|---|
 | 🏃 **Operations** | che tutto giri e niente si blocchi | 🟢 tutti i loop si stanno riunendo |
-| 🔬 **Ricerca** | alzare la percentuale | 262.257 strategie provate · 95 segnali nuovi messi alla prova · **18 promossi** |
+| 🔬 **Ricerca** | alzare la percentuale | 263.670 strategie provate · 45 segnali nuovi messi alla prova · **18 promossi** |
 | ✅ **Verità** | che la percentuale non sia una favola | 🟢 **PULITO** — nessun segno che il sistema si stia raccontando favole |
 | 🔒 **Security** | niente credenziali nel repo pubblico | 🟢 **PULITO** — nessuna credenziale esposta nel repo pubblico |
 | 💰 **CFO** | che tutto costi zero | 🟢 **COSTO ZERO CONFERMATO** |
@@ -25,7 +25,7 @@
 
 | | quante |
 |---|---|
-| tentativi grezzi (configurazioni e segnali provati) | **262.352** |
+| tentativi grezzi (configurazioni e segnali provati) | **263.715** |
 | lezioni archiviate (ogni prova lascia una traccia) | **2387** |
 | scoperte arrivate al **giudizio in cassaforte** | **2** |
 | di cui **bocciate perché erano rumore** | **2** |
