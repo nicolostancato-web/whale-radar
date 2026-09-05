@@ -2192,3 +2192,13 @@
 {"id": "accumulo-robinhood", "ts": 1788594674, "valore": 813, "fermo_da": 0, "azione": "avanti cosi'"}
 {"id": "accumulo-bsc", "ts": 1788594674, "valore": 1155, "fermo_da": 0, "azione": "avanti cosi'"}
 {"id": "percentuale-bsc", "ts": 1788594674, "valore": -23.7, "fermo_da": 42, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (explorer.py, learner.py) \u2192 non li ripetiamo, serve cambia"}
+{"id": "accumulo-base", "ts": 1788596996, "valore": 4565, "fermo_da": 0, "azione": "avanti cosi'"}
+{"id": "accumulo-solana", "ts": 1788596996, "valore": 1230, "fermo_da": 1, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (solana_helius.py, multichain_collector.py) \u2192 non li ripet"}
+{"id": "percentuale-robinhood", "ts": 1788596996, "valore": -20.3, "fermo_da": 11, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (strategy_optimizer.py, learner.py) \u2192 non li ripetiamo, se"}
+{"id": "percentuale-base", "ts": 1788596996, "valore": 0.5, "fermo_da": 7, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (strategy_optimizer_base.py, learner.py) \u2192 non li ripetiam"}
+{"id": "percentuale-solana", "ts": 1788596996, "valore": -13.4, "fermo_da": 21, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (strategy_optimizer_solana.py, wallet_insider.py) \u2192 non li"}
+{"id": "demo-robinhood", "ts": 1788596996, "valore": 122.07, "fermo_da": 0, "azione": "\u23f8 il cancello \u00e8 chiuso: prima il LOOP 1 deve alzare la percentuale"}
+{"id": "demo-base", "ts": 1788596996, "valore": 92.78, "fermo_da": 0, "azione": "\u23f8 il cancello \u00e8 chiuso: prima il LOOP 1 deve alzare la percentuale"}
+{"id": "accumulo-robinhood", "ts": 1788596996, "valore": 817, "fermo_da": 0, "azione": "avanti cosi'"}
+{"id": "accumulo-bsc", "ts": 1788596996, "valore": 1159, "fermo_da": 0, "azione": "avanti cosi'"}
+{"id": "percentuale-bsc", "ts": 1788596996, "valore": -23.7, "fermo_da": 43, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (explorer.py, learner.py) \u2192 non li ripetiamo, serve cambia"}
