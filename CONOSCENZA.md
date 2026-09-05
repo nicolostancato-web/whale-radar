@@ -1,5 +1,5 @@
 # 🧠 CONOSCENZA — cosa ha imparato il team
-*2026-09-05 08:17 UTC · 2387 idee messe alla prova finora*
+*2026-09-05 08:28 UTC · 2387 idee messe alla prova finora*
 
 > Questa non è la cronaca di cosa è successo: è il sapere accumulato. Prima di riprovare una cosa,
 > il team guarda qui. Ciò che ha fallito 3 volte si mette da parte — ma il caso si RIAPRE quando i
@@ -34,7 +34,7 @@
 | `segnale:base:buy_medio / trade_al_minuto:filtro` | base | 14 | +10 punti |
 | `segnale:solana:buy_medio x drawdown_pre:filtro` | solana | 7 | +10 punti |
 | `segnale:solana:sbilanciamento / ampiezza:filtro` | solana | 15 | +10 punti |
-| `segnale:bsc:eta_al_primo_trade:filtro` | bsc | 22 | +10 punti |
+| `segnale:bsc:eta_al_primo_trade:filtro` | bsc | 23 | +10 punti |
 | `segnale:solana:n_compratori / buy_medio:filtro` | solana | 8 | +10 punti |
 | `segnale:bsc:buy_medio / trade_al_minuto:filtro` | bsc | 12 | +10 punti |
 | `segnale:solana:concentrazione_top5 x n_compratori:filtro` | solana | 7 | +9 punti |
@@ -71,13 +71,13 @@
 | `segnale:bsc:n_compratori:filtro` | bsc | 1 | +7 punti |
 | `segnale:bsc:buy_grossi:filtro` | bsc | 1 | +7 punti |
 | `segnale:bsc:trade_al_minuto:filtro` | bsc | 1 | +7 punti |
-| `segnale:bsc:quota_wallet_reduci:filtro` | bsc | 1 | +7 punti |
-| `segnale:bsc:quota_wallet_vincenti:filtro` | bsc | 1 | +7 punti |
-| `segnale:bsc:quota_wallet_nuovi:filtro` | bsc | 1 | +7 punti |
-| `segnale:bsc:usd_primi20:filtro` | bsc | 1 | +7 punti |
-| `segnale:bsc:wallet_ripetuti:filtro` | bsc | 1 | +7 punti |
-| `segnale:bsc:compra_e_rivende:filtro` | bsc | 1 | +7 punti |
-| `segnale:bsc:accelerazione_denaro:filtro` | bsc | 1 | +7 punti |
+| `segnale:bsc:quota_wallet_reduci:filtro` | bsc | 2 | +7 punti |
+| `segnale:bsc:quota_wallet_vincenti:filtro` | bsc | 2 | +7 punti |
+| `segnale:bsc:quota_wallet_nuovi:filtro` | bsc | 2 | +7 punti |
+| `segnale:bsc:usd_primi20:filtro` | bsc | 2 | +7 punti |
+| `segnale:bsc:wallet_ripetuti:filtro` | bsc | 2 | +7 punti |
+| `segnale:bsc:compra_e_rivende:filtro` | bsc | 2 | +7 punti |
+| `segnale:bsc:accelerazione_denaro:filtro` | bsc | 2 | +7 punti |
 | `segnale:base:buy_medio / compra_e_rivende:filtro` | base | 2 | +7 punti |
 | `segnale:solana:usd_primi20 / sbilanciamento:filtro` | solana | 4 | +7 punti |
 | `segnale:solana:n_compratori x volume_ultima_su_media:filtro` | solana | 24 | +7 punti |
