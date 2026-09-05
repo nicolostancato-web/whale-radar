@@ -1,5 +1,5 @@
 # 🔬 EXPLORER — LOOP 1: come alzo la percentuale? (bsc)
-*2026-09-05 20:30 UTC · 116 strategie provate in questo ciclo · 58902 in totale*
+*2026-09-05 20:56 UTC · 117 strategie provate in questo ciclo · 59019 in totale*
 
 ## Migliore trovata finora: **-23%** (stress test) · P&L medio **-14%** · crescita composta **-29.8%** · 5% peggiore **-81%** · 265 trade
 
@@ -30,11 +30,11 @@ la crescita composta dice se reinvestendo si cresce o ci si rovina.*
 
 | la strategia | risultato |
 |---|---|
+| entra +12h · solo se volume > $10.000 · stop -60% · profitto a 2x e 8x · trailing -40% · soglia 0.5 | -23% |
 | entra +12h · solo se volume > $10.000 · stop -60% · profitto a 2x e 8x · trailing -40% · soglia 0.4 | -23% |
 | entra +12h · solo se volume > $10.000 · stop -60% · profitto a 4x e 8x · trailing -40% · soglia 0.4 | -24% |
 | entra +12h · solo se volume > $10.000 · stop -60% · profitto a 2x e 8x · trailing -40% · soglia 0.3 | -23% |
 | entra +1h · solo se volume > $10.000 · stop -60% · profitto a 2x e 8x · trailing -40% · soglia 0.4 | -42% |
-| entra +12h · solo se volume > $10.000 · stop -60% · profitto a 2x e 8x · trailing -40% · soglia 0.4 | -23% |
 | entra +12h · solo se volume > $10.000 · stop -60% · profitto a 2x e 8x · trailing -40% · soglia 0.4 | -23% |
 
 > Il LOOP 1 non si ferma mai: prova strategie e segnali, tiene solo cio' che alza la percentuale
