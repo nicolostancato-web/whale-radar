@@ -1,1 +1,1 @@
-{"chain": "bsc", "ts": 1788579791, "feature": ["buy_medio / wallet_ripetuti (filtro)", "buy_medio / compra_e_rivende (filtro)", "eta_al_primo_trade (filtro)", "buy_medio / quota_wallet_nuovi (filtro)", "buy_medio / usd_primi20 (filtro)", "buy_medio / buy_grossi (filtro)"]}
+{"chain": "base", "ts": 1788580131, "feature": ["volume_ultima_su_media (filtro)", "ampiezza (voto)", "ampiezza / drawdown_pre (voto)"]}
