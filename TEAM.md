@@ -1,10 +1,10 @@
 # 👥 IL TEAM — verbale della riunione
-*2026-09-05 06:11 UTC · una riunione a ogni ciclo, ~ogni 30 minuti*
+*2026-09-05 07:19 UTC · una riunione a ogni ciclo, ~ogni 30 minuti*
 
 | ruolo | responsabilità | come è andata |
 |---|---|---|
 | 🏃 **Operations** | che tutto giri e niente si blocchi | 🟢 tutti i loop si stanno riunendo |
-| 🔬 **Ricerca** | alzare la percentuale | 248.264 strategie provate · 92 segnali nuovi messi alla prova · **17 promossi** |
+| 🔬 **Ricerca** | alzare la percentuale | 250.910 strategie provate · 41 segnali nuovi messi alla prova · **13 promossi** |
 | ✅ **Verità** | che la percentuale non sia una favola | 🟢 **PULITO** — nessun segno che il sistema si stia raccontando favole |
 | 🔒 **Security** | niente credenziali nel repo pubblico | 🟢 **PULITO** — nessuna credenziale esposta nel repo pubblico |
 | 💰 **CFO** | che tutto costi zero | 🟢 **COSTO ZERO CONFERMATO** |
@@ -14,8 +14,8 @@
 | chain | media | **robusta** | vinti | peso dei 3 colpi migliori |
 |---|---|---|---|---|
 | robinhood | +16% | **-20%** | 30% (73 trade) | 34% |
-| base | +5% | **+2%** | 37% (333 trade) | 4% |
-| solana | -9% | **-13%** | 27% (417 trade) | 5% |
+| base | +4% | **+1%** | 36% (340 trade) | 4% |
+| solana | -9% | **-13%** | 27% (419 trade) | 5% |
 | bsc | -21% | **-24%** | 14% (397 trade) | 4% |
 
 > La **robusta** è il numero su cui si decide: è quello che resta togliendo i 3 colpi
@@ -25,11 +25,11 @@
 
 | | quante |
 |---|---|
-| tentativi grezzi (configurazioni e segnali provati) | **248.356** |
+| tentativi grezzi (configurazioni e segnali provati) | **250.951** |
 | lezioni archiviate (ogni prova lascia una traccia) | **2387** |
 | scoperte arrivate al **giudizio in cassaforte** | **2** |
 | di cui **bocciate perché erano rumore** | **2** |
-| giri chiusi e archiviati per sempre | **2321** |
+| giri chiusi e archiviati per sempre | **2324** |
 
 > I tentativi grezzi si contano a migliaia e da soli non insegnano nulla. Quello che fa avanzare
 > è il **giro completo**: si scopre, si valida su dati mai visti, esce un verdetto, la lezione
@@ -43,7 +43,7 @@
 - **base** · segnale nuovo · **+12 punti** (-14.5% → -2%)
 - **robinhood** · segnale nuovo · **+8 punti** (-14.8% → -6%)
 
-**Memoria del team:** 2387 idee provate · 230 funzionano · 2321 archiviate (non si riprovano finché i dati non raddoppiano)
+**Memoria del team:** 2387 idee provate · 230 funzionano · 2324 archiviate (non si riprovano finché i dati non raddoppiano)
 
 > **Come funziona questa stanza:** il team si riunisce da solo ogni 30 minuti, misura, ripara ciò
 > che può riparare e cerca di alzare la percentuale. Le RIPARAZIONI le fa da sé; le DECISIONI
