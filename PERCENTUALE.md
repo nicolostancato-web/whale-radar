@@ -1,5 +1,5 @@
 # 📊 LA PERCENTUALE — com'è fatta, chain per chain
-*2026-09-05 22:28 UTC · walk-forward onesto · il cancello del live si apre a +40% robusta su 150+ token*
+*2026-09-05 23:00 UTC · walk-forward onesto · il cancello del live si apre a +40% robusta su 150+ token*
 
 | chain | media | **robusta** | trade in guadagno | peso dei 3 colpi migliori | giudizio |
 |---|---|---|---|---|---|
@@ -23,7 +23,7 @@
 
 🟡 **POSITIVA MA NON ANCORA SOLIDA** — guadagna, ma serve alzarla prima di rischiare soldi
 
-- su **1146 token** il modello ne sceglie **341**, e ne vanno bene il **35%**  *(fonte: pipeline multichain)*
+- su **1148 token** il modello ne sceglie **341**, e ne vanno bene il **35%**  *(fonte: pipeline multichain)*
 - il colpo migliore ha fatto **+383%** e da solo pesa il **1%** del risultato
 - il trade mediano fa **-6%** (è questo che succede *di solito*)
 - togliendo i 3 colpi migliori resta **+0%** ← il numero su cui decidiamo
