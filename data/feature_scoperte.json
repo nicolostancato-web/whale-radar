@@ -1,1 +1,1 @@
-{"chain": "solana", "ts": 1788580720, "feature": ["trade_al_minuto / compra_e_rivende (filtro)", "buy_medio x usd_primi20 (filtro)", "sbilanciamento (filtro)", "sbilanciamento / ampiezza (filtro)", "n_compratori x volume_ultima_su_media (filtro)", "trade_al_minuto / ampiezza (filtro)"]}
+{"chain": "bsc", "ts": 1788581060, "feature": ["eta_al_primo_trade (filtro)", "buy_medio / sbilanciamento (filtro)", "buy_medio / trade_al_minuto (filtro)", "buy_medio / quota_wallet_nuovi (filtro)"]}
