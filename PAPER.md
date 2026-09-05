@@ -1,5 +1,5 @@
 # 🤖 PAPER BOT v2 — cervello del trader (soldi FINTI)
-*2026-09-04 23:59 UTC · attivo da 19.7 giorni · vedi TRADER.md*
+*2026-09-05 04:19 UTC · attivo da 19.9 giorni · vedi TRADER.md*
 
 **Filtro tradeabilita:** ≥4h flow · ≥$3000 volume · sell/buy ≥0.15 (anti honeypot/spike)
 **Uscita a scaglioni:** 1/3 a 3.0x · 1/3 a 6.0x · 1/3 cavalca trailing -50% (hard-stop -70% pre-lock)
