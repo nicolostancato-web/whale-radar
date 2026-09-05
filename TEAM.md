@@ -1,10 +1,10 @@
 # 👥 IL TEAM — verbale della riunione
-*2026-09-05 10:04 UTC · una riunione a ogni ciclo, ~ogni 30 minuti*
+*2026-09-05 11:10 UTC · una riunione a ogni ciclo, ~ogni 30 minuti*
 
 | ruolo | responsabilità | come è andata |
 |---|---|---|
 | 🏃 **Operations** | che tutto giri e niente si blocchi | 🟢 tutti i loop si stanno riunendo |
-| 🔬 **Ricerca** | alzare la percentuale | 256.473 strategie provate · 99 segnali nuovi messi alla prova · **61 promossi** |
+| 🔬 **Ricerca** | alzare la percentuale | 258.791 strategie provate · 146 segnali nuovi messi alla prova · **12 promossi** |
 | ✅ **Verità** | che la percentuale non sia una favola | 🟢 **PULITO** — nessun segno che il sistema si stia raccontando favole |
 | 🔒 **Security** | niente credenziali nel repo pubblico | 🟢 **PULITO** — nessuna credenziale esposta nel repo pubblico |
 | 💰 **CFO** | che tutto costi zero | 🟢 **COSTO ZERO CONFERMATO** |
@@ -13,9 +13,9 @@
 
 | chain | media | **robusta** | vinti | peso dei 3 colpi migliori |
 |---|---|---|---|---|
-| robinhood | +16% | **-20%** | 30% (73 trade) | 34% |
-| base | +4% | **+0%** | 36% (341 trade) | 4% |
-| solana | -9% | **-13%** | 27% (419 trade) | 5% |
+| robinhood | +22% | **-17%** | 33% (66 trade) | 35% |
+| base | +4% | **+1%** | 36% (337 trade) | 4% |
+| solana | -9% | **-13%** | 27% (417 trade) | 5% |
 | bsc | -21% | **-24%** | 14% (397 trade) | 4% |
 
 > La **robusta** è il numero su cui si decide: è quello che resta togliendo i 3 colpi
@@ -25,7 +25,7 @@
 
 | | quante |
 |---|---|
-| tentativi grezzi (configurazioni e segnali provati) | **256.572** |
+| tentativi grezzi (configurazioni e segnali provati) | **258.937** |
 | lezioni archiviate (ogni prova lascia una traccia) | **2387** |
 | scoperte arrivate al **giudizio in cassaforte** | **2** |
 | di cui **bocciate perché erano rumore** | **2** |
