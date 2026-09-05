@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (solana)
-*2026-09-05 12:26 UTC · 10 segnali nuovi messi alla prova su 535 token*
+*2026-09-05 12:46 UTC · 10 segnali nuovi messi alla prova su 536 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-40%**.
 
