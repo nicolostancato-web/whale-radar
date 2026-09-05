@@ -1,5 +1,5 @@
 # 🔬 EXPLORER — LOOP 1: come alzo la percentuale? (base)
-*2026-09-05 17:16 UTC · 139 strategie provate in questo ciclo · 68888 in totale*
+*2026-09-05 18:13 UTC · 142 strategie provate in questo ciclo · 69173 in totale*
 
 ## Migliore trovata finora: **-8%** (stress test) · P&L medio **+7%** · crescita composta **-10.8%** · 5% peggiore **-79%** · 170 trade
 
@@ -28,12 +28,12 @@ la crescita composta dice se reinvestendo si cresce o ci si rovina.*
 
 | la strategia | risultato |
 |---|---|
-| entra +6h · solo se volume > $10.000, almeno 2h di scambi · stop -60% · profitto a 4x e 8x · trailing -50% · soglia 0.4 | -8% |
-| entra +6h · solo se volume > $10.000, almeno 2h di scambi · stop -60% · profitto a 4x e 8x · trailing -50% · soglia 0.4 | -8% |
-| entra +12h · solo se volume > $10.000, almeno 2h di scambi · stop -60% · profitto a 4x e 8x · trailing -50% · soglia 0.4 | -11% |
-| entra +6h · solo se volume > $10.000, almeno 2h di scambi · stop -60% · profitto a 4x e 8x · trailing -50% · soglia 0.4 | -8% |
-| entra +6h · almeno 2h di scambi · stop -60% · profitto a 4x e 8x · trailing -50% · soglia 0.4 | -12% |
-| entra +6h · solo se volume > $10.000, almeno 2h di scambi · stop -60% · profitto a 4x e 8x · trailing -50% · soglia 0.4 | -8% |
+| entra +6h · solo se volume > $10.000 · stop -60% · profitto a 4x e 8x · trailing -50% · soglia 0.4 | -8% |
+| entra +6h · solo se volume > $10.000, almeno 2h di scambi · stop -50% · profitto a 4x e 8x · trailing -50% · soglia 0.4 | -9% |
+| entra +6h · solo se volume > $10.000, almeno 2h di scambi · stop -60% · profitto a 4x e 8x · trailing -50% · soglia 0.3 | -23% |
+| entra +6h · solo se volume > $10.000, almeno 2h di scambi · stop -60% · profitto a 2x e 8x · trailing -50% · soglia 0.4 | -11% |
+| entra +6h · solo se volume > $10.000, almeno 2h di scambi · stop -60% · profitto a 5x e 8x · trailing -50% · soglia 0.4 | -8% |
+| entra +6h · solo se volume > $10.000 · stop -60% · profitto a 4x e 8x · trailing -50% · soglia 0.4 | -8% |
 
 > Il LOOP 1 non si ferma mai: prova strategie e segnali, tiene solo cio' che alza la percentuale
 > ROBUSTA (tolti i 3 colpi migliori) di almeno 8 punti, e riparte da li'.
