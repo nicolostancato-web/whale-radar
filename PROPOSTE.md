@@ -1,5 +1,5 @@
 # 📋 PROPOSTE — cosa aspetta una tua decisione
-*2026-09-05 14:50 UTC · 4 aperte*
+*2026-09-05 15:21 UTC · 4 aperte*
 
 > **2 proposte sono state bocciate dal giudice** e tolte dal tavolo: sui token
 > mai visti dalla ricerca non reggevano. Le trovi nel cimitero qui sotto.
