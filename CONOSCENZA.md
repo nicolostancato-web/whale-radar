@@ -1,5 +1,5 @@
 # 🧠 CONOSCENZA — cosa ha imparato il team
-*2026-09-05 20:19 UTC · 2387 idee messe alla prova finora*
+*2026-09-05 20:18 UTC · 2387 idee messe alla prova finora*
 
 > Questa non è la cronaca di cosa è successo: è il sapere accumulato. Prima di riprovare una cosa,
 > il team guarda qui. Ciò che ha fallito 3 volte si mette da parte — ma il caso si RIAPRE quando i
@@ -16,7 +16,7 @@
 | `segnale:solana:quota_wallet_nuovi x volume_ultima_su_media:filtro` | solana | 14 | +14 punti |
 | `segnale:solana:quota_wallet_nuovi x sbilanciamento:filtro` | solana | 13 | +13 punti |
 | `segnale:base:buy_medio / buy_grossi:filtro` | base | 18 | +13 punti |
-| `segnale:base:volume_ultima_su_media:filtro` | base | 73 | +12 punti |
+| `segnale:base:volume_ultima_su_media:filtro` | base | 74 | +12 punti |
 | `segnale:solana:concentrazione_top1 x sbilanciamento:filtro` | solana | 2 | +12 punti |
 | `segnale:solana:trade_al_minuto:filtro` | solana | 28 | +12 punti |
 | `segnale:solana:trade_al_minuto / sbilanciamento:filtro` | solana | 6 | +11 punti |
@@ -70,7 +70,7 @@
 | `segnale:solana:usd_primi20 x sbilanciamento:filtro` | solana | 1 | +8 punti |
 | `segnale:solana:concentrazione_top1 / compra_e_rivende:filtro` | solana | 29 | +8 punti |
 | `segnale:solana:n_compratori x trade_al_minuto:filtro` | solana | 4 | +8 punti |
-| `segnale:base:ampiezza:voto` | base | 59 | +7 punti |
+| `segnale:base:ampiezza:voto` | base | 60 | +7 punti |
 | `segnale:solana:n_compratori x buy_medio:filtro` | solana | 7 | +7 punti |
 | `segnale:bsc:concentrazione_top5:filtro` | bsc | 1 | +7 punti |
 | `segnale:bsc:concentrazione_top1:filtro` | bsc | 1 | +7 punti |
@@ -89,7 +89,7 @@
 | `segnale:solana:n_compratori x volume_ultima_su_media:filtro` | solana | 27 | +7 punti |
 | `segnale:solana:n_compratori x drawdown_pre:filtro` | solana | 29 | +7 punti |
 | `segnale:solana:trade_al_minuto x sbilanciamento:filtro` | solana | 10 | +7 punti |
-| `segnale:base:drawdown_pre:filtro` | base | 6 | +7 punti |
+| `segnale:base:drawdown_pre:filtro` | base | 7 | +7 punti |
 | `segnale:solana:trade_al_minuto / compra_e_rivende:filtro` | solana | 17 | +7 punti |
 | `segnale:solana:quota_wallet_nuovi / accelerazione_denaro:filtro` | solana | 2 | +7 punti |
 | `segnale:solana:buy_medio / sbilanciamento:filtro` | solana | 24 | +7 punti |
