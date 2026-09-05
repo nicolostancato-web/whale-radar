@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (solana)
-*2026-09-05 13:38 UTC · 7 segnali nuovi messi alla prova su 536 token*
+*2026-09-05 13:58 UTC · 7 segnali nuovi messi alla prova su 536 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-40%**.
 
@@ -7,13 +7,13 @@
 
 | il segnale | cosa guarda | porta a | guadagno |
 |---|---|---|---|
+| `quota_wallet_nuovi / compra_e_rivende (filtro)` | la quota di denaro da wallet mai visti prima RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | **-32%** | **+8 punti** |
 | `trade_al_minuto x sbilanciamento (filtro)` | quanto è frenetico lo scambio MOLTIPLICATO per quanto il denaro che entra supera quello che esce | **-33%** | **+7 punti** |
-| `trade_al_minuto x drawdown_pre (filtro)` | quanto è frenetico lo scambio MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | **-34%** | **+6 punti** |
-| `n_compratori x accelerazione_denaro (filtro)` | quante persone diverse hanno comprato MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | **-35%** | **+5 punti** |
-| `quota_wallet_nuovi / compra_e_rivende (filtro)` | la quota di denaro da wallet mai visti prima RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | **-35%** | **+5 punti** |
+| `sbilanciamento (filtro)` | quanto il denaro che entra supera quello che esce | **-34%** | **+6 punti** |
+| `n_compratori x accelerazione_denaro (filtro)` | quante persone diverse hanno comprato MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | **-34%** | **+6 punti** |
 | `sbilanciamento / drawdown_pre (filtro)` | quanto il denaro che entra supera quello che esce RAPPORTATO a quanto è già sceso dal massimo prima di entrare | **-35%** | **+5 punti** |
-| `buy_medio x accelerazione_denaro (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | **-35%** | **+5 punti** |
-| `sbilanciamento (filtro)` | quanto il denaro che entra supera quello che esce | **-36%** | **+4 punti** |
+| `trade_al_minuto x drawdown_pre (filtro)` | quanto è frenetico lo scambio MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | **-35%** | **+5 punti** |
+| `buy_medio x accelerazione_denaro (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | **-36%** | **+4 punti** |
 
 > Questi segnali non erano nella lista di partenza: li ha costruiti e verificati il sistema.
 > Vanno aggiunti al cervello — è una DECISIONE, quindi passa da DECISIONS.md.
@@ -22,13 +22,13 @@
 
 | il segnale | cosa guarda | risultato |
 |---|---|---|
+| `quota_wallet_nuovi / compra_e_rivende (filtro)` | la quota di denaro da wallet mai visti prima RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -32% (+8) |
 | `trade_al_minuto x sbilanciamento (filtro)` | quanto è frenetico lo scambio MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -33% (+7) |
-| `trade_al_minuto x drawdown_pre (filtro)` | quanto è frenetico lo scambio MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | -34% (+6) |
-| `n_compratori x accelerazione_denaro (filtro)` | quante persone diverse hanno comprato MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -35% (+5) |
-| `quota_wallet_nuovi / compra_e_rivende (filtro)` | la quota di denaro da wallet mai visti prima RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -35% (+5) |
+| `sbilanciamento (filtro)` | quanto il denaro che entra supera quello che esce | -34% (+6) |
+| `n_compratori x accelerazione_denaro (filtro)` | quante persone diverse hanno comprato MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -34% (+6) |
 | `sbilanciamento / drawdown_pre (filtro)` | quanto il denaro che entra supera quello che esce RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -35% (+5) |
-| `buy_medio x accelerazione_denaro (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -35% (+5) |
-| `sbilanciamento (filtro)` | quanto il denaro che entra supera quello che esce | -36% (+4) |
+| `trade_al_minuto x drawdown_pre (filtro)` | quanto è frenetico lo scambio MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | -35% (+5) |
+| `buy_medio x accelerazione_denaro (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -36% (+4) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
