@@ -1,11 +1,11 @@
 # 📊 EDGE — cruscotto del loop (walk-forward ONESTO verso il goal)
-*2026-09-05 18:28 UTC · no-lookahead, come girerebbe live*
+*2026-09-05 21:13 UTC · no-lookahead, come girerebbe live*
 
-## 📊 MEDIA STRATEGIA: +23% per token
-*Su €100 → €123 · 59 token · vinti 31% · walk-forward, costi reali dentro*
+## 📊 MEDIA STRATEGIA: +17% per token
+*Su €100 → €117 · 77 token · vinti 31% · walk-forward, costi reali dentro*
 
 - ⚠️ **INSTABILE**: togliendo i 3 mostri top scende a -20% → pochi colpi la tengono, serve piu' storia
-- (comprando TUTTO senza selezionare: +23%)
+- (comprando TUTTO senza selezionare: +14%)
 
 > ✅ Il numero diventa AFFIDABILE quando resta stabile (o cresce) man mano che i token accumulano.
 
@@ -24,4 +24,4 @@
 | 2026-09-02 | 234 | -5% |
 | 2026-09-03 | 234 | +23% |
 | 2026-09-04 | 71 | +22% |
-| 2026-09-05 | 59 | +23% |
+| 2026-09-05 | 77 | +17% |
