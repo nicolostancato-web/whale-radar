@@ -19,11 +19,8 @@
 
 ## Cosa cambia
 
-Costo misurato di andata e ritorno su $100: **8.3%** contro il **~30%** che assumiamo.
-Pareggio necessario: **1.09x** contro l'**1,50x** del modello attuale.
-
-> ⚠️ **Il costo assunto è molto più alto di quello misurato.** Prima di dichiarare morto
-> un mercato, i numeri vanno rifatti con il costo vero — su questi token, in questo momento.
+Costo misurato di andata e ritorno su $100: **99.8%** contro il **~30%** che assumiamo.
+Pareggio necessario: **99.00x** contro l'**1,50x** del modello attuale.
 
 > Nota onesta: sono quote **indicative** al momento della misura, su token vivi oggi. Non dicono
 > quanto sarebbe costato uscire durante un crollo, né includono gas e transazioni fallite. Servono
