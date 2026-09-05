@@ -1,7 +1,7 @@
 # 💓 HEARTBEAT — il motore è vivo?
-*2026-09-05 20:58 UTC · controllo ogni 2h, da FUORI il motore*
+*2026-09-05 21:10 UTC · controllo ogni 2h, da FUORI il motore*
 
-## 🟢 **MOTORE VIVO** — ultimo commit 34 minuti fa
+## 🟢 **MOTORE VIVO** — ultimo commit 46 minuti fa
 
 - ultimo commit del motore: `engine misure4 20:24Z`
 - soglia di allarme: **90 minuti** di silenzio (il motore committa a ogni ciclo, ~30 min)
