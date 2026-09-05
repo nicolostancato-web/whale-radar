@@ -27,7 +27,13 @@ def _impronta_codice():
 
 IMPRONTA = _impronta_codice()
 MAX_RUNTIME = 4.5 * 3600      # gira 4.5h poi si ri-dispatcha (job GitHub max 6h)
-CICLO_TIPICO = 45 * 60        # quanto dura un ciclo nel caso peggiore
+CICLO_TIPICO = 60 * 60        # quanto dura un ciclo nel caso peggiore
+# PIU' CARBURANTE AI COLLECTOR (05/09): avevano 110 secondi a testa dentro cicli da ~50 minuti,
+# cioe' un quinto del tempo speso a raccogliere e il resto a ragionare su quello che avevamo gia'.
+# Ma il verdetto e' bloccato dai DATI, non dal ragionamento: la fascia di validazione di Robinhood
+# ha 59 token e finche' non cresce il test sigillato non puo' nemmeno partire.
+# Non cambia nessuna regola e nessuna soglia: aumenta solo quanto raccogliamo. E' l'unico modo
+# onesto di accelerare un verdetto — tutti gli altri sarebbero aiutare il risultato.
 # PERCHE' 4.5h E NON 5.5h (04/09): il controllo sul tempo si faceva solo PRIMA di iniziare un ciclo,
 # quindi l'ultimo ciclo poteva iniziare a 5h29 e finire a 6h. Il motore #71 e' arrivato a 5h48 e nel
 # frattempo teneva occupata la corsia: il turno successivo, gia' dispatchato, e' rimasto in coda
@@ -115,15 +121,23 @@ def main():
         # candele+pool nuovi: BASE PRIORITARIO (ogni ciclo) per sbloccare il demo forward, poi le altre a rotazione
         for ch in ("base", "base", "solana", "bsc", "robinhood"):
             # BUDGET_SEC 110 < timeout 130: il collector chiude da solo e SALVA il checkpoint (prima veniva killato)
-            sh("python agents/multichain_collector.py", {"CHAIN": ch, "BUDGET_SEC": "110"}, timeout=130)
+            sh("python agents/multichain_collector.py", {"CHAIN": ch, "BUDGET_SEC": "180"}, timeout=210)
         for ch in ("solana", "bsc", "base", "robinhood"):
-            sh("python agents/multichain_trades.py", {"CHAIN": ch}, timeout=140)
+            sh("python agents/multichain_trades.py", {"CHAIN": ch, "BUDGET_SEC": "170"}, timeout=200)
         sh("python agents/solana_helius.py", timeout=320)                 # giorno-0 Solana (Helius)
         for ch in ("base", "bsc"):
             sh("python agents/multichain_rpc.py", {"CHAIN": ch}, timeout=260)   # giorno-0 EVM
         # === OGNI 4 CICLI (~2h): storico Robinhood + CALCOLO + demo-live ===
+        # ROBINHOOD HA FAME DI CANDELE (05/09). E' la chain con la configurazione congelata, quindi
+        # quella che decide se il test sigillato potra' mai parlare: ha 2.824 pool noti e candele per
+        # 725. Il collo di bottiglia non era la velocita' dell'API — era che l'agente ha bisogno di
+        # ~4 minuti e il motore gliene dava 3, quindi veniva ucciso a meta' a ogni giro.
+        # Ora ha il tempo che gli serve e gira il DOPPIO delle volte: non cambia nessuna regola,
+        # aumenta solo il carburante. E' l'unico modo onesto di accelerare un verdetto.
+        if cycle % 2 == 0:
+            sh("python agents/whale_candles.py", timeout=320)
         if cycle % 4 == 0:
-            for a in ("whale_candles", "whale_backfill", "whale_enrich", "first_buyers"):
+            for a in ("whale_backfill", "whale_enrich", "first_buyers"):
                 sh(f"python agents/{a}.py", timeout=180)
             sh("python agents/wallet_insider.py", {"CHAIN": "solana"}, timeout=180)   # angolo insider (Solana)
             # il creator su Solana: 5% di copertura contro il 99% di BSC, e senza quel campo la
