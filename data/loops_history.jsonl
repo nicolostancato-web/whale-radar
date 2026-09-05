@@ -2242,3 +2242,13 @@
 {"id": "accumulo-robinhood", "ts": 1788608524, "valore": 824, "fermo_da": 2, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (whale_candles.py, whale_backfill.py, multichain_collector"}
 {"id": "accumulo-bsc", "ts": 1788608524, "valore": 1162, "fermo_da": 2, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (pulse.py, multichain_collector.py, multichain_rpc.py) \u2192 n"}
 {"id": "percentuale-bsc", "ts": 1788608524, "valore": -23.8, "fermo_da": 47, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (explorer.py, learner.py) \u2192 non li ripetiamo, serve cambia"}
+{"id": "accumulo-base", "ts": 1788610658, "valore": 4719, "fermo_da": 0, "azione": "avanti cosi'"}
+{"id": "accumulo-solana", "ts": 1788610658, "valore": 1231, "fermo_da": 3, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (solana_helius.py, multichain_collector.py) \u2192 non li ripet"}
+{"id": "percentuale-robinhood", "ts": 1788610658, "valore": -19.2, "fermo_da": 3, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (strategy_optimizer.py, learner.py) \u2192 non li ripetiamo, se"}
+{"id": "percentuale-base", "ts": 1788610658, "valore": 0.9, "fermo_da": 3, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (strategy_optimizer_base.py, learner.py) \u2192 non li ripetiam"}
+{"id": "percentuale-solana", "ts": 1788610658, "valore": -13.3, "fermo_da": 3, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (strategy_optimizer_solana.py, wallet_insider.py) \u2192 non li"}
+{"id": "demo-robinhood", "ts": 1788610658, "valore": 122.07, "fermo_da": 0, "azione": "\u23f8 il cancello \u00e8 chiuso: prima il LOOP 1 deve alzare la percentuale"}
+{"id": "demo-base", "ts": 1788610658, "valore": 92.78, "fermo_da": 0, "azione": "\u23f8 il cancello \u00e8 chiuso: prima il LOOP 1 deve alzare la percentuale"}
+{"id": "accumulo-robinhood", "ts": 1788610658, "valore": 824, "fermo_da": 3, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (whale_candles.py, whale_backfill.py, multichain_collector"}
+{"id": "accumulo-bsc", "ts": 1788610658, "valore": 1162, "fermo_da": 3, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (pulse.py, multichain_collector.py, multichain_rpc.py) \u2192 n"}
+{"id": "percentuale-bsc", "ts": 1788610658, "valore": -23.8, "fermo_da": 48, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (explorer.py, learner.py) \u2192 non li ripetiamo, serve cambia"}
