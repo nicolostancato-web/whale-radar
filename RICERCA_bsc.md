@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (bsc)
-*2026-09-05 12:35 UTC · 13 segnali nuovi messi alla prova su 537 token*
+*2026-09-05 12:56 UTC · 13 segnali nuovi messi alla prova su 540 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-27%**.
 
@@ -37,16 +37,16 @@
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
-- `concentrazione_top5 (voto)` — già bocciato 13 volte 5h fa (si riprova fra 7h o quando i dati crescono)
-- `concentrazione_top5 (filtro)` — già bocciato 13 volte 5h fa (si riprova fra 7h o quando i dati crescono)
-- `concentrazione_top1 (voto)` — già bocciato 13 volte 5h fa (si riprova fra 7h o quando i dati crescono)
-- `concentrazione_top1 (filtro)` — già bocciato 13 volte 5h fa (si riprova fra 7h o quando i dati crescono)
-- `n_compratori (voto)` — già bocciato 13 volte 5h fa (si riprova fra 7h o quando i dati crescono)
-- `n_compratori (filtro)` — già bocciato 13 volte 5h fa (si riprova fra 7h o quando i dati crescono)
-- `buy_medio (voto)` — già bocciato 13 volte 5h fa (si riprova fra 7h o quando i dati crescono)
-- `buy_medio (filtro)` — già bocciato 13 volte 5h fa (si riprova fra 7h o quando i dati crescono)
-- `buy_grossi (voto)` — già bocciato 13 volte 5h fa (si riprova fra 7h o quando i dati crescono)
-- `buy_grossi (filtro)` — già bocciato 13 volte 5h fa (si riprova fra 7h o quando i dati crescono)
+- `concentrazione_top5 (voto)` — già bocciato 13 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `concentrazione_top5 (filtro)` — già bocciato 13 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `concentrazione_top1 (voto)` — già bocciato 13 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `concentrazione_top1 (filtro)` — già bocciato 13 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `n_compratori (voto)` — già bocciato 13 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `n_compratori (filtro)` — già bocciato 13 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `buy_medio (voto)` — già bocciato 13 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `buy_medio (filtro)` — già bocciato 13 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `buy_grossi (voto)` — già bocciato 13 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `buy_grossi (filtro)` — già bocciato 13 volte 6h fa (si riprova fra 6h o quando i dati crescono)
 
 > **Perché questo ruolo esiste:** l'insider su Solana l'ha inventato un umano. Qui il sistema
 > costruisce da sé segnali nuovi dai dati grezzi e li mette alla prova. Uno dei mattoni è proprio
