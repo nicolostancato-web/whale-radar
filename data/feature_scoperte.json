@@ -1,1 +1,1 @@
-{"chain": "bsc", "ts": 1788608779, "feature": ["eta_al_primo_trade (filtro)", "buy_medio / buy_grossi (filtro)", "sbilanciamento / drawdown_pre (filtro)", "usd_primi20 x sbilanciamento (filtro)", "sbilanciamento x drawdown_pre (filtro)"]}
+{"chain": "base", "ts": 1788609125, "feature": ["volume_ultima_su_media (filtro)", "ampiezza (voto)"]}
