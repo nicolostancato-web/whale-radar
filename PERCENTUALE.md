@@ -1,29 +1,29 @@
 # 📊 LA PERCENTUALE — com'è fatta, chain per chain
-*2026-09-05 02:21 UTC · walk-forward onesto · il cancello del live si apre a +40% robusta su 150+ token*
+*2026-09-05 03:30 UTC · walk-forward onesto · il cancello del live si apre a +40% robusta su 150+ token*
 
 | chain | media | **robusta** | trade in guadagno | peso dei 3 colpi migliori | giudizio |
 |---|---|---|---|---|---|
-| **robinhood** | +22% | **-17%** | 33% (66 trade) | 35% | 🔴 **NEGATIVA** |
+| **robinhood** | +16% | **-20%** | 30% (73 trade) | 34% | 🔴 **NEGATIVA** |
 | **base** | +5% | **+2%** | 37% (333 trade) | 4% | 🟡 **POSITIVA MA NON ANCORA SOLIDA** |
-| **solana** | -9% | **-13%** | 27% (418 trade) | 5% | 🔴 **NEGATIVA** |
+| **solana** | -9% | **-13%** | 27% (417 trade) | 5% | 🔴 **NEGATIVA** |
 | **bsc** | -21% | **-24%** | 14% (397 trade) | 4% | 🔴 **NEGATIVA** |
 
 ## robinhood
 
 🔴 **NEGATIVA** — con questa strategia si perde: il loop 1 deve continuare a cercare
 
-- su **71 token** il modello ne sceglie **66**, e ne vanno bene il **33%**  *(fonte: pipeline completo)*
-- il colpo migliore ha fatto **+2207%** e da solo pesa il **29%** del risultato
-- il trade mediano fa **-19%** (è questo che succede *di solito*)
-- togliendo i 3 colpi migliori resta **-17%** ← il numero su cui decidiamo
-- al cancello del live mancano **57 punti**
+- su **81 token** il modello ne sceglie **73**, e ne vanno bene il **30%**  *(fonte: pipeline completo)*
+- il colpo migliore ha fatto **+2206%** e da solo pesa il **27%** del risultato
+- il trade mediano fa **-20%** (è questo che succede *di solito*)
+- togliendo i 3 colpi migliori resta **-20%** ← il numero su cui decidiamo
+- al cancello del live mancano **60 punti**
 - **tiene nel tempo?** prima metà dei token **-9%**, metà più recente **-32%** → ⚠️ **NO: sta peggiorando**. Un numero che funziona solo sui token vecchi è un ricordo, non un edge — il mercato è cambiato e la strategia va rifatta
 
 ## base
 
 🟡 **POSITIVA MA NON ANCORA SOLIDA** — guadagna, ma serve alzarla prima di rischiare soldi
 
-- su **1134 token** il modello ne sceglie **333**, e ne vanno bene il **37%**  *(fonte: pipeline multichain)*
+- su **1139 token** il modello ne sceglie **333**, e ne vanno bene il **37%**  *(fonte: pipeline multichain)*
 - il colpo migliore ha fatto **+384%** e da solo pesa il **1%** del risultato
 - il trade mediano fa **-5%** (è questo che succede *di solito*)
 - togliendo i 3 colpi migliori resta **+2%** ← il numero su cui decidiamo
@@ -34,7 +34,7 @@
 
 🔴 **NEGATIVA** — con questa strategia si perde: il loop 1 deve continuare a cercare
 
-- su **701 token** il modello ne sceglie **418**, e ne vanno bene il **27%**  *(fonte: pipeline multichain)*
+- su **701 token** il modello ne sceglie **417**, e ne vanno bene il **27%**  *(fonte: pipeline multichain)*
 - il colpo migliore ha fatto **+1168%** e da solo pesa il **3%** del risultato
 - il trade mediano fa **-21%** (è questo che succede *di solito*)
 - togliendo i 3 colpi migliori resta **-13%** ← il numero su cui decidiamo
@@ -45,7 +45,7 @@
 
 🔴 **NEGATIVA** — con questa strategia si perde: il loop 1 deve continuare a cercare
 
-- su **581 token** il modello ne sceglie **397**, e ne vanno bene il **14%**  *(fonte: pipeline multichain)*
+- su **582 token** il modello ne sceglie **397**, e ne vanno bene il **14%**  *(fonte: pipeline multichain)*
 - il colpo migliore ha fatto **+337%** e da solo pesa il **1%** del risultato
 - il trade mediano fa **-21%** (è questo che succede *di solito*)
 - togliendo i 3 colpi migliori resta **-24%** ← il numero su cui decidiamo
