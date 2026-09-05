@@ -1,0 +1,33 @@
+name: repo_gc
+# REPO_GC: PRUNE (elimina i token-stub inutili) + SQUASH storia. Il repo si gonfia coi dati grezzi (25k+ file).
+# Questo lo sgonfia davvero. Settimanale + on-demand. Force-push da GitHub Actions. €0.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "0 4 * * 0"
+permissions:
+  contents: write
+concurrency:
+  group: repo_gc
+  cancel-in-progress: false
+jobs:
+  gc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 1, token: "${{ secrets.WR_PAT }}" }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Prune stub + squash
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          echo "PRIMA: $(find data -type f | wc -l) file, .git=$(du -sh .git|cut -f1)"
+          python agents/data_prune.py || echo "prune ko"
+          echo "DOPO prune: $(find data -type f | wc -l) file"
+          git checkout --orphan fresh_$(date +%s)
+          git add -A
+          git commit -q -m "GC prune+squash $(date -u +%Y-%m-%dT%H:%MZ)"
+          git branch -M main
+          git push -f origin main
+          echo "GC fatto."

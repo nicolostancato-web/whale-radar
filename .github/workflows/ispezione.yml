@@ -1,0 +1,28 @@
+name: ispezione
+# IL LOOP ARCHITETTONICO: ogni ora si entra nella stanza e si interroga OGNI componente del team.
+# Non guarda la percentuale: guarda che ognuno stia facendo il suo lavoro, nei tempi, lasciando traccia.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "7 * * * *"
+permissions:
+  contents: write
+  actions: write
+jobs:
+  ispeziona:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: python agents/ispezione.py
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add ISPEZIONE.md data/ispezione.json 2>/dev/null || true
+          git commit -m "ispezione $(date -u +%H:%MZ)" || exit 0
+          for i in 1 2 3 4 5; do
+            git pull --no-rebase --no-edit -X ours origin main || true
+            git push origin main && exit 0; sleep $((RANDOM % 6 + 2))
+          done

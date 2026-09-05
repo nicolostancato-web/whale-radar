@@ -1,0 +1,63 @@
+{
+ "scritto": "2026-09-03",
+ "perche": "Scritti PRIMA di vedere altri risultati. Il rischio piu' grande di questo progetto non e' sbagliare una strategia: e' continuare ad aggiungere segnali e parametri finche' qualcosa appare verde per caso. Questi criteri esistono per rendere impossibile spostare il traguardo.",
+ "successo": {
+  "descrizione": "LOOP 1 e' RIUSCITO su una chain solo se TUTTE queste condizioni valgono insieme",
+  "configurazione_congelata_prima": true,
+  "holdout_mai_visto": true,
+  "letture_holdout_consentite": 1,
+  "rendimento_netto_minimo": 0.1,
+  "costi": "condizionati alla liquidita' al momento dell'uscita, gambe separate, trappole a -100%",
+  "t_stat_minimo": 2.0,
+  "prove_indipendenti_minime": 25,
+  "come_si_contano_le_prove": "raggruppando per GIORNATA e per CREATOR: cio' che nasce lo stesso giorno o dalla stessa mano si muove insieme, quindi conta UNA volta. Cento trade legati allo stesso evento non sono cento prove.",
+  "perche_25": "non e' un numero scelto a caso: per distinguere un effetto del +10% dal rumore, con una dispersione fra giornate dell'ordine del 25%, servono circa (2*25/10)^2 = 25 gruppi indipendenti perche' il t arrivi a 2. Fissato PRIMA di guardare i risultati.",
+  "righe_minime": 250,
+  "nota_righe": "soglia secondaria: 250 righe che valgono 5 prove non bastano, ma 25 prove da 3 righe l'una nemmeno",
+  "t_stat_minimo_nota": "calcolato sui GRUPPI, non sulle righe (vedi agents/indipendenza.py)"
+ },
+ "chiusura": {
+  "descrizione": "LOOP 1 va CHIUSO se, raggiunto il limite, nessuna pista ha superato i criteri di successo",
+  "scadenza": "2026-10-03",
+  "oppure_trade_accumulati": 500,
+  "cosa_significa": "non 'il progetto e' fallito', ma 'questo mercato non offre un edge sfruttabile con il nostro approccio'. E' un risultato, non una sconfitta: dice dove NON cercare."
+ },
+ "divieti": [
+  "vietato riottimizzare una configurazione dopo averla congelata",
+  "vietato leggere l'holdout piu' di una volta per configurazione",
+  "vietato allargare un filtro che non generalizza per farlo sembrare migliore",
+  "vietato aggiungere una pista nuova mentre una vecchia e' in attesa di verdetto",
+  "vietato spostare queste soglie: se cambiano, va scritto in DECISIONS.md con la data e il motivo",
+  "vietato contare le righe come prove: il t si calcola sui gruppi (giornata, creator)",
+  "vietato dichiarare un risultato senza aver verificato che il segnale fosse DISPONIBILE prima dell'ingresso, con il ritardo reale del bot"
+ ],
+ "congelate": {
+  "robinhood": {
+   "quando": "2026-09-03",
+   "config": {
+    "ore_min": 6,
+    "vol_min": 3000,
+    "sell_min": 0.15,
+    "entry_h": 6,
+    "tp1": 5,
+    "tp2": 6,
+    "trail": 0.5,
+    "hard": 0.5,
+    "thr": 0.2,
+    "mask": [
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     1
+    ]
+   },
+   "punteggio_in_ricerca": 3.5,
+   "tentativi_fatti": 63873,
+   "letto": false,
+   "perche": "+3,5% in ricerca, MIGLIORE di ~39 configurazioni provate. Con quel numero di tentativi il rumore da selezione atteso e' +9-14 punti: questo numero, da solo, non significa niente. Congelata qui per poterla giudicare una volta sola sull'holdout, senza il sospetto di averla aggiustata dopo aver guardato."
+  }
+ }
+}

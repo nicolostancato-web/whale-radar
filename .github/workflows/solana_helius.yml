@@ -1,0 +1,40 @@
+name: solana_helius
+# SOLANA GIORNO-0 via Helius, PARALLELIZZATO su 4 shard (4 job = 4x velocita'). Ogni shard processa 1/4 dei pool.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "5,35 * * * *"
+permissions:
+  contents: write
+jobs:
+  run:
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        shard: [0, 1, 2, 3, 4]
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    concurrency:
+      group: sh-${{ matrix.shard }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Cattura giorno-0 shard ${{ matrix.shard }}
+        env:
+          HELIUS_KEY: ${{ secrets.HELIUS_API }}
+          HELIUS_KEY2: ${{ secrets.HELIUS_API2 }}
+          SHARD: "${{ matrix.shard }}"
+          NSHARDS: "5"
+        run: python agents/solana_helius.py || echo "ko"
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add data/multichain/solana/trades data/multichain/solana/helius_ckpt_${{ matrix.shard }}.json 2>/dev/null || true
+          git commit -m "solana_helius shard${{ matrix.shard }} $(date -u +%Y-%m-%dT%H:%MZ)" || { echo niente; exit 0; }
+          for i in 1 2 3 4 5 6; do
+            git pull --no-rebase --no-edit -X ours origin main || true
+            git push origin main && exit 0; sleep $((RANDOM % 8 + 3))
+          done

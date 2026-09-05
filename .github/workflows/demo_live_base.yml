@@ -1,0 +1,24 @@
+name: demo_live_base
+# Loop #2 (profitto) dedicato a BASE: conto demo-live forward €100->€3000, strategia da strategy_base.json. Ogni ora.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "17 * * * *"
+permissions:
+  contents: write
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Demo-live Base
+        run: python agents/demo_live_base.py || echo "ko"
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add data/demo_live_base_state.json DEMO_LIVE_BASE.md 2>/dev/null || true
+          git commit -m "demo_live_base $(date -u +%Y-%m-%dT%H:%MZ)" || { echo niente; exit 0; }
+          for i in 1 2 3 4 5; do git pull --no-rebase --no-edit -X ours origin main || true; git push origin main && exit 0; sleep $((RANDOM%6+2)); done

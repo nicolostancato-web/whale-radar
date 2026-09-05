@@ -1,0 +1,27 @@
+name: demo_live
+# DEMO_LIVE: conto demo-live PERSISTENTE €100->€3000 su Robinhood, 100% realistico (costi+gas+LATENZA).
+# Saldo vero che vive in avanti (entra sui token nuovi), allocazione 10%/pos, reset a €100 se si brucia. €0.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "11 * * * *"
+permissions:
+  contents: write
+concurrency:
+  group: demo_live
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: python agents/demo_live.py || echo "ko"
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add DEMO_LIVE.md data/demo_live_state.json 2>/dev/null || true
+          git commit -m "demo_live $(date -u +%Y-%m-%dT%H:%MZ)" || { echo niente; exit 0; }
+          for i in 1 2 3; do git pull --no-rebase --no-edit -X ours origin main || true; git push origin main && exit 0; sleep 4; done

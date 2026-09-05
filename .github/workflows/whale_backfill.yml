@@ -1,0 +1,32 @@
+name: whale_backfill
+# REPARTO WHALE_BACKFILL: cattura le whale STORICHE (buy >= $10k) dagli eventi Swap on-chain via RPC pubblico
+# Robinhood. Wallet = tx.from (EOA vero, non il router). File immutabili, dedup, resumable (checkpoint per-pool).
+# Budget di chiamate per run -> ogni giro ~3-5 min. Ogni 4h (sfalsato dal collector). €0.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "7 */2 * * *"   # OGNI ORA (modalita animale, RPC regge)
+permissions:
+  contents: write
+concurrency:
+  group: whale_backfill
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: BATCH=20 MAX_CALLS=800 MAX_SECONDS=1000 python agents/whale_backfill.py || echo "ko, riprovo al prossimo giro"
+      - name: Salva dati (file immutabili)
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add data/ 2>/dev/null || true
+          git commit -m "whale_backfill $(date -u +%Y-%m-%dT%H:%MZ)" || { echo niente; exit 0; }
+          for i in 1 2 3; do
+            git pull --no-rebase --no-edit -X ours origin main || true
+            git push origin main && exit 0; sleep 4
+          done
+          exit 0
