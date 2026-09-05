@@ -1,5 +1,5 @@
 # 🔐 TEST SIGILLATO — la lettura unica dell'holdout (robinhood)
-*2026-09-05 18:18 UTC · configurazione congelata il 2026-09-03 · fascia mai vista dal 31/08 13:00*
+*2026-09-05 21:08 UTC · configurazione congelata il 2026-09-03 · fascia mai vista dal 31/08 13:00*
 
 > Si legge **una volta sola**. Guardare, aggiustare e riguardare trasforma la prova in un
 > allenamento: dopo il secondo sguardo il numero non dice più niente sul futuro.

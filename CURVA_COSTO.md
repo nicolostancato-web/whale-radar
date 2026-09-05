@@ -1,5 +1,5 @@
 # 📈 QUANTO COSTA USCIRE, SECONDO QUANTO E' LIQUIDO IL TOKEN
-*2026-09-05 18:18 UTC · 1157 osservazioni (token con **sia** una misura vera su Jupiter **sia** le nostre candele) · €0*
+*2026-09-05 21:08 UTC · 1157 osservazioni (token con **sia** una misura vera su Jupiter **sia** le nostre candele) · €0*
 
 > Un costo costante è comodo e sbagliato. Su un pool che gira 50.000 dollari l'ora, uscire
 > con 25 dollari non si sente. Sullo stesso token quando il volume è crollato a 200, quei
