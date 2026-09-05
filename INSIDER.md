@@ -1,17 +1,17 @@
 # 🕵️ INSIDER — chi compra PRIMA del pump (solana)
-*2026-09-05 03:02 UTC · walk-forward ONESTO (score dal solo passato risolto)*
+*2026-09-05 05:50 UTC · walk-forward ONESTO (score dal solo passato risolto)*
 
-## Verdetto: 🟡 **PROMETTENTE**: lift +19pt su 25 token (p=0.010) — serve arrivare a 40 casi prima di cantare vittoria
+## Verdetto: 🟡 **PROMETTENTE**: lift +19pt su 25 token (p=0.009) — serve arrivare a 40 casi prima di cantare vittoria
 
 | | token | vinti | media strategia |
 |---|---|---|---|
 | **con insider** (early-buy da wallet ricorrenti vincenti) | 25 | **32%** | +15% |
-| senza insider | 632 | 12% | -20% |
-| *tutti (base rate)* | 657 | *13%* | *-19%* |
+| senza insider | 633 | 12% | -20% |
+| *tutti (base rate)* | 658 | *13%* | *-19%* |
 
 **LIFT = +19.4 punti** di win-rate rispetto alla media · **p = 0.0095** (probabilita' di vedere 8 vincenti su 25 per puro caso) · casi 25/40
 
-## Wallet ricorrenti trovati: **716** (≥2 apparizioni da first-buyer, su 657 token)
+## Wallet ricorrenti trovati: **716** (≥2 apparizioni da first-buyer, su 658 token)
 
 | wallet | apparizioni | vinti | score |
 |---|---|---|---|
