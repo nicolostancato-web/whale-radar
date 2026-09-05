@@ -1,5 +1,5 @@
 # 🧠 CONOSCENZA — cosa ha imparato il team
-*2026-09-05 22:50 UTC · 2387 idee messe alla prova finora*
+*2026-09-05 22:55 UTC · 2387 idee messe alla prova finora*
 
 > Questa non è la cronaca di cosa è successo: è il sapere accumulato. Prima di riprovare una cosa,
 > il team guarda qui. Ciò che ha fallito 3 volte si mette da parte — ma il caso si RIAPRE quando i
@@ -65,7 +65,7 @@
 | `segnale:solana:concentrazione_top1 x n_compratori:filtro` | solana | 9 | +8 punti |
 | `segnale:base:buy_medio / usd_primi20:filtro` | base | 19 | +8 punti |
 | `segnale:solana:n_compratori / accelerazione_denaro:filtro` | solana | 14 | +8 punti |
-| `segnale:base:ampiezza:voto` | base | 65 | +8 punti |
+| `segnale:base:ampiezza:voto` | base | 66 | +8 punti |
 | `segnale:solana:n_compratori:filtro` | solana | 4 | +8 punti |
 | `segnale:bsc:buy_medio:filtro` | bsc | 1 | +8 punti |
 | `segnale:solana:usd_primi20 x sbilanciamento:filtro` | solana | 1 | +8 punti |
@@ -219,7 +219,7 @@
 | `segnale:base:concentrazione_top1 x sbilanciamento:filtro` | base | 33 | +4 punti |
 | `segnale:solana:usd_primi20 x compra_e_rivende:filtro` | solana | 2 | +4 punti |
 | `segnale:bsc:buy_grossi x sbilanciamento:filtro` | bsc | 2 | +4 punti |
-| `segnale:base:compra_e_rivende x volume_ultima_su_media:voto` | base | 2 | +4 punti |
+| `segnale:base:compra_e_rivende x volume_ultima_su_media:voto` | base | 3 | +4 punti |
 | `segnale:solana:quota_wallet_nuovi / ampiezza:filtro` | solana | 1 | +4 punti |
 | `segnale:solana:n_compratori / drawdown_pre:filtro` | solana | 7 | +3 punti |
 | `segnale:solana:buy_medio / wallet_ripetuti:filtro` | solana | 5 | +3 punti |
