@@ -1,5 +1,5 @@
 # 📊 LA PERCENTUALE — com'è fatta, chain per chain
-*2026-09-05 16:00 UTC · walk-forward onesto · il cancello del live si apre a +40% robusta su 150+ token*
+*2026-09-05 16:33 UTC · walk-forward onesto · il cancello del live si apre a +40% robusta su 150+ token*
 
 | chain | media | **robusta** | trade in guadagno | peso dei 3 colpi migliori | giudizio |
 |---|---|---|---|---|---|
@@ -23,7 +23,7 @@
 
 🟡 **POSITIVA MA NON ANCORA SOLIDA** — guadagna, ma serve alzarla prima di rischiare soldi
 
-- su **1139 token** il modello ne sceglie **338**, e ne vanno bene il **36%**  *(fonte: pipeline multichain)*
+- su **1140 token** il modello ne sceglie **338**, e ne vanno bene il **36%**  *(fonte: pipeline multichain)*
 - il colpo migliore ha fatto **+383%** e da solo pesa il **1%** del risultato
 - il trade mediano fa **-5%** (è questo che succede *di solito*)
 - togliendo i 3 colpi migliori resta **+1%** ← il numero su cui decidiamo
@@ -34,7 +34,7 @@
 
 🔴 **NEGATIVA** — con questa strategia si perde: il loop 1 deve continuare a cercare
 
-- su **707 token** il modello ne sceglie **418**, e ne vanno bene il **27%**  *(fonte: pipeline multichain)*
+- su **708 token** il modello ne sceglie **418**, e ne vanno bene il **27%**  *(fonte: pipeline multichain)*
 - il colpo migliore ha fatto **+1166%** e da solo pesa il **3%** del risultato
 - il trade mediano fa **-21%** (è questo che succede *di solito*)
 - togliendo i 3 colpi migliori resta **-13%** ← il numero su cui decidiamo
@@ -45,7 +45,7 @@
 
 🔴 **NEGATIVA** — con questa strategia si perde: il loop 1 deve continuare a cercare
 
-- su **582 token** il modello ne sceglie **397**, e ne vanno bene il **14%**  *(fonte: pipeline multichain)*
+- su **583 token** il modello ne sceglie **397**, e ne vanno bene il **14%**  *(fonte: pipeline multichain)*
 - il colpo migliore ha fatto **+336%** e da solo pesa il **1%** del risultato
 - il trade mediano fa **-21%** (è questo che succede *di solito*)
 - togliendo i 3 colpi migliori resta **-24%** ← il numero su cui decidiamo
