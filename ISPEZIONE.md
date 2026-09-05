@@ -104,7 +104,7 @@ essere giudicati. È questo numero che sblocca il test sigillato.*
 
 | chain | nati dopo il sigillo | **valutabili** |
 |---|---|---|
-| base | 1583 | **5** |
-| solana | 490 | **32** |
-| bsc | 407 | **6** |
-| robinhood | 468 | **45** |
+| base | 1594 | **5** |
+| solana | 491 | **32** |
+| bsc | 409 | **6** |
+| robinhood | 469 | **45** |
