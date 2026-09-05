@@ -1,5 +1,5 @@
 # 🧠 CONOSCENZA — cosa ha imparato il team
-*2026-09-05 13:16 UTC · 2387 idee messe alla prova finora*
+*2026-09-05 13:23 UTC · 2387 idee messe alla prova finora*
 
 > Questa non è la cronaca di cosa è successo: è il sapere accumulato. Prima di riprovare una cosa,
 > il team guarda qui. Ciò che ha fallito 3 volte si mette da parte — ma il caso si RIAPRE quando i
@@ -23,7 +23,7 @@
 | `segnale:solana:sbilanciamento:filtro` | solana | 45 | +11 punti |
 | `segnale:solana:buy_medio x usd_primi20:filtro` | solana | 17 | +11 punti |
 | `segnale:solana:concentrazione_top5 x sbilanciamento:filtro` | solana | 14 | +11 punti |
-| `segnale:bsc:buy_medio / drawdown_pre:filtro` | bsc | 35 | +11 punti |
+| `segnale:bsc:buy_medio / drawdown_pre:filtro` | bsc | 36 | +11 punti |
 | `segnale:solana:trade_al_minuto x ampiezza:filtro` | solana | 10 | +11 punti |
 | `segnale:solana:buy_medio x ampiezza:filtro` | solana | 6 | +11 punti |
 | `segnale:solana:n_compratori / compra_e_rivende:filtro` | solana | 6 | +11 punti |
@@ -34,14 +34,14 @@
 | `segnale:solana:n_compratori / usd_primi20:filtro` | solana | 3 | +10 punti |
 | `segnale:base:buy_medio / trade_al_minuto:filtro` | base | 14 | +10 punti |
 | `segnale:solana:buy_medio x drawdown_pre:filtro` | solana | 7 | +10 punti |
-| `segnale:bsc:eta_al_primo_trade:filtro` | bsc | 33 | +10 punti |
+| `segnale:bsc:eta_al_primo_trade:filtro` | bsc | 34 | +10 punti |
 | `segnale:bsc:buy_medio / trade_al_minuto:filtro` | bsc | 15 | +10 punti |
 | `segnale:solana:sbilanciamento / ampiezza:filtro` | solana | 15 | +10 punti |
+| `segnale:bsc:buy_medio / sbilanciamento:filtro` | bsc | 16 | +10 punti |
 | `segnale:solana:n_compratori / buy_medio:filtro` | solana | 8 | +10 punti |
 | `segnale:solana:concentrazione_top5 x n_compratori:filtro` | solana | 7 | +9 punti |
 | `segnale:bsc:buy_medio / quota_wallet_nuovi:filtro` | bsc | 13 | +9 punti |
-| `segnale:bsc:buy_medio / sbilanciamento:filtro` | bsc | 15 | +9 punti |
-| `segnale:bsc:buy_medio / accelerazione_denaro:filtro` | bsc | 4 | +9 punti |
+| `segnale:bsc:buy_medio / accelerazione_denaro:filtro` | bsc | 5 | +9 punti |
 | `segnale:solana:concentrazione_top5 x drawdown_pre:filtro` | solana | 10 | +9 punti |
 | `segnale:base:buy_medio / accelerazione_denaro:filtro` | base | 3 | +9 punti |
 | `segnale:bsc:buy_medio / buy_grossi:filtro` | bsc | 10 | +9 punti |
@@ -162,7 +162,7 @@
 | `segnale:solana:concentrazione_top1 / wallet_ripetuti:filtro` | solana | 2 | +4 punti |
 | `segnale:solana:buy_medio x compra_e_rivende:filtro` | solana | 2 | +4 punti |
 | `segnale:base:quota_wallet_nuovi x compra_e_rivende:filtro` | base | 10 | +4 punti |
-| `segnale:bsc:sbilanciamento / drawdown_pre:filtro` | bsc | 8 | +4 punti |
+| `segnale:bsc:sbilanciamento / drawdown_pre:filtro` | bsc | 9 | +4 punti |
 | `segnale:solana:n_compratori x compra_e_rivende:filtro` | solana | 1 | +4 punti |
 | `segnale:solana:sbilanciamento x accelerazione_denaro:filtro` | solana | 9 | +4 punti |
 | `segnale:solana:ampiezza / volume_ultima_su_media:filtro` | solana | 12 | +4 punti |
@@ -171,8 +171,8 @@
 | `segnale:solana:concentrazione_top1 x accelerazione_denaro:filtro` | solana | 6 | +4 punti |
 | `segnale:base:compra_e_rivende x sbilanciamento:filtro` | base | 13 | +4 punti |
 | `segnale:bsc:quota_wallet_nuovi x sbilanciamento:filtro` | bsc | 4 | +4 punti |
-| `segnale:bsc:usd_primi20 x sbilanciamento:filtro` | bsc | 8 | +4 punti |
-| `segnale:bsc:quota_wallet_vincenti x sbilanciamento:filtro` | bsc | 9 | +4 punti |
+| `segnale:bsc:usd_primi20 x sbilanciamento:filtro` | bsc | 9 | +4 punti |
+| `segnale:bsc:quota_wallet_vincenti x sbilanciamento:filtro` | bsc | 10 | +4 punti |
 | `segnale:solana:concentrazione_top5 x quota_wallet_nuovi:filtro` | solana | 5 | +4 punti |
 | `segnale:base:concentrazione_top5 / quota_wallet_vincenti:voto` | base | 2 | +4 punti |
 | `segnale:bsc:buy_medio x sbilanciamento:filtro` | bsc | 3 | +4 punti |
@@ -203,7 +203,7 @@
 | `segnale:base:n_compratori x sbilanciamento:filtro` | base | 18 | +4 punti |
 | `segnale:base:ampiezza / drawdown_pre:voto` | base | 8 | +4 punti |
 | `segnale:base:quota_wallet_vincenti x ampiezza:voto` | base | 4 | +4 punti |
-| `segnale:bsc:sbilanciamento x drawdown_pre:filtro` | bsc | 8 | +4 punti |
+| `segnale:bsc:sbilanciamento x drawdown_pre:filtro` | bsc | 9 | +4 punti |
 | `segnale:solana:concentrazione_top5 / trade_al_minuto:filtro` | solana | 1 | +4 punti |
 | `segnale:solana:concentrazione_top1 / buy_grossi:filtro` | solana | 1 | +4 punti |
 | `segnale:solana:quota_wallet_nuovi / wallet_ripetuti:filtro` | solana | 5 | +4 punti |
@@ -211,11 +211,11 @@
 | `segnale:base:sbilanciamento x ampiezza:filtro` | base | 17 | +4 punti |
 | `segnale:base:concentrazione_top1 x sbilanciamento:filtro` | base | 33 | +4 punti |
 | `segnale:solana:usd_primi20 x compra_e_rivende:filtro` | solana | 2 | +4 punti |
+| `segnale:bsc:buy_grossi x sbilanciamento:filtro` | bsc | 2 | +4 punti |
 | `segnale:solana:quota_wallet_nuovi / ampiezza:filtro` | solana | 1 | +4 punti |
 | `segnale:solana:n_compratori / drawdown_pre:filtro` | solana | 7 | +3 punti |
 | `segnale:solana:buy_medio / wallet_ripetuti:filtro` | solana | 5 | +3 punti |
 | `segnale:base:quota_wallet_nuovi x sbilanciamento:filtro` | base | 20 | +3 punti |
-| `segnale:bsc:buy_grossi x sbilanciamento:filtro` | bsc | 1 | +3 punti |
 | `segnale:bsc:drawdown_pre x volume_ultima_su_media:filtro` | bsc | 9 | +3 punti |
 | `segnale:solana:concentrazione_top5 x usd_primi20:filtro` | solana | 6 | +3 punti |
 | `segnale:solana:usd_primi20 / ampiezza:filtro` | solana | 1 | +3 punti |
