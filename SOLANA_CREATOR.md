@@ -1,5 +1,5 @@
 # 🧬 CHI HA CREATO IL TOKEN — Solana
-*2026-09-05 03:02 UTC · €0*
+*2026-09-05 05:50 UTC · €0*
 
 > Solana è la nostra chain più grossa e ha la copertura più bassa del creator. Senza quel
 > campo, la reputazione di chi crea i token — la pista più promettente che abbiamo — lì non

@@ -1,5 +1,5 @@
 # ⚖️ IL COSTO VERO — mettere d'accordo misura e modello
-*2026-09-05 03:11 UTC · 958 token misurati su Jupiter · €0*
+*2026-09-05 05:59 UTC · 1005 token misurati su Jupiter · €0*
 
 > **Il problema**: diciamo di aver misurato il costo, e poi nei conti ne usiamo un altro,
 > **33%**. Finché le due cose non si parlano, «tutte le chain sono negative»
@@ -12,19 +12,19 @@
 
 | se metti | **trappole** (non esci, o esci con nulla) | costo quando esci davvero | peggiori | pareggio |
 |---|---|---|---|---|
-| $25 | **20%** (192/958) | **4.0%** | 5% | 1.04x |
-| $100 | **22%** (206/941) | **8.2%** | 10% | 1.09x |
-| $500 | **27%** (250/927) | **25.1%** | 30% | 1.34x |
+| $25 | **22%** (218/1005) | **4.0%** | 5% | 1.04x |
+| $100 | **23%** (231/985) | **8.2%** | 10% | 1.09x |
+| $500 | **28%** (276/971) | **25.7%** | 30% | 1.34x |
 
 | *quello che usiamo oggi nei conti* | *non modellato* | *33%* | — | *1.50x* |
 
 ## Cosa cambia davvero
 
 A **$25**, quando si esce davvero, costa **4.0%** — molto meno del 33% che assumiamo.
-Ma **20%** dei token è una **trappola**: o non c'è uscita, o l'uscita restituisce nulla.
+Ma **22%** dei token è una **trappola**: o non c'è uscita, o l'uscita restituisce nulla.
 Quella non è una percentuale di costo: è tutto il capitale.
 
-Messe insieme: un trade che riesce deve fare almeno **1.30x** perché il gruppo
+Messe insieme: un trade che riesce deve fare almeno **1.33x** perché il gruppo
 vada in pari. **Non 1.50x, e nemmeno 1.04x.**
 
 > La taglia conta più di quanto pensassimo: passare da $25 a $100 raddoppia il costo di uscita.

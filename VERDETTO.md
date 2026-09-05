@@ -1,5 +1,5 @@
 # ⚖️ VERDETTO — LOOP 1 è riuscito, va avanti, o va chiuso?
-*2026-09-05 03:11 UTC · criteri scritti il 2026-09-03, **prima** di vedere questi risultati*
+*2026-09-05 05:59 UTC · criteri scritti il 2026-09-03, **prima** di vedere questi risultati*
 
 > Questi criteri esistono per un motivo solo: rendere **impossibile spostare il traguardo.**
 > Il rischio più grande non è sbagliare una strategia — è continuare ad aggiungere segnali
