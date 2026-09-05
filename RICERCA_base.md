@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (base)
-*2026-09-05 16:34 UTC · 15 segnali nuovi messi alla prova su 775 token*
+*2026-09-05 16:57 UTC · 3 segnali nuovi messi alla prova su 775 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-12%**.
 
@@ -21,18 +21,6 @@
 | `volume_ultima_su_media (filtro)` | se il volume sta accelerando proprio adesso | -4% (+8) |
 | `ampiezza (voto)` | quanto oscilla il prezzo prima di entrare | -6% (+7) |
 | `wallet_ripetuti x sbilanciamento (filtro)` | quanti wallet comprano più di una volta MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -8% (+4) |
-| `concentrazione_top5 x quota_wallet_nuovi (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per la quota di denaro da wallet mai visti prima | -11% (+1) |
-| `concentrazione_top5 / quota_wallet_nuovi (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a la quota di denaro da wallet mai visti prima | -12% (+0) |
-| `trade_al_minuto x quota_wallet_vincenti (voto)` | quanto è frenetico lo scambio MOLTIPLICATO per la quota di denaro da wallet con almeno un successo alle spalle | -12% (+0) |
-| `trade_al_minuto x quota_wallet_vincenti (filtro)` | quanto è frenetico lo scambio MOLTIPLICATO per la quota di denaro da wallet con almeno un successo alle spalle | -12% (+0) |
-| `trade_al_minuto / quota_wallet_vincenti (voto)` | quanto è frenetico lo scambio RAPPORTATO a la quota di denaro da wallet con almeno un successo alle spalle | -12% (-0) |
-| `trade_al_minuto / usd_primi20 (voto)` | quanto è frenetico lo scambio RAPPORTATO a quanto pesano i primissimi 20 acquisti sul totale | -12% (-0) |
-| `trade_al_minuto x usd_primi20 (voto)` | quanto è frenetico lo scambio MOLTIPLICATO per quanto pesano i primissimi 20 acquisti sul totale | -14% (-2) |
-| `trade_al_minuto / quota_wallet_vincenti (filtro)` | quanto è frenetico lo scambio RAPPORTATO a la quota di denaro da wallet con almeno un successo alle spalle | -23% (-10) |
-| `trade_al_minuto x usd_primi20 (filtro)` | quanto è frenetico lo scambio MOLTIPLICATO per quanto pesano i primissimi 20 acquisti sul totale | -25% (-13) |
-| `trade_al_minuto / usd_primi20 (filtro)` | quanto è frenetico lo scambio RAPPORTATO a quanto pesano i primissimi 20 acquisti sul totale | -28% (-16) |
-| `concentrazione_top5 x quota_wallet_nuovi (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per la quota di denaro da wallet mai visti prima | -30% (-17) |
-| `concentrazione_top5 / quota_wallet_nuovi (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a la quota di denaro da wallet mai visti prima | -30% (-18) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
