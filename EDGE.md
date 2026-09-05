@@ -1,5 +1,5 @@
 # 📊 EDGE — cruscotto del loop (walk-forward ONESTO verso il goal)
-*2026-09-05 21:13 UTC · no-lookahead, come girerebbe live*
+*2026-09-05 22:17 UTC · no-lookahead, come girerebbe live*
 
 ## 📊 MEDIA STRATEGIA: +17% per token
 *Su €100 → €117 · 77 token · vinti 31% · walk-forward, costi reali dentro*
