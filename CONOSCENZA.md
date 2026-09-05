@@ -1,5 +1,5 @@
 # 🧠 CONOSCENZA — cosa ha imparato il team
-*2026-09-05 06:58 UTC · 2387 idee messe alla prova finora*
+*2026-09-05 07:09 UTC · 2387 idee messe alla prova finora*
 
 > Questa non è la cronaca di cosa è successo: è il sapere accumulato. Prima di riprovare una cosa,
 > il team guarda qui. Ciò che ha fallito 3 volte si mette da parte — ma il caso si RIAPRE quando i
@@ -39,7 +39,7 @@
 | `segnale:solana:concentrazione_top5 x drawdown_pre:filtro` | solana | 6 | +9 punti |
 | `segnale:base:buy_medio / accelerazione_denaro:filtro` | base | 3 | +9 punti |
 | `segnale:solana:volume_ultima_su_media:filtro` | solana | 47 | +9 punti |
-| `segnale:bsc:eta_al_primo_trade:filtro` | bsc | 19 | +9 punti |
+| `segnale:bsc:eta_al_primo_trade:filtro` | bsc | 20 | +9 punti |
 | `segnale:solana:concentrazione_top5 x trade_al_minuto:filtro` | solana | 17 | +9 punti |
 | `segnale:bsc:buy_medio / buy_grossi:filtro` | bsc | 5 | +9 punti |
 | `segnale:bsc:buy_medio / trade_al_minuto:filtro` | bsc | 10 | +9 punti |
