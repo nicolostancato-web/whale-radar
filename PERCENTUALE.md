@@ -1,10 +1,10 @@
 # 📊 LA PERCENTUALE — com'è fatta, chain per chain
-*2026-09-05 23:00 UTC · walk-forward onesto · il cancello del live si apre a +40% robusta su 150+ token*
+*2026-09-05 23:36 UTC · walk-forward onesto · il cancello del live si apre a +40% robusta su 150+ token*
 
 | chain | media | **robusta** | trade in guadagno | peso dei 3 colpi migliori | giudizio |
 |---|---|---|---|---|---|
 | **robinhood** | +17% | **-20%** | 31% (71 trade) | 34% | 🔴 **NEGATIVA** |
-| **base** | +3% | **+0%** | 35% (341 trade) | 4% | 🟡 **POSITIVA MA NON ANCORA SOLIDA** |
+| **base** | +3% | **+0%** | 35% (342 trade) | 4% | 🟡 **POSITIVA MA NON ANCORA SOLIDA** |
 | **solana** | -9% | **-13%** | 27% (416 trade) | 5% | 🔴 **NEGATIVA** |
 | **bsc** | -21% | **-24%** | 14% (397 trade) | 4% | 🔴 **NEGATIVA** |
 
@@ -23,9 +23,9 @@
 
 🟡 **POSITIVA MA NON ANCORA SOLIDA** — guadagna, ma serve alzarla prima di rischiare soldi
 
-- su **1148 token** il modello ne sceglie **341**, e ne vanno bene il **35%**  *(fonte: pipeline multichain)*
+- su **1151 token** il modello ne sceglie **342**, e ne vanno bene il **35%**  *(fonte: pipeline multichain)*
 - il colpo migliore ha fatto **+383%** e da solo pesa il **1%** del risultato
-- il trade mediano fa **-6%** (è questo che succede *di solito*)
+- il trade mediano fa **-8%** (è questo che succede *di solito*)
 - togliendo i 3 colpi migliori resta **+0%** ← il numero su cui decidiamo
 - al cancello del live mancano **40 punti**
 - **tiene nel tempo?** prima metà dei token **+0%**, metà più recente **-21%** → ⚠️ **NO: sta peggiorando**. Un numero che funziona solo sui token vecchi è un ricordo, non un edge — il mercato è cambiato e la strategia va rifatta
