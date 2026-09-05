@@ -1,19 +1,19 @@
 # 🔬 EXPLORER — LOOP 1: come alzo la percentuale? (bsc)
-*2026-09-05 05:50 UTC · 119 strategie provate in questo ciclo · 54347 in totale*
+*2026-09-05 06:35 UTC · 134 strategie provate in questo ciclo · 54481 in totale*
 
-## Migliore trovata finora: **-23%** (stress test) · P&L medio **-14%** · crescita composta **-30.1%** · 5% peggiore **-82%** · 268 trade
+## Migliore trovata finora: **-24%** (stress test) · P&L medio **-14%** · crescita composta **-30.2%** · 5% peggiore **-82%** · 268 trade
 
 *La percentuale grande è lo STRESS TEST (tolto il 5% migliore): serve a non farsi ingannare
 dai colpi fortunati, ma non è il rendimento atteso. Il P&L medio è quello che il conto vedrebbe;
 la crescita composta dice se reinvestendo si cresce o ci si rovina.*
 
-*Il punteggio è il **minimo** fra la robusta su tutto lo storico (-23%) e quella sui token più RECENTI (-23%): cerchiamo qualcosa che funzioni domani, non che abbia funzionato un mese fa.*
+*Il punteggio è il **minimo** fra la robusta su tutto lo storico (-23%) e quella sui token più RECENTI (-24%): cerchiamo qualcosa che funzioni domani, non che abbia funzionato un mese fa.*
 
 **La strategia:** entra +12h · solo se volume > $10.000 · stop -60% · profitto a 2x e 8x · trailing -40% · soglia 0.4
 **I segnali guardati:** `buy_pressure, log_vol_accel, frac_verdi, log_buyusd`
 
 - migliorie trovate in questo ciclo: **0**
-- il cancello del LIVE si apre a **+40%** robusta → oggi 🔴 chiuso (mancano 63 punti)
+- il cancello del LIVE si apre a **+40%** robusta → oggi 🔴 chiuso (mancano 64 punti)
 
 ## Le strategie che hanno alzato la percentuale
 
@@ -30,11 +30,11 @@ la crescita composta dice se reinvestendo si cresce o ci si rovina.*
 
 | la strategia | risultato |
 |---|---|
-| entra +12h · solo se volume > $10.000 · stop -60% · profitto a 2x e 8x · trailing -40% · soglia 0.4 | -24% |
-| entra +12h · solo se volume > $10.000 · stop -60% · profitto a 4x e 8x · trailing -40% · soglia 0.4 | -24% |
 | entra +12h · solo se volume > $10.000 · stop -60% · profitto a 2x e 8x · trailing -40% · soglia 0.4 | -23% |
-| entra +12h · solo se volume > $10.000 · stop -60% · profitto a 2x e 8x · trailing -50% · soglia 0.4 | -23% |
-| entra +12h · solo se volume > $10.000 · stop -60% · profitto a 2x e 8x · trailing -40% · soglia 0.35 | -23% |
+| entra +12h · solo se volume > $10.000 · stop -60% · profitto a 2x e 8x · trailing -40% · soglia 0.4 | -23% |
+| entra +12h · solo se volume > $10.000 · stop -80% · profitto a 2x e 8x · trailing -40% · soglia 0.4 | -22% |
+| entra +12h · solo se volume > $10.000 · stop -60% · profitto a 2x e 8x · trailing -60% · soglia 0.4 | -23% |
+| entra +2h · solo se volume > $10.000 · stop -60% · profitto a 2x e 8x · trailing -40% · soglia 0.4 | -38% |
 | entra +12h · solo se volume > $10.000 · stop -60% · profitto a 2x e 8x · trailing -40% · soglia 0.4 | -23% |
 
 > Il LOOP 1 non si ferma mai: prova strategie e segnali, tiene solo cio' che alza la percentuale
