@@ -1,5 +1,5 @@
 # ⚖️ IL COSTO VERO — mettere d'accordo misura e modello
-*2026-09-05 09:51 UTC · 1054 token misurati su Jupiter · €0*
+*2026-09-05 10:53 UTC · 1062 token misurati su Jupiter · €0*
 
 > **Il problema**: diciamo di aver misurato il costo, e poi nei conti ne usiamo un altro,
 > **33%**. Finché le due cose non si parlano, «tutte le chain sono negative»
@@ -12,16 +12,16 @@
 
 | se metti | **trappole** (non esci, o esci con nulla) | costo quando esci davvero | peggiori | pareggio |
 |---|---|---|---|---|
-| $25 | **23%** (246/1054) | **4.0%** | 5% | 1.04x |
-| $100 | **25%** (262/1035) | **8.2%** | 10% | 1.09x |
-| $500 | **30%** (302/1016) | **25.7%** | 30% | 1.35x |
+| $25 | **24%** (250/1062) | **4.0%** | 5% | 1.04x |
+| $100 | **26%** (269/1045) | **8.2%** | 10% | 1.09x |
+| $500 | **30%** (308/1025) | **25.7%** | 30% | 1.35x |
 
 | *quello che usiamo oggi nei conti* | *non modellato* | *33%* | — | *1.50x* |
 
 ## Cosa cambia davvero
 
 A **$25**, quando si esce davvero, costa **4.0%** — molto meno del 33% che assumiamo.
-Ma **23%** dei token è una **trappola**: o non c'è uscita, o l'uscita restituisce nulla.
+Ma **24%** dei token è una **trappola**: o non c'è uscita, o l'uscita restituisce nulla.
 Quella non è una percentuale di costo: è tutto il capitale.
 
 Messe insieme: un trade che riesce deve fare almeno **1.36x** perché il gruppo
