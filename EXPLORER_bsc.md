@@ -1,5 +1,5 @@
 # 🔬 EXPLORER — LOOP 1: come alzo la percentuale? (bsc)
-*2026-09-05 19:37 UTC · 123 strategie provate in questo ciclo · 58660 in totale*
+*2026-09-05 20:03 UTC · 126 strategie provate in questo ciclo · 58786 in totale*
 
 ## Migliore trovata finora: **-23%** (stress test) · P&L medio **-14%** · crescita composta **-29.8%** · 5% peggiore **-81%** · 265 trade
 
@@ -30,12 +30,12 @@ la crescita composta dice se reinvestendo si cresce o ci si rovina.*
 
 | la strategia | risultato |
 |---|---|
-| entra +12h · solo se volume > $10.000 · stop -60% · profitto a 2x e 8x · trailing -40% · soglia 0.4 | -23% |
-| entra +12h · solo se volume > $10.000 · stop -80% · profitto a 2x e 8x · trailing -40% · soglia 0.4 | -23% |
-| entra +12h · solo se volume > $10.000, almeno 4h di scambi · stop -60% · profitto a 2x e 8x · trailing -40% · soglia 0.4 | -23% |
-| entra +12h · solo se volume > $10.000 · stop -60% · profitto a 2x e 8x · trailing -40% · soglia 0.4 | -23% |
-| entra +12h · solo se volume > $10.000 · stop -60% · profitto a 3x e 8x · trailing -40% · soglia 0.4 | -24% |
-| entra +12h · solo se volume > $10.000 · stop -60% · profitto a 2x e 8x · trailing -40% · soglia 0.5 | -23% |
+| entra +12h · solo se volume > $10.000 · stop -70% · profitto a 2x e 8x · trailing -40% · soglia 0.4 | -23% |
+| entra +12h · solo se volume > $10.000 · stop -60% · profitto a 2x e 8x · trailing -40% · soglia 0.35 | -23% |
+| entra +12h · solo se volume > $10.000 · stop -60% · profitto a 2x e 25x · trailing -40% · soglia 0.4 | -24% |
+| entra +12h · solo se volume > $10.000 · stop -50% · profitto a 2x e 8x · trailing -40% · soglia 0.4 | -23% |
+| entra +12h · solo se volume > $10.000 · stop -60% · profitto a 2x e 8x · trailing -40% · soglia 0.3 | -23% |
+| entra +12h · solo se volume > $10.000 · stop -60% · profitto a 2x e 8x · trailing -60% · soglia 0.4 | -23% |
 
 > Il LOOP 1 non si ferma mai: prova strategie e segnali, tiene solo cio' che alza la percentuale
 > ROBUSTA (tolti i 3 colpi migliori) di almeno 8 punti, e riparte da li'.
