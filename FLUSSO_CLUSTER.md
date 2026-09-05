@@ -1,5 +1,5 @@
 # 🌊 FLUSSO DI ENTITÀ INDIPENDENTI (bsc)
-*2026-09-05 00:04 UTC · 528 osservazioni · 53 nel decile alto · 33503 entità riconosciute*
+*2026-09-05 03:13 UTC · 527 osservazioni · 53 nel decile alto · 33274 entità riconosciute*
 
 > **La domanda è cambiata.** Non «questo wallet è bravo?» — che non ha risposta — ma:
 > **sta entrando capitale indipendente in questo token?**

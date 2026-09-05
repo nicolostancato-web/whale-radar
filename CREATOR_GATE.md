@@ -6,7 +6,7 @@
 > viva: se un giorno tornasse a separare in modo netto sarebbe una notizia da riesaminare da
 > capo, non una conferma. Chi legge non deve poterlo scambiare per una pista aperta.
 
-*2026-09-05 00:02 UTC · 1067 token con creator noto e esito misurabile · 960 creator distinti · di cui 687 spariti senza lasciare un prezzo, 0 esclusi perché potati da noi*
+*2026-09-05 03:11 UTC · 957 token con creator noto e esito misurabile · 852 creator distinti · di cui 572 spariti senza lasciare un prezzo, 112 esclusi perché potati da noi*
 
 > **Perché questa pista viene prima delle altre**: un grafico non causa un rug, una persona sì.
 > Non cerchiamo una correlazione: riconosciamo la controparte che controlla il gioco.
@@ -17,13 +17,13 @@
 
 | chi ha creato il token | token finiti male | token |
 |---|---|---|
-| creator **con precedenti puliti** | **69%** | 977 |
-| creator **con almeno un disastro alle spalle** | **74%** | 81 |
+| creator **con precedenti puliti** | **65%** | 879 |
+| creator **con almeno un disastro alle spalle** | **70%** | 69 |
 | creator mai visto prima (nessuna storia) | 67% | 9 |
 
 ## Verdetto
 
-> ❌ **Il cancello non separa niente**: +5 punti di differenza, dentro il rumore.
+> ❌ **Il cancello non separa niente**: +4 punti di differenza, dentro il rumore.
 > **Criterio di morte scattato**: non si inventano nuove categorie di creator per salvarlo.
 
 > ⚠️ Limite dichiarato: il marchio GoPlus è una **fotografia al momento del censimento**, non
