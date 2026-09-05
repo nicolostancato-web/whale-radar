@@ -1,4 +1,4 @@
-# 🧑‍💻 REPUTAZIONE DEL CREATOR (base)
+# 🧑‍💻 REPUTAZIONE DEL CREATOR (bsc)
 
 > ⛔ **PISTA CHIUSA il 04/09/2026.** Su 840 creator puliti contro 73 marchiati la differenza
 > era di 8 punti, dentro il rumore, e il criterio di morte era scritto prima (DECISIONS.md).
@@ -6,7 +6,7 @@
 > viva: se un giorno tornasse a separare in modo netto sarebbe una notizia da riesaminare da
 > capo, non una conferma. Chi legge non deve poterlo scambiare per una pista aperta.
 
-*2026-09-05 13:38 UTC · 1609 token con creator noto e esito misurabile · 1179 creator distinti · di cui 1211 spariti senza lasciare un prezzo, 170 esclusi perché potati da noi*
+*2026-09-05 14:38 UTC · 1013 token con creator noto e esito misurabile · 900 creator distinti · di cui 620 spariti senza lasciare un prezzo, 112 esclusi perché potati da noi*
 
 > **Perché questa pista viene prima delle altre**: un grafico non causa un rug, una persona sì.
 > Non cerchiamo una correlazione: riconosciamo la controparte che controlla il gioco.
@@ -17,18 +17,14 @@
 
 | chi ha creato il token | token finiti male | token |
 |---|---|---|
-| creator **con precedenti puliti** | **71%** | 1213 |
-| creator **con almeno un disastro alle spalle** | **90%** | 385 |
-| creator mai visto prima (nessuna storia) | 27% | 11 |
+| creator **con precedenti puliti** | **67%** | 932 |
+| creator **con almeno un disastro alle spalle** | **71%** | 72 |
+| creator mai visto prima (nessuna storia) | 67% | 9 |
 
 ## Verdetto
 
-> ✅ **Il cancello funziona.** Chi ha già combinato disastri li ripete: **19 punti**
-> di eventi terminali in più. Escludendo questi creator si scarta il **24%** dei
-> token, e si evita una quota sproporzionata dei disastri.
-
-> Resta un **cancello**, non un segnale d'acquisto: dice quali token NON toccare, non
-> quali compreranno gli altri. Il rendimento deve venire da un secondo stadio.
+> ❌ **Il cancello non separa niente**: +4 punti di differenza, dentro il rumore.
+> **Criterio di morte scattato**: non si inventano nuove categorie di creator per salvarlo.
 
 > ⚠️ Limite dichiarato: il marchio GoPlus è una **fotografia al momento del censimento**, non
 > necessariamente lo stato al momento in cui il token è nato. Sui token censiti appena nati la
