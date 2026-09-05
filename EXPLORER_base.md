@@ -1,7 +1,7 @@
 # 🔬 EXPLORER — LOOP 1: come alzo la percentuale? (base)
-*2026-09-05 13:28 UTC · 213 strategie provate in questo ciclo · 67459 in totale*
+*2026-09-05 13:48 UTC · 214 strategie provate in questo ciclo · 67673 in totale*
 
-## Migliore trovata finora: **-8%** (stress test) · P&L medio **+7%** · crescita composta **-10.8%** · 5% peggiore **-79%** · 169 trade
+## Migliore trovata finora: **-8%** (stress test) · P&L medio **+7%** · crescita composta **-10.8%** · 5% peggiore **-79%** · 170 trade
 
 *La percentuale grande è lo STRESS TEST (tolto il 5% migliore): serve a non farsi ingannare
 dai colpi fortunati, ma non è il rendimento atteso. Il P&L medio è quello che il conto vedrebbe;
@@ -28,12 +28,12 @@ la crescita composta dice se reinvestendo si cresce o ci si rovina.*
 
 | la strategia | risultato |
 |---|---|
-| entra +6h · solo se volume > $10.000, almeno 2h di scambi · stop -60% · profitto a 4x e 12x · trailing -50% · soglia 0.4 | -8% |
-| entra +6h · solo se volume > $10.000, almeno 2h di scambi · stop -60% · profitto a 4x e 8x · trailing -50% · soglia 0.4 | -5% |
-| entra +2h · solo se volume > $10.000, almeno 2h di scambi · stop -60% · profitto a 4x e 8x · trailing -50% · soglia 0.4 | -11% |
-| entra +6h · solo se volume > $10.000, almeno 2h di scambi · stop -60% · profitto a 4x e 6x · trailing -50% · soglia 0.4 | -8% |
-| entra +6h · solo se volume > $10.000, almeno 2h di scambi · stop -60% · profitto a 4x e 8x · trailing -50% · soglia 0.4 | -7% |
-| entra +6h · solo se volume > $10.000, almeno 2h di scambi · stop -70% · profitto a 4x e 8x · trailing -50% · soglia 0.4 | -7% |
+| entra +6h · solo se volume > $10.000, almeno 2h di scambi · stop -60% · profitto a 4x e 8x · trailing -50% · soglia 0.5 | -4% |
+| entra +6h · solo se volume > $10.000, almeno 2h di scambi · stop -60% · profitto a 4x e 8x · trailing -50% · soglia 0.35 | -10% |
+| entra +6h · solo se volume > $10.000, almeno 2h di scambi, vendite/acquisti > 30% · stop -60% · profitto a 4x e 8x · trailing -50% · soglia 0.4 | -10% |
+| entra +6h · solo se volume > $10.000, almeno 2h di scambi · stop -60% · profitto a 4x e 8x · trailing -50% · soglia 0.4 | -8% |
+| entra +6h · solo se volume > $10.000, almeno 2h di scambi · stop -60% · profitto a 4x e 8x · trailing -50% · soglia 0.4 | -8% |
+| entra +6h · solo se volume > $10.000, almeno 4h di scambi · stop -60% · profitto a 4x e 8x · trailing -50% · soglia 0.4 | -8% |
 
 > Il LOOP 1 non si ferma mai: prova strategie e segnali, tiene solo cio' che alza la percentuale
 > ROBUSTA (tolti i 3 colpi migliori) di almeno 8 punti, e riparte da li'.
