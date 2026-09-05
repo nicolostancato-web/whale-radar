@@ -1,24 +1,27 @@
 # 🕵️ INSIDER — chi compra PRIMA del pump (solana)
-*2026-09-05 14:29 UTC · walk-forward ONESTO (score dal solo passato risolto)*
+*2026-09-05 17:10 UTC · walk-forward ONESTO (score dal solo passato risolto)*
 
-## Verdetto: 🟡 **PROMETTENTE**: lift +18pt su 26 token (p=0.012) — serve arrivare a 40 casi prima di cantare vittoria
+## Verdetto: 🟡 **PROMETTENTE**: lift +22pt su 26 token (p=0.003) — serve arrivare a 40 casi prima di cantare vittoria
 
 | | token | vinti | media strategia |
 |---|---|---|---|
-| **con insider** (early-buy da wallet ricorrenti vincenti) | 26 | **31%** | +14% |
-| senza insider | 637 | 12% | -20% |
-| *tutti (base rate)* | 663 | *13%* | *-19%* |
+| **con insider** (early-buy da wallet ricorrenti vincenti) | 26 | **35%** | +18% |
+| senza insider | 638 | 12% | -20% |
+| *tutti (base rate)* | 664 | *13%* | *-19%* |
 
-**LIFT = +18.3 punti** di win-rate rispetto alla media · **p = 0.0117** (probabilita' di vedere 8 vincenti su 26 per puro caso) · casi 26/40
+**LIFT = +22.0 punti** di win-rate rispetto alla media · **p = 0.0034** (probabilita' di vedere 9 vincenti su 26 per puro caso) · casi 26/40
 
-## Wallet ricorrenti trovati: **718** (≥2 apparizioni da first-buyer, su 663 token)
+## Wallet ricorrenti trovati: **718** (≥2 apparizioni da first-buyer, su 664 token)
 
 | wallet | apparizioni | vinti | score |
 |---|---|---|---|
+| `4Z71k6…QSqb` | 3 | 3 | 0.80 |
+| `7BuAFc…JeXU` | 3 | 3 | 0.80 |
 | `3J88bQ…X5Ut` | 3 | 3 | 0.80 |
 | `7UTvAj…WgoU` | 2 | 2 | 0.75 |
 | `D6Bdfr…Sd1H` | 2 | 2 | 0.75 |
 | `eJLPuR…jHEB` | 2 | 2 | 0.75 |
+| `7xNYVd…izc2` | 2 | 2 | 0.75 |
 | `CSqNmd…hCzH` | 2 | 2 | 0.75 |
 | `4StWrP…bUio` | 2 | 2 | 0.75 |
 | `GpkMfG…Z9od` | 2 | 2 | 0.75 |
@@ -27,9 +30,6 @@
 | `26raUr…pomo` | 2 | 2 | 0.75 |
 | `5wHBg6…TmT5` | 2 | 2 | 0.75 |
 | `CvhUR9…BYuU` | 2 | 2 | 0.75 |
-| `AjkDC1…qu4b` | 2 | 2 | 0.75 |
-| `8QW1uS…H6tR` | 2 | 2 | 0.75 |
-| `5spxPi…PbtJ` | 2 | 2 | 0.75 |
 
 > **Come si legge**: lo score di un wallet e' il suo win-rate smussato da first-buyer. La feature per un
 > token e' la frazione di USD comprata nei primi 30 min da wallet gia' noti come vincenti — calcolata SOLO

@@ -1,5 +1,5 @@
-# 🎯 IL SECONDO STADIO — fra i sopravvissuti, cosa si compra? (bsc)
-*2026-09-05 14:41 UTC · 672 token passano il cancello su 700 · 336 scartati*
+# 🎯 IL SECONDO STADIO — fra i sopravvissuti, cosa si compra? (base)
+*2026-09-05 17:19 UTC · 675 token passano il cancello su 700 · 396 scartati*
 
 > Un filtro anti-truffa perfetto porta il rendimento da −40% a −10%. È un enorme
 > miglioramento e **non è un guadagno**: senza un secondo stadio LOOP 1 può solo smettere
@@ -11,63 +11,71 @@
 
 ## il volume sta ACCELERANDO
 
-*fascia: 🔒 validazione (mai vista)*
+*fascia: ricerca (già vista, non fa fede)*
 
 | dopo | extra-rendimento medio | **mediano** | casi |
 |---|---|---|---|
-| 5 min | **-1.2%** | +0.0% | 29 |
-| 30 min | **-1.2%** | +0.0% | 29 |
-| 2 ore | **-7.6%** | +0.0% | 26 |
+| 5 min | **-0.9%** | +0.0% | 8290 |
+| 30 min | **-0.9%** | +0.0% | 8290 |
+| 2 ore | **-4.2%** | +0.0% | 8281 |
+| 6 ore | **-11.4%** | +0.0% | 7405 |
+| 24 ore | **-5.0%** | +0.0% | 3950 |
 
 > Su queste distribuzioni **conta la mediana**: la media la muove un token solo.
 
 
-> ❌ **È momentum**: prima del segnale il token aveva già fatto +165758655165%, dopo fa -7.6%. Riconosce un rialzo altrui, non lo prevede.
+> ❌ Non batte i controlli appaiati.
 
 ## comprano MOLTE MANI diverse
 
-*fascia: 🔒 validazione (mai vista)*
+*fascia: ricerca (già vista, non fa fede)*
 
 | dopo | extra-rendimento medio | **mediano** | casi |
 |---|---|---|---|
-| 5 min | **-1.0%** | +0.0% | 36 |
-| 30 min | **-1.0%** | +0.0% | 36 |
-| 2 ore | **-6.1%** | +0.0% | 32 |
+| 5 min | **-0.3%** | +0.0% | 43008 |
+| 30 min | **-0.3%** | +0.0% | 43008 |
+| 2 ore | **-1.0%** | -0.0% | 42973 |
+| 6 ore | **-2.9%** | -0.1% | 41047 |
+| 24 ore | **-1.0%** | -0.8% | 32510 |
 
 > Su queste distribuzioni **conta la mediana**: la media la muove un token solo.
 
 
-> ❌ **È momentum**: prima del segnale il token aveva già fatto +50122722291%, dopo fa -6.1%. Riconosce un rialzo altrui, non lo prevede.
+> ❌ Non batte i controlli appaiati.
 
 ## si compra molto più di quanto si venda
 
-*fascia: 🔒 validazione (mai vista)*
+*fascia: ricerca (già vista, non fa fede)*
 
 | dopo | extra-rendimento medio | **mediano** | casi |
 |---|---|---|---|
-| 5 min | **-1.1%** | +0.0% | 33 |
-| 30 min | **-1.1%** | +0.0% | 33 |
-| 2 ore | **-5.4%** | +0.0% | 30 |
+| 5 min | **-0.3%** | +0.0% | 42567 |
+| 30 min | **-0.3%** | +0.0% | 42567 |
+| 2 ore | **-1.0%** | -0.0% | 42532 |
+| 6 ore | **-2.9%** | -0.1% | 40614 |
+| 24 ore | **-1.0%** | -0.8% | 32127 |
 
 > Su queste distribuzioni **conta la mediana**: la media la muove un token solo.
 
 
-> ❌ **È momentum**: prima del segnale il token aveva già fatto +50648625266%, dopo fa -5.4%. Riconosce un rialzo altrui, non lo prevede.
+> ❌ Non batte i controlli appaiati.
 
 ## arrivano compratori MAI VISTI su quel token
 
-*fascia: 🔒 validazione (mai vista)*
+*fascia: ricerca (già vista, non fa fede)*
 
 | dopo | extra-rendimento medio | **mediano** | casi |
 |---|---|---|---|
-| 5 min | **-1.0%** | +0.0% | 36 |
-| 30 min | **-1.0%** | +0.0% | 36 |
-| 2 ore | **-6.1%** | +0.0% | 32 |
+| 5 min | **-0.3%** | +0.0% | 43008 |
+| 30 min | **-0.3%** | +0.0% | 43008 |
+| 2 ore | **-1.0%** | -0.0% | 42973 |
+| 6 ore | **-2.9%** | -0.1% | 41047 |
+| 24 ore | **-1.0%** | -0.8% | 32510 |
 
 > Su queste distribuzioni **conta la mediana**: la media la muove un token solo.
 
 
-> ❌ **È momentum**: prima del segnale il token aveva già fatto +50122722291%, dopo fa -6.1%. Riconosce un rialzo altrui, non lo prevede.
+> ❌ Non batte i controlli appaiati.
 
 ## Verdetto
 
