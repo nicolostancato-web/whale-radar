@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (solana)
-*2026-09-05 06:33 UTC · 10 segnali nuovi messi alla prova su 535 token*
+*2026-09-05 06:58 UTC · 9 segnali nuovi messi alla prova su 535 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-39%**.
 
@@ -33,16 +33,15 @@
 | `sbilanciamento (filtro)` | quanto il denaro che entra supera quello che esce | -35% (+4) |
 | `sbilanciamento / ampiezza (filtro)` | quanto il denaro che entra supera quello che esce RAPPORTATO a quanto oscilla il prezzo prima di entrare | -35% (+4) |
 | `n_compratori x volume_ultima_su_media (filtro)` | quante persone diverse hanno comprato MOLTIPLICATO per se il volume sta accelerando proprio adesso | -35% (+4) |
-| `concentrazione_top5 x concentrazione_top1 (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per quanto pesa il singolo compratore più grosso | -41% (-2) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
 - `concentrazione_top5 (voto)` — già bocciato 12 volte 11h fa (si riprova fra 1h o quando i dati crescono)
-- `concentrazione_top5 (filtro)` — già bocciato 3 volte 8h fa (si riprova fra 4h o quando i dati crescono)
+- `concentrazione_top5 (filtro)` — già bocciato 3 volte 9h fa (si riprova fra 3h o quando i dati crescono)
 - `concentrazione_top1 (voto)` — già bocciato 12 volte 11h fa (si riprova fra 1h o quando i dati crescono)
 - `concentrazione_top1 (filtro)` — già bocciato 12 volte 11h fa (si riprova fra 1h o quando i dati crescono)
 - `n_compratori (voto)` — già bocciato 12 volte 11h fa (si riprova fra 1h o quando i dati crescono)
-- `n_compratori (filtro)` — già bocciato 3 volte 8h fa (si riprova fra 4h o quando i dati crescono)
+- `n_compratori (filtro)` — già bocciato 3 volte 9h fa (si riprova fra 3h o quando i dati crescono)
 - `buy_medio (voto)` — già bocciato 12 volte 11h fa (si riprova fra 1h o quando i dati crescono)
 - `buy_medio (filtro)` — già bocciato 3 volte 11h fa (si riprova fra 1h o quando i dati crescono)
 - `buy_grossi (voto)` — già bocciato 12 volte 11h fa (si riprova fra 1h o quando i dati crescono)
