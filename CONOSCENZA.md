@@ -1,5 +1,5 @@
 # 🧠 CONOSCENZA — cosa ha imparato il team
-*2026-09-05 22:44 UTC · 2387 idee messe alla prova finora*
+*2026-09-05 22:50 UTC · 2387 idee messe alla prova finora*
 
 > Questa non è la cronaca di cosa è successo: è il sapere accumulato. Prima di riprovare una cosa,
 > il team guarda qui. Ciò che ha fallito 3 volte si mette da parte — ma il caso si RIAPRE quando i
@@ -42,7 +42,7 @@
 | `segnale:solana:concentrazione_top5 x n_compratori:filtro` | solana | 7 | +9 punti |
 | `segnale:bsc:buy_medio / quota_wallet_nuovi:filtro` | bsc | 13 | +9 punti |
 | `segnale:bsc:buy_medio / accelerazione_denaro:filtro` | bsc | 5 | +9 punti |
-| `segnale:bsc:buy_medio / usd_primi20:filtro` | bsc | 9 | +9 punti |
+| `segnale:bsc:buy_medio / usd_primi20:filtro` | bsc | 10 | +9 punti |
 | `segnale:solana:concentrazione_top5 x drawdown_pre:filtro` | solana | 14 | +9 punti |
 | `segnale:base:buy_medio / accelerazione_denaro:filtro` | base | 3 | +9 punti |
 | `segnale:bsc:buy_medio / buy_grossi:filtro` | bsc | 10 | +9 punti |
