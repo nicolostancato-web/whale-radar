@@ -1,5 +1,5 @@
 # 🎯 IL SECONDO STADIO — fra i sopravvissuti, cosa si compra? (bsc)
-*2026-09-05 00:05 UTC · 672 token passano il cancello su 700 · 314 scartati*
+*2026-09-05 03:15 UTC · 672 token passano il cancello su 700 · 314 scartati*
 
 > Un filtro anti-truffa perfetto porta il rendimento da −40% a −10%. È un enorme
 > miglioramento e **non è un guadagno**: senza un secondo stadio LOOP 1 può solo smettere

@@ -1,5 +1,5 @@
 # 🧠 WALLET INTELLIGENCE — l'ultimo test (bsc)
-*2026-09-05 00:02 UTC · 40359 decisioni indipendenti (prima scelta di ogni entità su ogni token) · 34165 entità riconosciute fondendo i wallet della stessa mano*
+*2026-09-05 03:11 UTC · 40097 decisioni indipendenti (prima scelta di ogni entità su ogni token) · 33939 entità riconosciute fondendo i wallet della stessa mano*
 
 > **Come si misura la bravura qui**: non «quanti token ha azzeccato», ma **quanto ha fatto meglio
 > dei token comparabili** disponibili negli stessi momenti — e con il punteggio schiacciato verso
