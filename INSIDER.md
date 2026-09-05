@@ -1,26 +1,24 @@
 # 🕵️ INSIDER — chi compra PRIMA del pump (solana)
-*2026-09-05 06:54 UTC · walk-forward ONESTO (score dal solo passato risolto)*
+*2026-09-05 09:43 UTC · walk-forward ONESTO (score dal solo passato risolto)*
 
-## Verdetto: 🟡 **PROMETTENTE**: lift +19pt su 25 token (p=0.009) — serve arrivare a 40 casi prima di cantare vittoria
+## Verdetto: 🟡 **PROMETTENTE**: lift +18pt su 26 token (p=0.012) — serve arrivare a 40 casi prima di cantare vittoria
 
 | | token | vinti | media strategia |
 |---|---|---|---|
-| **con insider** (early-buy da wallet ricorrenti vincenti) | 25 | **32%** | +15% |
-| senza insider | 633 | 12% | -20% |
-| *tutti (base rate)* | 658 | *13%* | *-19%* |
+| **con insider** (early-buy da wallet ricorrenti vincenti) | 26 | **31%** | +14% |
+| senza insider | 635 | 12% | -20% |
+| *tutti (base rate)* | 661 | *13%* | *-19%* |
 
-**LIFT = +19.4 punti** di win-rate rispetto alla media · **p = 0.0095** (probabilita' di vedere 8 vincenti su 25 per puro caso) · casi 25/40
+**LIFT = +18.2 punti** di win-rate rispetto alla media · **p = 0.0119** (probabilita' di vedere 8 vincenti su 26 per puro caso) · casi 26/40
 
-## Wallet ricorrenti trovati: **716** (≥2 apparizioni da first-buyer, su 658 token)
+## Wallet ricorrenti trovati: **718** (≥2 apparizioni da first-buyer, su 661 token)
 
 | wallet | apparizioni | vinti | score |
 |---|---|---|---|
 | `3J88bQ…X5Ut` | 3 | 3 | 0.80 |
 | `7UTvAj…WgoU` | 2 | 2 | 0.75 |
 | `D6Bdfr…Sd1H` | 2 | 2 | 0.75 |
-| `4Z71k6…QSqb` | 2 | 2 | 0.75 |
 | `eJLPuR…jHEB` | 2 | 2 | 0.75 |
-| `7BuAFc…JeXU` | 2 | 2 | 0.75 |
 | `CSqNmd…hCzH` | 2 | 2 | 0.75 |
 | `4StWrP…bUio` | 2 | 2 | 0.75 |
 | `GpkMfG…Z9od` | 2 | 2 | 0.75 |
@@ -30,6 +28,8 @@
 | `5wHBg6…TmT5` | 2 | 2 | 0.75 |
 | `CvhUR9…BYuU` | 2 | 2 | 0.75 |
 | `AjkDC1…qu4b` | 2 | 2 | 0.75 |
+| `8QW1uS…H6tR` | 2 | 2 | 0.75 |
+| `5spxPi…PbtJ` | 2 | 2 | 0.75 |
 
 > **Come si legge**: lo score di un wallet e' il suo win-rate smussato da first-buyer. La feature per un
 > token e' la frazione di USD comprata nei primi 30 min da wallet gia' noti come vincenti — calcolata SOLO
