@@ -1,1 +1,1 @@
-{"chain": "solana", "ts": 1788594455, "feature": ["sbilanciamento (filtro)"]}
+{"chain": "bsc", "ts": 1788594893, "feature": ["buy_medio / drawdown_pre (filtro)", "eta_al_primo_trade (filtro)", "buy_medio / trade_al_minuto (filtro)"]}
