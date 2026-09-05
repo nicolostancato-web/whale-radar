@@ -1,5 +1,5 @@
 # ⚖️ VALIDAZIONE — le proposte messe alla prova su dati MAI VISTI
-*2026-09-05 23:02 UTC · un token su quattro è in cassaforte: la ricerca non lo vede, non lo può vedere*
+*2026-09-05 23:38 UTC · un token su quattro è in cassaforte: la ricerca non lo vede, non lo può vedere*
 
 > **Perché esiste questo controllo:** gli esploratori provano migliaia di configurazioni e tengono la
 > migliore. Su dati puramente casuali, con 5.000 tentativi la migliore sembra comunque ottima. È il
