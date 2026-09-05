@@ -1,5 +1,5 @@
 # 💓 HEARTBEAT — il motore è vivo?
-*2026-09-05 03:26 UTC · controllo ogni 2h, da FUORI il motore*
+*2026-09-05 03:27 UTC · controllo ogni 2h, da FUORI il motore*
 
 ## 🟢 **MOTORE VIVO** — ultimo commit 9 minuti fa
 
