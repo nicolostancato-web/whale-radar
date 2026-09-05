@@ -1,10 +1,10 @@
 # 📊 LA PERCENTUALE — com'è fatta, chain per chain
-*2026-09-05 06:14 UTC · walk-forward onesto · il cancello del live si apre a +40% robusta su 150+ token*
+*2026-09-05 07:22 UTC · walk-forward onesto · il cancello del live si apre a +40% robusta su 150+ token*
 
 | chain | media | **robusta** | trade in guadagno | peso dei 3 colpi migliori | giudizio |
 |---|---|---|---|---|---|
 | **robinhood** | +16% | **-20%** | 30% (73 trade) | 34% | 🔴 **NEGATIVA** |
-| **base** | +4% | **+1%** | 36% (340 trade) | 4% | 🟡 **POSITIVA MA NON ANCORA SOLIDA** |
+| **base** | +4% | **+0%** | 36% (341 trade) | 4% | 🟡 **POSITIVA MA NON ANCORA SOLIDA** |
 | **solana** | -9% | **-13%** | 27% (419 trade) | 5% | 🔴 **NEGATIVA** |
 | **bsc** | -21% | **-24%** | 14% (397 trade) | 4% | 🔴 **NEGATIVA** |
 
@@ -13,7 +13,7 @@
 🔴 **NEGATIVA** — con questa strategia si perde: il loop 1 deve continuare a cercare
 
 - su **81 token** il modello ne sceglie **73**, e ne vanno bene il **30%**  *(fonte: pipeline completo)*
-- il colpo migliore ha fatto **+2206%** e da solo pesa il **27%** del risultato
+- il colpo migliore ha fatto **+2205%** e da solo pesa il **27%** del risultato
 - il trade mediano fa **-20%** (è questo che succede *di solito*)
 - togliendo i 3 colpi migliori resta **-20%** ← il numero su cui decidiamo
 - al cancello del live mancano **60 punti**
@@ -23,11 +23,11 @@
 
 🟡 **POSITIVA MA NON ANCORA SOLIDA** — guadagna, ma serve alzarla prima di rischiare soldi
 
-- su **1134 token** il modello ne sceglie **340**, e ne vanno bene il **36%**  *(fonte: pipeline multichain)*
+- su **1137 token** il modello ne sceglie **341**, e ne vanno bene il **36%**  *(fonte: pipeline multichain)*
 - il colpo migliore ha fatto **+384%** e da solo pesa il **1%** del risultato
 - il trade mediano fa **-6%** (è questo che succede *di solito*)
-- togliendo i 3 colpi migliori resta **+1%** ← il numero su cui decidiamo
-- al cancello del live mancano **39 punti**
+- togliendo i 3 colpi migliori resta **+0%** ← il numero su cui decidiamo
+- al cancello del live mancano **40 punti**
 - **tiene nel tempo?** prima metà dei token **+0%**, metà più recente **-21%** → ⚠️ **NO: sta peggiorando**. Un numero che funziona solo sui token vecchi è un ricordo, non un edge — il mercato è cambiato e la strategia va rifatta
 
 ## solana
