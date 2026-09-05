@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (bsc)
-*2026-09-05 04:37 UTC · 16 segnali nuovi messi alla prova su 524 token*
+*2026-09-05 04:59 UTC · 8 segnali nuovi messi alla prova su 524 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-27%**.
 
@@ -24,17 +24,9 @@
 | `buy_medio / trade_al_minuto (filtro)` | quanto compra in media ciascuno RAPPORTATO a quanto è frenetico lo scambio | -18% (+9) |
 | `buy_medio / quota_wallet_nuovi (filtro)` | quanto compra in media ciascuno RAPPORTATO a la quota di denaro da wallet mai visti prima | -18% (+9) |
 | `buy_medio x sbilanciamento (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -24% (+3) |
-| `sbilanciamento / accelerazione_denaro (filtro)` | quanto il denaro che entra supera quello che esce RAPPORTATO a se i soldi stanno entrando più in fretta adesso che all'inizio | -24% (+3) |
 | `concentrazione_top1 x sbilanciamento (filtro)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -24% (+3) |
-| `sbilanciamento x accelerazione_denaro (filtro)` | quanto il denaro che entra supera quello che esce MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -24% (+3) |
 | `n_compratori x sbilanciamento (filtro)` | quante persone diverse hanno comprato MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -24% (+3) |
-| `buy_medio / quota_wallet_nuovi (voto)` | quanto compra in media ciascuno RAPPORTATO a la quota di denaro da wallet mai visti prima | -24% (+2) |
-| `buy_medio x quota_wallet_nuovi (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per la quota di denaro da wallet mai visti prima | -25% (+2) |
-| `trade_al_minuto x volume_ultima_su_media (filtro)` | quanto è frenetico lo scambio MOLTIPLICATO per se il volume sta accelerando proprio adesso | -25% (+2) |
-| `trade_al_minuto / volume_ultima_su_media (filtro)` | quanto è frenetico lo scambio RAPPORTATO a se il volume sta accelerando proprio adesso | -25% (+2) |
-| `trade_al_minuto / volume_ultima_su_media (voto)` | quanto è frenetico lo scambio RAPPORTATO a se il volume sta accelerando proprio adesso | -27% (+0) |
-| `buy_medio x quota_wallet_nuovi (voto)` | quanto compra in media ciascuno MOLTIPLICATO per la quota di denaro da wallet mai visti prima | -27% (-0) |
-| `trade_al_minuto x volume_ultima_su_media (voto)` | quanto è frenetico lo scambio MOLTIPLICATO per se il volume sta accelerando proprio adesso | -27% (-0) |
+| `volume_ultima_su_media (filtro)` | se il volume sta accelerando proprio adesso | -35% (-8) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
