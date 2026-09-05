@@ -1,1 +1,1 @@
-{"chain": "base", "ts": 1788613331, "feature": ["volume_ultima_su_media (filtro)", "ampiezza (voto)"]}
+{"chain": "solana", "ts": 1788614077, "feature": ["trade_al_minuto x sbilanciamento (filtro)", "trade_al_minuto x drawdown_pre (filtro)", "n_compratori x accelerazione_denaro (filtro)", "quota_wallet_nuovi / compra_e_rivende (filtro)", "sbilanciamento / drawdown_pre (filtro)", "buy_medio x accelerazione_denaro (filtro)", "sbilanciamento (filtro)"]}
