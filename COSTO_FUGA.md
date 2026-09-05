@@ -1,5 +1,5 @@
 # 🏃 QUANTO COSTA USCIRE MENTRE SCAPPI
-*2026-09-05 21:08 UTC · 0 misure prese **nell'istante dello stop**, non a mercato calmo · €0*
+*2026-09-05 22:08 UTC · 0 misure prese **nell'istante dello stop**, non a mercato calmo · €0*
 
 > Tutte le altre nostre quote sono prese in un momento qualunque, cioè nel **momento
 > sbagliato**. Il prezzo che conta è quello che avresti pagato mentre il pool si svuotava e
