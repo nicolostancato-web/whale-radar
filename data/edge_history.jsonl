@@ -14,4 +14,4 @@
 {"date": "2026-09-02", "n_tok": 234, "base_port": -20.8, "base_win": 24.0, "sel_n": 134, "sel_port": -5.2, "sel_win": 33.0, "sel_no3": -23.7, "edge": 15.6, "peso_top1": 13.7, "peso_top3": 21.4, "mediana": -41.0, "migliore": 1645.4}
 {"date": "2026-09-03", "n_tok": 234, "base_port": 4.6, "base_win": 31.0, "sel_n": 138, "sel_port": 23.2, "sel_win": 36.0, "sel_no3": -0.6, "edge": 18.6, "peso_top1": 13.6, "peso_top3": 21.1, "mediana": -21.4, "migliore": 2207.6}
 {"date": "2026-09-04", "n_tok": 71, "base_port": 19.4, "base_win": 31.0, "sel_n": 66, "sel_port": 22.4, "sel_win": 33.0, "sel_no3": -17.2, "edge": 3.0, "peso_top1": 28.6, "peso_top3": 35.4, "mediana": -19.4, "migliore": 2206.7}
-{"date": "2026-09-05", "n_tok": 81, "base_port": 12.1, "base_win": 27.0, "sel_n": 73, "sel_port": 15.6, "sel_win": 30.0, "sel_no3": -20.3, "edge": 3.5, "peso_top1": 27.3, "peso_top3": 33.9, "mediana": -20.4, "migliore": 2205.4}
+{"date": "2026-09-05", "n_tok": 71, "base_port": 19.3, "base_win": 31.0, "sel_n": 66, "sel_port": 22.3, "sel_win": 33.0, "sel_no3": -17.3, "edge": 3.0, "peso_top1": 28.6, "peso_top3": 35.4, "mediana": -19.5, "migliore": 2204.3}
