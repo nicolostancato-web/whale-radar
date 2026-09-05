@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (base)
-*2026-09-05 18:43 UTC · 4 segnali nuovi messi alla prova su 776 token*
+*2026-09-05 18:53 UTC · 16 segnali nuovi messi alla prova su 776 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-13%**.
 
@@ -22,6 +22,18 @@
 | `drawdown_pre (filtro)` | quanto è già sceso dal massimo prima di entrare | -6% (+7) |
 | `ampiezza (voto)` | quanto oscilla il prezzo prima di entrare | -7% (+6) |
 | `concentrazione_top5 / quota_wallet_vincenti (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a la quota di denaro da wallet con almeno un successo alle spalle | -10% (+3) |
+| `buy_grossi / usd_primi20 (voto)` | la quota di denaro che arriva da acquisti sopra i 500 dollari RAPPORTATO a quanto pesano i primissimi 20 acquisti sul totale | -12% (+0) |
+| `n_compratori x volume_ultima_su_media (voto)` | quante persone diverse hanno comprato MOLTIPLICATO per se il volume sta accelerando proprio adesso | -12% (+0) |
+| `trade_al_minuto x quota_wallet_reduci (voto)` | quanto è frenetico lo scambio MOLTIPLICATO per la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -12% (+0) |
+| `trade_al_minuto / quota_wallet_reduci (voto)` | quanto è frenetico lo scambio RAPPORTATO a la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -13% (+0) |
+| `buy_grossi x usd_primi20 (voto)` | la quota di denaro che arriva da acquisti sopra i 500 dollari MOLTIPLICATO per quanto pesano i primissimi 20 acquisti sul totale | -13% (-1) |
+| `trade_al_minuto x quota_wallet_reduci (filtro)` | quanto è frenetico lo scambio MOLTIPLICATO per la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -14% (-1) |
+| `n_compratori / volume_ultima_su_media (voto)` | quante persone diverse hanno comprato RAPPORTATO a se il volume sta accelerando proprio adesso | -14% (-1) |
+| `n_compratori / volume_ultima_su_media (filtro)` | quante persone diverse hanno comprato RAPPORTATO a se il volume sta accelerando proprio adesso | -20% (-8) |
+| `trade_al_minuto / quota_wallet_reduci (filtro)` | quanto è frenetico lo scambio RAPPORTATO a la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -23% (-10) |
+| `buy_grossi x usd_primi20 (filtro)` | la quota di denaro che arriva da acquisti sopra i 500 dollari MOLTIPLICATO per quanto pesano i primissimi 20 acquisti sul totale | -25% (-13) |
+| `buy_grossi / usd_primi20 (filtro)` | la quota di denaro che arriva da acquisti sopra i 500 dollari RAPPORTATO a quanto pesano i primissimi 20 acquisti sul totale | -26% (-13) |
+| `n_compratori x volume_ultima_su_media (filtro)` | quante persone diverse hanno comprato MOLTIPLICATO per se il volume sta accelerando proprio adesso | -31% (-18) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
