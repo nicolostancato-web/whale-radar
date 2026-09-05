@@ -1,5 +1,5 @@
 # 🧠 CONOSCENZA — cosa ha imparato il team
-*2026-09-05 15:55 UTC · 2387 idee messe alla prova finora*
+*2026-09-05 15:56 UTC · 2387 idee messe alla prova finora*
 
 > Questa non è la cronaca di cosa è successo: è il sapere accumulato. Prima di riprovare una cosa,
 > il team guarda qui. Ciò che ha fallito 3 volte si mette da parte — ma il caso si RIAPRE quando i
@@ -310,16 +310,16 @@
 | `segnale:solana:trade_al_minuto x ampiezza:filtro` | solana | 3 | +11 punti |
 | `segnale:solana:buy_medio x ampiezza:filtro` | solana | 4 | +11 punti |
 | `segnale:solana:buy_medio / accelerazione_denaro:filtro` | solana | 5 | +10 punti |
+| `segnale:bsc:buy_medio / wallet_ripetuti:filtro` | bsc | 3 | +10 punti |
 | `segnale:solana:buy_medio x sbilanciamento:filtro` | solana | 3 | +10 punti |
 | `segnale:solana:n_compratori / usd_primi20:filtro` | solana | 3 | +10 punti |
 | `segnale:base:buy_medio / trade_al_minuto:filtro` | base | 5 | +10 punti |
 | `segnale:solana:buy_medio x drawdown_pre:filtro` | solana | 3 | +10 punti |
 | `segnale:bsc:eta_al_primo_trade:filtro` | bsc | 3 | +10 punti |
+| `segnale:bsc:buy_medio / trade_al_minuto:filtro` | bsc | 3 | +10 punti |
 | `segnale:bsc:buy_medio / sbilanciamento:filtro` | bsc | 3 | +10 punti |
 | `segnale:solana:n_compratori / buy_medio:filtro` | solana | 4 | +10 punti |
 | `segnale:solana:concentrazione_top5 x n_compratori:filtro` | solana | 3 | +9 punti |
-| `segnale:base:buy_medio / accelerazione_denaro:filtro` | base | 5 | +9 punti |
-| `segnale:solana:volume_ultima_su_media:filtro` | solana | 7 | +9 punti |
 
 ## 🔎 Ancora in prova
 
