@@ -1,1 +1,1 @@
-{"chain": "solana", "ts": 1788594455, "feature": ["sbilanciamento (filtro)"]}
+{"chain": "bsc", "ts": 1788596804, "feature": ["eta_al_primo_trade (filtro)", "quota_wallet_reduci (filtro)", "quota_wallet_vincenti (filtro)", "quota_wallet_nuovi (filtro)", "usd_primi20 (filtro)", "wallet_ripetuti (filtro)", "compra_e_rivende (filtro)", "accelerazione_denaro (filtro)"]}
