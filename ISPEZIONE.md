@@ -84,7 +84,7 @@
 
 | archivio | token | nuovi | |
 |---|---|---|---|
-| sicurezza | 4619 | +0 | ⏳ nessun nuovo (normale entro 2h) |
+| sicurezza | 4648 | +29 | ✅ cresce |
 
 ## I processi stanno girando?
 
