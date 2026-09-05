@@ -1,25 +1,29 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (robinhood)
-*2026-09-05 15:50 UTC · 8 segnali nuovi messi alla prova su 340 token*
+*2026-09-05 16:16 UTC · 12 segnali nuovi messi alla prova su 340 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-14%**.
 
 ## Nessun segnale nuovo ha superato la prova in questo giro
 
-Nessuno dei 8 candidati alza la percentuale di almeno 3 punti.
+Nessuno dei 12 candidati alza la percentuale di almeno 3 punti.
 Non è un fallimento: è la risposta onesta di oggi. Con più dati gli stessi segnali possono passare.
 
 ## Tutti i segnali provati, dal migliore al peggiore
 
 | il segnale | cosa guarda | risultato |
 |---|---|---|
-| `quota_wallet_vincenti x usd_primi20 (voto)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per quanto pesano i primissimi 20 acquisti sul totale | -14% (+0) |
-| `quota_wallet_vincenti / usd_primi20 (voto)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a quanto pesano i primissimi 20 acquisti sul totale | -14% (+0) |
-| `concentrazione_top5 x wallet_ripetuti (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per quanti wallet comprano più di una volta | -14% (+0) |
-| `concentrazione_top5 / wallet_ripetuti (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a quanti wallet comprano più di una volta | -14% (+0) |
-| `quota_wallet_vincenti x usd_primi20 (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per quanto pesano i primissimi 20 acquisti sul totale | -18% (-4) |
-| `quota_wallet_vincenti / usd_primi20 (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a quanto pesano i primissimi 20 acquisti sul totale | -18% (-4) |
-| `concentrazione_top5 x wallet_ripetuti (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per quanti wallet comprano più di una volta | -18% (-4) |
-| `concentrazione_top5 / wallet_ripetuti (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a quanti wallet comprano più di una volta | -18% (-4) |
+| `concentrazione_top1 x accelerazione_denaro (voto)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -14% (+0) |
+| `concentrazione_top1 / accelerazione_denaro (voto)` | quanto pesa il singolo compratore più grosso RAPPORTATO a se i soldi stanno entrando più in fretta adesso che all'inizio | -14% (+0) |
+| `quota_wallet_nuovi x ampiezza (voto)` | la quota di denaro da wallet mai visti prima MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -14% (+0) |
+| `quota_wallet_nuovi / ampiezza (voto)` | la quota di denaro da wallet mai visti prima RAPPORTATO a quanto oscilla il prezzo prima di entrare | -14% (+0) |
+| `wallet_ripetuti x sbilanciamento (voto)` | quanti wallet comprano più di una volta MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -14% (+0) |
+| `wallet_ripetuti / sbilanciamento (voto)` | quanti wallet comprano più di una volta RAPPORTATO a quanto il denaro che entra supera quello che esce | -14% (+0) |
+| `concentrazione_top1 x accelerazione_denaro (filtro)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -18% (-4) |
+| `concentrazione_top1 / accelerazione_denaro (filtro)` | quanto pesa il singolo compratore più grosso RAPPORTATO a se i soldi stanno entrando più in fretta adesso che all'inizio | -18% (-4) |
+| `quota_wallet_nuovi x ampiezza (filtro)` | la quota di denaro da wallet mai visti prima MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -18% (-4) |
+| `quota_wallet_nuovi / ampiezza (filtro)` | la quota di denaro da wallet mai visti prima RAPPORTATO a quanto oscilla il prezzo prima di entrare | -18% (-4) |
+| `wallet_ripetuti / sbilanciamento (filtro)` | quanti wallet comprano più di una volta RAPPORTATO a quanto il denaro che entra supera quello che esce | -18% (-4) |
+| `wallet_ripetuti x sbilanciamento (filtro)` | quanti wallet comprano più di una volta MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -19% (-5) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
