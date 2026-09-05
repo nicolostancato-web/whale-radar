@@ -1,5 +1,5 @@
 # 📋 CENSIMENTO — che fine ha fatto ogni pool che abbiamo scoperto
-*2026-09-05 04:40 UTC*
+*2026-09-05 05:10 UTC*
 
 > **Perché esiste**: dicevamo che il 60% dei token era "inutilizzabile", ma non sapevamo *perché*.
 > Un pool senza dati perché è nato morto è un'informazione sul mercato; un pool senza dati perché
@@ -8,13 +8,13 @@
 
 | chain | totale | vivi | troppo giovani | **mai interrogati** (limite nostro) | **nati morti** | serie corta | spariti |
 |---|---|---|---|---|---|---|---|
-| **base** | 15617 | 976 | 81 | **11685** | **462** | 742 | 1671 |
-| **solana** | 14655 | 35 | 20 | **13216** | **391** | 231 | 762 |
-| **bsc** | 17485 | 41 | 19 | **16123** | **356** | 236 | 710 |
+| **base** | 15637 | 976 | 90 | **11685** | **460** | 755 | 1671 |
+| **solana** | 14655 | 35 | 0 | **13200** | **391** | 267 | 762 |
+| **bsc** | 17485 | 41 | 0 | **16107** | **356** | 271 | 710 |
 
 **base** — dei pool che abbiamo davvero interrogato, il **12% è nato morto**. Ma il **75%** dei pool scoperti non l'abbiamo mai chiesto: quello non dice niente sul mercato, dice quanto siamo lenti a raccogliere.
-**solana** — dei pool che abbiamo davvero interrogato, il **28% è nato morto**. Ma il **90%** dei pool scoperti non l'abbiamo mai chiesto: quello non dice niente sul mercato, dice quanto siamo lenti a raccogliere.
-**bsc** — dei pool che abbiamo davvero interrogato, il **27% è nato morto**. Ma il **92%** dei pool scoperti non l'abbiamo mai chiesto: quello non dice niente sul mercato, dice quanto siamo lenti a raccogliere.
+**solana** — dei pool che abbiamo davvero interrogato, il **27% è nato morto**. Ma il **90%** dei pool scoperti non l'abbiamo mai chiesto: quello non dice niente sul mercato, dice quanto siamo lenti a raccogliere.
+**bsc** — dei pool che abbiamo davvero interrogato, il **26% è nato morto**. Ma il **92%** dei pool scoperti non l'abbiamo mai chiesto: quello non dice niente sul mercato, dice quanto siamo lenti a raccogliere.
 
 ## Cosa significa per le percentuali
 
