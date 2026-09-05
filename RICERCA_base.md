@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (base)
-*2026-09-05 11:30 UTC · 10 segnali nuovi messi alla prova su 769 token*
+*2026-09-05 11:52 UTC · 2 segnali nuovi messi alla prova su 770 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-16%**.
 
@@ -19,14 +19,6 @@
 |---|---|---|
 | `volume_ultima_su_media (filtro)` | se il volume sta accelerando proprio adesso | -6% (+10) |
 | `ampiezza (voto)` | quanto oscilla il prezzo prima di entrare | -9% (+7) |
-| `quota_wallet_reduci / wallet_ripetuti (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) RAPPORTATO a quanti wallet comprano più di una volta | -15% (+0) |
-| `quota_wallet_reduci x wallet_ripetuti (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per quanti wallet comprano più di una volta | -15% (+0) |
-| `quota_wallet_reduci / wallet_ripetuti (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) RAPPORTATO a quanti wallet comprano più di una volta | -15% (+0) |
-| `buy_grossi x quota_wallet_nuovi (voto)` | la quota di denaro che arriva da acquisti sopra i 500 dollari MOLTIPLICATO per la quota di denaro da wallet mai visti prima | -16% (-0) |
-| `buy_grossi / quota_wallet_nuovi (voto)` | la quota di denaro che arriva da acquisti sopra i 500 dollari RAPPORTATO a la quota di denaro da wallet mai visti prima | -16% (-0) |
-| `quota_wallet_reduci x wallet_ripetuti (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per quanti wallet comprano più di una volta | -16% (-0) |
-| `buy_grossi x quota_wallet_nuovi (filtro)` | la quota di denaro che arriva da acquisti sopra i 500 dollari MOLTIPLICATO per la quota di denaro da wallet mai visti prima | -24% (-8) |
-| `buy_grossi / quota_wallet_nuovi (filtro)` | la quota di denaro che arriva da acquisti sopra i 500 dollari RAPPORTATO a la quota di denaro da wallet mai visti prima | -24% (-8) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
