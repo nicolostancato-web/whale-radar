@@ -1,8 +1,8 @@
 # 🔍 LOOP 0 · ISPEZIONE — il team sta lavorando?
-*2026-09-05 08:57 UTC · un giro ogni ora · qui NON si guarda la percentuale: si guarda che ognuno faccia il suo lavoro*
+*2026-09-05 08:58 UTC · un giro ogni ora · qui NON si guarda la percentuale: si guarda che ognuno faccia il suo lavoro*
 
 
-## 🟢 **TUTTO IN ORDINE da 32 ispezioni di fila** — la macchina gira, si può guardare la lavagna
+## 🟢 **TUTTO IN ORDINE da 33 ispezioni di fila** — la macchina gira, si può guardare la lavagna
 
 **Per chain:** base: 🟢 · solana: 🟢 · robinhood: 🟢 · bsc: 🟢
 
@@ -58,7 +58,7 @@
 | **Statistico** | com'è FATTA la percentuale (robustezza, out-of-time) | 25 min fa | 180 min | ✅ in orario · 4 chain misurate |
 | **Necroforo** | quanti token muoiono e spariscono dai conti | 25 min fa | 180 min | ✅ in orario |
 | **Giudice** | prova le proposte sui dati mai visti (cassaforte) | 23 min fa | 180 min | ✅ in orario · 1 proposte giudicate |
-| **Heartbeat** | controlla che il MOTORE sia vivo, da fuori | 16 min fa | 180 min | ✅ in orario |
+| **Heartbeat** | controlla che il MOTORE sia vivo, da fuori | 1 min fa | 180 min | ✅ in orario |
 | **Forward Base** | la catena che porta al trade su Base | 29 min fa | 120 min | ✅ in orario |
 | **Tassametro** | misura quanto costa DAVVERO entrare e uscire | 19 min fa | 240 min | ✅ in orario · 500 size misurate |
 | **Censore** | ogni pool ha uno stato: morto o non raccolto? | 25 min fa | 240 min | ✅ in orario · 3 chain censite |
