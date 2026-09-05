@@ -1,5 +1,5 @@
 # 🎮 DEMO LIVE — conto vero €100 → €3.000 (Robinhood)
-*2026-09-05 13:48 UTC · attivo da 12.8 giorni · 100% realistico (costi+gas+LATENZA)*
+*2026-09-05 14:49 UTC · attivo da 12.8 giorni · 100% realistico (costi+gas+LATENZA)*
 
 ## 🔴 **LIVE SOSPESO** — campione troppo piccolo: 60 token (ne servono 150)
 
