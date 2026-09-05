@@ -2162,3 +2162,13 @@
 {"id": "accumulo-robinhood", "ts": 1788584887, "valore": 789, "fermo_da": 0, "azione": "avanti cosi'"}
 {"id": "accumulo-bsc", "ts": 1788584887, "valore": 1126, "fermo_da": 0, "azione": "avanti cosi'"}
 {"id": "percentuale-bsc", "ts": 1788584887, "valore": -23.7, "fermo_da": 39, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (explorer.py, learner.py) \u2192 non li ripetiamo, serve cambia"}
+{"id": "accumulo-base", "ts": 1788588711, "valore": 4466, "fermo_da": 0, "azione": "avanti cosi'"}
+{"id": "accumulo-solana", "ts": 1788588711, "valore": 1209, "fermo_da": 0, "azione": "avanti cosi'"}
+{"id": "percentuale-robinhood", "ts": 1788588711, "valore": -20.3, "fermo_da": 8, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (strategy_optimizer.py, learner.py) \u2192 non li ripetiamo, se"}
+{"id": "percentuale-base", "ts": 1788588711, "valore": 0.5, "fermo_da": 4, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (strategy_optimizer_base.py, learner.py) \u2192 non li ripetiam"}
+{"id": "percentuale-solana", "ts": 1788588711, "valore": -13.4, "fermo_da": 18, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (strategy_optimizer_solana.py, wallet_insider.py) \u2192 non li"}
+{"id": "demo-robinhood", "ts": 1788588711, "valore": 122.07, "fermo_da": 0, "azione": "\u23f8 il cancello \u00e8 chiuso: prima il LOOP 1 deve alzare la percentuale"}
+{"id": "demo-base", "ts": 1788588711, "valore": 92.78, "fermo_da": 0, "azione": "\u23f8 il cancello \u00e8 chiuso: prima il LOOP 1 deve alzare la percentuale"}
+{"id": "accumulo-robinhood", "ts": 1788588711, "valore": 804, "fermo_da": 0, "azione": "avanti cosi'"}
+{"id": "accumulo-bsc", "ts": 1788588711, "valore": 1142, "fermo_da": 0, "azione": "avanti cosi'"}
+{"id": "percentuale-bsc", "ts": 1788588711, "valore": -23.7, "fermo_da": 40, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (explorer.py, learner.py) \u2192 non li ripetiamo, serve cambia"}
