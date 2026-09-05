@@ -1,10 +1,10 @@
 # 👥 IL TEAM — verbale della riunione
-*2026-09-05 11:10 UTC · una riunione a ogni ciclo, ~ogni 30 minuti*
+*2026-09-05 11:42 UTC · una riunione a ogni ciclo, ~ogni 30 minuti*
 
 | ruolo | responsabilità | come è andata |
 |---|---|---|
 | 🏃 **Operations** | che tutto giri e niente si blocchi | 🟢 tutti i loop si stanno riunendo |
-| 🔬 **Ricerca** | alzare la percentuale | 258.791 strategie provate · 146 segnali nuovi messi alla prova · **12 promossi** |
+| 🔬 **Ricerca** | alzare la percentuale | 260.854 strategie provate · 124 segnali nuovi messi alla prova · **17 promossi** |
 | ✅ **Verità** | che la percentuale non sia una favola | 🟢 **PULITO** — nessun segno che il sistema si stia raccontando favole |
 | 🔒 **Security** | niente credenziali nel repo pubblico | 🟢 **PULITO** — nessuna credenziale esposta nel repo pubblico |
 | 💰 **CFO** | che tutto costi zero | 🟢 **COSTO ZERO CONFERMATO** |
@@ -13,7 +13,7 @@
 
 | chain | media | **robusta** | vinti | peso dei 3 colpi migliori |
 |---|---|---|---|---|
-| robinhood | +22% | **-17%** | 33% (66 trade) | 35% |
+| robinhood | +18% | **-19%** | 30% (69 trade) | 35% |
 | base | +4% | **+1%** | 36% (337 trade) | 4% |
 | solana | -9% | **-13%** | 27% (417 trade) | 5% |
 | bsc | -21% | **-24%** | 14% (397 trade) | 4% |
@@ -25,11 +25,11 @@
 
 | | quante |
 |---|---|
-| tentativi grezzi (configurazioni e segnali provati) | **258.937** |
+| tentativi grezzi (configurazioni e segnali provati) | **260.978** |
 | lezioni archiviate (ogni prova lascia una traccia) | **2387** |
 | scoperte arrivate al **giudizio in cassaforte** | **2** |
 | di cui **bocciate perché erano rumore** | **2** |
-| giri chiusi e archiviati per sempre | **2271** |
+| giri chiusi e archiviati per sempre | **2279** |
 
 > I tentativi grezzi si contano a migliaia e da soli non insegnano nulla. Quello che fa avanzare
 > è il **giro completo**: si scopre, si valida su dati mai visti, esce un verdetto, la lezione
@@ -43,7 +43,7 @@
 - **base** · segnale nuovo · **+12 punti** (-14.5% → -2%)
 - **robinhood** · segnale nuovo · **+8 punti** (-14.8% → -6%)
 
-**Memoria del team:** 2387 idee provate · 281 funzionano · 2271 archiviate (non si riprovano finché i dati non raddoppiano)
+**Memoria del team:** 2387 idee provate · 282 funzionano · 2279 archiviate (non si riprovano finché i dati non raddoppiano)
 
 > **Come funziona questa stanza:** il team si riunisce da solo ogni 30 minuti, misura, ripara ciò
 > che può riparare e cerca di alzare la percentuale. Le RIPARAZIONI le fa da sé; le DECISIONI
