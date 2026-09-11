@@ -1,5 +1,5 @@
 # 🔬 EXPLORER — LOOP 1: come alzo la percentuale? (solana)
-*2026-09-11 23:26 UTC · 751 strategie provate in questo ciclo · 381236 in totale*
+*2026-09-11 23:43 UTC · 757 strategie provate in questo ciclo · 381993 in totale*
 
 ## Migliore trovata finora: **-98%** (stress test) · P&L medio **-9%** · crescita composta **-57.6%** · 5% peggiore **-100%** · 112 trade
 
@@ -25,12 +25,12 @@ la crescita composta dice se reinvestendo si cresce o ci si rovina.*
 
 | la strategia | risultato |
 |---|---|
-| entra +12h · solo se volume > $30.000, vendite/acquisti > 15% · stop -70% · profitto a 2x e 25x · trailing -30% · soglia 0.5 | -99% |
 | entra +12h · solo se volume > $30.000, vendite/acquisti > 15% · stop -70% · profitto a 2x e 25x · trailing -60% · soglia 0.5 | -98% |
+| entra +12h · solo se volume > $30.000, vendite/acquisti > 15% · stop -60% · profitto a 2x e 25x · trailing -60% · soglia 0.5 | -98% |
+| entra +12h · solo se volume > $30.000, vendite/acquisti > 15% · stop -70% · profitto a 2x e 25x · trailing -60% · soglia 0.4 | -98% |
 | entra +12h · solo se volume > $30.000, vendite/acquisti > 15% · stop -70% · profitto a 2x e 25x · trailing -60% · soglia 0.5 | -98% |
-| entra +12h · solo se volume > $30.000, vendite/acquisti > 15% · stop -70% · profitto a 2x e 25x · trailing -60% · soglia 0.5 | -98% |
-| entra +12h · solo se volume > $30.000, vendite/acquisti > 15% · stop -50% · profitto a 2x e 25x · trailing -60% · soglia 0.5 | -98% |
-| entra +12h · solo se volume > $30.000, vendite/acquisti > 15% · stop -70% · profitto a 4x e 25x · trailing -60% · soglia 0.5 | -98% |
+| entra +12h · solo se volume > $30.000, vendite/acquisti > 15% · stop -70% · profitto a 2x e 25x · trailing -60% · soglia 0.4 | -98% |
+| entra +2h · solo se volume > $30.000, vendite/acquisti > 15% · stop -70% · profitto a 2x e 25x · trailing -60% · soglia 0.5 | -99% |
 
 > Il LOOP 1 non si ferma mai: prova strategie e segnali, tiene solo cio' che alza la percentuale
 > ROBUSTA (tolti i 3 colpi migliori) di almeno 8 punti, e riparte da li'.
