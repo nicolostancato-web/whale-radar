@@ -1,5 +1,5 @@
 # 🔬 EXPLORER — LOOP 1: come alzo la percentuale? (base)
-*2026-09-11 21:23 UTC · 74 strategie provate in questo ciclo · 107379 in totale*
+*2026-09-11 21:40 UTC · 80 strategie provate in questo ciclo · 107459 in totale*
 
 ## Migliore trovata finora: **+35222%** (stress test) · P&L medio **+23%** · crescita composta **+0.3%** · 5% peggiore **-66%** · 268 trade
 
@@ -32,12 +32,12 @@ la crescita composta dice se reinvestendo si cresce o ci si rovina.*
 
 | la strategia | risultato |
 |---|---|
-| entra +3h · almeno 2h di scambi · stop -70% · profitto a 5x e 15x · trailing -30% · soglia 0.55 | +6861% |
-| entra +3h · almeno 2h di scambi · stop -70% · profitto a 5x e 15x · trailing -60% · soglia 0.55 | +34648% |
-| entra +3h · solo se volume > $10.000, almeno 2h di scambi · stop -70% · profitto a 5x e 15x · trailing -60% · soglia 0.55 | +1189% |
-| entra +3h · almeno 2h di scambi · stop -70% · profitto a 5x e 15x · trailing -60% · soglia 0.55 | +7115% |
-| entra +3h · almeno 2h di scambi · stop -70% · profitto a 5x e 15x · trailing -60% · soglia 0.55 | +17230% |
-| entra +3h · almeno 2h di scambi · stop -70% · profitto a 5x e 15x · trailing -60% · soglia 0.6 | +6627% |
+| entra +3h · almeno 2h di scambi · stop -70% · profitto a 2x e 15x · trailing -60% · soglia 0.55 | +85% |
+| entra +3h · almeno 2h di scambi · stop -70% · profitto a 5x e 8x · trailing -60% · soglia 0.55 | +14952% |
+| entra +3h · almeno 2h di scambi · stop -70% · profitto a 2x e 15x · trailing -60% · soglia 0.55 | +85% |
+| entra +3h · almeno 2h di scambi · stop -70% · profitto a 5x e 15x · trailing -60% · soglia 0.55 | +35222% |
+| entra +3h · almeno 2h di scambi · stop -70% · profitto a 5x e 15x · trailing -40% · soglia 0.55 | +6583% |
+| entra +12h · almeno 2h di scambi · stop -70% · profitto a 5x e 15x · trailing -60% · soglia 0.55 | +170% |
 
 > Il LOOP 1 non si ferma mai: prova strategie e segnali, tiene solo cio' che alza la percentuale
 > ROBUSTA (tolti i 3 colpi migliori) di almeno 8 punti, e riparte da li'.
