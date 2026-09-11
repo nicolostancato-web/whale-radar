@@ -1,1 +1,1 @@
-{"chain": "solana", "ts": 1789163791, "feature": ["trade_al_minuto (filtro)", "n_compratori / buy_medio (filtro)"]}
+{"chain": "robinhood", "ts": 1789163804, "feature": ["ampiezza x drawdown_pre (filtro)", "drawdown_pre (filtro)", "volume_ultima_su_media (filtro)", "ampiezza x volume_ultima_su_media (filtro)", "ampiezza (filtro)", "buy_medio x ampiezza (filtro)", "ampiezza / drawdown_pre (filtro)"]}
