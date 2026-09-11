@@ -1,13 +1,13 @@
 # 💓 HEARTBEAT — le quattro corsie sono vive?
-*2026-09-11 21:03 UTC · controllo da FUORI ogni corsia*
+*2026-09-11 21:48 UTC · controllo da FUORI ogni corsia*
 
-## 0/4 vive
+## 3/4 vive
 
 | corsia | stato | ultimo commit | azione |
 |---|---|---|---|
-| **motore** | ❓ nessun commit recente | `?` | accesa |
-| **ricerca** | ❓ nessun commit recente | `?` | accesa |
-| **loop 0** | ❓ nessun commit recente | `?` | accesa |
+| **motore** | 🟢 viva — ultimo commit 38 min fa | `engine misure0 21:10Z` | — |
+| **ricerca** | 🟢 viva — ultimo commit 8 min fa | `ricerca robinhood giro5 21:40Z` | — |
+| **loop 0** | 🟢 viva — ultimo commit 15 min fa | `loop0 giro2 21:33Z` | — |
 | **sperimenti** | ❓ nessun commit recente | `?` | accesa |
 
 > **Perché vive fuori:** un guardiano che sta dentro la cosa che deve sorvegliare si
