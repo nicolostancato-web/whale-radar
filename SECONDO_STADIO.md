@@ -1,5 +1,5 @@
 # 🎯 IL SECONDO STADIO — fra i sopravvissuti, cosa si compra? (robinhood)
-*2026-09-11 21:00 UTC · 700 token passano il cancello su 700 · 342 scartati*
+*2026-09-11 21:53 UTC · 700 token passano il cancello su 700 · 342 scartati*
 
 > Un filtro anti-truffa perfetto porta il rendimento da −40% a −10%. È un enorme
 > miglioramento e **non è un guadagno**: senza un secondo stadio LOOP 1 può solo smettere
