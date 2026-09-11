@@ -1,7 +1,7 @@
 # 🔬 EXPLORER — LOOP 1: come alzo la percentuale? (solana)
-*2026-09-11 20:50 UTC · 675 strategie provate in questo ciclo · 375515 in totale*
+*2026-09-11 21:16 UTC · 646 strategie provate in questo ciclo · 376161 in totale*
 
-## Migliore trovata finora: **-98%** (stress test) · P&L medio **-8%** · crescita composta **-54.1%** · 5% peggiore **-100%** · 118 trade
+## Migliore trovata finora: **-98%** (stress test) · P&L medio **-8%** · crescita composta **-54.0%** · 5% peggiore **-100%** · 118 trade
 
 *La percentuale grande è lo STRESS TEST (tolto il 5% migliore): serve a non farsi ingannare
 dai colpi fortunati, ma non è il rendimento atteso. Il P&L medio è quello che il conto vedrebbe;
@@ -25,11 +25,11 @@ la crescita composta dice se reinvestendo si cresce o ci si rovina.*
 
 | la strategia | risultato |
 |---|---|
+| entra +12h · solo se volume > $30.000, vendite/acquisti > 15% · stop -70% · profitto a 2x e 25x · trailing -60% · soglia 0.4 | -98% |
+| entra +12h · solo se volume > $30.000, vendite/acquisti > 15% · stop -70% · profitto a 2x e 25x · trailing -60% · soglia 0.4 | -98% |
+| entra +12h · solo se volume > $30.000, vendite/acquisti > 15% · stop -70% · profitto a 4x e 25x · trailing -60% · soglia 0.5 | -96% |
 | entra +12h · solo se volume > $30.000, vendite/acquisti > 15% · stop -70% · profitto a 2x e 25x · trailing -60% · soglia 0.5 | -98% |
-| entra +12h · solo se volume > $30.000, vendite/acquisti > 15% · stop -70% · profitto a 2x e 25x · trailing -60% · soglia 0.5 | -98% |
-| entra +12h · solo se volume > $30.000, vendite/acquisti > 15% · stop -70% · profitto a 2x e 12x · trailing -60% · soglia 0.5 | -96% |
-| entra +12h · solo se volume > $30.000, vendite/acquisti > 15% · stop -70% · profitto a 2x e 8x · trailing -60% · soglia 0.5 | -97% |
-| entra +12h · solo se volume > $30.000, vendite/acquisti > 15% · stop -70% · profitto a 2x e 25x · trailing -60% · soglia 0.5 | -98% |
+| entra +12h · solo se volume > $30.000, vendite/acquisti > 15% · stop -70% · profitto a 2x e 15x · trailing -60% · soglia 0.5 | -98% |
 | entra +12h · solo se volume > $30.000, vendite/acquisti > 15% · stop -70% · profitto a 2x e 25x · trailing -60% · soglia 0.5 | -98% |
 
 > Il LOOP 1 non si ferma mai: prova strategie e segnali, tiene solo cio' che alza la percentuale
