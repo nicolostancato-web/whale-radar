@@ -1,17 +1,17 @@
 # 🕵️ INSIDER — chi compra PRIMA del pump (solana)
-*2026-09-11 20:52 UTC · walk-forward ONESTO (score dal solo passato risolto)*
+*2026-09-11 21:44 UTC · walk-forward ONESTO (score dal solo passato risolto)*
 
-## Verdetto: 🟡 **PROMETTENTE**: lift +23pt su 26 token (p=0.003) — serve arrivare a 40 casi prima di cantare vittoria
+## Verdetto: 🟡 **PROMETTENTE**: lift +23pt su 26 token (p=0.002) — serve arrivare a 40 casi prima di cantare vittoria
 
 | | token | vinti | media strategia |
 |---|---|---|---|
 | **con insider** (early-buy da wallet ricorrenti vincenti) | 26 | **35%** | +18% |
-| senza insider | 684 | 11% | -21% |
-| *tutti (base rate)* | 710 | *12%* | *-19%* |
+| senza insider | 678 | 11% | -22% |
+| *tutti (base rate)* | 704 | *12%* | *-20%* |
 
-**LIFT = +22.5 punti** di win-rate rispetto alla media · **p = 0.0025** (probabilita' di vedere 9 vincenti su 26 per puro caso) · casi 26/40
+**LIFT = +23.0 punti** di win-rate rispetto alla media · **p = 0.0019** (probabilita' di vedere 9 vincenti su 26 per puro caso) · casi 26/40
 
-## Wallet ricorrenti trovati: **727** (≥2 apparizioni da first-buyer, su 710 token)
+## Wallet ricorrenti trovati: **699** (≥2 apparizioni da first-buyer, su 704 token)
 
 | wallet | apparizioni | vinti | score |
 |---|---|---|---|
@@ -21,6 +21,7 @@
 | `7UTvAj…WgoU` | 2 | 2 | 0.75 |
 | `D6Bdfr…Sd1H` | 2 | 2 | 0.75 |
 | `eJLPuR…jHEB` | 2 | 2 | 0.75 |
+| `5t4fzb…KkQB` | 2 | 2 | 0.75 |
 | `7xNYVd…izc2` | 2 | 2 | 0.75 |
 | `CSqNmd…hCzH` | 2 | 2 | 0.75 |
 | `4StWrP…bUio` | 2 | 2 | 0.75 |
@@ -29,7 +30,6 @@
 | `Rbb9LP…q5vu` | 2 | 2 | 0.75 |
 | `26raUr…pomo` | 2 | 2 | 0.75 |
 | `5wHBg6…TmT5` | 2 | 2 | 0.75 |
-| `CvhUR9…BYuU` | 2 | 2 | 0.75 |
 
 > **Come si legge**: lo score di un wallet e' il suo win-rate smussato da first-buyer. La feature per un
 > token e' la frazione di USD comprata nei primi 30 min da wallet gia' noti come vincenti — calcolata SOLO
