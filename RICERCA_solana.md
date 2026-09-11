@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (solana)
-*2026-09-11 21:40 UTC · 2 segnali nuovi messi alla prova su 545 token*
+*2026-09-11 21:56 UTC · 2 segnali nuovi messi alla prova su 545 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-99%**.
 
@@ -22,16 +22,16 @@
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
-- `concentrazione_top5 (voto)` — già bocciato 25 volte 11h fa (si riprova fra 1h o quando i dati crescono)
+- `concentrazione_top5 (voto)` — già bocciato 25 volte 12h fa (si riprova fra 0h o quando i dati crescono)
 - `concentrazione_top5 (filtro)` — già bocciato 16 volte 8h fa (si riprova fra 4h o quando i dati crescono)
-- `concentrazione_top1 (voto)` — già bocciato 25 volte 11h fa (si riprova fra 1h o quando i dati crescono)
+- `concentrazione_top1 (voto)` — già bocciato 25 volte 12h fa (si riprova fra 0h o quando i dati crescono)
 - `concentrazione_top1 (filtro)` — già bocciato 14 volte 9h fa (si riprova fra 3h o quando i dati crescono)
-- `n_compratori (voto)` — già bocciato 25 volte 11h fa (si riprova fra 1h o quando i dati crescono)
+- `n_compratori (voto)` — già bocciato 25 volte 12h fa (si riprova fra 0h o quando i dati crescono)
 - `n_compratori (filtro)` — già bocciato 16 volte 8h fa (si riprova fra 4h o quando i dati crescono)
-- `buy_medio (voto)` — già bocciato 25 volte 11h fa (si riprova fra 1h o quando i dati crescono)
-- `buy_medio (filtro)` — già bocciato 13 volte 2h fa (si riprova fra 10h o quando i dati crescono)
-- `buy_grossi (voto)` — già bocciato 25 volte 11h fa (si riprova fra 1h o quando i dati crescono)
-- `buy_grossi (filtro)` — già bocciato 25 volte 11h fa (si riprova fra 1h o quando i dati crescono)
+- `buy_medio (voto)` — già bocciato 25 volte 12h fa (si riprova fra 0h o quando i dati crescono)
+- `buy_medio (filtro)` — già bocciato 13 volte 3h fa (si riprova fra 9h o quando i dati crescono)
+- `buy_grossi (voto)` — già bocciato 25 volte 12h fa (si riprova fra 0h o quando i dati crescono)
+- `buy_grossi (filtro)` — già bocciato 25 volte 12h fa (si riprova fra 0h o quando i dati crescono)
 
 > **Perché questo ruolo esiste:** l'insider su Solana l'ha inventato un umano. Qui il sistema
 > costruisce da sé segnali nuovi dai dati grezzi e li mette alla prova. Uno dei mattoni è proprio
