@@ -1,5 +1,5 @@
 # 🔬 EXPLORER — LOOP 1: come alzo la percentuale? (solana)
-*2026-09-11 22:09 UTC · 766 strategie provate in questo ciclo · 378211 in totale*
+*2026-09-11 22:29 UTC · 767 strategie provate in questo ciclo · 378978 in totale*
 
 ## Migliore trovata finora: **-98%** (stress test) · P&L medio **-9%** · crescita composta **-57.6%** · 5% peggiore **-100%** · 112 trade
 
@@ -25,12 +25,12 @@ la crescita composta dice se reinvestendo si cresce o ci si rovina.*
 
 | la strategia | risultato |
 |---|---|
+| entra +12h · solo se volume > $30.000, vendite/acquisti > 15% · stop -70% · profitto a 2x e 6x · trailing -60% · soglia 0.5 | -98% |
 | entra +12h · solo se volume > $10.000, vendite/acquisti > 15% · stop -70% · profitto a 2x e 25x · trailing -60% · soglia 0.5 | -99% |
 | entra +12h · solo se volume > $10.000, vendite/acquisti > 15% · stop -70% · profitto a 2x e 25x · trailing -60% · soglia 0.5 | -99% |
 | entra +12h · solo se volume > $30.000, vendite/acquisti > 15% · stop -70% · profitto a 2x e 12x · trailing -60% · soglia 0.5 | -97% |
 | entra +12h · solo se volume > $30.000, vendite/acquisti > 15% · stop -70% · profitto a 2x e 25x · trailing -60% · soglia 0.5 | -98% |
 | entra +12h · vendite/acquisti > 15% · stop -70% · profitto a 2x e 25x · trailing -60% · soglia 0.5 | -99% |
-| entra +12h · solo se volume > $30.000, vendite/acquisti > 15% · stop -80% · profitto a 2x e 25x · trailing -60% · soglia 0.5 | -98% |
 
 > Il LOOP 1 non si ferma mai: prova strategie e segnali, tiene solo cio' che alza la percentuale
 > ROBUSTA (tolti i 3 colpi migliori) di almeno 8 punti, e riparte da li'.
