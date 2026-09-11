@@ -1,7 +1,7 @@
 # 🎮 DEMO LIVE — conto vero €100 → €3.000 (Robinhood)
-*2026-09-11 19:08 UTC · attivo da 19.0 giorni · 100% realistico (costi+gas+LATENZA)*
+*2026-09-11 22:02 UTC · attivo da 19.1 giorni · 100% realistico (costi+gas+LATENZA)*
 
-## 🔴 **LIVE SOSPESO** — campione troppo piccolo: 56 token (ne servono 150)
+## 🔴 **LIVE SOSPESO** — campione troppo piccolo: 44 token (ne servono 150)
 
 > Il conto non apre nuove posizioni finche' il LOOP 1 non supera il cancello (vedi STRATEGIA_LOOP.md).
 > Non e' un guasto: e' la regola. Prima la percentuale, poi i soldi.
