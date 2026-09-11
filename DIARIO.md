@@ -4,6 +4,8 @@
 > per ogni giro in cui **è cambiato qualcosa**. I giri identici al precedente non si
 > scrivono — un diario che ripete smette di essere letto, e allora smette di servire.
 
+- **11/09 22:50 UTC** — accumulo: robinhood/battito +2
+- **11/09 22:45 UTC** — accumulo: robinhood/candele +20, solana/candele +20
 - **11/09 22:24 UTC** — accumulo: base/battito +12, robinhood/toccati 12h +10
 - **11/09 20:18 UTC** — accumulo: robinhood/candele +21, robinhood/toccati 12h +12
 - **11/09 19:44 UTC** — accumulo: base/candele +20, robinhood/candele +34
