@@ -1,5 +1,5 @@
 # 🧪 CORSIA SPERIMENTI — cosa e' successo nell'ultimo giro
-*2026-09-11 22:45 UTC · giro 4*
+*2026-09-11 22:50 UTC · giro 5*
 
 | esperimento | esito | ultima cosa detta |
 |---|---|---|
@@ -7,7 +7,7 @@
 | `sperimentale.py` | ok | SPERIMENTALE | gemelli 2498 | esplosioni 41 | valutate 33 |
 | `due_gambe.py` | ok | DUE_GAMBE | copertura base:7% robinhood:3% solana:54% |
 | `costo_chain.py` | ok | COSTO_CHAIN | controllo su solana: NON passa |
-| `costo_evm.py` | ok | COSTO_EVM | base:3misure robinhood:20misure |
+| `costo_evm.py` | ok | COSTO_EVM | base:3misure robinhood:22misure |
 | `ritardo.py` | ok | RITARDO | base:545 robinhood:493 solana:623 |
 | `esaurimento.py` | ok | ESAURIMENTO | dentro:115 controlli:4000 |
 | `staffetta.py` | ok | STAFFETTA | vive:4 mute:0 aperti:1 |
@@ -15,4 +15,4 @@
 > Un giro che dura pochi secondi non e' un giro veloce: e' un giro in cui
 > nessuno ha lavorato. Per questo qui sotto c'e' anche quanto e' durato.
 
-*Durata del giro: **297 secondi**.*
+*Durata del giro: **309 secondi**.*
