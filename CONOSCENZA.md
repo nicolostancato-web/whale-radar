@@ -1,5 +1,5 @@
 # 🧠 CONOSCENZA — cosa ha imparato il team
-*2026-09-11 22:05 UTC · 2399 idee messe alla prova finora*
+*2026-09-11 22:16 UTC · 2399 idee messe alla prova finora*
 
 > Questa non è la cronaca di cosa è successo: è il sapere accumulato. Prima di riprovare una cosa,
 > il team guarda qui. Ciò che ha fallito 3 volte si mette da parte — ma il caso si RIAPRE quando i
@@ -189,7 +189,7 @@
 | `segnale:solana:concentrazione_top1 x buy_medio:filtro` | solana | 13 | +10 punti |
 | `segnale:bsc:buy_medio / wallet_ripetuti:filtro` | bsc | 19 | +10 punti |
 | `segnale:solana:buy_medio / usd_primi20:filtro` | solana | 18 | +10 punti |
-| `segnale:solana:trade_al_minuto / quota_wallet_reduci:filtro` | solana | 88 | +10 punti |
+| `segnale:solana:trade_al_minuto / quota_wallet_reduci:filtro` | solana | 89 | +10 punti |
 | `segnale:solana:buy_medio x sbilanciamento:filtro` | solana | 12 | +10 punti |
 | `segnale:bsc:buy_medio / compra_e_rivende:filtro` | bsc | 5 | +10 punti |
 | `segnale:solana:n_compratori / usd_primi20:filtro` | solana | 7 | +10 punti |
@@ -220,7 +220,7 @@
 | `segnale:robinhood:buy_medio x ampiezza:filtro` | robinhood | 114 | +9 punti |
 | `segnale:solana:ampiezza x drawdown_pre:filtro` | solana | 2 | +9 punti |
 | `segnale:solana:quota_wallet_nuovi / compra_e_rivende:filtro` | solana | 45 | +9 punti |
-| `segnale:solana:concentrazione_top1 x volume_ultima_su_media:filtro` | solana | 92 | +8 punti |
+| `segnale:solana:concentrazione_top1 x volume_ultima_su_media:filtro` | solana | 93 | +8 punti |
 | `segnale:robinhood:buy_medio / volume_ultima_su_media:filtro` | robinhood | 96 | +8 punti |
 | `segnale:solana:quota_wallet_nuovi x ampiezza:filtro` | solana | 8 | +8 punti |
 | `segnale:solana:concentrazione_top1 x ampiezza:filtro` | solana | 18 | +8 punti |
