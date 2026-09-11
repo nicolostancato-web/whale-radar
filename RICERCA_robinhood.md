@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (robinhood)
-*2026-09-11 21:56 UTC · 7 segnali nuovi messi alla prova su 340 token*
+*2026-09-11 22:36 UTC · 17 segnali nuovi messi alla prova su 340 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-96%**.
 
@@ -10,9 +10,9 @@
 | `ampiezza x drawdown_pre (filtro)` | quanto oscilla il prezzo prima di entrare MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | **+13%** | **+110 punti** |
 | `drawdown_pre (filtro)` | quanto è già sceso dal massimo prima di entrare | **-52%** | **+44 punti** |
 | `volume_ultima_su_media (filtro)` | se il volume sta accelerando proprio adesso | **-69%** | **+27 punti** |
-| `ampiezza x volume_ultima_su_media (filtro)` | quanto oscilla il prezzo prima di entrare MOLTIPLICATO per se il volume sta accelerando proprio adesso | **-74%** | **+22 punti** |
+| `drawdown_pre x volume_ultima_su_media (filtro)` | quanto è già sceso dal massimo prima di entrare MOLTIPLICATO per se il volume sta accelerando proprio adesso | **-78%** | **+18 punti** |
 | `ampiezza (filtro)` | quanto oscilla il prezzo prima di entrare | **-79%** | **+17 punti** |
-| `buy_medio x ampiezza (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | **-88%** | **+8 punti** |
+| `drawdown_pre / volume_ultima_su_media (filtro)` | quanto è già sceso dal massimo prima di entrare RAPPORTATO a se il volume sta accelerando proprio adesso | **-85%** | **+12 punti** |
 | `ampiezza / drawdown_pre (filtro)` | quanto oscilla il prezzo prima di entrare RAPPORTATO a quanto è già sceso dal massimo prima di entrare | **-91%** | **+5 punti** |
 
 > Questi segnali non erano nella lista di partenza: li ha costruiti e verificati il sistema.
@@ -25,15 +25,25 @@
 | `ampiezza x drawdown_pre (filtro)` | quanto oscilla il prezzo prima di entrare MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | +13% (+110) |
 | `drawdown_pre (filtro)` | quanto è già sceso dal massimo prima di entrare | -52% (+44) |
 | `volume_ultima_su_media (filtro)` | se il volume sta accelerando proprio adesso | -69% (+27) |
-| `ampiezza x volume_ultima_su_media (filtro)` | quanto oscilla il prezzo prima di entrare MOLTIPLICATO per se il volume sta accelerando proprio adesso | -74% (+22) |
+| `drawdown_pre x volume_ultima_su_media (filtro)` | quanto è già sceso dal massimo prima di entrare MOLTIPLICATO per se il volume sta accelerando proprio adesso | -78% (+18) |
 | `ampiezza (filtro)` | quanto oscilla il prezzo prima di entrare | -79% (+17) |
-| `buy_medio x ampiezza (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -88% (+8) |
+| `drawdown_pre / volume_ultima_su_media (filtro)` | quanto è già sceso dal massimo prima di entrare RAPPORTATO a se il volume sta accelerando proprio adesso | -85% (+12) |
 | `ampiezza / drawdown_pre (filtro)` | quanto oscilla il prezzo prima di entrare RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -91% (+5) |
+| `wallet_ripetuti x volume_ultima_su_media (voto)` | quanti wallet comprano più di una volta MOLTIPLICATO per se il volume sta accelerando proprio adesso | -96% (+0) |
+| `wallet_ripetuti / volume_ultima_su_media (voto)` | quanti wallet comprano più di una volta RAPPORTATO a se il volume sta accelerando proprio adesso | -96% (+0) |
+| `quota_wallet_vincenti x accelerazione_denaro (voto)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -96% (+0) |
+| `quota_wallet_vincenti / accelerazione_denaro (voto)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a se i soldi stanno entrando più in fretta adesso che all'inizio | -96% (+0) |
+| `drawdown_pre / volume_ultima_su_media (voto)` | quanto è già sceso dal massimo prima di entrare RAPPORTATO a se il volume sta accelerando proprio adesso | -97% (-1) |
+| `drawdown_pre x volume_ultima_su_media (voto)` | quanto è già sceso dal massimo prima di entrare MOLTIPLICATO per se il volume sta accelerando proprio adesso | -97% (-1) |
+| `wallet_ripetuti x volume_ultima_su_media (filtro)` | quanti wallet comprano più di una volta MOLTIPLICATO per se il volume sta accelerando proprio adesso | -98% (-1) |
+| `wallet_ripetuti / volume_ultima_su_media (filtro)` | quanti wallet comprano più di una volta RAPPORTATO a se il volume sta accelerando proprio adesso | -98% (-1) |
+| `quota_wallet_vincenti x accelerazione_denaro (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -98% (-1) |
+| `quota_wallet_vincenti / accelerazione_denaro (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a se i soldi stanno entrando più in fretta adesso che all'inizio | -98% (-1) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
-- `concentrazione_top5 (voto)` — già bocciato 27 volte 2h fa (si riprova fra 10h o quando i dati crescono)
-- `concentrazione_top5 (filtro)` — già bocciato 27 volte 2h fa (si riprova fra 10h o quando i dati crescono)
+- `concentrazione_top5 (voto)` — già bocciato 27 volte 3h fa (si riprova fra 9h o quando i dati crescono)
+- `concentrazione_top5 (filtro)` — già bocciato 27 volte 3h fa (si riprova fra 9h o quando i dati crescono)
 - `concentrazione_top1 (voto)` — già bocciato 27 volte 2h fa (si riprova fra 10h o quando i dati crescono)
 - `concentrazione_top1 (filtro)` — già bocciato 27 volte 2h fa (si riprova fra 10h o quando i dati crescono)
 - `n_compratori (voto)` — già bocciato 27 volte 2h fa (si riprova fra 10h o quando i dati crescono)
