@@ -1,9 +1,9 @@
 # 🔬 EXPLORER — Robinhood (pipeline completo)
-*2026-09-11 21:40 UTC · 0 configurazioni provate*
+*2026-09-11 21:56 UTC · 0 configurazioni provate*
 
 ## ⚠️ Questo giro è fallito
 
-**Errore:** `solo 46 token utilizzabili con la configurazione attuale (ne servono 60)`
+**Errore:** `solo 40 token utilizzabili con la configurazione attuale (ne servono 60)`
 
 ```
 NoneType: None
