@@ -1,5 +1,5 @@
 # ⚖️ VALIDAZIONE — le proposte messe alla prova su dati MAI VISTI
-*2026-09-11 23:18 UTC · un token su quattro è in cassaforte: la ricerca non lo vede, non lo può vedere*
+*2026-09-11 23:47 UTC · un token su quattro è in cassaforte: la ricerca non lo vede, non lo può vedere*
 
 > **Perché esiste questo controllo:** gli esploratori provano migliaia di configurazioni e tengono la
 > migliore. Su dati puramente casuali, con 5.000 tentativi la migliore sembra comunque ottima. È il
@@ -8,6 +8,7 @@
 
 | chain | prometteva | **in cassaforte** | trade | verdetto |
 |---|---|---|---|---|
+| base | +10913% | **-23%** | 139 (852 token) | ❌ **NON REGGE** — in cassaforte fa -23%: era rumore |
 | solana | -31% | — | — | non abbastanza token in cassaforte per giudicare |
 
 > **La regola:** nessuna proposta si applica se non ha superato questo controllo. Una
