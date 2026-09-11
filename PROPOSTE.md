@@ -1,5 +1,5 @@
 # 📋 PROPOSTE — cosa aspetta una tua decisione
-*2026-09-11 22:40 UTC · 4 aperte*
+*2026-09-11 23:13 UTC · 4 aperte*
 
 > **2 proposte sono state bocciate dal giudice** e tolte dal tavolo: sui token
 > mai visti dalla ricerca non reggevano. Le trovi nel cimitero qui sotto.
@@ -8,6 +8,7 @@
 
 | quando | chain | era | è scesa a | aveva retto | quante volte è caduta |
 |---|---|---|---|---|---|
+| 11/09 23:13 | base | +14097% | +10913% | 1h | 73 |
 | 11/09 22:40 | base | +14097% | -23% | 0h | 72 |
 | 11/09 22:40 | base | +35222% | +14097% | 12h | 71 |
 | 11/09 10:17 | base | +31538% | +31518% | 0h | 70 |
@@ -19,7 +20,6 @@
 | 11/09 03:03 | base | +33508% | -23% | 0h | 64 |
 | 11/09 03:03 | base | +33764% | +33508% | 4h | 63 |
 | 10/09 23:23 | base | +34141% | +32588% | 0h | 62 |
-| 10/09 22:53 | base | +34141% | -23% | 0h | 61 |
 
 > Queste non si ripescano. Se il team ri-propone una configurazione già caduta, la riga
 > sopra viene marcata **RIPESCATA** con la data della volta scorsa: così non ci sbattiamo la
