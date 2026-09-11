@@ -1,10 +1,10 @@
 # 👥 IL TEAM — verbale della riunione
-*2026-09-11 21:05 UTC · una riunione a ogni ciclo, ~ogni 30 minuti*
+*2026-09-11 22:07 UTC · una riunione a ogni ciclo, ~ogni 30 minuti*
 
 | ruolo | responsabilità | come è andata |
 |---|---|---|
 | 🏃 **Operations** | che tutto giri e niente si blocchi | 🟢 tutti i loop si stanno riunendo |
-| 🔬 **Ricerca** | alzare la percentuale | 746.041 strategie provate · 62 segnali nuovi messi alla prova · **37 promossi** |
+| 🔬 **Ricerca** | alzare la percentuale | 748.198 strategie provate · 53 segnali nuovi messi alla prova · **29 promossi** |
 | ✅ **Verità** | che la percentuale non sia una favola | 🟢 **PULITO** — nessun segno che il sistema si stia raccontando favole |
 | 🔒 **Security** | niente credenziali nel repo pubblico | 🟢 **PULITO** — nessuna credenziale esposta nel repo pubblico |
 | 💰 **CFO** | che tutto costi zero | 🟢 **COSTO ZERO CONFERMATO** |
@@ -25,7 +25,7 @@
 
 | | quante |
 |---|---|
-| tentativi grezzi (configurazioni e segnali provati) | **746.103** |
+| tentativi grezzi (configurazioni e segnali provati) | **748.251** |
 | lezioni archiviate (ogni prova lascia una traccia) | **2399** |
 | scoperte arrivate al **giudizio in cassaforte** | **1** |
 | di cui **bocciate perché erano rumore** | **1** |
@@ -39,7 +39,7 @@
 
 **5 proposte aperte** (vedi `PROPOSTE.md`):
 
-- **base** · configurazione · **+35085 punti** (0.9% → +35086%)
+- **base** · configurazione · **+35221 punti** (0.9% → +35222%)
 - **base** · segnale nuovo · **+4312 punti** (40420.4% → +44733%)
 - **solana** · segnale nuovo · **+16 punti** (-39.4% → -24%)
 
