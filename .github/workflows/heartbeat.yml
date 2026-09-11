@@ -1,0 +1,32 @@
+name: heartbeat
+# IL GUARDIANO DEL MOTORE, fuori dal motore: se il motore smette di committare, lo ri-lancia.
+# Un guardiano che sta dentro la cosa che sorveglia si blocca insieme a lei.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "23 */2 * * *"
+permissions:
+  contents: write
+  actions: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Il motore è vivo?
+        env:
+          WR_PAT: ${{ secrets.WR_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python agents/heartbeat.py
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add HEARTBEAT.md 2>/dev/null || true
+          git commit -m "heartbeat $(date -u +%H:%MZ)" || exit 0
+          for i in 1 2 3 4 5; do
+            git pull --no-rebase --no-edit -X ours origin main || true
+            git push origin main && exit 0; sleep $((RANDOM % 6 + 2))
+          done

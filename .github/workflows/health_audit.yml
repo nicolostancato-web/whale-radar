@@ -1,0 +1,30 @@
+name: health_audit
+# HEALTH_AUDIT: watchdog dei DATI/LOGICA (non solo workflow). Ogni 3h controlla copertura pre-entrata per chain,
+# crescita dati, freschezza numeri. Segnala i problemi in HEALTH_AUDIT.md (cosi' non restano nascosti). €0.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "3 */3 * * *"
+permissions:
+  contents: write
+concurrency:
+  group: health_audit
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Audit
+        env:
+          WR_PAT: ${{ secrets.WR_PAT }}
+        run: python agents/health_audit.py || echo "ko"
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add HEALTH_AUDIT.md data/audit_history.jsonl 2>/dev/null || true
+          git commit -m "health_audit $(date -u +%Y-%m-%dT%H:%MZ)" || { echo niente; exit 0; }
+          for i in 1 2 3; do git pull --no-rebase --no-edit -X ours origin main || true; git push origin main && exit 0; sleep 4; done

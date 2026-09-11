@@ -1,0 +1,31 @@
+name: whale_candles
+# REPARTO WHALE_CANDLES: accumulo FOCALIZZATO di candele (orarie+daily) SOLO sui pool con whale.
+# Sblocca la finestra 72h/168h dopo ogni buy (dove vive la tesi tieni-e-5x). Ogni 2h. File immutabili. €0.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "13 */3 * * *"   # ogni 2 ore, a :33 (collector :23, whale_backfill :18)
+permissions:
+  contents: write
+concurrency:
+  group: whale_candles
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: CANDLE_BATCH=40 python agents/whale_candles.py || echo "ko, riprovo al prossimo giro"
+      - name: Salva dati (file immutabili)
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add data/ 2>/dev/null || true
+          git commit -m "whale_candles $(date -u +%Y-%m-%dT%H:%MZ)" || { echo niente; exit 0; }
+          for i in 1 2 3; do
+            git pull --no-rebase --no-edit -X ours origin main || true
+            git push origin main && exit 0; sleep 4
+          done
+          exit 0

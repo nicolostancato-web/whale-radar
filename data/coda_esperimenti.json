@@ -1,0 +1,80 @@
+{
+ "scritto": "2026-09-08",
+ "perche": "Il loop sperimentale ha bruciato la prima idea in un'ora ed e' rimasto vuoto finche' non e' arrivata la successiva. Un tritacarne che aspetta la carne lavora a meta'. Qui le idee stanno in fila, ognuna col criterio di morte gia' scritto: il loop pesca la prima aperta e non resta mai fermo.",
+ "regola": "Ogni idea entra SOLO con: (1) l'intuizione economica - perche' dovrebbe funzionare, non che correla; (2) quali dati usa; (3) il criterio di morte deciso PRIMA di guardare. Senza i tre pezzi non entra in coda.",
+ "esperimenti": [
+  {
+   "n": 1,
+   "titolo": "Il gemello sull'altra chain",
+   "stato": "MORTO 08/09",
+   "esito": "-15% contro i controlli appaiati: il gemello non si muove piu' dei suoi simili"
+  },
+  {
+   "n": 2,
+   "titolo": "Comprare prima di chi e' COSTRETTO a comprare (voti di governance)",
+   "stato": "MORTO 08/09",
+   "intuizione": "quando una DAO vota un buyback e passa, quegli acquisti sono un appuntamento con soldi gia' stanziati: un obbligo non cambia idea",
+   "dati": "Snapshot (voti) + CoinGecko (prezzi), entrambi gratis",
+   "morte": "se su 15+ eventi il rendimento dopo il voto non batte i giorni normali dello stesso token",
+   "esito": "29 eventi con prezzo verificabile (erano 5 finche' il difetto era mio): dopo un voto che obbliga a comprare il token rende -2,8% IN MENO dei suoi giorni normali, mediana -1,7%, meglio del solito solo 13 volte su 29. Criterio di morte scattato.",
+   "cosa_ha_insegnato": "Il verdetto era bloccato non dalla rarita' del fenomeno ma dal mio strumento: la funzione di rete restituiva lo stesso 'niente' per un id sbagliato e per un 'stai chiedendo troppo in fretta'. Distinguerli e aspettare ha portato gli eventi da 5 a 29 in un giro. Prima di dichiarare rara un'idea, controllare di averla guardata."
+  },
+  {
+   "n": 3,
+   "titolo": "Chi assorbe le vendite del gruppo coordinato",
+   "stato": "IN CORSO",
+   "intuizione": "acquisti coordinati sostengono il prezzo artificialmente; se quando il gruppo VENDE arrivano compratori esterni che assorbono, il mercato e' vero e non una promozione",
+   "dati": "i nostri trade con wallet e importo, i cluster gia' dedotti dal comportamento",
+   "morte": "se togliendo gli esterni collegabili al gruppo (usando solo il passato) il vantaggio sparisce, o se deriva da una sola famiglia di lanci",
+   "aperto_il": "2026-09-08"
+  },
+  {
+   "n": 4,
+   "titolo": "Comprare l'esaurimento del venditore, non l'arrivo dei compratori",
+   "stato": "MORTO 11/09",
+   "intuizione": "una vendita concentrata deprime il prezzo senza distruggere la domanda; quando finisce, sparisce un'offerta anomala. E' l'opposto di inseguire i flussi in salita",
+   "dati": "trade con wallet e importo, candele al minuto",
+   "morte": "se il limite inferiore dell'intervallo al 95% non sta sopra zero, rispettando la dipendenza fra eventi",
+   "esito": "113 esaurimenti contro 4.000 controlli degli stessi giorni: mediana netta a 6h -5,4% contro -1,3% dei controlli. Limite inferiore al 95% su 10 giorni: -8,2%. Criterio scattato.",
+   "cosa_ha_insegnato": "Dopo una fase di scarico il prezzo va PEGGIO del normale, non meglio: chi vende tanto non e' un'anomalia che passa, e' un'informazione che gli altri hanno e noi no. Guardare l'offerta invece della domanda non basta a cambiare il segno. Nota: la media dei controlli era +139.739% per un solo token — la mediana esiste per questo."
+  },
+  {
+   "n": 5,
+   "titolo": "La scala del conto: taglia fissa contro reinvestimento proporzionale",
+   "stato": "APERTO",
+   "intuizione": "il costo misurato passa dal 4% all'8,2% fra $25 e $100: se il reinvestimento fa crescere la taglia, il costo cresce piu' del vantaggio cercato",
+   "dati": "le 1.300 misure di costo per taglia, gli esiti storici",
+   "morte": "se nessuna delle due politiche supera +8% netto, o se serve una taglia il cui costo non abbiamo misurato"
+  },
+  {
+   "n": 6,
+   "titolo": "Il token che esisteva gia' altrove e viene quotato su Robinhood",
+   "stato": "MORTO 08/09",
+   "intuizione": "non e' una correlazione, e' una barriera: chi compra dentro un'app non puo' comprare lo stesso token sull'altra chain, quindi la domanda nuova non trova l'offerta vecchia e deve pagare il pool locale. E' l'unico caso in cui sappiamo in anticipo che arrivano compratori che NON possono arbitrare. I voti DAO promettevano un obbligo ma i compratori erano gli stessi di prima: qui sono persone diverse, con meno strumenti.",
+   "dati": "i nostri pool Robinhood con nome e data di nascita, incrociati coi nomi gia' visti su Base/Solana",
+   "morte": "se su 15+ quotazioni il rendimento a 72h dei token 'gia' esistenti altrove' non batte quello dei nati nativi su Robinhood, con t sui giorni indipendenti e non sulle righe",
+   "esito": "78 quotazioni con barriera contro 269 native: mediana a 72h -2,8% contro -3,7%, differenza +0,9 punti, t sui giorni indipendenti +0,85. Criterio scattato.",
+   "cosa_ha_insegnato": "Il 99% della media di ogni gruppo veniva da UN SOLO token. A 72h su Robinhood quasi tutto perde poco e un biglietto solo paga tutto: cercare un vantaggio medio su questo orizzonte significa cercare la lotteria. O si prende il biglietto, o si accorcia l'orizzonte."
+  },
+  {
+   "n": 7,
+   "titolo": "I soldi che entrano nel pool, non il prezzo che sale",
+   "stato": "IN CORSO",
+   "intuizione": "il prezzo puo' salire con due euro su un pool vuoto: e' un'opinione. La liquidita' aggiunta e' capitale immobilizzato che non puo' scappare in un secondo, cioe' qualcuno che si espone davvero. Guardiamo l'unico gesto costoso da falsificare invece del piu' facile.",
+   "dati": "riserve del pool nel tempo da GeckoTerminal, gia' gratis, piu' le nostre candele per l'esito",
+   "morte": "se la crescita di riserva non separa gli esiti a 72h meglio di quanto li separi la crescita di prezzo nella stessa finestra, l'idea non aggiunge niente e muore",
+   "nota": "prima misura: 78% degli esiti era esattamente zero, cioe' pool fermi in cui la serie ripete l'ultimo prezzo — non il mercato, il mio strumento. Con il filtro di attivita' (solo passato) gli zeri scendono al 14%. Separazione per liquidita' -4,5% contro +1,6% del prezzo: la liquidita' sta perdendo la gara e con segno invertito, ma i giorni indipendenti sono 8 e il criterio ne chiede 15. Si aspetta, non si conclude."
+  },
+  {
+   "n": 8,
+   "titolo": "Scegliere per costo di uscita, non per rendimento atteso",
+   "stato": "MORTO 09/09",
+   "intuizione": "misuriamo il lordo e poi paghiamo fino al 26% per uscire dai pool sottili: e' come scegliere la strada senza guardare il pedaggio. Se ordiniamo i candidati per rendimento NETTO al nostro importo, un vantaggio gia' esistente potrebbe emergere solo perche' smettiamo di regalarlo all'uscita. Non cerca un segnale nuovo: ripara l'aritmetica di quelli che abbiamo.",
+   "dati": "curva costo-liquidita' gia' calibrata + candele; nessuna chiamata nuova",
+   "morte": "soglia di costo fissata PRIMA di guardare gli esiti; se il sottoinsieme a uscita economica non batte l'insieme intero sul livello di validazione, muore. Una sola soglia, non una ricerca fra venti: cercando abbastanza si trova sempre qualcosa.",
+   "esito": "la soglia dell'8% non taglia niente: 1161 eventi su 1161 ci stanno sotto. Premessa caduta, non idea sconfitta.",
+   "cosa_ha_insegnato": "Sui pool che scambiano davvero il pedaggio d'uscita mediano e' 0,9% (95esimo percentile 2,5%), non il 26% che ci spaventava: quel 26% viene dalla coda sottile che gia' escludiamo. NON e' il pedaggio a mangiarci. Manca il segnale, non l'aritmetica — e va cercato li'."
+  }
+ ],
+ "nota_08_09": "La coda non deve mai svuotarsi: le idee muoiono in fretta (sei chiuse) e il collo di bottiglia non e' averne una buona, e' non restare fermi mentre quella in corso viene misurata. Ogni idea entra con l'intuizione economica, i dati e il criterio di morte gia' scritti — mai dopo aver visto i numeri."
+}

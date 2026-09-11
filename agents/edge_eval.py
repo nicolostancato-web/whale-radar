@@ -1,0 +1,150 @@
+#!/usr/bin/env python3
+"""
+EDGE_EVAL — lo STRUMENTO DEL LOOP: misura ogni giorno, in modo ONESTO (walk-forward, no-lookahead),
+quanto edge ha oggi il sistema con i dati+feature attuali. Logga il numero nel tempo → vediamo l'ago
+muoversi verso il GOAL. Nessuna illusione in-sample: alleno il modello SOLO sui token gia' chiusi PRIMA
+di ognuno, esattamente come girerebbe live. Scrive EDGE.md (il cruscotto del progresso). €0, cloud.
+
+GOAL: walk-forward portafoglio chiaramente positivo e robusto (non nel rumore) su abbastanza token.
+Finche' non ci siamo: si accumulano dati e si aggiungono leve. Decide Nicolo quando basta. Mai mollare.
+"""
+import gzip, json, os, time, sys, statistics as st
+sys.path.insert(0, "agents")
+import learner as L
+
+now = int(time.time())
+THR = 0.40; WARMUP = 40
+HIST = "data/edge_history.jsonl"
+
+
+def build_rows(cand, flow, fbp, wl, fts, reg):
+    mp = {a: reg[a].get("name") for a in reg if len(a) == 42 and L._is_meme(reg[a].get("name"))}
+    byname = {}
+    for p in cand:
+        if p not in mp: continue
+        nm = (mp[p] or "").split(" ")[0]
+        if nm not in byname or fts[p] < fts[byname[nm]]: byname[nm] = p
+
+    # strategia LIVE (auto-scelta dallo strategy_optimizer): entrata + uscita
+    S = json.load(open("data/strategy.json")) if os.path.exists("data/strategy.json") else {}
+    TP1 = S.get("tp1", 3.0); TP2 = S.get("tp2", 6.0); TRAIL = S.get("trail", 0.50); HARD = S.get("hard", 0.70); EH = S.get("entry_h", 3)
+
+    def outcome_ts(cs, ent, ep, minimi=None, impatto=0.0):
+        """STESSO METRO DELL'ESPLORATORE (01/09). Difetto trovato dal loop 1: le correzioni sui costi — rug
+        intrabar e impatto di mercato — erano state applicate a chi CERCA (explorer_rh) ma non a chi produce
+        il NUMERO UFFICIALE (questo file). Risultato: Robinhood risultava +27% qui e -54% nella ricerca, e il
+        cancello del live guarda proprio questo numero. Due strumenti che misurano la stessa cosa con metri
+        diversi sono peggio di uno strumento sbagliato: non sai a quale credere."""
+        ser = [(t, cs[t]) for t in sorted(cs) if t >= ent and cs[t] > 0]
+        hi = ep; legs = []; h2 = h35 = False; xt = ser[-1][0] if ser else ent
+
+        def netto(mult, tr=False):
+            ein = (1 + L.ES) * (1 + L.FEE)
+            uscita = min(0.60, L.XS + impatto)
+            eout = mult * (1 - uscita) * (1 - L.FEE) * (1 - L.LAT * (2 if tr else 1))
+            return eout / ein - 1 - (L.GAS * 2) / 10.0
+
+        for t, v in ser:
+            hi = max(hi, v); m = v / ep
+            basso = (minimi or {}).get(t) or v          # il minimo della candela: rug intrabar
+            if not h2 and m >= TP1: legs.append(netto(TP1)); h2 = True
+            if not h35 and m >= TP2: legs.append(netto(TP2)); h35 = True
+            if not h2:
+                if basso <= ep * (1 - HARD):
+                    legs.append(netto(min(basso, ep * (1 - HARD)) / ep)); xt = t; break
+            elif basso <= hi * (1 - TRAIL):
+                legs.append(netto(min(basso, hi * (1 - TRAIL)) / ep, True)); xt = t; break
+        while len(legs) < 3: legs.append(legs[-1] if legs else netto(ser[-1][1] / ep if ser else 1, True))
+        return sum(legs[:3]) / 3, xt
+
+    rows = []
+    for nm, p in byname.items():
+        lt = fts[p]; base = lt + EH * 3600; fl = flow.get(p, {}); ent = ep = None
+        for t in sorted(cand[p]):
+            if t < base: continue
+            past = [v for h, v in fl.items() if h <= t]
+            hrs = len(past); bu = sum(v[0] for v in past); su = sum(v[1] for v in past)
+            if hrs >= 4 and bu + su >= 3000 and su / (bu + 1) >= 0.15: ent, ep = t, cand[p][t]; break
+        if ent is None or not ep: continue
+        f = L.features_at_entry(p, ent, cand, flow, fbp, wl, fts)
+        if f is None: continue
+        # impatto di mercato: quanto la nostra posizione pesa sul flusso orario tipico del pool
+        passati = [v for h, v in fl.items() if h <= ent]
+        vol_ora = (sum(a + b for a, b in passati) / len(passati)) if passati else 0.0
+        impatto = min(0.45, 10.0 / (vol_ora + 1.0))
+        ret, xt = outcome_ts(cand[p], ent, ep, L.MINIMI.get(p), impatto)
+        rows.append({"ent": ent, "xt": xt, "f": f, "ret": ret})
+    rows.sort(key=lambda r: r["ent"])
+    return rows
+
+
+def walkforward(rows):
+    sel = []
+    for i, r in enumerate(rows):
+        train = [q for q in rows[:i] if q["xt"] < r["ent"]]
+        if len(train) < WARMUP: sel.append(r["ret"]); continue
+        X = [q["f"] for q in train]; y = [1 if q["ret"] > 0 else 0 for q in train]
+        if len(set(y)) < 2: sel.append(r["ret"]); continue
+        w, b, mu, sd = L.fit_logreg(X, y)
+        s = L.sigmoid(sum(w[j] * (r["f"][j] - mu[j]) / sd[j] for j in range(len(r["f"]))) + b)
+        if s >= THR: sel.append(r["ret"])
+    return sel
+
+
+def port(rr): return (sum(1 + x for x in rr) / len(rr) - 1) * 100 if rr else 0.0
+def win(rr): return sum(1 for x in rr if x > 0) / len(rr) * 100 if rr else 0.0
+
+
+def main():
+    cand, flow, fbp, wl, fts = L.load_data()
+    reg = json.load(open("data/pools.json"))["pools"] if os.path.exists("data/pools.json") else {}
+    rows = build_rows(cand, flow, fbp, wl, fts, reg)
+    base = [r["ret"] for r in rows]
+    sel = walkforward(rows)
+    sel_no3 = port(sorted(sel, reverse=True)[3:]) if len(sel) > 5 else 0.0   # media SENZA i 3 mostri top
+    rec = {"date": time.strftime("%Y-%m-%d", time.gmtime(now)), "n_tok": len(rows),
+           "base_port": round(port(base), 1), "base_win": round(win(base), 0),
+           "sel_n": len(sel), "sel_port": round(port(sel), 1), "sel_win": round(win(sel), 0),
+           "sel_no3": round(sel_no3, 1), "edge": round(port(sel) - port(base), 1)}
+    # COM'E' FATTO il numero: se lo tengono in piedi 3 colpi, non e' una strategia ma una lotteria
+    if sel:
+        ss = sorted(sel, reverse=True); tot = sum(1 + x for x in ss)
+        rec["peso_top1"] = round((1 + ss[0]) / tot * 100, 1) if tot else 0
+        rec["peso_top3"] = round(sum(1 + x for x in ss[:3]) / tot * 100, 1) if tot else 0
+        rec["mediana"] = round(ss[len(ss) // 2] * 100, 1)
+        rec["migliore"] = round(ss[0] * 100, 1)
+    # log immutabile (una riga al giorno; sostituisce quella di oggi se rigira)
+    hist = []
+    if os.path.exists(HIST):
+        for l in open(HIST):
+            try:
+                d = json.loads(l)
+                if d.get("date") != rec["date"]: hist.append(d)
+            except: pass
+    hist.append(rec)
+    with open(HIST, "w") as fo:
+        for d in hist: fo.write(json.dumps(d) + "\n")
+
+    # cruscotto
+    trend = hist[-10:]
+    L2 = ["# 📊 EDGE — cruscotto del loop (walk-forward ONESTO verso il goal)",
+          f"*{time.strftime('%Y-%m-%d %H:%M UTC', time.gmtime(now))} · no-lookahead, come girerebbe live*", "",
+          f"## 📊 MEDIA STRATEGIA: {rec['sel_port']:+.0f}% per token",
+          f"*Su €100 → €{100*(1+rec['sel_port']/100):.0f} · {rec['n_tok']} token · vinti {rec['sel_win']:.0f}% · walk-forward, costi reali dentro*", "",
+          (f"- ✅ **AFFIDABILE**: regge anche togliendo i 3 mostri top ({rec['sel_no3']:+.0f}%)"
+           if rec['sel_no3'] >= 0 else
+           f"- ⚠️ **INSTABILE**: togliendo i 3 mostri top scende a {rec['sel_no3']:+.0f}% → pochi colpi la tengono, serve piu' storia"),
+          f"- (comprando TUTTO senza selezionare: {rec['base_port']:+.0f}%)", "",
+          "> ✅ Il numero diventa AFFIDABILE quando resta stabile (o cresce) man mano che i token accumulano.", "",
+          "> GOAL: media chiaramente positiva e ROBUSTA (non nel rumore) su abbastanza token → poi size vera piccola.",
+          "> Il numero cresce man mano che l'auto-learning trova strategie migliori. Decide Nicolo quando basta.", "",
+          "## Andamento (l'ago si muove?)",
+          "| data | token | MEDIA STRATEGIA |", "|---|---|---|"]
+    for d in trend:
+        L2.append(f"| {d['date']} | {d['n_tok']} | {d.get('sel_port', 0):+.0f}% |")
+    open("EDGE.md", "w").write("\n".join(L2))
+    print(f"EDGE_EVAL | {rec['n_tok']} token | base {rec['base_port']:+.0f}% | sel {rec['sel_port']:+.0f}% | edge {rec['edge']:+.1f}%", flush=True)
+
+
+if __name__ == "__main__":
+    main()

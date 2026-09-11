@@ -1,0 +1,16 @@
+# 🧠 WALLET INTELLIGENCE — l'ultimo test (robinhood)
+*2026-09-11 21:00 UTC · 367 decisioni indipendenti (prima scelta di ogni entità su ogni token) · 321 entità riconosciute fondendo i wallet della stessa mano*
+
+> **Come si misura la bravura qui**: non «quanti token ha azzeccato», ma **quanto ha fatto meglio
+> dei token comparabili** disponibili negli stessi momenti — e con il punteggio schiacciato verso
+> lo zero quando i casi sono pochi. Tre successi su tre non valgono più di settanta su centoventi.
+
+> **Numeri LORDI, di proposito.** Prima si guarda se l'informazione esiste. I costi si discutono
+> solo dopo, e solo se c'è qualcosa da scontare.
+
+## Campione insufficiente
+
+Solo **0** acquisti provengono da entità con almeno 20 decisioni alle
+spalle e bravura storica positiva. Non basta per un verdetto: serve più storico.
+
+*Nessuna conclusione tratta — meglio nessuna risposta che una sbagliata.*

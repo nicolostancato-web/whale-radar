@@ -1,0 +1,30 @@
+name: accumulator
+# REPARTO ACCUMULATOR: ogni ora fotografa la chain (snapshot compressi) + paper test live. €0.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "21 */2 * * *"
+permissions:
+  contents: write
+concurrency:
+  group: accumulator
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: python agents/accumulator.py || echo "ko, riprovo al prossimo giro"
+      - name: Salva dati
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/ 2>/dev/null || true
+          git commit -m "accumulator $(date -u +%Y-%m-%dT%H:%MZ)" || { echo "niente"; exit 0; }
+          for i in 1 2 3; do
+            git pull --no-rebase --no-edit -X ours origin main || true
+            git push origin main && exit 0; sleep 4
+          done
+          echo "push ko, riprovo dopo"; exit 0

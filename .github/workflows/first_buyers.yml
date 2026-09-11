@@ -1,0 +1,41 @@
+name: first_buyers
+# FIRST_BUYERS: primi ~100 buy dal listing (punto-zero) di ogni token, SENZA soglia size (cattura piccoli insider/bot).
+# AUTO-CONCATENATO: ogni run fa un batch e ri-lancia SE STESSO finche' non ha finito tutti i pool -> macina veloce PC-spento.
+# Storico, resumable, immutabile. €0.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "27 */3 * * *"   # rete di sicurezza ogni 2h (l'auto-chain fa il grosso)
+permissions:
+  contents: write
+concurrency:
+  group: first_buyers
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Cattura + salva + auto-chain
+        env:
+          WR_PAT: ${{ secrets.WR_PAT }}
+        run: |
+          FIRST_N=100 FB_BATCH=22 FB_SEC=1000 python agents/first_buyers.py 2>&1 | tee /tmp/fb.log || echo "ko"
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add data/raw/firstbuyers data/first_buyers_checkpoint.json 2>/dev/null || true
+          git commit -m "first_buyers $(date -u +%Y-%m-%dT%H:%MZ)" || echo niente
+          for i in 1 2 3; do
+            git pull --no-rebase --no-edit -X ours origin main || true
+            git push origin main && break; sleep 4
+          done
+          # auto-concatenamento: se restano pool, ri-lancia SE STESSO (WR_PAT). Si ferma da solo quando REMAINING=0.
+          R=$(grep -oE 'REMAINING=[0-9]+' /tmp/fb.log | tail -1 | cut -d= -f2)
+          echo "restano $R pool"
+          if [ "${R:-0}" -gt 0 ] && [ -n "$WR_PAT" ]; then
+            curl -s -o /dev/null -X POST -H "Authorization: token ${WR_PAT}" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/nicolostancato-web/whale-radar/actions/workflows/first_buyers.yml/dispatches" -d '{"ref":"main"}'
+            echo "ri-lanciato se stesso"
+          fi
