@@ -2452,3 +2452,4 @@
 {"token": "Hz8w1w951N3pbSUZf5hqB98gtzp6RHtf5JqF7Fzhpump", "chain": "solana", "ts": 1789192467, "mintable": "0", "freezable": "0", "metadata_mutable": "0", "holder_count": null, "top10": 0, "lp_locked": 0, "creator": null}
 {"token": "EUNYR4tRMxNhNntQHwb35YHk2GfitG1s8sX5CXqkJ9hC", "chain": "solana", "ts": 1789192467, "mintable": "0", "freezable": "0", "metadata_mutable": "1", "holder_count": null, "top10": 0, "lp_locked": 0, "creator": null}
 {"token": "NfLQbDiFrjarXs1DdDrQNQYyzECjdARAdxANpP5pq2f", "chain": "solana", "ts": 1789192467, "mintable": "0", "freezable": "0", "metadata_mutable": "0", "holder_count": null, "top10": 0, "lp_locked": 0, "creator": null}
+{"token": "D1b9BDcFV39RrPJujdhFMi4HcVsemSgMUEgnKEZnpump", "chain": "solana", "ts": 1789200117, "mintable": "0", "freezable": "0", "metadata_mutable": "0", "holder_count": "3", "top10": 1.0, "lp_locked": 0, "creator": null}
