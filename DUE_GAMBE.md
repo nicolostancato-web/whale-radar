@@ -1,5 +1,5 @@
 # 🦵🦵 LE DUE GAMBE — un netto vale solo se misurato sulla SUA chain
-*2026-09-12 01:32 UTC · nato dalla revisione esterna del 10/09 · sola lettura · €0*
+*2026-09-12 01:37 UTC · nato dalla revisione esterna del 10/09 · sola lettura · €0*
 
 > **L'assunzione invisibile**: il metro dei costi è stato misurato solo su Jupiter — cioè
 > solo su Solana — e per giunta *in calma*, non durante una fuga. Con quel metro stiamo
@@ -11,8 +11,8 @@
 
 | chain | token valutabili | con costo misurato sulla SUA chain | copertura |
 |---|---|---|---|
-| **base** | 685 | 49 | **7.2%** |
-| **robinhood** | 1,465 | 50 | **3.4%** |
+| **base** | 703 | 49 | **7.0%** |
+| **robinhood** | 1,471 | 50 | **3.4%** |
 | **solana** | 707 | 385 | **54.5%** |
 
 ## Verdetto
