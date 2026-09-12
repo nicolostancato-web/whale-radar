@@ -1,1 +1,1 @@
-{"chain": "robinhood", "ts": 1789235741, "feature": ["ampiezza x drawdown_pre (filtro)", "drawdown_pre (filtro)", "buy_medio x volume_ultima_su_media (filtro)", "volume_ultima_su_media (filtro)", "ampiezza x volume_ultima_su_media (filtro)", "ampiezza (filtro)", "buy_medio / volume_ultima_su_media (filtro)", "ampiezza / drawdown_pre (filtro)"]}
+{"chain": "robinhood", "ts": 1789236719, "feature": ["drawdown_pre (filtro)", "volume_ultima_su_media (filtro)", "ampiezza (filtro)"]}
