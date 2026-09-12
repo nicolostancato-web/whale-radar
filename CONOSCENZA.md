@@ -1,5 +1,5 @@
 # 🧠 CONOSCENZA — cosa ha imparato il team
-*2026-09-12 09:46 UTC · 2413 idee messe alla prova finora*
+*2026-09-12 09:47 UTC · 2413 idee messe alla prova finora*
 
 > Questa non è la cronaca di cosa è successo: è il sapere accumulato. Prima di riprovare una cosa,
 > il team guarda qui. Ciò che ha fallito 3 volte si mette da parte — ma il caso si RIAPRE quando i
@@ -191,16 +191,16 @@
 | `segnale:base:n_compratori x buy_grossi:filtro` | base | 1 | +54 punti |
 | `segnale:base:buy_grossi x usd_primi20:filtro` | base | 2 | +54 punti |
 | `segnale:base:buy_grossi / usd_primi20:filtro` | base | 2 | +54 punti |
-| `segnale:robinhood:drawdown_pre:filtro` | robinhood | 360 | +44 punti |
+| `segnale:robinhood:drawdown_pre:filtro` | robinhood | 361 | +44 punti |
 | `segnale:robinhood:buy_medio x volume_ultima_su_media:filtro` | robinhood | 125 | +43 punti |
-| `segnale:robinhood:volume_ultima_su_media:filtro` | robinhood | 406 | +40 punti |
-| `segnale:robinhood:buy_medio x drawdown_pre:filtro` | robinhood | 100 | +39 punti |
+| `segnale:robinhood:volume_ultima_su_media:filtro` | robinhood | 407 | +40 punti |
+| `segnale:robinhood:buy_medio x drawdown_pre:filtro` | robinhood | 101 | +39 punti |
 | `segnale:base:concentrazione_top1 x accelerazione_denaro:voto` | base | 6 | +29 punti |
-| `segnale:robinhood:ampiezza x volume_ultima_su_media:filtro` | robinhood | 109 | +27 punti |
+| `segnale:robinhood:ampiezza x volume_ultima_su_media:filtro` | robinhood | 110 | +27 punti |
 | `segnale:robinhood:drawdown_pre x volume_ultima_su_media:filtro` | robinhood | 126 | +23 punti |
 | `segnale:base:n_compratori / buy_grossi:voto` | base | 1 | +19 punti |
 | `segnale:base:buy_medio / sbilanciamento:filtro` | base | 21 | +18 punti |
-| `segnale:robinhood:ampiezza:filtro` | robinhood | 403 | +17 punti |
+| `segnale:robinhood:ampiezza:filtro` | robinhood | 404 | +17 punti |
 | `segnale:solana:usd_primi20 / compra_e_rivende:filtro` | solana | 116 | +16 punti |
 | `segnale:solana:n_compratori / compra_e_rivende:filtro` | solana | 34 | +15 punti |
 | `segnale:bsc:buy_medio x volume_ultima_su_media:filtro` | bsc | 5 | +14 punti |
