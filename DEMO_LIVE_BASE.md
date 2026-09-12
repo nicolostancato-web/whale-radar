@@ -1,5 +1,5 @@
 # 🎮 DEMO LIVE — conto vero €100 → €3.000 (BASE)
-*2026-09-12 15:20 UTC · attivo da 16.8 giorni · strategia DEDICATA a Base*
+*2026-09-12 16:24 UTC · attivo da 16.9 giorni · strategia DEDICATA a Base*
 
 ## 🔴 **LIVE SOSPESO** — il LOOP 1 e' a **-6%** robusta, sotto la soglia di **+40%**: andare live vorrebbe dire attuare una strategia che sappiamo gia' non pagare
 
