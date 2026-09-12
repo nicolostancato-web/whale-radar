@@ -1,5 +1,5 @@
 # ⏳ IL MOVIMENTO SUCCEDE PRIMA CHE POSSIAMO ENTRARE?
-*2026-09-12 07:48 UTC · nato dalla revisione esterna dell'11/09 · sola lettura · €0*
+*2026-09-12 07:56 UTC · nato dalla revisione esterna dell'11/09 · sola lettura · €0*
 
 > Trattavamo il ritardo di osservazione (3-7 ore) come **un costo**: qualcosa che ci toglie
 > un po' di rendimento. Ma con orizzonti da 5 minuti, 30 minuti e 2 ore il bot arriva quando
@@ -11,7 +11,7 @@ a 7 ore è sepolto.
 | chain | token | **prima** dell'entrata | dopo +2h | dopo +6h | dopo +24h |
 |---|---|---|---|---|---|
 | **base** | 551 | **-0.0%** | +0.0% | -0.0% | +0.2% |
-| **robinhood** | 496 | **-3.2%** | -0.4% | -1.4% | -7.2% |
+| **robinhood** | 498 | **-3.2%** | -0.4% | -1.5% | -7.2% |
 | **solana** | 611 | **-2.3%** | -0.0% | -1.1% | -2.6% |
 
 *Mediane: una lotteria non deve decidere un verdetto.*
@@ -35,10 +35,14 @@ a 7 ore è sepolto.
 
 | chain | trade scelti | **prima** dell'entrata | dopo +2h | dopo +6h | dopo +24h |
 |---|---|---|---|---|---|
-| **base** | 257 | **+0.0%** | +0.0% | +0.0% | -0.5% |
+| **base** | 255 | **+0.1%** | +0.0% | -0.0% | -0.5% |
 | **robinhood** | 302 | **-1.1%** | -0.7% | -1.9% | -8.7% |
-| **solana** | 321 | **-1.5%** | -0.1% | -1.2% | -3.3% |
+| **solana** | 336 | **-2.2%** | -0.2% | -1.3% | -3.4% |
 
 ### Verdetto sui selezionati di Base
 
-> ✅ **Qualcosa resta dopo l'entrata**: +0.0% mediano a 6h contro +0.0% prima. Il ritardo morde ma non cancella. (17 giorni indipendenti.)
+> ❌ **Il segnale non sopravvive al ritardo.** Sui trade scelti il prezzo fa
+> **+0.1%** prima che potessimo entrare e **-0.0%** dopo.
+> Il movimento esiste: **lo incassa chi arriva prima di noi.** Non è un costo da
+> limare — o si accorcia il ritardo, o quegli orizzonti non sono nostri.
+> (16 giorni indipendenti.)
