@@ -1,1 +1,1 @@
-{"chain": "solana", "ts": 1789174530, "feature": ["usd_primi20 / compra_e_rivende (filtro)"]}
+{"chain": "robinhood", "ts": 1789174542, "feature": ["drawdown_pre (filtro)", "volume_ultima_su_media (filtro)", "drawdown_pre x volume_ultima_su_media (filtro)", "ampiezza (filtro)", "drawdown_pre / volume_ultima_su_media (filtro)"]}
