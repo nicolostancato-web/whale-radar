@@ -216,3 +216,4 @@
 {"tp1": 4, "tp2": 8, "trail": 0.4, "hard": 0.7, "entry_h": 1, "media": 172.7, "robusta": 25.8, "n": 37, "chain": "base", "ts": 1789163998}
 {"tp1": 3, "tp2": 8, "trail": 0.4, "hard": 0.7, "entry_h": 3, "media": -16.6, "robusta": -34.2, "n": 16, "chain": "base", "ts": 1789173680}
 {"tp1": 3, "tp2": 8, "trail": 0.4, "hard": 0.7, "entry_h": 3, "media": -16.6, "robusta": -34.2, "n": 16, "chain": "base", "ts": 1789177268}
+{"tp1": 4, "tp2": 8, "trail": 0.4, "hard": 0.7, "entry_h": 3, "media": -23.7, "robusta": -30.6, "n": 324, "chain": "solana", "ts": 1789190363}
