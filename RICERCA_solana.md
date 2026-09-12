@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (solana)
-*2026-09-12 00:05 UTC · 18 segnali nuovi messi alla prova su 525 token*
+*2026-09-12 00:23 UTC · 6 segnali nuovi messi alla prova su 525 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-99%**.
 
@@ -18,31 +18,19 @@
 |---|---|---|
 | `usd_primi20 / compra_e_rivende (filtro)` | quanto pesano i primissimi 20 acquisti sul totale RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -93% (+6) |
 | `concentrazione_top5 x trade_al_minuto (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per quanto è frenetico lo scambio | -97% (+2) |
-| `trade_al_minuto x accelerazione_denaro (filtro)` | quanto è frenetico lo scambio MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -99% (+0) |
-| `concentrazione_top1 x n_compratori (filtro)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per quante persone diverse hanno comprato | -99% (+0) |
-| `buy_medio x quota_wallet_nuovi (voto)` | quanto compra in media ciascuno MOLTIPLICATO per la quota di denaro da wallet mai visti prima | -99% (+0) |
-| `buy_medio x quota_wallet_nuovi (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per la quota di denaro da wallet mai visti prima | -99% (+0) |
-| `buy_medio / quota_wallet_nuovi (voto)` | quanto compra in media ciascuno RAPPORTATO a la quota di denaro da wallet mai visti prima | -99% (+0) |
-| `buy_medio / quota_wallet_nuovi (filtro)` | quanto compra in media ciascuno RAPPORTATO a la quota di denaro da wallet mai visti prima | -99% (+0) |
-| `buy_medio x quota_wallet_reduci (voto)` | quanto compra in media ciascuno MOLTIPLICATO per la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -99% (+0) |
-| `buy_medio x quota_wallet_reduci (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -99% (+0) |
-| `buy_medio / quota_wallet_reduci (voto)` | quanto compra in media ciascuno RAPPORTATO a la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -99% (+0) |
-| `buy_medio / quota_wallet_reduci (filtro)` | quanto compra in media ciascuno RAPPORTATO a la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -99% (+0) |
-| `usd_primi20 x compra_e_rivende (voto)` | quanto pesano i primissimi 20 acquisti sul totale MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
-| `usd_primi20 x compra_e_rivende (filtro)` | quanto pesano i primissimi 20 acquisti sul totale MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
-| `usd_primi20 / compra_e_rivende (voto)` | quanto pesano i primissimi 20 acquisti sul totale RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
-| `concentrazione_top1 x n_compratori (voto)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per quante persone diverse hanno comprato | -99% (+0) |
-| `concentrazione_top1 / n_compratori (voto)` | quanto pesa il singolo compratore più grosso RAPPORTATO a quante persone diverse hanno comprato | -99% (+0) |
-| `concentrazione_top1 / n_compratori (filtro)` | quanto pesa il singolo compratore più grosso RAPPORTATO a quante persone diverse hanno comprato | -99% (+0) |
+| `buy_medio / quota_wallet_vincenti (filtro)` | quanto compra in media ciascuno RAPPORTATO a la quota di denaro da wallet con almeno un successo alle spalle | -99% (+0) |
+| `buy_medio x quota_wallet_vincenti (voto)` | quanto compra in media ciascuno MOLTIPLICATO per la quota di denaro da wallet con almeno un successo alle spalle | -99% (+0) |
+| `buy_medio x quota_wallet_vincenti (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per la quota di denaro da wallet con almeno un successo alle spalle | -99% (+0) |
+| `buy_medio / quota_wallet_vincenti (voto)` | quanto compra in media ciascuno RAPPORTATO a la quota di denaro da wallet con almeno un successo alle spalle | -99% (+0) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
 - `concentrazione_top5 (voto)` — già bocciato 26 volte 2h fa (si riprova fra 10h o quando i dati crescono)
-- `concentrazione_top5 (filtro)` — già bocciato 16 volte 10h fa (si riprova fra 2h o quando i dati crescono)
+- `concentrazione_top5 (filtro)` — già bocciato 16 volte 11h fa (si riprova fra 1h o quando i dati crescono)
 - `concentrazione_top1 (voto)` — già bocciato 26 volte 2h fa (si riprova fra 10h o quando i dati crescono)
 - `concentrazione_top1 (filtro)` — già bocciato 14 volte 11h fa (si riprova fra 1h o quando i dati crescono)
 - `n_compratori (voto)` — già bocciato 26 volte 2h fa (si riprova fra 10h o quando i dati crescono)
-- `n_compratori (filtro)` — già bocciato 16 volte 10h fa (si riprova fra 2h o quando i dati crescono)
+- `n_compratori (filtro)` — già bocciato 16 volte 11h fa (si riprova fra 1h o quando i dati crescono)
 - `buy_medio (voto)` — già bocciato 26 volte 2h fa (si riprova fra 10h o quando i dati crescono)
 - `buy_medio (filtro)` — già bocciato 13 volte 5h fa (si riprova fra 7h o quando i dati crescono)
 - `buy_grossi (voto)` — già bocciato 26 volte 2h fa (si riprova fra 10h o quando i dati crescono)
