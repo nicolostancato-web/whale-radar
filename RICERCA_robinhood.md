@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (robinhood)
-*2026-09-12 14:40 UTC · 4 segnali nuovi messi alla prova su 340 token*
+*2026-09-12 14:56 UTC · 4 segnali nuovi messi alla prova su 340 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-95%**.
 
@@ -28,12 +28,12 @@
 
 - `concentrazione_top5 (voto)` — già bocciato 28 volte 7h fa (si riprova fra 5h o quando i dati crescono)
 - `concentrazione_top5 (filtro)` — già bocciato 28 volte 7h fa (si riprova fra 5h o quando i dati crescono)
-- `concentrazione_top1 (voto)` — già bocciato 28 volte 6h fa (si riprova fra 6h o quando i dati crescono)
-- `concentrazione_top1 (filtro)` — già bocciato 28 volte 6h fa (si riprova fra 6h o quando i dati crescono)
-- `n_compratori (voto)` — già bocciato 28 volte 6h fa (si riprova fra 6h o quando i dati crescono)
-- `n_compratori (filtro)` — già bocciato 28 volte 6h fa (si riprova fra 6h o quando i dati crescono)
-- `buy_medio (voto)` — già bocciato 28 volte 6h fa (si riprova fra 6h o quando i dati crescono)
-- `buy_medio (filtro)` — già bocciato 28 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `concentrazione_top1 (voto)` — già bocciato 28 volte 7h fa (si riprova fra 5h o quando i dati crescono)
+- `concentrazione_top1 (filtro)` — già bocciato 28 volte 7h fa (si riprova fra 5h o quando i dati crescono)
+- `n_compratori (voto)` — già bocciato 28 volte 7h fa (si riprova fra 5h o quando i dati crescono)
+- `n_compratori (filtro)` — già bocciato 28 volte 7h fa (si riprova fra 5h o quando i dati crescono)
+- `buy_medio (voto)` — già bocciato 28 volte 7h fa (si riprova fra 5h o quando i dati crescono)
+- `buy_medio (filtro)` — già bocciato 28 volte 7h fa (si riprova fra 5h o quando i dati crescono)
 - `buy_grossi (voto)` — già bocciato 28 volte 5h fa (si riprova fra 7h o quando i dati crescono)
 - `buy_grossi (filtro)` — già bocciato 28 volte 5h fa (si riprova fra 7h o quando i dati crescono)
 
