@@ -1,5 +1,5 @@
 # 🧠 CONOSCENZA — cosa ha imparato il team
-*2026-09-12 06:49 UTC · 2412 idee messe alla prova finora*
+*2026-09-12 06:55 UTC · 2412 idee messe alla prova finora*
 
 > Questa non è la cronaca di cosa è successo: è il sapere accumulato. Prima di riprovare una cosa,
 > il team guarda qui. Ciò che ha fallito 3 volte si mette da parte — ma il caso si RIAPRE quando i
@@ -175,7 +175,7 @@
 | `segnale:base:compra_e_rivende x volume_ultima_su_media:voto` | base | 12 | +175 punti |
 | `segnale:base:compra_e_rivende x drawdown_pre:voto` | base | 3 | +157 punti |
 | `strategia:base:entra +6h · solo se volume > $10.000, almeno 2h di scambi · stop -60% · profitto a 4x e 8x · trailing -50% · soglia 0.4` | base | 1 | +155 punti |
-| `segnale:base:trade_al_minuto x usd_primi20:voto` | base | 3 | +129 punti |
+| `segnale:base:trade_al_minuto x usd_primi20:voto` | base | 4 | +129 punti |
 | `segnale:base:quota_wallet_reduci x drawdown_pre:filtro` | base | 2 | +115 punti |
 | `segnale:base:quota_wallet_reduci / drawdown_pre:filtro` | base | 2 | +115 punti |
 | `segnale:base:wallet_ripetuti x accelerazione_denaro:filtro` | base | 2 | +115 punti |
