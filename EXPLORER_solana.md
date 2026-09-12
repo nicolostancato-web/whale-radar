@@ -1,5 +1,5 @@
 # 🔬 EXPLORER — LOOP 1: come alzo la percentuale? (solana)
-*2026-09-12 04:32 UTC · 1882 strategie provate in questo ciclo · 400204 in totale*
+*2026-09-12 04:51 UTC · 1868 strategie provate in questo ciclo · 402072 in totale*
 
 ## Migliore trovata finora: **-99%** (stress test) · P&L medio **-16%** · crescita composta **-88.7%** · 5% peggiore **-100%** · 100 trade
 
@@ -25,12 +25,12 @@ la crescita composta dice se reinvestendo si cresce o ci si rovina.*
 
 | la strategia | risultato |
 |---|---|
-| entra +6h · almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 5x e 15x · trailing -50% · soglia 0.5 | -99% |
+| entra +12h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 5x e 15x · trailing -50% · soglia 0.5 | -99% |
+| entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 2x e 15x · trailing -50% · soglia 0.5 | -99% |
 | entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 5x e 15x · trailing -50% · soglia 0.5 | -99% |
 | entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 5x e 15x · trailing -50% · soglia 0.5 | -99% |
+| entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 5x e 15x · trailing -30% · soglia 0.5 | -99% |
 | entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 5x e 15x · trailing -50% · soglia 0.5 | -99% |
-| entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 5x e 15x · trailing -50% · soglia 0.5 | -99% |
-| entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 3x e 15x · trailing -50% · soglia 0.5 | -99% |
 
 > Il LOOP 1 non si ferma mai: prova strategie e segnali, tiene solo cio' che alza la percentuale
 > ROBUSTA (tolti i 3 colpi migliori) di almeno 8 punti, e riparte da li'.
