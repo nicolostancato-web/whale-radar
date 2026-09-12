@@ -5,7 +5,7 @@
 
 | corsia | stato | ultimo commit | azione |
 |---|---|---|---|
-| **motore** | 🟢 viva — ultimo commit 3 min fa | `engine verbali3 17:31Z` | — |
+| **motore** | 🟢 viva — ultimo commit 4 min fa | `engine verbali3 17:31Z` | — |
 | **ricerca** | 🟢 viva — ultimo commit 11 min fa | `ricerca base giro42 17:24Z` | — |
 | **loop 0** | 🟢 viva — ultimo commit 15 min fa | `loop0 giro13 17:19Z` | — |
 | **sperimenti** | 🟢 viva — ultimo commit 4 min fa | `sperimenti giro34 17:31Z` | — |
