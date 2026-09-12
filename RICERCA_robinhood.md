@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (robinhood)
-*2026-09-12 10:02 UTC · 25 segnali nuovi messi alla prova su 340 token*
+*2026-09-12 10:20 UTC · 15 segnali nuovi messi alla prova su 340 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-96%**.
 
@@ -29,24 +29,14 @@
 | `ampiezza (filtro)` | quanto oscilla il prezzo prima di entrare | -79% (+17) |
 | `buy_medio / volume_ultima_su_media (filtro)` | quanto compra in media ciascuno RAPPORTATO a se il volume sta accelerando proprio adesso | -88% (+8) |
 | `ampiezza / drawdown_pre (filtro)` | quanto oscilla il prezzo prima di entrare RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -91% (+5) |
-| `concentrazione_top5 / quota_wallet_reduci (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -95% (+1) |
-| `concentrazione_top5 x quota_wallet_reduci (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -96% (+0) |
-| `concentrazione_top1 x buy_medio (voto)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per quanto compra in media ciascuno | -96% (+0) |
-| `concentrazione_top1 / buy_medio (voto)` | quanto pesa il singolo compratore più grosso RAPPORTATO a quanto compra in media ciascuno | -96% (+0) |
-| `compra_e_rivende x volume_ultima_su_media (voto)` | quanti di quelli che hanno comprato stanno già rivendendo MOLTIPLICATO per se il volume sta accelerando proprio adesso | -96% (+0) |
-| `compra_e_rivende / volume_ultima_su_media (voto)` | quanti di quelli che hanno comprato stanno già rivendendo RAPPORTATO a se il volume sta accelerando proprio adesso | -96% (+0) |
-| `sbilanciamento x accelerazione_denaro (voto)` | quanto il denaro che entra supera quello che esce MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -96% (+0) |
-| `sbilanciamento / accelerazione_denaro (voto)` | quanto il denaro che entra supera quello che esce RAPPORTATO a se i soldi stanno entrando più in fretta adesso che all'inizio | -96% (+0) |
-| `ampiezza / drawdown_pre (voto)` | quanto oscilla il prezzo prima di entrare RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -96% (+0) |
-| `sbilanciamento x accelerazione_denaro (filtro)` | quanto il denaro che entra supera quello che esce MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -97% (-1) |
-| `sbilanciamento / accelerazione_denaro (filtro)` | quanto il denaro che entra supera quello che esce RAPPORTATO a se i soldi stanno entrando più in fretta adesso che all'inizio | -97% (-1) |
-| `concentrazione_top5 x quota_wallet_reduci (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -97% (-1) |
-| `concentrazione_top5 / quota_wallet_reduci (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -97% (-1) |
-| `concentrazione_top1 x buy_medio (filtro)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per quanto compra in media ciascuno | -97% (-1) |
-| `concentrazione_top1 / buy_medio (filtro)` | quanto pesa il singolo compratore più grosso RAPPORTATO a quanto compra in media ciascuno | -97% (-1) |
-| `compra_e_rivende x volume_ultima_su_media (filtro)` | quanti di quelli che hanno comprato stanno già rivendendo MOLTIPLICATO per se il volume sta accelerando proprio adesso | -97% (-1) |
-| `compra_e_rivende / volume_ultima_su_media (filtro)` | quanti di quelli che hanno comprato stanno già rivendendo RAPPORTATO a se il volume sta accelerando proprio adesso | -97% (-1) |
-| `ampiezza x drawdown_pre (voto)` | quanto oscilla il prezzo prima di entrare MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | -98% (-2) |
+| `usd_primi20 x sbilanciamento (voto)` | quanto pesano i primissimi 20 acquisti sul totale MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -96% (+0) |
+| `usd_primi20 / sbilanciamento (voto)` | quanto pesano i primissimi 20 acquisti sul totale RAPPORTATO a quanto il denaro che entra supera quello che esce | -96% (+0) |
+| `trade_al_minuto x quota_wallet_reduci (voto)` | quanto è frenetico lo scambio MOLTIPLICATO per la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -96% (+0) |
+| `trade_al_minuto / quota_wallet_reduci (voto)` | quanto è frenetico lo scambio RAPPORTATO a la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -96% (+0) |
+| `usd_primi20 x sbilanciamento (filtro)` | quanto pesano i primissimi 20 acquisti sul totale MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -97% (-1) |
+| `usd_primi20 / sbilanciamento (filtro)` | quanto pesano i primissimi 20 acquisti sul totale RAPPORTATO a quanto il denaro che entra supera quello che esce | -97% (-1) |
+| `trade_al_minuto x quota_wallet_reduci (filtro)` | quanto è frenetico lo scambio MOLTIPLICATO per la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -97% (-1) |
+| `trade_al_minuto / quota_wallet_reduci (filtro)` | quanto è frenetico lo scambio RAPPORTATO a la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -97% (-1) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
