@@ -1,5 +1,5 @@
 # ⏱️ IL SEGNALE ERA UTILIZZABILE IN QUEL MOMENTO?
-*2026-09-11 21:53 UTC · €0*
+*2026-09-12 00:31 UTC · €0*
 
 > Un risultato può essere falso in due modi che nessun raggruppamento salva: se una feature
 > guarda il futuro, o se il dato ci arriva **dopo** il momento in cui avremmo dovuto agire.
@@ -11,7 +11,7 @@
 con i soli dati fino a quell'istante. Devono venire identiche. Leggere il codice non basta:
 si legge quello che si crede di aver scritto.*
 
-> ✅ **Nessuna differenza su 40 token.** Le feature usano solo il passato:
+> ✅ **Nessuna differenza su 39 token.** Le feature usano solo il passato:
 > non è una dichiarazione del codice, è una verifica sui numeri.
 
 ## Prova 2 — quanto tardi arriva il dato a noi
@@ -26,10 +26,10 @@ nostro difetto.*
 
 | chain | ritardo tipico | quando andiamo lenti | misure |
 |---|---|---|---|
-| base | **627 min** | 2122 min | 400 |
+| base | **627 min** | 2124 min | 400 |
 | bsc | **2126 min** | 3322 min | 371 |
-| solana | **1014 min** | 2181 min | 400 |
-| robinhood | **224 min** | 268 min | 400 |
+| solana | **1017 min** | 2178 min | 400 |
+| robinhood | **224 min** | 270 min | 400 |
 
 > Il ritardo tipico peggiore è di **2126 minuti**. Su un memecoin che si
 > muove del 5% al minuto, entrare mezz'ora dopo non è la stessa strategia: è un'altra.

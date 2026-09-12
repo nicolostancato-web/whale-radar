@@ -2,7 +2,7 @@
 *2026-09-12 01:18 UTC · un giro ogni ora · qui NON si guarda la percentuale: si guarda che ognuno faccia il suo lavoro*
 
 
-## 🔴 **6 COMPONENTI NON RISPONDONO** — la macchina non è pronta
+## 🔴 **7 COMPONENTI NON RISPONDONO** — la macchina non è pronta
 
 **Per chain:** base: 🟡 · solana: 🟡 · robinhood: 🟡 · bsc: 🔴
 
@@ -84,14 +84,14 @@
 
 | archivio | token | nuovi | |
 |---|---|---|---|
-| sicurezza | 8506 | +0 | ⏳ nessun nuovo (normale entro 2h) |
+| sicurezza | 8508 | +2 | ✅ cresce |
 
 ## I processi stanno girando?
 
 | processo | stato |
 |---|---|
 | **engine** | ✅ in esecuzione |
-| **ricerca** | ✅ in esecuzione |
+| **ricerca** | ❌ FERMO — ultimo run ? (00:22 UTC) |
 ## ⚠️ Chi non risponde all'appello
 
 - **Esploratore (bsc)** — doveva lavorare entro 480 min, ultimo lavoro 76.2 ore fa
@@ -100,6 +100,7 @@
 - **dossier_astra** — doveva lavorare entro 0 min, non ha mai prodotto nulla
 - **flussi_obbligati** — doveva lavorare entro 0 min, non ha mai prodotto nulla
 - **quotazione_altrove** — doveva lavorare entro 0 min, non ha mai prodotto nulla
+- **ricerca** — doveva lavorare entro 0 min, non ha mai prodotto nulla
 
 > Finché c'è anche un solo componente che non risponde, la macchina NON è pronta. Non ha
 > senso discutere della percentuale: prima si aggiusta il team.
@@ -116,7 +117,7 @@ essere giudicati. È questo numero che sblocca il test sigillato.*
 
 | chain | nati dopo il sigillo | **valutabili** |
 |---|---|---|
-| base | 366 | **94** |
-| solana | 345 | **70** |
+| base | 397 | **125** |
+| solana | 351 | **76** |
 | bsc | 94 | **11** |
 | robinhood | 1648 | **61** |

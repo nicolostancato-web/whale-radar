@@ -1,7 +1,7 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (base)
 *2026-09-12 01:11 UTC · 37 segnali nuovi messi alla prova su 721 token*
 
-**Punto di partenza:** con i segnali attuali la percentuale robusta è **+12059%**.
+**Punto di partenza:** con i segnali attuali la percentuale robusta è **-87%**.
 
 ## 🎯 9 segnali NUOVI che alzano la percentuale
 
