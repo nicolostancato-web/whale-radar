@@ -522,7 +522,7 @@
 | `segnale:base:buy_medio x drawdown_pre:voto` | base | 5 | +12120 punti |
 | `segnale:base:n_compratori x compra_e_rivende:voto` | base | 4 | +12120 punti |
 | `segnale:base:buy_medio / drawdown_pre:voto` | base | 3 | +11579 punti |
-| `segnale:base:buy_grossi x volume_ultima_su_media:voto` | base | 5 | +10226 punti |
+| `segnale:base:buy_grossi x volume_ultima_su_media:voto` | base | 6 | +10226 punti |
 | `segnale:base:buy_medio x usd_primi20:voto` | base | 3 | +10130 punti |
 | `segnale:base:trade_al_minuto / drawdown_pre:voto` | base | 6 | +10122 punti |
 | `segnale:base:concentrazione_top5 x n_compratori:voto` | base | 6 | +9935 punti |
