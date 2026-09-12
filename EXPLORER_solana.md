@@ -1,5 +1,5 @@
 # 🔬 EXPLORER — LOOP 1: come alzo la percentuale? (solana)
-*2026-09-12 03:52 UTC · 1691 strategie provate in questo ciclo · 396659 in totale*
+*2026-09-12 04:12 UTC · 1663 strategie provate in questo ciclo · 398322 in totale*
 
 ## Migliore trovata finora: **-99%** (stress test) · P&L medio **-18%** · crescita composta **-88.8%** · 5% peggiore **-100%** · 96 trade
 
@@ -26,10 +26,10 @@ la crescita composta dice se reinvestendo si cresce o ci si rovina.*
 | la strategia | risultato |
 |---|---|
 | entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 5x e 15x · trailing -50% · soglia 0.55 | -99% |
-| entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 5x e 15x · trailing -50% · soglia 0.6 | -99% |
-| entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 4x e 15x · trailing -50% · soglia 0.5 | -99% |
-| entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 5x e 15x · trailing -50% · soglia 0.6 | -99% |
 | entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 5x e 15x · trailing -50% · soglia 0.5 | -99% |
+| entra +6h · solo se volume > $3.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 5x e 15x · trailing -50% · soglia 0.5 | -99% |
+| entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 5x e 15x · trailing -30% · soglia 0.5 | -99% |
+| entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 5x e 15x · trailing -50% · soglia 0.4 | -99% |
 | entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 5x e 15x · trailing -50% · soglia 0.5 | -99% |
 
 > Il LOOP 1 non si ferma mai: prova strategie e segnali, tiene solo cio' che alza la percentuale
