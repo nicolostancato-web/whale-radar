@@ -1,5 +1,5 @@
 # 🧠 CONOSCENZA — cosa ha imparato il team
-*2026-09-12 07:05 UTC · 2412 idee messe alla prova finora*
+*2026-09-12 07:12 UTC · 2413 idee messe alla prova finora*
 
 > Questa non è la cronaca di cosa è successo: è il sapere accumulato. Prima di riprovare una cosa,
 > il team guarda qui. Ciò che ha fallito 3 volte si mette da parte — ma il caso si RIAPRE quando i
@@ -84,7 +84,7 @@
 | `segnale:base:usd_primi20 x volume_ultima_su_media:voto` | base | 51 | +2944 punti |
 | `segnale:base:usd_primi20 x sbilanciamento:voto` | base | 55 | +2944 punti |
 | `segnale:base:volume_ultima_su_media:voto` | base | 90 | +2870 punti |
-| `segnale:base:n_compratori / trade_al_minuto:voto` | base | 21 | +2865 punti |
+| `segnale:base:n_compratori / trade_al_minuto:voto` | base | 22 | +2865 punti |
 | `segnale:base:concentrazione_top1 / ampiezza:voto` | base | 61 | +2852 punti |
 | `segnale:base:concentrazione_top5 x quota_wallet_reduci:voto` | base | 58 | +2828 punti |
 | `segnale:base:concentrazione_top1 x quota_wallet_reduci:voto` | base | 42 | +2828 punti |
@@ -133,7 +133,7 @@
 | `segnale:base:concentrazione_top1 / quota_wallet_nuovi:voto` | base | 6 | +1054 punti |
 | `segnale:base:accelerazione_denaro x drawdown_pre:voto` | base | 3 | +1054 punti |
 | `segnale:base:quota_wallet_vincenti / quota_wallet_nuovi:voto` | base | 6 | +1054 punti |
-| `segnale:base:accelerazione_denaro / drawdown_pre:voto` | base | 8 | +963 punti |
+| `segnale:base:accelerazione_denaro / drawdown_pre:voto` | base | 9 | +963 punti |
 | `segnale:base:n_compratori / buy_medio:voto` | base | 7 | +937 punti |
 | `segnale:base:trade_al_minuto / sbilanciamento:voto` | base | 59 | +935 punti |
 | `strategia:base:entra +12h · almeno 2h di scambi · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.45` | base | 1 | +933 punti |
@@ -143,7 +143,7 @@
 | `segnale:base:usd_primi20 / accelerazione_denaro:voto` | base | 2 | +872 punti |
 | `segnale:base:trade_al_minuto / volume_ultima_su_media:voto` | base | 32 | +865 punti |
 | `segnale:base:n_compratori x wallet_ripetuti:voto` | base | 42 | +863 punti |
-| `segnale:base:accelerazione_denaro x ampiezza:voto` | base | 4 | +794 punti |
+| `segnale:base:accelerazione_denaro x ampiezza:voto` | base | 5 | +794 punti |
 | `strategia:base:entra +12h · almeno 2h di scambi · stop -70% · profitto a 4x e 15x · trailing -60% · soglia 0.45` | base | 2 | +699 punti |
 | `segnale:base:usd_primi20 / sbilanciamento:voto` | base | 22 | +681 punti |
 | `strategia:base:entra +12h · almeno 2h di scambi · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.5` | base | 1 | +631 punti |
@@ -506,6 +506,7 @@
 | `strategia:robinhood:entra dopo 6h di scambi. solo se volume > $3.000 e vendite/acquisti > 15% · attesa +1h · stop -50% · profitto a 4x e 20x · trailing -50% · soglia 0.3` | robinhood | 1 | -46 punti |
 | `strategia:base:entra +12h · solo se volume > $3.000, almeno 2h di scambi · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.4` | base | 1 | -49 punti |
 | `strategia:robinhood:entra dopo 2h di scambi. solo se volume > $1.000 e vendite/acquisti > 40% · attesa +1h · stop -50% · profitto a 2x e 20x · trailing -30% · soglia 0.35` | robinhood | 1 | -54 punti |
+| `strategia:base:entra +12h · almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.5` | base | 1 | -59 punti |
 | `strategia:robinhood:entra dopo 2h di scambi. solo se volume > $1.000 e vendite/acquisti > 40% · attesa +1h · stop -50% · profitto a 4x e 20x · trailing -30% · soglia 0.35` | robinhood | 1 | -60 punti |
 
 ## ❌ Cosa NON funziona (archiviato, non si riprova finché i dati non raddoppiano)
