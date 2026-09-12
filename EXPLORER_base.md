@@ -1,5 +1,5 @@
 # 🔬 EXPLORER — LOOP 1: come alzo la percentuale? (base)
-*2026-09-12 00:07 UTC · 90 strategie provate in questo ciclo · 108159 in totale*
+*2026-09-12 00:24 UTC · 90 strategie provate in questo ciclo · 108249 in totale*
 
 ## Migliore trovata finora: **+12059%** (stress test) · P&L medio **+22%** · crescita composta **-3.5%** · 5% peggiore **-77%** · 216 trade
 
