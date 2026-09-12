@@ -1,5 +1,5 @@
 # 🧠 CONOSCENZA — cosa ha imparato il team
-*2026-09-12 12:51 UTC · 2413 idee messe alla prova finora*
+*2026-09-12 12:56 UTC · 2413 idee messe alla prova finora*
 
 > Questa non è la cronaca di cosa è successo: è il sapere accumulato. Prima di riprovare una cosa,
 > il team guarda qui. Ciò che ha fallito 3 volte si mette da parte — ma il caso si RIAPRE quando i
@@ -81,7 +81,7 @@
 | `segnale:base:wallet_ripetuti / volume_ultima_su_media:voto` | base | 25 | +3076 punti |
 | `segnale:base:buy_medio x volume_ultima_su_media:voto` | base | 66 | +2944 punti |
 | `segnale:base:concentrazione_top1 x sbilanciamento:voto` | base | 40 | +2944 punti |
-| `segnale:base:usd_primi20 x volume_ultima_su_media:voto` | base | 52 | +2944 punti |
+| `segnale:base:usd_primi20 x volume_ultima_su_media:voto` | base | 53 | +2944 punti |
 | `segnale:base:usd_primi20 x sbilanciamento:voto` | base | 55 | +2944 punti |
 | `segnale:base:volume_ultima_su_media:voto` | base | 90 | +2870 punti |
 | `segnale:base:n_compratori / trade_al_minuto:voto` | base | 29 | +2865 punti |
