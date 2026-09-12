@@ -1,5 +1,5 @@
 # 📈 QUANTO COSTA USCIRE, SECONDO QUANTO E' LIQUIDO IL TOKEN
-*2026-09-11 21:53 UTC · 57 osservazioni (misure con il volume dell'ORA in cui sono state prese, non la mediana storica) · €0*
+*2026-09-12 00:31 UTC · 60 osservazioni (misure con il volume dell'ORA in cui sono state prese, non la mediana storica) · €0*
 
 > Un costo costante è comodo e sbagliato. Su un pool che gira 50.000 dollari l'ora, uscire
 > con 25 dollari non si sente. Sullo stesso token quando il volume è crollato a 200, quei
@@ -7,17 +7,17 @@
 
 | la posizione è, del volume orario | costo andata+ritorno | nei casi peggiori | osservazioni |
 |---|---|---|---|
-| 0.02% – 0.16% | **2.5%** | 2.5% | 9 |
-| 0.17% – 0.46% | **3.1%** | 3.2% | 9 |
-| 0.48% – 1.33% | **4.9%** | 5.9% | 9 |
-| 1.79% – 8.31% | **7.1%** | 11.1% | 9 |
-| 16.68% – 150.05% | **6.1%** | 10.3% | 9 |
-| 166.30% – 39691.77% | **18.4%** | 29.3% | 9 |
+| 0.02% – 0.17% | **2.5%** | 2.9% | 10 |
+| 0.17% – 0.67% | **3.2%** | 4.2% | 10 |
+| 0.68% – 3.37% | **5.8%** | 6.5% | 10 |
+| 3.38% – 35.81% | **6.6%** | 13.6% | 10 |
+| 37.51% – 1984.59% | **10.4%** | 28.7% | 10 |
+| 3273.80% – 186007.15% | **9.7%** | 28.5% | 10 |
 
 ## Cosa dicono i dati
 
 > ✅ **La relazione c'è.** Passando dai token più liquidi ai più sottili il costo di uscita
-> si moltiplica per **7.5**. Non è più un'assunzione: è misurato, e il backtest può
+> si moltiplica per **3.9**. Non è più un'assunzione: è misurato, e il backtest può
 > usare la curva invece di una costante.
 
 > Il punto pratico: **lo stop scatta quando il volume è crollato**, cioè nella fascia più
@@ -43,7 +43,7 @@ Tre limiti, e il terzo non è correggibile con i dati che abbiamo:
 > sostituiranno questa estrapolazione.
 
 > Nota sul campione: si usano solo le misure per cui esiste una candela nell'ora in cui sono
-> state prese. Sono meno (57 contro le oltre mille grezze), ma sono le uniche in cui
+> state prese. Sono meno (60 contro le oltre mille grezze), ma sono le uniche in cui
 > calibrazione e applicazione guardano la stessa grandezza. **Meno punti giusti battono più
 > punti sbagliati.**
 
