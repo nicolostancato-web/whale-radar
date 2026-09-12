@@ -1,5 +1,5 @@
 # 🧪 LOOP SPERIMENTALE — fuori dal recinto
-*2026-09-12 16:50 UTC · €0*
+*2026-09-12 17:02 UTC · €0*
 
 > Nasce da un'osservazione che vale più di qualsiasi ottimizzazione: **il recinto — LOOP 0,
 > LOOP 1 — l'ho costruito io**, e tutto ciò che c'è dentro poggia su un assunto mai messo in
@@ -18,7 +18,7 @@ successo nel primo.
 **Perché è fuori dal recinto:** LOOP 1 guarda ogni chain per conto suo. Questo segnale è
 invisibile a tutti e tre i suoi esploratori, per costruzione.
 
-**Materiale:** 2552 nomi vivono su più di una chain.
+**Materiale:** 2553 nomi vivono su più di una chain.
 
 ### ⏸️ Solo 24 casi con controlli appaiati disponibili
 
