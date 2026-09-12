@@ -1,12 +1,12 @@
 # 🏃 STAFFETTA — leggi QUESTO per primo
-*2026-09-12 10:41 UTC · aggiornato da solo a ogni giro*
+*2026-09-12 10:50 UTC · aggiornato da solo a ogni giro*
 
 > La continuità viene dai **registri condivisi**, non dal ricordarsi la conversazione. Chi si
 > sveglia adesso non ha memoria: qui trova dove siamo e **qual è il prossimo lavoro**.
 
 ## Le corsie
 
-- 🟢 vive: motore (3′), ricerca (4′), loop 0 (7′), sperimenti (5′)
+- 🟢 vive: motore (8′), ricerca (3′), loop 0 (1′), sperimenti (5′)
 
 ## Gli esperimenti vivi
 
@@ -22,8 +22,8 @@
 |---|---|---|
 | base/battito | 2,919 | — |
 | base/candele | 1,360 | — |
-| robinhood/battito | 117 | — |
-| robinhood/candele | 2,458 | **+23** |
+| robinhood/battito | 118 | **+1** |
+| robinhood/candele | 2,458 | — |
 | robinhood/toccati 12h | 104 | — |
 | solana/battito | 177 | — |
 | solana/candele | 1,103 | — |
@@ -45,4 +45,4 @@ In coda e non ancora aperti: **1** (5).
 > ieri e sembrano di oggi. Qui sotto c'è la data del calcolo, e se non è di pochi minuti fa
 > il foglio non vale.
 
-*Calcolato alle **10:41 UTC** del 12/09/2026.*
+*Calcolato alle **10:50 UTC** del 12/09/2026.*

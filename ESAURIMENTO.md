@@ -1,5 +1,5 @@
 # 🪫 COMPRARE QUANDO FINISCE CHI VENDE
-*2026-09-12 10:41 UTC · esperimento 4 · solo dati già scaricati · €0*
+*2026-09-12 11:29 UTC · esperimento 4 · solo dati già scaricati · €0*
 
 > Le sei piste morte chiedevano tutte **«chi sta comprando?»**: inseguivano la domanda, che
 > è un'opinione e cambia idea. Questa guarda **l'offerta**. Una vendita concentrata schiaccia
@@ -10,19 +10,19 @@ Scarico = vendite ≥ 1.6× gli acquisti per almeno 2 rilevazioni di
 fila. Esaurimento = il primo punto in cui quella dominanza sparisce. Esito a **6h**,
 al netto del costo d'uscita misurato.
 
-**Esaurimenti trovati: 115** · controlli (stessi giorni, senza scarico): 4000
+**Esaurimenti trovati: 116** · controlli (stessi giorni, senza scarico): 4000
 
 | | eventi | mediana netta 6h | media netta |
 |---|---|---|---|
-| **dopo l'esaurimento** | 115 | **-5.0%** | +0.5% |
-| controllo (niente scarico) | 4000 | -1.3% | +138888.8% |
+| **dopo l'esaurimento** | 116 | **-3.7%** | +0.8% |
+| controllo (niente scarico) | 4000 | -1.3% | +138888.9% |
 
-Limite inferiore dell'intervallo al 95%, contando **11 giorni** e non le righe: **-11.9%**.
+Limite inferiore dell'intervallo al 95%, contando **12 giorni** e non le righe: **-8.4%**.
 
 ## Verdetto
 
 > ❌ **Criterio di morte scattato**, scritto prima di guardare: il limite inferiore
-> al 95% è **-11.9%**, non sopra zero. Non si alza la dominanza a 2×, non si
+> al 95% è **-8.4%**, non sopra zero. Non si alza la dominanza a 2×, non si
 > sposta l'esito a 2h: sarebbe scegliere la soglia dopo aver visto il risultato.
 
 *metro=VERO (misurato) · curva liquidità ATTIVA · entrata 1.6% · uscita a target 1.7% · uscita in fuga 12.3% · pareggio 1.15x (in fuga 1.29x)*

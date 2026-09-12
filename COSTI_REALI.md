@@ -11,19 +11,16 @@
 | $100 | **8.4%** | 5.7% | 100.0% | 9 |
 | $500 | **26.3%** | 16.8% | 100.0% | 8 |
 
-- misure accumulate finora: **1867 token** (l'archivio cresce a ogni giro)
-- token che NON si possono rivendere: **396** su 1867 (**21%**)
+- misure accumulate finora: **1871 token** (l'archivio cresce a ogni giro)
+- token che NON si possono rivendere: **398** su 1871 (**21%**)
 
 > Il costo qui sotto vale **solo per i token vendibili**. Quelli invendibili non sono un costo
 > alto: sono una perdita totale, e vanno contati a parte — non spalmati sulla media.
 
 ## Cosa cambia
 
-Costo misurato di andata e ritorno su $100: **8.4%** contro il **~30%** che assumiamo.
-Pareggio necessario: **1.09x** contro l'**1,50x** del modello attuale.
-
-> ⚠️ **Il costo assunto è molto più alto di quello misurato.** Prima di dichiarare morto
-> un mercato, i numeri vanno rifatti con il costo vero — su questi token, in questo momento.
+Costo misurato di andata e ritorno su $100: **99.8%** contro il **~30%** che assumiamo.
+Pareggio necessario: **99.00x** contro l'**1,50x** del modello attuale.
 
 > Nota onesta: sono quote **indicative** al momento della misura, su token vivi oggi. Non dicono
 > quanto sarebbe costato uscire durante un crollo, né includono gas e transazioni fallite. Servono
