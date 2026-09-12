@@ -1,1 +1,1 @@
-{"chain": "base", "ts": 1789201794, "feature": ["accelerazione_denaro / drawdown_pre (voto)"]}
+{"chain": "robinhood", "ts": 1789202482, "feature": ["drawdown_pre (filtro)", "buy_medio x volume_ultima_su_media (filtro)", "volume_ultima_su_media (filtro)", "ampiezza x volume_ultima_su_media (filtro)", "drawdown_pre x volume_ultima_su_media (filtro)", "ampiezza (filtro)", "drawdown_pre / volume_ultima_su_media (filtro)", "buy_medio / volume_ultima_su_media (filtro)"]}
