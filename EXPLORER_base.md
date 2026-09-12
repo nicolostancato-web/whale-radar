@@ -1,7 +1,7 @@
 # 🔬 EXPLORER — LOOP 1: come alzo la percentuale? (base)
-*2026-09-12 16:04 UTC · 899 strategie provate in questo ciclo · 133249 in totale*
+*2026-09-12 16:22 UTC · 883 strategie provate in questo ciclo · 134132 in totale*
 
-## Migliore trovata finora: **-99%** (stress test) · P&L medio **-17%** · crescita composta **-36.3%** · 5% peggiore **-91%** · 110 trade
+## Migliore trovata finora: **-99%** (stress test) · P&L medio **-17%** · crescita composta **-36.4%** · 5% peggiore **-91%** · 110 trade
 
 *La percentuale grande è lo STRESS TEST (tolto il 5% migliore): serve a non farsi ingannare
 dai colpi fortunati, ma non è il rendimento atteso. Il P&L medio è quello che il conto vedrebbe;
@@ -32,12 +32,12 @@ la crescita composta dice se reinvestendo si cresce o ci si rovina.*
 
 | la strategia | risultato |
 |---|---|
-| entra +12h · almeno 2h di scambi · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.5 | -98% |
+| entra +12h · almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.4 | -99% |
+| entra +2h · almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.5 | -99% |
+| entra +12h · almeno 2h di scambi, vendite/acquisti > 30% · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.5 | -98% |
+| entra +12h · almeno 2h di scambi, vendite/acquisti > 15% · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.5 | -99% |
 | entra +12h · almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.5 | -99% |
 | entra +12h · almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.5 | -99% |
-| entra +12h · almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.5 | -99% |
-| entra +12h · almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 4x e 12x · trailing -50% · soglia 0.5 | -99% |
-| entra +12h · almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 4x e 12x · trailing -50% · soglia 0.5 | -99% |
 
 > Il LOOP 1 non si ferma mai: prova strategie e segnali, tiene solo cio' che alza la percentuale
 > ROBUSTA (tolti i 3 colpi migliori) di almeno 8 punti, e riparte da li'.
