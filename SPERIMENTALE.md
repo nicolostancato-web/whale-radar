@@ -1,5 +1,5 @@
 # 🧪 LOOP SPERIMENTALE — fuori dal recinto
-*2026-09-12 04:11 UTC · €0*
+*2026-09-12 04:25 UTC · €0*
 
 > Nasce da un'osservazione che vale più di qualsiasi ottimizzazione: **il recinto — LOOP 0,
 > LOOP 1 — l'ho costruito io**, e tutto ciò che c'è dentro poggia su un assunto mai messo in
@@ -20,15 +20,15 @@ invisibile a tutti e tre i suoi esploratori, per costruzione.
 
 **Materiale:** 2502 nomi vivono su più di una chain.
 
-### Cosa fa il gemello quando l'altro esplode  (31 casi)
+### Cosa fa il gemello quando l'altro esplode  (30 casi)
 
 | dopo | extra-rendimento | mediano | quante volte sopra i controlli |
 |---|---|---|---|
-| 5 min | **-5.0%** | +0.0% | 42% |
-| 30 min | **-5.0%** | +0.0% | 42% |
-| 2 ore | **-5.6%** | -0.1% | 35% |
-| 6 ore | **-6.0%** | -0.3% | 38% |
-| 24 ore | **-13.0%** | -10.3% | 32% |
+| 5 min | **-4.8%** | +0.0% | 43% |
+| 30 min | **-4.8%** | +0.0% | 43% |
+| 2 ore | **-5.7%** | -0.1% | 37% |
+| 6 ore | **-6.2%** | -0.5% | 32% |
+| 24 ore | **-12.2%** | -10.3% | 33% |
 
 ### Verdetto
 
