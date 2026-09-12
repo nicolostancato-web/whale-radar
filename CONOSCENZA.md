@@ -1,5 +1,5 @@
 # 🧠 CONOSCENZA — cosa ha imparato il team
-*2026-09-12 11:43 UTC · 2413 idee messe alla prova finora*
+*2026-09-12 11:49 UTC · 2413 idee messe alla prova finora*
 
 > Questa non è la cronaca di cosa è successo: è il sapere accumulato. Prima di riprovare una cosa,
 > il team guarda qui. Ciò che ha fallito 3 volte si mette da parte — ma il caso si RIAPRE quando i
@@ -143,7 +143,7 @@
 | `segnale:base:usd_primi20 / accelerazione_denaro:voto` | base | 2 | +872 punti |
 | `segnale:base:trade_al_minuto / volume_ultima_su_media:voto` | base | 32 | +865 punti |
 | `segnale:base:n_compratori x wallet_ripetuti:voto` | base | 42 | +863 punti |
-| `segnale:base:accelerazione_denaro x ampiezza:voto` | base | 10 | +794 punti |
+| `segnale:base:accelerazione_denaro x ampiezza:voto` | base | 11 | +794 punti |
 | `strategia:base:entra +12h · almeno 2h di scambi · stop -70% · profitto a 4x e 15x · trailing -60% · soglia 0.45` | base | 2 | +699 punti |
 | `segnale:base:usd_primi20 / sbilanciamento:voto` | base | 22 | +681 punti |
 | `strategia:base:entra +12h · almeno 2h di scambi · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.5` | base | 1 | +631 punti |
@@ -499,6 +499,7 @@
 | `strategia:bsc:entra +12h · solo se volume > $10.000 · stop -60% · profitto a 2x e 8x · trailing -40% · soglia 0.4` | bsc | 1 | -3 punti |
 | `strategia:robinhood:entra dopo 6h di scambi. solo se volume > $3.000 e vendite/acquisti > 15% · attesa +6h · stop -50% · profitto a 5x e 6x · trailing -50% · soglia 0.2` | robinhood | 2 | -17 punti |
 | `strategia:robinhood:entra dopo 6h di scambi. solo se volume > $1.000 e vendite/acquisti > 15% · attesa +6h · stop -50% · profitto a 5x e 6x · trailing -50% · soglia 0.2` | robinhood | 1 | -23 punti |
+| `strategia:base:entra +12h · almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.5` | base | 1 | -25 punti |
 | `strategia:robinhood:entra dopo 6h di scambi. solo se volume > $3.000 e vendite/acquisti > 15% · attesa +1h · stop -50% · profitto a 5x e 6x · trailing -50% · soglia 0.2` | robinhood | 1 | -26 punti |
 | `strategia:robinhood:entra dopo 6h di scambi. solo se volume > $3.000 e vendite/acquisti > 15% · attesa +1h · stop -50% · profitto a 4x e 6x · trailing -50% · soglia 0.2` | robinhood | 1 | -33 punti |
 | `strategia:robinhood:entra dopo 6h di scambi. solo se volume > $3.000 e vendite/acquisti > 15% · attesa +1h · stop -50% · profitto a 4x e 8x · trailing -50% · soglia 0.2` | robinhood | 1 | -39 punti |
@@ -506,7 +507,6 @@
 | `strategia:robinhood:entra dopo 6h di scambi. solo se volume > $3.000 e vendite/acquisti > 15% · attesa +1h · stop -50% · profitto a 4x e 20x · trailing -50% · soglia 0.3` | robinhood | 1 | -46 punti |
 | `strategia:base:entra +12h · solo se volume > $3.000, almeno 2h di scambi · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.4` | base | 1 | -49 punti |
 | `strategia:robinhood:entra dopo 2h di scambi. solo se volume > $1.000 e vendite/acquisti > 40% · attesa +1h · stop -50% · profitto a 2x e 20x · trailing -30% · soglia 0.35` | robinhood | 1 | -54 punti |
-| `strategia:base:entra +12h · almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.5` | base | 1 | -59 punti |
 | `strategia:robinhood:entra dopo 2h di scambi. solo se volume > $1.000 e vendite/acquisti > 40% · attesa +1h · stop -50% · profitto a 4x e 20x · trailing -30% · soglia 0.35` | robinhood | 1 | -60 punti |
 
 ## ❌ Cosa NON funziona (archiviato, non si riprova finché i dati non raddoppiano)
