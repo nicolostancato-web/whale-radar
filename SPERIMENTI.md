@@ -1,5 +1,5 @@
 # 🧪 CORSIA SPERIMENTI — cosa e' successo nell'ultimo giro
-*2026-09-12 02:25 UTC · giro 46*
+*2026-09-12 02:30 UTC · giro 47*
 
 | esperimento | esito | ultima cosa detta |
 |---|---|---|
@@ -7,7 +7,7 @@
 | `sperimentale.py` | ok | SPERIMENTALE | gemelli 2502 | esplosioni 40 | valutate 32 |
 | `due_gambe.py` | ok | DUE_GAMBE | copertura base:7% robinhood:3% solana:54% |
 | `costo_chain.py` | ok | COSTO_CHAIN | controllo su solana: NON passa |
-| `costo_evm.py` | ok | COSTO_EVM | base:3misure robinhood:21misure |
+| `costo_evm.py` | ok | COSTO_EVM | base:2misure robinhood:25misure |
 | `ritardo.py` | ok | RITARDO | base:549 robinhood:494 solana:621 |
 | `esaurimento.py` | ok | ESAURIMENTO | dentro:115 controlli:4000 |
 | `staffetta.py` | ok | STAFFETTA | vive:4 mute:0 aperti:1 |
