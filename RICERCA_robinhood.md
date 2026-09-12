@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (robinhood)
-*2026-09-12 06:18 UTC · 19 segnali nuovi messi alla prova su 340 token*
+*2026-09-12 06:34 UTC · 3 segnali nuovi messi alla prova su 340 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-96%**.
 
@@ -21,27 +21,11 @@
 | `drawdown_pre (filtro)` | quanto è già sceso dal massimo prima di entrare | -52% (+44) |
 | `volume_ultima_su_media (filtro)` | se il volume sta accelerando proprio adesso | -68% (+28) |
 | `ampiezza (filtro)` | quanto oscilla il prezzo prima di entrare | -79% (+17) |
-| `concentrazione_top5 x volume_ultima_su_media (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per se il volume sta accelerando proprio adesso | -96% (+0) |
-| `concentrazione_top5 / volume_ultima_su_media (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a se il volume sta accelerando proprio adesso | -96% (+0) |
-| `n_compratori x ampiezza (voto)` | quante persone diverse hanno comprato MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -96% (+0) |
-| `n_compratori / ampiezza (voto)` | quante persone diverse hanno comprato RAPPORTATO a quanto oscilla il prezzo prima di entrare | -96% (+0) |
-| `buy_grossi x accelerazione_denaro (voto)` | la quota di denaro che arriva da acquisti sopra i 500 dollari MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -96% (+0) |
-| `buy_grossi / accelerazione_denaro (voto)` | la quota di denaro che arriva da acquisti sopra i 500 dollari RAPPORTATO a se i soldi stanno entrando più in fretta adesso che all'inizio | -96% (+0) |
-| `quota_wallet_reduci x compra_e_rivende (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -96% (+0) |
-| `quota_wallet_reduci / compra_e_rivende (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -96% (+0) |
-| `concentrazione_top5 x volume_ultima_su_media (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per se il volume sta accelerando proprio adesso | -97% (-1) |
-| `concentrazione_top5 / volume_ultima_su_media (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a se il volume sta accelerando proprio adesso | -97% (-1) |
-| `n_compratori x ampiezza (filtro)` | quante persone diverse hanno comprato MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -97% (-1) |
-| `n_compratori / ampiezza (filtro)` | quante persone diverse hanno comprato RAPPORTATO a quanto oscilla il prezzo prima di entrare | -97% (-1) |
-| `buy_grossi x accelerazione_denaro (filtro)` | la quota di denaro che arriva da acquisti sopra i 500 dollari MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -97% (-1) |
-| `buy_grossi / accelerazione_denaro (filtro)` | la quota di denaro che arriva da acquisti sopra i 500 dollari RAPPORTATO a se i soldi stanno entrando più in fretta adesso che all'inizio | -97% (-1) |
-| `quota_wallet_reduci x compra_e_rivende (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -97% (-1) |
-| `quota_wallet_reduci / compra_e_rivende (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -97% (-1) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
-- `concentrazione_top5 (voto)` — già bocciato 27 volte 10h fa (si riprova fra 2h o quando i dati crescono)
-- `concentrazione_top5 (filtro)` — già bocciato 27 volte 10h fa (si riprova fra 2h o quando i dati crescono)
+- `concentrazione_top5 (voto)` — già bocciato 27 volte 11h fa (si riprova fra 1h o quando i dati crescono)
+- `concentrazione_top5 (filtro)` — già bocciato 27 volte 11h fa (si riprova fra 1h o quando i dati crescono)
 - `concentrazione_top1 (voto)` — già bocciato 27 volte 10h fa (si riprova fra 2h o quando i dati crescono)
 - `concentrazione_top1 (filtro)` — già bocciato 27 volte 10h fa (si riprova fra 2h o quando i dati crescono)
 - `n_compratori (voto)` — già bocciato 27 volte 10h fa (si riprova fra 2h o quando i dati crescono)
