@@ -1,3 +1,3 @@
-# 🌊 FLUSSO DI ENTITÀ INDIPENDENTI (robinhood)
+# 🌊 FLUSSO DI ENTITÀ INDIPENDENTI (solana)
 
-*Solo 15 osservazioni: troppo poche per giudicare. Serve più storico dei trade.*
+*Solo 95 osservazioni: troppo poche per giudicare. Serve più storico dei trade.*
