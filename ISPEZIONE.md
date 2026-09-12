@@ -78,7 +78,7 @@
 | chi | la domanda | risposta |
 |---|---|---|
 | **Verità** | il sistema si sta raccontando favole? | ✅ pulito: nessuna favola |
-| **Giudice** | le scoperte reggono su dati mai visti? | ✅ 2 giudicate, 2 bocciate perché erano rumore |
+| **Giudice** | le scoperte reggono su dati mai visti? | ✅ 1 giudicate, 1 bocciate perché erano rumore |
 
 ## Gli archivi crescono?
 

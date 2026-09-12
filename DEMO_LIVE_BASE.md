@@ -1,5 +1,5 @@
 # 🎮 DEMO LIVE — conto vero €100 → €3.000 (BASE)
-*2026-09-11 22:03 UTC · attivo da 16.1 giorni · strategia DEDICATA a Base*
+*2026-09-12 00:44 UTC · attivo da 16.2 giorni · strategia DEDICATA a Base*
 
 ## 🔴 **LIVE SOSPESO** — il LOOP 1 e' a **+1%** robusta, sotto la soglia di **+40%**: andare live vorrebbe dire attuare una strategia che sappiamo gia' non pagare
 
@@ -12,5 +12,5 @@
 - Mancano €2907
 
 **Selezione:** modello Base walk-forward (loop percentuale), P(win)≥0.3
-**Strategia BASE (loop #3):** entra +1h · scale-out 4x/8x · trail -40% · hard -70%
+**Strategia BASE (loop #3):** entra +3h · scale-out 3x/8x · trail -40% · hard -70%
 > PURE FORWARD: solo token Base nati DOPO l'apertura. Loop gemello di Robinhood, ma tarato su Base.
