@@ -1,14 +1,13 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (solana)
-*2026-09-12 00:39 UTC · 6 segnali nuovi messi alla prova su 525 token*
+*2026-09-12 00:55 UTC · 2 segnali nuovi messi alla prova su 518 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-99%**.
 
-## 🎯 2 segnali NUOVI che alzano la percentuale
+## 🎯 1 segnali NUOVI che alzano la percentuale
 
 | il segnale | cosa guarda | porta a | guadagno |
 |---|---|---|---|
-| `usd_primi20 / compra_e_rivende (filtro)` | quanto pesano i primissimi 20 acquisti sul totale RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | **-93%** | **+6 punti** |
-| `concentrazione_top5 / compra_e_rivende (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | **-96%** | **+3 punti** |
+| `usd_primi20 / compra_e_rivende (filtro)` | quanto pesano i primissimi 20 acquisti sul totale RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | **-92%** | **+7 punti** |
 
 > Questi segnali non erano nella lista di partenza: li ha costruiti e verificati il sistema.
 > Vanno aggiunti al cervello — è una DECISIONE, quindi passa da DECISIONS.md.
@@ -17,12 +16,8 @@
 
 | il segnale | cosa guarda | risultato |
 |---|---|---|
-| `usd_primi20 / compra_e_rivende (filtro)` | quanto pesano i primissimi 20 acquisti sul totale RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -93% (+6) |
-| `concentrazione_top5 / compra_e_rivende (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -96% (+3) |
-| `concentrazione_top5 x trade_al_minuto (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per quanto è frenetico lo scambio | -97% (+2) |
-| `concentrazione_top5 x compra_e_rivende (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
-| `concentrazione_top5 x compra_e_rivende (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
-| `concentrazione_top5 / compra_e_rivende (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
+| `usd_primi20 / compra_e_rivende (filtro)` | quanto pesano i primissimi 20 acquisti sul totale RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -92% (+7) |
+| `concentrazione_top5 / compra_e_rivende (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -97% (+2) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
