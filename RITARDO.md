@@ -1,5 +1,5 @@
 # ⏳ IL MOVIMENTO SUCCEDE PRIMA CHE POSSIAMO ENTRARE?
-*2026-09-12 13:50 UTC · nato dalla revisione esterna dell'11/09 · sola lettura · €0*
+*2026-09-12 13:55 UTC · nato dalla revisione esterna dell'11/09 · sola lettura · €0*
 
 > Trattavamo il ritardo di osservazione (3-7 ore) come **un costo**: qualcosa che ci toglie
 > un po' di rendimento. Ma con orizzonti da 5 minuti, 30 minuti e 2 ore il bot arriva quando
@@ -10,7 +10,7 @@ a 7 ore è sepolto.
 
 | chain | token | **prima** dell'entrata | dopo +2h | dopo +6h | dopo +24h |
 |---|---|---|---|---|---|
-| **base** | 554 | **+0.0%** | +0.0% | +0.0% | +0.4% |
+| **base** | 553 | **-0.0%** | +0.0% | +0.0% | +0.4% |
 | **robinhood** | 498 | **-3.2%** | -0.4% | -1.5% | -7.2% |
 | **solana** | 607 | **-2.4%** | -0.0% | -1.1% | -2.1% |
 
@@ -18,13 +18,7 @@ a 7 ore è sepolto.
 
 ## Verdetto su Base
 
-> ❌ **Il segnale non sopravvive al ritardo.** Prima che potessimo comprare il
-> prezzo ha già fatto **+0.0%**; da quando compriamo in poi fa
-> **+0.0%**. Il movimento c'è — **ma lo incassa qualcun altro**.
-
-> Non è un costo da limare: gli orizzonti brevi non sono evidenza economica, sono
-> cose già successe quando arriviamo. Chi vuole salvarli deve prima accorciare il
-> ritardo, non ritoccare la soglia.
+> ⏸️ Prima -0.0%, dopo +0.0%: nessuno dei due è positivo, non c'è un segnale da salvare né da uccidere.
 
 ---
 
@@ -41,14 +35,14 @@ a 7 ore è sepolto.
 
 | chain | trade scelti | **prima** dell'entrata | dopo +2h | dopo +6h | dopo +24h |
 |---|---|---|---|---|---|
-| **base** | 254 | **+0.2%** | +0.0% | -0.1% | -0.5% |
+| **base** | 257 | **+0.1%** | -0.0% | -0.1% | -0.4% |
 | **robinhood** | 302 | **-1.1%** | -0.7% | -1.9% | -8.7% |
 | **solana** | 335 | **-2.6%** | -0.3% | -2.0% | -4.7% |
 
 ### Verdetto sui selezionati di Base
 
 > ❌ **Il segnale non sopravvive al ritardo.** Sui trade scelti il prezzo fa
-> **+0.2%** prima che potessimo entrare e **-0.1%** dopo.
+> **+0.1%** prima che potessimo entrare e **-0.1%** dopo.
 > Il movimento esiste: **lo incassa chi arriva prima di noi.** Non è un costo da
 > limare — o si accorcia il ritardo, o quegli orizzonti non sono nostri.
 > (17 giorni indipendenti.)
