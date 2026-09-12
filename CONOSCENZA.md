@@ -1,5 +1,5 @@
 # 🧠 CONOSCENZA — cosa ha imparato il team
-*2026-09-12 00:46 UTC · 2408 idee messe alla prova finora*
+*2026-09-12 01:26 UTC · 2402 idee messe alla prova finora*
 
 > Questa non è la cronaca di cosa è successo: è il sapere accumulato. Prima di riprovare una cosa,
 > il team guarda qui. Ciò che ha fallito 3 volte si mette da parte — ma il caso si RIAPRE quando i
@@ -45,7 +45,7 @@
 | `segnale:base:concentrazione_top1 / drawdown_pre:voto` | base | 70 | +4636 punti |
 | `segnale:base:concentrazione_top1 / volume_ultima_su_media:voto` | base | 91 | +4312 punti |
 | `segnale:base:quota_wallet_reduci x ampiezza:voto` | base | 109 | +4286 punti |
-| `segnale:base:quota_wallet_vincenti x ampiezza:voto` | base | 96 | +4286 punti |
+| `segnale:base:quota_wallet_vincenti x ampiezza:voto` | base | 95 | +4286 punti |
 | `segnale:base:buy_grossi / volume_ultima_su_media:voto` | base | 93 | +4276 punti |
 | `segnale:base:concentrazione_top5 / drawdown_pre:voto` | base | 88 | +4198 punti |
 | `segnale:base:n_compratori x usd_primi20:voto` | base | 55 | +3854 punti |
@@ -64,7 +64,7 @@
 | `segnale:base:sbilanciamento / drawdown_pre:voto` | base | 69 | +3446 punti |
 | `segnale:base:concentrazione_top5 x volume_ultima_su_media:voto` | base | 55 | +3446 punti |
 | `segnale:base:trade_al_minuto x quota_wallet_reduci:voto` | base | 71 | +3437 punti |
-| `segnale:base:buy_medio / wallet_ripetuti:voto` | base | 72 | +3348 punti |
+| `segnale:base:buy_medio / wallet_ripetuti:voto` | base | 73 | +3348 punti |
 | `segnale:base:usd_primi20 / volume_ultima_su_media:voto` | base | 66 | +3348 punti |
 | `segnale:base:accelerazione_denaro x volume_ultima_su_media:voto` | base | 86 | +3348 punti |
 | `segnale:base:buy_grossi / compra_e_rivende:voto` | base | 75 | +3348 punti |
@@ -85,16 +85,16 @@
 | `segnale:base:usd_primi20 x sbilanciamento:voto` | base | 55 | +2944 punti |
 | `segnale:base:volume_ultima_su_media:voto` | base | 90 | +2870 punti |
 | `segnale:base:n_compratori / trade_al_minuto:voto` | base | 18 | +2865 punti |
-| `segnale:base:concentrazione_top1 / ampiezza:voto` | base | 62 | +2852 punti |
-| `segnale:base:concentrazione_top5 x quota_wallet_reduci:voto` | base | 57 | +2828 punti |
-| `segnale:base:concentrazione_top1 x quota_wallet_reduci:voto` | base | 41 | +2828 punti |
-| `segnale:base:quota_wallet_reduci x quota_wallet_vincenti:voto` | base | 57 | +2828 punti |
-| `segnale:base:quota_wallet_reduci x usd_primi20:voto` | base | 45 | +2828 punti |
+| `segnale:base:concentrazione_top1 / ampiezza:voto` | base | 61 | +2852 punti |
+| `segnale:base:concentrazione_top5 x quota_wallet_reduci:voto` | base | 58 | +2828 punti |
+| `segnale:base:concentrazione_top1 x quota_wallet_reduci:voto` | base | 42 | +2828 punti |
+| `segnale:base:quota_wallet_reduci x quota_wallet_vincenti:voto` | base | 56 | +2828 punti |
+| `segnale:base:quota_wallet_reduci x usd_primi20:voto` | base | 44 | +2828 punti |
 | `segnale:base:buy_grossi / sbilanciamento:voto` | base | 58 | +2784 punti |
 | `segnale:base:sbilanciamento x accelerazione_denaro:voto` | base | 58 | +2726 punti |
 | `segnale:base:accelerazione_denaro / ampiezza:voto` | base | 62 | +2541 punti |
 | `segnale:base:quota_wallet_reduci x volume_ultima_su_media:voto` | base | 55 | +2541 punti |
-| `segnale:base:quota_wallet_nuovi / ampiezza:voto` | base | 12 | +2499 punti |
+| `segnale:base:quota_wallet_nuovi / ampiezza:voto` | base | 13 | +2499 punti |
 | `segnale:base:quota_wallet_reduci / ampiezza:voto` | base | 69 | +2424 punti |
 | `segnale:base:quota_wallet_vincenti x volume_ultima_su_media:voto` | base | 43 | +2424 punti |
 | `segnale:base:quota_wallet_vincenti / ampiezza:voto` | base | 64 | +2424 punti |
@@ -122,7 +122,7 @@
 | `segnale:base:concentrazione_top1 / trade_al_minuto:voto` | base | 3 | +1300 punti |
 | `segnale:base:trade_al_minuto:voto` | base | 88 | +1235 punti |
 | `segnale:base:quota_wallet_nuovi / usd_primi20:voto` | base | 1 | +1235 punti |
-| `segnale:base:wallet_ripetuti x compra_e_rivende:voto` | base | 17 | +1235 punti |
+| `segnale:base:wallet_ripetuti x compra_e_rivende:voto` | base | 16 | +1235 punti |
 | `segnale:base:trade_al_minuto x wallet_ripetuti:voto` | base | 67 | +1235 punti |
 | `segnale:base:trade_al_minuto x quota_wallet_nuovi:voto` | base | 31 | +1232 punti |
 | `segnale:base:buy_medio x wallet_ripetuti:voto` | base | 19 | +1232 punti |
@@ -136,48 +136,42 @@
 | `segnale:base:n_compratori / buy_medio:voto` | base | 4 | +937 punti |
 | `segnale:base:trade_al_minuto / sbilanciamento:voto` | base | 59 | +935 punti |
 | `segnale:base:wallet_ripetuti / sbilanciamento:voto` | base | 53 | +925 punti |
-| `segnale:base:quota_wallet_reduci / quota_wallet_vincenti:voto` | base | 6 | +919 punti |
+| `segnale:base:quota_wallet_reduci / quota_wallet_vincenti:voto` | base | 5 | +919 punti |
 | `segnale:base:quota_wallet_nuovi x wallet_ripetuti:voto` | base | 47 | +882 punti |
 | `segnale:base:usd_primi20 / accelerazione_denaro:voto` | base | 2 | +872 punti |
 | `segnale:base:trade_al_minuto / volume_ultima_su_media:voto` | base | 32 | +865 punti |
 | `segnale:base:n_compratori x wallet_ripetuti:voto` | base | 42 | +863 punti |
 | `segnale:base:usd_primi20 / sbilanciamento:voto` | base | 22 | +681 punti |
-| `segnale:base:n_compratori / compra_e_rivende:voto` | base | 17 | +625 punti |
+| `segnale:base:n_compratori / compra_e_rivende:voto` | base | 18 | +625 punti |
 | `strategia:base:entra +6h · solo se volume > $10.000, almeno 2h di scambi · stop -70% · profitto a 5x e 8x · trailing -50% · soglia 0.5` | base | 1 | +554 punti |
 | `segnale:base:usd_primi20 / ampiezza:voto` | base | 21 | +454 punti |
-| `segnale:base:concentrazione_top5 / ampiezza:voto` | base | 29 | +454 punti |
 | `strategia:base:entra +6h · solo se volume > $10.000, almeno 2h di scambi · stop -70% · profitto a 4x e 8x · trailing -50% · soglia 0.5` | base | 1 | +438 punti |
 | `segnale:base:concentrazione_top5 x trade_al_minuto:voto` | base | 42 | +425 punti |
 | `strategia:base:entra +6h · solo se volume > $10.000, almeno 2h di scambi · stop -70% · profitto a 4x e 8x · trailing -50% · soglia 0.4` | base | 2 | +420 punti |
-| `strategia:base:entra +2h · solo se volume > $3.000, almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 5x e 8x · trailing -60% · soglia 0.45` | base | 1 | +328 punti |
 | `segnale:base:trade_al_minuto x accelerazione_denaro:voto` | base | 2 | +320 punti |
 | `segnale:base:buy_medio x quota_wallet_reduci:voto` | base | 5 | +283 punti |
 | `segnale:base:quota_wallet_reduci / volume_ultima_su_media:voto` | base | 3 | +283 punti |
 | `segnale:base:quota_wallet_reduci x accelerazione_denaro:voto` | base | 2 | +283 punti |
 | `segnale:base:quota_wallet_reduci / accelerazione_denaro:voto` | base | 2 | +283 punti |
 | `segnale:base:buy_grossi x wallet_ripetuti:voto` | base | 25 | +264 punti |
-| `strategia:base:entra +2h · solo se volume > $3.000, almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 5x e 12x · trailing -60% · soglia 0.45` | base | 1 | +260 punti |
-| `strategia:base:entra +3h · solo se volume > $3.000, almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 5x e 12x · trailing -60% · soglia 0.45` | base | 1 | +207 punti |
 | `segnale:base:n_compratori / ampiezza:voto` | base | 21 | +205 punti |
 | `segnale:base:trade_al_minuto / usd_primi20:voto` | base | 9 | +198 punti |
+| `segnale:base:concentrazione_top5 / ampiezza:voto` | base | 28 | +192 punti |
 | `segnale:base:trade_al_minuto / ampiezza:voto` | base | 24 | +190 punti |
 | `segnale:base:compra_e_rivende x volume_ultima_su_media:voto` | base | 12 | +175 punti |
 | `segnale:base:compra_e_rivende x drawdown_pre:voto` | base | 3 | +157 punti |
 | `strategia:base:entra +6h · solo se volume > $10.000, almeno 2h di scambi · stop -60% · profitto a 4x e 8x · trailing -50% · soglia 0.4` | base | 1 | +155 punti |
-| `strategia:base:entra +3h · almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 5x e 12x · trailing -60% · soglia 0.45` | base | 1 | +151 punti |
 | `segnale:robinhood:ampiezza x drawdown_pre:filtro` | robinhood | 129 | +110 punti |
-| `strategia:base:entra +3h · almeno 2h di scambi, vendite/acquisti > 10% · stop -60% · profitto a 5x e 12x · trailing -60% · soglia 0.45` | base | 1 | +85 punti |
 | `strategia:robinhood:entra dopo 2h di scambi. solo se volume > $3.000 e vendite/acquisti > 40% · attesa +1h · stop -50% · profitto a 4x e 20x · trailing -30% · soglia 0.35` | robinhood | 1 | +59 punti |
-| `segnale:robinhood:drawdown_pre:filtro` | robinhood | 335 | +44 punti |
-| `segnale:robinhood:buy_medio x volume_ultima_su_media:filtro` | robinhood | 108 | +43 punti |
-| `segnale:robinhood:volume_ultima_su_media:filtro` | robinhood | 381 | +40 punti |
-| `segnale:robinhood:buy_medio x drawdown_pre:filtro` | robinhood | 97 | +38 punti |
+| `segnale:robinhood:drawdown_pre:filtro` | robinhood | 334 | +44 punti |
+| `segnale:robinhood:buy_medio x volume_ultima_su_media:filtro` | robinhood | 109 | +43 punti |
+| `segnale:robinhood:volume_ultima_su_media:filtro` | robinhood | 380 | +40 punti |
+| `segnale:robinhood:buy_medio x drawdown_pre:filtro` | robinhood | 98 | +38 punti |
 | `segnale:robinhood:ampiezza x volume_ultima_su_media:filtro` | robinhood | 104 | +27 punti |
-| `strategia:base:entra +3h · almeno 2h di scambi, vendite/acquisti > 10% · stop -60% · profitto a 5x e 15x · trailing -60% · soglia 0.45` | base | 1 | +24 punti |
-| `segnale:robinhood:drawdown_pre x volume_ultima_su_media:filtro` | robinhood | 114 | +23 punti |
+| `segnale:robinhood:drawdown_pre x volume_ultima_su_media:filtro` | robinhood | 112 | +23 punti |
 | `segnale:base:buy_medio / sbilanciamento:filtro` | base | 21 | +18 punti |
-| `segnale:robinhood:ampiezza:filtro` | robinhood | 378 | +17 punti |
-| `segnale:solana:usd_primi20 / compra_e_rivende:filtro` | solana | 118 | +16 punti |
+| `segnale:robinhood:ampiezza:filtro` | robinhood | 377 | +17 punti |
+| `segnale:solana:usd_primi20 / compra_e_rivende:filtro` | solana | 116 | +16 punti |
 | `segnale:solana:n_compratori / compra_e_rivende:filtro` | solana | 34 | +15 punti |
 | `segnale:bsc:buy_medio x volume_ultima_su_media:filtro` | bsc | 5 | +14 punti |
 | `segnale:solana:n_compratori x trade_al_minuto:filtro` | solana | 47 | +14 punti |
@@ -188,7 +182,7 @@
 | `segnale:base:volume_ultima_su_media:filtro` | base | 96 | +12 punti |
 | `segnale:solana:buy_medio x usd_primi20:filtro` | solana | 36 | +12 punti |
 | `segnale:solana:concentrazione_top1 x sbilanciamento:filtro` | solana | 15 | +12 punti |
-| `segnale:robinhood:drawdown_pre / volume_ultima_su_media:filtro` | robinhood | 89 | +12 punti |
+| `segnale:robinhood:drawdown_pre / volume_ultima_su_media:filtro` | robinhood | 87 | +12 punti |
 | `segnale:solana:trade_al_minuto:filtro` | solana | 335 | +12 punti |
 | `segnale:solana:buy_medio:filtro` | solana | 31 | +12 punti |
 | `segnale:solana:buy_medio / quota_wallet_reduci:filtro` | solana | 3 | +11 punti |
@@ -204,7 +198,7 @@
 | `segnale:solana:concentrazione_top1 x buy_medio:filtro` | solana | 13 | +10 punti |
 | `segnale:bsc:buy_medio / wallet_ripetuti:filtro` | bsc | 19 | +10 punti |
 | `segnale:solana:buy_medio / usd_primi20:filtro` | solana | 18 | +10 punti |
-| `segnale:solana:trade_al_minuto / quota_wallet_reduci:filtro` | solana | 90 | +10 punti |
+| `segnale:solana:trade_al_minuto / quota_wallet_reduci:filtro` | solana | 91 | +10 punti |
 | `segnale:solana:buy_medio x sbilanciamento:filtro` | solana | 12 | +10 punti |
 | `segnale:bsc:buy_medio / compra_e_rivende:filtro` | bsc | 5 | +10 punti |
 | `segnale:solana:n_compratori / usd_primi20:filtro` | solana | 7 | +10 punti |
@@ -224,7 +218,7 @@
 | `segnale:solana:concentrazione_top5 x drawdown_pre:filtro` | solana | 25 | +9 punti |
 | `segnale:base:buy_medio / accelerazione_denaro:filtro` | base | 3 | +9 punti |
 | `segnale:bsc:buy_medio / buy_grossi:filtro` | bsc | 14 | +9 punti |
-| `segnale:solana:concentrazione_top5 / compra_e_rivende:filtro` | solana | 36 | +9 punti |
+| `segnale:solana:concentrazione_top5 / compra_e_rivende:filtro` | solana | 35 | +9 punti |
 | `segnale:solana:n_compratori x sbilanciamento:filtro` | solana | 52 | +9 punti |
 | `segnale:solana:volume_ultima_su_media:filtro` | solana | 47 | +9 punti |
 | `segnale:solana:concentrazione_top5 x trade_al_minuto:filtro` | solana | 98 | +9 punti |
@@ -236,7 +230,7 @@
 | `segnale:solana:ampiezza x drawdown_pre:filtro` | solana | 2 | +9 punti |
 | `segnale:solana:quota_wallet_nuovi / compra_e_rivende:filtro` | solana | 45 | +9 punti |
 | `segnale:solana:concentrazione_top1 x volume_ultima_su_media:filtro` | solana | 94 | +8 punti |
-| `segnale:robinhood:buy_medio / volume_ultima_su_media:filtro` | robinhood | 96 | +8 punti |
+| `segnale:robinhood:buy_medio / volume_ultima_su_media:filtro` | robinhood | 97 | +8 punti |
 | `segnale:solana:quota_wallet_nuovi x ampiezza:filtro` | solana | 8 | +8 punti |
 | `segnale:solana:concentrazione_top1 x ampiezza:filtro` | solana | 18 | +8 punti |
 | `segnale:solana:buy_medio x quota_wallet_nuovi:filtro` | solana | 9 | +8 punti |
@@ -489,7 +483,6 @@
 | `segnale:base:compra_e_rivende / ampiezza:voto` | base | 3 | +15946 punti |
 | `segnale:base:concentrazione_top5 / concentrazione_top1:voto` | base | 5 | +13763 punti |
 | `segnale:base:sbilanciamento x volume_ultima_su_media:voto` | base | 5 | +13763 punti |
-| `segnale:base:wallet_ripetuti / accelerazione_denaro:voto` | base | 3 | +12739 punti |
 | `segnale:base:buy_grossi / ampiezza:voto` | base | 5 | +12739 punti |
 | `segnale:base:buy_medio x drawdown_pre:voto` | base | 4 | +12120 punti |
 | `segnale:base:n_compratori x compra_e_rivende:voto` | base | 3 | +12120 punti |
@@ -501,11 +494,12 @@
 | `segnale:base:sbilanciamento / accelerazione_denaro:voto` | base | 5 | +9270 punti |
 | `segnale:base:buy_grossi / drawdown_pre:voto` | base | 3 | +8042 punti |
 | `segnale:base:n_compratori x volume_ultima_su_media:voto` | base | 3 | +7921 punti |
-| `segnale:base:buy_grossi / wallet_ripetuti:voto` | base | 3 | +6623 punti |
 | `segnale:base:concentrazione_top1 / sbilanciamento:voto` | base | 3 | +5622 punti |
-| `segnale:base:sbilanciamento / volume_ultima_su_media:voto` | base | 3 | +5294 punti |
 | `segnale:base:concentrazione_top1 x buy_grossi:voto` | base | 3 | +4892 punti |
-| `segnale:base:trade_al_minuto x volume_ultima_su_media:voto` | base | 3 | +4738 punti |
+| `segnale:base:concentrazione_top1 / drawdown_pre:voto` | base | 3 | +4636 punti |
+| `segnale:base:n_compratori x usd_primi20:voto` | base | 3 | +3854 punti |
+| `segnale:base:n_compratori:voto` | base | 3 | +3846 punti |
+| `segnale:base:concentrazione_top1 x quota_wallet_vincenti:voto` | base | 3 | +3797 punti |
 
 ## 🔎 Ancora in prova
 

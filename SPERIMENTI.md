@@ -1,5 +1,5 @@
 # 🧪 CORSIA SPERIMENTI — cosa e' successo nell'ultimo giro
-*2026-09-12 00:48 UTC · giro 28*
+*2026-09-12 01:32 UTC · giro 36*
 
 | esperimento | esito | ultima cosa detta |
 |---|---|---|
@@ -7,7 +7,7 @@
 | `sperimentale.py` | ok | SPERIMENTALE | gemelli 2501 | esplosioni 40 | valutate 32 |
 | `due_gambe.py` | ok | DUE_GAMBE | copertura base:7% robinhood:3% solana:54% |
 | `costo_chain.py` | ok | COSTO_CHAIN | controllo su solana: NON passa |
-| `costo_evm.py` | ok | COSTO_EVM | base:2misure robinhood:21misure |
+| `costo_evm.py` | ok | COSTO_EVM | base:2misure robinhood:22misure |
 | `ritardo.py` | ok | RITARDO | base:549 robinhood:494 solana:622 |
 | `esaurimento.py` | ok | ESAURIMENTO | dentro:115 controlli:4000 |
 | `staffetta.py` | codice 1 | NameError: name 'ore_astra' is not defined |
@@ -15,4 +15,4 @@
 > Un giro che dura pochi secondi non e' un giro veloce: e' un giro in cui
 > nessuno ha lavorato. Per questo qui sotto c'e' anche quanto e' durato.
 
-*Durata del giro: **297 secondi**.*
+*Durata del giro: **337 secondi**.*
