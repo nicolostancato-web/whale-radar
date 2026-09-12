@@ -1,5 +1,5 @@
 # 📈 QUANTO COSTA USCIRE, SECONDO QUANTO E' LIQUIDO IL TOKEN
-*2026-09-12 07:48 UTC · 95 osservazioni (misure con il volume dell'ORA in cui sono state prese, non la mediana storica) · €0*
+*2026-09-12 08:51 UTC · 95 osservazioni (misure con il volume dell'ORA in cui sono state prese, non la mediana storica) · €0*
 
 > Un costo costante è comodo e sbagliato. Su un pool che gira 50.000 dollari l'ora, uscire
 > con 25 dollari non si sente. Sullo stesso token quando il volume è crollato a 200, quei

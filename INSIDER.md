@@ -1,5 +1,5 @@
 # 🕵️ INSIDER — chi compra PRIMA del pump (solana)
-*2026-09-12 07:39 UTC · walk-forward ONESTO (score dal solo passato risolto)*
+*2026-09-12 08:44 UTC · walk-forward ONESTO (score dal solo passato risolto)*
 
 ## Verdetto: 🟡 **PROMETTENTE**: lift +22pt su 9 token (p=0.076) — serve arrivare a 40 casi prima di cantare vittoria
 
