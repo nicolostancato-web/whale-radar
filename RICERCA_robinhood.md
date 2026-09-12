@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (robinhood)
-*2026-09-12 02:03 UTC · 49 segnali nuovi messi alla prova su 340 token*
+*2026-09-12 02:44 UTC · 9 segnali nuovi messi alla prova su 340 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-96%**.
 
@@ -33,51 +33,11 @@
 | `drawdown_pre / volume_ultima_su_media (filtro)` | quanto è già sceso dal massimo prima di entrare RAPPORTATO a se il volume sta accelerando proprio adesso | -84% (+12) |
 | `buy_medio / volume_ultima_su_media (filtro)` | quanto compra in media ciascuno RAPPORTATO a se il volume sta accelerando proprio adesso | -88% (+9) |
 | `ampiezza / drawdown_pre (filtro)` | quanto oscilla il prezzo prima di entrare RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -91% (+5) |
-| `n_compratori / trade_al_minuto (voto)` | quante persone diverse hanno comprato RAPPORTATO a quanto è frenetico lo scambio | -95% (+1) |
-| `buy_medio / sbilanciamento (voto)` | quanto compra in media ciascuno RAPPORTATO a quanto il denaro che entra supera quello che esce | -95% (+1) |
-| `buy_medio / trade_al_minuto (voto)` | quanto compra in media ciascuno RAPPORTATO a quanto è frenetico lo scambio | -95% (+1) |
-| `buy_medio / sbilanciamento (filtro)` | quanto compra in media ciascuno RAPPORTATO a quanto il denaro che entra supera quello che esce | -96% (+1) |
-| `buy_medio / trade_al_minuto (filtro)` | quanto compra in media ciascuno RAPPORTATO a quanto è frenetico lo scambio | -96% (+1) |
-| `trade_al_minuto x quota_wallet_nuovi (voto)` | quanto è frenetico lo scambio MOLTIPLICATO per la quota di denaro da wallet mai visti prima | -96% (+0) |
-| `trade_al_minuto / quota_wallet_nuovi (voto)` | quanto è frenetico lo scambio RAPPORTATO a la quota di denaro da wallet mai visti prima | -96% (+0) |
-| `n_compratori x trade_al_minuto (voto)` | quante persone diverse hanno comprato MOLTIPLICATO per quanto è frenetico lo scambio | -96% (+0) |
-| `buy_medio x sbilanciamento (voto)` | quanto compra in media ciascuno MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -96% (+0) |
-| `buy_grossi x compra_e_rivende (voto)` | la quota di denaro che arriva da acquisti sopra i 500 dollari MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -96% (+0) |
-| `buy_grossi / compra_e_rivende (voto)` | la quota di denaro che arriva da acquisti sopra i 500 dollari RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -96% (+0) |
-| `buy_medio x trade_al_minuto (voto)` | quanto compra in media ciascuno MOLTIPLICATO per quanto è frenetico lo scambio | -96% (+0) |
-| `concentrazione_top1 x quota_wallet_nuovi (voto)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per la quota di denaro da wallet mai visti prima | -96% (+0) |
-| `concentrazione_top1 / quota_wallet_nuovi (voto)` | quanto pesa il singolo compratore più grosso RAPPORTATO a la quota di denaro da wallet mai visti prima | -96% (+0) |
-| `buy_grossi x sbilanciamento (voto)` | la quota di denaro che arriva da acquisti sopra i 500 dollari MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -96% (+0) |
-| `buy_grossi / sbilanciamento (voto)` | la quota di denaro che arriva da acquisti sopra i 500 dollari RAPPORTATO a quanto il denaro che entra supera quello che esce | -96% (+0) |
-| `concentrazione_top1 x accelerazione_denaro (voto)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -96% (+0) |
-| `concentrazione_top1 / accelerazione_denaro (voto)` | quanto pesa il singolo compratore più grosso RAPPORTATO a se i soldi stanno entrando più in fretta adesso che all'inizio | -96% (+0) |
-| `buy_medio x quota_wallet_vincenti (voto)` | quanto compra in media ciascuno MOLTIPLICATO per la quota di denaro da wallet con almeno un successo alle spalle | -96% (+0) |
-| `buy_medio / quota_wallet_vincenti (voto)` | quanto compra in media ciascuno RAPPORTATO a la quota di denaro da wallet con almeno un successo alle spalle | -96% (+0) |
-| `buy_medio x buy_grossi (voto)` | quanto compra in media ciascuno MOLTIPLICATO per la quota di denaro che arriva da acquisti sopra i 500 dollari | -96% (+0) |
-| `buy_medio / buy_grossi (voto)` | quanto compra in media ciascuno RAPPORTATO a la quota di denaro che arriva da acquisti sopra i 500 dollari | -96% (+0) |
-| `buy_medio / buy_grossi (filtro)` | quanto compra in media ciascuno RAPPORTATO a la quota di denaro che arriva da acquisti sopra i 500 dollari | -97% (-0) |
-| `buy_medio x sbilanciamento (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -97% (-1) |
-| `buy_medio / quota_wallet_vincenti (filtro)` | quanto compra in media ciascuno RAPPORTATO a la quota di denaro da wallet con almeno un successo alle spalle | -97% (-1) |
-| `buy_grossi x sbilanciamento (filtro)` | la quota di denaro che arriva da acquisti sopra i 500 dollari MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -97% (-1) |
-| `trade_al_minuto x quota_wallet_nuovi (filtro)` | quanto è frenetico lo scambio MOLTIPLICATO per la quota di denaro da wallet mai visti prima | -97% (-1) |
-| `trade_al_minuto / quota_wallet_nuovi (filtro)` | quanto è frenetico lo scambio RAPPORTATO a la quota di denaro da wallet mai visti prima | -97% (-1) |
-| `n_compratori x trade_al_minuto (filtro)` | quante persone diverse hanno comprato MOLTIPLICATO per quanto è frenetico lo scambio | -97% (-1) |
-| `n_compratori / trade_al_minuto (filtro)` | quante persone diverse hanno comprato RAPPORTATO a quanto è frenetico lo scambio | -97% (-1) |
-| `buy_grossi x compra_e_rivende (filtro)` | la quota di denaro che arriva da acquisti sopra i 500 dollari MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -97% (-1) |
-| `buy_grossi / compra_e_rivende (filtro)` | la quota di denaro che arriva da acquisti sopra i 500 dollari RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -97% (-1) |
-| `buy_medio x trade_al_minuto (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per quanto è frenetico lo scambio | -97% (-1) |
-| `concentrazione_top1 x quota_wallet_nuovi (filtro)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per la quota di denaro da wallet mai visti prima | -97% (-1) |
-| `concentrazione_top1 / quota_wallet_nuovi (filtro)` | quanto pesa il singolo compratore più grosso RAPPORTATO a la quota di denaro da wallet mai visti prima | -97% (-1) |
-| `buy_grossi / sbilanciamento (filtro)` | la quota di denaro che arriva da acquisti sopra i 500 dollari RAPPORTATO a quanto il denaro che entra supera quello che esce | -97% (-1) |
-| `concentrazione_top1 x accelerazione_denaro (filtro)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -97% (-1) |
-| `concentrazione_top1 / accelerazione_denaro (filtro)` | quanto pesa il singolo compratore più grosso RAPPORTATO a se i soldi stanno entrando più in fretta adesso che all'inizio | -97% (-1) |
-| `buy_medio x quota_wallet_vincenti (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per la quota di denaro da wallet con almeno un successo alle spalle | -97% (-1) |
-| `buy_medio x buy_grossi (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per la quota di denaro che arriva da acquisti sopra i 500 dollari | -97% (-1) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
-- `concentrazione_top5 (voto)` — già bocciato 27 volte 6h fa (si riprova fra 6h o quando i dati crescono)
-- `concentrazione_top5 (filtro)` — già bocciato 27 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `concentrazione_top5 (voto)` — già bocciato 27 volte 7h fa (si riprova fra 5h o quando i dati crescono)
+- `concentrazione_top5 (filtro)` — già bocciato 27 volte 7h fa (si riprova fra 5h o quando i dati crescono)
 - `concentrazione_top1 (voto)` — già bocciato 27 volte 6h fa (si riprova fra 6h o quando i dati crescono)
 - `concentrazione_top1 (filtro)` — già bocciato 27 volte 6h fa (si riprova fra 6h o quando i dati crescono)
 - `n_compratori (voto)` — già bocciato 27 volte 6h fa (si riprova fra 6h o quando i dati crescono)
