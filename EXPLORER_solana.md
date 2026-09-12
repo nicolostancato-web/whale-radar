@@ -1,5 +1,5 @@
 # 🔬 EXPLORER — LOOP 1: come alzo la percentuale? (solana)
-*2026-09-12 09:41 UTC · 732 strategie provate in questo ciclo · 423325 in totale*
+*2026-09-12 09:56 UTC · 732 strategie provate in questo ciclo · 424057 in totale*
 
 ## Migliore trovata finora: **-99%** (stress test) · P&L medio **-24%** · crescita composta **-78.4%** · 5% peggiore **-100%** · 156 trade
 
