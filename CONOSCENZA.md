@@ -1,5 +1,5 @@
 # 🧠 CONOSCENZA — cosa ha imparato il team
-*2026-09-12 05:45 UTC · 2412 idee messe alla prova finora*
+*2026-09-12 05:51 UTC · 2412 idee messe alla prova finora*
 
 > Questa non è la cronaca di cosa è successo: è il sapere accumulato. Prima di riprovare una cosa,
 > il team guarda qui. Ciò che ha fallito 3 volte si mette da parte — ma il caso si RIAPRE quando i
@@ -52,7 +52,7 @@
 | `segnale:base:n_compratori:voto` | base | 222 | +3846 punti |
 | `segnale:base:concentrazione_top1 x quota_wallet_vincenti:voto` | base | 116 | +3797 punti |
 | `segnale:base:concentrazione_top5 / sbilanciamento:voto` | base | 66 | +3682 punti |
-| `segnale:base:n_compratori x quota_wallet_nuovi:voto` | base | 90 | +3671 punti |
+| `segnale:base:n_compratori x quota_wallet_nuovi:voto` | base | 91 | +3671 punti |
 | `segnale:base:buy_grossi / trade_al_minuto:voto` | base | 88 | +3641 punti |
 | `segnale:base:concentrazione_top5 x buy_grossi:voto` | base | 62 | +3472 punti |
 | `segnale:base:concentrazione_top5 x sbilanciamento:voto` | base | 57 | +3446 punti |
@@ -143,7 +143,7 @@
 | `segnale:base:usd_primi20 / accelerazione_denaro:voto` | base | 2 | +872 punti |
 | `segnale:base:trade_al_minuto / volume_ultima_su_media:voto` | base | 32 | +865 punti |
 | `segnale:base:n_compratori x wallet_ripetuti:voto` | base | 42 | +863 punti |
-| `segnale:base:accelerazione_denaro x ampiezza:voto` | base | 3 | +794 punti |
+| `segnale:base:accelerazione_denaro x ampiezza:voto` | base | 4 | +794 punti |
 | `strategia:base:entra +12h · almeno 2h di scambi · stop -70% · profitto a 4x e 15x · trailing -60% · soglia 0.45` | base | 2 | +699 punti |
 | `segnale:base:usd_primi20 / sbilanciamento:voto` | base | 22 | +681 punti |
 | `strategia:base:entra +12h · almeno 2h di scambi · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.5` | base | 1 | +631 punti |
