@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (robinhood)
-*2026-09-12 12:34 UTC · 3 segnali nuovi messi alla prova su 340 token*
+*2026-09-12 12:51 UTC · 3 segnali nuovi messi alla prova su 340 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-95%**.
 
@@ -24,8 +24,8 @@
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
-- `concentrazione_top5 (voto)` — già bocciato 28 volte 4h fa (si riprova fra 8h o quando i dati crescono)
-- `concentrazione_top5 (filtro)` — già bocciato 28 volte 4h fa (si riprova fra 8h o quando i dati crescono)
+- `concentrazione_top5 (voto)` — già bocciato 28 volte 5h fa (si riprova fra 7h o quando i dati crescono)
+- `concentrazione_top5 (filtro)` — già bocciato 28 volte 5h fa (si riprova fra 7h o quando i dati crescono)
 - `concentrazione_top1 (voto)` — già bocciato 28 volte 4h fa (si riprova fra 8h o quando i dati crescono)
 - `concentrazione_top1 (filtro)` — già bocciato 28 volte 4h fa (si riprova fra 8h o quando i dati crescono)
 - `n_compratori (voto)` — già bocciato 28 volte 4h fa (si riprova fra 8h o quando i dati crescono)
