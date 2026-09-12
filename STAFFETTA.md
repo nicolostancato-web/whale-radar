@@ -1,18 +1,18 @@
 # 🏃 STAFFETTA — leggi QUESTO per primo
-*2026-09-12 06:33 UTC · aggiornato da solo a ogni giro*
+*2026-09-12 07:04 UTC · aggiornato da solo a ogni giro*
 
 > La continuità viene dai **registri condivisi**, non dal ricordarsi la conversazione. Chi si
 > sveglia adesso non ha memoria: qui trova dove siamo e **qual è il prossimo lavoro**.
 
 ## Le corsie
 
-- 🟢 vive: motore (3′), ricerca (4′), loop 0 (14′), sperimenti (4′)
+- 🟢 vive: motore (4′), ricerca (5′), loop 0 (0′), sperimenti (4′)
 
 ## Gli esperimenti vivi
 
 - **liquidità impegnata**: ⏸️ La liquidità non batte il prezzo, ma i giorni
 - **costo d'uscita**: ❌ **La premessa non regge.** La soglia dell'8% non taglia niente: **1207 eventi su 1207** ci stanno sotto. Sui pool che scambiano davvero il
-- **fuori dal recinto**: ❌ **Nessun travaso misurabile.** Il gemello non si muove più dei suoi simili quando
+- **fuori dal recinto**: _nessun verdetto scritto_
 
 ## Stiamo accumulando?
 
@@ -23,8 +23,8 @@
 | base/battito | 2,903 | — |
 | base/candele | 1,339 | — |
 | robinhood/battito | 117 | — |
-| robinhood/candele | 2,315 | **+33** |
-| robinhood/toccati 12h | 118 | **+10** |
+| robinhood/candele | 2,346 | **+31** |
+| robinhood/toccati 12h | 107 | — |
 | solana/battito | 177 | — |
 | solana/candele | 1,063 | — |
 
@@ -45,4 +45,4 @@ In coda e non ancora aperti: **1** (5).
 > ieri e sembrano di oggi. Qui sotto c'è la data del calcolo, e se non è di pochi minuti fa
 > il foglio non vale.
 
-*Calcolato alle **06:33 UTC** del 12/09/2026.*
+*Calcolato alle **07:04 UTC** del 12/09/2026.*
