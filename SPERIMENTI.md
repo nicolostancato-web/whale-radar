@@ -1,5 +1,5 @@
 # 🧪 CORSIA SPERIMENTI — cosa e' successo nell'ultimo giro
-*2026-09-12 01:32 UTC · giro 36*
+*2026-09-12 01:37 UTC · giro 37*
 
 | esperimento | esito | ultima cosa detta |
 |---|---|---|
