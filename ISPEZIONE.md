@@ -1,5 +1,5 @@
 # 🔍 LOOP 0 · ISPEZIONE — il team sta lavorando?
-*2026-09-12 07:33 UTC · un giro ogni ora · qui NON si guarda la percentuale: si guarda che ognuno faccia il suo lavoro*
+*2026-09-12 07:34 UTC · un giro ogni ora · qui NON si guarda la percentuale: si guarda che ognuno faccia il suo lavoro*
 
 
 ## 🔴 **6 COMPONENTI NON RISPONDONO** — la macchina non è pronta
@@ -65,9 +65,9 @@
 | **Perito** | il token si può vendere? chi lo controlla? | 34 min fa | 240 min | ✅ in orario · 4663 token in archivio |
 | **Anagrafe** | chi ha creato il token e i suoi precedenti | 32 min fa | 240 min | ✅ in orario · 4907 token con creatore |
 | **Contabile** | misura e modello dei costi devono dire lo stesso | 143 min fa | 300 min | ✅ in orario |
-| **Reputazione** | chi ha creato il token ha gia' combinato disastri? | 143 min fa | 300 min | ✅ in orario |
+| **Reputazione** | chi ha creato il token ha gia' combinato disastri? | 120 min fa | 300 min | ✅ in orario |
 | **Talento** | esiste un wallet che sa qualcosa? (excess vs comparabili) | 143 min fa | 300 min | ✅ in orario |
-| **Corrente** | sta entrando capitale INDIPENDENTE, o e' una mano sola? | 131 min fa | 300 min | ✅ in orario |
+| **Corrente** | sta entrando capitale INDIPENDENTE, o e' una mano sola? | 120 min fa | 300 min | ✅ in orario |
 
 ## E quello che dicono è VERO?
 
