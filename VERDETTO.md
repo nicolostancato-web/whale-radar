@@ -1,5 +1,5 @@
 # ⚖️ VERDETTO — LOOP 1 è riuscito, va avanti, o va chiuso?
-*2026-09-11 21:53 UTC · criteri scritti il 2026-09-03, **prima** di vedere questi risultati*
+*2026-09-12 00:31 UTC · criteri scritti il 2026-09-03, **prima** di vedere questi risultati*
 
 > Questi criteri esistono per un motivo solo: rendere **impossibile spostare il traguardo.**
 > Il rischio più grande non è sbagliare una strategia — è continuare ad aggiungere segnali
@@ -19,7 +19,7 @@
 
 ## Cosa succede se non ci arriviamo
 
-Scadenza: **2026-10-03** (fra 21 giorni) oppure **500 trade** accumulati in validazione, quello che viene prima.
+Scadenza: **2026-10-03** (fra 20 giorni) oppure **500 trade** accumulati in validazione, quello che viene prima.
 
 > non 'il progetto e' fallito', ma 'questo mercato non offre un edge sfruttabile con il nostro approccio'. E' un risultato, non una sconfitta: dice dove NON cercare.
 
