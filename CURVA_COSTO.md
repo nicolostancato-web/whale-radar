@@ -1,5 +1,5 @@
 # 📈 QUANTO COSTA USCIRE, SECONDO QUANTO E' LIQUIDO IL TOKEN
-*2026-09-12 04:08 UTC · 88 osservazioni (misure con il volume dell'ORA in cui sono state prese, non la mediana storica) · €0*
+*2026-09-12 05:11 UTC · 91 osservazioni (misure con il volume dell'ORA in cui sono state prese, non la mediana storica) · €0*
 
 > Un costo costante è comodo e sbagliato. Su un pool che gira 50.000 dollari l'ora, uscire
 > con 25 dollari non si sente. Sullo stesso token quando il volume è crollato a 200, quei
@@ -7,17 +7,17 @@
 
 | la posizione è, del volume orario | costo andata+ritorno | nei casi peggiori | osservazioni |
 |---|---|---|---|
-| 0.02% – 0.25% | **2.6%** | 2.9% | 14 |
-| 0.27% – 1.33% | **4.2%** | 5.9% | 14 |
-| 1.79% – 16.68% | **4.7%** | 8.6% | 14 |
-| 21.10% – 166.30% | **5.4%** | 10.5% | 14 |
-| 256.18% – 4978.89% | **4.9%** | 11.6% | 14 |
-| 5735.83% – 65476.04% | **9.4%** | 25.4% | 14 |
+| 0.02% – 0.27% | **2.6%** | 3.0% | 15 |
+| 0.31% – 2.28% | **4.2%** | 5.9% | 15 |
+| 3.37% – 22.81% | **4.2%** | 8.6% | 15 |
+| 33.26% – 256.18% | **6.3%** | 11.6% | 15 |
+| 292.06% – 6001.81% | **4.3%** | 11.6% | 15 |
+| 6151.98% – 114716.67% | **14.4%** | 28.5% | 15 |
 
 ## Cosa dicono i dati
 
 > ✅ **La relazione c'è.** Passando dai token più liquidi ai più sottili il costo di uscita
-> si moltiplica per **3.7**. Non è più un'assunzione: è misurato, e il backtest può
+> si moltiplica per **5.5**. Non è più un'assunzione: è misurato, e il backtest può
 > usare la curva invece di una costante.
 
 > Il punto pratico: **lo stop scatta quando il volume è crollato**, cioè nella fascia più
@@ -43,7 +43,7 @@ Tre limiti, e il terzo non è correggibile con i dati che abbiamo:
 > sostituiranno questa estrapolazione.
 
 > Nota sul campione: si usano solo le misure per cui esiste una candela nell'ora in cui sono
-> state prese. Sono meno (88 contro le oltre mille grezze), ma sono le uniche in cui
+> state prese. Sono meno (91 contro le oltre mille grezze), ma sono le uniche in cui
 > calibrazione e applicazione guardano la stessa grandezza. **Meno punti giusti battono più
 > punti sbagliati.**
 
