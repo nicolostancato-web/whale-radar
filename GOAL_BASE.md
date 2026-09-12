@@ -1,5 +1,5 @@
 # 🎯 GOAL BASE — aprire trade ed essere in profitto
-*2026-09-12 09:03 UTC · conto attivo da 16.6 giorni*
+*2026-09-12 09:34 UTC · conto attivo da 16.6 giorni*
 
 ## Stato: 🟡 IN ATTESA del primo trade
 
@@ -17,7 +17,7 @@
 
 - token con pochi punti (stanno maturando): **192**
 - token presi troppo tardi (finestra +3h persa, giustamente scartati): **427**
-- ultimo campione raccolto: **62 minuti fa** ✅
+- ultimo campione raccolto: **31 minuti fa** ✅
 
 ## ✅ Catena integra: il forward gira da solo
 
