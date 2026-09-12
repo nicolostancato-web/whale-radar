@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (robinhood)
-*2026-09-12 14:25 UTC · 8 segnali nuovi messi alla prova su 340 token*
+*2026-09-12 14:40 UTC · 4 segnali nuovi messi alla prova su 340 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-95%**.
 
@@ -23,15 +23,11 @@
 | `volume_ultima_su_media (filtro)` | se il volume sta accelerando proprio adesso | -67% (+28) |
 | `ampiezza (filtro)` | quanto oscilla il prezzo prima di entrare | -78% (+17) |
 | `buy_medio x ampiezza (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -88% (+8) |
-| `sbilanciamento x drawdown_pre (voto)` | quanto il denaro che entra supera quello che esce MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | -95% (+0) |
-| `sbilanciamento / drawdown_pre (voto)` | quanto il denaro che entra supera quello che esce RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -95% (+0) |
-| `sbilanciamento / drawdown_pre (filtro)` | quanto il denaro che entra supera quello che esce RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -97% (-1) |
-| `sbilanciamento x drawdown_pre (filtro)` | quanto il denaro che entra supera quello che esce MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | -97% (-1) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
-- `concentrazione_top5 (voto)` — già bocciato 28 volte 6h fa (si riprova fra 6h o quando i dati crescono)
-- `concentrazione_top5 (filtro)` — già bocciato 28 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `concentrazione_top5 (voto)` — già bocciato 28 volte 7h fa (si riprova fra 5h o quando i dati crescono)
+- `concentrazione_top5 (filtro)` — già bocciato 28 volte 7h fa (si riprova fra 5h o quando i dati crescono)
 - `concentrazione_top1 (voto)` — già bocciato 28 volte 6h fa (si riprova fra 6h o quando i dati crescono)
 - `concentrazione_top1 (filtro)` — già bocciato 28 volte 6h fa (si riprova fra 6h o quando i dati crescono)
 - `n_compratori (voto)` — già bocciato 28 volte 6h fa (si riprova fra 6h o quando i dati crescono)
