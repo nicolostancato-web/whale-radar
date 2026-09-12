@@ -1,5 +1,5 @@
 # 🔬 EXPLORER — LOOP 1: come alzo la percentuale? (solana)
-*2026-09-12 12:11 UTC · 985 strategie provate in questo ciclo · 430694 in totale*
+*2026-09-12 12:29 UTC · 980 strategie provate in questo ciclo · 431674 in totale*
 
 ## Migliore trovata finora: **-99%** (stress test) · P&L medio **-20%** · crescita composta **-71.7%** · 5% peggiore **-100%** · 124 trade
 
@@ -25,11 +25,11 @@ la crescita composta dice se reinvestendo si cresce o ci si rovina.*
 
 | la strategia | risultato |
 |---|---|
-| entra +12h · solo se volume > $10.000, almeno 2h di scambi, vendite/acquisti > 15% · stop -60% · profitto a 4x e 12x · trailing -30% · soglia 0.2 | -99% |
-| entra +12h · solo se volume > $10.000, almeno 2h di scambi, vendite/acquisti > 15% · stop -60% · profitto a 5x e 8x · trailing -30% · soglia 0.2 | -99% |
-| entra +12h · solo se volume > $10.000, almeno 4h di scambi, vendite/acquisti > 15% · stop -60% · profitto a 5x e 12x · trailing -30% · soglia 0.2 | -99% |
+| entra +12h · solo se volume > $10.000, almeno 2h di scambi, vendite/acquisti > 15% · stop -60% · profitto a 5x e 12x · trailing -30% · soglia 0.3 | -99% |
 | entra +12h · solo se volume > $10.000, almeno 2h di scambi, vendite/acquisti > 15% · stop -60% · profitto a 5x e 12x · trailing -30% · soglia 0.2 | -99% |
-| entra +12h · solo se volume > $10.000, almeno 2h di scambi, vendite/acquisti > 15% · stop -60% · profitto a 5x e 12x · trailing -30% · soglia 0.15 | -99% |
+| entra +12h · solo se volume > $10.000, almeno 2h di scambi, vendite/acquisti > 15% · stop -60% · profitto a 5x e 12x · trailing -30% · soglia 0.2 | -99% |
+| entra +12h · solo se volume > $10.000, almeno 2h di scambi, vendite/acquisti > 15% · stop -60% · profitto a 5x e 12x · trailing -30% · soglia 0.25 | -99% |
+| entra +12h · solo se volume > $10.000, almeno 2h di scambi, vendite/acquisti > 15% · stop -60% · profitto a 5x e 12x · trailing -30% · soglia 0.2 | -99% |
 | entra +12h · solo se volume > $10.000, almeno 2h di scambi, vendite/acquisti > 15% · stop -60% · profitto a 5x e 12x · trailing -30% · soglia 0.2 | -99% |
 
 > Il LOOP 1 non si ferma mai: prova strategie e segnali, tiene solo cio' che alza la percentuale
