@@ -1,5 +1,5 @@
 # 🧪 CORSIA SPERIMENTI — cosa e' successo nell'ultimo giro
-*2026-09-12 16:30 UTC · giro 19*
+*2026-09-12 16:38 UTC · giro 21*
 
 | esperimento | esito | ultima cosa detta |
 |---|---|---|
@@ -15,4 +15,4 @@
 > Un giro che dura pochi secondi non e' un giro veloce: e' un giro in cui
 > nessuno ha lavorato. Per questo qui sotto c'e' anche quanto e' durato.
 
-*Durata del giro: **228 secondi**.*
+*Durata del giro: **232 secondi**.*
