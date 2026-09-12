@@ -468,3 +468,6 @@
 {"ts": 1789212561, "chain": "bsc", "media": -21.1, "robusta": -23.8, "n": 600, "vinti": 14.1}
 {"ts": 1789216229, "chain": "solana", "media": -18.3, "robusta": -20.9, "n": 743, "vinti": 15.8}
 {"ts": 1789216229, "chain": "bsc", "media": -21.1, "robusta": -23.8, "n": 600, "vinti": 14.1}
+{"ts": 1789225936, "chain": "solana", "media": -19.4, "robusta": -22.0, "n": 741, "vinti": 14.8}
+{"ts": 1789225936, "chain": "bsc", "media": -21.1, "robusta": -23.8, "n": 600, "vinti": 14.1}
+{"ts": 1789225936, "chain": "base", "media": -1.6, "robusta": -5.8, "n": 1692, "vinti": 24.2}
