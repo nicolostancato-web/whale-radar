@@ -175,7 +175,7 @@
 | `segnale:base:compra_e_rivende x volume_ultima_su_media:voto` | base | 12 | +175 punti |
 | `segnale:base:compra_e_rivende x drawdown_pre:voto` | base | 3 | +157 punti |
 | `strategia:base:entra +6h · solo se volume > $10.000, almeno 2h di scambi · stop -60% · profitto a 4x e 8x · trailing -50% · soglia 0.4` | base | 1 | +155 punti |
-| `segnale:base:trade_al_minuto x usd_primi20:voto` | base | 3 | +129 punti |
+| `segnale:base:trade_al_minuto x usd_primi20:voto` | base | 4 | +129 punti |
 | `segnale:base:quota_wallet_reduci x drawdown_pre:filtro` | base | 2 | +115 punti |
 | `segnale:base:quota_wallet_reduci / drawdown_pre:filtro` | base | 2 | +115 punti |
 | `segnale:base:wallet_ripetuti x accelerazione_denaro:filtro` | base | 2 | +115 punti |
