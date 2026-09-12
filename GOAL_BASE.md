@@ -1,5 +1,5 @@
 # 🎯 GOAL BASE — aprire trade ed essere in profitto
-*2026-09-12 15:23 UTC · conto attivo da 16.8 giorni*
+*2026-09-12 16:27 UTC · conto attivo da 16.9 giorni*
 
 ## Stato: 🟡 IN ATTESA del primo trade
 
@@ -10,14 +10,14 @@
 | stadio | quanti | |
 |---|---|---|
 | 1. token nuovi scoperti | **53** | ✅ |
-| 2. token sotto osservazione | **2935** | ✅ |
+| 2. token sotto osservazione | **2948** | ✅ |
 | 3. token pronti da valutare | **2314** | ✅ |
 | 4. token valutati dal modello | **1317** | ✅ |
 | 5. trade aperti o chiusi | **2** | ✅ |
 
-- token con pochi punti (stanno maturando): **194**
+- token con pochi punti (stanno maturando): **207**
 - token presi troppo tardi (finestra +3h persa, giustamente scartati): **427**
-- ultimo campione raccolto: **65 minuti fa** ✅
+- ultimo campione raccolto: **64 minuti fa** ✅
 
 ## ✅ Catena integra: il forward gira da solo
 
@@ -25,7 +25,7 @@
 
 | | ciclo scorso | ora |
 |---|---|---|
-| token osservati | 2930 | 2935 |
+| token osservati | 2935 | 2948 |
 | pronti da valutare | 2314 | 2314 |
 | trade | 2 | 2 |
 
