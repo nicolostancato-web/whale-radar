@@ -1,5 +1,5 @@
 # 🔬 EXPLORER — LOOP 1: come alzo la percentuale? (base)
-*2026-09-12 11:43 UTC · 522 strategie provate in questo ciclo · 122573 in totale*
+*2026-09-12 11:59 UTC · 523 strategie provate in questo ciclo · 123096 in totale*
 
 ## Migliore trovata finora: **-84%** (stress test) · P&L medio **-7%** · crescita composta **-21.0%** · 5% peggiore **-78%** · 94 trade
 
@@ -34,9 +34,9 @@ la crescita composta dice se reinvestendo si cresce o ci si rovina.*
 |---|---|
 | entra +12h · almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.5 | -84% |
 | entra +12h · almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.55 | -84% |
-| entra +12h · almeno 2h di scambi, vendite/acquisti > 10% · stop -50% · profitto a 4x e 12x · trailing -60% · soglia 0.5 | -85% |
-| entra +6h · almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.5 | -97% |
 | entra +12h · almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.5 | -84% |
+| entra +12h · almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.5 | -87% |
+| entra +12h · almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 4x e 6x · trailing -60% · soglia 0.5 | -84% |
 | entra +12h · almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.5 | -84% |
 
 > Il LOOP 1 non si ferma mai: prova strategie e segnali, tiene solo cio' che alza la percentuale
