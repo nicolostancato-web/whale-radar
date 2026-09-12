@@ -122,7 +122,7 @@
 | `segnale:base:concentrazione_top1 / trade_al_minuto:voto` | base | 3 | +1300 punti |
 | `segnale:base:trade_al_minuto:voto` | base | 88 | +1235 punti |
 | `segnale:base:quota_wallet_nuovi / usd_primi20:voto` | base | 2 | +1235 punti |
-| `segnale:base:wallet_ripetuti x compra_e_rivende:voto` | base | 23 | +1235 punti |
+| `segnale:base:wallet_ripetuti x compra_e_rivende:voto` | base | 24 | +1235 punti |
 | `segnale:base:trade_al_minuto x wallet_ripetuti:voto` | base | 69 | +1235 punti |
 | `segnale:base:trade_al_minuto x quota_wallet_nuovi:voto` | base | 31 | +1232 punti |
 | `segnale:base:buy_medio x wallet_ripetuti:voto` | base | 19 | +1232 punti |
@@ -167,15 +167,15 @@
 | `segnale:base:buy_grossi:voto` | base | 23 | +244 punti |
 | `segnale:base:quota_wallet_vincenti x sbilanciamento:filtro` | base | 2 | +223 punti |
 | `segnale:base:quota_wallet_nuovi x usd_primi20:voto` | base | 2 | +222 punti |
-| `segnale:base:n_compratori / ampiezza:voto` | base | 22 | +205 punti |
-| `segnale:base:trade_al_minuto / usd_primi20:voto` | base | 10 | +198 punti |
+| `segnale:base:n_compratori / ampiezza:voto` | base | 23 | +205 punti |
+| `segnale:base:trade_al_minuto / usd_primi20:voto` | base | 11 | +198 punti |
 | `strategia:base:entra +12h · solo se volume > $3.000, almeno 2h di scambi · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.5` | base | 1 | +196 punti |
 | `segnale:base:concentrazione_top5 / ampiezza:voto` | base | 28 | +192 punti |
 | `segnale:base:trade_al_minuto / ampiezza:voto` | base | 24 | +190 punti |
 | `segnale:base:compra_e_rivende x volume_ultima_su_media:voto` | base | 12 | +175 punti |
 | `segnale:base:compra_e_rivende x drawdown_pre:voto` | base | 3 | +157 punti |
 | `strategia:base:entra +6h · solo se volume > $10.000, almeno 2h di scambi · stop -60% · profitto a 4x e 8x · trailing -50% · soglia 0.4` | base | 1 | +155 punti |
-| `segnale:base:trade_al_minuto x usd_primi20:voto` | base | 1 | +129 punti |
+| `segnale:base:trade_al_minuto x usd_primi20:voto` | base | 2 | +129 punti |
 | `segnale:base:quota_wallet_reduci x drawdown_pre:filtro` | base | 2 | +115 punti |
 | `segnale:base:quota_wallet_reduci / drawdown_pre:filtro` | base | 2 | +115 punti |
 | `segnale:base:wallet_ripetuti x accelerazione_denaro:filtro` | base | 2 | +115 punti |
