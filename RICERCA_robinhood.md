@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (robinhood)
-*2026-09-12 03:23 UTC · 14 segnali nuovi messi alla prova su 340 token*
+*2026-09-12 03:40 UTC · 18 segnali nuovi messi alla prova su 340 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-96%**.
 
@@ -35,15 +35,19 @@
 | `buy_medio / volume_ultima_su_media (filtro)` | quanto compra in media ciascuno RAPPORTATO a se il volume sta accelerando proprio adesso | -88% (+9) |
 | `buy_medio x ampiezza (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -88% (+8) |
 | `ampiezza / drawdown_pre (filtro)` | quanto oscilla il prezzo prima di entrare RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -91% (+5) |
-| `quota_wallet_vincenti x wallet_ripetuti (voto)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per quanti wallet comprano più di una volta | -96% (+0) |
-| `quota_wallet_vincenti / wallet_ripetuti (voto)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a quanti wallet comprano più di una volta | -96% (+0) |
-| `quota_wallet_vincenti x wallet_ripetuti (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per quanti wallet comprano più di una volta | -97% (-1) |
-| `quota_wallet_vincenti / wallet_ripetuti (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a quanti wallet comprano più di una volta | -97% (-1) |
+| `usd_primi20 (voto)` | quanto pesano i primissimi 20 acquisti sul totale | -95% (+1) |
+| `compra_e_rivende (voto)` | quanti di quelli che hanno comprato stanno già rivendendo | -95% (+1) |
+| `wallet_ripetuti (voto)` | quanti wallet comprano più di una volta | -96% (+0) |
+| `sbilanciamento (voto)` | quanto il denaro che entra supera quello che esce | -96% (+0) |
+| `sbilanciamento (filtro)` | quanto il denaro che entra supera quello che esce | -97% (-1) |
+| `usd_primi20 (filtro)` | quanto pesano i primissimi 20 acquisti sul totale | -97% (-1) |
+| `wallet_ripetuti (filtro)` | quanti wallet comprano più di una volta | -97% (-1) |
+| `compra_e_rivende (filtro)` | quanti di quelli che hanno comprato stanno già rivendendo | -97% (-1) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
-- `concentrazione_top5 (voto)` — già bocciato 27 volte 7h fa (si riprova fra 5h o quando i dati crescono)
-- `concentrazione_top5 (filtro)` — già bocciato 27 volte 7h fa (si riprova fra 5h o quando i dati crescono)
+- `concentrazione_top5 (voto)` — già bocciato 27 volte 8h fa (si riprova fra 4h o quando i dati crescono)
+- `concentrazione_top5 (filtro)` — già bocciato 27 volte 8h fa (si riprova fra 4h o quando i dati crescono)
 - `concentrazione_top1 (voto)` — già bocciato 27 volte 7h fa (si riprova fra 5h o quando i dati crescono)
 - `concentrazione_top1 (filtro)` — già bocciato 27 volte 7h fa (si riprova fra 5h o quando i dati crescono)
 - `n_compratori (voto)` — già bocciato 27 volte 7h fa (si riprova fra 5h o quando i dati crescono)
