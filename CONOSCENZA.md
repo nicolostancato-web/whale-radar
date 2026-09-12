@@ -1,5 +1,5 @@
 # 🧠 CONOSCENZA — cosa ha imparato il team
-*2026-09-12 06:34 UTC · 2412 idee messe alla prova finora*
+*2026-09-12 06:49 UTC · 2412 idee messe alla prova finora*
 
 > Questa non è la cronaca di cosa è successo: è il sapere accumulato. Prima di riprovare una cosa,
 > il team guarda qui. Ciò che ha fallito 3 volte si mette da parte — ma il caso si RIAPRE quando i
@@ -175,7 +175,7 @@
 | `segnale:base:compra_e_rivende x volume_ultima_su_media:voto` | base | 12 | +175 punti |
 | `segnale:base:compra_e_rivende x drawdown_pre:voto` | base | 3 | +157 punti |
 | `strategia:base:entra +6h · solo se volume > $10.000, almeno 2h di scambi · stop -60% · profitto a 4x e 8x · trailing -50% · soglia 0.4` | base | 1 | +155 punti |
-| `segnale:base:trade_al_minuto x usd_primi20:voto` | base | 2 | +129 punti |
+| `segnale:base:trade_al_minuto x usd_primi20:voto` | base | 3 | +129 punti |
 | `segnale:base:quota_wallet_reduci x drawdown_pre:filtro` | base | 2 | +115 punti |
 | `segnale:base:quota_wallet_reduci / drawdown_pre:filtro` | base | 2 | +115 punti |
 | `segnale:base:wallet_ripetuti x accelerazione_denaro:filtro` | base | 2 | +115 punti |
@@ -191,16 +191,16 @@
 | `segnale:base:n_compratori x buy_grossi:filtro` | base | 1 | +54 punti |
 | `segnale:base:buy_grossi x usd_primi20:filtro` | base | 2 | +54 punti |
 | `segnale:base:buy_grossi / usd_primi20:filtro` | base | 2 | +54 punti |
-| `segnale:robinhood:drawdown_pre:filtro` | robinhood | 350 | +44 punti |
+| `segnale:robinhood:drawdown_pre:filtro` | robinhood | 351 | +44 punti |
 | `segnale:robinhood:buy_medio x volume_ultima_su_media:filtro` | robinhood | 117 | +43 punti |
-| `segnale:robinhood:volume_ultima_su_media:filtro` | robinhood | 396 | +40 punti |
+| `segnale:robinhood:volume_ultima_su_media:filtro` | robinhood | 397 | +40 punti |
 | `segnale:robinhood:buy_medio x drawdown_pre:filtro` | robinhood | 99 | +39 punti |
 | `segnale:base:concentrazione_top1 x accelerazione_denaro:voto` | base | 6 | +29 punti |
 | `segnale:robinhood:ampiezza x volume_ultima_su_media:filtro` | robinhood | 104 | +27 punti |
 | `segnale:robinhood:drawdown_pre x volume_ultima_su_media:filtro` | robinhood | 122 | +23 punti |
 | `segnale:base:n_compratori / buy_grossi:voto` | base | 1 | +19 punti |
 | `segnale:base:buy_medio / sbilanciamento:filtro` | base | 21 | +18 punti |
-| `segnale:robinhood:ampiezza:filtro` | robinhood | 393 | +17 punti |
+| `segnale:robinhood:ampiezza:filtro` | robinhood | 394 | +17 punti |
 | `segnale:solana:usd_primi20 / compra_e_rivende:filtro` | solana | 116 | +16 punti |
 | `segnale:solana:n_compratori / compra_e_rivende:filtro` | solana | 34 | +15 punti |
 | `segnale:bsc:buy_medio x volume_ultima_su_media:filtro` | bsc | 5 | +14 punti |
