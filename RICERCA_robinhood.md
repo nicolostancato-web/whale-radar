@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (robinhood)
-*2026-09-12 02:24 UTC · 21 segnali nuovi messi alla prova su 340 token*
+*2026-09-12 02:44 UTC · 9 segnali nuovi messi alla prova su 340 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-96%**.
 
@@ -33,23 +33,11 @@
 | `drawdown_pre / volume_ultima_su_media (filtro)` | quanto è già sceso dal massimo prima di entrare RAPPORTATO a se il volume sta accelerando proprio adesso | -84% (+12) |
 | `buy_medio / volume_ultima_su_media (filtro)` | quanto compra in media ciascuno RAPPORTATO a se il volume sta accelerando proprio adesso | -88% (+9) |
 | `ampiezza / drawdown_pre (filtro)` | quanto oscilla il prezzo prima di entrare RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -91% (+5) |
-| `wallet_ripetuti x compra_e_rivende (voto)` | quanti wallet comprano più di una volta MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -96% (+0) |
-| `wallet_ripetuti / compra_e_rivende (voto)` | quanti wallet comprano più di una volta RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -96% (+0) |
-| `buy_grossi x quota_wallet_vincenti (voto)` | la quota di denaro che arriva da acquisti sopra i 500 dollari MOLTIPLICATO per la quota di denaro da wallet con almeno un successo alle spalle | -96% (+0) |
-| `buy_grossi / quota_wallet_vincenti (voto)` | la quota di denaro che arriva da acquisti sopra i 500 dollari RAPPORTATO a la quota di denaro da wallet con almeno un successo alle spalle | -96% (+0) |
-| `sbilanciamento x drawdown_pre (voto)` | quanto il denaro che entra supera quello che esce MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | -96% (+0) |
-| `sbilanciamento / drawdown_pre (voto)` | quanto il denaro che entra supera quello che esce RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -96% (+0) |
-| `sbilanciamento / drawdown_pre (filtro)` | quanto il denaro che entra supera quello che esce RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -97% (-1) |
-| `sbilanciamento x drawdown_pre (filtro)` | quanto il denaro che entra supera quello che esce MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | -97% (-1) |
-| `wallet_ripetuti x compra_e_rivende (filtro)` | quanti wallet comprano più di una volta MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -97% (-1) |
-| `wallet_ripetuti / compra_e_rivende (filtro)` | quanti wallet comprano più di una volta RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -97% (-1) |
-| `buy_grossi x quota_wallet_vincenti (filtro)` | la quota di denaro che arriva da acquisti sopra i 500 dollari MOLTIPLICATO per la quota di denaro da wallet con almeno un successo alle spalle | -97% (-1) |
-| `buy_grossi / quota_wallet_vincenti (filtro)` | la quota di denaro che arriva da acquisti sopra i 500 dollari RAPPORTATO a la quota di denaro da wallet con almeno un successo alle spalle | -97% (-1) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
-- `concentrazione_top5 (voto)` — già bocciato 27 volte 6h fa (si riprova fra 6h o quando i dati crescono)
-- `concentrazione_top5 (filtro)` — già bocciato 27 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `concentrazione_top5 (voto)` — già bocciato 27 volte 7h fa (si riprova fra 5h o quando i dati crescono)
+- `concentrazione_top5 (filtro)` — già bocciato 27 volte 7h fa (si riprova fra 5h o quando i dati crescono)
 - `concentrazione_top1 (voto)` — già bocciato 27 volte 6h fa (si riprova fra 6h o quando i dati crescono)
 - `concentrazione_top1 (filtro)` — già bocciato 27 volte 6h fa (si riprova fra 6h o quando i dati crescono)
 - `n_compratori (voto)` — già bocciato 27 volte 6h fa (si riprova fra 6h o quando i dati crescono)
