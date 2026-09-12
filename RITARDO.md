@@ -1,5 +1,5 @@
 # ⏳ IL MOVIMENTO SUCCEDE PRIMA CHE POSSIAMO ENTRARE?
-*2026-09-12 03:18 UTC · nato dalla revisione esterna dell'11/09 · sola lettura · €0*
+*2026-09-12 03:23 UTC · nato dalla revisione esterna dell'11/09 · sola lettura · €0*
 
 > Trattavamo il ritardo di osservazione (3-7 ore) come **un costo**: qualcosa che ci toglie
 > un po' di rendimento. Ma con orizzonti da 5 minuti, 30 minuti e 2 ore il bot arriva quando
@@ -12,7 +12,7 @@ a 7 ore è sepolto.
 |---|---|---|---|---|---|
 | **base** | 549 | **-0.1%** | +0.0% | +0.0% | +0.0% |
 | **robinhood** | 494 | **-3.1%** | -0.4% | -1.4% | -7.2% |
-| **solana** | 617 | **-2.3%** | +0.0% | -1.0% | -2.8% |
+| **solana** | 616 | **-2.3%** | -0.1% | -1.0% | -2.1% |
 
 *Mediane: una lotteria non deve decidere un verdetto.*
 
@@ -37,7 +37,7 @@ a 7 ore è sepolto.
 |---|---|---|---|---|---|
 | **base** | 269 | **+0.0%** | -0.0% | +0.2% | +0.0% |
 | **robinhood** | 302 | **-1.1%** | -0.7% | -1.9% | -8.7% |
-| **solana** | 375 | **-1.0%** | +0.0% | -0.8% | -1.9% |
+| **solana** | 347 | **-1.2%** | -0.0% | -1.0% | -1.8% |
 
 ### Verdetto sui selezionati di Base
 

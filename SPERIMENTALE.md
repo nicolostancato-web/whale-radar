@@ -1,5 +1,5 @@
 # 🧪 LOOP SPERIMENTALE — fuori dal recinto
-*2026-09-12 03:17 UTC · €0*
+*2026-09-12 03:21 UTC · €0*
 
 > Nasce da un'osservazione che vale più di qualsiasi ottimizzazione: **il recinto — LOOP 0,
 > LOOP 1 — l'ho costruito io**, e tutto ciò che c'è dentro poggia su un assunto mai messo in
@@ -26,9 +26,9 @@ invisibile a tutti e tre i suoi esploratori, per costruzione.
 |---|---|---|---|
 | 5 min | **-5.0%** | +0.0% | 42% |
 | 30 min | **-5.0%** | +0.0% | 42% |
-| 2 ore | **-5.8%** | -0.1% | 35% |
-| 6 ore | **-7.1%** | -0.4% | 34% |
-| 24 ore | **-13.3%** | -10.3% | 32% |
+| 2 ore | **-5.6%** | -0.1% | 35% |
+| 6 ore | **-6.0%** | -0.3% | 38% |
+| 24 ore | **-13.0%** | -10.3% | 32% |
 
 ### Verdetto
 
