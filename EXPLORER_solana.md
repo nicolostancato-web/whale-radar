@@ -1,5 +1,5 @@
 # 🔬 EXPLORER — LOOP 1: come alzo la percentuale? (solana)
-*2026-09-12 11:02 UTC · 872 strategie provate in questo ciclo · 427191 in totale*
+*2026-09-12 11:21 UTC · 864 strategie provate in questo ciclo · 428055 in totale*
 
 ## Migliore trovata finora: **-99%** (stress test) · P&L medio **-25%** · crescita composta **-69.4%** · 5% peggiore **-100%** · 133 trade
 
@@ -25,11 +25,11 @@ la crescita composta dice se reinvestendo si cresce o ci si rovina.*
 
 | la strategia | risultato |
 |---|---|
-| entra +12h · vendite/acquisti > 15% · stop -50% · profitto a 5x e 15x · trailing -30% · soglia 0.4 | -99% |
-| entra +12h · solo se volume > $3.000, almeno 2h di scambi, vendite/acquisti > 15% · stop -50% · profitto a 5x e 15x · trailing -30% · soglia 0.4 | -99% |
-| entra +12h · almeno 2h di scambi, vendite/acquisti > 15% · stop -50% · profitto a 5x e 15x · trailing -60% · soglia 0.4 | -99% |
-| entra +12h · almeno 2h di scambi, vendite/acquisti > 15% · stop -50% · profitto a 5x e 15x · trailing -30% · soglia 0.5 | -99% |
-| entra +12h · almeno 2h di scambi, vendite/acquisti > 15% · stop -50% · profitto a 5x e 15x · trailing -30% · soglia 0.35 | -99% |
+| entra +12h · almeno 2h di scambi, vendite/acquisti > 15% · stop -50% · profitto a 5x e 15x · trailing -30% · soglia 0.4 | -99% |
+| entra +12h · almeno 2h di scambi, vendite/acquisti > 15% · stop -50% · profitto a 5x e 15x · trailing -30% · soglia 0.4 | -99% |
+| entra +12h · almeno 2h di scambi, vendite/acquisti > 15% · stop -50% · profitto a 5x e 15x · trailing -30% · soglia 0.4 | -99% |
+| entra +12h · almeno 2h di scambi, vendite/acquisti > 15% · stop -50% · profitto a 5x e 15x · trailing -30% · soglia 0.4 | -99% |
+| entra +12h · almeno 2h di scambi, vendite/acquisti > 15% · stop -80% · profitto a 5x e 15x · trailing -30% · soglia 0.4 | -99% |
 | entra +12h · almeno 2h di scambi, vendite/acquisti > 15% · stop -50% · profitto a 5x e 15x · trailing -30% · soglia 0.4 | -99% |
 
 > Il LOOP 1 non si ferma mai: prova strategie e segnali, tiene solo cio' che alza la percentuale
