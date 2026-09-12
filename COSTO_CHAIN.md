@@ -1,5 +1,5 @@
 # 💸 IL COSTO, CHAIN PER CHAIN — calcolato dalla liquidità di casa propria
-*2026-09-12 03:26 UTC · taglia $25 · sola lettura · €0*
+*2026-09-12 03:30 UTC · taglia $25 · sola lettura · €0*
 
 > **Il blocco**: 815 misure di costo, tutte su Solana via Jupiter, **zero su Base e
 > Robinhood** — eppure i loro netti li calcolavamo con quelle. È stimare quanto ti resta
