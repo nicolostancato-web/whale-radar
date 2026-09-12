@@ -33,7 +33,7 @@
 | **Esploratore** | prova strategie sul pipeline completo | mai | 240 min | ⏸️ congelato — non deve lavorare, aspetta il verdetto sull'holdout |
 | **Ricercatore** | inventa segnali nuovi dai dati grezzi | 20 min fa | 480 min | ✅ in orario · 9 segnali provati |
 | **Cervello** | misura la percentuale della chain | 184 min fa | 2160 min | ✅ misurata |
-| **Accumulo** | i dati devono crescere | 2321 token | — | ✅ cresce |
+| **Accumulo** | i dati devono crescere | 2321 token | — | ⏳ nessun token nuovo (normale entro l'ora) |
 
 ### BSC — 🔴 2 non rispondono
 
@@ -67,7 +67,7 @@
 | **Contabile** | misura e modello dei costi devono dire lo stesso | 89 min fa | 300 min | ✅ in orario |
 | **Reputazione** | chi ha creato il token ha gia' combinato disastri? | 105 min fa | 300 min | ✅ in orario |
 | **Talento** | esiste un wallet che sa qualcosa? (excess vs comparabili) | 89 min fa | 300 min | ✅ in orario |
-| **Corrente** | sta entrando capitale INDIPENDENTE, o e' una mano sola? | 85 min fa | 300 min | ✅ in orario |
+| **Corrente** | sta entrando capitale INDIPENDENTE, o e' una mano sola? | 75 min fa | 300 min | ✅ in orario |
 
 ## E quello che dicono è VERO?
 
