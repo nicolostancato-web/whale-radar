@@ -1,5 +1,5 @@
 # 🧪 CORSIA SPERIMENTI — cosa e' successo nell'ultimo giro
-*2026-09-12 16:34 UTC · giro 20*
+*2026-09-12 16:38 UTC · giro 21*
 
 | esperimento | esito | ultima cosa detta |
 |---|---|---|
@@ -7,7 +7,7 @@
 | `sperimentale.py` | ok | SPERIMENTALE | gemelli 2552 | esplosioni 33 | valutate 24 |
 | `due_gambe.py` | ok | DUE_GAMBE | copertura base:7% robinhood:4% solana:51% |
 | `costo_chain.py` | ok | COSTO_CHAIN | controllo su solana: NON passa |
-| `costo_evm.py` | ok | COSTO_EVM | base:3misure robinhood:18misure |
+| `costo_evm.py` | ok | COSTO_EVM | base:2misure robinhood:18misure |
 | `ritardo.py` | ok | RITARDO | base:557 robinhood:501 solana:607 |
 | `esaurimento.py` | ok | ESAURIMENTO | dentro:116 controlli:4000 |
 | `staffetta.py` | codice 1 | NameError: name 'ore_astra' is not defined |
