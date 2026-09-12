@@ -1,5 +1,5 @@
 # 🔬 EXPLORER — LOOP 1: come alzo la percentuale? (base)
-*2026-09-12 08:41 UTC · 924 strategie provate in questo ciclo · 116102 in totale*
+*2026-09-12 08:56 UTC · 924 strategie provate in questo ciclo · 117026 in totale*
 
 ## Migliore trovata finora: **-59%** (stress test) · P&L medio **-3%** · crescita composta **-13.5%** · 5% peggiore **-67%** · 80 trade
 
@@ -32,7 +32,7 @@ la crescita composta dice se reinvestendo si cresce o ci si rovina.*
 
 | la strategia | risultato |
 |---|---|
-| entra +12h · almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 3x e 12x · trailing -60% · soglia 0.5 | -73% |
+| entra +12h · almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 3x e 12x · trailing -60% · soglia 0.5 | -74% |
 | entra +12h · almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.5 | -59% |
 | entra +12h · almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.6 | -59% |
 | entra +12h · almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.5 | -59% |
