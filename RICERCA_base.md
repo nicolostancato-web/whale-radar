@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (base)
-*2026-09-12 07:43 UTC · 9 segnali nuovi messi alla prova su 642 token*
+*2026-09-12 07:58 UTC · 3 segnali nuovi messi alla prova su 642 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-94%**.
 
@@ -21,12 +21,6 @@
 | `accelerazione_denaro / drawdown_pre (voto)` | se i soldi stanno entrando più in fretta adesso che all'inizio RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -85% (+8) |
 | `accelerazione_denaro x ampiezza (voto)` | se i soldi stanno entrando più in fretta adesso che all'inizio MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -86% (+8) |
 | `n_compratori / trade_al_minuto (voto)` | quante persone diverse hanno comprato RAPPORTATO a quanto è frenetico lo scambio | -88% (+6) |
-| `quota_wallet_vincenti x ampiezza (voto)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -94% (+0) |
-| `buy_medio x usd_primi20 (voto)` | quanto compra in media ciascuno MOLTIPLICATO per quanto pesano i primissimi 20 acquisti sul totale | -94% (+0) |
-| `concentrazione_top5 x sbilanciamento (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -94% (-1) |
-| `accelerazione_denaro x drawdown_pre (voto)` | se i soldi stanno entrando più in fretta adesso che all'inizio MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | -96% (-2) |
-| `quota_wallet_vincenti x compra_e_rivende (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -97% (-3) |
-| `quota_wallet_vincenti / compra_e_rivende (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -97% (-3) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
