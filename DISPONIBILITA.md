@@ -1,5 +1,5 @@
 # ⏱️ IL SEGNALE ERA UTILIZZABILE IN QUEL MOMENTO?
-*2026-09-12 05:11 UTC · €0*
+*2026-09-12 07:48 UTC · €0*
 
 > Un risultato può essere falso in due modi che nessun raggruppamento salva: se una feature
 > guarda il futuro, o se il dato ci arriva **dopo** il momento in cui avremmo dovuto agire.
@@ -26,12 +26,12 @@ nostro difetto.*
 
 | chain | ritardo tipico | quando andiamo lenti | misure |
 |---|---|---|---|
-| base | **601 min** | 2091 min | 400 |
-| bsc | **2126 min** | 3322 min | 371 |
-| solana | **1362 min** | 2275 min | 400 |
-| robinhood | **232 min** | 270 min | 400 |
+| base | **905 min** | 2181 min | 400 |
+| bsc | **2125 min** | 3322 min | 365 |
+| solana | **1382 min** | 2431 min | 400 |
+| robinhood | **227 min** | 270 min | 400 |
 
-> Il ritardo tipico peggiore è di **2126 minuti**. Su un memecoin che si
+> Il ritardo tipico peggiore è di **2125 minuti**. Su un memecoin che si
 > muove del 5% al minuto, entrare mezz'ora dopo non è la stessa strategia: è un'altra.
 
 > ⚠️ **Questo ritardo NON è ancora applicato nei backtest**, e la conseguenza è più grave
