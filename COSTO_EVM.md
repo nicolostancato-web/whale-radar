@@ -1,5 +1,5 @@
 # ⛓️💸 IL COSTO SU BASE E ROBINHOOD — letto dalla catena, non prestato da un altro mercato
-*2026-09-12 06:55 UTC · taglia $25 · RPC pubblici · €0*
+*2026-09-12 07:00 UTC · taglia $25 · RPC pubblici · €0*
 
 > Su Robinhood non esiste un Jupiter a cui chiedere un preventivo. Ma la catena non va
 > interrogata da un servizio: **si legge**. Chiediamo alla coppia le sue riserve; se risponde,
@@ -12,8 +12,8 @@
 
 | chain | pool provati | a prodotto costante | non leggibili | costo mediano | il 25% peggiore |
 |---|---|---|---|---|---|
-| **base** | 60 | 1 | 59 | **0.02%** | 0.02% |
-| **robinhood** | 27 | 27 | 0 | **0.10%** | 0.59% |
+| **base** | 60 | 1 | 59 | **0.10%** | 0.10% |
+| **robinhood** | 24 | 24 | 0 | **0.10%** | 0.59% |
 
 > I pool **non leggibili** sono quelli in stile Uniswap V4, che non vivono in un contratto
 > proprio: lì il conto non si può rifare da fuori e **non lo inventiamo**. Compaiono nel
