@@ -1,5 +1,5 @@
 # 🧠 CONOSCENZA — cosa ha imparato il team
-*2026-09-12 00:55 UTC · 2408 idee messe alla prova finora*
+*2026-09-12 01:02 UTC · 2408 idee messe alla prova finora*
 
 > Questa non è la cronaca di cosa è successo: è il sapere accumulato. Prima di riprovare una cosa,
 > il team guarda qui. Ciò che ha fallito 3 volte si mette da parte — ma il caso si RIAPRE quando i
@@ -40,7 +40,7 @@
 | `segnale:base:sbilanciamento / volume_ultima_su_media:voto` | base | 93 | +5294 punti |
 | `segnale:base:n_compratori x buy_grossi:voto` | base | 83 | +5144 punti |
 | `segnale:base:concentrazione_top1 x buy_grossi:voto` | base | 90 | +4892 punti |
-| `segnale:base:wallet_ripetuti x sbilanciamento:filtro` | base | 66 | +4878 punti |
+| `segnale:base:wallet_ripetuti x sbilanciamento:filtro` | base | 67 | +4878 punti |
 | `segnale:base:trade_al_minuto x volume_ultima_su_media:voto` | base | 91 | +4738 punti |
 | `segnale:base:concentrazione_top1 / drawdown_pre:voto` | base | 70 | +4636 punti |
 | `segnale:base:concentrazione_top1 / volume_ultima_su_media:voto` | base | 91 | +4312 punti |
@@ -175,6 +175,7 @@
 | `segnale:robinhood:ampiezza x volume_ultima_su_media:filtro` | robinhood | 104 | +27 punti |
 | `strategia:base:entra +3h · almeno 2h di scambi, vendite/acquisti > 10% · stop -60% · profitto a 5x e 15x · trailing -60% · soglia 0.45` | base | 1 | +24 punti |
 | `segnale:robinhood:drawdown_pre x volume_ultima_su_media:filtro` | robinhood | 115 | +23 punti |
+| `segnale:base:concentrazione_top5 x wallet_ripetuti:filtro` | base | 1 | +22 punti |
 | `segnale:base:buy_medio / sbilanciamento:filtro` | base | 21 | +18 punti |
 | `segnale:robinhood:ampiezza:filtro` | robinhood | 379 | +17 punti |
 | `segnale:solana:usd_primi20 / compra_e_rivende:filtro` | solana | 119 | +16 punti |
