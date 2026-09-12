@@ -1,15 +1,13 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (base)
-*2026-09-12 07:58 UTC · 3 segnali nuovi messi alla prova su 642 token*
+*2026-09-12 08:46 UTC · 5 segnali nuovi messi alla prova su 642 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-94%**.
 
-## 🎯 3 segnali NUOVI che alzano la percentuale
+## 🎯 1 segnali NUOVI che alzano la percentuale
 
 | il segnale | cosa guarda | porta a | guadagno |
 |---|---|---|---|
 | `accelerazione_denaro / drawdown_pre (voto)` | se i soldi stanno entrando più in fretta adesso che all'inizio RAPPORTATO a quanto è già sceso dal massimo prima di entrare | **-85%** | **+8 punti** |
-| `accelerazione_denaro x ampiezza (voto)` | se i soldi stanno entrando più in fretta adesso che all'inizio MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | **-86%** | **+8 punti** |
-| `n_compratori / trade_al_minuto (voto)` | quante persone diverse hanno comprato RAPPORTATO a quanto è frenetico lo scambio | **-88%** | **+6 punti** |
 
 > Questi segnali non erano nella lista di partenza: li ha costruiti e verificati il sistema.
 > Vanno aggiunti al cervello — è una DECISIONE, quindi passa da DECISIONS.md.
@@ -19,21 +17,23 @@
 | il segnale | cosa guarda | risultato |
 |---|---|---|
 | `accelerazione_denaro / drawdown_pre (voto)` | se i soldi stanno entrando più in fretta adesso che all'inizio RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -85% (+8) |
-| `accelerazione_denaro x ampiezza (voto)` | se i soldi stanno entrando più in fretta adesso che all'inizio MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -86% (+8) |
-| `n_compratori / trade_al_minuto (voto)` | quante persone diverse hanno comprato RAPPORTATO a quanto è frenetico lo scambio | -88% (+6) |
+| `trade_al_minuto x volume_ultima_su_media (voto)` | quanto è frenetico lo scambio MOLTIPLICATO per se il volume sta accelerando proprio adesso | -93% (+1) |
+| `usd_primi20 / volume_ultima_su_media (voto)` | quanto pesano i primissimi 20 acquisti sul totale RAPPORTATO a se il volume sta accelerando proprio adesso | -94% (+0) |
+| `buy_grossi / compra_e_rivende (voto)` | la quota di denaro che arriva da acquisti sopra i 500 dollari RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -94% (+0) |
+| `buy_medio / wallet_ripetuti (voto)` | quanto compra in media ciascuno RAPPORTATO a quanti wallet comprano più di una volta | -94% (+0) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
-- `concentrazione_top5 (voto)` — già bocciato 26 volte 12h fa (si riprova fra 0h o quando i dati crescono)
-- `concentrazione_top5 (filtro)` — già bocciato 26 volte 12h fa (si riprova fra 0h o quando i dati crescono)
-- `concentrazione_top1 (voto)` — già bocciato 26 volte 12h fa (si riprova fra 0h o quando i dati crescono)
-- `concentrazione_top1 (filtro)` — già bocciato 26 volte 12h fa (si riprova fra 0h o quando i dati crescono)
-- `n_compratori (voto)` — già bocciato 3 volte 8h fa (si riprova fra 4h o quando i dati crescono)
-- `n_compratori (filtro)` — già bocciato 19 volte 2h fa (si riprova fra 10h o quando i dati crescono)
-- `buy_medio (voto)` — già bocciato 4 volte 6h fa (si riprova fra 6h o quando i dati crescono)
-- `buy_medio (filtro)` — già bocciato 26 volte 12h fa (si riprova fra 0h o quando i dati crescono)
-- `buy_grossi (voto)` — già bocciato 3 volte 3h fa (si riprova fra 9h o quando i dati crescono)
-- `buy_grossi (filtro)` — già bocciato 26 volte 12h fa (si riprova fra 0h o quando i dati crescono)
+- `concentrazione_top5 (voto)` — già bocciato 27 volte 1h fa (si riprova fra 11h o quando i dati crescono)
+- `concentrazione_top5 (filtro)` — già bocciato 27 volte 1h fa (si riprova fra 11h o quando i dati crescono)
+- `concentrazione_top1 (voto)` — già bocciato 27 volte 1h fa (si riprova fra 11h o quando i dati crescono)
+- `concentrazione_top1 (filtro)` — già bocciato 27 volte 1h fa (si riprova fra 11h o quando i dati crescono)
+- `n_compratori (voto)` — già bocciato 3 volte 9h fa (si riprova fra 3h o quando i dati crescono)
+- `n_compratori (filtro)` — già bocciato 19 volte 3h fa (si riprova fra 9h o quando i dati crescono)
+- `buy_medio (voto)` — già bocciato 4 volte 7h fa (si riprova fra 5h o quando i dati crescono)
+- `buy_medio (filtro)` — già bocciato 27 volte 1h fa (si riprova fra 11h o quando i dati crescono)
+- `buy_grossi (voto)` — già bocciato 3 volte 4h fa (si riprova fra 8h o quando i dati crescono)
+- `buy_grossi (filtro)` — già bocciato 27 volte 1h fa (si riprova fra 11h o quando i dati crescono)
 
 > **Perché questo ruolo esiste:** l'insider su Solana l'ha inventato un umano. Qui il sistema
 > costruisce da sé segnali nuovi dai dati grezzi e li mette alla prova. Uno dei mattoni è proprio
