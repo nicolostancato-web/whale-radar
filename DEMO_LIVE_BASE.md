@@ -1,7 +1,7 @@
 # 🎮 DEMO LIVE — conto vero €100 → €3.000 (BASE)
-*2026-09-12 05:19 UTC · attivo da 16.4 giorni · strategia DEDICATA a Base*
+*2026-09-12 07:59 UTC · attivo da 16.5 giorni · strategia DEDICATA a Base*
 
-## 🔴 **LIVE SOSPESO** — il LOOP 1 e' a **-3%** robusta, sotto la soglia di **+40%**: andare live vorrebbe dire attuare una strategia che sappiamo gia' non pagare
+## 🔴 **LIVE SOSPESO** — il LOOP 1 e' a **-4%** robusta, sotto la soglia di **+40%**: andare live vorrebbe dire attuare una strategia che sappiamo gia' non pagare
 
 > Il conto non apre nuove posizioni finche' il LOOP 1 non supera il cancello (vedi STRATEGIA_LOOP.md).
 > Non e' un guasto: e' la regola. Prima la percentuale, poi i soldi.
