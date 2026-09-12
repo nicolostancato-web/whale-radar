@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (robinhood)
-*2026-09-12 10:37 UTC · 11 segnali nuovi messi alla prova su 340 token*
+*2026-09-12 10:52 UTC · 7 segnali nuovi messi alla prova su 340 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-96%**.
 
@@ -29,15 +29,11 @@
 | `ampiezza (filtro)` | quanto oscilla il prezzo prima di entrare | -79% (+17) |
 | `buy_medio / volume_ultima_su_media (filtro)` | quanto compra in media ciascuno RAPPORTATO a se il volume sta accelerando proprio adesso | -88% (+8) |
 | `ampiezza / drawdown_pre (filtro)` | quanto oscilla il prezzo prima di entrare RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -91% (+5) |
-| `quota_wallet_vincenti x accelerazione_denaro (voto)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -96% (+0) |
-| `quota_wallet_vincenti / accelerazione_denaro (voto)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a se i soldi stanno entrando più in fretta adesso che all'inizio | -96% (+0) |
-| `quota_wallet_vincenti x accelerazione_denaro (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -97% (-1) |
-| `quota_wallet_vincenti / accelerazione_denaro (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a se i soldi stanno entrando più in fretta adesso che all'inizio | -97% (-1) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
-- `concentrazione_top5 (voto)` — già bocciato 28 volte 2h fa (si riprova fra 10h o quando i dati crescono)
-- `concentrazione_top5 (filtro)` — già bocciato 28 volte 2h fa (si riprova fra 10h o quando i dati crescono)
+- `concentrazione_top5 (voto)` — già bocciato 28 volte 3h fa (si riprova fra 9h o quando i dati crescono)
+- `concentrazione_top5 (filtro)` — già bocciato 28 volte 3h fa (si riprova fra 9h o quando i dati crescono)
 - `concentrazione_top1 (voto)` — già bocciato 28 volte 2h fa (si riprova fra 10h o quando i dati crescono)
 - `concentrazione_top1 (filtro)` — già bocciato 28 volte 2h fa (si riprova fra 10h o quando i dati crescono)
 - `n_compratori (voto)` — già bocciato 28 volte 2h fa (si riprova fra 10h o quando i dati crescono)
