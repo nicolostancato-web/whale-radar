@@ -4432,3 +4432,13 @@
 {"id": "accumulo-robinhood", "ts": 1789187102, "valore": 2345, "fermo_da": 0, "azione": "avanti cosi'"}
 {"id": "accumulo-bsc", "ts": 1789187102, "valore": 1027, "fermo_da": 9, "azione": "\ud83d\udea8 fermo da 4h e la scala e' finita: serve una decisione umana"}
 {"id": "percentuale-bsc", "ts": 1789187102, "valore": -23.8, "fermo_da": 36, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (explorer.py, learner.py) \u2192 non li ripetiamo, serve cambia"}
+{"id": "accumulo-base", "ts": 1789190627, "valore": 4242, "fermo_da": 0, "azione": "avanti cosi'"}
+{"id": "accumulo-solana", "ts": 1789190627, "valore": 1239, "fermo_da": 9, "azione": "\ud83d\udea8 fermo da 4h e la scala e' finita: serve una decisione umana"}
+{"id": "percentuale-robinhood", "ts": 1789190627, "valore": -25.4, "fermo_da": 14, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (strategy_optimizer.py, learner.py) \u2192 non li ripetiamo, se"}
+{"id": "percentuale-base", "ts": 1789190627, "valore": -2.7, "fermo_da": 14, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (strategy_optimizer_base.py, learner.py) \u2192 non li ripetiam"}
+{"id": "percentuale-solana", "ts": 1789190627, "valore": -20.9, "fermo_da": 6, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (strategy_optimizer_solana.py, wallet_insider.py) \u2192 non li"}
+{"id": "demo-robinhood", "ts": 1789190627, "valore": 122.07, "fermo_da": 0, "azione": "\u23f8 il cancello \u00e8 chiuso: prima il LOOP 1 deve alzare la percentuale"}
+{"id": "demo-base", "ts": 1789190627, "valore": 92.78, "fermo_da": 0, "azione": "\u23f8 il cancello \u00e8 chiuso: prima il LOOP 1 deve alzare la percentuale"}
+{"id": "accumulo-robinhood", "ts": 1789190627, "valore": 2377, "fermo_da": 0, "azione": "avanti cosi'"}
+{"id": "accumulo-bsc", "ts": 1789190627, "valore": 1027, "fermo_da": 10, "azione": "\ud83d\udea8 fermo da 5h e la scala e' finita: serve una decisione umana"}
+{"id": "percentuale-bsc", "ts": 1789190627, "valore": -23.8, "fermo_da": 37, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (explorer.py, learner.py) \u2192 non li ripetiamo, serve cambia"}
