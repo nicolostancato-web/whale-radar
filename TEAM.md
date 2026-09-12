@@ -1,10 +1,10 @@
 # 👥 IL TEAM — verbale della riunione
-*2026-09-12 03:21 UTC · una riunione a ogni ciclo, ~ogni 30 minuti*
+*2026-09-12 04:25 UTC · una riunione a ogni ciclo, ~ogni 30 minuti*
 
 | ruolo | responsabilità | come è andata |
 |---|---|---|
 | 🏃 **Operations** | che tutto giri e niente si blocchi | 🟢 tutti i loop si stanno riunendo |
-| 🔬 **Ricerca** | alzare la percentuale | 763.897 strategie provate · 107 segnali nuovi messi alla prova · **21 promossi** |
+| 🔬 **Ricerca** | alzare la percentuale | 770.339 strategie provate · 145 segnali nuovi messi alla prova · **14 promossi** |
 | ✅ **Verità** | che la percentuale non sia una favola | 🟢 **PULITO** — nessun segno che il sistema si stia raccontando favole |
 | 🔒 **Security** | niente credenziali nel repo pubblico | 🟢 **PULITO** — nessuna credenziale esposta nel repo pubblico |
 | 💰 **CFO** | che tutto costi zero | 🟢 **COSTO ZERO CONFERMATO** |
@@ -25,7 +25,7 @@
 
 | | quante |
 |---|---|
-| tentativi grezzi (configurazioni e segnali provati) | **764.004** |
+| tentativi grezzi (configurazioni e segnali provati) | **770.484** |
 | lezioni archiviate (ogni prova lascia una traccia) | **2408** |
 | scoperte arrivate al **giudizio in cassaforte** | **1** |
 | di cui **bocciate perché erano rumore** | **1** |
@@ -43,7 +43,7 @@
 - **base** · configurazione · **+932 punti** (0.9% → +933%)
 - **solana** · segnale nuovo · **+16 punti** (-39.4% → -24%)
 
-**Memoria del team:** 2408 idee provate · 476 funzionano · 2308 archiviate (non si riprovano finché i dati non raddoppiano)
+**Memoria del team:** 2408 idee provate · 477 funzionano · 2308 archiviate (non si riprovano finché i dati non raddoppiano)
 
 > **Come funziona questa stanza:** il team si riunisce da solo ogni 30 minuti, misura, ripara ciò
 > che può riparare e cerca di alzare la percentuale. Le RIPARAZIONI le fa da sé; le DECISIONI
