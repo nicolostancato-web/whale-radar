@@ -1,5 +1,5 @@
-# 🎯 IL SECONDO STADIO — fra i sopravvissuti, cosa si compra? (robinhood)
-*2026-09-11 21:53 UTC · 700 token passano il cancello su 700 · 342 scartati*
+# 🎯 IL SECONDO STADIO — fra i sopravvissuti, cosa si compra? (solana)
+*2026-09-12 00:31 UTC · 664 token passano il cancello su 700 · 342 scartati*
 
 > Un filtro anti-truffa perfetto porta il rendimento da −40% a −10%. È un enorme
 > miglioramento e **non è un guadagno**: senza un secondo stadio LOOP 1 può solo smettere
@@ -11,69 +11,127 @@
 
 ## il volume sta ACCELERANDO
 
-*fascia: ricerca (già vista, non fa fede)*
+*fascia: 🔒 validazione (mai vista)*
 
 | dopo | extra-rendimento medio | **mediano** | casi |
 |---|---|---|---|
-| 5 min | **+0.8%** | +0.0% | 74 |
-| 30 min | **+0.8%** | +0.0% | 74 |
-| 2 ore | **+22.3%** | -0.4% | 74 |
-| 6 ore | **-26.9%** | -36.9% | 50 |
+| 5 min | **-5.6%** | +0.0% | 1117 |
+| 30 min | **-5.6%** | +0.0% | 1117 |
+| 2 ore | **-34.7%** | +0.0% | 1116 |
+| 6 ore | **-52.5%** | +0.0% | 995 |
+| 24 ore | **-22.1%** | +0.2% | 448 |
 
 > Su queste distribuzioni **conta la mediana**: la media la muove un token solo.
 
 
-> ❌ **Media positiva ma mediana no**: guadagnano pochi token estremi, il caso
-> tipico non guadagna niente. È una lotteria, non un segnale.
+> ⚠️ Prima del segnale il token aveva già fatto +258%, dopo fa -34.7%. **Ma questo non basta a bocciarlo**: la domanda vera è se,
+> **a parità di rialzo già avvenuto**, il segnale aggiunga qualcosa.
+
+### Confronto con token che avevano fatto lo STESSO rialzo
+
+| dopo | extra-rendimento | mediano | casi |
+|---|---|---|---|
+| 5 min | **-2.2%** | +0.0% | 36123 |
+| 30 min | **-2.2%** | +0.0% | 36123 |
+| 2 ore | **+7.7%** | +0.0% | 35963 |
+| 6 ore | **+11.6%** | -0.1% | 34143 |
+| 24 ore | **-449102.3%** | -1.1% | 25151 |
+
+> ❌ A parità di rialzo precedente non aggiunge niente: era davvero solo
+> il ricordo di un movimento altrui.
 
 ## comprano MOLTE MANI diverse
 
-*fascia: ricerca (già vista, non fa fede)*
+*fascia: 🔒 validazione (mai vista)*
 
 | dopo | extra-rendimento medio | **mediano** | casi |
 |---|---|---|---|
-| 5 min | **-2.9%** | +0.0% | 32 |
-| 30 min | **-2.9%** | +0.0% | 32 |
-| 2 ore | **-12.5%** | -3.8% | 32 |
-| 6 ore | **-17.4%** | -7.3% | 31 |
+| 5 min | **-16.8%** | +0.0% | 4558 |
+| 30 min | **-16.8%** | +0.0% | 4558 |
+| 2 ore | **-21.9%** | +0.0% | 4543 |
+| 6 ore | **-27.3%** | +0.0% | 4287 |
+| 24 ore | **-6.0%** | +0.1% | 3168 |
 
 > Su queste distribuzioni **conta la mediana**: la media la muove un token solo.
 
 
-> ❌ Non batte i controlli appaiati.
+> ⚠️ Prima del segnale il token aveva già fatto +111%, dopo fa -21.9%. **Ma questo non basta a bocciarlo**: la domanda vera è se,
+> **a parità di rialzo già avvenuto**, il segnale aggiunga qualcosa.
+
+### Confronto con token che avevano fatto lo STESSO rialzo
+
+| dopo | extra-rendimento | mediano | casi |
+|---|---|---|---|
+| 5 min | **-2.2%** | +0.0% | 36123 |
+| 30 min | **-2.2%** | +0.0% | 36123 |
+| 2 ore | **+7.7%** | +0.0% | 35963 |
+| 6 ore | **+11.6%** | -0.1% | 34143 |
+| 24 ore | **-449102.3%** | -1.1% | 25151 |
+
+> ❌ A parità di rialzo precedente non aggiunge niente: era davvero solo
+> il ricordo di un movimento altrui.
 
 ## si compra molto più di quanto si venda
 
-*fascia: ricerca (già vista, non fa fede)*
+*fascia: 🔒 validazione (mai vista)*
 
 | dopo | extra-rendimento medio | **mediano** | casi |
 |---|---|---|---|
-| 5 min | **-4.4%** | +0.0% | 22 |
-| 30 min | **-4.4%** | +0.0% | 22 |
-| 2 ore | **-13.5%** | -6.8% | 22 |
-| 6 ore | **-22.2%** | -9.2% | 21 |
+| 5 min | **-16.8%** | +0.0% | 4558 |
+| 30 min | **-16.8%** | +0.0% | 4558 |
+| 2 ore | **-21.9%** | +0.0% | 4543 |
+| 6 ore | **-27.3%** | +0.0% | 4287 |
+| 24 ore | **-6.0%** | +0.1% | 3168 |
 
 > Su queste distribuzioni **conta la mediana**: la media la muove un token solo.
 
 
-> ❌ Non batte i controlli appaiati.
+> ⚠️ Prima del segnale il token aveva già fatto +109%, dopo fa -21.9%. **Ma questo non basta a bocciarlo**: la domanda vera è se,
+> **a parità di rialzo già avvenuto**, il segnale aggiunga qualcosa.
+
+### Confronto con token che avevano fatto lo STESSO rialzo
+
+| dopo | extra-rendimento | mediano | casi |
+|---|---|---|---|
+| 5 min | **-2.2%** | +0.0% | 36123 |
+| 30 min | **-2.2%** | +0.0% | 36123 |
+| 2 ore | **+7.7%** | +0.0% | 35963 |
+| 6 ore | **+11.6%** | -0.1% | 34143 |
+| 24 ore | **-449102.3%** | -1.1% | 25151 |
+
+> ❌ A parità di rialzo precedente non aggiunge niente: era davvero solo
+> il ricordo di un movimento altrui.
 
 ## arrivano compratori MAI VISTI su quel token
 
-*fascia: ricerca (già vista, non fa fede)*
+*fascia: 🔒 validazione (mai vista)*
 
 | dopo | extra-rendimento medio | **mediano** | casi |
 |---|---|---|---|
-| 5 min | **+0.2%** | +0.0% | 219 |
-| 30 min | **+0.2%** | +0.0% | 219 |
-| 2 ore | **+5.3%** | -0.4% | 219 |
-| 6 ore | **-9.3%** | -1.3% | 170 |
+| 5 min | **-16.8%** | +0.0% | 4558 |
+| 30 min | **-16.8%** | +0.0% | 4558 |
+| 2 ore | **-21.9%** | +0.0% | 4543 |
+| 6 ore | **-27.3%** | +0.0% | 4287 |
+| 24 ore | **-6.0%** | +0.1% | 3168 |
 
 > Su queste distribuzioni **conta la mediana**: la media la muove un token solo.
 
 
-> ❌ **Media positiva ma mediana no**: guadagnano pochi token estremi, il caso
-> tipico non guadagna niente. È una lotteria, non un segnale.
+> ⚠️ Prima del segnale il token aveva già fatto +111%, dopo fa -21.9%. **Ma questo non basta a bocciarlo**: la domanda vera è se,
+> **a parità di rialzo già avvenuto**, il segnale aggiunga qualcosa.
+
+### Confronto con token che avevano fatto lo STESSO rialzo
+
+| dopo | extra-rendimento | mediano | casi |
+|---|---|---|---|
+| 5 min | **-2.2%** | +0.0% | 36123 |
+| 30 min | **-2.2%** | +0.0% | 36123 |
+| 2 ore | **+7.7%** | +0.0% | 35963 |
+| 6 ore | **+11.6%** | -0.1% | 34143 |
+| 24 ore | **-449102.3%** | -1.1% | 25151 |
+
+> ❌ A parità di rialzo precedente non aggiunge niente: era davvero solo
+> il ricordo di un movimento altrui.
 
 ## Verdetto
 
