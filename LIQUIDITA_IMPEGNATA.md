@@ -1,5 +1,5 @@
 # 💧 I SOLDI CHE ENTRANO NEL POOL, NON IL PREZZO CHE SALE
-*2026-09-12 01:37 UTC · esperimento 7 · solo dati già scaricati · €0*
+*2026-09-12 01:49 UTC · esperimento 7 · solo dati già scaricati · €0*
 
 > Il prezzo può salire con due euro su un pool vuoto: è un'opinione, e costa niente
 > esprimerla. La liquidità aggiunta è **capitale immobilizzato**, soldi che restano lì e non
