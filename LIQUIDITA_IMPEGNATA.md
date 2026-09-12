@@ -1,5 +1,5 @@
 # 💧 I SOLDI CHE ENTRANO NEL POOL, NON IL PREZZO CHE SALE
-*2026-09-12 00:48 UTC · esperimento 7 · solo dati già scaricati · €0*
+*2026-09-12 00:53 UTC · esperimento 7 · solo dati già scaricati · €0*
 
 > Il prezzo può salire con due euro su un pool vuoto: è un'opinione, e costa niente
 > esprimerla. La liquidità aggiunta è **capitale immobilizzato**, soldi che restano lì e non
@@ -17,7 +17,7 @@ Crescita misurata su **2h**, ingresso **1h dopo** averla vista, esito a **24h**.
 | **liquidità che entra** | **-4.5%** |
 | prezzo che sale | +2.6% |
 
-Sul quinto alto per liquidità: t sui **giorni indipendenti** **+1.04** (11 giorni distinti); sulle righe sarebbe +1.94.
+Sul quinto alto per liquidità: t sui **giorni indipendenti** **+0.95** (11 giorni distinti); sulle righe sarebbe +1.92.
 
 ## Verdetto
 
