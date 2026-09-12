@@ -1,10 +1,10 @@
 # 👥 IL TEAM — verbale della riunione
-*2026-09-12 12:43 UTC · una riunione a ogni ciclo, ~ogni 30 minuti*
+*2026-09-12 13:14 UTC · una riunione a ogni ciclo, ~ogni 30 minuti*
 
 | ruolo | responsabilità | come è andata |
 |---|---|---|
 | 🏃 **Operations** | che tutto giri e niente si blocchi | 🟢 tutti i loop si stanno riunendo |
-| 🔬 **Ricerca** | alzare la percentuale | 818.622 strategie provate · 68 segnali nuovi messi alla prova · **4 promossi** |
+| 🔬 **Ricerca** | alzare la percentuale | 821.645 strategie provate · 55 segnali nuovi messi alla prova · **7 promossi** |
 | ✅ **Verità** | che la percentuale non sia una favola | 🟢 **PULITO** — nessun segno che il sistema si stia raccontando favole |
 | 🔒 **Security** | niente credenziali nel repo pubblico | 🟢 **PULITO** — nessuna credenziale esposta nel repo pubblico |
 | 💰 **CFO** | che tutto costi zero | 🟢 **COSTO ZERO CONFERMATO** |
@@ -25,11 +25,11 @@
 
 | | quante |
 |---|---|
-| tentativi grezzi (configurazioni e segnali provati) | **818.690** |
+| tentativi grezzi (configurazioni e segnali provati) | **821.700** |
 | lezioni archiviate (ogni prova lascia una traccia) | **2413** |
 | scoperte arrivate al **giudizio in cassaforte** | **2** |
 | di cui **bocciate perché erano rumore** | **2** |
-| giri chiusi e archiviati per sempre | **2345** |
+| giri chiusi e archiviati per sempre | **2344** |
 
 > I tentativi grezzi si contano a migliaia e da soli non insegnano nulla. Quello che fa avanzare
 > è il **giro completo**: si scopre, si valida su dati mai visti, esce un verdetto, la lezione
@@ -43,7 +43,7 @@
 - **solana** · segnale nuovo · **+16 punti** (-39.4% → -24%)
 - **robinhood** · segnale nuovo · **+8 punti** (-14.8% → -6%)
 
-**Memoria del team:** 2413 idee provate · 499 funzionano · 2345 archiviate (non si riprovano finché i dati non raddoppiano)
+**Memoria del team:** 2413 idee provate · 499 funzionano · 2344 archiviate (non si riprovano finché i dati non raddoppiano)
 
 > **Come funziona questa stanza:** il team si riunisce da solo ogni 30 minuti, misura, ripara ciò
 > che può riparare e cerca di alzare la percentuale. Le RIPARAZIONI le fa da sé; le DECISIONI
