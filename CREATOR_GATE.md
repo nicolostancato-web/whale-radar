@@ -6,7 +6,7 @@
 > viva: se un giorno tornasse a separare in modo netto sarebbe una notizia da riesaminare da
 > capo, non una conferma. Chi legge non deve poterlo scambiare per una pista aperta.
 
-*2026-09-12 11:24 UTC · 77 token con creator noto e esito misurabile · 64 creator distinti · di cui 62 spariti senza lasciare un prezzo, 9 esclusi perché potati da noi*
+*2026-09-12 15:07 UTC · 77 token con creator noto e esito misurabile · 64 creator distinti · di cui 62 spariti senza lasciare un prezzo, 9 esclusi perché potati da noi*
 
 > **Perché questa pista viene prima delle altre**: un grafico non causa un rug, una persona sì.
 > Non cerchiamo una correlazione: riconosciamo la controparte che controlla il gioco.
