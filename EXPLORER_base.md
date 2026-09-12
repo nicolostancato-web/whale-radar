@@ -1,5 +1,5 @@
 # 🔬 EXPLORER — LOOP 1: come alzo la percentuale? (base)
-*2026-09-12 00:40 UTC · 1043 strategie provate in questo ciclo · 109292 in totale*
+*2026-09-12 00:55 UTC · 1636 strategie provate in questo ciclo · 110928 in totale*
 
 ## Migliore trovata finora: **+328%** (stress test) · P&L medio **+22%** · crescita composta **-2.9%** · 5% peggiore **-71%** · 58 trade
 
@@ -12,7 +12,7 @@ la crescita composta dice se reinvestendo si cresce o ci si rovina.*
 **La strategia:** entra +2h · solo se volume > $3.000, almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 5x e 8x · trailing -60% · soglia 0.45
 **I segnali guardati:** `buy_pressure, volatilita, frac_verdi, log_buyusd, buy_accel`
 
-- migliorie trovate in questo ciclo: **6**
+- migliorie trovate in questo ciclo: **0**
 - il cancello del LIVE si apre a **+40%** robusta → oggi 🟢 **APERTO**
 
 ## Le strategie che hanno alzato la percentuale
@@ -32,12 +32,12 @@ la crescita composta dice se reinvestendo si cresce o ci si rovina.*
 
 | la strategia | risultato |
 |---|---|
+| entra +2h · solo se volume > $3.000, almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 5x e 25x · trailing -60% · soglia 0.45 | +142% |
 | entra +2h · solo se volume > $3.000, almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 5x e 8x · trailing -60% · soglia 0.45 | +328% |
 | entra +2h · solo se volume > $3.000, almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 5x e 8x · trailing -60% · soglia 0.45 | +328% |
-| entra +2h · solo se volume > $3.000, almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 2x e 8x · trailing -60% · soglia 0.45 | +141% |
-| entra +2h · solo se volume > $3.000, almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 5x e 8x · trailing -60% · soglia 0.45 | +328% |
-| entra +2h · solo se volume > $3.000, almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 5x e 8x · trailing -60% · soglia 0.45 | +328% |
-| entra +2h · solo se volume > $3.000, almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 5x e 8x · trailing -60% · soglia 0.45 | +328% |
+| entra +2h · solo se volume > $3.000, almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 5x e 8x · trailing -50% · soglia 0.45 | +328% |
+| entra +2h · solo se volume > $3.000, almeno 2h di scambi, vendite/acquisti > 30% · stop -70% · profitto a 5x e 8x · trailing -60% · soglia 0.45 | -96% |
+| entra +2h · solo se volume > $3.000, almeno 2h di scambi · stop -70% · profitto a 5x e 8x · trailing -60% · soglia 0.45 | -84% |
 
 > Il LOOP 1 non si ferma mai: prova strategie e segnali, tiene solo cio' che alza la percentuale
 > ROBUSTA (tolti i 3 colpi migliori) di almeno 8 punti, e riparte da li'.
