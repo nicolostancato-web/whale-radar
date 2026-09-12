@@ -1,5 +1,5 @@
 # 🧠 CONOSCENZA — cosa ha imparato il team
-*2026-09-12 11:43 UTC · 2413 idee messe alla prova finora*
+*2026-09-12 12:24 UTC · 2413 idee messe alla prova finora*
 
 > Questa non è la cronaca di cosa è successo: è il sapere accumulato. Prima di riprovare una cosa,
 > il team guarda qui. Ciò che ha fallito 3 volte si mette da parte — ma il caso si RIAPRE quando i
@@ -143,7 +143,7 @@
 | `segnale:base:usd_primi20 / accelerazione_denaro:voto` | base | 2 | +872 punti |
 | `segnale:base:trade_al_minuto / volume_ultima_su_media:voto` | base | 32 | +865 punti |
 | `segnale:base:n_compratori x wallet_ripetuti:voto` | base | 42 | +863 punti |
-| `segnale:base:accelerazione_denaro x ampiezza:voto` | base | 10 | +794 punti |
+| `segnale:base:accelerazione_denaro x ampiezza:voto` | base | 11 | +794 punti |
 | `strategia:base:entra +12h · almeno 2h di scambi · stop -70% · profitto a 4x e 15x · trailing -60% · soglia 0.45` | base | 2 | +699 punti |
 | `segnale:base:usd_primi20 / sbilanciamento:voto` | base | 22 | +681 punti |
 | `strategia:base:entra +12h · almeno 2h di scambi · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.5` | base | 1 | +631 punti |
@@ -191,16 +191,16 @@
 | `segnale:base:n_compratori x buy_grossi:filtro` | base | 1 | +54 punti |
 | `segnale:base:buy_grossi x usd_primi20:filtro` | base | 2 | +54 punti |
 | `segnale:base:buy_grossi / usd_primi20:filtro` | base | 2 | +54 punti |
-| `segnale:robinhood:drawdown_pre:filtro` | robinhood | 368 | +45 punti |
+| `segnale:robinhood:drawdown_pre:filtro` | robinhood | 370 | +45 punti |
 | `segnale:robinhood:buy_medio x volume_ultima_su_media:filtro` | robinhood | 129 | +43 punti |
-| `segnale:robinhood:volume_ultima_su_media:filtro` | robinhood | 414 | +40 punti |
-| `segnale:robinhood:buy_medio x drawdown_pre:filtro` | robinhood | 104 | +39 punti |
+| `segnale:robinhood:volume_ultima_su_media:filtro` | robinhood | 416 | +40 punti |
+| `segnale:robinhood:buy_medio x drawdown_pre:filtro` | robinhood | 105 | +39 punti |
 | `segnale:base:concentrazione_top1 x accelerazione_denaro:voto` | base | 6 | +29 punti |
 | `segnale:robinhood:ampiezza x volume_ultima_su_media:filtro` | robinhood | 110 | +27 punti |
-| `segnale:robinhood:drawdown_pre x volume_ultima_su_media:filtro` | robinhood | 129 | +23 punti |
+| `segnale:robinhood:drawdown_pre x volume_ultima_su_media:filtro` | robinhood | 130 | +23 punti |
 | `segnale:base:n_compratori / buy_grossi:voto` | base | 1 | +19 punti |
 | `segnale:base:buy_medio / sbilanciamento:filtro` | base | 21 | +18 punti |
-| `segnale:robinhood:ampiezza:filtro` | robinhood | 411 | +17 punti |
+| `segnale:robinhood:ampiezza:filtro` | robinhood | 413 | +17 punti |
 | `segnale:solana:usd_primi20 / compra_e_rivende:filtro` | solana | 116 | +16 punti |
 | `segnale:solana:n_compratori / compra_e_rivende:filtro` | solana | 34 | +15 punti |
 | `segnale:bsc:buy_medio x volume_ultima_su_media:filtro` | bsc | 5 | +14 punti |
@@ -212,7 +212,7 @@
 | `segnale:base:volume_ultima_su_media:filtro` | base | 96 | +12 punti |
 | `segnale:solana:buy_medio x usd_primi20:filtro` | solana | 36 | +12 punti |
 | `segnale:solana:concentrazione_top1 x sbilanciamento:filtro` | solana | 15 | +12 punti |
-| `segnale:robinhood:drawdown_pre / volume_ultima_su_media:filtro` | robinhood | 104 | +12 punti |
+| `segnale:robinhood:drawdown_pre / volume_ultima_su_media:filtro` | robinhood | 105 | +12 punti |
 | `segnale:solana:trade_al_minuto:filtro` | solana | 335 | +12 punti |
 | `segnale:solana:buy_medio:filtro` | solana | 31 | +12 punti |
 | `segnale:solana:buy_medio / quota_wallet_reduci:filtro` | solana | 3 | +11 punti |
@@ -499,6 +499,7 @@
 | `strategia:bsc:entra +12h · solo se volume > $10.000 · stop -60% · profitto a 2x e 8x · trailing -40% · soglia 0.4` | bsc | 1 | -3 punti |
 | `strategia:robinhood:entra dopo 6h di scambi. solo se volume > $3.000 e vendite/acquisti > 15% · attesa +6h · stop -50% · profitto a 5x e 6x · trailing -50% · soglia 0.2` | robinhood | 2 | -17 punti |
 | `strategia:robinhood:entra dopo 6h di scambi. solo se volume > $1.000 e vendite/acquisti > 15% · attesa +6h · stop -50% · profitto a 5x e 6x · trailing -50% · soglia 0.2` | robinhood | 1 | -23 punti |
+| `strategia:base:entra +12h · almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.5` | base | 1 | -25 punti |
 | `strategia:robinhood:entra dopo 6h di scambi. solo se volume > $3.000 e vendite/acquisti > 15% · attesa +1h · stop -50% · profitto a 5x e 6x · trailing -50% · soglia 0.2` | robinhood | 1 | -26 punti |
 | `strategia:robinhood:entra dopo 6h di scambi. solo se volume > $3.000 e vendite/acquisti > 15% · attesa +1h · stop -50% · profitto a 4x e 6x · trailing -50% · soglia 0.2` | robinhood | 1 | -33 punti |
 | `strategia:robinhood:entra dopo 6h di scambi. solo se volume > $3.000 e vendite/acquisti > 15% · attesa +1h · stop -50% · profitto a 4x e 8x · trailing -50% · soglia 0.2` | robinhood | 1 | -39 punti |
@@ -506,7 +507,6 @@
 | `strategia:robinhood:entra dopo 6h di scambi. solo se volume > $3.000 e vendite/acquisti > 15% · attesa +1h · stop -50% · profitto a 4x e 20x · trailing -50% · soglia 0.3` | robinhood | 1 | -46 punti |
 | `strategia:base:entra +12h · solo se volume > $3.000, almeno 2h di scambi · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.4` | base | 1 | -49 punti |
 | `strategia:robinhood:entra dopo 2h di scambi. solo se volume > $1.000 e vendite/acquisti > 40% · attesa +1h · stop -50% · profitto a 2x e 20x · trailing -30% · soglia 0.35` | robinhood | 1 | -54 punti |
-| `strategia:base:entra +12h · almeno 2h di scambi, vendite/acquisti > 10% · stop -70% · profitto a 4x e 12x · trailing -60% · soglia 0.5` | base | 1 | -59 punti |
 | `strategia:robinhood:entra dopo 2h di scambi. solo se volume > $1.000 e vendite/acquisti > 40% · attesa +1h · stop -50% · profitto a 4x e 20x · trailing -30% · soglia 0.35` | robinhood | 1 | -60 punti |
 
 ## ❌ Cosa NON funziona (archiviato, non si riprova finché i dati non raddoppiano)
@@ -529,7 +529,7 @@
 | `segnale:base:concentrazione_top1 x n_compratori:voto` | base | 5 | +9787 punti |
 | `segnale:base:sbilanciamento / accelerazione_denaro:voto` | base | 5 | +9270 punti |
 | `segnale:base:buy_grossi x ampiezza:voto` | base | 3 | +8310 punti |
-| `segnale:base:buy_grossi / drawdown_pre:voto` | base | 3 | +8042 punti |
+| `segnale:base:buy_grossi / drawdown_pre:voto` | base | 4 | +8042 punti |
 | `segnale:base:n_compratori x volume_ultima_su_media:voto` | base | 3 | +7921 punti |
 | `segnale:base:buy_grossi x compra_e_rivende:voto` | base | 3 | +6624 punti |
 | `segnale:base:buy_grossi / wallet_ripetuti:voto` | base | 3 | +6623 punti |
