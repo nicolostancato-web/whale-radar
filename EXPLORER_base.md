@@ -1,5 +1,5 @@
 # 🔬 EXPLORER — LOOP 1: come alzo la percentuale? (base)
-*2026-09-12 00:07 UTC · 90 strategie provate in questo ciclo · 108159 in totale*
+*2026-09-12 01:06 UTC · 100 strategie provate in questo ciclo · 108259 in totale*
 
 ## Migliore trovata finora: **+12059%** (stress test) · P&L medio **+22%** · crescita composta **-3.5%** · 5% peggiore **-77%** · 216 trade
 
@@ -32,12 +32,12 @@ la crescita composta dice se reinvestendo si cresce o ci si rovina.*
 
 | la strategia | risultato |
 |---|---|
-| entra +3h · almeno 2h di scambi · stop -60% · profitto a 5x e 6x · trailing -60% · soglia 0.45 | +2949% |
-| entra +3h · almeno 2h di scambi · stop -60% · profitto a 5x e 15x · trailing -60% · soglia 0.45 | +11538% |
-| entra +3h · almeno 2h di scambi · stop -60% · profitto a 5x e 15x · trailing -60% · soglia 0.5 | +9000% |
-| entra +1h · almeno 2h di scambi · stop -60% · profitto a 5x e 15x · trailing -60% · soglia 0.45 | -54% |
-| entra +3h · almeno 2h di scambi · stop -60% · profitto a 5x e 6x · trailing -60% · soglia 0.45 | +2949% |
-| entra +3h · solo se volume > $3.000, almeno 2h di scambi · stop -60% · profitto a 5x e 15x · trailing -60% · soglia 0.45 | +850% |
+| entra +3h · almeno 2h di scambi · stop -60% · profitto a 5x e 15x · trailing -60% · soglia 0.45 | +10435% |
+| entra +3h · almeno 2h di scambi · stop -60% · profitto a 2x e 15x · trailing -60% · soglia 0.45 | -36% |
+| entra +3h · solo se volume > $10.000, almeno 2h di scambi · stop -60% · profitto a 5x e 15x · trailing -60% · soglia 0.45 | +98% |
+| entra +2h · almeno 2h di scambi · stop -60% · profitto a 5x e 15x · trailing -60% · soglia 0.45 | +125% |
+| entra +3h · almeno 2h di scambi · stop -60% · profitto a 5x e 15x · trailing -60% · soglia 0.45 | +12059% |
+| entra +3h · almeno 2h di scambi · stop -60% · profitto a 5x e 8x · trailing -60% · soglia 0.45 | +6360% |
 
 > Il LOOP 1 non si ferma mai: prova strategie e segnali, tiene solo cio' che alza la percentuale
 > ROBUSTA (tolti i 3 colpi migliori) di almeno 8 punti, e riparte da li'.
