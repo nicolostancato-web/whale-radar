@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (robinhood)
-*2026-09-12 03:23 UTC · 14 segnali nuovi messi alla prova su 340 token*
+*2026-09-12 03:58 UTC · 15 segnali nuovi messi alla prova su 340 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-96%**.
 
@@ -35,23 +35,24 @@
 | `buy_medio / volume_ultima_su_media (filtro)` | quanto compra in media ciascuno RAPPORTATO a se il volume sta accelerando proprio adesso | -88% (+9) |
 | `buy_medio x ampiezza (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -88% (+8) |
 | `ampiezza / drawdown_pre (filtro)` | quanto oscilla il prezzo prima di entrare RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -91% (+5) |
-| `quota_wallet_vincenti x wallet_ripetuti (voto)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per quanti wallet comprano più di una volta | -96% (+0) |
-| `quota_wallet_vincenti / wallet_ripetuti (voto)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a quanti wallet comprano più di una volta | -96% (+0) |
-| `quota_wallet_vincenti x wallet_ripetuti (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per quanti wallet comprano più di una volta | -97% (-1) |
-| `quota_wallet_vincenti / wallet_ripetuti (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a quanti wallet comprano più di una volta | -97% (-1) |
+| `accelerazione_denaro (voto)` | se i soldi stanno entrando più in fretta adesso che all'inizio | -96% (+0) |
+| `volume_ultima_su_media (voto)` | se il volume sta accelerando proprio adesso | -96% (-0) |
+| `accelerazione_denaro (filtro)` | se i soldi stanno entrando più in fretta adesso che all'inizio | -97% (-1) |
+| `ampiezza (voto)` | quanto oscilla il prezzo prima di entrare | -98% (-1) |
+| `drawdown_pre (voto)` | quanto è già sceso dal massimo prima di entrare | -98% (-2) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
-- `concentrazione_top5 (voto)` — già bocciato 27 volte 7h fa (si riprova fra 5h o quando i dati crescono)
-- `concentrazione_top5 (filtro)` — già bocciato 27 volte 7h fa (si riprova fra 5h o quando i dati crescono)
-- `concentrazione_top1 (voto)` — già bocciato 27 volte 7h fa (si riprova fra 5h o quando i dati crescono)
-- `concentrazione_top1 (filtro)` — già bocciato 27 volte 7h fa (si riprova fra 5h o quando i dati crescono)
-- `n_compratori (voto)` — già bocciato 27 volte 7h fa (si riprova fra 5h o quando i dati crescono)
-- `n_compratori (filtro)` — già bocciato 27 volte 7h fa (si riprova fra 5h o quando i dati crescono)
-- `buy_medio (voto)` — già bocciato 27 volte 7h fa (si riprova fra 5h o quando i dati crescono)
-- `buy_medio (filtro)` — già bocciato 27 volte 7h fa (si riprova fra 5h o quando i dati crescono)
-- `buy_grossi (voto)` — già bocciato 27 volte 6h fa (si riprova fra 6h o quando i dati crescono)
-- `buy_grossi (filtro)` — già bocciato 27 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `concentrazione_top5 (voto)` — già bocciato 27 volte 8h fa (si riprova fra 4h o quando i dati crescono)
+- `concentrazione_top5 (filtro)` — già bocciato 27 volte 8h fa (si riprova fra 4h o quando i dati crescono)
+- `concentrazione_top1 (voto)` — già bocciato 27 volte 8h fa (si riprova fra 4h o quando i dati crescono)
+- `concentrazione_top1 (filtro)` — già bocciato 27 volte 8h fa (si riprova fra 4h o quando i dati crescono)
+- `n_compratori (voto)` — già bocciato 27 volte 8h fa (si riprova fra 4h o quando i dati crescono)
+- `n_compratori (filtro)` — già bocciato 27 volte 8h fa (si riprova fra 4h o quando i dati crescono)
+- `buy_medio (voto)` — già bocciato 27 volte 8h fa (si riprova fra 4h o quando i dati crescono)
+- `buy_medio (filtro)` — già bocciato 27 volte 8h fa (si riprova fra 4h o quando i dati crescono)
+- `buy_grossi (voto)` — già bocciato 27 volte 7h fa (si riprova fra 5h o quando i dati crescono)
+- `buy_grossi (filtro)` — già bocciato 27 volte 7h fa (si riprova fra 5h o quando i dati crescono)
 
 > **Perché questo ruolo esiste:** l'insider su Solana l'ha inventato un umano. Qui il sistema
 > costruisce da sé segnali nuovi dai dati grezzi e li mette alla prova. Uno dei mattoni è proprio

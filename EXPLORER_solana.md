@@ -1,13 +1,13 @@
 # 🔬 EXPLORER — LOOP 1: come alzo la percentuale? (solana)
-*2026-09-12 03:17 UTC · 1237 strategie provate in questo ciclo · 393277 in totale*
+*2026-09-12 03:52 UTC · 1691 strategie provate in questo ciclo · 396659 in totale*
 
-## Migliore trovata finora: **-99%** (stress test) · P&L medio **-17%** · crescita composta **-83.8%** · 5% peggiore **-100%** · 101 trade
+## Migliore trovata finora: **-99%** (stress test) · P&L medio **-18%** · crescita composta **-88.8%** · 5% peggiore **-100%** · 96 trade
 
 *La percentuale grande è lo STRESS TEST (tolto il 5% migliore): serve a non farsi ingannare
 dai colpi fortunati, ma non è il rendimento atteso. Il P&L medio è quello che il conto vedrebbe;
 la crescita composta dice se reinvestendo si cresce o ci si rovina.*
 
-*Il punteggio è il **minimo** fra la robusta su tutto lo storico (-29%) e quella sui token più RECENTI (-47%): cerchiamo qualcosa che funzioni domani, non che abbia funzionato un mese fa.*
+*Il punteggio è il **minimo** fra la robusta su tutto lo storico (-29%) e quella sui token più RECENTI (-46%): cerchiamo qualcosa che funzioni domani, non che abbia funzionato un mese fa.*
 
 **La strategia:** entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 5x e 15x · trailing -50% · soglia 0.5
 **I segnali guardati:** `log_vol, log_vol_accel, frac_verdi, log_buyusd, log_nfirstbuyers, buy_accel`
@@ -25,12 +25,12 @@ la crescita composta dice se reinvestendo si cresce o ci si rovina.*
 
 | la strategia | risultato |
 |---|---|
+| entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 5x e 15x · trailing -50% · soglia 0.55 | -99% |
+| entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 5x e 15x · trailing -50% · soglia 0.6 | -99% |
+| entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 4x e 15x · trailing -50% · soglia 0.5 | -99% |
+| entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 5x e 15x · trailing -50% · soglia 0.6 | -99% |
 | entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 5x e 15x · trailing -50% · soglia 0.5 | -99% |
-| entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 5x e 15x · trailing -30% · soglia 0.5 | -99% |
 | entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 5x e 15x · trailing -50% · soglia 0.5 | -99% |
-| entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 5x e 15x · trailing -50% · soglia 0.5 | -99% |
-| entra +6h · almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 5x e 15x · trailing -50% · soglia 0.5 | -99% |
-| entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -80% · profitto a 5x e 6x · trailing -50% · soglia 0.5 | -98% |
 
 > Il LOOP 1 non si ferma mai: prova strategie e segnali, tiene solo cio' che alza la percentuale
 > ROBUSTA (tolti i 3 colpi migliori) di almeno 8 punti, e riparte da li'.
