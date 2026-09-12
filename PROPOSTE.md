@@ -1,13 +1,15 @@
 # 📋 PROPOSTE — cosa aspetta una tua decisione
-*2026-09-12 06:30 UTC · 5 aperte*
+*2026-09-12 07:00 UTC · 4 aperte*
 
-> **1 proposte sono state bocciate dal giudice** e tolte dal tavolo: sui token
+> **2 proposte sono state bocciate dal giudice** e tolte dal tavolo: sui token
 > mai visti dalla ricerca non reggevano. Le trovi nel cimitero qui sotto.
 
 ## ⚰️ Il cimitero — proposte che NON hanno retto
 
 | quando | chain | era | è scesa a | aveva retto | quante volte è caduta |
 |---|---|---|---|---|---|
+| 12/09 07:00 | base | +472% | -22% | 0h | 2 |
+| 12/09 07:00 | base | +631% | +472% | 2h | 1 |
 | 12/09 05:23 | base | +523% | -22% | 0h | 2 |
 | 12/09 05:23 | base | +933% | +523% | 4h | 1 |
 | 12/09 01:47 | base | +625% | -23% | 0h | 2 |
@@ -18,8 +20,6 @@
 | 11/09 10:17 | base | +31538% | +31518% | 0h | 70 |
 | 11/09 09:45 | base | +31538% | -23% | 0h | 69 |
 | 11/09 09:45 | base | +33099% | +31538% | 3h | 68 |
-| 11/09 06:39 | base | +33237% | +33099% | 0h | 67 |
-| 11/09 06:07 | base | +33237% | -23% | 0h | 66 |
 
 > Queste non si ripescano. Se il team ri-propone una configurazione già caduta, la riga
 > sopra viene marcata **RIPESCATA** con la data della volta scorsa: così non ci sbattiamo la
