@@ -1,5 +1,5 @@
 # ⏳ IL MOVIMENTO SUCCEDE PRIMA CHE POSSIAMO ENTRARE?
-*2026-09-12 14:19 UTC · nato dalla revisione esterna dell'11/09 · sola lettura · €0*
+*2026-09-12 15:06 UTC · nato dalla revisione esterna dell'11/09 · sola lettura · €0*
 
 > Trattavamo il ritardo di osservazione (3-7 ore) come **un costo**: qualcosa che ci toglie
 > un po' di rendimento. Ma con orizzonti da 5 minuti, 30 minuti e 2 ore il bot arriva quando
@@ -10,15 +10,21 @@ a 7 ore è sepolto.
 
 | chain | token | **prima** dell'entrata | dopo +2h | dopo +6h | dopo +24h |
 |---|---|---|---|---|---|
-| **base** | 553 | **-0.0%** | +0.0% | +0.0% | +0.4% |
+| **base** | 556 | **+0.0%** | +0.0% | -0.0% | +0.5% |
 | **robinhood** | 498 | **-3.2%** | -0.4% | -1.5% | -7.2% |
-| **solana** | 607 | **-2.4%** | -0.0% | -1.1% | -2.1% |
+| **solana** | 606 | **-2.3%** | -0.1% | -1.3% | -2.2% |
 
 *Mediane: una lotteria non deve decidere un verdetto.*
 
 ## Verdetto su Base
 
-> ⏸️ Prima -0.0%, dopo +0.0%: nessuno dei due è positivo, non c'è un segnale da salvare né da uccidere.
+> ❌ **Il segnale non sopravvive al ritardo.** Prima che potessimo comprare il
+> prezzo ha già fatto **+0.0%**; da quando compriamo in poi fa
+> **-0.0%**. Il movimento c'è — **ma lo incassa qualcun altro**.
+
+> Non è un costo da limare: gli orizzonti brevi non sono evidenza economica, sono
+> cose già successe quando arriviamo. Chi vuole salvarli deve prima accorciare il
+> ritardo, non ritoccare la soglia.
 
 ---
 
@@ -35,14 +41,14 @@ a 7 ore è sepolto.
 
 | chain | trade scelti | **prima** dell'entrata | dopo +2h | dopo +6h | dopo +24h |
 |---|---|---|---|---|---|
-| **base** | 257 | **+0.1%** | -0.0% | -0.1% | -0.4% |
+| **base** | 256 | **+0.2%** | -0.1% | -0.2% | -0.4% |
 | **robinhood** | 302 | **-1.1%** | -0.7% | -1.9% | -8.7% |
-| **solana** | 335 | **-2.6%** | -0.3% | -2.0% | -4.7% |
+| **solana** | 332 | **-3.0%** | -0.5% | -2.5% | -5.5% |
 
 ### Verdetto sui selezionati di Base
 
 > ❌ **Il segnale non sopravvive al ritardo.** Sui trade scelti il prezzo fa
-> **+0.1%** prima che potessimo entrare e **-0.1%** dopo.
+> **+0.2%** prima che potessimo entrare e **-0.2%** dopo.
 > Il movimento esiste: **lo incassa chi arriva prima di noi.** Non è un costo da
 > limare — o si accorcia il ritardo, o quegli orizzonti non sono nostri.
 > (17 giorni indipendenti.)
