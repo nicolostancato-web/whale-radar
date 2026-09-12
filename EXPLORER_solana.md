@@ -1,5 +1,5 @@
 # 🔬 EXPLORER — LOOP 1: come alzo la percentuale? (solana)
-*2026-09-12 08:03 UTC · 1318 strategie provate in questo ciclo · 416756 in totale*
+*2026-09-12 08:19 UTC · 1310 strategie provate in questo ciclo · 418066 in totale*
 
 ## Migliore trovata finora: **-99%** (stress test) · P&L medio **-24%** · crescita composta **-78.4%** · 5% peggiore **-100%** · 156 trade
 
@@ -26,11 +26,11 @@ la crescita composta dice se reinvestendo si cresce o ci si rovina.*
 | la strategia | risultato |
 |---|---|
 | entra +2h · solo se volume > $3.000, vendite/acquisti > 15% · stop -80% · profitto a 3x e 15x · trailing -60% · soglia 0.3 | -99% |
-| entra +2h · solo se volume > $30.000, vendite/acquisti > 15% · stop -80% · profitto a 3x e 15x · trailing -60% · soglia 0.3 | -99% |
 | entra +2h · solo se volume > $3.000, vendite/acquisti > 15% · stop -80% · profitto a 3x e 15x · trailing -60% · soglia 0.3 | -99% |
-| entra +2h · solo se volume > $3.000, vendite/acquisti > 15% · stop -60% · profitto a 3x e 15x · trailing -60% · soglia 0.3 | -99% |
-| entra +2h · solo se volume > $3.000, vendite/acquisti > 15% · stop -80% · profitto a 4x e 15x · trailing -60% · soglia 0.3 | -99% |
-| entra +2h · solo se volume > $3.000, vendite/acquisti > 15% · stop -80% · profitto a 4x e 15x · trailing -60% · soglia 0.3 | -99% |
+| entra +12h · solo se volume > $3.000, vendite/acquisti > 15% · stop -80% · profitto a 3x e 15x · trailing -60% · soglia 0.3 | -99% |
+| entra +2h · solo se volume > $3.000, vendite/acquisti > 15% · stop -80% · profitto a 5x e 15x · trailing -60% · soglia 0.3 | -99% |
+| entra +2h · solo se volume > $3.000, vendite/acquisti > 15% · stop -80% · profitto a 3x e 15x · trailing -60% · soglia 0.3 | -99% |
+| entra +2h · solo se volume > $3.000, vendite/acquisti > 15% · stop -80% · profitto a 3x e 15x · trailing -60% · soglia 0.3 | -99% |
 
 > Il LOOP 1 non si ferma mai: prova strategie e segnali, tiene solo cio' che alza la percentuale
 > ROBUSTA (tolti i 3 colpi migliori) di almeno 8 punti, e riparte da li'.
