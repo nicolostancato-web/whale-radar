@@ -124,5 +124,5 @@ essere giudicati. È questo numero che sblocca il test sigillato.*
 |---|---|---|
 | base | 714 | **229** |
 | solana | 682 | **223** |
-| bsc | 77 | **15** |
+| bsc | 87 | **15** |
 | robinhood | 1816 | **73** |
