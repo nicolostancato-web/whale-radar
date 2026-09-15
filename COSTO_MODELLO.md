@@ -1,5 +1,5 @@
 # ⚖️ IL COSTO VERO — mettere d'accordo misura e modello
-*2026-09-15 12:04 UTC · 2404 token misurati su Jupiter · €0*
+*2026-09-15 14:39 UTC · 2426 token misurati su Jupiter · €0*
 
 > **Il problema**: diciamo di aver misurato il costo, e poi nei conti ne usiamo un altro,
 > **33%**. Finché le due cose non si parlano, «tutte le chain sono negative»
@@ -12,9 +12,9 @@
 
 | se metti | **trappole** (non esci, o esci con nulla) | costo quando esci davvero | peggiori | pareggio |
 |---|---|---|---|---|
-| $25 | **39%** (931/2396) | **4.0%** | 5% | 1.04x |
-| $100 | **40%** (942/2350) | **8.4%** | 10% | 1.09x |
-| $500 | **43%** (989/2299) | **26.2%** | 27% | 1.35x |
+| $25 | **39%** (938/2418) | **4.0%** | 5% | 1.04x |
+| $100 | **40%** (947/2372) | **8.4%** | 10% | 1.09x |
+| $500 | **43%** (997/2323) | **26.2%** | 27% | 1.35x |
 
 | *quello che usiamo oggi nei conti* | *non modellato* | *33%* | — | *1.50x* |
 
