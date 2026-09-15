@@ -1,5 +1,5 @@
 # 🕳️ GLI ACQUISTI CHE IL RENDIMENTO NON CONTA (robinhood)
-*2026-09-15 19:49 UTC · ritardo reale applicato: 238 minuti · €0*
+*2026-09-15 22:19 UTC · ritardo reale applicato: 238 minuti · €0*
 
 > **La domanda**: un token che muore subito non arriva mai ad avere abbastanza candele per
 > essere valutato — quindi esce dal conto. Non perché lo escludiamo: perché non fa in tempo
@@ -11,20 +11,20 @@
 
 | | token |
 |---|---|
-| **acquistabili** all'ingresso (filtri passati con i dati di allora) | **945** |
+| **acquistabili** all'ingresso (filtri passati con i dati di allora) | **964** |
 | ...di cui **arrivati a un esito misurabile** | **233** |
-| ...**mancanti dal conto** | **712** (75%) |
+| ...**mancanti dal conto** | **731** (75%) |
 
 **Perché mancano:**
 
-- poche candele dopo l'ingresso: 182
-- mai arrivato al volume minimo: 1298
-- sparito subito: 530
+- poche candele dopo l'ingresso: 184
+- mai arrivato al volume minimo: 1340
+- sparito subito: 547
 
 ## Cosa avrebbero reso, se li contassimo
 
-Per 299 dei mancanti conosciamo comunque un prezzo di uscita:
-rendimento medio **+29782730254%**, mediano **-6%**.
+Per 303 dei mancanti conosciamo comunque un prezzo di uscita:
+rendimento medio **+29389558897%**, mediano **-7%**.
 
 > Non sono un −100% automatico — sarebbe l'errore opposto, altrettanto sbagliato. Ma se
 > il loro rendimento è peggiore di quello dei token contati, allora il numero pubblicato
@@ -32,6 +32,6 @@ rendimento medio **+29782730254%**, mediano **-6%**.
 
 ## Verdetto
 
-> ⚠️ **Il 75% degli acquisti che avremmo fatto non compare nel rendimento.**
+> ⚠️ **Il 76% degli acquisti che avremmo fatto non compare nel rendimento.**
 > Finché non sappiamo come sono andati, il numero pubblicato va letto come **rendimento
 > condizionato alla sopravvivenza**, non come rendimento della strategia.

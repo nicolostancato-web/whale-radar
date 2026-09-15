@@ -11,8 +11,8 @@
 | $100 | **8.7%** | 8.5% | 91.0% | 9 |
 | $500 | **27.3%** | 24.8% | 98.1% | 9 |
 
-- misure accumulate finora: **2490 token** (l'archivio cresce a ogni giro)
-- token che NON si possono rivendere: **585** su 2490 (**23%**)
+- misure accumulate finora: **2483 token** (l'archivio cresce a ogni giro)
+- token che NON si possono rivendere: **582** su 2483 (**23%**)
 
 > Il costo qui sotto vale **solo per i token vendibili**. Quelli invendibili non sono un costo
 > alto: sono una perdita totale, e vanno contati a parte — non spalmati sulla media.
