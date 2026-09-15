@@ -1,5 +1,5 @@
 # 🧱 QUALITÀ DEL TERRENO — il database serve a qualcosa?
-*2026-09-15 19:40 UTC · controllo continuo · €0*
+*2026-09-15 19:49 UTC · controllo continuo · €0*
 
 > Gli altri controlli chiedono **«il sistema gira?»**. Questo chiede **«quello che sta
 > entrando serve a qualcosa?»**. Un collettore che funziona benissimo e produce dati che non
@@ -18,9 +18,9 @@
 | solana: scambi orfani | 🔴 **FALLISCE** | 74.3 | 3093 file su 4164 non si uniscono a nessuna serie di prezzo |
 | base: scambi orfani | 🟡 **ATTENZIONE** | 40.1 | 663 file su 1654 non si uniscono a nessuna serie di prezzo |
 | base: timbro di acquisizione | 🟡 **ATTENZIONE** | 47.8 | 11 file su 23 fra i piu' recenti hanno il campo acq |
-| robinhood: freschezza | 🟡 **ATTENZIONE** | 11.3 | il dato piu' recente nel campione ha 11.3 ore (letto DENTRO i file, non dalla data del file) |
+| robinhood: freschezza | 🟡 **ATTENZIONE** | 11.5 | il dato piu' recente nel campione ha 11.5 ore (letto DENTRO i file, non dalla data del file) |
 | robinhood: serie con scambi | 🟡 **ATTENZIONE** | 34.5 | 822 su 2386 |
-| solana: freschezza | 🟡 **ATTENZIONE** | 18.9 | il dato piu' recente nel campione ha 18.9 ore (letto DENTRO i file, non dalla data del file) |
+| solana: freschezza | 🟡 **ATTENZIONE** | 19.0 | il dato piu' recente nel campione ha 19.0 ore (letto DENTRO i file, non dalla data del file) |
 | solana: timbro di acquisizione | 🟡 **ATTENZIONE** | 12.0 | 3 file su 25 fra i piu' recenti hanno il campo acq |
 | base: entita' duplicate | 🟢 **PASSA** | 0 | 1905 righe, 1905 pool distinti |
 | base: freschezza | 🟢 **PASSA** | 0.0 | il dato piu' recente nel campione ha 0.0 ore (letto DENTRO i file, non dalla data del file) |
