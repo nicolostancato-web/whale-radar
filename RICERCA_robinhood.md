@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (robinhood)
-*2026-09-15 16:36 UTC · 13 segnali nuovi messi alla prova su 340 token*
+*2026-09-15 16:53 UTC · 17 segnali nuovi messi alla prova su 340 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-96%**.
 
@@ -33,21 +33,25 @@
 | `drawdown_pre / volume_ultima_su_media (filtro)` | quanto è già sceso dal massimo prima di entrare RAPPORTATO a se il volume sta accelerando proprio adesso | -85% (+12) |
 | `buy_medio / volume_ultima_su_media (filtro)` | quanto compra in media ciascuno RAPPORTATO a se il volume sta accelerando proprio adesso | -88% (+8) |
 | `buy_medio x ampiezza (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -88% (+8) |
-| `concentrazione_top1 x n_compratori (voto)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per quante persone diverse hanno comprato | -95% (+1) |
-| `concentrazione_top1 / n_compratori (voto)` | quanto pesa il singolo compratore più grosso RAPPORTATO a quante persone diverse hanno comprato | -96% (+0) |
-| `concentrazione_top1 x n_compratori (filtro)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per quante persone diverse hanno comprato | -97% (-1) |
-| `concentrazione_top1 / n_compratori (filtro)` | quanto pesa il singolo compratore più grosso RAPPORTATO a quante persone diverse hanno comprato | -97% (-1) |
+| `usd_primi20 (voto)` | quanto pesano i primissimi 20 acquisti sul totale | -95% (+1) |
+| `compra_e_rivende (voto)` | quanti di quelli che hanno comprato stanno già rivendendo | -95% (+1) |
+| `wallet_ripetuti (voto)` | quanti wallet comprano più di una volta | -96% (+0) |
+| `sbilanciamento (voto)` | quanto il denaro che entra supera quello che esce | -96% (+0) |
+| `sbilanciamento (filtro)` | quanto il denaro che entra supera quello che esce | -97% (-1) |
+| `usd_primi20 (filtro)` | quanto pesano i primissimi 20 acquisti sul totale | -97% (-1) |
+| `wallet_ripetuti (filtro)` | quanti wallet comprano più di una volta | -97% (-1) |
+| `compra_e_rivende (filtro)` | quanti di quelli che hanno comprato stanno già rivendendo | -97% (-1) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
-- `concentrazione_top5 (voto)` — già bocciato 34 volte 7h fa (si riprova fra 5h o quando i dati crescono)
-- `concentrazione_top5 (filtro)` — già bocciato 34 volte 7h fa (si riprova fra 5h o quando i dati crescono)
-- `concentrazione_top1 (voto)` — già bocciato 34 volte 7h fa (si riprova fra 5h o quando i dati crescono)
-- `concentrazione_top1 (filtro)` — già bocciato 34 volte 7h fa (si riprova fra 5h o quando i dati crescono)
-- `n_compratori (voto)` — già bocciato 34 volte 7h fa (si riprova fra 5h o quando i dati crescono)
-- `n_compratori (filtro)` — già bocciato 34 volte 7h fa (si riprova fra 5h o quando i dati crescono)
-- `buy_medio (voto)` — già bocciato 34 volte 7h fa (si riprova fra 5h o quando i dati crescono)
-- `buy_medio (filtro)` — già bocciato 34 volte 7h fa (si riprova fra 5h o quando i dati crescono)
+- `concentrazione_top5 (voto)` — già bocciato 34 volte 8h fa (si riprova fra 4h o quando i dati crescono)
+- `concentrazione_top5 (filtro)` — già bocciato 34 volte 8h fa (si riprova fra 4h o quando i dati crescono)
+- `concentrazione_top1 (voto)` — già bocciato 34 volte 8h fa (si riprova fra 4h o quando i dati crescono)
+- `concentrazione_top1 (filtro)` — già bocciato 34 volte 8h fa (si riprova fra 4h o quando i dati crescono)
+- `n_compratori (voto)` — già bocciato 34 volte 8h fa (si riprova fra 4h o quando i dati crescono)
+- `n_compratori (filtro)` — già bocciato 34 volte 8h fa (si riprova fra 4h o quando i dati crescono)
+- `buy_medio (voto)` — già bocciato 34 volte 8h fa (si riprova fra 4h o quando i dati crescono)
+- `buy_medio (filtro)` — già bocciato 34 volte 8h fa (si riprova fra 4h o quando i dati crescono)
 - `buy_grossi (voto)` — già bocciato 34 volte 6h fa (si riprova fra 6h o quando i dati crescono)
 - `buy_grossi (filtro)` — già bocciato 34 volte 6h fa (si riprova fra 6h o quando i dati crescono)
 
