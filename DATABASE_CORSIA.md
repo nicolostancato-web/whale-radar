@@ -1,18 +1,18 @@
 # 🧱 CORSIA DATABASE — il terreno
-*2026-09-15 23:33 UTC · giro 9 · fetta 0*
+*2026-09-15 23:44 UTC · giro 10 · fetta 0*
 
 | passo | esito | ultima cosa detta |
 |---|---|---|
-| scambi robinhood | ok | MULTICHAIN_TRADES | robinhood: 90 pool interrogati, 1 con trade nuovi (mai 13413, giovani 317) |
-| scambi base | ok | MULTICHAIN_TRADES | base: 90 pool interrogati, 9 con trade nuovi (mai 13185, giovani 261) |
-| scambi solana | ok | MULTICHAIN_TRADES | solana: 90 pool interrogati, 0 con trade nuovi (mai 10776, giovani 265) |
-| battito | ok | PULSE | 90 punti scritti |
+| scambi robinhood | ok | MULTICHAIN_TRADES | robinhood: 90 pool interrogati, 8 con trade nuovi (mai 13402, giovani 338) |
+| scambi base | ok | MULTICHAIN_TRADES | base: 90 pool interrogati, 3 con trade nuovi (mai 13176, giovani 261) |
+| scambi solana | ok | MULTICHAIN_TRADES | solana: 90 pool interrogati, 0 con trade nuovi (mai 10776, giovani 284) |
+| battito | ok | PULSE | 104 punti scritti |
 | elenco righe | ok | ELENCO_RIGHE | solana: 744 pool che diventano righe |
-| integrita | ok | INTEGRITA | 191 finestre valide, 136 identiche, 55 discrepanze |
-| qualita del terreno | ok | QUALITA_DB | falliti 7 | attenzione 5 | non misurabili 0 |
-| coorte | ok | COORTE | 26 nuove, 809 totali |
+| integrita | ok | INTEGRITA | 210 finestre valide, 146 identiche, 64 discrepanze |
+| qualita del terreno | ok | QUALITA_DB | falliti 7 | attenzione 4 | non misurabili 0 |
+| coorte | ok | COORTE | 26 nuove, 824 totali |
 
-*Durata del giro: **681 secondi**.*
+*Durata del giro: **683 secondi**.*
 
 > Questa corsia non costruisce strategie. Raccoglie cio' che evapora e controlla che
 > serva a qualcosa. Un collettore che funziona e produce dati che non si uniscono a
