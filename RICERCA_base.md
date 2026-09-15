@@ -1,21 +1,25 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (base)
-*2026-09-15 14:23 UTC · 4 segnali nuovi messi alla prova su 616 token*
+*2026-09-15 14:39 UTC · 8 segnali nuovi messi alla prova su 616 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-99%**.
 
 ## Nessun segnale nuovo ha superato la prova in questo giro
 
-Nessuno dei 4 candidati alza la percentuale di almeno 3 punti.
+Nessuno dei 8 candidati alza la percentuale di almeno 3 punti.
 Non è un fallimento: è la risposta onesta di oggi. Con più dati gli stessi segnali possono passare.
 
 ## Tutti i segnali provati, dal migliore al peggiore
 
 | il segnale | cosa guarda | risultato |
 |---|---|---|
-| `usd_primi20 x wallet_ripetuti (voto)` | quanto pesano i primissimi 20 acquisti sul totale MOLTIPLICATO per quanti wallet comprano più di una volta | -99% (+0) |
-| `usd_primi20 x wallet_ripetuti (filtro)` | quanto pesano i primissimi 20 acquisti sul totale MOLTIPLICATO per quanti wallet comprano più di una volta | -99% (+0) |
-| `usd_primi20 / wallet_ripetuti (voto)` | quanto pesano i primissimi 20 acquisti sul totale RAPPORTATO a quanti wallet comprano più di una volta | -99% (+0) |
-| `usd_primi20 / wallet_ripetuti (filtro)` | quanto pesano i primissimi 20 acquisti sul totale RAPPORTATO a quanti wallet comprano più di una volta | -99% (+0) |
+| `quota_wallet_reduci x quota_wallet_vincenti (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per la quota di denaro da wallet con almeno un successo alle spalle | -99% (+0) |
+| `quota_wallet_reduci x quota_wallet_vincenti (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per la quota di denaro da wallet con almeno un successo alle spalle | -99% (+0) |
+| `quota_wallet_reduci / quota_wallet_vincenti (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) RAPPORTATO a la quota di denaro da wallet con almeno un successo alle spalle | -99% (+0) |
+| `quota_wallet_reduci / quota_wallet_vincenti (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) RAPPORTATO a la quota di denaro da wallet con almeno un successo alle spalle | -99% (+0) |
+| `quota_wallet_reduci x volume_ultima_su_media (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per se il volume sta accelerando proprio adesso | -99% (+0) |
+| `quota_wallet_reduci x volume_ultima_su_media (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per se il volume sta accelerando proprio adesso | -99% (+0) |
+| `quota_wallet_reduci / volume_ultima_su_media (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) RAPPORTATO a se il volume sta accelerando proprio adesso | -99% (+0) |
+| `quota_wallet_reduci / volume_ultima_su_media (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) RAPPORTATO a se il volume sta accelerando proprio adesso | -99% (+0) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
@@ -23,8 +27,8 @@ Non è un fallimento: è la risposta onesta di oggi. Con più dati gli stessi se
 - `concentrazione_top5 (filtro)` — già bocciato 37 volte 1h fa (si riprova fra 11h o quando i dati crescono)
 - `concentrazione_top1 (voto)` — già bocciato 37 volte 1h fa (si riprova fra 11h o quando i dati crescono)
 - `concentrazione_top1 (filtro)` — già bocciato 37 volte 1h fa (si riprova fra 11h o quando i dati crescono)
-- `n_compratori (voto)` — già bocciato 13 volte 7h fa (si riprova fra 5h o quando i dati crescono)
-- `n_compratori (filtro)` — già bocciato 29 volte 7h fa (si riprova fra 5h o quando i dati crescono)
+- `n_compratori (voto)` — già bocciato 13 volte 8h fa (si riprova fra 4h o quando i dati crescono)
+- `n_compratori (filtro)` — già bocciato 29 volte 8h fa (si riprova fra 4h o quando i dati crescono)
 - `buy_medio (voto)` — già bocciato 14 volte 4h fa (si riprova fra 8h o quando i dati crescono)
 - `buy_medio (filtro)` — già bocciato 37 volte 4h fa (si riprova fra 8h o quando i dati crescono)
 - `buy_grossi (voto)` — già bocciato 13 volte 1h fa (si riprova fra 11h o quando i dati crescono)
