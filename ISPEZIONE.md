@@ -4,7 +4,7 @@
 
 ## 🔴 **11 COMPONENTI NON RISPONDONO** — la macchina non è pronta
 
-**Per chain:** base: 🟢 · solana: 🟡 · robinhood: 🟢 · bsc: 🔴
+**Per chain:** base: 🟢 · solana: 🟢 · robinhood: 🟢 · bsc: 🔴
 
 ## I team, chain per chain (LOOP 1)
 
@@ -14,17 +14,17 @@
 |---|---|---|---|---|
 | **Esploratore** | prova strategie: entrata, stop, take profit, segnali | 17 min fa | 240 min | ✅ in orario · 29585 strategie provate |
 | **Ricercatore** | inventa segnali nuovi dai dati grezzi | 13 min fa | 360 min | ✅ in orario · niente da fare in questo giro (dichiarato) |
-| **Cervello** | misura la percentuale della chain | 327 min fa | 240 min | ⚠️ in ritardo |
+| **Cervello** | misura la percentuale della chain | 328 min fa | 240 min | ⚠️ in ritardo |
 | **Accumulo** | i dati devono crescere | 4819 token | — | ⏳ nessun token nuovo (normale entro l'ora) |
 
-### SOLANA — 🟡 tutto vivo, qualcosa in ritardo
+### SOLANA — 🟢 tutto in ordine
 
 | chi | cosa fa | ultimo lavoro | entro | |
 |---|---|---|---|---|
 | **Esploratore** | prova strategie: entrata, stop, take profit, segnali | 7 min fa | 240 min | ✅ in orario · 8947 strategie provate |
 | **Ricercatore** | inventa segnali nuovi dai dati grezzi | 2 min fa | 360 min | ✅ in orario · niente da fare in questo giro (dichiarato) |
 | **Cervello** | misura la percentuale della chain | 18 min fa | 240 min | ✅ misurata |
-| **Accumulo** | i dati devono crescere | 1447 token | — | ⚠️ FERMO da oltre un'ora |
+| **Accumulo** | i dati devono crescere | 1447 token | — | ⏳ nessun token nuovo (normale entro l'ora) |
 
 ### ROBINHOOD — 🟢 tutto in ordine
 
@@ -33,7 +33,7 @@
 | **Esploratore** | prova strategie sul pipeline completo | mai | 240 min | ⏸️ congelato — non deve lavorare, aspetta il verdetto sull'holdout |
 | **Ricercatore** | inventa segnali nuovi dai dati grezzi | 2 min fa | 480 min | ✅ in orario · 34 segnali provati |
 | **Cervello** | misura la percentuale della chain | 1208 min fa | 2160 min | ✅ misurata |
-| **Accumulo** | i dati devono crescere | 2472 token | — | ✅ cresce |
+| **Accumulo** | i dati devono crescere | 2472 token | — | ⏳ nessun token nuovo (normale entro l'ora) |
 
 ### BSC — 🔴 2 non rispondono
 
@@ -65,9 +65,9 @@
 | **Perito** | il token si può vendere? chi lo controlla? | 6 min fa | 240 min | ✅ in orario · 5405 token in archivio |
 | **Anagrafe** | chi ha creato il token e i suoi precedenti | 6 min fa | 240 min | ✅ in orario · 5472 token con creatore |
 | **Contabile** | misura e modello dei costi devono dire lo stesso | 19 min fa | 300 min | ✅ in orario |
-| **Reputazione** | chi ha creato il token ha gia' combinato disastri? | 49 min fa | 300 min | ✅ in orario |
+| **Reputazione** | chi ha creato il token ha gia' combinato disastri? | 30 min fa | 300 min | ✅ in orario |
 | **Talento** | esiste un wallet che sa qualcosa? (excess vs comparabili) | 19 min fa | 300 min | ✅ in orario |
-| **Corrente** | sta entrando capitale INDIPENDENTE, o e' una mano sola? | 49 min fa | 300 min | ✅ in orario |
+| **Corrente** | sta entrando capitale INDIPENDENTE, o e' una mano sola? | 30 min fa | 300 min | ✅ in orario |
 
 ## E quello che dicono è VERO?
 
@@ -84,7 +84,7 @@
 
 | archivio | token | nuovi | |
 |---|---|---|---|
-| sicurezza | 10092 | +7 | ✅ cresce |
+| sicurezza | 10092 | +0 | ⏳ nessun nuovo (normale entro 2h) |
 
 ## I processi stanno girando?
 
