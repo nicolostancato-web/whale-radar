@@ -1,13 +1,12 @@
 # 🏃 STAFFETTA — leggi QUESTO per primo
-*2026-09-15 21:21 UTC · aggiornato da solo a ogni giro*
+*2026-09-15 21:34 UTC · aggiornato da solo a ogni giro*
 
 > La continuità viene dai **registri condivisi**, non dal ricordarsi la conversazione. Chi si
 > sveglia adesso non ha memoria: qui trova dove siamo e **qual è il prossimo lavoro**.
 
 ## Le corsie
 
-- 🟢 vive: ricerca (1′), loop 0 (14′), sperimenti (7′)
-- 🔴 **mute: motore (nessun commit)** ← prima di ogni altra cosa, capire perché
+- 🟢 vive: motore (8′), ricerca (9′), loop 0 (12′), sperimenti (7′)
 
 ## Gli esperimenti vivi
 
@@ -27,26 +26,26 @@
 
 | cosa | quanti | cambiato di |
 |---|---|---|
-| base/COMPLETI (prezzo+scambi) | 991 | — |
-| base/DOMANDABILI (stima %) | 15 | — |
+| base/COMPLETI (prezzo+scambi) | 1,008 | **+12** |
+| base/DOMANDABILI (stima %) | 13 | -2 |
 | base/battito | 3,309 | — |
-| base/candele | 1,510 | — |
-| robinhood/COMPLETI (prezzo+scambi) | 858 | — |
+| base/candele | 1,530 | **+20** |
+| robinhood/COMPLETI (prezzo+scambi) | 866 | **+8** |
 | robinhood/DOMANDABILI (stima %) | 0 | — |
-| robinhood/battito | 230 | — |
-| robinhood/candele | 2,265 | — |
-| robinhood/toccati 12h | 99 | — |
-| solana/COMPLETI (prezzo+scambi) | 1,071 | — |
+| robinhood/battito | 233 | **+3** |
+| robinhood/candele | 2,285 | **+20** |
+| robinhood/toccati 12h | 110 | **+11** |
+| solana/COMPLETI (prezzo+scambi) | 1,084 | **+13** |
 | solana/DOMANDABILI (stima %) | 10 | — |
 | solana/battito | 201 | — |
-| solana/candele | 1,246 | — |
+| solana/candele | 1,266 | **+20** |
 
 
 In coda e non ancora aperti: **0** (nessuno).
 
 ## ➡️ Il prossimo lavoro
 
-> Riaccendere e capire perché tace: **motore (nessun commit)**. Una corsia muta blocca tutto il resto.
+> **Far parlare il consulente**: tace, e nessuno ci sta dicendo cosa costruire. Costruire nella direzione sbagliata costa più che non costruire.
 
 > **Perché una riga sola**: se il prossimo lavoro fossero cinque cose, non sarebbe il
 > prossimo — sarebbe un elenco, e un elenco non fa partire nessuno.
@@ -58,4 +57,4 @@ In coda e non ancora aperti: **0** (nessuno).
 > ieri e sembrano di oggi. Qui sotto c'è la data del calcolo, e se non è di pochi minuti fa
 > il foglio non vale.
 
-*Calcolato alle **21:21 UTC** del 15/09/2026.*
+*Calcolato alle **21:34 UTC** del 15/09/2026.*
