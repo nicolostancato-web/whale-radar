@@ -1,5 +1,5 @@
 # 🧠 WALLET INTELLIGENCE — l'ultimo test (robinhood)
-*2026-09-15 17:13 UTC · 1886 decisioni indipendenti (prima scelta di ogni entità su ogni token) · 1726 entità riconosciute fondendo i wallet della stessa mano*
+*2026-09-15 19:49 UTC · 2042 decisioni indipendenti (prima scelta di ogni entità su ogni token) · 1885 entità riconosciute fondendo i wallet della stessa mano*
 
 > **Come si misura la bravura qui**: non «quanti token ha azzeccato», ma **quanto ha fatto meglio
 > dei token comparabili** disponibili negli stessi momenti — e con il punteggio schiacciato verso
