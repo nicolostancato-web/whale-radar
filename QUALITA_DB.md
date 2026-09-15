@@ -1,5 +1,5 @@
 # 🧱 QUALITÀ DEL TERRENO — il database serve a qualcosa?
-*2026-09-15 17:59 UTC · controllo continuo · €0*
+*2026-09-15 18:08 UTC · controllo continuo · €0*
 
 > Gli altri controlli chiedono **«il sistema gira?»**. Questo chiede **«quello che sta
 > entrando serve a qualcosa?»**. Un collettore che funziona benissimo e produce dati che non
@@ -20,7 +20,7 @@
 | base: timbro di acquisizione | 🟡 **ATTENZIONE** | 17.4 | 4 file su 23 fra i piu' recenti hanno il campo acq |
 | robinhood: serie con scambi | 🟡 **ATTENZIONE** | 33.7 | 782 su 2318 |
 | robinhood: timbro di acquisizione | 🟡 **ATTENZIONE** | 45.0 | 9 file su 20 fra i piu' recenti hanno il campo acq |
-| solana: freschezza | 🟡 **ATTENZIONE** | 20.2 | il dato piu' recente nel campione ha 20.2 ore (letto DENTRO i file, non dalla data del file) |
+| solana: freschezza | 🟡 **ATTENZIONE** | 20.4 | il dato piu' recente nel campione ha 20.4 ore (letto DENTRO i file, non dalla data del file) |
 | solana: timbro di acquisizione | 🟡 **ATTENZIONE** | 16.7 | 4 file su 24 fra i piu' recenti hanno il campo acq |
 | base: entita' duplicate | 🟢 **PASSA** | 0 | 1905 righe, 1905 pool distinti |
 | base: freschezza | 🟢 **PASSA** | 0.0 | il dato piu' recente nel campione ha 0.0 ore (letto DENTRO i file, non dalla data del file) |
@@ -28,7 +28,7 @@
 | base: storico utile | 🟢 **PASSA** | 88.0 | sulle righe COPERTE: 264 su 300 hanno almeno 6 scambi prima dell'entrata |
 | base: storico, quante righe copre | 🟢 **PASSA** | 97.1 | 1849 righe su 1905 hanno la storia dalla catena |
 | robinhood: entita' duplicate | 🟢 **PASSA** | 0 | 759 righe, 759 pool distinti |
-| robinhood: freschezza | 🟢 **PASSA** | 1.3 | il dato piu' recente nel campione ha 1.3 ore (letto DENTRO i file, non dalla data del file) |
+| robinhood: freschezza | 🟢 **PASSA** | 1.5 | il dato piu' recente nel campione ha 1.5 ore (letto DENTRO i file, non dalla data del file) |
 | robinhood: storico dalla catena | 🟢 **PASSA** | 806 | 806 pool con storia dalla catena |
 | robinhood: storico utile | 🟢 **PASSA** | 74.0 | sulle righe COPERTE: 222 su 300 hanno almeno 6 scambi prima dell'entrata |
 | robinhood: storico, quante righe copre | 🟢 **PASSA** | 68.8 | 522 righe su 759 hanno la storia dalla catena |
