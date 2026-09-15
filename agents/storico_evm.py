@@ -69,8 +69,16 @@ def rpc(url, metodo, params, tentativi=3):
 
 
 def firma(topic0, dati, topics):
-    """Dal log grezzo ai fatti. Niente dollari: si tengono le quantita' dei due lati, cosi' come sono."""
-    w = "0x" + topics[-1][-40:] if len(topics) > 1 else None      # destinatario dello scambio
+    """Dal log grezzo ai fatti. Niente dollari: si tengono le quantita' dei due lati, cosi' come sono.
+
+    LA SEMANTICA DEL WALLET VA DICHIARATA (15/09, imposto dalla revisione). Dire "wallet presenti al
+    100%" misura la NON-NULLITA', non l'identita' economica: quel campo puo' essere un router, un
+    aggregatore, un contratto, il destinatario o chi incassa le commissioni — non necessariamente
+    chi ha DECISO lo scambio. E cambia significato fra le versioni del protocollo.
+    Finche' non lo si dichiara, meta' delle variabili nuove poggia su un'identita' non giudicabile.
+    Qui ogni record porta scritto da quale campo viene, cosi' chi analizza lo sa senza dedurlo."""
+    w = "0x" + topics[-1][-40:] if len(topics) > 1 else None
+    sem = {SWAP_V2: "v2:to", SWAP_V3: "v3:recipient", SWAP_V4: "v4:sender"}.get(topic0, "ignota")
     d = dati[2:] if dati.startswith("0x") else dati
     campi = [d[i:i + 64] for i in range(0, len(d), 64)]
     def i256(h):
@@ -80,12 +88,12 @@ def firma(topic0, dati, topics):
         if topic0 == SWAP_V2 and len(campi) >= 4:
             a0i, a1i, a0o, a1o = (int(campi[i], 16) for i in range(4))
             # verso: se entra token0 ed esce token1, qualcuno ha venduto token0
-            return {"w": w, "a0": a0i - a0o, "a1": a1i - a1o, "v": 2}
+            return {"w": w, "w_sem": sem, "a0": a0i - a0o, "a1": a1i - a1o, "v": 2}
         if topic0 == SWAP_V3 and len(campi) >= 2:
-            return {"w": w, "a0": i256(campi[0]), "a1": i256(campi[1]), "v": 3}
+            return {"w": w, "w_sem": sem, "a0": i256(campi[0]), "a1": i256(campi[1]), "v": 3}
         if topic0 == SWAP_V4 and len(campi) >= 2:
             # stessa forma del V3 nei primi due campi: le due quantita' con segno
-            return {"w": w, "a0": i256(campi[0]), "a1": i256(campi[1]), "v": 4}
+            return {"w": w, "w_sem": sem, "a0": i256(campi[0]), "a1": i256(campi[1]), "v": 4}
     except Exception:
         return None
     return None
@@ -131,6 +139,13 @@ def pota(CHAIN, quanti=400):
                 if l.strip():
                     try: righe.append(json.loads(l))
                     except Exception: pass
+            # UN SOLO FORMATO, NON DUE (15/09). I record raccolti prima di oggi non hanno il block
+            # hash ne' l'indice della transazione: non si possono ordinare con precisione (piu'
+            # scambi condividono lo stesso secondo) ne' si puo' accorgersi di una riorganizzazione
+            # della catena. Tenerli sarebbe un database di cui bisogna RICORDARSI le eccezioni, e le
+            # eccezioni che si ricordano oggi sono quelle che si dimenticano fra un mese.
+            # Si buttano: la catena li ha ancora, e il collettore li riprende col formato completo.
+            righe = [r for r in righe if r.get("bh")]
             # prima i doppioni, poi il tetto: un file puo' essere oltre misura PERCHE' e' doppio
             unici = {}
             for r in righe:
@@ -140,7 +155,7 @@ def pota(CHAIN, quanti=400):
             # dentro il tetto e comunque sporco.
             originali = sum(1 for _ in gzip.open(f, "rt"))
             if len(righe) <= TETTO_POOL and len(righe) == originali:
-                continue
+                continue      # gia' pulito: stesso numero di righe, tutte col formato completo
             tenute = righe[:TETTO_POOL]
             tmp = f + ".tmp"
             with gzip.open(tmp, "wt") as fo:
@@ -186,7 +201,7 @@ def scarica_su_disco(CHAIN, per_pool):
         da_scrivere = sorted(da_scrivere, key=lambda x: x["ts"])[:TETTO_POOL - gia]
         try:
             with gzip.open(p, "at") as f:
-                for r in sorted(da_scrivere, key=lambda x: x["ts"]):
+                for r in sorted(da_scrivere, key=lambda x: (x["ts"], x.get("blocco", 0), x.get("ti", 0), x.get("li", 0))):
                     f.write(json.dumps(r) + "\n")
             nuovi += len(da_scrivere)
         except Exception: pass
@@ -344,9 +359,19 @@ def main():
                 # contenere PIU' scambi — succede ogni volta che un ordine passa per piu' pool. Con
                 # la sola transazione come chiave se ne perdevano di legittimi e se ne tenevano di
                 # doppi: 1.014 duplicati su 28.271 scambi campionati. La posizione nel log li separa.
+                # I CAMPI CHE C'ERANO GIA' E BUTTAVAMO (15/09). Piu' scambi possono avere lo STESSO
+                # istante — sono nello stesso blocco — quindi una variabile che si chiama "in che
+                # ordine sono arrivati" non puo' ordinare con la precisione del secondo. Servono
+                # numero di blocco, indice della transazione e indice del log: insieme danno
+                # l'ordine esatto. E il block hash e' l'unico modo per accorgersi che la catena e'
+                # stata riorganizzata sotto di noi.
+                # Arrivavano tutti nella stessa risposta. Non costavano niente. Li scartavo.
                 {"acq": int(time.time()), "ts": ts, "blocco": bn, "tx": l.get("transactionHash"),
+                 "bh": l.get("blockHash"),
+                 "ti": int(l.get("transactionIndex", "0x0"), 16),
                  "li": int(l.get("logIndex", "0x0"), 16),
-                 "w": f["w"], "a0": f["a0"], "a1": f["a1"], "dex": f["v"], "fonte": "catena"})
+                 "classe": "ricostruzione-storica",
+                 "w": f["w"], "w_sem": f.get("w_sem"), "a0": f["a0"], "a1": f["a1"], "dex": f["v"], "fonte": "catena"})
             scambi += 1
         cursore = da
         # GLI INTOPPI SI DIMENTICANO DOPO UN SUCCESSO (15/09). Il contatore non si azzerava mai: in
@@ -387,7 +412,7 @@ def main():
         if not da_scrivere: continue
         try:
             with gzip.open(p, "at") as f:
-                for r in sorted(da_scrivere, key=lambda x: x["ts"]):
+                for r in sorted(da_scrivere, key=lambda x: (x["ts"], x.get("blocco", 0), x.get("ti", 0), x.get("li", 0))):
                     f.write(json.dumps(r) + "\n")
             nuovi += len(da_scrivere)
         except Exception: pass
