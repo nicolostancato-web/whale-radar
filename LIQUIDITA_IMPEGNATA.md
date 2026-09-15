@@ -1,5 +1,5 @@
 # 💧 I SOLDI CHE ENTRANO NEL POOL, NON IL PREZZO CHE SALE
-*2026-09-15 17:04 UTC · esperimento 7 · solo dati già scaricati · €0*
+*2026-09-15 17:16 UTC · esperimento 7 · solo dati già scaricati · €0*
 
 > Il prezzo può salire con due euro su un pool vuoto: è un'opinione, e costa niente
 > esprimerla. La liquidità aggiunta è **capitale immobilizzato**, soldi che restano lì e non
@@ -10,14 +10,14 @@
 
 Crescita misurata su **2h**, ingresso **1h dopo** averla vista, esito a **24h**. Un evento per pool: mille punti dello stesso token non sono mille prove.
 
-**Eventi utilizzabili: 299**
+**Eventi utilizzabili: 300**
 
 | ordinando per | quinto alto − quinto basso (mediana a 24h) |
 |---|---|
-| **liquidità che entra** | **-5.5%** |
-| prezzo che sale | -4.1% |
+| **liquidità che entra** | **-4.8%** |
+| prezzo che sale | -4.3% |
 
-Sul quinto alto per liquidità: t sui **giorni indipendenti** **+0.57** (13 giorni distinti); sulle righe sarebbe +1.74.
+Sul quinto alto per liquidità: t sui **giorni indipendenti** **+0.54** (13 giorni distinti); sulle righe sarebbe +1.74.
 
 ## Verdetto
 
