@@ -1,9 +1,9 @@
 # 🧪 CORSIA SPERIMENTI — cosa e' successo nell'ultimo giro
-*2026-09-15 19:39 UTC · giro 34*
+*2026-09-15 19:52 UTC · giro 36*
 
 | esperimento | esito | ultima cosa detta |
 |---|---|---|
-| `liquidita_impegnata.py` | ok | LIQUIDITA_IMPEGNATA | eventi:300 |
+| `liquidita_impegnata.py` | ok | LIQUIDITA_IMPEGNATA | eventi:301 |
 | `sperimentale.py` | ok | SPERIMENTALE | gemelli 2518 | esplosioni 33 | valutate 24 |
 | `due_gambe.py` | ok | DUE_GAMBE | copertura base:8% robinhood:3% solana:44% |
 | `costo_chain.py` | ok | COSTO_CHAIN | controllo su solana: NON passa |
@@ -16,4 +16,4 @@
 > Un giro che dura pochi secondi non e' un giro veloce: e' un giro in cui
 > nessuno ha lavorato. Per questo qui sotto c'e' anche quanto e' durato.
 
-*Durata del giro: **381 secondi**.*
+*Durata del giro: **389 secondi**.*
