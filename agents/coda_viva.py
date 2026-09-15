@@ -1,0 +1,162 @@
+#!/usr/bin/env python3
+"""
+CODA_VIVA — l'unico dato che potra' essere certificato: quello preso mentre succede.
+
+PERCHE' ESISTE (15/09). Il timbro di acquisizione ha appena misurato la verita' scomoda: il nostro
+backfill ha un ritardo mediano di 362 ore su Base e 614 su Robinhood. Ovvio — raccoglie all'indietro
+la storia di token nati settimane fa — ma significa che quei 147.000 record NON potranno mai essere
+certificati point-in-time. Servono a esplorare, non a decidere.
+
+Il dato su cui un verdetto vale e' solo quello raccolto MENTRE SUCCEDE. E nessuno lo stava
+raccogliendo: le fette dello storico partono da adesso e vanno all'INDIETRO, quindi ogni blocco lo
+vedono una volta sola e poi si allontanano. Un pool nato dieci minuti fa non viene ripreso da
+nessuno.
+
+Questa corsia fa il contrario: sta attaccata alla punta della catena e non si allontana mai. Ogni
+giro legge i blocchi comparsi dall'ultimo giro, e basta. Il ritardo fra il fatto e il timbro resta
+di minuti — ed e' quel numero, non una dichiarazione, che rendera' certificabile il dataset.
+
+Non si puo' accelerare. Un giorno di dati certificati richiede un giorno. E' il vincolo vero del
+progetto: non i soldi, non le API, il tempo che deve passare.
+
+€0: nodi pubblici gratuiti.
+"""
+import json, gzip, os, time, urllib.request
+
+SWAP_V2 = "0xd78ad95fa46c994b6551d0da85fc275fe613ce37657fb8d5e3d130840159d822"
+SWAP_V3 = "0xc42079f94a6350d7e6235f29174924f928cc2ac818eb64fed8004e115fbcca67"
+SWAP_V4 = "0x40e9cecb9f5f1f1c5b9c97dec2917b7ee92e57ba5563708daca94dd84ad7112f"
+RPC = {"base": ("https://mainnet.base.org", 100), "robinhood": ("https://rpc.mainnet.chain.robinhood.com", 400)}
+CHAIN = os.environ.get("CHAIN", "base")
+BUDGET = int(os.environ.get("BUDGET_SEC", 600))
+PAUSA = float(os.environ.get("PAUSA", 1.4))
+CK = f"data/multichain/{CHAIN}/coda_ckpt.json"
+t0 = time.time()
+
+
+def rpc(url, metodo, params, tentativi=3):
+    b = json.dumps({"jsonrpc": "2.0", "method": metodo, "params": params, "id": 1}).encode()
+    attesa = 3
+    for k in range(tentativi):
+        try:
+            r = urllib.request.Request(url, data=b, headers={"Content-Type": "application/json",
+                                                             "User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(r, timeout=40) as x:
+                d = json.load(x)
+            if "error" in d: return None, str(d["error"])[:70]
+            return d.get("result"), None
+        except Exception as e:
+            if k < tentativi - 1: time.sleep(attesa); attesa *= 2; continue
+            return None, f"{type(e).__name__} {getattr(e, 'code', '')}"
+    return None, "tentativi esauriti"
+
+
+def main():
+    url, ampiezza = RPC.get(CHAIN, (None, None))
+    if not url:
+        print(f"CODA_VIVA | {CHAIN} non e' una chain che sappiamo leggere"); return
+    import sys
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import storico_evm as S
+
+    punta, err = rpc(url, "eth_blockNumber", [])
+    if not punta:
+        print(f"CODA_VIVA | il nodo non risponde: {err}"); return
+    punta = int(punta, 16)
+    try:
+        ck = json.load(open(CK))
+    except Exception:
+        ck = {}
+    # alla prima accensione si parte da POCO indietro: la coda viva non recupera il passato, quello
+    # e' il mestiere delle fette. Qui conta solo restare attaccati alla punta.
+    cursore = int(ck.get("ultimo") or (punta - ampiezza * 3))
+
+    b_now, _ = rpc(url, "eth_getBlockByNumber", [hex(punta), False])
+    b_pre, _ = rpc(url, "eth_getBlockByNumber", [hex(punta - 20000), False])
+    if not b_now or not b_pre:
+        print("CODA_VIVA | non riesco a fissare gli istanti"); return
+    t_now = int(b_now["timestamp"], 16)
+    sec_blocco = (t_now - int(b_pre["timestamp"], 16)) / 20000.0
+
+    nostri = set()
+    try:
+        nostri = {k.lower() for k in json.load(open(f"data/multichain/{CHAIN}/righe.json")).get("pool", {})}
+    except Exception:
+        pass
+    import glob as _g
+    for d in ("candles", "pulse"):
+        for f in _g.glob(f"data/multichain/{CHAIN}/{d}/*.jsonl.gz"):
+            nostri.add(os.path.basename(f).replace(".jsonl.gz", "").lower())
+
+    os.makedirs(f"data/multichain/{CHAIN}/vivo", exist_ok=True)
+    per_pool = {}
+    chiamate = presi = 0
+    ritardi = []
+    while time.time() - t0 < BUDGET:
+        punta, _ = rpc(url, "eth_blockNumber", [])
+        punta = int(punta, 16) if punta else cursore
+        if cursore >= punta:
+            time.sleep(5); continue                      # siamo in pari: si aspetta la catena
+        a = min(punta, cursore + ampiezza)
+        log, err = rpc(url, "eth_getLogs", [{"fromBlock": hex(cursore + 1), "toBlock": hex(a),
+                                             "topics": [[SWAP_V2, SWAP_V3, SWAP_V4]]}])
+        chiamate += 1
+        if log is None:
+            ampiezza = max(10, ampiezza // 2); time.sleep(3); continue
+        adesso = int(time.time())
+        for l in log:
+            tp = l.get("topics") or []
+            pool = (tp[1].lower() if (tp and tp[0] == SWAP_V4 and len(tp) > 1) else l["address"].lower())
+            if pool not in nostri: continue
+            f = S.firma(tp[0], l.get("data", "0x"), tp)
+            if not f: continue
+            bn = int(l["blockNumber"], 16)
+            ts = int(t_now - (punta - bn) * sec_blocco)
+            ritardi.append(adesso - ts)
+            per_pool.setdefault(pool, []).append(
+                {"acq": adesso, "ts": ts, "blocco": bn, "tx": l.get("transactionHash"),
+                 "bh": l.get("blockHash"), "ti": int(l.get("transactionIndex", "0x0"), 16),
+                 "li": int(l.get("logIndex", "0x0"), 16),
+                 "classe": "point-in-time",          # preso mentre succedeva: questo si puo' certificare
+                 "w": f["w"], "w_sem": f.get("w_sem"), "a0": f["a0"], "a1": f["a1"],
+                 "dex": f["v"], "fonte": "catena-viva"})
+            presi += 1
+        cursore = a
+        time.sleep(PAUSA)
+
+    nuovi = 0
+    for pool, righe in per_pool.items():
+        p = f"data/multichain/{CHAIN}/vivo/{pool}.jsonl.gz"
+        visti = set()
+        if os.path.exists(p):
+            try:
+                for l in gzip.open(p, "rt"):
+                    if l.strip():
+                        try:
+                            d = json.loads(l); visti.add((d.get("tx"), d.get("li")))
+                        except Exception: pass
+            except Exception: pass
+        da = [r for r in righe if (r.get("tx"), r.get("li")) not in visti]
+        if not da: continue
+        try:
+            with gzip.open(p, "at") as fo:
+                for r in sorted(da, key=lambda x: (x["ts"], x.get("ti", 0), x.get("li", 0))):
+                    fo.write(json.dumps(r) + "\n")
+            nuovi += len(da)
+        except Exception: pass
+    try:
+        json.dump({"ultimo": cursore, "acq": int(time.time())}, open(CK, "w"))
+    except Exception: pass
+    try:
+        import registro_pit as R
+        R.annota("coda_viva", "catena-viva", CHAIN, nuovi, {"chiamate": chiamate})
+    except Exception: pass
+    import statistics as st
+    med = st.median(ritardi) if ritardi else None
+    print(f"CODA_VIVA | {CHAIN}: {chiamate} chiamate, {presi} swap nostri, {nuovi} nuovi, "
+          f"{len(per_pool)} pool | ritardo mediano "
+          + (f"{med/60:.1f} minuti" if med is not None else "n/d"), flush=True)
+
+
+if __name__ == "__main__":
+    main()
