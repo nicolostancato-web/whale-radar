@@ -1,24 +1,24 @@
 # 🔁 LOOPS — i meeting del sistema
-*2026-09-15 16:15 UTC · un meeting per goal, a ogni ciclo (~30 min)*
+*2026-09-15 17:27 UTC · un meeting per goal, a ogni ciclo (~30 min)*
 
 ## Architetto: 🟢 tutti i loop si stanno riunendo
 
 | loop | la domanda | dove siamo | ago | cosa si fa |
 |---|---|---|---|---|
-| `accumulo-base` | Stiamo raccogliendo token Base nuovi? | 4795 token con dati (3301 osservati dal vivo, 1494 con storico) su 14798 pool noti | 📈 si muove | avanti cosi' |
-| `accumulo-solana` | Stiamo raccogliendo token Solana nuovi? | 1424 token con dati (198 osservati dal vivo, 1226 con storico) su 14793 pool noti | 📈 si muove | avanti cosi' |
+| `accumulo-base` | Stiamo raccogliendo token Base nuovi? | 4811 token con dati (3301 osservati dal vivo, 1510 con storico) su 14798 pool noti | 📈 si muove | avanti cosi' |
+| `accumulo-solana` | Stiamo raccogliendo token Solana nuovi? | 1444 token con dati (198 osservati dal vivo, 1246 con storico) su 14813 pool noti | 📈 si muove | avanti cosi' |
 | `percentuale-robinhood` | Come alziamo la percentuale su Robinhood? | robusta -26% (media -17%) su 45 token | ⏸ fermo da 6h | ✋ mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (strategy_optimizer.py, learner.py) → non li ripetiamo, se |
 | `percentuale-base` | Come alziamo la percentuale su Base? | robusta -8% (media -3%) su 1909 token | ⏸ fermo da 8h | ✋ mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (strategy_optimizer_base.py, learner.py) → non li ripetiam |
-| `percentuale-solana` | Come alziamo la percentuale su Solana? | robusta -26% (media -24%) su 762 token | ⏸ fermo da 48h | 🚨 fermo da 48h e la scala e' finita: serve una decisione umana |
+| `percentuale-solana` | Come alziamo la percentuale su Solana? | robusta -26% (media -24%) su 764 token | ⏸ fermo da 48h | 🚨 fermo da 48h e la scala e' finita: serve una decisione umana |
 | `demo-robinhood` | Come arriviamo a 3.000 euro su Robinhood? | 🔴 SOSPESO dal cancello — campione troppo piccolo: 45 token (ne servono 150) | 📈 si muove | ⏸ il cancello è chiuso: prima il LOOP 1 deve alzare la percentuale |
 | `demo-base` | Come arriviamo a 3.000 euro su Base? | 🔴 SOSPESO dal cancello — il LOOP 1 e' a **-8%** robusta, sotto la soglia di **+40%**: andare live vorrebbe dire attuare una strategia che sappiamo gia' non pagare | 📈 si muove | ⏸ il cancello è chiuso: prima il LOOP 1 deve alzare la percentuale |
-| `accumulo-robinhood` | Stiamo raccogliendo token Robinhood nuovi? | 2347 token con dati (222 osservati dal vivo, 2125 con storico) su 18880 pool noti | 📈 si muove | avanti cosi' |
+| `accumulo-robinhood` | Stiamo raccogliendo token Robinhood nuovi? | 2382 token con dati (224 osservati dal vivo, 2158 con storico) su 18900 pool noti | 📈 si muove | avanti cosi' |
 | `accumulo-bsc` | Stiamo raccogliendo token BSC nuovi? | 1055 token con dati (291 osservati dal vivo, 764 con storico) su 17461 pool noti | ⏸ fermo da 6h | 🚨 fermo da 6h e la scala e' finita: serve una decisione umana |
-| `percentuale-bsc` | Come alziamo la percentuale su BSC? | robusta -24% (media -21%) su 604 token | ⏸ fermo da 4h | ✋ mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (explorer.py, learner.py) → non li ripetiamo, serve cambia |
+| `percentuale-bsc` | Come alziamo la percentuale su BSC? | robusta -24% (media -21%) su 604 token | ⏸ fermo da 5h | ✋ mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (explorer.py, learner.py) → non li ripetiamo, serve cambia |
 
 ## 🎯 Le 3 cose che contano adesso
 
-1. **percentuale-solana** — fermo da 48h. robusta -26% (media -24%) su 762 token
+1. **percentuale-solana** — fermo da 48h. robusta -26% (media -24%) su 764 token
 2. **percentuale-base** — fermo da 8h. robusta -8% (media -3%) su 1909 token
 3. **percentuale-robinhood** — fermo da 6h. robusta -26% (media -17%) su 45 token
 
