@@ -5462,3 +5462,13 @@
 {"id": "accumulo-robinhood", "ts": 1789479555, "valore": 2254, "fermo_da": 0, "azione": "avanti cosi'"}
 {"id": "accumulo-bsc", "ts": 1789479555, "valore": 1055, "fermo_da": 9, "azione": "\ud83d\udea8 fermo da 4h e la scala e' finita: serve una decisione umana"}
 {"id": "percentuale-bsc", "ts": 1789479555, "valore": -24.0, "fermo_da": 6, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (explorer.py, learner.py) \u2192 non li ripetiamo, serve cambia"}
+{"id": "accumulo-base", "ts": 1789483863, "valore": 4748, "fermo_da": 0, "azione": "avanti cosi'"}
+{"id": "accumulo-solana", "ts": 1789483863, "valore": 1384, "fermo_da": 1, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (solana_helius.py, multichain_collector.py) \u2192 non li ripet"}
+{"id": "percentuale-robinhood", "ts": 1789483863, "valore": -25.7, "fermo_da": 10, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (strategy_optimizer.py, learner.py) \u2192 non li ripetiamo, se"}
+{"id": "percentuale-base", "ts": 1789483863, "valore": -7.7, "fermo_da": 13, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (strategy_optimizer_base.py, learner.py) \u2192 non li ripetiam"}
+{"id": "percentuale-solana", "ts": 1789483863, "valore": -26.4, "fermo_da": 94, "azione": "\ud83d\udea8 fermo da 47h e la scala e' finita: serve una decisione umana"}
+{"id": "demo-robinhood", "ts": 1789483863, "valore": 122.07, "fermo_da": 0, "azione": "\u23f8 il cancello \u00e8 chiuso: prima il LOOP 1 deve alzare la percentuale"}
+{"id": "demo-base", "ts": 1789483863, "valore": 92.78, "fermo_da": 0, "azione": "\u23f8 il cancello \u00e8 chiuso: prima il LOOP 1 deve alzare la percentuale"}
+{"id": "accumulo-robinhood", "ts": 1789483863, "valore": 2279, "fermo_da": 0, "azione": "avanti cosi'"}
+{"id": "accumulo-bsc", "ts": 1789483863, "valore": 1055, "fermo_da": 10, "azione": "\ud83d\udea8 fermo da 5h e la scala e' finita: serve una decisione umana"}
+{"id": "percentuale-bsc", "ts": 1789483863, "valore": -24.0, "fermo_da": 7, "azione": "\u270b mano alzata: tutti i rimedi noti hanno gia' fallito 3 volte (explorer.py, learner.py) \u2192 non li ripetiamo, serve cambia"}
