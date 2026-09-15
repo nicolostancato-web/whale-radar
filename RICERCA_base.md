@@ -1,34 +1,50 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (base)
-*2026-09-15 22:20 UTC · 4 segnali nuovi messi alla prova su 616 token*
+*2026-09-15 22:51 UTC · 20 segnali nuovi messi alla prova su 616 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-99%**.
 
 ## Nessun segnale nuovo ha superato la prova in questo giro
 
-Nessuno dei 4 candidati alza la percentuale di almeno 3 punti.
+Nessuno dei 20 candidati alza la percentuale di almeno 3 punti.
 Non è un fallimento: è la risposta onesta di oggi. Con più dati gli stessi segnali possono passare.
 
 ## Tutti i segnali provati, dal migliore al peggiore
 
 | il segnale | cosa guarda | risultato |
 |---|---|---|
-| `quota_wallet_nuovi x usd_primi20 (voto)` | la quota di denaro da wallet mai visti prima MOLTIPLICATO per quanto pesano i primissimi 20 acquisti sul totale | -99% (+0) |
-| `quota_wallet_nuovi x usd_primi20 (filtro)` | la quota di denaro da wallet mai visti prima MOLTIPLICATO per quanto pesano i primissimi 20 acquisti sul totale | -99% (+0) |
-| `quota_wallet_nuovi / usd_primi20 (voto)` | la quota di denaro da wallet mai visti prima RAPPORTATO a quanto pesano i primissimi 20 acquisti sul totale | -99% (+0) |
-| `quota_wallet_nuovi / usd_primi20 (filtro)` | la quota di denaro da wallet mai visti prima RAPPORTATO a quanto pesano i primissimi 20 acquisti sul totale | -99% (+0) |
+| `n_compratori (voto)` | quante persone diverse hanno comprato | -99% (+0) |
+| `n_compratori (filtro)` | quante persone diverse hanno comprato | -99% (+0) |
+| `trade_al_minuto (voto)` | quanto è frenetico lo scambio | -99% (+0) |
+| `trade_al_minuto (filtro)` | quanto è frenetico lo scambio | -99% (+0) |
+| `quota_wallet_nuovi (voto)` | la quota di denaro da wallet mai visti prima | -99% (+0) |
+| `quota_wallet_nuovi (filtro)` | la quota di denaro da wallet mai visti prima | -99% (+0) |
+| `eta_al_primo_trade (voto)` | quanto tempo passa dalla nascita al primo scambio | -99% (+0) |
+| `eta_al_primo_trade (filtro)` | quanto tempo passa dalla nascita al primo scambio | -99% (+0) |
+| `usd_primi20 (voto)` | quanto pesano i primissimi 20 acquisti sul totale | -99% (+0) |
+| `usd_primi20 (filtro)` | quanto pesano i primissimi 20 acquisti sul totale | -99% (+0) |
+| `wallet_ripetuti (voto)` | quanti wallet comprano più di una volta | -99% (+0) |
+| `wallet_ripetuti (filtro)` | quanti wallet comprano più di una volta | -99% (+0) |
+| `concentrazione_top1 x buy_medio (voto)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per quanto compra in media ciascuno | -99% (+0) |
+| `concentrazione_top1 x buy_medio (filtro)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per quanto compra in media ciascuno | -99% (+0) |
+| `concentrazione_top1 / buy_medio (voto)` | quanto pesa il singolo compratore più grosso RAPPORTATO a quanto compra in media ciascuno | -99% (+0) |
+| `concentrazione_top1 / buy_medio (filtro)` | quanto pesa il singolo compratore più grosso RAPPORTATO a quanto compra in media ciascuno | -99% (+0) |
+| `concentrazione_top5 x buy_medio (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per quanto compra in media ciascuno | -99% (+0) |
+| `concentrazione_top5 x buy_medio (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per quanto compra in media ciascuno | -99% (+0) |
+| `concentrazione_top5 / buy_medio (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a quanto compra in media ciascuno | -99% (+0) |
+| `concentrazione_top5 / buy_medio (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a quanto compra in media ciascuno | -99% (+0) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
-- `concentrazione_top5 (voto)` — già bocciato 38 volte 1h fa (si riprova fra 11h o quando i dati crescono)
-- `concentrazione_top5 (filtro)` — già bocciato 38 volte 1h fa (si riprova fra 11h o quando i dati crescono)
-- `concentrazione_top1 (voto)` — già bocciato 38 volte 1h fa (si riprova fra 11h o quando i dati crescono)
-- `concentrazione_top1 (filtro)` — già bocciato 38 volte 1h fa (si riprova fra 11h o quando i dati crescono)
-- `n_compratori (voto)` — già bocciato 14 volte 7h fa (si riprova fra 5h o quando i dati crescono)
-- `n_compratori (filtro)` — già bocciato 30 volte 7h fa (si riprova fra 5h o quando i dati crescono)
+- `concentrazione_top5 (voto)` — già bocciato 38 volte 2h fa (si riprova fra 10h o quando i dati crescono)
+- `concentrazione_top5 (filtro)` — già bocciato 38 volte 2h fa (si riprova fra 10h o quando i dati crescono)
+- `concentrazione_top1 (voto)` — già bocciato 38 volte 2h fa (si riprova fra 10h o quando i dati crescono)
+- `concentrazione_top1 (filtro)` — già bocciato 38 volte 2h fa (si riprova fra 10h o quando i dati crescono)
 - `buy_medio (voto)` — già bocciato 15 volte 3h fa (si riprova fra 9h o quando i dati crescono)
 - `buy_medio (filtro)` — già bocciato 38 volte 3h fa (si riprova fra 9h o quando i dati crescono)
-- `buy_grossi (voto)` — già bocciato 14 volte 1h fa (si riprova fra 11h o quando i dati crescono)
-- `buy_grossi (filtro)` — già bocciato 38 volte 1h fa (si riprova fra 11h o quando i dati crescono)
+- `buy_grossi (voto)` — già bocciato 14 volte 2h fa (si riprova fra 10h o quando i dati crescono)
+- `buy_grossi (filtro)` — già bocciato 38 volte 2h fa (si riprova fra 10h o quando i dati crescono)
+- `quota_wallet_reduci (voto)` — già bocciato 38 volte 1h fa (si riprova fra 11h o quando i dati crescono)
+- `quota_wallet_reduci (filtro)` — già bocciato 38 volte 1h fa (si riprova fra 11h o quando i dati crescono)
 
 > **Perché questo ruolo esiste:** l'insider su Solana l'ha inventato un umano. Qui il sistema
 > costruisce da sé segnali nuovi dai dati grezzi e li mette alla prova. Uno dei mattoni è proprio
