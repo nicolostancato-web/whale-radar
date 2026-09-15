@@ -85,6 +85,13 @@ def main():
         # 2. CONTROLLO — quello che e' entrato serve a qualcosa?
         # l'elenco dei pool che diventano righe: serve al collettore dello storico per scavare
         # solo dove puo' nascere una riga. Va rifatto spesso, perche' ogni ora ne nascono di nuovi.
+        # LA CODA VIVA PER PRIMA (15/09). E' l'unico dato che potra' essere certificato: preso
+        # mentre succede, con un ritardo di minuti invece che di settimane. Se il giro finisce il
+        # tempo, e' l'ultima cosa che voglio aver saltato — il backfill si puo' rifare domani, un
+        # blocco di adesso no.
+        for ch in ("base", "robinhood"):
+            rc, ult = sh("python agents/coda_viva.py", {"CHAIN": ch, "BUDGET_SEC": "120"}, timeout=170)
+            esiti.append((f"coda viva {ch}", rc, ult))
         rc, ult = sh("python agents/elenco_righe.py", timeout=280)
         esiti.append(("elenco righe", rc, ult))
         rc, ult = sh("python agents/qualita_db.py", timeout=280)
