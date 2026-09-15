@@ -53,7 +53,26 @@ def rpc(url, metodo, params, tentativi=3):
 
 def scarica(chain, per_pool):
     """Svuota il raccolto sui file. Torna quante righe nuove ha scritto."""
-    nuovi = scarica(CHAIN, per_pool) + totale[0]
+    nuovi = 0
+    for pool, righe in per_pool.items():
+        p = f"data/multichain/{chain}/vivo/{pool}.jsonl.gz"
+        visti = set()
+        if os.path.exists(p):
+            try:
+                for l in gzip.open(p, "rt"):
+                    if l.strip():
+                        try:
+                            d = json.loads(l); visti.add((d.get("tx"), d.get("li")))
+                        except Exception: pass
+            except Exception: pass
+        da = [r for r in righe if (r.get("tx"), r.get("li")) not in visti]
+        if not da: continue
+        try:
+            with gzip.open(p, "at") as fo:
+                for r in sorted(da, key=lambda x: (x["ts"], x.get("ti", 0), x.get("li", 0))):
+                    fo.write(json.dumps(r) + "\n")
+            nuovi += len(da)
+        except Exception: pass
     return nuovi
 
 
@@ -160,26 +179,7 @@ def main():
             ultimo_salvataggio[0] = time.time()
         time.sleep(PAUSA)
 
-    nuovi = 0
-    for pool, righe in per_pool.items():
-        p = f"data/multichain/{CHAIN}/vivo/{pool}.jsonl.gz"
-        visti = set()
-        if os.path.exists(p):
-            try:
-                for l in gzip.open(p, "rt"):
-                    if l.strip():
-                        try:
-                            d = json.loads(l); visti.add((d.get("tx"), d.get("li")))
-                        except Exception: pass
-            except Exception: pass
-        da = [r for r in righe if (r.get("tx"), r.get("li")) not in visti]
-        if not da: continue
-        try:
-            with gzip.open(p, "at") as fo:
-                for r in sorted(da, key=lambda x: (x["ts"], x.get("ti", 0), x.get("li", 0))):
-                    fo.write(json.dumps(r) + "\n")
-            nuovi += len(da)
-        except Exception: pass
+    nuovi = scarica(CHAIN, per_pool) + totale[0]
     try:
         json.dump({"ultimo": cursore, "acq": int(time.time())}, open(CK, "w"))
     except Exception: pass
