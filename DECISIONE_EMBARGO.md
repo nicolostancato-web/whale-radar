@@ -65,3 +65,51 @@ muoiono come le altre.
 
 **Una scatola più grande non rende più probabile che l'edge esista. Rende possibile accorgersene, se
 esiste — e anche più facile illudersi.** Per questo il giudice non si tocca.
+
+---
+
+# CORREZIONE (stesso giorno, dopo la revisione avversariale)
+
+La decisione qui sopra era **troppo generosa**, e il revisore l'ha smontata in una riga:
+
+> «`acq` dimostra che quei dati sono entrati **adesso**, settimane dopo il blocco. Non prova che
+> fossero disponibili dopo 30 minuti: **per quei record prova il contrario**.»
+
+## Le tre cose che confondevo
+
+| | cosa dimostra |
+|---|---|
+| disponibilità **fisica** | un nodo oggi può servire quel log |
+| disponibilità **del nodo** | il nodo lo avrebbe servito allora |
+| **disponibilità operativa** | **noi sapevamo che quel pool esisteva e lo stavamo interrogando** |
+
+**Solo la terza conta**, e io stavo usando la prima.
+
+Non si può leggere la storia di un pool di cui non si conosce l'esistenza. Se l'abbiamo scoperto
+dieci ore dopo la nascita — perché ce l'ha detto un fornitore, col suo ritardo — allora i suoi primi
+scambi **non erano nostri** prima di quel momento, per quanto la catena li conservasse.
+
+## La regola corretta
+
+Un dato è disponibile dal **più tardi** fra:
+
+- quando è successo
+- **quando abbiamo saputo che quel pool esisteva**
+
+più il tempo che impieghiamo a leggerlo.
+
+## L'effetto, misurato
+
+| chain | metro vecchio (35,4h) | metro troppo generoso | **metro onesto** |
+|---|---|---|---|
+| base | 8% | 56% | **35%** |
+| robinhood | 7% | 57% | **52%** |
+
+**Ho perso 21 punti su Base** rispetto alla versione che avevo appena scritto. Sono punti che non
+avevo diritto di avere.
+
+## E l'etichetta che mancava
+
+Lo storico raccolto all'indietro **non è certificato point-in-time**: è **ricostruzione storica**.
+Che oggi sia recuperabile non dimostra che allora fosse nostro. Va marcato per quello che è, e il
+revisore ha ragione anche su questo: `acq` è buona provenienza, **non risolve il problema**.
