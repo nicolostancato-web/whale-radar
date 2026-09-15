@@ -1,5 +1,5 @@
 # 🧫 COORTE — è morto, o non l'abbiamo guardato?
-*2026-09-15 21:03 UTC · test prospettico · €0*
+*2026-09-15 21:08 UTC · test prospettico · €0*
 
 > L'audit aveva misurato che le serie escluse vivono 1 ora e le ammesse 23, e l'avevo
 > chiamato survivorship bias. La revisione ha corretto: è una **durata osservata**, non la
@@ -9,7 +9,7 @@
 > Qui si chiede a un canale **indipendente** — la catena, non la stessa fonte delle candele —
 > se il pool era vivo a +3h, e si confronta con quello che abbiamo noi.
 
-**Osservazioni accumulate: 766** (+37 in questo giro)
+**Osservazioni accumulate: 766** (+31 in questo giro)
 
 | la catena dice | noi abbiamo la candela | quanti | lettura |
 |---|---|---|---|
@@ -18,6 +18,7 @@
 | None | False | 18 | ❓ non so (contratto muto) |
 | False | False | 13 | ⚫ mortalità vera |
 | False | True | 1 | ⚠️ incoerente |
+| None | True | 1 | ❓ non so |
 
 > Fra i casi in cui **non abbiamo la candela** e la catena ha risposto: **700 su 713** erano ancora vivi — cioè **buchi nostri**, non morti.
 
