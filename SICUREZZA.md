@@ -1,5 +1,5 @@
 # 🛡️ SICUREZZA DEI TOKEN — si possono vendere davvero?
-*2026-09-15 17:27 UTC · fonte GoPlus, gratis*
+*2026-09-15 18:09 UTC · fonte GoPlus, gratis*
 
 > **Perché**: nel modello un token da cui non si esce risultava come un trade che perde il 70%.
 > Nella realtà perde TUTTO. La misura dei costi reali l'ha già mostrato: su 5 token, 4 avevano
@@ -7,8 +7,9 @@
 
 | chain | token nuovi controllati | **con problemi** | senza dati | archivio totale |
 |---|---|---|---|---|
-| base | 11 | **0** | 5 | 5384 |
-| solana | 14 | **0** | 7 | 3130 |
+| base | 12 | **0** | 8 | 5396 |
+| solana | 7 | **0** | 0 | 3137 |
+| bsc | 0 | **0** | 1 | 1531 |
 
 ## Cosa guardiamo
 
