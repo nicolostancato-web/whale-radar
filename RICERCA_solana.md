@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (solana)
-*2026-09-15 20:37 UTC · 20 segnali nuovi messi alla prova su 428 token*
+*2026-09-15 20:53 UTC · 20 segnali nuovi messi alla prova su 428 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-99%**.
 
@@ -12,26 +12,26 @@ Non è un fallimento: è la risposta onesta di oggi. Con più dati gli stessi se
 
 | il segnale | cosa guarda | risultato |
 |---|---|---|
-| `concentrazione_top5 x volume_ultima_su_media (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per se il volume sta accelerando proprio adesso | -99% (+0) |
-| `concentrazione_top5 x volume_ultima_su_media (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per se il volume sta accelerando proprio adesso | -99% (+0) |
-| `concentrazione_top5 / volume_ultima_su_media (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a se il volume sta accelerando proprio adesso | -99% (+0) |
-| `concentrazione_top5 / volume_ultima_su_media (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a se il volume sta accelerando proprio adesso | -99% (+0) |
-| `concentrazione_top1 x accelerazione_denaro (voto)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -99% (+0) |
-| `concentrazione_top1 x accelerazione_denaro (filtro)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -99% (+0) |
-| `concentrazione_top1 / accelerazione_denaro (voto)` | quanto pesa il singolo compratore più grosso RAPPORTATO a se i soldi stanno entrando più in fretta adesso che all'inizio | -99% (+0) |
-| `concentrazione_top1 / accelerazione_denaro (filtro)` | quanto pesa il singolo compratore più grosso RAPPORTATO a se i soldi stanno entrando più in fretta adesso che all'inizio | -99% (+0) |
-| `buy_medio x volume_ultima_su_media (voto)` | quanto compra in media ciascuno MOLTIPLICATO per se il volume sta accelerando proprio adesso | -99% (+0) |
-| `buy_medio x volume_ultima_su_media (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per se il volume sta accelerando proprio adesso | -99% (+0) |
-| `buy_medio / volume_ultima_su_media (voto)` | quanto compra in media ciascuno RAPPORTATO a se il volume sta accelerando proprio adesso | -99% (+0) |
-| `buy_medio / volume_ultima_su_media (filtro)` | quanto compra in media ciascuno RAPPORTATO a se il volume sta accelerando proprio adesso | -99% (+0) |
-| `n_compratori x sbilanciamento (voto)` | quante persone diverse hanno comprato MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -99% (+0) |
-| `n_compratori x sbilanciamento (filtro)` | quante persone diverse hanno comprato MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -99% (+0) |
-| `n_compratori / sbilanciamento (voto)` | quante persone diverse hanno comprato RAPPORTATO a quanto il denaro che entra supera quello che esce | -99% (+0) |
-| `n_compratori / sbilanciamento (filtro)` | quante persone diverse hanno comprato RAPPORTATO a quanto il denaro che entra supera quello che esce | -99% (+0) |
-| `quota_wallet_reduci x accelerazione_denaro (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -99% (+0) |
-| `quota_wallet_reduci x accelerazione_denaro (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -99% (+0) |
-| `quota_wallet_reduci / accelerazione_denaro (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) RAPPORTATO a se i soldi stanno entrando più in fretta adesso che all'inizio | -99% (+0) |
-| `quota_wallet_reduci / accelerazione_denaro (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) RAPPORTATO a se i soldi stanno entrando più in fretta adesso che all'inizio | -99% (+0) |
+| `concentrazione_top1 x buy_grossi (voto)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per la quota di denaro che arriva da acquisti sopra i 500 dollari | -99% (+0) |
+| `concentrazione_top1 x buy_grossi (filtro)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per la quota di denaro che arriva da acquisti sopra i 500 dollari | -99% (+0) |
+| `concentrazione_top1 / buy_grossi (voto)` | quanto pesa il singolo compratore più grosso RAPPORTATO a la quota di denaro che arriva da acquisti sopra i 500 dollari | -99% (+0) |
+| `concentrazione_top1 / buy_grossi (filtro)` | quanto pesa il singolo compratore più grosso RAPPORTATO a la quota di denaro che arriva da acquisti sopra i 500 dollari | -99% (+0) |
+| `quota_wallet_reduci x sbilanciamento (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -99% (+0) |
+| `quota_wallet_reduci x sbilanciamento (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -99% (+0) |
+| `quota_wallet_reduci / sbilanciamento (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) RAPPORTATO a quanto il denaro che entra supera quello che esce | -99% (+0) |
+| `quota_wallet_reduci / sbilanciamento (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) RAPPORTATO a quanto il denaro che entra supera quello che esce | -99% (+0) |
+| `quota_wallet_reduci x wallet_ripetuti (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per quanti wallet comprano più di una volta | -99% (+0) |
+| `quota_wallet_reduci x wallet_ripetuti (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per quanti wallet comprano più di una volta | -99% (+0) |
+| `quota_wallet_reduci / wallet_ripetuti (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) RAPPORTATO a quanti wallet comprano più di una volta | -99% (+0) |
+| `quota_wallet_reduci / wallet_ripetuti (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) RAPPORTATO a quanti wallet comprano più di una volta | -99% (+0) |
+| `buy_grossi x sbilanciamento (voto)` | la quota di denaro che arriva da acquisti sopra i 500 dollari MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -99% (+0) |
+| `buy_grossi x sbilanciamento (filtro)` | la quota di denaro che arriva da acquisti sopra i 500 dollari MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -99% (+0) |
+| `buy_grossi / sbilanciamento (voto)` | la quota di denaro che arriva da acquisti sopra i 500 dollari RAPPORTATO a quanto il denaro che entra supera quello che esce | -99% (+0) |
+| `buy_grossi / sbilanciamento (filtro)` | la quota di denaro che arriva da acquisti sopra i 500 dollari RAPPORTATO a quanto il denaro che entra supera quello che esce | -99% (+0) |
+| `wallet_ripetuti x sbilanciamento (voto)` | quanti wallet comprano più di una volta MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -99% (+0) |
+| `wallet_ripetuti x sbilanciamento (filtro)` | quanti wallet comprano più di una volta MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -99% (+0) |
+| `wallet_ripetuti / sbilanciamento (voto)` | quanti wallet comprano più di una volta RAPPORTATO a quanto il denaro che entra supera quello che esce | -99% (+0) |
+| `wallet_ripetuti / sbilanciamento (filtro)` | quanti wallet comprano più di una volta RAPPORTATO a quanto il denaro che entra supera quello che esce | -99% (+0) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 

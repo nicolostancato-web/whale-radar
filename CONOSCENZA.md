@@ -1,5 +1,5 @@
 # 🧠 CONOSCENZA — cosa ha imparato il team
-*2026-09-15 20:39 UTC · 2414 idee messe alla prova finora*
+*2026-09-15 20:54 UTC · 2414 idee messe alla prova finora*
 
 > Questa non è la cronaca di cosa è successo: è il sapere accumulato. Prima di riprovare una cosa,
 > il team guarda qui. Ciò che ha fallito 3 volte si mette da parte — ma il caso si RIAPRE quando i
@@ -526,12 +526,12 @@
 | `segnale:base:buy_grossi x volume_ultima_su_media:voto` | base | 14 | +10226 punti |
 | `segnale:base:buy_medio x usd_primi20:voto` | base | 10 | +10130 punti |
 | `segnale:base:trade_al_minuto / drawdown_pre:voto` | base | 14 | +10122 punti |
-| `segnale:base:concentrazione_top5 x n_compratori:voto` | base | 13 | +9935 punti |
+| `segnale:base:concentrazione_top5 x n_compratori:voto` | base | 14 | +9935 punti |
 | `segnale:base:concentrazione_top1 x n_compratori:voto` | base | 13 | +9787 punti |
 | `segnale:base:sbilanciamento / accelerazione_denaro:voto` | base | 13 | +9270 punti |
 | `segnale:base:buy_grossi x ampiezza:voto` | base | 10 | +8310 punti |
 | `segnale:base:buy_grossi / drawdown_pre:voto` | base | 12 | +8042 punti |
-| `segnale:base:n_compratori x volume_ultima_su_media:voto` | base | 11 | +7921 punti |
+| `segnale:base:n_compratori x volume_ultima_su_media:voto` | base | 12 | +7921 punti |
 | `segnale:base:buy_grossi x compra_e_rivende:voto` | base | 12 | +6624 punti |
 | `segnale:base:buy_grossi / wallet_ripetuti:voto` | base | 12 | +6623 punti |
 
