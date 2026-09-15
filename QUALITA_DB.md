@@ -1,11 +1,11 @@
 # 🧱 QUALITÀ DEL TERRENO — il database serve a qualcosa?
-*2026-09-15 16:35 UTC · controllo continuo · €0*
+*2026-09-15 16:44 UTC · controllo continuo · €0*
 
 > Gli altri controlli chiedono **«il sistema gira?»**. Questo chiede **«quello che sta
 > entrando serve a qualcosa?»**. Un collettore che funziona benissimo e produce dati che non
 > si uniscono a niente, qui è un **fallimento**.
 
-## 9 falliti · 2 da guardare · 0 non misurabili
+## 8 falliti · 3 da guardare · 0 non misurabili
 
 | controllo | esito | numero | perché |
 |---|---|---|---|
@@ -13,13 +13,13 @@
 | base: serie con scambi | 🔴 **FALLISCE** | 21.6 | 976 su 4521 |
 | finestra dell'embargo | 🔴 **FALLISCE** | -32.4 | entrata a +3h meno ritardo 35.4h → NESSUNO scambio puo' mai entrare |
 | robinhood: feature scambi vive | 🔴 **FALLISCE** | 0.0 | solo 0 righe su 761 hanno scambi veri; le altre usano il valore di ripiego |
-| robinhood: scambi orfani | 🔴 **FALLISCE** | 84.3 | 4083 file su 4845 non si uniscono a nessuna serie di prezzo |
-| robinhood: storico utile | 🔴 **FALLISCE** | 24.0 | sulle righe COPERTE: 72 su 300 hanno almeno 6 scambi prima dell'entrata |
+| robinhood: scambi orfani | 🔴 **FALLISCE** | 84.2 | 4083 file su 4847 non si uniscono a nessuna serie di prezzo |
 | solana: feature scambi vive | 🔴 **FALLISCE** | 16.3 | solo 124 righe su 763 hanno scambi veri; le altre usano il valore di ripiego |
-| solana: freschezza | 🔴 **FALLISCE** | 37.3 | il dato piu' recente nel campione ha 37.3 ore (letto DENTRO i file, non dalla data del file) |
+| solana: freschezza | 🔴 **FALLISCE** | 37.5 | il dato piu' recente nel campione ha 37.5 ore (letto DENTRO i file, non dalla data del file) |
 | solana: scambi orfani | 🔴 **FALLISCE** | 75.0 | 3093 file su 4123 non si uniscono a nessuna serie di prezzo |
 | base: scambi orfani | 🟡 **ATTENZIONE** | 40.5 | 663 file su 1639 non si uniscono a nessuna serie di prezzo |
-| robinhood: serie con scambi | 🟡 **ATTENZIONE** | 33.3 | 762 su 2289 |
+| robinhood: serie con scambi | 🟡 **ATTENZIONE** | 33.4 | 764 su 2289 |
+| robinhood: storico utile | 🟡 **ATTENZIONE** | 29.0 | sulle righe COPERTE: 87 su 300 hanno almeno 6 scambi prima dell'entrata |
 | base: entita' duplicate | 🟢 **PASSA** | 0 | 1911 righe, 1911 pool distinti |
 | base: freschezza | 🟢 **PASSA** | 0.0 | il dato piu' recente nel campione ha 0.0 ore (letto DENTRO i file, non dalla data del file) |
 | base: storico dalla catena | 🟢 **PASSA** | 4571 | 4571 pool con storia dalla catena |
@@ -27,7 +27,7 @@
 | base: storico, quante righe copre | 🟢 **PASSA** | 96.2 | 1839 righe su 1911 hanno la storia dalla catena |
 | base: timbro di acquisizione | 🟢 **PASSA** | 100.0 | 25 file su 25 fra i piu' recenti hanno il campo acq |
 | robinhood: entita' duplicate | 🟢 **PASSA** | 0 | 761 righe, 761 pool distinti |
-| robinhood: freschezza | 🟢 **PASSA** | 2.9 | il dato piu' recente nel campione ha 2.9 ore (letto DENTRO i file, non dalla data del file) |
+| robinhood: freschezza | 🟢 **PASSA** | 5.7 | il dato piu' recente nel campione ha 5.7 ore (letto DENTRO i file, non dalla data del file) |
 | robinhood: storico dalla catena | 🟢 **PASSA** | 806 | 806 pool con storia dalla catena |
 | robinhood: storico, quante righe copre | 🟢 **PASSA** | 68.6 | 522 righe su 761 hanno la storia dalla catena |
 | robinhood: timbro di acquisizione | 🟢 **PASSA** | 100.0 | 9 file su 9 fra i piu' recenti hanno il campo acq |
