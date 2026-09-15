@@ -621,5 +621,11 @@
 {"acq": 1789508671, "agente": "multichain_trades", "fonte": "geckoterminal", "chain": "base", "quanti": 0, "giro": "35026759303", "dettaglio": {"pool_interrogati": 90}}
 {"acq": 1789508837, "agente": "multichain_trades", "fonte": "geckoterminal", "chain": "solana", "quanti": 7, "giro": "35026759303", "dettaglio": {"pool_interrogati": 90}}
 {"acq": 1789508855, "agente": "pulse", "fonte": "dexscreener+geckoterminal", "chain": "tutte", "quanti": 89, "giro": "35026759303"}
-{"acq": 1789509754, "agente": "storico_evm", "fonte": "catena", "chain": "base", "quanti": 143490, "giro": "35015018884", "dettaglio": {"chiamate": 3300, "blocchi": 259186, "fetta": 0}}
-{"acq": 1789510252, "agente": "storico_evm", "fonte": "catena", "chain": "robinhood", "quanti": 310, "giro": "35015018884", "dettaglio": {"chiamate": 1056, "blocchi": 5535130, "fetta": 1}}
+{"acq": 1789509207, "agente": "multichain_trades", "fonte": "geckoterminal", "chain": "robinhood", "quanti": 1, "giro": "35026759303", "dettaglio": {"pool_interrogati": 90}}
+{"acq": 1789509365, "agente": "multichain_trades", "fonte": "geckoterminal", "chain": "base", "quanti": 0, "giro": "35026759303", "dettaglio": {"pool_interrogati": 90}}
+{"acq": 1789509522, "agente": "multichain_trades", "fonte": "geckoterminal", "chain": "solana", "quanti": 0, "giro": "35026759303", "dettaglio": {"pool_interrogati": 90}}
+{"acq": 1789509539, "agente": "pulse", "fonte": "dexscreener+geckoterminal", "chain": "tutte", "quanti": 76, "giro": "35026759303"}
+{"acq": 1789509894, "agente": "multichain_trades", "fonte": "geckoterminal", "chain": "robinhood", "quanti": 2, "giro": "35026759303", "dettaglio": {"pool_interrogati": 90}}
+{"acq": 1789510063, "agente": "multichain_trades", "fonte": "geckoterminal", "chain": "base", "quanti": 0, "giro": "35026759303", "dettaglio": {"pool_interrogati": 90}}
+{"acq": 1789510231, "agente": "multichain_trades", "fonte": "geckoterminal", "chain": "solana", "quanti": 0, "giro": "35026759303", "dettaglio": {"pool_interrogati": 90}}
+{"acq": 1789510249, "agente": "pulse", "fonte": "dexscreener+geckoterminal", "chain": "tutte", "quanti": 88, "giro": "35026759303"}
