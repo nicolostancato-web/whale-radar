@@ -1,12 +1,12 @@
 # 🏃 STAFFETTA — leggi QUESTO per primo
-*2026-09-15 15:06 UTC · aggiornato da solo a ogni giro*
+*2026-09-15 15:12 UTC · aggiornato da solo a ogni giro*
 
 > La continuità viene dai **registri condivisi**, non dal ricordarsi la conversazione. Chi si
 > sveglia adesso non ha memoria: qui trova dove siamo e **qual è il prossimo lavoro**.
 
 ## Le corsie
 
-- 🟢 vive: motore (8′), ricerca (1′), loop 0 (14′), sperimenti (7′)
+- 🟢 vive: motore (14′), ricerca (7′), loop 0 (5′), sperimenti (6′)
 
 ## Gli esperimenti vivi
 
@@ -22,7 +22,7 @@
 
 ## Stiamo accumulando?
 
-*Variazione rispetto a **7 minuti fa**.*
+*Variazione rispetto a **6 minuti fa**.*
 
 | cosa | quanti | cambiato di |
 |---|---|---|
@@ -57,4 +57,4 @@ In coda e non ancora aperti: **0** (nessuno).
 > ieri e sembrano di oggi. Qui sotto c'è la data del calcolo, e se non è di pochi minuti fa
 > il foglio non vale.
 
-*Calcolato alle **15:06 UTC** del 15/09/2026.*
+*Calcolato alle **15:12 UTC** del 15/09/2026.*
