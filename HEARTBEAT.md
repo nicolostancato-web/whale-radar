@@ -5,9 +5,9 @@
 
 | corsia | stato | ultimo commit | azione |
 |---|---|---|---|
-| **motore** | 🟢 viva — ultimo commit 39 min fa | `engine misure0 11:12Z` | — |
+| **motore** | 🟢 viva — ultimo commit 40 min fa | `engine misure0 11:12Z` | — |
 | **ricerca** | 🟢 viva — ultimo commit 4 min fa | `ricerca base giro6 11:48Z` | — |
-| **loop 0** | 🟢 viva — ultimo commit 15 min fa | `loop0 giro2 11:37Z` | — |
+| **loop 0** | 🟢 viva — ultimo commit 0 min fa | `loop0 giro3 11:52Z` | — |
 | **sperimenti** | ❓ nessun commit recente | `?` | accesa |
 
 > **Perché vive fuori:** un guardiano che sta dentro la cosa che deve sorvegliare si
