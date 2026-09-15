@@ -1,5 +1,5 @@
 # 🧱 QUALITÀ DEL TERRENO — il database serve a qualcosa?
-*2026-09-15 17:03 UTC · controllo continuo · €0*
+*2026-09-15 17:13 UTC · controllo continuo · €0*
 
 > Gli altri controlli chiedono **«il sistema gira?»**. Questo chiede **«quello che sta
 > entrando serve a qualcosa?»**. Un collettore che funziona benissimo e produce dati che non
@@ -15,12 +15,12 @@
 | robinhood: feature scambi vive | 🔴 **FALLISCE** | 0.0 | solo 0 righe su 761 hanno scambi veri; le altre usano il valore di ripiego |
 | robinhood: scambi orfani | 🔴 **FALLISCE** | 84.2 | 4083 file su 4847 non si uniscono a nessuna serie di prezzo |
 | solana: feature scambi vive | 🔴 **FALLISCE** | 16.3 | solo 124 righe su 763 hanno scambi veri; le altre usano il valore di ripiego |
-| solana: freschezza | 🔴 **FALLISCE** | 37.8 | il dato piu' recente nel campione ha 37.8 ore (letto DENTRO i file, non dalla data del file) |
+| solana: freschezza | 🔴 **FALLISCE** | 38.0 | il dato piu' recente nel campione ha 38.0 ore (letto DENTRO i file, non dalla data del file) |
 | solana: scambi orfani | 🔴 **FALLISCE** | 75.0 | 3093 file su 4123 non si uniscono a nessuna serie di prezzo |
 | base: scambi orfani | 🟡 **ATTENZIONE** | 40.5 | 663 file su 1639 non si uniscono a nessuna serie di prezzo |
-| robinhood: freschezza | 🟡 **ATTENZIONE** | 6.0 | il dato piu' recente nel campione ha 6.0 ore (letto DENTRO i file, non dalla data del file) |
+| robinhood: freschezza | 🟡 **ATTENZIONE** | 6.2 | il dato piu' recente nel campione ha 6.2 ore (letto DENTRO i file, non dalla data del file) |
 | robinhood: serie con scambi | 🟡 **ATTENZIONE** | 33.4 | 764 su 2289 |
-| robinhood: storico utile | 🟡 **ATTENZIONE** | 37.3 | sulle righe COPERTE: 112 su 300 hanno almeno 6 scambi prima dell'entrata |
+| robinhood: storico utile | 🟡 **ATTENZIONE** | 40.7 | sulle righe COPERTE: 122 su 300 hanno almeno 6 scambi prima dell'entrata |
 | base: entita' duplicate | 🟢 **PASSA** | 0 | 1911 righe, 1911 pool distinti |
 | base: freschezza | 🟢 **PASSA** | 0.0 | il dato piu' recente nel campione ha 0.0 ore (letto DENTRO i file, non dalla data del file) |
 | base: storico dalla catena | 🟢 **PASSA** | 4581 | 4581 pool con storia dalla catena |
