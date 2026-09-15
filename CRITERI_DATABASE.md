@@ -17,15 +17,15 @@ indulgente con il nostro lavoro.
 
 | # | condizione | soglia | stato oggi |
 |---|---|---|---|
-| **1** | **Copertura per chain** (non aggregata) | ≥95% delle righe eleggibili, **in ciascuna chain** | base 96% ✅ · robinhood ~60% 🔴 · **solana 0%** 🔴 |
+| **1** | **Copertura per chain** (non aggregata) | ≥95% delle righe eleggibili, **in ciascuna chain**, misurata come **quota di finestre identiche nell'audit** — non come quota di pool per cui esiste un file (vedi «La copertura che ci raccontavamo», sotto) | base 80% 🔴 · robinhood 86% 🔴 · **solana 0%** 🔴 |
 | **2** | **Solana esiste** | non dichiarabile sufficiente finché la copertura è «non iniziata» | 🔴 **non iniziata** |
-| **3** | **Point-in-time provato** | ≥299 osservazioni **prospettiche** per strato chain/fonte, zero ritardi oltre l'embargo dichiarato | 🔴 **0** — il registro è nato ieri |
+| **3** | **Point-in-time provato** | ≥299 osservazioni **prospettiche** per strato chain/fonte, zero ritardi oltre l'embargo dichiarato | 🟡 **51.482 scambi** raccolti alla punta (base + robinhood), ritardo mediano **5,2 minuti**. Il conteggio per strato va ancora fatto |
 | **4** | **Backfill etichettato** | 100% dei record porta `acq` **e** la classe: `ricostruzione-storica` o `point-in-time-certificato`. Nessun record può essere marcato PIT solo perché oggi è recuperabile | 🟡 `acq` c'è, **la classe no** |
-| **5** | **Integrità degli eventi** | audit indipendente su ≥299 finestre stratificate, zero discrepanze su evento canonico, pool, quantità grezze, ordinamento | 🔴 **mai fatto** |
+| **5** | **Integrità degli eventi** | audit indipendente su ≥299 finestre stratificate, zero discrepanze su evento canonico, pool, quantità grezze, ordinamento | 🟡 **58 finestre, 48 identiche (83%)**, gira da solo nella corsia database. **Zero record inventati** |
 | **6** | **Mappatura completa** | 100% dei record con chain, pool, **coppia di token**, block hash, id evento canonico, istante, **e semantica del wallet dichiarata**. I mancanti restano mancanti, non si inventano | 🔴 mancano coppia token, block hash, semantica del wallet |
 | **7** | **Sopravvivenza** | ≥59 esclusioni campionate a caso con classificazione della causa, zero controesempi | 🔴 **17**, e non campionate a caso |
 
-**Nessuna condizione è verde. Due sono gialle. Cinque sono rosse.**
+**Nessuna condizione è verde. Quattro sono gialle. Tre sono rosse.**
 
 ---
 
@@ -71,3 +71,34 @@ chiudono aggiungendo campi** (4 e 6, più l'ordinamento), e **due richiedono tem
 
 **La 3 è quella che non si può accelerare con nessuna quantità di lavoro.** Il registro
 point-in-time è nato ieri: 299 osservazioni per strato arriveranno quando arriveranno.
+
+---
+
+## La copertura che ci raccontavamo
+*scoperto il 16/09 inseguendo quattro finestre di robinhood che risultavano incomplete pur essendo il formato al 100%*
+
+Dicevamo **99,6% di copertura su base** e **76% su robinhood**. Quel numero conta i **pool per cui
+esiste un file**, e in quella forma non significa quasi niente.
+
+La prova, presa su una finestra sola di duecento blocchi di robinhood:
+
+| | intervallo di blocchi nel file | record |
+|---|---|---|
+| i pool che **avevamo** nella finestra | 51.918.761 → 52.063.800 | 300 |
+| i pool che **mancavano** | 35.974.257 → 63.995.138 | ~400 |
+
+I secondi coprono **ventotto milioni di blocchi con quattrocento record**: hanno dati ai due bordi e
+il vuoto in mezzo. Contati come «coperti», sono quasi tutti vuoti.
+
+Non è un guasto, è la forma delle fette: dodici turni che scavano ognuno un tratto delimitato e
+distanziato lasciano buchi sistematici **tra** un tratto e l'altro. Il collettore fa esattamente
+quello che gli abbiamo chiesto. È la misura che mentiva, non il raccoglitore.
+
+**Cosa cambia.** La copertura vera è già in casa e non serve costruirla: è la **quota di finestre
+identiche dell'audit**, che chiede alla catena «in questo punto preciso, abbiamo quello che c'era?».
+Oggi dice **83%** (48 su 58), non 99,6%. La condizione 1 adesso si misura così.
+
+**Perché conta più del numero.** Un edge cercato su uno storico bucato a caso non è sbagliato: è
+invisibile. Le fette saltano intervalli interi, e se un pump vive dentro un intervallo saltato, per
+noi quel token non si è mai mosso. Avremmo cercato il segnale in un archivio che ci nasconde proprio
+i momenti in cui succede qualcosa — e dato la colpa al segnale.
