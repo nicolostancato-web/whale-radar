@@ -297,6 +297,14 @@ def main():
         except Exception: pass
     righe += nuove
 
+    # LE RIGHE DI PRIMA DELLA CORREZIONE NON CONTANO PER IL TRAGUARDO (16/09). Le 58 finestre
+    # scritte fino a stanotte usavano la regola vecchia: una finestra dove non si confrontava nulla
+    # veniva registrata «identici». Dicevano 83% di finestre identiche; con la guardia nuova lo
+    # stesso lavoro dice 40%. Non si cancellano — restano a registro, ed e' giusto poter rileggere
+    # cosa credevamo — ma non possono contare verso le 299, altrimenti il traguardo si raggiunge
+    # con misure che sapevamo essere cieche.
+    # Si riconoscono da sole: le righe nuove portano il conteggio delle esclusioni, le vecchie no.
+    righe = [r for r in righe if "pool_senza_nascita" in r or r.get("esito") == "lettura fallita"]
     valide = [r for r in righe if r.get("esito") not in ("lettura fallita", "non misurabile")]
     ok = [r for r in valide if r.get("esito") == "identici"]
     L = ["# 🔍 INTEGRITÀ — quello che abbiamo corrisponde a quello che la catena dice?",
