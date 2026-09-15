@@ -1,5 +1,5 @@
 # 🔬 EXPLORER — LOOP 1: come alzo la percentuale? (base)
-*2026-09-15 11:39 UTC · 24056 strategie provate in questo ciclo · 5658253 in totale*
+*2026-09-15 11:54 UTC · 24308 strategie provate in questo ciclo · 5682561 in totale*
 
 ## Migliore trovata finora: **-77%** (stress test) · P&L medio **-11%** · crescita composta **-29.7%** · 5% peggiore **-77%** · 49 trade
 
@@ -32,12 +32,12 @@ la crescita composta dice se reinvestendo si cresce o ci si rovina.*
 
 | la strategia | risultato |
 |---|---|
-| entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 10% · stop -50% · profitto a 3x e 15x · trailing -60% · soglia 0.5 | -77% |
-| entra +6h · solo se volume > $30.000, almeno 2h di scambi, vendite/acquisti > 30% · stop -50% · profitto a 3x e 15x · trailing -60% · soglia 0.5 | -77% |
-| entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -50% · profitto a 3x e 15x · trailing -30% · soglia 0.5 | -79% |
+| entra +6h · solo se volume > $30.000, almeno 4h di scambi · stop -50% · profitto a 3x e 15x · trailing -60% · soglia 0.5 | -98% |
 | entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -50% · profitto a 3x e 15x · trailing -60% · soglia 0.5 | -77% |
-| entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -60% · profitto a 3x e 15x · trailing -60% · soglia 0.5 | -76% |
+| entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -50% · profitto a 3x e 15x · trailing -60% · soglia 0.55 | -77% |
+| entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -70% · profitto a 3x e 15x · trailing -60% · soglia 0.5 | -77% |
 | entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -50% · profitto a 3x e 15x · trailing -60% · soglia 0.5 | -77% |
+| entra +6h · solo se volume > $30.000, almeno 4h di scambi, vendite/acquisti > 30% · stop -50% · profitto a 3x e 8x · trailing -60% · soglia 0.5 | -75% |
 
 > Il LOOP 1 non si ferma mai: prova strategie e segnali, tiene solo cio' che alza la percentuale
 > ROBUSTA (tolti i 3 colpi migliori) di almeno 8 punti, e riparte da li'.
