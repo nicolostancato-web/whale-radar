@@ -66,3 +66,45 @@ sappia senza doverlo dedurre.
 Quattordici pool che la catena dà per morti ma di cui **abbiamo la candela**. Sono pochi (0,3%), ma
 non sono spiegati: o la nostra candela è di un momento precedente alla morte, oppure la lettura
 della catena ha sbagliato. Vanno guardati, non archiviati.
+
+---
+
+# CORREZIONE (stesso giorno): i numeri erano gonfiati
+
+Ho pubblicato **3.791 casi**. Sono **626**.
+
+Il test ricontrolla lo stesso pool a ogni giro, e io contavo ogni controllo come un caso nuovo.
+4.844 osservazioni erano in realtà **670 pool distinti**, ciascuno guardato in media sette volte.
+
+Me ne sono accorto guardando i «14 casi incoerenti»: erano **lo stesso pool, contato quattordici
+volte**. Se non fossi andato a vederli uno per uno, il numero sbagliato sarebbe rimasto.
+
+> Un pool controllato sette volte non sono sette prove. È una prova, guardata sette volte — e
+> contarla sette volte fa sembrare il campione sette volte più solido di quanto sia.
+
+## I numeri onesti, un caso per pool
+
+| esito | pool distinti |
+|---|---|
+| 🔴 buco nostro | **616** |
+| 🟢 copertura funzionante | 28 |
+| ⚫ mortalità vera | **10** |
+| ❓ lettura fallita | 15 |
+| ⚠️ incoerente | **1** |
+
+| | |
+|---|---|
+| casi utilizzabili distinti | **626** |
+| quota di buchi nostri | **98,4%** |
+| **limite inferiore al 95%** | **97,6%** |
+| soglia richiesta | 95% → ✅ **superata** |
+| casi richiesti | 59 → ✅ ne abbiamo 626 |
+
+## La conclusione regge
+
+Con i numeri gonfiati il limite era 98,1%; con quelli veri è **97,6%**. **Sopra la soglia in
+entrambi i casi** — ma il primo numero non avevo il diritto di scriverlo.
+
+E i «14 incoerenti» diventano **uno solo**: un singolo pool che la catena dà per morto mentre noi
+abbiamo una candela di poco precedente. Una candela vecchia di dodici minuti rispetto al controllo:
+il pool è morto **fra** la nostra ultima lettura e la verifica. Non è un'incoerenza, è una corsa.
