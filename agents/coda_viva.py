@@ -51,6 +51,33 @@ def rpc(url, metodo, params, tentativi=3):
     return None, "tentativi esauriti"
 
 
+def scarica(chain, per_pool):
+    """Svuota il raccolto sui file. Torna quante righe nuove ha scritto."""
+    nuovi = scarica(CHAIN, per_pool) + totale[0]
+    return nuovi
+
+
+def salva_e_spingi(etichetta):
+    """Si salva strada facendo: un giro da due ore e mezza che muore non deve portarsi via due ore
+    e mezza di blocchi che nessuno potra' piu' raccogliere."""
+    import subprocess
+    subprocess.run('git config user.name "whale-radar-bot"; git config user.email '
+                   '"bot@users.noreply.github.com"', shell=True,
+                   stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    if subprocess.run(f'git add -A && git commit -m "vivo {etichetta}"', shell=True,
+                      stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode != 0:
+        return False
+    for _ in range(8):
+        subprocess.run('git pull --no-rebase --no-edit -X ours origin main', shell=True,
+                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        if subprocess.run('git push origin main', shell=True,
+                          stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode == 0:
+            return True
+        time.sleep(6)
+    print("CODA_VIVA | ATTENZIONE: non sono riuscito a spingere", flush=True)
+    return False
+
+
 def main():
     url, ampiezza = RPC.get(CHAIN, (None, None))
     if not url:
@@ -92,6 +119,8 @@ def main():
     per_pool = {}
     chiamate = presi = 0
     ritardi = []
+    ultimo_salvataggio = [time.time()]
+    totale = [0]
     while time.time() - t0 < BUDGET:
         punta, _ = rpc(url, "eth_blockNumber", [])
         punta = int(punta, 16) if punta else cursore
@@ -122,6 +151,13 @@ def main():
                  "dex": f["v"], "fonte": "catena-viva"})
             presi += 1
         cursore = a
+        if time.time() - ultimo_salvataggio[0] > 600:      # ogni dieci minuti si mette al sicuro
+            n_ = scarica(CHAIN, per_pool); totale[0] += n_
+            per_pool.clear()
+            try: json.dump({"ultimo": cursore, "acq": int(time.time())}, open(CK, "w"))
+            except Exception: pass
+            salva_e_spingi(f"{CHAIN} +{n_} {time.strftime('%H:%MZ', time.gmtime())}")
+            ultimo_salvataggio[0] = time.time()
         time.sleep(PAUSA)
 
     nuovi = 0
