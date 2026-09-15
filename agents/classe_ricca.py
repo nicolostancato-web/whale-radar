@@ -94,9 +94,23 @@ def memoria_wallet(ch, righe):
     return primo
 
 
-def ricche(tr, ent, primo):
+try:
+    import embargo as EMB
+except Exception:
+    EMB = None
+
+
+def ricche(tr, ent, primo, chain=None):
     """Le variabili che la classe povera non puo' rappresentare. Solo passato, sempre."""
-    pre = [t for t in tr if t["ts"] <= ent - RITARDO]
+    # L'EMBARGO E' UNA PROPRIETA' DELLA FONTE, NON UN NUMERO UNICO (15/09). Prima si sottraeva
+    # 35,4 ore a tutto — un valore che veniva da BSC, chain abbandonata — e nessuno scambio poteva
+    # passare. Adesso ogni scambio risponde alla domanda giusta: "alle 'ent' avevamo GIA' questo?".
+    # Un dato dei fornitori aspetta il ritardo misurato della SUA chain; un dato che leggiamo noi
+    # dalla catena aspetta mezz'ora, che e' piu' di quanto ci mettiamo davvero.
+    if EMB is not None and chain:
+        pre = [t for t in tr if EMB.utilizzabile(t, ent, chain)]
+    else:
+        pre = [t for t in tr if t["ts"] <= ent - RITARDO]
     if len(pre) < 6: return None
     buy = [t for t in pre if t.get("kind") == "buy"]
     sell = [t for t in pre if t.get("kind") == "sell"]
@@ -132,7 +146,7 @@ def prepara(ch):
     primo = memoria_wallet(ch, righe)
     fuori = []
     for r in righe:
-        nuove = ricche(scambi(ch, r["pool"]), r["ent"], primo)
+        nuove = ricche(scambi(ch, r["pool"]), r["ent"], primo, ch)
         if nuove is None: continue
         q = dict(r); q["f"] = list(r["f"]) + nuove
         fuori.append(q)
