@@ -1,5 +1,5 @@
 # 🎯 GOAL BASE — aprire trade ed essere in profitto
-*2026-09-15 15:32 UTC · conto attivo da 19.8 giorni*
+*2026-09-15 16:15 UTC · conto attivo da 19.9 giorni*
 
 ## Stato: 🟡 IN ATTESA del primo trade
 
@@ -9,7 +9,7 @@
 
 | stadio | quanti | |
 |---|---|---|
-| 1. token nuovi scoperti | **51** | ✅ |
+| 1. token nuovi scoperti | **45** | ✅ |
 | 2. token sotto osservazione | **3301** | ✅ |
 | 3. token pronti da valutare | **2650** | ✅ |
 | 4. token valutati dal modello | **1541** | ✅ |
