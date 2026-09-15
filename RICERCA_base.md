@@ -1,25 +1,21 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (base)
-*2026-09-15 11:43 UTC · 8 segnali nuovi messi alla prova su 616 token*
+*2026-09-15 11:59 UTC · 4 segnali nuovi messi alla prova su 616 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-99%**.
 
 ## Nessun segnale nuovo ha superato la prova in questo giro
 
-Nessuno dei 8 candidati alza la percentuale di almeno 3 punti.
+Nessuno dei 4 candidati alza la percentuale di almeno 3 punti.
 Non è un fallimento: è la risposta onesta di oggi. Con più dati gli stessi segnali possono passare.
 
 ## Tutti i segnali provati, dal migliore al peggiore
 
 | il segnale | cosa guarda | risultato |
 |---|---|---|
-| `buy_medio x volume_ultima_su_media (voto)` | quanto compra in media ciascuno MOLTIPLICATO per se il volume sta accelerando proprio adesso | -99% (+0) |
-| `buy_medio x volume_ultima_su_media (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per se il volume sta accelerando proprio adesso | -99% (+0) |
-| `buy_medio / volume_ultima_su_media (voto)` | quanto compra in media ciascuno RAPPORTATO a se il volume sta accelerando proprio adesso | -99% (+0) |
-| `buy_medio / volume_ultima_su_media (filtro)` | quanto compra in media ciascuno RAPPORTATO a se il volume sta accelerando proprio adesso | -99% (+0) |
-| `concentrazione_top5 x trade_al_minuto (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per quanto è frenetico lo scambio | -99% (+0) |
-| `concentrazione_top5 x trade_al_minuto (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per quanto è frenetico lo scambio | -99% (+0) |
-| `concentrazione_top5 / trade_al_minuto (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a quanto è frenetico lo scambio | -99% (+0) |
-| `concentrazione_top5 / trade_al_minuto (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a quanto è frenetico lo scambio | -99% (+0) |
+| `sbilanciamento x ampiezza (voto)` | quanto il denaro che entra supera quello che esce MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -99% (+0) |
+| `sbilanciamento x ampiezza (filtro)` | quanto il denaro che entra supera quello che esce MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -99% (+0) |
+| `sbilanciamento / ampiezza (voto)` | quanto il denaro che entra supera quello che esce RAPPORTATO a quanto oscilla il prezzo prima di entrare | -99% (+0) |
+| `sbilanciamento / ampiezza (filtro)` | quanto il denaro che entra supera quello che esce RAPPORTATO a quanto oscilla il prezzo prima di entrare | -99% (+0) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
