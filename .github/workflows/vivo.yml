@@ -1,0 +1,53 @@
+name: vivo
+# LA CODA VIVA: l'unico dato che potra' essere certificato point-in-time.
+#
+# PERCHE' UNA CORSIA SUA (15/09). Girava dentro la corsia database, insieme ad altre otto cose: se
+# quel giro finisce il tempo o muore, si perdono i blocchi di ADESSO — e quelli, a differenza del
+# backfill, non si possono rifare domani. Il ritardo misurato fra il fatto e il timbro e' di 9,8
+# minuti contro le 362 ore della ricostruzione storica: e' la differenza fra un dato su cui si puo'
+# decidere e uno su cui si puo' solo esplorare.
+# Una cosa che non si puo' recuperare merita di non dipendere da nient'altro.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "*/55 * * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: vivo
+  cancel-in-progress: false
+jobs:
+  coda:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        chain: [base, robinhood]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Coda viva
+        env:
+          CHAIN: ${{ matrix.chain }}
+          BUDGET_SEC: "9000"
+          PAUSA: "1.6"
+        run: python agents/coda_viva.py
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          if ! git commit -m "vivo ${{ matrix.chain }} $(date -u +%H:%MZ)"; then
+            echo "NIENTE DA SALVARE"; exit 1
+          fi
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1
+            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 15 + 5))
+          done
+          echo "NON SONO RIUSCITO A SPINGERE: i dati della coda viva restano sul runner e vanno persi."
+          exit 1
