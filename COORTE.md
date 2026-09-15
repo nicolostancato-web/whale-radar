@@ -1,5 +1,5 @@
 # 🧫 COORTE — è morto, o non l'abbiamo guardato?
-*2026-09-15 16:51 UTC · test prospettico · €0*
+*2026-09-15 16:52 UTC · test prospettico · €0*
 
 > L'audit aveva misurato che le serie escluse vivono 1 ora e le ammesse 23, e l'avevo
 > chiamato survivorship bias. La revisione ha corretto: è una **durata osservata**, non la
@@ -9,18 +9,18 @@
 > Qui si chiede a un canale **indipendente** — la catena, non la stessa fonte delle candele —
 > se il pool era vivo a +3h, e si confronta con quello che abbiamo noi.
 
-**Osservazioni accumulate: 5403** (+50 in questo giro)
+**Osservazioni accumulate: 4844** (+40 in questo giro)
 
 | la catena dice | noi abbiamo la candela | quanti | lettura |
 |---|---|---|---|
-| True | False | 3902 | 🔴 **buco nostro** |
-| True | True | 588 | 🟢 copertura funzionante |
-| None | True | 564 | ❓ non so |
-| None | False | 267 | ❓ non so (contratto muto) |
-| False | False | 68 | ⚫ mortalità vera |
+| True | False | 3528 | 🔴 **buco nostro** |
+| True | True | 537 | 🟢 copertura funzionante |
+| None | True | 505 | ❓ non so |
+| None | False | 201 | ❓ non so (contratto muto) |
+| False | False | 59 | ⚫ mortalità vera |
 | False | True | 14 | ⚠️ incoerente |
 
-> Fra i casi in cui **non abbiamo la candela** e la catena ha risposto: **3902 su 3970** erano ancora vivi — cioè **buchi nostri**, non morti.
+> Fra i casi in cui **non abbiamo la candela** e la catena ha risposto: **3528 su 3587** erano ancora vivi — cioè **buchi nostri**, non morti.
 
 > ⚠️ **Cosa vuol dire «vivo» qui, per non farsi illusioni.** Vivo = il contratto risponde
 > con riserve non nulle. Non vuol dire che qualcuno lo stia scambiando, né che sia
