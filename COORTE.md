@@ -19,6 +19,7 @@
 | False | False | 11 | ⚫ mortalità vera |
 | None | True | 2 | ❓ non so |
 | False | True | 1 | ⚠️ incoerente |
+| None | True | 1 | ❓ non so |
 
 > Fra i casi in cui **non abbiamo la candela** e la catena ha risposto: **670 su 681** erano ancora vivi — cioè **buchi nostri**, non morti.
 
