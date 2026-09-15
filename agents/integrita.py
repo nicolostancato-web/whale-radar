@@ -85,6 +85,16 @@ def nostri_record(chain, da, a, nostri):
                     if not l.strip(): continue
                     d = json.loads(l)
                     bn = d.get("blocco")
+                    # I RESIDUI DEL VECCHIO FORMATO NON TESTIMONIANO (16/09). Un record senza hash
+                    # di blocco e' di prima del cambio formato: non e' mai stato salvato con
+                    # l'indice completo, quindi la sua chiave non puo' combaciare con quella della
+                    # catena e risulta «inventato» pur essendo vero. Le due sole accuse di record
+                    # inventati su 58 finestre erano entrambe questo.
+                    # pota() li sta gia' buttando e le fette li riscaricano: un record incompleto e
+                    # gia' destinato alla sostituzione non puo' testimoniare ne' a favore ne' contro.
+                    # Quando la conversione sara' al 100% questa riga non escludera' piu' nulla.
+                    if not d.get("bh"):
+                        continue
                     if bn and da <= bn <= a:
                         out[(d.get("tx"), d.get("li"))] = (pool, d.get("a0"), d.get("a1"))
             except Exception: pass
