@@ -1,19 +1,19 @@
 # 🧪 CORSIA SPERIMENTI — cosa e' successo nell'ultimo giro
-*2026-09-15 16:46 UTC · giro 6*
+*2026-09-15 17:04 UTC · giro 9*
 
 | esperimento | esito | ultima cosa detta |
 |---|---|---|
 | `liquidita_impegnata.py` | ok | LIQUIDITA_IMPEGNATA | eventi:299 |
 | `sperimentale.py` | ok | SPERIMENTALE | gemelli 2516 | esplosioni 33 | valutate 24 |
-| `due_gambe.py` | ok | DUE_GAMBE | copertura base:8% robinhood:3% solana:45% |
+| `due_gambe.py` | ok | DUE_GAMBE | copertura base:9% robinhood:3% solana:45% |
 | `costo_chain.py` | ok | COSTO_CHAIN | controllo su solana: NON passa |
-| `costo_evm.py` | ok | COSTO_EVM | base:4misure robinhood:59misure |
+| `costo_evm.py` | ok | COSTO_EVM | base:3misure robinhood:59misure |
 | `ritardo.py` | codice -9 | ucciso: fuori tempo |
 | `esaurimento.py` | ok | ESAURIMENTO | dentro:125 controlli:4000 |
-| `coorte.py` | ok | COORTE | 50 nuove, 5353 totali |
-| `staffetta.py` | ok | STAFFETTA | vive:4 mute:0 aperti:0 |
+| `coorte.py` | ok | COORTE | 50 nuove, 5503 totali |
+| `staffetta.py` | ok | STAFFETTA | vive:3 mute:1 aperti:0 |
 
 > Un giro che dura pochi secondi non e' un giro veloce: e' un giro in cui
 > nessuno ha lavorato. Per questo qui sotto c'e' anche quanto e' durato.
 
-*Durata del giro: **338 secondi**.*
+*Durata del giro: **369 secondi**.*
