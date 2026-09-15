@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (robinhood)
-*2026-09-15 14:34 UTC · 5 segnali nuovi messi alla prova su 340 token*
+*2026-09-15 14:49 UTC · 9 segnali nuovi messi alla prova su 340 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-96%**.
 
@@ -25,17 +25,21 @@
 | `ampiezza x volume_ultima_su_media (filtro)` | quanto oscilla il prezzo prima di entrare MOLTIPLICATO per se il volume sta accelerando proprio adesso | -73% (+23) |
 | `ampiezza (filtro)` | quanto oscilla il prezzo prima di entrare | -79% (+17) |
 | `buy_medio x ampiezza (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -88% (+8) |
+| `quota_wallet_nuovi (voto)` | la quota di denaro da wallet mai visti prima | -95% (+1) |
+| `eta_al_primo_trade (voto)` | quanto tempo passa dalla nascita al primo scambio | -95% (+1) |
+| `eta_al_primo_trade (filtro)` | quanto tempo passa dalla nascita al primo scambio | -95% (+1) |
+| `quota_wallet_nuovi (filtro)` | la quota di denaro da wallet mai visti prima | -97% (-1) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
-- `concentrazione_top5 (voto)` — già bocciato 34 volte 5h fa (si riprova fra 7h o quando i dati crescono)
-- `concentrazione_top5 (filtro)` — già bocciato 34 volte 5h fa (si riprova fra 7h o quando i dati crescono)
-- `concentrazione_top1 (voto)` — già bocciato 34 volte 5h fa (si riprova fra 7h o quando i dati crescono)
-- `concentrazione_top1 (filtro)` — già bocciato 34 volte 5h fa (si riprova fra 7h o quando i dati crescono)
-- `n_compratori (voto)` — già bocciato 34 volte 5h fa (si riprova fra 7h o quando i dati crescono)
-- `n_compratori (filtro)` — già bocciato 34 volte 5h fa (si riprova fra 7h o quando i dati crescono)
-- `buy_medio (voto)` — già bocciato 34 volte 5h fa (si riprova fra 7h o quando i dati crescono)
-- `buy_medio (filtro)` — già bocciato 34 volte 5h fa (si riprova fra 7h o quando i dati crescono)
+- `concentrazione_top5 (voto)` — già bocciato 34 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `concentrazione_top5 (filtro)` — già bocciato 34 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `concentrazione_top1 (voto)` — già bocciato 34 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `concentrazione_top1 (filtro)` — già bocciato 34 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `n_compratori (voto)` — già bocciato 34 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `n_compratori (filtro)` — già bocciato 34 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `buy_medio (voto)` — già bocciato 34 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `buy_medio (filtro)` — già bocciato 34 volte 6h fa (si riprova fra 6h o quando i dati crescono)
 - `buy_grossi (voto)` — già bocciato 34 volte 4h fa (si riprova fra 8h o quando i dati crescono)
 - `buy_grossi (filtro)` — già bocciato 34 volte 4h fa (si riprova fra 8h o quando i dati crescono)
 
