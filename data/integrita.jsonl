@@ -138,3 +138,23 @@
 {"acq": 1789513145, "chain": "robinhood", "da": 63956428, "a": 63956628, "seme": 20260915, "catena": 0, "casa": 216, "al_tetto": 0, "mancanti": 0, "inventati": 0, "esito": "identici", "conversione": 1.0}
 {"acq": 1789513148, "chain": "robinhood", "da": 63942018, "a": 63942218, "seme": 20260915, "catena": 0, "casa": 80, "al_tetto": 0, "mancanti": 0, "inventati": 0, "esito": "identici", "conversione": 1.0}
 {"acq": 1789513151, "chain": "robinhood", "da": 43298041, "a": 43298241, "seme": 20260915, "catena": 0, "casa": 4, "al_tetto": 12, "mancanti": 0, "inventati": 0, "esito": "identici", "conversione": 1.0}
+{"acq": 1789513701, "chain": "base", "da": 51107525, "a": 51107585, "seme": 20260915, "catena": 0, "casa": 0, "al_tetto": 84, "mancanti": 0, "inventati": 0, "esito": "identici", "conversione": 0.306}
+{"acq": 1789513712, "chain": "base", "da": 51107683, "a": 51107743, "seme": 20260915, "catena": 0, "casa": 0, "al_tetto": 65, "mancanti": 0, "inventati": 0, "esito": "identici", "conversione": 0.306}
+{"acq": 1789513722, "chain": "base", "da": 51106132, "a": 51106192, "seme": 20260915, "catena": 0, "casa": 0, "al_tetto": 57, "mancanti": 0, "inventati": 0, "esito": "identici", "conversione": 0.306}
+{"acq": 1789513733, "chain": "base", "da": 50928425, "a": 50928485, "seme": 20260915, "catena": 60, "casa": 58, "al_tetto": 82, "mancanti": 2, "inventati": 0, "esito": "MANCANO DA NOI", "conversione": 0.306}
+{"acq": 1789513744, "chain": "base", "da": 50732340, "a": 50732400, "seme": 20260915, "catena": 65, "casa": 52, "al_tetto": 72, "mancanti": 13, "inventati": 0, "esito": "MANCANO DA NOI", "conversione": 0.306}
+{"acq": 1789513755, "chain": "base", "da": 50585275, "a": 50585335, "seme": 20260915, "catena": 0, "casa": 0, "al_tetto": 62, "mancanti": 0, "inventati": 0, "esito": "identici", "conversione": 0.306}
+{"acq": 1789513766, "chain": "base", "da": 50277272, "a": 50277332, "seme": 20260915, "catena": 4, "casa": 0, "al_tetto": 139, "mancanti": 4, "inventati": 0, "esito": "MANCANO DA NOI", "conversione": 0.306}
+{"acq": 1789513777, "chain": "base", "da": 51106145, "a": 51106205, "seme": 20260915, "catena": 0, "casa": 0, "al_tetto": 57, "mancanti": 0, "inventati": 0, "esito": "identici", "conversione": 0.306}
+{"acq": 1789513788, "chain": "base", "da": 50837613, "a": 50837673, "seme": 20260915, "catena": 25, "casa": 5, "al_tetto": 78, "mancanti": 20, "inventati": 0, "esito": "MANCANO DA NOI", "conversione": 0.306}
+{"acq": 1789513799, "chain": "base", "da": 50840623, "a": 50840683, "seme": 20260915, "catena": 23, "casa": 0, "al_tetto": 79, "mancanti": 23, "inventati": 0, "esito": "MANCANO DA NOI", "conversione": 0.306}
+{"acq": 1789513803, "chain": "robinhood", "da": 43329310, "a": 43329510, "seme": 20260915, "catena": 1, "casa": 3, "al_tetto": 13, "mancanti": 0, "inventati": 0, "esito": "identici", "conversione": 1.0}
+{"acq": 1789513805, "chain": "robinhood", "da": 43335126, "a": 43335326, "seme": 20260915, "catena": 1, "casa": 10, "al_tetto": 17, "mancanti": 0, "inventati": 0, "esito": "identici", "conversione": 1.0}
+{"acq": 1789513808, "chain": "robinhood", "da": 43285001, "a": 43285201, "seme": 20260915, "catena": 9, "casa": 8, "al_tetto": 10, "mancanti": 8, "inventati": 0, "esito": "MANCANO DA NOI", "conversione": 1.0}
+{"acq": 1789513810, "chain": "robinhood", "da": 63988431, "a": 63988631, "seme": 20260915, "catena": 0, "casa": 56, "al_tetto": 0, "mancanti": 0, "inventati": 0, "esito": "identici", "conversione": 1.0}
+{"acq": 1789513813, "chain": "robinhood", "da": 63963893, "a": 63964093, "seme": 20260915, "catena": 0, "casa": 55, "al_tetto": 0, "mancanti": 0, "inventati": 0, "esito": "identici", "conversione": 1.0}
+{"acq": 1789513816, "chain": "robinhood", "da": 63947525, "a": 63947725, "seme": 20260915, "catena": 0, "casa": 256, "al_tetto": 0, "mancanti": 0, "inventati": 0, "esito": "identici", "conversione": 1.0}
+{"acq": 1789513819, "chain": "robinhood", "da": 42830198, "a": 42830398, "seme": 20260915, "catena": 51, "casa": 44, "al_tetto": 22, "mancanti": 7, "inventati": 0, "esito": "MANCANO DA NOI", "conversione": 1.0}
+{"acq": 1789513821, "chain": "robinhood", "da": 40373962, "a": 40374162, "seme": 20260915, "catena": 0, "casa": 0, "al_tetto": 27, "mancanti": 0, "inventati": 0, "esito": "identici", "conversione": 1.0}
+{"acq": 1789513824, "chain": "robinhood", "da": 40213651, "a": 40213851, "seme": 20260915, "catena": 1, "casa": 0, "al_tetto": 24, "mancanti": 1, "inventati": 0, "esito": "MANCANO DA NOI", "conversione": 1.0}
+{"acq": 1789513827, "chain": "robinhood", "da": 36663940, "a": 36664140, "seme": 20260915, "catena": 0, "casa": 0, "al_tetto": 32, "mancanti": 0, "inventati": 0, "esito": "identici", "conversione": 1.0}
