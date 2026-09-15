@@ -1,13 +1,12 @@
 # 🏃 STAFFETTA — leggi QUESTO per primo
-*2026-09-15 23:09 UTC · aggiornato da solo a ogni giro*
+*2026-09-15 23:17 UTC · aggiornato da solo a ogni giro*
 
 > La continuità viene dai **registri condivisi**, non dal ricordarsi la conversazione. Chi si
 > sveglia adesso non ha memoria: qui trova dove siamo e **qual è il prossimo lavoro**.
 
 ## Le corsie
 
-- 🟢 vive: ricerca (6′), loop 0 (2′), sperimenti (4′)
-- 🔴 **mute: motore (nessun commit)** ← prima di ogni altra cosa, capire perché
+- 🟢 vive: motore (4′), ricerca (4′), loop 0 (10′), sperimenti (4′)
 
 ## Gli esperimenti vivi
 
@@ -31,10 +30,10 @@
 | base/DOMANDABILI (stima %) | 13 | — |
 | base/battito | 3,309 | — |
 | base/candele | 1,530 | — |
-| robinhood/COMPLETI (prezzo+scambi) | 893 | — |
+| robinhood/COMPLETI (prezzo+scambi) | 901 | **+8** |
 | robinhood/DOMANDABILI (stima %) | 0 | — |
 | robinhood/battito | 233 | — |
-| robinhood/candele | 2,304 | — |
+| robinhood/candele | 2,324 | **+20** |
 | robinhood/toccati 12h | 110 | — |
 | solana/COMPLETI (prezzo+scambi) | 1,100 | — |
 | solana/DOMANDABILI (stima %) | 10 | — |
@@ -46,7 +45,7 @@ In coda e non ancora aperti: **0** (nessuno).
 
 ## ➡️ Il prossimo lavoro
 
-> Riaccendere e capire perché tace: **motore (nessun commit)**. Una corsia muta blocca tutto il resto.
+> **Far parlare il consulente**: tace, e nessuno ci sta dicendo cosa costruire. Costruire nella direzione sbagliata costa più che non costruire.
 
 > **Perché una riga sola**: se il prossimo lavoro fossero cinque cose, non sarebbe il
 > prossimo — sarebbe un elenco, e un elenco non fa partire nessuno.
@@ -58,4 +57,4 @@ In coda e non ancora aperti: **0** (nessuno).
 > ieri e sembrano di oggi. Qui sotto c'è la data del calcolo, e se non è di pochi minuti fa
 > il foglio non vale.
 
-*Calcolato alle **23:09 UTC** del 15/09/2026.*
+*Calcolato alle **23:17 UTC** del 15/09/2026.*
