@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (solana)
-*2026-09-15 14:33 UTC · 20 segnali nuovi messi alla prova su 429 token*
+*2026-09-15 14:49 UTC · 20 segnali nuovi messi alla prova su 428 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-99%**.
 
@@ -12,26 +12,26 @@ Non è un fallimento: è la risposta onesta di oggi. Con più dati gli stessi se
 
 | il segnale | cosa guarda | risultato |
 |---|---|---|
-| `quota_wallet_vincenti x usd_primi20 (voto)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per quanto pesano i primissimi 20 acquisti sul totale | -99% (+0) |
-| `quota_wallet_vincenti x usd_primi20 (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per quanto pesano i primissimi 20 acquisti sul totale | -99% (+0) |
-| `quota_wallet_vincenti / usd_primi20 (voto)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a quanto pesano i primissimi 20 acquisti sul totale | -99% (+0) |
-| `quota_wallet_vincenti / usd_primi20 (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a quanto pesano i primissimi 20 acquisti sul totale | -99% (+0) |
-| `buy_medio x ampiezza (voto)` | quanto compra in media ciascuno MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -99% (+0) |
-| `buy_medio x ampiezza (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -99% (+0) |
-| `buy_medio / ampiezza (voto)` | quanto compra in media ciascuno RAPPORTATO a quanto oscilla il prezzo prima di entrare | -99% (+0) |
-| `buy_medio / ampiezza (filtro)` | quanto compra in media ciascuno RAPPORTATO a quanto oscilla il prezzo prima di entrare | -99% (+0) |
-| `quota_wallet_reduci x quota_wallet_vincenti (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per la quota di denaro da wallet con almeno un successo alle spalle | -99% (+0) |
-| `quota_wallet_reduci x quota_wallet_vincenti (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per la quota di denaro da wallet con almeno un successo alle spalle | -99% (+0) |
-| `quota_wallet_reduci / quota_wallet_vincenti (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) RAPPORTATO a la quota di denaro da wallet con almeno un successo alle spalle | -99% (+0) |
-| `quota_wallet_reduci / quota_wallet_vincenti (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) RAPPORTATO a la quota di denaro da wallet con almeno un successo alle spalle | -99% (+0) |
-| `quota_wallet_reduci x volume_ultima_su_media (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per se il volume sta accelerando proprio adesso | -99% (+0) |
-| `quota_wallet_reduci x volume_ultima_su_media (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per se il volume sta accelerando proprio adesso | -99% (+0) |
-| `quota_wallet_reduci / volume_ultima_su_media (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) RAPPORTATO a se il volume sta accelerando proprio adesso | -99% (+0) |
-| `quota_wallet_reduci / volume_ultima_su_media (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) RAPPORTATO a se il volume sta accelerando proprio adesso | -99% (+0) |
-| `buy_medio x trade_al_minuto (voto)` | quanto compra in media ciascuno MOLTIPLICATO per quanto è frenetico lo scambio | -99% (+0) |
-| `buy_medio x trade_al_minuto (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per quanto è frenetico lo scambio | -99% (+0) |
-| `buy_medio / trade_al_minuto (voto)` | quanto compra in media ciascuno RAPPORTATO a quanto è frenetico lo scambio | -99% (+0) |
-| `buy_medio / trade_al_minuto (filtro)` | quanto compra in media ciascuno RAPPORTATO a quanto è frenetico lo scambio | -99% (+0) |
+| `concentrazione_top1 x quota_wallet_nuovi (voto)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per la quota di denaro da wallet mai visti prima | -99% (+0) |
+| `concentrazione_top1 x quota_wallet_nuovi (filtro)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per la quota di denaro da wallet mai visti prima | -99% (+0) |
+| `concentrazione_top1 / quota_wallet_nuovi (voto)` | quanto pesa il singolo compratore più grosso RAPPORTATO a la quota di denaro da wallet mai visti prima | -99% (+0) |
+| `concentrazione_top1 / quota_wallet_nuovi (filtro)` | quanto pesa il singolo compratore più grosso RAPPORTATO a la quota di denaro da wallet mai visti prima | -99% (+0) |
+| `quota_wallet_nuovi x usd_primi20 (voto)` | la quota di denaro da wallet mai visti prima MOLTIPLICATO per quanto pesano i primissimi 20 acquisti sul totale | -99% (+0) |
+| `quota_wallet_nuovi x usd_primi20 (filtro)` | la quota di denaro da wallet mai visti prima MOLTIPLICATO per quanto pesano i primissimi 20 acquisti sul totale | -99% (+0) |
+| `quota_wallet_nuovi / usd_primi20 (voto)` | la quota di denaro da wallet mai visti prima RAPPORTATO a quanto pesano i primissimi 20 acquisti sul totale | -99% (+0) |
+| `quota_wallet_nuovi / usd_primi20 (filtro)` | la quota di denaro da wallet mai visti prima RAPPORTATO a quanto pesano i primissimi 20 acquisti sul totale | -99% (+0) |
+| `quota_wallet_nuovi x volume_ultima_su_media (voto)` | la quota di denaro da wallet mai visti prima MOLTIPLICATO per se il volume sta accelerando proprio adesso | -99% (+0) |
+| `quota_wallet_nuovi x volume_ultima_su_media (filtro)` | la quota di denaro da wallet mai visti prima MOLTIPLICATO per se il volume sta accelerando proprio adesso | -99% (+0) |
+| `quota_wallet_nuovi / volume_ultima_su_media (voto)` | la quota di denaro da wallet mai visti prima RAPPORTATO a se il volume sta accelerando proprio adesso | -99% (+0) |
+| `quota_wallet_nuovi / volume_ultima_su_media (filtro)` | la quota di denaro da wallet mai visti prima RAPPORTATO a se il volume sta accelerando proprio adesso | -99% (+0) |
+| `quota_wallet_vincenti x compra_e_rivende (voto)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
+| `quota_wallet_vincenti x compra_e_rivende (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
+| `quota_wallet_vincenti / compra_e_rivende (voto)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
+| `quota_wallet_vincenti / compra_e_rivende (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
+| `quota_wallet_vincenti x quota_wallet_nuovi (voto)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per la quota di denaro da wallet mai visti prima | -99% (+0) |
+| `quota_wallet_vincenti x quota_wallet_nuovi (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per la quota di denaro da wallet mai visti prima | -99% (+0) |
+| `quota_wallet_vincenti / quota_wallet_nuovi (voto)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a la quota di denaro da wallet mai visti prima | -99% (+0) |
+| `quota_wallet_vincenti / quota_wallet_nuovi (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a la quota di denaro da wallet mai visti prima | -99% (+0) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 

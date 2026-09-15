@@ -4,6 +4,7 @@
 > per ogni giro in cui **è cambiato qualcosa**. I giri identici al precedente non si
 > scrivono — un diario che ripete smette di essere letto, e allora smette di servire.
 
+- **15/09 14:52 UTC** — accumulo: robinhood/toccati 12h -1, base/candele +8, robinhood/COMPLETI (prezzo+scambi) +1, robinhood/candele +19, solana/DOMANDABILI (stima %) +1
 - **15/09 14:23 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +1, solana/COMPLETI (prezzo+scambi) +2
 - **15/09 14:16 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +9, robinhood/COMPLETI (prezzo+scambi) +6, robinhood/DOMANDABILI (stima %) +2, solana/COMPLETI (prezzo+scambi) +3
 - **15/09 14:09 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +2, solana/COMPLETI (prezzo+scambi) +3
@@ -303,4 +304,3 @@
 - **11/09 14:02 UTC** — accumulo: robinhood/candele +24
 - **11/09 13:33 UTC** — accumulo: robinhood/candele +9
 - **11/09 13:21 UTC** — accumulo: robinhood/candele +22, robinhood/toccati 12h +9
-- **11/09 12:48 UTC** — accumulo: robinhood/battito +9
