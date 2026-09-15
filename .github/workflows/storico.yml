@@ -35,18 +35,23 @@ jobs:
           # e' lavoro sprecato che pesa sulla storia del repo. Ne resta UNA, per i token nuovi che
           # nascono ogni ora. Le altre cinque passano a Robinhood, che e' al 60% e ha VENTI VOLTE
           # piu' blocchi da coprire (847.000 al giorno contro 43.200).
+          # RIEQUILIBRIO (15/09, secondo). Base era passata a una sola fetta perche' aveva finito.
+          # Ma poi le ho aggiunto i campi mancanti — block hash, indice transazione, semantica del
+          # wallet — e i 59.000 record vecchi vanno riscritti col formato completo: e' di nuovo
+          # lavoro da fare. Robinhood intanto e' salita al 69%.
+          # Sei e sei, distanziate di 6 giorni: coprono 0-36 giorni per entrambe.
           - { chain: base,      fetta: 0 }
+          - { chain: base,      fetta: 1 }
+          - { chain: base,      fetta: 2 }
+          - { chain: base,      fetta: 3 }
+          - { chain: base,      fetta: 4 }
+          - { chain: base,      fetta: 5 }
           - { chain: robinhood, fetta: 0 }
           - { chain: robinhood, fetta: 1 }
           - { chain: robinhood, fetta: 2 }
           - { chain: robinhood, fetta: 3 }
           - { chain: robinhood, fetta: 4 }
           - { chain: robinhood, fetta: 5 }
-          - { chain: robinhood, fetta: 6 }
-          - { chain: robinhood, fetta: 7 }
-          - { chain: robinhood, fetta: 8 }
-          - { chain: robinhood, fetta: 9 }
-          - { chain: robinhood, fetta: 10 }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -60,7 +65,7 @@ jobs:
           BUDGET_SEC: "9000"
           ORE_VITA: "6"
           TETTO_POOL: "300"
-          GIORNI_FETTA: "3.5"
+          GIORNI_FETTA: "6"
         run: python agents/storico_evm.py
       # IL SALVATAGGIO DEVE URLARE SE FALLISCE (14/09). La prima versione provava otto volte e poi
       # finiva in silenzio con esito "riuscito": sei lavori hanno raccolto dati e riportato successo
