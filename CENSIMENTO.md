@@ -1,5 +1,5 @@
 # 📋 CENSIMENTO — che fine ha fatto ogni pool che abbiamo scoperto
-*2026-09-15 12:18 UTC*
+*2026-09-15 12:58 UTC*
 
 > **Perché esiste**: dicevamo che il 60% dei token era "inutilizzabile", ma non sapevamo *perché*.
 > Un pool senza dati perché è nato morto è un'informazione sul mercato; un pool senza dati perché
@@ -8,8 +8,8 @@
 
 | chain | totale | vivi | troppo giovani | **mai interrogati** (limite nostro) | **nati morti** | serie corta | spariti |
 |---|---|---|---|---|---|---|---|
-| **base** | 14747 | 144 | 35 | **11685** | **457** | 152 | 2274 |
-| **solana** | 14753 | 25 | 20 | **13158** | **393** | 247 | 910 |
+| **base** | 14778 | 144 | 51 | **11685** | **457** | 167 | 2274 |
+| **solana** | 14773 | 25 | 40 | **13158** | **393** | 247 | 910 |
 | **bsc** | 17461 | 6 | 0 | **16327** | **353** | 5 | 770 |
 
 **base** — dei pool che abbiamo davvero interrogato, il **15% è nato morto**. Ma il **79%** dei pool scoperti non l'abbiamo mai chiesto: quello non dice niente sul mercato, dice quanto siamo lenti a raccogliere.
