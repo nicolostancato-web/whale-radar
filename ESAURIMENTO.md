@@ -1,5 +1,5 @@
 # 🪫 COMPRARE QUANDO FINISCE CHI VENDE
-*2026-09-15 23:33 UTC · esperimento 4 · solo dati già scaricati · €0*
+*2026-09-15 23:38 UTC · esperimento 4 · solo dati già scaricati · €0*
 
 > Le sei piste morte chiedevano tutte **«chi sta comprando?»**: inseguivano la domanda, che
 > è un'opinione e cambia idea. Questa guarda **l'offerta**. Una vendita concentrata schiaccia
@@ -15,7 +15,7 @@ al netto del costo d'uscita misurato.
 | | eventi | mediana netta 6h | media netta |
 |---|---|---|---|
 | **dopo l'esaurimento** | 125 | **-2.6%** | +0.4% |
-| controllo (niente scarico) | 4000 | -1.7% | +137081.8% |
+| controllo (niente scarico) | 4000 | -1.7% | +137081.9% |
 
 Limite inferiore dell'intervallo al 95%, contando **14 giorni** e non le righe: **-10.6%**.
 
