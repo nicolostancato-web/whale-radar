@@ -1,5 +1,5 @@
 # 📈 QUANTO COSTA USCIRE, SECONDO QUANTO E' LIQUIDO IL TOKEN
-*2026-09-15 12:04 UTC · 122 osservazioni (misure con il volume dell'ORA in cui sono state prese, non la mediana storica) · €0*
+*2026-09-15 14:39 UTC · 122 osservazioni (misure con il volume dell'ORA in cui sono state prese, non la mediana storica) · €0*
 
 > Un costo costante è comodo e sbagliato. Su un pool che gira 50.000 dollari l'ora, uscire
 > con 25 dollari non si sente. Sullo stesso token quando il volume è crollato a 200, quei
@@ -8,9 +8,9 @@
 | la posizione è, del volume orario | costo andata+ritorno | nei casi peggiori | osservazioni |
 |---|---|---|---|
 | 0.02% – 0.67% | **2.8%** | 3.2% | 20 |
-| 0.68% – 5.91% | **5.0%** | 7.0% | 20 |
-| 6.13% – 51.24% | **4.5%** | 10.7% | 20 |
-| 66.71% – 961.14% | **8.1%** | 18.2% | 20 |
+| 0.68% – 6.13% | **5.0%** | 7.0% | 20 |
+| 6.20% – 81.52% | **4.5%** | 9.1% | 20 |
+| 87.61% – 1075.68% | **8.7%** | 18.2% | 20 |
 | 1139.45% – 13619.24% | **5.0%** | 10.5% | 20 |
 | 16239.35% – 345546.69% | **9.4%** | 28.5% | 20 |
 

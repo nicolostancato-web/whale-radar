@@ -19,8 +19,8 @@
 
 ## Cosa cambia
 
-Costo misurato di andata e ritorno su $100: **10.2%** contro il **~30%** che assumiamo.
-Pareggio necessario: **1.11x** contro l'**1,50x** del modello attuale.
+Costo misurato di andata e ritorno su $100: **9.5%** contro il **~30%** che assumiamo.
+Pareggio necessario: **1.10x** contro l'**1,50x** del modello attuale.
 
 > ⚠️ **Il costo assunto è molto più alto di quello misurato.** Prima di dichiarare morto
 > un mercato, i numeri vanno rifatti con il costo vero — su questi token, in questo momento.

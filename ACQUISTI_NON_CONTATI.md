@@ -1,5 +1,5 @@
 # 🕳️ GLI ACQUISTI CHE IL RENDIMENTO NON CONTA (robinhood)
-*2026-09-15 12:04 UTC · ritardo reale applicato: 241 minuti · €0*
+*2026-09-15 14:40 UTC · ritardo reale applicato: 241 minuti · €0*
 
 > **La domanda**: un token che muore subito non arriva mai ad avere abbastanza candele per
 > essere valutato — quindi esce dal conto. Non perché lo escludiamo: perché non fa in tempo
@@ -11,20 +11,20 @@
 
 | | token |
 |---|---|
-| **acquistabili** all'ingresso (filtri passati con i dati di allora) | **878** |
+| **acquistabili** all'ingresso (filtri passati con i dati di allora) | **892** |
 | ...di cui **arrivati a un esito misurabile** | **228** |
-| ...**mancanti dal conto** | **650** (74%) |
+| ...**mancanti dal conto** | **664** (74%) |
 
 **Perché mancano:**
 
-- poche candele dopo l'ingresso: 164
-- mai arrivato al volume minimo: 1118
-- sparito subito: 486
+- poche candele dopo l'ingresso: 165
+- mai arrivato al volume minimo: 1165
+- sparito subito: 499
 
 ## Cosa avrebbero reso, se li contassimo
 
-Per 281 dei mancanti conosciamo comunque un prezzo di uscita:
-rendimento medio **+31690520798%**, mediano **-8%**.
+Per 284 dei mancanti conosciamo comunque un prezzo di uscita:
+rendimento medio **+31355761776%**, mediano **-8%**.
 
 > Non sono un −100% automatico — sarebbe l'errore opposto, altrettanto sbagliato. Ma se
 > il loro rendimento è peggiore di quello dei token contati, allora il numero pubblicato
