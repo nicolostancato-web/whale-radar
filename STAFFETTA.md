@@ -1,13 +1,13 @@
 # 🏃 STAFFETTA — leggi QUESTO per primo
-*2026-09-15 11:56 UTC · aggiornato da solo a ogni giro*
+*2026-09-15 12:02 UTC · aggiornato da solo a ogni giro*
 
 > La continuità viene dai **registri condivisi**, non dal ricordarsi la conversazione. Chi si
 > sveglia adesso non ha memoria: qui trova dove siamo e **qual è il prossimo lavoro**.
 
 ## Le corsie
 
-- 🟢 vive: ricerca (2′), loop 0 (4′)
-- 🔴 **mute: motore (nessun commit), sperimenti (nessun commit)** ← prima di ogni altra cosa, capire perché
+- 🟢 vive: ricerca (8′), loop 0 (10′), sperimenti (6′)
+- 🔴 **mute: motore (nessun commit)** ← prima di ogni altra cosa, capire perché
 
 ## Gli esperimenti vivi
 
@@ -23,26 +23,23 @@
 
 ## Stiamo accumulando?
 
-*Variazione rispetto a **51 minuti fa**.*
+*Variazione rispetto a **6 minuti fa**.*
 
 | cosa | quanti | cambiato di |
 |---|---|---|
-| base/COMPLETI (prezzo+scambi) | 941 | -2 |
+| base/COMPLETI (prezzo+scambi) | 941 | — |
 | base/DOMANDABILI (stima %) | 13 | — |
 | base/battito | 3,270 | — |
-| base/candele | 1,439 | -566 |
-| robinhood/COMPLETI (prezzo+scambi) | 682 | -21 |
+| base/candele | 1,439 | — |
+| robinhood/COMPLETI (prezzo+scambi) | 682 | — |
 | robinhood/DOMANDABILI (stima %) | 3 | — |
 | robinhood/battito | 210 | — |
-| robinhood/candele | 1,987 | -2626 |
+| robinhood/candele | 1,987 | — |
 | robinhood/toccati 12h | 94 | — |
-| solana/COMPLETI (prezzo+scambi) | 930 | -127 |
-| solana/DOMANDABILI (stima %) | 12 | **+2** |
+| solana/COMPLETI (prezzo+scambi) | 930 | — |
+| solana/DOMANDABILI (stima %) | 12 | — |
 | solana/battito | 196 | — |
-| solana/candele | 1,182 | -592 |
-
-> 🔴 **Fermi da 51 minuti**: base/DOMANDABILI (stima %), base/battito, robinhood/DOMANDABILI (stima %), robinhood/battito, robinhood/toccati 12h, solana/battito. Un contatore che non cambia
-> non è un contatore alto: è lavoro che non sta succedendo.
+| solana/candele | 1,182 | — |
 
 
 In coda e non ancora aperti: **0** (nessuno).
@@ -61,4 +58,4 @@ In coda e non ancora aperti: **0** (nessuno).
 > ieri e sembrano di oggi. Qui sotto c'è la data del calcolo, e se non è di pochi minuti fa
 > il foglio non vale.
 
-*Calcolato alle **11:56 UTC** del 15/09/2026.*
+*Calcolato alle **12:02 UTC** del 15/09/2026.*
