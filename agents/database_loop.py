@@ -94,6 +94,8 @@ def main():
             esiti.append((f"coda viva {ch}", rc, ult))
         rc, ult = sh("python agents/elenco_righe.py", timeout=280)
         esiti.append(("elenco righe", rc, ult))
+        rc, ult = sh("python agents/integrita.py", {"INTEGRITA_FINESTRE": "10"}, timeout=300)
+        esiti.append(("integrita", rc, ult))
         rc, ult = sh("python agents/qualita_db.py", timeout=280)
         esiti.append(("qualita del terreno", rc, ult))
         rc, ult = sh("python agents/coorte.py", {"COORTE_MAX": "20"}, timeout=200)
