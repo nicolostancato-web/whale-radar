@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (base)
-*2026-09-15 18:36 UTC · 20 segnali nuovi messi alla prova su 616 token*
+*2026-09-15 19:39 UTC · 20 segnali nuovi messi alla prova su 616 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-99%**.
 
@@ -12,39 +12,39 @@ Non è un fallimento: è la risposta onesta di oggi. Con più dati gli stessi se
 
 | il segnale | cosa guarda | risultato |
 |---|---|---|
-| `quota_wallet_vincenti x volume_ultima_su_media (voto)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per se il volume sta accelerando proprio adesso | -99% (+0) |
-| `quota_wallet_vincenti x volume_ultima_su_media (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per se il volume sta accelerando proprio adesso | -99% (+0) |
-| `quota_wallet_vincenti / volume_ultima_su_media (voto)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a se il volume sta accelerando proprio adesso | -99% (+0) |
-| `quota_wallet_vincenti / volume_ultima_su_media (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a se il volume sta accelerando proprio adesso | -99% (+0) |
-| `quota_wallet_reduci x ampiezza (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -99% (+0) |
-| `quota_wallet_reduci x ampiezza (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -99% (+0) |
-| `quota_wallet_vincenti x usd_primi20 (voto)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per quanto pesano i primissimi 20 acquisti sul totale | -99% (+0) |
-| `quota_wallet_vincenti x usd_primi20 (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per quanto pesano i primissimi 20 acquisti sul totale | -99% (+0) |
-| `concentrazione_top5 x accelerazione_denaro (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -99% (+0) |
-| `concentrazione_top5 x accelerazione_denaro (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -99% (+0) |
-| `concentrazione_top5 / accelerazione_denaro (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a se i soldi stanno entrando più in fretta adesso che all'inizio | -99% (+0) |
-| `concentrazione_top5 / accelerazione_denaro (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a se i soldi stanno entrando più in fretta adesso che all'inizio | -99% (+0) |
-| `quota_wallet_vincenti x drawdown_pre (voto)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | -99% (+0) |
-| `quota_wallet_vincenti x drawdown_pre (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | -99% (+0) |
-| `quota_wallet_vincenti / drawdown_pre (voto)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -99% (+0) |
-| `quota_wallet_vincenti / drawdown_pre (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -99% (+0) |
-| `buy_medio x wallet_ripetuti (voto)` | quanto compra in media ciascuno MOLTIPLICATO per quanti wallet comprano più di una volta | -99% (+0) |
-| `buy_medio x wallet_ripetuti (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per quanti wallet comprano più di una volta | -99% (+0) |
-| `buy_medio / wallet_ripetuti (voto)` | quanto compra in media ciascuno RAPPORTATO a quanti wallet comprano più di una volta | -99% (+0) |
-| `buy_medio / wallet_ripetuti (filtro)` | quanto compra in media ciascuno RAPPORTATO a quanti wallet comprano più di una volta | -99% (+0) |
+| `buy_medio (voto)` | quanto compra in media ciascuno | -99% (+0) |
+| `buy_medio (filtro)` | quanto compra in media ciascuno | -99% (+0) |
+| `n_compratori x quota_wallet_reduci (voto)` | quante persone diverse hanno comprato MOLTIPLICATO per la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -99% (+0) |
+| `n_compratori x quota_wallet_reduci (filtro)` | quante persone diverse hanno comprato MOLTIPLICATO per la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -99% (+0) |
+| `n_compratori / quota_wallet_reduci (voto)` | quante persone diverse hanno comprato RAPPORTATO a la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -99% (+0) |
+| `n_compratori / quota_wallet_reduci (filtro)` | quante persone diverse hanno comprato RAPPORTATO a la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -99% (+0) |
+| `sbilanciamento x ampiezza (voto)` | quanto il denaro che entra supera quello che esce MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -99% (+0) |
+| `sbilanciamento x ampiezza (filtro)` | quanto il denaro che entra supera quello che esce MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -99% (+0) |
+| `sbilanciamento / ampiezza (voto)` | quanto il denaro che entra supera quello che esce RAPPORTATO a quanto oscilla il prezzo prima di entrare | -99% (+0) |
+| `sbilanciamento / ampiezza (filtro)` | quanto il denaro che entra supera quello che esce RAPPORTATO a quanto oscilla il prezzo prima di entrare | -99% (+0) |
+| `buy_grossi x sbilanciamento (voto)` | la quota di denaro che arriva da acquisti sopra i 500 dollari MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -99% (+0) |
+| `buy_grossi x sbilanciamento (filtro)` | la quota di denaro che arriva da acquisti sopra i 500 dollari MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -99% (+0) |
+| `buy_grossi / sbilanciamento (voto)` | la quota di denaro che arriva da acquisti sopra i 500 dollari RAPPORTATO a quanto il denaro che entra supera quello che esce | -99% (+0) |
+| `buy_grossi / sbilanciamento (filtro)` | la quota di denaro che arriva da acquisti sopra i 500 dollari RAPPORTATO a quanto il denaro che entra supera quello che esce | -99% (+0) |
+| `quota_wallet_nuovi x drawdown_pre (voto)` | la quota di denaro da wallet mai visti prima MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | -99% (+0) |
+| `quota_wallet_nuovi x drawdown_pre (filtro)` | la quota di denaro da wallet mai visti prima MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | -99% (+0) |
+| `n_compratori x accelerazione_denaro (voto)` | quante persone diverse hanno comprato MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -99% (+0) |
+| `n_compratori x accelerazione_denaro (filtro)` | quante persone diverse hanno comprato MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -99% (+0) |
+| `n_compratori / accelerazione_denaro (voto)` | quante persone diverse hanno comprato RAPPORTATO a se i soldi stanno entrando più in fretta adesso che all'inizio | -99% (+0) |
+| `n_compratori / accelerazione_denaro (filtro)` | quante persone diverse hanno comprato RAPPORTATO a se i soldi stanno entrando più in fretta adesso che all'inizio | -99% (+0) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
-- `concentrazione_top5 (voto)` — già bocciato 37 volte 5h fa (si riprova fra 7h o quando i dati crescono)
-- `concentrazione_top5 (filtro)` — già bocciato 37 volte 5h fa (si riprova fra 7h o quando i dati crescono)
-- `concentrazione_top1 (voto)` — già bocciato 37 volte 5h fa (si riprova fra 7h o quando i dati crescono)
-- `concentrazione_top1 (filtro)` — già bocciato 37 volte 5h fa (si riprova fra 7h o quando i dati crescono)
-- `n_compratori (voto)` — già bocciato 14 volte 3h fa (si riprova fra 9h o quando i dati crescono)
-- `n_compratori (filtro)` — già bocciato 30 volte 3h fa (si riprova fra 9h o quando i dati crescono)
-- `buy_medio (voto)` — già bocciato 14 volte 8h fa (si riprova fra 4h o quando i dati crescono)
-- `buy_medio (filtro)` — già bocciato 37 volte 8h fa (si riprova fra 4h o quando i dati crescono)
-- `buy_grossi (voto)` — già bocciato 13 volte 5h fa (si riprova fra 7h o quando i dati crescono)
-- `buy_grossi (filtro)` — già bocciato 37 volte 5h fa (si riprova fra 7h o quando i dati crescono)
+- `concentrazione_top5 (voto)` — già bocciato 37 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `concentrazione_top5 (filtro)` — già bocciato 37 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `concentrazione_top1 (voto)` — già bocciato 37 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `concentrazione_top1 (filtro)` — già bocciato 37 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `n_compratori (voto)` — già bocciato 14 volte 4h fa (si riprova fra 8h o quando i dati crescono)
+- `n_compratori (filtro)` — già bocciato 30 volte 4h fa (si riprova fra 8h o quando i dati crescono)
+- `buy_grossi (voto)` — già bocciato 13 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `buy_grossi (filtro)` — già bocciato 37 volte 6h fa (si riprova fra 6h o quando i dati crescono)
+- `trade_al_minuto (voto)` — già bocciato 14 volte 4h fa (si riprova fra 8h o quando i dati crescono)
+- `trade_al_minuto (filtro)` — già bocciato 38 volte 4h fa (si riprova fra 8h o quando i dati crescono)
 
 > **Perché questo ruolo esiste:** l'insider su Solana l'ha inventato un umano. Qui il sistema
 > costruisce da sé segnali nuovi dai dati grezzi e li mette alla prova. Uno dei mattoni è proprio
