@@ -1,5 +1,5 @@
 # 🔬 EXPLORER — LOOP 1: come alzo la percentuale? (solana)
-*2026-09-15 10:50 UTC · 9947 strategie provate in questo ciclo · 2034794 in totale*
+*2026-09-15 11:16 UTC · 7388 strategie provate in questo ciclo · 2042182 in totale*
 
 ## Migliore trovata finora: **-98%** (stress test) · P&L medio **-27%** · crescita composta **-86.2%** · 5% peggiore **-100%** · 64 trade
 
@@ -25,12 +25,12 @@ la crescita composta dice se reinvestendo si cresce o ci si rovina.*
 
 | la strategia | risultato |
 |---|---|
+| entra +1h · solo se volume > $30.000, vendite/acquisti > 10% · stop -80% · profitto a 3x e 15x · trailing -50% · soglia 0.55 | -98% |
+| entra +1h · solo se volume > $30.000, vendite/acquisti > 10% · stop -80% · profitto a 3x e 15x · trailing -50% · soglia 0.4 | -98% |
+| entra +1h · solo se volume > $30.000, vendite/acquisti > 10% · stop -80% · profitto a 3x e 15x · trailing -50% · soglia 0.5 | -98% |
+| entra +1h · solo se volume > $30.000, vendite/acquisti > 10% · stop -80% · profitto a 3x e 15x · trailing -50% · soglia 0.6 | -98% |
+| entra +1h · solo se volume > $30.000, vendite/acquisti > 10% · stop -80% · profitto a 3x e 15x · trailing -50% · soglia 0.5 | -98% |
 | entra +1h · vendite/acquisti > 10% · stop -80% · profitto a 3x e 15x · trailing -50% · soglia 0.5 | -99% |
-| entra +1h · solo se volume > $30.000, vendite/acquisti > 10% · stop -80% · profitto a 5x e 15x · trailing -50% · soglia 0.5 | -99% |
-| entra +1h · solo se volume > $30.000, vendite/acquisti > 10% · stop -80% · profitto a 3x e 15x · trailing -50% · soglia 0.5 | -98% |
-| entra +1h · solo se volume > $3.000, vendite/acquisti > 10% · stop -80% · profitto a 3x e 15x · trailing -50% · soglia 0.5 | -99% |
-| entra +1h · solo se volume > $30.000, vendite/acquisti > 10% · stop -80% · profitto a 3x e 15x · trailing -50% · soglia 0.5 | -98% |
-| entra +1h · solo se volume > $30.000, vendite/acquisti > 10% · stop -80% · profitto a 3x e 15x · trailing -50% · soglia 0.5 | -98% |
 
 > Il LOOP 1 non si ferma mai: prova strategie e segnali, tiene solo cio' che alza la percentuale
 > ROBUSTA (tolti i 3 colpi migliori) di almeno 8 punti, e riparte da li'.
