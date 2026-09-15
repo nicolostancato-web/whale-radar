@@ -1,13 +1,12 @@
 # 🏃 STAFFETTA — leggi QUESTO per primo
-*2026-09-15 14:37 UTC · aggiornato da solo a ogni giro*
+*2026-09-15 14:45 UTC · aggiornato da solo a ogni giro*
 
 > La continuità viene dai **registri condivisi**, non dal ricordarsi la conversazione. Chi si
 > sveglia adesso non ha memoria: qui trova dove siamo e **qual è il prossimo lavoro**.
 
 ## Le corsie
 
-- 🟢 vive: ricerca (3′), loop 0 (0′), sperimenti (7′)
-- 🔴 **mute: motore (nessun commit)** ← prima di ogni altra cosa, capire perché
+- 🟢 vive: motore (5′), ricerca (1′), loop 0 (8′), sperimenti (7′)
 
 ## Gli esperimenti vivi
 
@@ -46,7 +45,7 @@ In coda e non ancora aperti: **0** (nessuno).
 
 ## ➡️ Il prossimo lavoro
 
-> Riaccendere e capire perché tace: **motore (nessun commit)**. Una corsia muta blocca tutto il resto.
+> **Far parlare il consulente**: tace, e nessuno ci sta dicendo cosa costruire. Costruire nella direzione sbagliata costa più che non costruire.
 
 > **Perché una riga sola**: se il prossimo lavoro fossero cinque cose, non sarebbe il
 > prossimo — sarebbe un elenco, e un elenco non fa partire nessuno.
@@ -58,4 +57,4 @@ In coda e non ancora aperti: **0** (nessuno).
 > ieri e sembrano di oggi. Qui sotto c'è la data del calcolo, e se non è di pochi minuti fa
 > il foglio non vale.
 
-*Calcolato alle **14:37 UTC** del 15/09/2026.*
+*Calcolato alle **14:45 UTC** del 15/09/2026.*
