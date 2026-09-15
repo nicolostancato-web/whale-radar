@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (robinhood)
-*2026-09-15 12:41 UTC · 12 segnali nuovi messi alla prova su 340 token*
+*2026-09-15 12:58 UTC · 8 segnali nuovi messi alla prova su 340 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-96%**.
 
@@ -23,14 +23,10 @@
 | `volume_ultima_su_media (filtro)` | se il volume sta accelerando proprio adesso | -68% (+28) |
 | `ampiezza x volume_ultima_su_media (filtro)` | quanto oscilla il prezzo prima di entrare MOLTIPLICATO per se il volume sta accelerando proprio adesso | -73% (+23) |
 | `ampiezza (filtro)` | quanto oscilla il prezzo prima di entrare | -79% (+17) |
-| `concentrazione_top5 x sbilanciamento (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -96% (+0) |
-| `concentrazione_top5 / sbilanciamento (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a quanto il denaro che entra supera quello che esce | -96% (+0) |
-| `quota_wallet_vincenti x compra_e_rivende (voto)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -96% (+0) |
-| `quota_wallet_vincenti / compra_e_rivende (voto)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -96% (+0) |
-| `concentrazione_top5 x sbilanciamento (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -97% (-1) |
-| `concentrazione_top5 / sbilanciamento (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a quanto il denaro che entra supera quello che esce | -97% (-1) |
-| `quota_wallet_vincenti x compra_e_rivende (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -97% (-1) |
-| `quota_wallet_vincenti / compra_e_rivende (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -97% (-1) |
+| `quota_wallet_reduci (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -96% (+0) |
+| `quota_wallet_vincenti (voto)` | la quota di denaro da wallet con almeno un successo alle spalle | -96% (+0) |
+| `quota_wallet_reduci (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -97% (-1) |
+| `quota_wallet_vincenti (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle | -97% (-1) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
