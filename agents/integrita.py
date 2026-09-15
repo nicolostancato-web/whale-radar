@@ -51,6 +51,28 @@ def rpc(url, metodo, params):
         return None, f"{type(e).__name__} {getattr(e, 'code', '')}"
 
 
+_CONV = {}
+
+
+def conversione(chain, quanti=40):
+    """Quota dei nostri record gia' nel formato completo, su un campione di pool.
+    Un record senza hash di blocco e' del vecchio formato: le fette lo devono ancora rifare."""
+    if chain in _CONV: return _CONV[chain]
+    d = f"data/multichain/{chain}/storico"
+    if not os.path.isdir(d): _CONV[chain] = None; return None
+    files = sorted(os.listdir(d))[:quanti]
+    con = tot = 0
+    for fn in files:
+        try:
+            for l in gzip.open(os.path.join(d, fn), "rt"):
+                if not l.strip(): continue
+                tot += 1
+                if json.loads(l).get("bh"): con += 1
+        except Exception: pass
+    _CONV[chain] = round(con / tot, 3) if tot else None
+    return _CONV[chain]
+
+
 def nostri_record(chain, da, a, nostri):
     """Cosa abbiamo IN CASA per quella fascia di blocchi."""
     out = {}
@@ -199,9 +221,18 @@ def main():
             inventati = [k for k in casa if k not in grezza]
             esito = ("identici" if not mancanti and not inventati
                      else ("MANCANO DA NOI" if mancanti else "ABBIAMO DI PIU'"))
+            # SI TIMBRA A CHE PUNTO ERA LA CONVERSIONE (15/09). Le fette stanno riscrivendo lo
+            # storico nel formato completo: pota() svuota i file dai record senza hash di blocco e
+            # le fette li riscaricano. Finche' dura, un pool puo' essere legittimamente mezzo vuoto.
+            # Misurare la completezza adesso misura l'avanzamento della conversione, non il dato
+            # perso — e su base, che e' al 28%, la differenza e' tutta.
+            # Il verdetto NON cambia: si scrive solo a che punto eravamo, cosi' le finestre prese a
+            # meta' lavoro si potranno escludere DOPO invece di sporcare le 299. Una misura presa
+            # durante un cambiamento non e' sbagliata, e' solo da etichettare.
             nuove.append({"acq": int(time.time()), "chain": chain, "da": da, "a": a, "seme": SEME,
                           "catena": len(catena), "casa": len(casa), "al_tetto": len(al_tetto),
-                          "mancanti": len(mancanti), "inventati": len(inventati), "esito": esito})
+                          "mancanti": len(mancanti), "inventati": len(inventati), "esito": esito,
+                          "conversione": conversione(chain)})
 
     if nuove:
         try:
