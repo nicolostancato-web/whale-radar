@@ -9,18 +9,19 @@
 > Qui si chiede a un canale **indipendente** — la catena, non la stessa fonte delle candele —
 > se il pool era vivo a +3h, e si confronta con quello che abbiamo noi.
 
-**Osservazioni accumulate: 705** (+50 in questo giro)
+**Osservazioni accumulate: 690** (+40 in questo giro)
 
 | la catena dice | noi abbiamo la candela | quanti | lettura |
 |---|---|---|---|
-| True | False | 648 | 🔴 **buco nostro** |
-| True | True | 29 | 🟢 copertura funzionante |
-| None | False | 15 | ❓ non so (contratto muto) |
-| False | False | 11 | ⚫ mortalità vera |
+| True | False | 636 | 🔴 **buco nostro** |
+| True | True | 28 | 🟢 copertura funzionante |
+| None | False | 13 | ❓ non so (contratto muto) |
+| False | False | 10 | ⚫ mortalità vera |
+| None | True | 2 | ❓ non so |
 | False | True | 1 | ⚠️ incoerente |
 | None | True | 1 | ❓ non so |
 
-> Fra i casi in cui **non abbiamo la candela** e la catena ha risposto: **648 su 659** erano ancora vivi — cioè **buchi nostri**, non morti.
+> Fra i casi in cui **non abbiamo la candela** e la catena ha risposto: **636 su 646** erano ancora vivi — cioè **buchi nostri**, non morti.
 
 > ⚠️ **Cosa vuol dire «vivo» qui, per non farsi illusioni.** Vivo = il contratto risponde
 > con riserve non nulle. Non vuol dire che qualcuno lo stia scambiando, né che sia
