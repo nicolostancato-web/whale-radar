@@ -1,12 +1,12 @@
 # 🏃 STAFFETTA — leggi QUESTO per primo
-*2026-09-15 16:23 UTC · aggiornato da solo a ogni giro*
+*2026-09-15 16:35 UTC · aggiornato da solo a ogni giro*
 
 > La continuità viene dai **registri condivisi**, non dal ricordarsi la conversazione. Chi si
 > sveglia adesso non ha memoria: qui trova dove siamo e **qual è il prossimo lavoro**.
 
 ## Le corsie
 
-- 🟢 vive: motore (4′), ricerca (3′), loop 0 (1′), sperimenti (6′)
+- 🟢 vive: motore (15′), ricerca (4′), loop 0 (13′), sperimenti (6′)
 
 ## Gli esperimenti vivi
 
@@ -26,19 +26,19 @@
 
 | cosa | quanti | cambiato di |
 |---|---|---|
-| base/COMPLETI (prezzo+scambi) | 976 | **+4** |
-| base/DOMANDABILI (stima %) | 13 | -2 |
+| base/COMPLETI (prezzo+scambi) | 976 | — |
+| base/DOMANDABILI (stima %) | 13 | — |
 | base/battito | 3,301 | — |
-| base/candele | 1,494 | **+32** |
-| robinhood/COMPLETI (prezzo+scambi) | 755 | — |
+| base/candele | 1,494 | — |
+| robinhood/COMPLETI (prezzo+scambi) | 758 | **+3** |
 | robinhood/DOMANDABILI (stima %) | 2 | — |
-| robinhood/battito | 222 | — |
-| robinhood/candele | 2,125 | **+33** |
-| robinhood/toccati 12h | 113 | **+11** |
-| solana/COMPLETI (prezzo+scambi) | 1,023 | **+13** |
+| robinhood/battito | 224 | — |
+| robinhood/candele | 2,125 | — |
+| robinhood/toccati 12h | 113 | — |
+| solana/COMPLETI (prezzo+scambi) | 1,023 | — |
 | solana/DOMANDABILI (stima %) | 10 | — |
 | solana/battito | 198 | — |
-| solana/candele | 1,226 | **+20** |
+| solana/candele | 1,226 | — |
 
 
 In coda e non ancora aperti: **0** (nessuno).
@@ -57,4 +57,4 @@ In coda e non ancora aperti: **0** (nessuno).
 > ieri e sembrano di oggi. Qui sotto c'è la data del calcolo, e se non è di pochi minuti fa
 > il foglio non vale.
 
-*Calcolato alle **16:23 UTC** del 15/09/2026.*
+*Calcolato alle **16:35 UTC** del 15/09/2026.*
