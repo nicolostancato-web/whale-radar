@@ -1,5 +1,5 @@
 # 🧱 QUALITÀ DEL TERRENO — il database serve a qualcosa?
-*2026-09-15 21:01 UTC · controllo continuo · €0*
+*2026-09-15 21:10 UTC · controllo continuo · €0*
 
 > Gli altri controlli chiedono **«il sistema gira?»**. Questo chiede **«quello che sta
 > entrando serve a qualcosa?»**. Un collettore che funziona benissimo e produce dati che non
@@ -19,15 +19,15 @@
 | base: scambi orfani | 🟡 **ATTENZIONE** | 40.1 | 663 file su 1654 non si uniscono a nessuna serie di prezzo |
 | base: timbro di acquisizione | 🟡 **ATTENZIONE** | 47.8 | 11 file su 23 fra i piu' recenti hanno il campo acq |
 | robinhood: serie con scambi | 🟡 **ATTENZIONE** | 35.4 | 858 su 2426 |
-| solana: freschezza | 🟡 **ATTENZIONE** | 20.2 | il dato piu' recente nel campione ha 20.2 ore (letto DENTRO i file, non dalla data del file) |
-| solana: timbro di acquisizione | 🟡 **ATTENZIONE** | 16.0 | 4 file su 25 fra i piu' recenti hanno il campo acq |
+| solana: freschezza | 🟡 **ATTENZIONE** | 20.4 | il dato piu' recente nel campione ha 20.4 ore (letto DENTRO i file, non dalla data del file) |
+| solana: timbro di acquisizione | 🟡 **ATTENZIONE** | 16.7 | 4 file su 24 fra i piu' recenti hanno il campo acq |
 | base: entita' duplicate | 🟢 **PASSA** | 0 | 1912 righe, 1912 pool distinti |
 | base: freschezza | 🟢 **PASSA** | 0.0 | il dato piu' recente nel campione ha 0.0 ore (letto DENTRO i file, non dalla data del file) |
 | base: storico dalla catena | 🟢 **PASSA** | 4590 | 4590 pool con storia dalla catena |
-| base: storico utile | 🟢 **PASSA** | 89.3 | sulle righe COPERTE: 268 su 300 hanno almeno 6 scambi prima dell'entrata |
+| base: storico utile | 🟢 **PASSA** | 89.7 | sulle righe COPERTE: 269 su 300 hanno almeno 6 scambi prima dell'entrata |
 | base: storico, quante righe copre | 🟢 **PASSA** | 97.2 | 1858 righe su 1912 hanno la storia dalla catena |
 | robinhood: entita' duplicate | 🟢 **PASSA** | 0 | 762 righe, 762 pool distinti |
-| robinhood: freschezza | 🟢 **PASSA** | 2.6 | il dato piu' recente nel campione ha 2.6 ore (letto DENTRO i file, non dalla data del file) |
+| robinhood: freschezza | 🟢 **PASSA** | 2.7 | il dato piu' recente nel campione ha 2.7 ore (letto DENTRO i file, non dalla data del file) |
 | robinhood: storico dalla catena | 🟢 **PASSA** | 809 | 809 pool con storia dalla catena |
 | robinhood: storico utile | 🟢 **PASSA** | 74.0 | sulle righe COPERTE: 222 su 300 hanno almeno 6 scambi prima dell'entrata |
 | robinhood: storico, quante righe copre | 🟢 **PASSA** | 68.9 | 525 righe su 762 hanno la storia dalla catena |
