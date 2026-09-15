@@ -1,5 +1,5 @@
 # 🪫 COMPRARE QUANDO FINISCE CHI VENDE
-*2026-09-15 17:10 UTC · esperimento 4 · solo dati già scaricati · €0*
+*2026-09-15 17:22 UTC · esperimento 4 · solo dati già scaricati · €0*
 
 > Le sei piste morte chiedevano tutte **«chi sta comprando?»**: inseguivano la domanda, che
 > è un'opinione e cambia idea. Questa guarda **l'offerta**. Una vendita concentrata schiaccia
@@ -15,14 +15,14 @@ al netto del costo d'uscita misurato.
 | | eventi | mediana netta 6h | media netta |
 |---|---|---|---|
 | **dopo l'esaurimento** | 125 | **-2.5%** | +0.5% |
-| controllo (niente scarico) | 4000 | -1.5% | +139735.7% |
+| controllo (niente scarico) | 4000 | -1.6% | +139663.5% |
 
-Limite inferiore dell'intervallo al 95%, contando **14 giorni** e non le righe: **-10.4%**.
+Limite inferiore dell'intervallo al 95%, contando **14 giorni** e non le righe: **-10.5%**.
 
 ## Verdetto
 
 > ❌ **Criterio di morte scattato**, scritto prima di guardare: il limite inferiore
-> al 95% è **-10.4%**, non sopra zero. Non si alza la dominanza a 2×, non si
+> al 95% è **-10.5%**, non sopra zero. Non si alza la dominanza a 2×, non si
 > sposta l'esito a 2h: sarebbe scegliere la soglia dopo aver visto il risultato.
 
-*metro=VERO (misurato) · curva liquidità ATTIVA · entrata 1.6% · uscita a target 1.9% · uscita in fuga 12.6% · pareggio 1.15x (in fuga 1.29x)*
+*metro=VERO (misurato) · curva liquidità ATTIVA · entrata 1.5% · uscita a target 2.0% · uscita in fuga 13.0% · pareggio 1.15x (in fuga 1.30x)*
