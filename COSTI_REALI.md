@@ -1,5 +1,5 @@
 # 💸 COSTI REALI — quanto costa DAVVERO entrare e uscire
-*2026-09-15 19:57 UTC · quote vere da Jupiter su 2477 token Solana vivi · €0*
+*2026-09-15 20:13 UTC · quote vere da Jupiter su 2477 token Solana vivi · €0*
 
 > **Perché**: nel modello assumiamo 15% di slippage per lato. Non l'abbiamo mai misurato.
 > Con quel 15% un token deve salire del **50% solo per pareggiare**; se il costo vero fosse molto
@@ -7,9 +7,9 @@
 
 | size | costo andata+ritorno (mediana) | migliore | peggiore | token misurati |
 |---|---|---|---|---|
-| $25 | **4.1%** | 4.0% | 99.8% | 10 |
-| $100 | **8.6%** | 8.5% | 100.0% | 10 |
-| $500 | **27.0%** | 24.8% | 100.0% | 8 |
+| $25 | **4.9%** | 4.1% | 99.7% | 13 |
+| $100 | **10.0%** | 8.6% | 99.9% | 12 |
+| $500 | **27.1%** | 27.1% | 100.0% | 10 |
 
 - misure accumulate finora: **2477 token** (l'archivio cresce a ogni giro)
 - token che NON si possono rivendere: **580** su 2477 (**23%**)
@@ -19,8 +19,8 @@
 
 ## Cosa cambia
 
-Costo misurato di andata e ritorno su $100: **8.6%** contro il **~30%** che assumiamo.
-Pareggio necessario: **1.09x** contro l'**1,50x** del modello attuale.
+Costo misurato di andata e ritorno su $100: **10.0%** contro il **~30%** che assumiamo.
+Pareggio necessario: **1.11x** contro l'**1,50x** del modello attuale.
 
 > ⚠️ **Il costo assunto è molto più alto di quello misurato.** Prima di dichiarare morto
 > un mercato, i numeri vanno rifatti con il costo vero — su questi token, in questo momento.
