@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (robinhood)
-*2026-09-15 19:02 UTC · 21 segnali nuovi messi alla prova su 340 token*
+*2026-09-15 19:34 UTC · 13 segnali nuovi messi alla prova su 340 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-96%**.
 
@@ -25,22 +25,14 @@
 | `drawdown_pre x volume_ultima_su_media (filtro)` | quanto è già sceso dal massimo prima di entrare MOLTIPLICATO per se il volume sta accelerando proprio adesso | -78% (+18) |
 | `ampiezza (filtro)` | quanto oscilla il prezzo prima di entrare | -79% (+17) |
 | `drawdown_pre / volume_ultima_su_media (filtro)` | quanto è già sceso dal massimo prima di entrare RAPPORTATO a se il volume sta accelerando proprio adesso | -85% (+11) |
-| `concentrazione_top1 x drawdown_pre (voto)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | -95% (+1) |
-| `n_compratori x ampiezza (voto)` | quante persone diverse hanno comprato MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -96% (+0) |
-| `n_compratori / ampiezza (voto)` | quante persone diverse hanno comprato RAPPORTATO a quanto oscilla il prezzo prima di entrare | -96% (+0) |
-| `concentrazione_top1 x quota_wallet_nuovi (voto)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per la quota di denaro da wallet mai visti prima | -96% (+0) |
-| `concentrazione_top1 / quota_wallet_nuovi (voto)` | quanto pesa il singolo compratore più grosso RAPPORTATO a la quota di denaro da wallet mai visti prima | -96% (+0) |
-| `concentrazione_top1 / drawdown_pre (voto)` | quanto pesa il singolo compratore più grosso RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -96% (+0) |
-| `quota_wallet_nuovi x accelerazione_denaro (voto)` | la quota di denaro da wallet mai visti prima MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -96% (+0) |
-| `quota_wallet_nuovi / accelerazione_denaro (voto)` | la quota di denaro da wallet mai visti prima RAPPORTATO a se i soldi stanno entrando più in fretta adesso che all'inizio | -96% (+0) |
-| `n_compratori x ampiezza (filtro)` | quante persone diverse hanno comprato MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -97% (-1) |
-| `n_compratori / ampiezza (filtro)` | quante persone diverse hanno comprato RAPPORTATO a quanto oscilla il prezzo prima di entrare | -97% (-1) |
-| `concentrazione_top1 x quota_wallet_nuovi (filtro)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per la quota di denaro da wallet mai visti prima | -97% (-1) |
-| `concentrazione_top1 / quota_wallet_nuovi (filtro)` | quanto pesa il singolo compratore più grosso RAPPORTATO a la quota di denaro da wallet mai visti prima | -97% (-1) |
-| `concentrazione_top1 x drawdown_pre (filtro)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | -97% (-1) |
-| `concentrazione_top1 / drawdown_pre (filtro)` | quanto pesa il singolo compratore più grosso RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -97% (-1) |
-| `quota_wallet_nuovi x accelerazione_denaro (filtro)` | la quota di denaro da wallet mai visti prima MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -97% (-1) |
-| `quota_wallet_nuovi / accelerazione_denaro (filtro)` | la quota di denaro da wallet mai visti prima RAPPORTATO a se i soldi stanno entrando più in fretta adesso che all'inizio | -97% (-1) |
+| `trade_al_minuto x wallet_ripetuti (voto)` | quanto è frenetico lo scambio MOLTIPLICATO per quanti wallet comprano più di una volta | -96% (+0) |
+| `trade_al_minuto / wallet_ripetuti (voto)` | quanto è frenetico lo scambio RAPPORTATO a quanti wallet comprano più di una volta | -96% (+0) |
+| `buy_grossi x ampiezza (voto)` | la quota di denaro che arriva da acquisti sopra i 500 dollari MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -96% (+0) |
+| `buy_grossi / ampiezza (voto)` | la quota di denaro che arriva da acquisti sopra i 500 dollari RAPPORTATO a quanto oscilla il prezzo prima di entrare | -96% (+0) |
+| `trade_al_minuto x wallet_ripetuti (filtro)` | quanto è frenetico lo scambio MOLTIPLICATO per quanti wallet comprano più di una volta | -97% (-1) |
+| `trade_al_minuto / wallet_ripetuti (filtro)` | quanto è frenetico lo scambio RAPPORTATO a quanti wallet comprano più di una volta | -97% (-1) |
+| `buy_grossi x ampiezza (filtro)` | la quota di denaro che arriva da acquisti sopra i 500 dollari MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -97% (-1) |
+| `buy_grossi / ampiezza (filtro)` | la quota di denaro che arriva da acquisti sopra i 500 dollari RAPPORTATO a quanto oscilla il prezzo prima di entrare | -97% (-1) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
@@ -52,8 +44,8 @@
 - `n_compratori (filtro)` — già bocciato 34 volte 10h fa (si riprova fra 2h o quando i dati crescono)
 - `buy_medio (voto)` — già bocciato 34 volte 10h fa (si riprova fra 2h o quando i dati crescono)
 - `buy_medio (filtro)` — già bocciato 34 volte 10h fa (si riprova fra 2h o quando i dati crescono)
-- `buy_grossi (voto)` — già bocciato 34 volte 8h fa (si riprova fra 4h o quando i dati crescono)
-- `buy_grossi (filtro)` — già bocciato 34 volte 8h fa (si riprova fra 4h o quando i dati crescono)
+- `buy_grossi (voto)` — già bocciato 34 volte 9h fa (si riprova fra 3h o quando i dati crescono)
+- `buy_grossi (filtro)` — già bocciato 34 volte 9h fa (si riprova fra 3h o quando i dati crescono)
 
 > **Perché questo ruolo esiste:** l'insider su Solana l'ha inventato un umano. Qui il sistema
 > costruisce da sé segnali nuovi dai dati grezzi e li mette alla prova. Uno dei mattoni è proprio
