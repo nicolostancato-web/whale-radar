@@ -440,3 +440,4 @@
 {"acq": 1789483558, "agente": "multichain_trades", "fonte": "geckoterminal", "chain": "base", "quanti": 0, "giro": "34971476950", "dettaglio": {"pool_interrogati": 90}}
 {"acq": 1789483722, "agente": "multichain_trades", "fonte": "geckoterminal", "chain": "solana", "quanti": 4, "giro": "34971476950", "dettaglio": {"pool_interrogati": 90}}
 {"acq": 1789483734, "agente": "pulse", "fonte": "dexscreener+geckoterminal", "chain": "tutte", "quanti": 112, "giro": "34971476950"}
+{"acq": 1789483877, "agente": "pulse", "fonte": "dexscreener+geckoterminal", "chain": "tutte", "quanti": 121, "giro": "34976350686"}

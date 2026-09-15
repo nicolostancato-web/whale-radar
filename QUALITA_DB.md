@@ -1,5 +1,5 @@
 # 🧱 QUALITÀ DEL TERRENO — il database serve a qualcosa?
-*2026-09-15 14:49 UTC · controllo continuo · €0*
+*2026-09-15 14:58 UTC · controllo continuo · €0*
 
 > Gli altri controlli chiedono **«il sistema gira?»**. Questo chiede **«quello che sta
 > entrando serve a qualcosa?»**. Un collettore che funziona benissimo e produce dati che non
@@ -18,14 +18,14 @@
 | solana: scambi orfani | 🔴 **FALLISCE** | 76.3 | 3093 file su 4054 non si uniscono a nessuna serie di prezzo |
 | base: scambi orfani | 🟡 **ATTENZIONE** | 40.6 | 663 file su 1635 non si uniscono a nessuna serie di prezzo |
 | robinhood: serie con scambi | 🟡 **ATTENZIONE** | 33.7 | 748 su 2221 |
-| robinhood: storico utile | 🟡 **ATTENZIONE** | 58.7 | sulle righe COPERTE: 176 su 300 hanno almeno 6 scambi prima dell'entrata |
-| solana: freschezza | 🟡 **ATTENZIONE** | 9.6 | il dato piu' recente nel campione ha 9.6 ore (letto DENTRO i file, non dalla data del file) |
-| solana: timbro di acquisizione | 🟡 **ATTENZIONE** | 0.0 | 0 file su 17 fra i piu' recenti hanno il campo acq |
+| robinhood: storico utile | 🟡 **ATTENZIONE** | 43.7 | sulle righe COPERTE: 131 su 300 hanno almeno 6 scambi prima dell'entrata |
+| solana: freschezza | 🟡 **ATTENZIONE** | 9.8 | il dato piu' recente nel campione ha 9.8 ore (letto DENTRO i file, non dalla data del file) |
+| solana: timbro di acquisizione | 🟡 **ATTENZIONE** | 0.0 | 0 file su 18 fra i piu' recenti hanno il campo acq |
 | base: entita' duplicate | 🟢 **PASSA** | 0 | 1909 righe, 1909 pool distinti |
 | base: freschezza | 🟢 **PASSA** | 0.0 | il dato piu' recente nel campione ha 0.0 ore (letto DENTRO i file, non dalla data del file) |
-| base: storico dalla catena | 🟢 **PASSA** | 4374 | 4374 pool con storia dalla catena |
+| base: storico dalla catena | 🟢 **PASSA** | 4479 | 4479 pool con storia dalla catena |
 | base: storico utile | 🟢 **PASSA** | 78.7 | sulle righe COPERTE: 236 su 300 hanno almeno 6 scambi prima dell'entrata |
-| base: storico, quante righe copre | 🟢 **PASSA** | 86.2 | 1646 righe su 1909 hanno la storia dalla catena |
+| base: storico, quante righe copre | 🟢 **PASSA** | 91.7 | 1751 righe su 1909 hanno la storia dalla catena |
 | base: timbro di acquisizione | 🟢 **PASSA** | 100.0 | 25 file su 25 fra i piu' recenti hanno il campo acq |
 | robinhood: entita' duplicate | 🟢 **PASSA** | 0 | 756 righe, 756 pool distinti |
 | robinhood: freschezza | 🟢 **PASSA** | 0.0 | il dato piu' recente nel campione ha 0.0 ore (letto DENTRO i file, non dalla data del file) |
