@@ -52,6 +52,17 @@ _M = _misurati()
 VIVE = ("base", "solana", "robinhood")
 
 
+# IL RITARDO MISURATO RIGUARDA LE CANDELE, NON GLI SCAMBI (15/09).
+# data/ritardo_reale.json nasce da agents/disponibilita.py, che misura «la distanza fra il momento a
+# cui una CANDELA si riferisce e il momento in cui l'abbiamo in casa». Applicarlo agli SCAMBI e' lo
+# stesso errore di categoria che ci ha fatto usare il ritardo di BSC per Base: si prende un numero
+# vero, misurato su una cosa, e lo si applica a un'altra.
+# Per gli scambi il ritardo non l'abbiamo ancora misurato — e non si puo' misurare all'indietro,
+# serve il registro prospettico nato ieri. Finche' manca, si usa il vincolo che NON dipende da una
+# misura: non si puo' leggere la storia di un pool prima di sapere che esiste.
+TIPI_MISURATI = ("candele",)
+
+
 def per_fonte(chain, fonte=None):
     """Quanti secondi deve essere vecchio un dato di questa fonte per poter essere usato."""
     if fonte == "catena":
@@ -112,6 +123,16 @@ def utilizzabile(scambio, entrata, chain, pool=None):
     return quando_lo_avevamo <= entrata
 
 
+def stato_conoscenza(chain):
+    """Cosa sappiamo davvero, e cosa no. Serve a non spacciare un'assunzione per una misura."""
+    return {
+        "ritardo candele": f"{_M.get(chain, 0)/3600:.1f}h — MISURATO",
+        "ritardo scambi": "NON MISURATO — serve il registro prospettico",
+        "vincolo usato per gli scambi": "quando abbiamo scoperto il pool (disponibilita' operativa)",
+        "classe dei record storici": "ricostruzione-storica, non certificati point-in-time",
+    }
+
+
 def etichetta(chain):
     return (f"embargo {VERSIONE} · fornitori {per_fonte(chain)/3600:.1f}h · "
             f"catena {CATENA_S/3600:.2f}h")
@@ -124,3 +145,6 @@ if __name__ == "__main__":
     for c in VIVE:
         print(f"  {c:10} fornitori {per_fonte(c)/3600:5.1f}h | catena {per_fonte(c,'catena')/3600:5.2f}h")
     print(f"\n  vecchio metro (congelato, non toccato): 35.4h per tutto")
+    print("\n  COSA SAPPIAMO DAVVERO:")
+    for k, v in stato_conoscenza("base").items():
+        print(f"    {k:34} {v}")
