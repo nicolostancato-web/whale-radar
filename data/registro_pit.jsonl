@@ -604,3 +604,4 @@
 {"acq": 1789505897, "agente": "multichain_trades", "fonte": "geckoterminal", "chain": "base", "quanti": 1, "giro": "34999953869", "dettaglio": {"pool_interrogati": 90}}
 {"acq": 1789506056, "agente": "multichain_trades", "fonte": "geckoterminal", "chain": "solana", "quanti": 4, "giro": "34999953869", "dettaglio": {"pool_interrogati": 90}}
 {"acq": 1789506070, "agente": "pulse", "fonte": "dexscreener+geckoterminal", "chain": "tutte", "quanti": 83, "giro": "34999953869"}
+{"acq": 1789506658, "agente": "storico_evm", "fonte": "catena", "chain": "base", "quanti": 85136, "giro": "35015018884", "dettaglio": {"chiamate": 2714, "blocchi": 1555189, "fetta": 5}}
