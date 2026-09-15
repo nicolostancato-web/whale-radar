@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (base)
-*2026-09-15 12:30 UTC · 20 segnali nuovi messi alla prova su 616 token*
+*2026-09-15 12:46 UTC · 20 segnali nuovi messi alla prova su 616 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-99%**.
 
@@ -12,26 +12,26 @@ Non è un fallimento: è la risposta onesta di oggi. Con più dati gli stessi se
 
 | il segnale | cosa guarda | risultato |
 |---|---|---|
-| `n_compratori x trade_al_minuto (voto)` | quante persone diverse hanno comprato MOLTIPLICATO per quanto è frenetico lo scambio | -99% (+0) |
-| `n_compratori x trade_al_minuto (filtro)` | quante persone diverse hanno comprato MOLTIPLICATO per quanto è frenetico lo scambio | -99% (+0) |
-| `n_compratori / trade_al_minuto (voto)` | quante persone diverse hanno comprato RAPPORTATO a quanto è frenetico lo scambio | -99% (+0) |
-| `n_compratori / trade_al_minuto (filtro)` | quante persone diverse hanno comprato RAPPORTATO a quanto è frenetico lo scambio | -99% (+0) |
-| `buy_grossi x compra_e_rivende (voto)` | la quota di denaro che arriva da acquisti sopra i 500 dollari MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
-| `buy_grossi x compra_e_rivende (filtro)` | la quota di denaro che arriva da acquisti sopra i 500 dollari MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
-| `buy_grossi / compra_e_rivende (voto)` | la quota di denaro che arriva da acquisti sopra i 500 dollari RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
-| `buy_grossi / compra_e_rivende (filtro)` | la quota di denaro che arriva da acquisti sopra i 500 dollari RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
-| `buy_grossi x quota_wallet_nuovi (voto)` | la quota di denaro che arriva da acquisti sopra i 500 dollari MOLTIPLICATO per la quota di denaro da wallet mai visti prima | -99% (+0) |
-| `buy_grossi x quota_wallet_nuovi (filtro)` | la quota di denaro che arriva da acquisti sopra i 500 dollari MOLTIPLICATO per la quota di denaro da wallet mai visti prima | -99% (+0) |
-| `buy_grossi / quota_wallet_nuovi (voto)` | la quota di denaro che arriva da acquisti sopra i 500 dollari RAPPORTATO a la quota di denaro da wallet mai visti prima | -99% (+0) |
-| `buy_grossi / quota_wallet_nuovi (filtro)` | la quota di denaro che arriva da acquisti sopra i 500 dollari RAPPORTATO a la quota di denaro da wallet mai visti prima | -99% (+0) |
-| `quota_wallet_reduci x compra_e_rivende (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
-| `quota_wallet_reduci x compra_e_rivende (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
-| `quota_wallet_reduci / compra_e_rivende (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
-| `quota_wallet_reduci / compra_e_rivende (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
-| `trade_al_minuto x sbilanciamento (voto)` | quanto è frenetico lo scambio MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -99% (+0) |
-| `trade_al_minuto x sbilanciamento (filtro)` | quanto è frenetico lo scambio MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -99% (+0) |
-| `trade_al_minuto / sbilanciamento (voto)` | quanto è frenetico lo scambio RAPPORTATO a quanto il denaro che entra supera quello che esce | -99% (+0) |
-| `trade_al_minuto / sbilanciamento (filtro)` | quanto è frenetico lo scambio RAPPORTATO a quanto il denaro che entra supera quello che esce | -99% (+0) |
+| `quota_wallet_reduci x quota_wallet_nuovi (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per la quota di denaro da wallet mai visti prima | -99% (+0) |
+| `quota_wallet_reduci x quota_wallet_nuovi (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per la quota di denaro da wallet mai visti prima | -99% (+0) |
+| `quota_wallet_reduci / quota_wallet_nuovi (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) RAPPORTATO a la quota di denaro da wallet mai visti prima | -99% (+0) |
+| `quota_wallet_reduci / quota_wallet_nuovi (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) RAPPORTATO a la quota di denaro da wallet mai visti prima | -99% (+0) |
+| `compra_e_rivende x volume_ultima_su_media (voto)` | quanti di quelli che hanno comprato stanno già rivendendo MOLTIPLICATO per se il volume sta accelerando proprio adesso | -99% (+0) |
+| `compra_e_rivende x volume_ultima_su_media (filtro)` | quanti di quelli che hanno comprato stanno già rivendendo MOLTIPLICATO per se il volume sta accelerando proprio adesso | -99% (+0) |
+| `compra_e_rivende / volume_ultima_su_media (voto)` | quanti di quelli che hanno comprato stanno già rivendendo RAPPORTATO a se il volume sta accelerando proprio adesso | -99% (+0) |
+| `compra_e_rivende / volume_ultima_su_media (filtro)` | quanti di quelli che hanno comprato stanno già rivendendo RAPPORTATO a se il volume sta accelerando proprio adesso | -99% (+0) |
+| `quota_wallet_reduci x accelerazione_denaro (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -99% (+0) |
+| `quota_wallet_reduci x accelerazione_denaro (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per se i soldi stanno entrando più in fretta adesso che all'inizio | -99% (+0) |
+| `quota_wallet_reduci / accelerazione_denaro (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) RAPPORTATO a se i soldi stanno entrando più in fretta adesso che all'inizio | -99% (+0) |
+| `quota_wallet_reduci / accelerazione_denaro (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) RAPPORTATO a se i soldi stanno entrando più in fretta adesso che all'inizio | -99% (+0) |
+| `buy_medio x quota_wallet_reduci (voto)` | quanto compra in media ciascuno MOLTIPLICATO per la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -99% (+0) |
+| `buy_medio x quota_wallet_reduci (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -99% (+0) |
+| `buy_medio / quota_wallet_reduci (voto)` | quanto compra in media ciascuno RAPPORTATO a la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -99% (+0) |
+| `buy_medio / quota_wallet_reduci (filtro)` | quanto compra in media ciascuno RAPPORTATO a la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -99% (+0) |
+| `concentrazione_top5 x ampiezza (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -99% (+0) |
+| `concentrazione_top5 x ampiezza (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -99% (+0) |
+| `concentrazione_top5 / ampiezza (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a quanto oscilla il prezzo prima di entrare | -99% (+0) |
+| `concentrazione_top5 / ampiezza (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a quanto oscilla il prezzo prima di entrare | -99% (+0) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
