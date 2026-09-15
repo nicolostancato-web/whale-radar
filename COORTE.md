@@ -16,7 +16,7 @@
 | True | False | 2935 | 🔴 **buco nostro** |
 | True | True | 471 | 🟢 copertura funzionante |
 | None | True | 440 | ❓ non so |
-| None | False | 105 | ❓ non so (contratto muto) |
+| None | False | 107 | ❓ non so (contratto muto) |
 | False | False | 46 | ⚫ mortalità vera |
 | False | True | 14 | ⚠️ incoerente |
 
