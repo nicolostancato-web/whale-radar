@@ -1,5 +1,5 @@
 # ⛓️💸 IL COSTO SU BASE E ROBINHOOD — letto dalla catena, non prestato da un altro mercato
-*2026-09-15 20:28 UTC · taglia $25 · RPC pubblici · €0*
+*2026-09-15 20:34 UTC · taglia $25 · RPC pubblici · €0*
 
 > Su Robinhood non esiste un Jupiter a cui chiedere un preventivo. Ma la catena non va
 > interrogata da un servizio: **si legge**. Chiediamo alla coppia le sue riserve; se risponde,
@@ -19,4 +19,4 @@
 > proprio: lì il conto non si può rifare da fuori e **non lo inventiamo**. Compaiono nel
 > conteggio apposta: un buco dichiarato non è un buco nascosto.
 
-*Misure conservate finora: **base** 271, **robinhood** 145.*
+*Misure conservate finora: **base** 272, **robinhood** 145.*
