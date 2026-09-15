@@ -34,7 +34,7 @@ Non e' una correzione della storia: e' un secondo strumento, dichiarato.
 """
 import json, os
 
-VERSIONE = "v2-per-fonte"
+VERSIONE = "v3-disponibilita-operativa"
 CATENA_S = int(os.environ.get("EMBARGO_CATENA", 1800))     # mezz'ora, prudente
 DIFETTO_S = 10 * 3600                                      # se non sappiamo, 10h come le chain vive
 
@@ -62,11 +62,54 @@ def per_fonte(chain, fonte=None):
     return max(vivi) if vivi else DIFETTO_S
 
 
-def utilizzabile(scambio, entrata, chain):
-    """La domanda vera: alle 'entrata' avevamo gia' questo scambio?"""
+_SCOPERTA = {}
+
+
+def scoperto_il(chain, pool):
+    """Quando ABBIAMO SAPUTO che quel pool esisteva. E' il vincolo che mancava."""
+    if chain not in _SCOPERTA:
+        try:
+            d = json.load(open(f"data/multichain/{chain}/pools.json"))
+            _SCOPERTA[chain] = {k.lower(): (v or {}).get("seen") for k, v in d.items()}
+        except Exception:
+            _SCOPERTA[chain] = {}
+    return _SCOPERTA[chain].get((pool or "").lower())
+
+
+def utilizzabile(scambio, entrata, chain, pool=None):
+    """La domanda vera: alle 'entrata' avevamo gia' questo scambio?
+
+    LA CORREZIONE CHE IL REVISORE HA IMPOSTO (15/09). La prima versione chiedeva solo che il blocco
+    fosse abbastanza vecchio. Sbagliata, e lui l'ha smontata in una riga:
+
+        «acq dimostra che quei dati sono entrati adesso, settimane dopo il blocco.
+         Non prova che fossero disponibili dopo 30 minuti: per quei record prova il contrario.»
+
+    Ci sono TRE cose diverse, e io ne stavo usando la piu' comoda:
+      1. il nodo oggi puo' servire quel log          (disponibilita' fisica)
+      2. il nodo lo avrebbe servito allora           (disponibilita' del nodo)
+      3. NOI sapevamo che quel pool esisteva e lo stavamo interrogando   (disponibilita' OPERATIVA)
+
+    Solo la terza conta. Non si puo' leggere la storia di un pool di cui non si sa l'esistenza: se
+    l'abbiamo scoperto dieci ore dopo la nascita — perche' ce l'ha detto un fornitore, col suo
+    ritardo — allora i suoi primi scambi NON erano nostri prima di quel momento, per quanto la
+    catena li conservasse.
+
+    Quindi un dato e' disponibile dal PIU' TARDI fra: quando e' successo, e quando abbiamo saputo
+    che quel pool esisteva. Piu' il tempo che ci mettiamo a leggerlo."""
     ts = scambio.get("ts")
     if not ts: return False
-    return ts <= entrata - per_fonte(chain, scambio.get("fonte"))
+    latenza = per_fonte(chain, scambio.get("fonte"))
+    quando_lo_avevamo = ts + latenza
+    if scambio.get("fonte") == "catena" and pool:
+        visto = scoperto_il(chain, pool)
+        if visto:
+            quando_lo_avevamo = max(quando_lo_avevamo, visto + CATENA_S)
+        else:
+            # non sappiamo quando l'abbiamo scoperto: non si indovina, si applica il ritardo del
+            # fornitore, che e' il modo in cui i pool ci arrivano.
+            quando_lo_avevamo = max(quando_lo_avevamo, ts + per_fonte(chain))
+    return quando_lo_avevamo <= entrata
 
 
 def etichetta(chain):
