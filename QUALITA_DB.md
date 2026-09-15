@@ -1,5 +1,5 @@
 # 🧱 QUALITÀ DEL TERRENO — il database serve a qualcosa?
-*2026-09-15 14:22 UTC · controllo continuo · €0*
+*2026-09-15 14:31 UTC · controllo continuo · €0*
 
 > Gli altri controlli chiedono **«il sistema gira?»**. Questo chiede **«quello che sta
 > entrando serve a qualcosa?»**. Un collettore che funziona benissimo e produce dati che non
@@ -19,8 +19,8 @@
 | base: scambi orfani | 🟡 **ATTENZIONE** | 40.6 | 663 file su 1635 non si uniscono a nessuna serie di prezzo |
 | robinhood: serie con scambi | 🟡 **ATTENZIONE** | 33.9 | 747 su 2203 |
 | robinhood: storico utile | 🟡 **ATTENZIONE** | 40.0 | sulle righe COPERTE: 120 su 300 hanno almeno 6 scambi prima dell'entrata |
-| solana: freschezza | 🟡 **ATTENZIONE** | 9.2 | il dato piu' recente nel campione ha 9.2 ore (letto DENTRO i file, non dalla data del file) |
-| solana: timbro di acquisizione | 🟡 **ATTENZIONE** | 0.0 | 0 file su 12 fra i piu' recenti hanno il campo acq |
+| solana: freschezza | 🟡 **ATTENZIONE** | 9.3 | il dato piu' recente nel campione ha 9.3 ore (letto DENTRO i file, non dalla data del file) |
+| solana: timbro di acquisizione | 🟡 **ATTENZIONE** | 0.0 | 0 file su 15 fra i piu' recenti hanno il campo acq |
 | base: entita' duplicate | 🟢 **PASSA** | 0 | 1909 righe, 1909 pool distinti |
 | base: freschezza | 🟢 **PASSA** | 0.0 | il dato piu' recente nel campione ha 0.0 ore (letto DENTRO i file, non dalla data del file) |
 | base: storico dalla catena | 🟢 **PASSA** | 4374 | 4374 pool con storia dalla catena |
@@ -28,7 +28,7 @@
 | base: storico, quante righe copre | 🟢 **PASSA** | 86.2 | 1646 righe su 1909 hanno la storia dalla catena |
 | base: timbro di acquisizione | 🟢 **PASSA** | 100.0 | 25 file su 25 fra i piu' recenti hanno il campo acq |
 | robinhood: entita' duplicate | 🟢 **PASSA** | 0 | 756 righe, 756 pool distinti |
-| robinhood: freschezza | 🟢 **PASSA** | 0.0 | il dato piu' recente nel campione ha 0.0 ore (letto DENTRO i file, non dalla data del file) |
+| robinhood: freschezza | 🟢 **PASSA** | 0.2 | il dato piu' recente nel campione ha 0.2 ore (letto DENTRO i file, non dalla data del file) |
 | robinhood: storico dalla catena | 🟢 **PASSA** | 801 | 801 pool con storia dalla catena |
 | robinhood: storico, quante righe copre | 🟢 **PASSA** | 68.4 | 517 righe su 756 hanno la storia dalla catena |
 | robinhood: timbro di acquisizione | 🟢 **PASSA** | 100.0 | 11 file su 11 fra i piu' recenti hanno il campo acq |
