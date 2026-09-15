@@ -102,12 +102,22 @@ def main():
             print(f"COORTE | non riesco a scrivere: {type(e).__name__}", flush=True)
 
     # --- il riepilogo, sulla storia intera ---
-    righe = []
+    # UN POOL E' UN CASO, NON SETTE (15/09). Il test ricontrolla gli stessi pool a ogni giro, e il
+    # riepilogo contava ogni controllo come un caso nuovo: 4.844 osservazioni erano 670 pool, ognuno
+    # guardato in media sette volte. Il campione sembrava sette volte piu' solido di quanto fosse.
+    # Me ne sono accorto solo andando a vedere i «14 casi incoerenti»: erano LO STESSO POOL,
+    # contato quattordici volte.
+    tutte = []
     if os.path.exists(REG):
         for l in open(REG):
             if l.strip():
-                try: righe.append(json.loads(l))
+                try: tutte.append(json.loads(l))
                 except Exception: pass
+    visti = {}
+    for r in tutte:
+        k = (r.get("chain"), r.get("pool"))
+        if k not in visti: visti[k] = r          # la PRIMA osservazione, non l'ultima
+    righe = list(visti.values())
     L = ["# 🧫 COORTE — è morto, o non l'abbiamo guardato?",
          f"*{time.strftime('%Y-%m-%d %H:%M UTC', time.gmtime(now))} · test prospettico · €0*", "",
          "> L'audit aveva misurato che le serie escluse vivono 1 ora e le ammesse 23, e l'avevo",
