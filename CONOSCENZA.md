@@ -1,5 +1,5 @@
 # 🧠 CONOSCENZA — cosa ha imparato il team
-*2026-09-15 13:13 UTC · 2414 idee messe alla prova finora*
+*2026-09-15 13:29 UTC · 2414 idee messe alla prova finora*
 
 > Questa non è la cronaca di cosa è successo: è il sapere accumulato. Prima di riprovare una cosa,
 > il team guarda qui. Ciò che ha fallito 3 volte si mette da parte — ma il caso si RIAPRE quando i
@@ -514,7 +514,7 @@
 
 | idea | chain | bocciature | miglior risultato mai visto |
 |---|---|---|---|
-| `segnale:base:compra_e_rivende / ampiezza:voto` | base | 10 | +15946 punti |
+| `segnale:base:compra_e_rivende / ampiezza:voto` | base | 11 | +15946 punti |
 | `segnale:base:concentrazione_top5 / concentrazione_top1:voto` | base | 13 | +13763 punti |
 | `segnale:base:sbilanciamento x volume_ultima_su_media:voto` | base | 12 | +13763 punti |
 | `segnale:base:buy_grossi x usd_primi20:voto` | base | 9 | +12739 punti |
