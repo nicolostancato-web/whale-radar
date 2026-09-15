@@ -85,13 +85,15 @@ def main():
         # 2. CONTROLLO — quello che e' entrato serve a qualcosa?
         # l'elenco dei pool che diventano righe: serve al collettore dello storico per scavare
         # solo dove puo' nascere una riga. Va rifatto spesso, perche' ogni ora ne nascono di nuovi.
-        # LA CODA VIVA PER PRIMA (15/09). E' l'unico dato che potra' essere certificato: preso
-        # mentre succede, con un ritardo di minuti invece che di settimane. Se il giro finisce il
-        # tempo, e' l'ultima cosa che voglio aver saltato — il backfill si puo' rifare domani, un
-        # blocco di adesso no.
-        for ch in ("base", "robinhood"):
-            rc, ult = sh("python agents/coda_viva.py", {"CHAIN": ch, "BUDGET_SEC": "120"}, timeout=170)
-            esiti.append((f"coda viva {ch}", rc, ult))
+        # LA CODA VIVA NON E' PIU' QUI (15/09, poche ore dopo averla messa). L'avevo infilata in
+        # cima a questo giro perche' e' l'unico dato che potra' essere certificato — preso mentre
+        # succede, ritardo di minuti invece che di settimane — e non volevo rischiare di saltarla.
+        # Poi le ho dato una corsia sua (vivo.yml), e per qualche ora ha girato in tutte e due:
+        # DUE SCRITTORI SULLA STESSA CARTELLA, che la regola 3 vieta da sempre e per un motivo —
+        # due processi che raccolgono gli stessi blocchi si sovrascrivono a vicenda spingendo, e il
+        # doppione non si vede perche' i due record sono identici.
+        # Sta nella corsia sua, che non divide il tempo con nient'altro. Qui si controlla soltanto
+        # che sia viva: se tace, il guardiano lo dice, ma nessuno raccoglie al posto suo.
         rc, ult = sh("python agents/elenco_righe.py", timeout=280)
         esiti.append(("elenco righe", rc, ult))
         rc, ult = sh("python agents/integrita.py", {"INTEGRITA_FINESTRE": "10"}, timeout=300)
