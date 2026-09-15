@@ -1,5 +1,5 @@
 # 🧫 COORTE — è morto, o non l'abbiamo guardato?
-*2026-09-15 19:39 UTC · test prospettico · €0*
+*2026-09-15 19:52 UTC · test prospettico · €0*
 
 > L'audit aveva misurato che le serie escluse vivono 1 ora e le ammesse 23, e l'avevo
 > chiamato survivorship bias. La revisione ha corretto: è una **durata osservata**, non la
@@ -18,7 +18,6 @@
 | None | False | 15 | ❓ non so (contratto muto) |
 | False | False | 12 | ⚫ mortalità vera |
 | False | True | 1 | ⚠️ incoerente |
-| None | True | 1 | ❓ non so |
 
 > Fra i casi in cui **non abbiamo la candela** e la catena ha risposto: **682 su 694** erano ancora vivi — cioè **buchi nostri**, non morti.
 
