@@ -126,6 +126,14 @@ def main():
             log, err = rpc(url, "eth_getLogs", [{"fromBlock": hex(da), "toBlock": hex(a),
                                                  "topics": [SWAP]}])
             time.sleep(1.2)
+            # L'ORARIO DELLA FINESTRA SI CHIEDE, NON SI STIMA (15/09). L'istante interpolato
+            # dalla punta sbaglia poco sui blocchi recenti e TANTO su quelli vecchi: misurato,
+            # 0,00 ore di errore a 15 mila blocchi dalla punta e 2,09 ore a cinque milioni.
+            # Con una finestra di vita di sei ore, due ore di errore decidono da sole se uno
+            # scambio e' dentro o fuori. Un blocco in piu' da chiedere per finestra e' un prezzo
+            # ridicolo per non dover fidarsi di una stima.
+            bx, _e = rpc(url, "eth_getBlockByNumber", [hex(da), False])
+            ts_finestra = int(bx["timestamp"], 16) if bx else None
             if log is None:
                 nuove.append({"acq": int(time.time()), "chain": chain, "da": da, "a": a,
                               "esito": "lettura fallita", "dettaglio": err})
@@ -146,11 +154,19 @@ def main():
                 pool = (tp[1].lower() if (tp and tp[0] == V4 and len(tp) > 1) else l["address"].lower())
                 if pool not in nostri: continue
                 bn = int(l["blockNumber"], 16)
-                ts_ev = istante(chain, bn)
+                ts_ev = ts_finestra if ts_finestra else istante(chain, bn)
                 n0 = nascita.get(pool)
                 if n0 and ts_ev and ts_ev > n0 + FINESTRA_VITA:
                     continue                       # fuori dalle prime ore: scartato per scelta, non perso
                 catena[(l.get("transactionHash"), int(l.get("logIndex", "0x0"), 16))] = pool
+            # LA CATENA GREZZA, senza nessuno dei nostri filtri: serve per la domanda
+            # «ce lo siamo inventato?», che e' diversa da «ci manca qualcosa?».
+            grezza = set()
+            for l in log:
+                tp = l.get("topics") or []
+                pl = (tp[1].lower() if (tp and tp[0] == V4 and len(tp) > 1) else l["address"].lower())
+                if pl in nostri:
+                    grezza.add((l.get("transactionHash"), int(l.get("logIndex", "0x0"), 16)))
             casa = nostri_record(chain, da, a, nostri)
             # E SI ESCLUDONO I POOL AL TETTO (15/09). Teniamo al massimo 300 scambi per pool: per
             # quelli arrivati al tetto la catena ne ha di piu' PER FORZA, ed e' una nostra scelta.
@@ -169,8 +185,18 @@ def main():
                 if n_tot >= int(os.environ.get("TETTO_POOL", 300)): al_tetto.add(pool)
             catena = {k: v for k, v in catena.items() if v not in al_tetto}
             casa = {k: v for k, v in casa.items() if v[0] not in al_tetto}
+            # DUE DOMANDE DIVERSE, DUE METRI DIVERSI (15/09). Prima stavano sullo stesso metro e
+            # il controllo ha dichiarato 298 record inventati su una finestra dove erano tutti veri.
+            # Il motivo: da stamattina ci sono DUE raccoglitori con regole di conservazione diverse.
+            # Lo storico tiene solo le prime ore di vita di un pool; la coda viva raccoglie tutto
+            # quello che passa alla punta, compresi pool nati da settimane. Misurando entrambi col
+            # filtro dello storico, i record legittimi della coda viva risultavano inventati.
+            #   «ci manca qualcosa?»   -> contro la catena FILTRATA come la filtriamo noi
+            #   «ce lo siamo inventato?» -> contro la catena GREZZA: se il log esiste, non e' inventato
+            # Tenerle sullo stesso metro non rende il controllo severo, lo rende cieco: urla dove
+            # va tutto bene e quindi non lo si guarda piu' quando urla davvero.
             mancanti = [k for k in catena if k not in casa]
-            inventati = [k for k in casa if k not in catena]
+            inventati = [k for k in casa if k not in grezza]
             esito = ("identici" if not mancanti and not inventati
                      else ("MANCANO DA NOI" if mancanti else "ABBIAMO DI PIU'"))
             nuove.append({"acq": int(time.time()), "chain": chain, "da": da, "a": a, "seme": SEME,
