@@ -1,5 +1,5 @@
 # 🔧 STRATEGY_OPTIMIZER — l'auto-learn della STRATEGIA (cambia da solo, solo se migliora)
-*2026-09-15 12:07 UTC*
+*2026-09-15 14:43 UTC*
 
 ## Strategia LIVE adesso
 - +1h · TP 3x/8x · trailing -40% · hard -70%
