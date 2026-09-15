@@ -1,12 +1,12 @@
 # 🏃 STAFFETTA — leggi QUESTO per primo
-*2026-09-15 16:18 UTC · aggiornato da solo a ogni giro*
+*2026-09-15 16:23 UTC · aggiornato da solo a ogni giro*
 
 > La continuità viene dai **registri condivisi**, non dal ricordarsi la conversazione. Chi si
 > sveglia adesso non ha memoria: qui trova dove siamo e **qual è il prossimo lavoro**.
 
 ## Le corsie
 
-- 🟢 vive: motore (2′), ricerca (3′), loop 0 (10′), sperimenti (6′)
+- 🟢 vive: motore (4′), ricerca (3′), loop 0 (1′), sperimenti (6′)
 
 ## Gli esperimenti vivi
 
@@ -16,7 +16,7 @@
 
 ## Il consulente esterno
 
-- 🔴 **Tace da 104 ore** (dovrebbe parlare due volte al giorno).
+- 🔴 **Tace da 105 ore** (dovrebbe parlare due volte al giorno).
   Se tace, la catena è rotta a monte: tutto il resto continua a girare benissimo
   verso la direzione sbagliata.
 
@@ -26,19 +26,19 @@
 
 | cosa | quanti | cambiato di |
 |---|---|---|
-| base/COMPLETI (prezzo+scambi) | 972 | — |
-| base/DOMANDABILI (stima %) | 15 | — |
+| base/COMPLETI (prezzo+scambi) | 976 | **+4** |
+| base/DOMANDABILI (stima %) | 13 | -2 |
 | base/battito | 3,301 | — |
-| base/candele | 1,462 | — |
-| robinhood/COMPLETI (prezzo+scambi) | 755 | **+1** |
+| base/candele | 1,494 | **+32** |
+| robinhood/COMPLETI (prezzo+scambi) | 755 | — |
 | robinhood/DOMANDABILI (stima %) | 2 | — |
 | robinhood/battito | 222 | — |
-| robinhood/candele | 2,092 | — |
-| robinhood/toccati 12h | 102 | — |
-| solana/COMPLETI (prezzo+scambi) | 1,010 | — |
+| robinhood/candele | 2,125 | **+33** |
+| robinhood/toccati 12h | 113 | **+11** |
+| solana/COMPLETI (prezzo+scambi) | 1,023 | **+13** |
 | solana/DOMANDABILI (stima %) | 10 | — |
 | solana/battito | 198 | — |
-| solana/candele | 1,206 | — |
+| solana/candele | 1,226 | **+20** |
 
 
 In coda e non ancora aperti: **0** (nessuno).
@@ -57,4 +57,4 @@ In coda e non ancora aperti: **0** (nessuno).
 > ieri e sembrano di oggi. Qui sotto c'è la data del calcolo, e se non è di pochi minuti fa
 > il foglio non vale.
 
-*Calcolato alle **16:18 UTC** del 15/09/2026.*
+*Calcolato alle **16:23 UTC** del 15/09/2026.*
