@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (robinhood)
-*2026-09-15 22:30 UTC · 3 segnali nuovi messi alla prova su 340 token*
+*2026-09-15 22:46 UTC · 3 segnali nuovi messi alla prova su 340 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-96%**.
 
@@ -24,14 +24,14 @@
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
-- `concentrazione_top5 (voto)` — già bocciato 35 volte 1h fa (si riprova fra 11h o quando i dati crescono)
-- `concentrazione_top5 (filtro)` — già bocciato 35 volte 1h fa (si riprova fra 11h o quando i dati crescono)
-- `concentrazione_top1 (voto)` — già bocciato 35 volte 1h fa (si riprova fra 11h o quando i dati crescono)
-- `concentrazione_top1 (filtro)` — già bocciato 35 volte 1h fa (si riprova fra 11h o quando i dati crescono)
-- `n_compratori (voto)` — già bocciato 35 volte 1h fa (si riprova fra 11h o quando i dati crescono)
-- `n_compratori (filtro)` — già bocciato 35 volte 1h fa (si riprova fra 11h o quando i dati crescono)
-- `buy_medio (voto)` — già bocciato 35 volte 1h fa (si riprova fra 11h o quando i dati crescono)
-- `buy_medio (filtro)` — già bocciato 35 volte 1h fa (si riprova fra 11h o quando i dati crescono)
+- `concentrazione_top5 (voto)` — già bocciato 35 volte 2h fa (si riprova fra 10h o quando i dati crescono)
+- `concentrazione_top5 (filtro)` — già bocciato 35 volte 2h fa (si riprova fra 10h o quando i dati crescono)
+- `concentrazione_top1 (voto)` — già bocciato 35 volte 2h fa (si riprova fra 10h o quando i dati crescono)
+- `concentrazione_top1 (filtro)` — già bocciato 35 volte 2h fa (si riprova fra 10h o quando i dati crescono)
+- `n_compratori (voto)` — già bocciato 35 volte 2h fa (si riprova fra 10h o quando i dati crescono)
+- `n_compratori (filtro)` — già bocciato 35 volte 2h fa (si riprova fra 10h o quando i dati crescono)
+- `buy_medio (voto)` — già bocciato 35 volte 2h fa (si riprova fra 10h o quando i dati crescono)
+- `buy_medio (filtro)` — già bocciato 35 volte 2h fa (si riprova fra 10h o quando i dati crescono)
 - `buy_grossi (voto)` — già bocciato 34 volte 12h fa (si riprova fra 0h o quando i dati crescono)
 - `buy_grossi (filtro)` — già bocciato 34 volte 12h fa (si riprova fra 0h o quando i dati crescono)
 
