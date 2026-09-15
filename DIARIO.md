@@ -1,0 +1,292 @@
+# 📓 DIARIO — cosa è successo, giro per giro
+
+> Le macchine lavorano anche quando nessuno guarda. Qui resta la traccia: una riga
+> per ogni giro in cui **è cambiato qualcosa**. I giri identici al precedente non si
+> scrivono — un diario che ripete smette di essere letto, e allora smette di servire.
+
+- **15/09 11:01 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +5
+- **15/09 10:48 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +1, robinhood/COMPLETI (prezzo+scambi) +10, robinhood/DOMANDABILI (stima %) +3, solana/COMPLETI (prezzo+scambi) +1
+- **15/09 10:40 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +1, robinhood/battito +2
+- **15/09 10:32 UTC** — accumulo: base/DOMANDABILI (stima %) -3, base/COMPLETI (prezzo+scambi) +2, base/candele +9, robinhood/COMPLETI (prezzo+scambi) +7, robinhood/candele +20, robinhood/toccati 12h +11
+- **15/09 10:28 UTC** — accumulo: robinhood/toccati 12h -11
+- **15/09 10:24 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +1, solana/COMPLETI (prezzo+scambi) +1
+- **15/09 10:16 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +2, solana/COMPLETI (prezzo+scambi) +2
+- **15/09 10:08 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +9
+- **15/09 10:00 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +5
+- **15/09 09:48 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +10, base/candele +11, robinhood/COMPLETI (prezzo+scambi) +9, robinhood/battito +5, robinhood/candele +21, solana/COMPLETI (prezzo+scambi) +3
+- **15/09 09:43 UTC** — accumulo: robinhood/toccati 12h -13
+- **15/09 09:39 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +1, robinhood/COMPLETI (prezzo+scambi) +3
+- **15/09 09:31 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +1, robinhood/COMPLETI (prezzo+scambi) +2
+- **15/09 09:23 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +1, robinhood/COMPLETI (prezzo+scambi) +10
+- **15/09 09:15 UTC** — accumulo: robinhood/battito +1, solana/COMPLETI (prezzo+scambi) +7
+- **15/09 09:07 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +3, solana/COMPLETI (prezzo+scambi) +1
+- **15/09 08:59 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +10, robinhood/candele +26, robinhood/toccati 12h +11, solana/COMPLETI (prezzo+scambi) +16, solana/candele +20
+- **15/09 08:51 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +1, robinhood/battito +1
+- **15/09 08:39 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +1
+- **15/09 08:31 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +4
+- **15/09 08:23 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +1, robinhood/COMPLETI (prezzo+scambi) +7, solana/COMPLETI (prezzo+scambi) +2
+- **15/09 08:11 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +6, solana/COMPLETI (prezzo+scambi) +1
+- **15/09 08:03 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +5, robinhood/COMPLETI (prezzo+scambi) +7, robinhood/candele +32, robinhood/toccati 12h +9, solana/COMPLETI (prezzo+scambi) +4, solana/DOMANDABILI (stima %) +1
+- **15/09 07:58 UTC** — accumulo: robinhood/toccati 12h -18
+- **15/09 07:54 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +4, solana/COMPLETI (prezzo+scambi) +4
+- **15/09 07:46 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +5, robinhood/COMPLETI (prezzo+scambi) +1
+- **15/09 07:38 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +5, robinhood/COMPLETI (prezzo+scambi) +1, solana/COMPLETI (prezzo+scambi) +1
+- **15/09 07:28 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +6, solana/COMPLETI (prezzo+scambi) +1
+- **15/09 07:18 UTC** — accumulo: robinhood/candele +18, solana/COMPLETI (prezzo+scambi) +3
+- **15/09 07:13 UTC** — accumulo: robinhood/toccati 12h -9
+- **15/09 07:09 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +2, solana/COMPLETI (prezzo+scambi) +1
+- **15/09 07:04 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +8, base/DOMANDABILI (stima %) +2, solana/COMPLETI (prezzo+scambi) +2
+- **15/09 06:54 UTC** — accumulo: solana/COMPLETI (prezzo+scambi) +1
+- **15/09 06:49 UTC** — accumulo: base/battito +8
+- **15/09 06:44 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +1
+- **15/09 06:34 UTC** — accumulo: solana/COMPLETI (prezzo+scambi) +3
+- **15/09 06:30 UTC** — accumulo: base/candele +1, robinhood/COMPLETI (prezzo+scambi) +1, robinhood/candele +21, robinhood/toccati 12h +11
+- **15/09 06:25 UTC** — accumulo: solana/COMPLETI (prezzo+scambi) +1
+- **15/09 06:15 UTC** — accumulo: solana/COMPLETI (prezzo+scambi) +2
+- **15/09 06:10 UTC** — accumulo: solana/COMPLETI (prezzo+scambi) +3
+- **15/09 06:00 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +1, solana/COMPLETI (prezzo+scambi) +3
+- **15/09 05:51 UTC** — accumulo: solana/COMPLETI (prezzo+scambi) +1
+- **15/09 05:41 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +1
+- **15/09 05:31 UTC** — accumulo: base/DOMANDABILI (stima %) +1, robinhood/candele +19, robinhood/toccati 12h +11, solana/COMPLETI (prezzo+scambi) +8
+- **15/09 05:22 UTC** — accumulo: robinhood/toccati 12h -11, solana/DOMANDABILI (stima %) -1, solana/COMPLETI (prezzo+scambi) +13
+- **15/09 05:12 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +1
+- **15/09 05:07 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +1
+- **15/09 04:53 UTC** — accumulo: solana/battito +1
+- **15/09 04:48 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +1
+- **15/09 04:43 UTC** — accumulo: robinhood/candele +11, solana/candele +1
+- **15/09 04:28 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +4
+- **15/09 04:18 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +8, robinhood/battito +2
+- **15/09 04:13 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +3
+- **15/09 04:08 UTC** — accumulo: robinhood/toccati 12h -18, robinhood/candele +10
+- **15/09 04:03 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +1, robinhood/battito +3
+- **15/09 03:53 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +8, robinhood/candele +20, robinhood/toccati 12h +11
+- **15/09 03:43 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +1
+- **15/09 03:33 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +1
+- **15/09 03:28 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +3
+- **15/09 03:18 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +7
+- **15/09 03:09 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +1
+- **15/09 02:59 UTC** — accumulo: base/DOMANDABILI (stima %) -2, base/COMPLETI (prezzo+scambi) +12, base/candele +20, robinhood/COMPLETI (prezzo+scambi) +8, robinhood/candele +17, robinhood/toccati 12h +10
+- **15/09 02:45 UTC** — accumulo: robinhood/toccati 12h -10
+- **15/09 02:41 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +2
+- **15/09 02:31 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +8
+- **15/09 02:17 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +8, robinhood/candele +30
+- **15/09 02:07 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +1
+- **15/09 01:58 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +3
+- **15/09 01:48 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +9
+- **15/09 01:25 UTC** — accumulo: base/DOMANDABILI (stima %) -2, base/COMPLETI (prezzo+scambi) +6, base/candele +18, robinhood/COMPLETI (prezzo+scambi) +10, robinhood/candele +34, robinhood/toccati 12h +9
+- **15/09 01:06 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +1
+- **15/09 00:56 UTC** — accumulo: robinhood/toccati 12h -9
+- **15/09 00:47 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +1, solana/COMPLETI (prezzo+scambi) +5
+- **15/09 00:38 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +9
+- **15/09 00:28 UTC** — accumulo: base/DOMANDABILI (stima %) -2, robinhood/DOMANDABILI (stima %) -2, solana/DOMANDABILI (stima %) -2, base/COMPLETI (prezzo+scambi) +5, base/candele +31, robinhood/COMPLETI (prezzo+scambi) +8
+- **15/09 00:23 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +4
+- **15/09 00:14 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +3
+- **15/09 00:04 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +7
+- **14/09 23:55 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +8, base/DOMANDABILI (stima %) +2, robinhood/COMPLETI (prezzo+scambi) +7
+- **14/09 23:45 UTC** — accumulo: base/battito +8, robinhood/COMPLETI (prezzo+scambi) +1
+- **14/09 23:41 UTC** — accumulo: base/DOMANDABILI (stima %) -3, robinhood/toccati 12h -10, base/candele +15, robinhood/candele +19
+- **14/09 23:36 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +1
+- **14/09 23:27 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +3
+- **14/09 23:22 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +1
+- **14/09 23:12 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +4
+- **14/09 23:02 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +6
+- **14/09 22:52 UTC** — accumulo: base/DOMANDABILI (stima %) -1, robinhood/DOMANDABILI (stima %) -2, base/candele +10, robinhood/COMPLETI (prezzo+scambi) +9, robinhood/candele +20, robinhood/toccati 12h +11
+- **14/09 22:42 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +6
+- **14/09 22:37 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +7
+- **14/09 22:28 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +4
+- **14/09 22:23 UTC** — accumulo: robinhood/toccati 12h -10
+- **14/09 22:18 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +5
+- **14/09 22:13 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +9, base/DOMANDABILI (stima %) +1, robinhood/COMPLETI (prezzo+scambi) +2, solana/COMPLETI (prezzo+scambi) +5
+- **14/09 22:03 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +3
+- **14/09 21:58 UTC** — accumulo: base/battito +9
+- **14/09 21:54 UTC** — accumulo: robinhood/DOMANDABILI (stima %) -1, robinhood/COMPLETI (prezzo+scambi) +3, robinhood/candele +18, robinhood/toccati 12h +13, solana/COMPLETI (prezzo+scambi) +15, solana/candele +19
+- **14/09 21:43 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +1, solana/COMPLETI (prezzo+scambi) +1
+- **14/09 21:38 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +1, base/DOMANDABILI (stima %) +1, robinhood/COMPLETI (prezzo+scambi) +1
+- **14/09 21:32 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +14, base/DOMANDABILI (stima %) +3, robinhood/COMPLETI (prezzo+scambi) +4, robinhood/DOMANDABILI (stima %) +1
+- **14/09 21:14 UTC** — accumulo: base/battito +15, robinhood/battito +4, solana/battito +2
+- **14/09 21:08 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +3, robinhood/candele +20, solana/COMPLETI (prezzo+scambi) +1
+- **14/09 20:56 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +2, robinhood/DOMANDABILI (stima %) +2
+- **14/09 20:38 UTC** — accumulo: robinhood/battito +2
+- **14/09 20:33 UTC** — accumulo: robinhood/toccati 12h -11
+- **14/09 20:21 UTC** — accumulo: base/candele +1, robinhood/COMPLETI (prezzo+scambi) +1, robinhood/candele +3, robinhood/toccati 12h +18
+- **14/09 19:52 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +11, base/DOMANDABILI (stima %) +3, robinhood/COMPLETI (prezzo+scambi) +9, robinhood/DOMANDABILI (stima %) +2
+- **14/09 19:29 UTC** — accumulo: base/battito +11, robinhood/battito +6
+- **14/09 19:22 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +14, robinhood/candele +23, robinhood/toccati 12h +9
+- **14/09 19:16 UTC** — accumulo: robinhood/toccati 12h -9
+- **14/09 18:39 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +14, robinhood/candele +31, solana/COMPLETI (prezzo+scambi) +5
+- **14/09 17:52 UTC** — accumulo: robinhood/toccati 12h -11
+- **14/09 17:47 UTC** — accumulo: base/DOMANDABILI (stima %) -1, base/COMPLETI (prezzo+scambi) +11, base/candele +20, robinhood/COMPLETI (prezzo+scambi) +11, robinhood/candele +21, robinhood/toccati 12h +11
+- **14/09 16:38 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +7, robinhood/candele +19, robinhood/toccati 12h +18, solana/COMPLETI (prezzo+scambi) +2
+- **14/09 16:07 UTC** — accumulo: robinhood/toccati 12h -9
+- **14/09 15:32 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +8, robinhood/candele +11, solana/COMPLETI (prezzo+scambi) +1
+- **14/09 15:19 UTC** — accumulo: robinhood/toccati 12h -20
+- **14/09 14:57 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +9, base/DOMANDABILI (stima %) +1, robinhood/COMPLETI (prezzo+scambi) +13, robinhood/candele +33, robinhood/toccati 12h +10
+- **14/09 14:18 UTC** — accumulo: base/battito +9
+- **14/09 14:09 UTC** — accumulo: base/DOMANDABILI (stima %) -1, base/COMPLETI (prezzo+scambi) +6, base/candele +13, robinhood/COMPLETI (prezzo+scambi) +14, robinhood/candele +35, solana/COMPLETI (prezzo+scambi) +17
+- **14/09 13:34 UTC** — accumulo: robinhood/toccati 12h -11
+- **14/09 13:21 UTC** — accumulo: base/DOMANDABILI (stima %) -2, robinhood/DOMANDABILI (stima %) -3, base/COMPLETI (prezzo+scambi) +3, base/candele +6, robinhood/COMPLETI (prezzo+scambi) +1, robinhood/candele +23
+- **14/09 12:50 UTC** — accumulo: robinhood/toccati 12h -10
+- **14/09 12:14 UTC** — accumulo: base/DOMANDABILI (stima %) -2, robinhood/DOMANDABILI (stima %) -3, base/COMPLETI (prezzo+scambi) +4, base/candele +19, robinhood/COMPLETI (prezzo+scambi) +3, robinhood/candele +21
+- **14/09 11:10 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +11, base/DOMANDABILI (stima %) +3, base/candele +1, robinhood/COMPLETI (prezzo+scambi) +5, robinhood/candele +2
+- **14/09 10:53 UTC** — accumulo: robinhood/toccati 12h -10
+- **14/09 10:35 UTC** — accumulo: base/battito +11
+- **14/09 10:30 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +11, robinhood/DOMANDABILI (stima %) +6, robinhood/candele +24, robinhood/toccati 12h +10
+- **14/09 10:17 UTC** — accumulo: robinhood/toccati 12h -11
+- **14/09 09:55 UTC** — accumulo: robinhood/battito +3
+- **14/09 09:50 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +11, base/DOMANDABILI (stima %) +2, robinhood/COMPLETI (prezzo+scambi) +15, robinhood/candele +35, solana/candele +3
+- **14/09 09:15 UTC** — accumulo: base/battito +11
+- **14/09 08:57 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +13, robinhood/candele +12, robinhood/toccati 12h +11
+- **14/09 08:48 UTC** — accumulo: robinhood/toccati 12h -11
+- **14/09 08:13 UTC** — accumulo: robinhood/toccati 12h -10
+- **14/09 08:04 UTC** — accumulo: robinhood/candele +9
+- **14/09 07:46 UTC** — accumulo: robinhood/COMPLETI (prezzo+scambi) +12, robinhood/candele +21, robinhood/toccati 12h +9, solana/COMPLETI (prezzo+scambi) +4, solana/candele +8
+- **14/09 06:45 UTC** — accumulo: base/DOMANDABILI (stima %) -3, robinhood/toccati 12h -11, solana/DOMANDABILI (stima %) -2, base/COMPLETI (prezzo+scambi) +7, base/candele +20, robinhood/COMPLETI (prezzo+scambi) +6
+- **14/09 06:05 UTC** — accumulo: base/DOMANDABILI (stima %) -1, robinhood/DOMANDABILI (stima %) -8, solana/DOMANDABILI (stima %) -1, base/COMPLETI (prezzo+scambi) +2, base/candele +18, robinhood/COMPLETI (prezzo+scambi) +2
+- **14/09 05:17 UTC** — accumulo: base/candele +6, robinhood/COMPLETI (prezzo+scambi) +8, robinhood/DOMANDABILI (stima %) +2, robinhood/candele +17
+- **14/09 04:38 UTC** — accumulo: robinhood/toccati 12h -10
+- **14/09 04:30 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +13, base/DOMANDABILI (stima %) +1, base/candele +16, robinhood/COMPLETI (prezzo+scambi) +5, robinhood/candele +20, robinhood/toccati 12h +9
+- **14/09 04:02 UTC** — accumulo: robinhood/toccati 12h -11
+- **14/09 03:38 UTC** — accumulo: base/battito +13
+- **14/09 03:29 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +11, base/DOMANDABILI (stima %) +1, robinhood/COMPLETI (prezzo+scambi) +5, robinhood/DOMANDABILI (stima %) +6, robinhood/candele +29, robinhood/toccati 12h +20
+- **14/09 02:53 UTC** — accumulo: base/battito +11, robinhood/battito +2
+- **14/09 02:45 UTC** — accumulo: base/DOMANDABILI (stima %) -2, base/COMPLETI (prezzo+scambi) +12, robinhood/COMPLETI (prezzo+scambi) +11, robinhood/candele +32
+- **14/09 02:33 UTC** — accumulo: robinhood/toccati 12h -11
+- **14/09 02:01 UTC** — accumulo: base/utilizzabili (stima %) +99, robinhood/utilizzabili (stima %) +100, solana/utilizzabili (stima %) +100
+- **14/09 01:57 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +15, robinhood/COMPLETI (prezzo+scambi) +4, robinhood/candele +25, robinhood/toccati 12h +11, solana/COMPLETI (prezzo+scambi) +5, solana/candele +3
+- **14/09 01:24 UTC** — accumulo: robinhood/toccati 12h -11
+- **14/09 01:04 UTC** — accumulo: base/battito +16
+- **14/09 00:56 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +5, robinhood/COMPLETI (prezzo+scambi) +8, robinhood/candele +19, robinhood/toccati 12h +10, solana/COMPLETI (prezzo+scambi) +14, solana/candele +16
+- **14/09 00:15 UTC** — accumulo: robinhood/toccati 12h -10
+- **14/09 00:07 UTC** — accumulo: base/COMPLETI (prezzo+scambi) +15, robinhood/COMPLETI (prezzo+scambi) +6, robinhood/candele +34, solana/COMPLETI (prezzo+scambi) +14
+- **13/09 23:38 UTC** — accumulo: solana/battito +2
+- **13/09 23:17 UTC** — accumulo: robinhood/candele +9, robinhood/toccati 12h +10
+- **13/09 22:49 UTC** — accumulo: robinhood/toccati 12h -10
+- **13/09 22:28 UTC** — accumulo: robinhood/candele +20, robinhood/toccati 12h +11
+- **13/09 21:51 UTC** — accumulo: base/candele +20, robinhood/candele +31
+- **13/09 21:43 UTC** — accumulo: robinhood/toccati 12h -11
+- **13/09 21:11 UTC** — accumulo: robinhood/candele +20, robinhood/toccati 12h +11
+- **13/09 20:34 UTC** — accumulo: robinhood/toccati 12h -11
+- **13/09 20:22 UTC** — accumulo: robinhood/candele +8, robinhood/toccati 12h +10
+- **13/09 19:50 UTC** — accumulo: robinhood/candele +32
+- **13/09 19:07 UTC** — accumulo: robinhood/candele +17, robinhood/toccati 12h +11
+- **13/09 19:02 UTC** — accumulo: robinhood/toccati 12h -9
+- **13/09 18:25 UTC** — accumulo: base/battito +13
+- **13/09 18:20 UTC** — accumulo: robinhood/candele +2, robinhood/toccati 12h +9
+- **13/09 17:53 UTC** — accumulo: robinhood/toccati 12h -11
+- **13/09 17:43 UTC** — accumulo: base/candele +20, robinhood/candele +21
+- **13/09 17:06 UTC** — accumulo: robinhood/candele +27, robinhood/toccati 12h +10, solana/candele +19
+- **13/09 16:44 UTC** — accumulo: robinhood/toccati 12h -9
+- **13/09 16:11 UTC** — accumulo: robinhood/candele +32, robinhood/toccati 12h +11, solana/candele +1
+- **13/09 15:37 UTC** — accumulo: robinhood/candele +34
+- **13/09 15:12 UTC** — accumulo: base/battito +10, robinhood/battito +2
+- **13/09 14:55 UTC** — accumulo: robinhood/candele +21, robinhood/toccati 12h +11
+- **13/09 13:53 UTC** — accumulo: robinhood/toccati 12h +11
+- **13/09 13:03 UTC** — accumulo: robinhood/battito +1, solana/battito +3
+- **13/09 12:55 UTC** — accumulo: robinhood/candele +10
+- **13/09 12:30 UTC** — accumulo: robinhood/candele +11
+- **13/09 12:26 UTC** — accumulo: robinhood/candele +22, robinhood/toccati 12h +10
+- **13/09 11:52 UTC** — accumulo: base/candele +20, robinhood/candele +33, solana/candele +20
+- **13/09 11:08 UTC** — accumulo: robinhood/candele +19, robinhood/toccati 12h +10, solana/candele +4
+- **13/09 10:11 UTC** — accumulo: base/candele +1, robinhood/candele +6, robinhood/toccati 12h +11, solana/candele +17
+- **13/09 09:17 UTC** — accumulo: robinhood/candele +19
+- **13/09 08:45 UTC** — accumulo: robinhood/candele +27, robinhood/toccati 12h +11, solana/candele +1
+- **13/09 08:18 UTC** — accumulo: base/battito +11
+- **13/09 08:10 UTC** — accumulo: base/candele +2, robinhood/candele +33, solana/candele +2
+- **13/09 07:25 UTC** — accumulo: base/candele +2, robinhood/candele +34, robinhood/toccati 12h +9, solana/candele +10
+- **13/09 06:41 UTC** — accumulo: solana/battito +1
+- **13/09 06:37 UTC** — accumulo: solana/candele +11
+- **13/09 06:19 UTC** — accumulo: base/candele +1, robinhood/candele +32, robinhood/toccati 12h +11, solana/candele +31
+- **13/09 05:27 UTC** — accumulo: base/candele +32, robinhood/candele +35, solana/candele +32
+- **13/09 04:52 UTC** — accumulo: base/candele +32, robinhood/candele +34, robinhood/toccati 12h +9, solana/candele +31
+- **13/09 04:17 UTC** — accumulo: base/candele +32, robinhood/candele +33, solana/candele +32
+- **13/09 03:29 UTC** — accumulo: base/candele +32, robinhood/candele +31, robinhood/toccati 12h +11, solana/candele +31
+- **13/09 02:43 UTC** — accumulo: base/battito +13
+- **13/09 02:26 UTC** — accumulo: base/candele +13, robinhood/candele +17, robinhood/toccati 12h +20, solana/candele +6
+- **13/09 01:36 UTC** — accumulo: base/battito +21, robinhood/battito +6
+- **13/09 01:28 UTC** — accumulo: base/candele +34, robinhood/candele +41, solana/candele +33
+- **13/09 01:03 UTC** — accumulo: base/battito +24, robinhood/battito +3, solana/battito +2
+- **13/09 00:55 UTC** — accumulo: base/candele +39, robinhood/candele +38, robinhood/toccati 12h +22, solana/candele +39
+- **13/09 00:26 UTC** — accumulo: base/battito +9, robinhood/battito +9, solana/battito +2
+- **13/09 00:18 UTC** — accumulo: base/candele +42, robinhood/candele +53, solana/candele +38
+- **12/09 23:53 UTC** — accumulo: base/battito +12, robinhood/battito +3
+- **12/09 23:37 UTC** — accumulo: base/candele +34, robinhood/candele +55, robinhood/toccati 12h +20, solana/candele +37
+- **12/09 22:51 UTC** — accumulo: base/battito +15, robinhood/battito +9
+- **12/09 22:35 UTC** — accumulo: robinhood/candele +4, robinhood/toccati 12h +19
+- **12/09 21:47 UTC** — accumulo: base/battito +18, robinhood/battito +5, solana/battito +1
+- **12/09 21:39 UTC** — accumulo: robinhood/candele +22
+- **12/09 21:18 UTC** — accumulo: base/battito +17, robinhood/battito +2
+- **12/09 21:10 UTC** — accumulo: robinhood/candele +26, robinhood/toccati 12h +21
+- **12/09 20:42 UTC** — accumulo: base/battito +21, robinhood/battito +7, solana/battito +1
+- **12/09 20:38 UTC** — accumulo: robinhood/candele +39
+- **12/09 20:13 UTC** — accumulo: base/battito +16, robinhood/battito +9, solana/battito +1
+- **12/09 19:57 UTC** — accumulo: robinhood/candele +5, robinhood/toccati 12h +18, solana/candele +18
+- **12/09 19:17 UTC** — accumulo: robinhood/battito +2
+- **12/09 19:13 UTC** — accumulo: robinhood/candele +18
+- **12/09 19:00 UTC** — accumulo: robinhood/candele +20, robinhood/toccati 12h +10
+- **12/09 18:04 UTC** — accumulo: base/candele +6, robinhood/candele +33
+- **12/09 17:35 UTC** — accumulo: base/candele +23, robinhood/candele +32, robinhood/toccati 12h +9
+- **12/09 17:06 UTC** — accumulo: robinhood/battito +2
+- **12/09 17:02 UTC** — accumulo: base/candele +24, robinhood/candele +32, solana/candele +4
+- **12/09 16:22 UTC** — accumulo: robinhood/candele +32, robinhood/toccati 12h +11, solana/candele +16
+- **12/09 15:37 UTC** — accumulo: base/battito +13
+- **12/09 15:17 UTC** — accumulo: robinhood/candele +4, robinhood/toccati 12h +10
+- **12/09 14:33 UTC** — accumulo: base/battito +5, robinhood/battito +1
+- **12/09 14:28 UTC** — accumulo: robinhood/candele +19
+- **12/09 14:03 UTC** — accumulo: base/battito +11
+- **12/09 13:53 UTC** — accumulo: robinhood/candele +23, robinhood/toccati 12h +9
+- **12/09 13:20 UTC** — accumulo: robinhood/candele +33
+- **12/09 12:55 UTC** — accumulo: solana/battito +3
+- **12/09 12:36 UTC** — accumulo: robinhood/candele +8, robinhood/toccati 12h +9
+- **12/09 11:48 UTC** — accumulo: robinhood/candele +10
+- **12/09 11:38 UTC** — accumulo: base/candele +1, robinhood/candele +1, robinhood/toccati 12h +11
+- **12/09 10:50 UTC** — accumulo: robinhood/battito +1
+- **12/09 10:41 UTC** — accumulo: robinhood/candele +23
+- **12/09 10:13 UTC** — accumulo: base/candele +20, robinhood/candele +32, robinhood/toccati 12h +11
+- **12/09 09:40 UTC** — accumulo: robinhood/candele +33, solana/candele +20
+- **12/09 08:59 UTC** — accumulo: robinhood/candele +23, robinhood/toccati 12h +10, solana/candele +20
+- **12/09 08:00 UTC** — accumulo: robinhood/candele +1, robinhood/toccati 12h +9
+- **12/09 07:12 UTC** — accumulo: base/battito +16
+- **12/09 07:08 UTC** — accumulo: base/candele +1
+- **12/09 07:04 UTC** — accumulo: robinhood/candele +31
+- **12/09 06:33 UTC** — accumulo: robinhood/candele +33, robinhood/toccati 12h +10
+- **12/09 06:05 UTC** — accumulo: robinhood/battito +1, solana/battito +1
+- **12/09 05:56 UTC** — accumulo: robinhood/candele +20
+- **12/09 05:33 UTC** — accumulo: robinhood/battito +1
+- **12/09 05:28 UTC** — accumulo: robinhood/candele +13
+- **12/09 05:19 UTC** — accumulo: base/candele +14, robinhood/candele +18, robinhood/toccati 12h +11
+- **12/09 04:34 UTC** — accumulo: robinhood/battito +1
+- **12/09 04:20 UTC** — accumulo: base/candele +5, robinhood/toccati 12h +10
+- **12/09 03:30 UTC** — accumulo: robinhood/battito +3
+- **12/09 03:26 UTC** — accumulo: robinhood/candele +21
+- **12/09 02:59 UTC** — accumulo: robinhood/candele +24, robinhood/toccati 12h +11
+- **12/09 02:30 UTC** — accumulo: robinhood/battito +5
+- **12/09 02:25 UTC** — accumulo: robinhood/candele +32
+- **12/09 02:00 UTC** — accumulo: base/battito +13, robinhood/battito +2
+- **12/09 01:43 UTC** — accumulo: base/candele +19, robinhood/candele +18, robinhood/toccati 12h +12
+- **12/09 00:58 UTC** — accumulo: robinhood/battito +1
+- **12/09 00:43 UTC** — accumulo: robinhood/toccati 12h +9
+- **11/09 23:52 UTC** — accumulo: robinhood/candele +18
+- **11/09 23:20 UTC** — accumulo: robinhood/candele +19, robinhood/toccati 12h +11
+- **11/09 22:50 UTC** — accumulo: robinhood/battito +2
+- **11/09 22:45 UTC** — accumulo: robinhood/candele +20, solana/candele +20
+- **11/09 22:24 UTC** — accumulo: base/battito +12, robinhood/toccati 12h +10
+- **11/09 20:18 UTC** — accumulo: robinhood/candele +21, robinhood/toccati 12h +12
+- **11/09 19:44 UTC** — accumulo: base/candele +20, robinhood/candele +34
+- **11/09 19:19 UTC** — accumulo: robinhood/battito +5
+- **11/09 19:07 UTC** — accumulo: robinhood/candele +29
+- **11/09 18:04 UTC** — accumulo: base/candele +14, robinhood/candele +33, robinhood/toccati 12h +10, solana/candele +15
+- **11/09 17:16 UTC** — accumulo: robinhood/battito +5
+- **11/09 17:12 UTC** — accumulo: base/candele +14, robinhood/candele +35, solana/candele +5
+- **11/09 16:48 UTC** — accumulo: base/battito +11
+- **11/09 16:39 UTC** — accumulo: robinhood/candele +5
+- **11/09 16:11 UTC** — accumulo: robinhood/battito +1
+- **11/09 16:07 UTC** — accumulo: robinhood/candele +19
+- **11/09 15:43 UTC** — accumulo: robinhood/battito +3
+- **11/09 15:27 UTC** — accumulo: robinhood/candele +25, robinhood/toccati 12h +11
+- **11/09 14:42 UTC** — accumulo: base/battito +16, robinhood/battito +4
+- **11/09 14:38 UTC** — accumulo: robinhood/candele +34, robinhood/toccati 12h +10
+- **11/09 14:10 UTC** — accumulo: robinhood/battito +1, solana/battito +4
+- **11/09 14:02 UTC** — accumulo: robinhood/candele +24
+- **11/09 13:33 UTC** — accumulo: robinhood/candele +9
+- **11/09 13:21 UTC** — accumulo: robinhood/candele +22, robinhood/toccati 12h +9
+- **11/09 12:48 UTC** — accumulo: robinhood/battito +9

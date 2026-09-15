@@ -1,0 +1,174 @@
+{
+ "_nota": "REGISTRO DEI LOOP. Ogni loop e' un MEETING che si tiene ogni ciclo del motore (~30 min): ha UN goal, una metrica misurabile, una domanda fissa. Se l'ago non si muove qualcuno 'alza la mano', si esegue la riparazione nota, e al ciclo dopo si ri-chiede. Se resta fermo troppo a lungo si sale la SCALA DI ESCALATION: non si insiste col retry, si cambia approccio.",
+ "loops": [
+  {
+   "id": "accumulo-base",
+   "domanda": "Stiamo raccogliendo token Base nuovi?",
+   "tipo": "accumulo",
+   "chain": "base",
+   "fermo_dopo_cicli": 3,
+   "fix": [
+    "pulse.py",
+    "multichain_collector.py"
+   ],
+   "escalation": [
+    "controllare i log del motore: pulse va in errore?",
+    "la discovery pool e' ferma: verificare GeckoTerminal new_pools",
+    "cambiare fonte di scoperta pool (DexScreener token-profiles)"
+   ]
+  },
+  {
+   "id": "accumulo-solana",
+   "domanda": "Stiamo raccogliendo token Solana nuovi?",
+   "tipo": "accumulo",
+   "chain": "solana",
+   "fermo_dopo_cicli": 6,
+   "fix": [
+    "solana_helius.py",
+    "multichain_collector.py"
+   ],
+   "escalation": [
+    "verificare quota Helius (2 key)",
+    "il pulse su Solana prende pochi pair: gli indirizzi pool non combaciano con DexScreener, va mappato il mint"
+   ]
+  },
+  {
+   "id": "percentuale-robinhood",
+   "domanda": "Come alziamo la percentuale su Robinhood?",
+   "tipo": "percentuale",
+   "chain": "robinhood",
+   "target_robusta": 50.0,
+   "fermo_dopo_cicli": 96,
+   "fix": [
+    "strategy_optimizer.py",
+    "learner.py"
+   ],
+   "escalation": [
+    "provare feature insider anche su Robinhood (wallet ricorrenti nei vincenti)",
+    "provare uscita a trailing piu' stretto sui token a bassa liquidita'",
+    "segmentare il modello per fascia di liquidita'"
+   ]
+  },
+  {
+   "id": "percentuale-base",
+   "domanda": "Come alziamo la percentuale su Base?",
+   "tipo": "percentuale",
+   "chain": "base",
+   "target_robusta": 50.0,
+   "fermo_dopo_cicli": 96,
+   "fix": [
+    "strategy_optimizer_base.py",
+    "learner.py"
+   ],
+   "escalation": [
+    "portare la copertura trade sopra il 60% (oggi il numero robusto e' fragile)",
+    "provare la feature insider su Base",
+    "separare Uniswap V3 da Aerodrome: sono due mercati diversi"
+   ]
+  },
+  {
+   "id": "percentuale-solana",
+   "domanda": "Come alziamo la percentuale su Solana?",
+   "tipo": "percentuale",
+   "chain": "solana",
+   "target_robusta": 0.0,
+   "fermo_dopo_cicli": 48,
+   "fix": [
+    "strategy_optimizer_solana.py",
+    "wallet_insider.py"
+   ],
+   "escalation": [
+    "insider score come feature nel cervello (attende 40 casi)",
+    "matrix wallet->funder: stesso soggetto che cambia wallet",
+    "concentrazione holder nei primi minuti",
+    "forma del volume iniziale (accelerazione) invece del livello",
+    "copiare i wallet vincenti invece di selezionare i token"
+   ]
+  },
+  {
+   "id": "demo-robinhood",
+   "domanda": "Come arriviamo a 3.000 euro su Robinhood?",
+   "tipo": "demo",
+   "chain": "robinhood",
+   "goal_eur": 3000,
+   "stato": "data/demo_live_state.json",
+   "fermo_dopo_cicli": 96,
+   "fix": [
+    "demo_live.py"
+   ],
+   "escalation": [
+    "pochi token nuovi al giorno su Robinhood: il conto e' affamato, valutare size maggiore per posizione",
+    "abbassare la soglia di selezione (DECISIONE, non retry: passa da DECISIONS.md)",
+    "spostare il capitale sulla chain con piu' occasioni"
+   ]
+  },
+  {
+   "id": "demo-base",
+   "domanda": "Come arriviamo a 3.000 euro su Base?",
+   "tipo": "demo",
+   "chain": "base",
+   "goal_eur": 3000,
+   "stato": "data/demo_live_base_state.json",
+   "fermo_dopo_cicli": 8,
+   "fix": [
+    "pulse.py",
+    "demo_live_base.py"
+   ],
+   "escalation": [
+    "catena rotta: leggere GOAL_BASE.md, dice a che stadio",
+    "se il modello scarta tutto: soglia P(win) da rivedere in DECISIONS.md",
+    "allargare la finestra d'entrata se perdiamo troppi token per ritardo"
+   ]
+  },
+  {
+   "id": "accumulo-robinhood",
+   "domanda": "Stiamo raccogliendo token Robinhood nuovi?",
+   "tipo": "accumulo",
+   "chain": "robinhood",
+   "fermo_dopo_cicli": 8,
+   "fix": [
+    "whale_candles.py",
+    "whale_backfill.py",
+    "multichain_collector.py"
+   ],
+   "escalation": [
+    "Robinhood ha pochi token nuovi al giorno: verificare che il backfill RPC stia girando",
+    "allargare la finestra blocchi del backfill",
+    "il pulse non copre Robinhood (non e' su DexScreener): valutare una fonte alternativa"
+   ]
+  },
+  {
+   "id": "accumulo-bsc",
+   "domanda": "Stiamo raccogliendo token BSC nuovi?",
+   "tipo": "accumulo",
+   "chain": "bsc",
+   "fermo_dopo_cicli": 8,
+   "fix": [
+    "pulse.py",
+    "multichain_collector.py",
+    "multichain_rpc.py"
+   ],
+   "escalation": [
+    "su BSC l'address del pool spesso non coincide col contratto: mappatura da sistemare",
+    "coverage ferma al 15%: capire se vale la pena insistere o concentrarsi sulle altre"
+   ]
+  },
+  {
+   "id": "percentuale-bsc",
+   "domanda": "Come alziamo la percentuale su BSC?",
+   "tipo": "percentuale",
+   "chain": "bsc",
+   "target_robusta": 0.0,
+   "fermo_dopo_cicli": 96,
+   "fix": [
+    "explorer.py",
+    "learner.py"
+   ],
+   "escalation": [
+    "provare il filtro d'ingresso (la leva che ha funzionato su Base)",
+    "coverage bassa: prima serve accumulo, poi la ricerca ha senso",
+    "se resta l'ultima di tutte, concentrare le forze sulle chain migliori"
+   ]
+  }
+ ]
+}

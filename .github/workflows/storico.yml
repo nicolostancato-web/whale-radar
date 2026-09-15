@@ -1,0 +1,80 @@
+name: storico
+# LO STORICO COMPLETO DALLA CATENA, IN PARALLELO.
+# Scoperta del 14/09: il limite delle ~300 transazioni e' della FONTE gratuita, non della catena.
+# Chiedendo una FASCIA DI BLOCCHI per tutti i pool insieme (invece di un pool alla volta) il nodo
+# pubblico risponde subito. Sei fette scavano porzioni diverse di storia contemporaneamente: ogni
+# lavoro gira su una macchina diversa, quindi ha un limite di chiamate suo.
+# Costo: €0 — repo pubblico, minuti GitHub gratuiti e illimitati, nodi pubblici gratuiti.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "10 */4 * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: storico
+  cancel-in-progress: false
+jobs:
+  scava:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      # DODICI FETTE, NON SEI (15/09). Misurato ieri: usiamo il 27% del tetto di UN indirizzo, e
+      # GitHub concede fino a 20 lavori in parallelo su repo pubblico — ognuno su una macchina
+      # diversa, quindi con un limite di chiamate suo. Con sei fette la copertura saliva di un punto
+      # l'ora: troppo poco per arrivare in fondo stanotte. Dodici dimezzano il tempo, e restano
+      # otto lavori liberi per le altre corsie.
+      # Le fette coprono 0, 6, 12, 18, 24, 30 giorni indietro: i pool che valutiamo hanno una
+      # mediana di 23-25 giorni, quindi la fascia giusta e' tutta dentro.
+      max-parallel: 12
+      matrix:
+        include:
+          - { chain: base,      fetta: 0 }
+          - { chain: base,      fetta: 1 }
+          - { chain: base,      fetta: 2 }
+          - { chain: base,      fetta: 3 }
+          - { chain: base,      fetta: 4 }
+          - { chain: base,      fetta: 5 }
+          - { chain: robinhood, fetta: 0 }
+          - { chain: robinhood, fetta: 1 }
+          - { chain: robinhood, fetta: 2 }
+          - { chain: robinhood, fetta: 3 }
+          - { chain: robinhood, fetta: 4 }
+          - { chain: robinhood, fetta: 5 }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Scava lo storico
+        env:
+          CHAIN: ${{ matrix.chain }}
+          FETTA: ${{ matrix.fetta }}
+          FETTE: "3"
+          PAUSA: "1.4"
+          BUDGET_SEC: "9000"
+          ORE_VITA: "6"
+          TETTO_POOL: "300"
+          GIORNI_FETTA: "6"
+        run: python agents/storico_evm.py
+      # IL SALVATAGGIO DEVE URLARE SE FALLISCE (14/09). La prima versione provava otto volte e poi
+      # finiva in silenzio con esito "riuscito": sei lavori hanno raccolto dati e riportato successo
+      # senza aver spinto niente. Un passo che fallisce e dice di essere riuscito e' peggio di un
+      # passo che fallisce.
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          if ! git commit -m "storico ${{ matrix.chain }} fetta${{ matrix.fetta }} $(date -u +%H:%MZ)"; then
+            echo "NIENTE DA SALVARE: il collettore non ha prodotto dati nuovi."
+            exit 1
+          fi
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1
+            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 15 + 5))
+          done
+          echo "NON SONO RIUSCITO A SPINGERE dopo 10 tentativi: i dati raccolti restano sul runner e vanno persi."
+          exit 1

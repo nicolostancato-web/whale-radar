@@ -1,0 +1,39 @@
+name: supervisor
+# GUARDIANO AUTO-RIPARANTE: ogni ora scopre TUTTI i reparti (anche i nuovi), controlla che girino, RI-LANCIA da
+# solo quelli fermi/cancellati, manda mail se uno FALLISCE (bug). La macchina non si ferma. €0.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "25 * * * *"   # OGNI ORA
+  workflow_run:
+    workflows: [whale_backfill, whale_candles, director, collector, wallet_scores, whale_enrich, wallet_forensics]
+    types: [completed]
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: supervisor
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Guardiano
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          WR_PAT: ${{ secrets.WR_PAT }}
+        run: |
+          python agents/supervisor.py && echo "EXIT=0" > /tmp/s_exit || echo "EXIT=1" > /tmp/s_exit
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add SUPERVISOR.md 2>/dev/null || true
+          git commit -m "supervisor $(date -u +%Y-%m-%dT%H:%MZ)" || echo niente
+          for i in 1 2 3; do
+            git pull --no-rebase --no-edit -X ours origin main || true
+            git push origin main && break; sleep 4
+          done
+      - name: Alert (mail) se un reparto fallisce
+        run: test "$(cat /tmp/s_exit)" = "EXIT=0"

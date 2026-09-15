@@ -1,0 +1,68 @@
+name: repo_gc
+# REPO_GC: PRUNE (elimina i token-stub inutili) + SQUASH storia. Il repo si gonfia coi dati grezzi (25k+ file).
+# Questo lo sgonfia davvero. Settimanale + on-demand. Force-push da GitHub Actions. €0.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "0 4 * * 0"
+permissions:
+  contents: write
+concurrency:
+  group: repo_gc
+  cancel-in-progress: false
+jobs:
+  gc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 1, token: "${{ secrets.WR_PAT }}" }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Prune stub + squash
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          echo "PRIMA: $(find data -type f | wc -l) file, .git=$(du -sh .git|cut -f1)"
+          python agents/data_prune.py || echo "prune ko"
+          echo "DOPO prune: $(find data -type f | wc -l) file"
+          git checkout --orphan fresh_$(date +%s)
+          git add -A
+          git commit -q -m "GC prune+squash $(date -u +%Y-%m-%dT%H:%MZ)"
+          git branch -M main
+          git push -f origin main
+          echo "GC fatto."
+      # CHI STAVA GIA' LAVORANDO ORA E' ORFANO (05/09).
+      # Lo squash riscrive la storia con un force-push: i turni lunghi partiti PRIMA (motore, ricerca)
+      # hanno in mano una storia che non esiste piu' e non riescono piu' a pubblicare. Da fuori
+      # sembrano vivi — girano, calcolano, scrivono file — ma ogni loro commit finisce nel vuoto.
+      # E' successo stanotte: il motore ha lavorato 80 minuti senza che ne restasse traccia.
+      # Un processo che lavora e non lascia traccia e' peggio di uno fermo: quello almeno si vede.
+      # Qui si chiudono, cosi' ripartono puliti sulla storia nuova entro pochi minuti.
+      - name: Chiudi i turni resi orfani dallo squash
+        env: { GH_TOKEN: "${{ secrets.WR_PAT }}" }
+        run: |
+          for wf in engine.yml ricerca.yml loop0.yml; do
+            ids=$(curl -s -H "Authorization: token $GH_TOKEN" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/$wf/runs?status=in_progress&per_page=5" \
+              | python3 -c "import sys,json;print(' '.join(str(r['id']) for r in json.load(sys.stdin).get('workflow_runs',[])))" || true)
+            for id in $ids; do
+              echo "chiudo $wf run $id (storia riscritta sotto i piedi)"
+              curl -s -X POST -H "Authorization: token $GH_TOKEN" \
+                "https://api.github.com/repos/${{ github.repository }}/actions/runs/$id/cancel" >/dev/null || true
+              orfani=1
+            done
+            # E RIPARTONO SUBITO. Chiudere senza rilanciare lascia il sistema fermo fino al cron di
+            # riserva, che e' ogni 6 ore: il turno si ri-dispatcha da solo solo se ARRIVA IN FONDO, e
+            # uno annullato non ci arriva mai. E' successo: annullati i due turni orfani, sono rimasti
+            # giu' 45 minuti perche' nessuno li ha richiamati.
+            # Chi spegne qualcosa ha il dovere di riaccenderla: meta' riparazione e' un guasto nuovo.
+            if [ -n "$orfani" ]; then
+              sleep 5
+              curl -s -X POST -H "Authorization: token $GH_TOKEN" \
+                -H "Accept: application/vnd.github+json" \
+                "https://api.github.com/repos/${{ github.repository }}/actions/workflows/$wf/dispatches" \
+                -d '{"ref":"main"}' >/dev/null || true
+              echo "  -> $wf rilanciato"
+              orfani=""
+            fi
+          done

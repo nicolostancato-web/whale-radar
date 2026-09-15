@@ -1,0 +1,31 @@
+name: workflow_watchdog
+# Guardiano dei REPARTI: ogni 2h controlla tutti i workflow, rileva falliti/fermi, li RI-LANCIA da solo,
+# scrive WATCHDOG.md. Cosi' i problemi sono gia' gestiti prima che Nicolo chieda 'news?'. €0.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "17 */2 * * *"   # ogni 2 ore
+permissions:
+  contents: write
+  actions: write
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Controlla e auto-fixa i reparti
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python agents/workflow_watchdog.py || echo "ko"
+      - name: Salva report
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add WATCHDOG.md 2>/dev/null || true
+          git commit -m "watchdog $(date -u +%Y-%m-%dT%H:%MZ)" || { echo niente; exit 0; }
+          for i in 1 2 3 4 5; do
+            git pull --no-rebase --no-edit -X ours origin main || true
+            git push origin main && exit 0; sleep $((RANDOM % 6 + 2))
+          done
