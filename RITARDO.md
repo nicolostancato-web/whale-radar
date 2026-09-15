@@ -1,5 +1,5 @@
 # ⏳ IL MOVIMENTO SUCCEDE PRIMA CHE POSSIAMO ENTRARE?
-*2026-09-15 21:19 UTC · nato dalla revisione esterna dell'11/09 · sola lettura · €0*
+*2026-09-15 22:14 UTC · nato dalla revisione esterna dell'11/09 · sola lettura · €0*
 
 > Trattavamo il ritardo di osservazione (3-7 ore) come **un costo**: qualcosa che ci toglie
 > un po' di rendimento. Ma con orizzonti da 5 minuti, 30 minuti e 2 ore il bot arriva quando
@@ -11,7 +11,7 @@ a 7 ore è sepolto.
 | chain | token | **prima** dell'entrata | dopo +2h | dopo +6h | dopo +24h |
 |---|---|---|---|---|---|
 | **base** | 574 | **+0.1%** | +0.0% | -0.1% | -0.0% |
-| **robinhood** | 538 | **-3.9%** | -0.4% | -1.4% | -7.2% |
+| **robinhood** | 541 | **-4.0%** | -0.4% | -1.4% | -7.2% |
 | **solana** | 631 | **-2.3%** | -0.0% | -1.1% | -3.0% |
 
 *Mediane: una lotteria non deve decidere un verdetto.*
