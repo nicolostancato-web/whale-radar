@@ -1,12 +1,12 @@
 # 🏃 STAFFETTA — leggi QUESTO per primo
-*2026-09-15 21:15 UTC · aggiornato da solo a ogni giro*
+*2026-09-15 21:21 UTC · aggiornato da solo a ogni giro*
 
 > La continuità viene dai **registri condivisi**, non dal ricordarsi la conversazione. Chi si
 > sveglia adesso non ha memoria: qui trova dove siamo e **qual è il prossimo lavoro**.
 
 ## Le corsie
 
-- 🟢 vive: ricerca (4′), loop 0 (7′), sperimenti (6′)
+- 🟢 vive: ricerca (1′), loop 0 (14′), sperimenti (7′)
 - 🔴 **mute: motore (nessun commit)** ← prima di ogni altra cosa, capire perché
 
 ## Gli esperimenti vivi
@@ -17,13 +17,13 @@
 
 ## Il consulente esterno
 
-- 🔴 **Tace da 109 ore** (dovrebbe parlare due volte al giorno).
+- 🔴 **Tace da 110 ore** (dovrebbe parlare due volte al giorno).
   Se tace, la catena è rotta a monte: tutto il resto continua a girare benissimo
   verso la direzione sbagliata.
 
 ## Stiamo accumulando?
 
-*Variazione rispetto a **6 minuti fa**.*
+*Variazione rispetto a **7 minuti fa**.*
 
 | cosa | quanti | cambiato di |
 |---|---|---|
@@ -58,4 +58,4 @@ In coda e non ancora aperti: **0** (nessuno).
 > ieri e sembrano di oggi. Qui sotto c'è la data del calcolo, e se non è di pochi minuti fa
 > il foglio non vale.
 
-*Calcolato alle **21:15 UTC** del 15/09/2026.*
+*Calcolato alle **21:21 UTC** del 15/09/2026.*
