@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (robinhood)
-*2026-09-15 12:25 UTC · 4 segnali nuovi messi alla prova su 340 token*
+*2026-09-15 12:41 UTC · 12 segnali nuovi messi alla prova su 340 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-96%**.
 
@@ -23,19 +23,27 @@
 | `volume_ultima_su_media (filtro)` | se il volume sta accelerando proprio adesso | -68% (+28) |
 | `ampiezza x volume_ultima_su_media (filtro)` | quanto oscilla il prezzo prima di entrare MOLTIPLICATO per se il volume sta accelerando proprio adesso | -73% (+23) |
 | `ampiezza (filtro)` | quanto oscilla il prezzo prima di entrare | -79% (+17) |
+| `concentrazione_top5 x sbilanciamento (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -96% (+0) |
+| `concentrazione_top5 / sbilanciamento (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a quanto il denaro che entra supera quello che esce | -96% (+0) |
+| `quota_wallet_vincenti x compra_e_rivende (voto)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -96% (+0) |
+| `quota_wallet_vincenti / compra_e_rivende (voto)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -96% (+0) |
+| `concentrazione_top5 x sbilanciamento (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -97% (-1) |
+| `concentrazione_top5 / sbilanciamento (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a quanto il denaro che entra supera quello che esce | -97% (-1) |
+| `quota_wallet_vincenti x compra_e_rivende (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -97% (-1) |
+| `quota_wallet_vincenti / compra_e_rivende (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -97% (-1) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
-- `concentrazione_top5 (voto)` — già bocciato 34 volte 3h fa (si riprova fra 9h o quando i dati crescono)
-- `concentrazione_top5 (filtro)` — già bocciato 34 volte 3h fa (si riprova fra 9h o quando i dati crescono)
-- `concentrazione_top1 (voto)` — già bocciato 34 volte 3h fa (si riprova fra 9h o quando i dati crescono)
-- `concentrazione_top1 (filtro)` — già bocciato 34 volte 3h fa (si riprova fra 9h o quando i dati crescono)
-- `n_compratori (voto)` — già bocciato 34 volte 3h fa (si riprova fra 9h o quando i dati crescono)
-- `n_compratori (filtro)` — già bocciato 34 volte 3h fa (si riprova fra 9h o quando i dati crescono)
-- `buy_medio (voto)` — già bocciato 34 volte 3h fa (si riprova fra 9h o quando i dati crescono)
-- `buy_medio (filtro)` — già bocciato 34 volte 3h fa (si riprova fra 9h o quando i dati crescono)
-- `buy_grossi (voto)` — già bocciato 34 volte 1h fa (si riprova fra 11h o quando i dati crescono)
-- `buy_grossi (filtro)` — già bocciato 34 volte 1h fa (si riprova fra 11h o quando i dati crescono)
+- `concentrazione_top5 (voto)` — già bocciato 34 volte 4h fa (si riprova fra 8h o quando i dati crescono)
+- `concentrazione_top5 (filtro)` — già bocciato 34 volte 4h fa (si riprova fra 8h o quando i dati crescono)
+- `concentrazione_top1 (voto)` — già bocciato 34 volte 4h fa (si riprova fra 8h o quando i dati crescono)
+- `concentrazione_top1 (filtro)` — già bocciato 34 volte 4h fa (si riprova fra 8h o quando i dati crescono)
+- `n_compratori (voto)` — già bocciato 34 volte 4h fa (si riprova fra 8h o quando i dati crescono)
+- `n_compratori (filtro)` — già bocciato 34 volte 4h fa (si riprova fra 8h o quando i dati crescono)
+- `buy_medio (voto)` — già bocciato 34 volte 4h fa (si riprova fra 8h o quando i dati crescono)
+- `buy_medio (filtro)` — già bocciato 34 volte 4h fa (si riprova fra 8h o quando i dati crescono)
+- `buy_grossi (voto)` — già bocciato 34 volte 2h fa (si riprova fra 10h o quando i dati crescono)
+- `buy_grossi (filtro)` — già bocciato 34 volte 2h fa (si riprova fra 10h o quando i dati crescono)
 
 > **Perché questo ruolo esiste:** l'insider su Solana l'ha inventato un umano. Qui il sistema
 > costruisce da sé segnali nuovi dai dati grezzi e li mette alla prova. Uno dei mattoni è proprio
