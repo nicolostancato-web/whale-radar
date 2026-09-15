@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (base)
-*2026-09-15 11:59 UTC · 4 segnali nuovi messi alla prova su 616 token*
+*2026-09-15 12:14 UTC · 4 segnali nuovi messi alla prova su 616 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-99%**.
 
@@ -12,10 +12,10 @@ Non è un fallimento: è la risposta onesta di oggi. Con più dati gli stessi se
 
 | il segnale | cosa guarda | risultato |
 |---|---|---|
-| `sbilanciamento x ampiezza (voto)` | quanto il denaro che entra supera quello che esce MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -99% (+0) |
-| `sbilanciamento x ampiezza (filtro)` | quanto il denaro che entra supera quello che esce MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -99% (+0) |
-| `sbilanciamento / ampiezza (voto)` | quanto il denaro che entra supera quello che esce RAPPORTATO a quanto oscilla il prezzo prima di entrare | -99% (+0) |
-| `sbilanciamento / ampiezza (filtro)` | quanto il denaro che entra supera quello che esce RAPPORTATO a quanto oscilla il prezzo prima di entrare | -99% (+0) |
+| `quota_wallet_nuovi x drawdown_pre (voto)` | la quota di denaro da wallet mai visti prima MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | -99% (+0) |
+| `quota_wallet_nuovi x drawdown_pre (filtro)` | la quota di denaro da wallet mai visti prima MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | -99% (+0) |
+| `quota_wallet_nuovi / drawdown_pre (voto)` | la quota di denaro da wallet mai visti prima RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -99% (+0) |
+| `quota_wallet_nuovi / drawdown_pre (filtro)` | la quota di denaro da wallet mai visti prima RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -99% (+0) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
