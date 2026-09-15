@@ -1,5 +1,5 @@
 # 🕵️ INSIDER — chi compra PRIMA del pump (solana)
-*2026-09-15 17:04 UTC · walk-forward ONESTO (score dal solo passato risolto)*
+*2026-09-15 19:40 UTC · walk-forward ONESTO (score dal solo passato risolto)*
 
 ## Verdetto: ⏳ **ANCORA NIENTE**: il lift non e' sopra il rumore — si accumula e si stringe la definizione
 
