@@ -117,16 +117,25 @@ def main():
         except Exception:
             continue
         # le fasce gia' scavate: si sorteggia dentro quelle, non a caso nella catena
-        blocchi = set()
+        # DOVE SI CAMPIONA CAMBIA TUTTO (16/09). Prima si pescava un blocco a caso fra tutti quelli
+        # che tocchiamo, di qualunque pool. Ma noi teniamo solo le prime ore di vita di ogni pool:
+        # un blocco preso a caso cade quasi sempre fuori dalla finestra di conservazione di tutti,
+        # e il confronto resta vuoto. Misurato: sette finestre su dieci non misuravano nulla.
+        # Quindi si pesca DENTRO le prime ore di vita di un pool che conosciamo. E' quello che
+        # «stratificate» voleva dire fin dall'inizio nella condizione 5: non finestre a caso sulla
+        # catena, ma finestre dove abbiamo davvero dichiarato di avere qualcosa.
+        grezzi = []
         for cartella in ("storico", "vivo"):
             for f in glob.glob(f"data/multichain/{chain}/{cartella}/*.gz")[:400]:
+                pool_f = os.path.basename(f).replace(".jsonl.gz", "").lower()
                 try:
                     for l in gzip.open(f, "rt"):
                         if l.strip():
-                            bn = json.loads(l).get("blocco")
-                            if bn: blocchi.add(bn)
+                            d0 = json.loads(l)
+                            if d0.get("blocco") and d0.get("ts"):
+                                grezzi.append((pool_f, d0["blocco"], d0["ts"]))
                 except Exception: pass
-        if len(blocchi) < 50: continue
+        if len(grezzi) < 50: continue
         # la nascita di ogni pool: serve a sapere quali scambi avevamo DECISO di tenere
         nascita = {}
         for d in ("candles", "pulse"):
@@ -139,6 +148,14 @@ def main():
                             d0 = json.loads(l); v0 = d0.get("t0") or d0.get("ts")
                             if v0: nascita[a_] = int(v0); break
                 except Exception: pass
+        # ora che le nascite si conoscono, si tengono solo i blocchi dentro le prime ore di vita
+        VITA = int(os.environ.get("ORE_VITA", 6)) * 3600
+        blocchi = {bn for pl, bn, ts in grezzi
+                   if nascita.get(pl) and nascita[pl] <= ts <= nascita[pl] + VITA}
+        if len(blocchi) < 20:
+            print(f"INTEGRITA | {chain}: solo {len(blocchi)} blocchi dentro le prime ore di vita "
+                  f"di un pool noto — campione troppo sottile, salto", flush=True)
+            continue
         # istante di un blocco: ancora una volta, interpolato
         punta, _ = rpc(url, "eth_blockNumber", [])
         if not punta: continue
@@ -180,6 +197,8 @@ def main():
             # decisioni e le chiama guasti — ed e' il modo piu' rapido per farsi ignorare quando
             # il guasto arriva davvero.
             FINESTRA_VITA = int(os.environ.get("ORE_VITA", 6)) * 3600
+            senza_nascita = set()
+            prima_di_noi = 0
             catena = {}
             for l in log:
                 tp = l.get("topics") or []
@@ -188,7 +207,22 @@ def main():
                 bn = int(l["blockNumber"], 16)
                 ts_ev = ts_finestra if ts_finestra else istante(chain, bn)
                 n0 = nascita.get(pool)
-                if n0 and ts_ev and ts_ev > n0 + FINESTRA_VITA:
+                # SE NON SAPPIAMO QUANDO E' NATO, LA FINESTRA NON E' MISURABILE PER QUEL POOL
+                # (16/09). La nascita si legge dalle candele: un pool che non ne ha — tipicamente
+                # uno che la coda viva ha appena scoperto — passava il filtro senza che nessuno lo
+                # filtrasse, e la sua INTERA storia di catena finiva contata come «mancante».
+                # Misurato su una finestra: nove pool con eta' apparente di MENO 334 ore, cioe' il
+                # primo record che possediamo arriva quattordici giorni DOPO la finestra sotto esame.
+                # Non avevamo deciso di non prenderli: non sapevamo che esistessero.
+                # «Non lo so» non si registra come «hai sbagliato». Si esclude e SI CONTA, perche'
+                # un'esclusione taciuta e' il modo piu' semplice per dichiararsi completi a vuoto.
+                if not n0:
+                    senza_nascita.add(pool)
+                    continue
+                if ts_ev and ts_ev < n0:
+                    prima_di_noi += 1
+                    continue                       # accaduto prima che scoprissimo il pool
+                if ts_ev and ts_ev > n0 + FINESTRA_VITA:
                     continue                       # fuori dalle prime ore: scartato per scelta, non perso
                 catena[(l.get("transactionHash"), int(l.get("logIndex", "0x0"), 16))] = pool
             # LA CATENA GREZZA, senza nessuno dei nostri filtri: serve per la domanda
@@ -229,8 +263,19 @@ def main():
             # va tutto bene e quindi non lo si guarda piu' quando urla davvero.
             mancanti = [k for k in catena if k not in casa]
             inventati = [k for k in casa if k not in grezza]
-            esito = ("identici" if not mancanti and not inventati
-                     else ("MANCANO DA NOI" if mancanti else "ABBIAMO DI PIU'"))
+            # UNA FINESTRA DOVE NON SI E' CONFRONTATO NULLA NON E' IDENTICA (16/09). Dopo aver
+            # escluso — giustamente — gli eventi precedenti alla scoperta del pool, i pool al tetto
+            # e quelli fuori dalle prime ore, resta a volte ZERO eventi da confrontare. Registrarli
+            # come «identici» e' il modo piu' veloce per arrivare a 299 finestre verdi senza aver
+            # verificato niente: misurato, una finestra escludeva 1057 eventi e ne confrontava 1.
+            # Un controllo che esclude quasi tutto dira' sempre che va tutto bene.
+            # E' la stessa regola che vale per gli altri strumenti di casa: prima di emettere un
+            # verdetto, uno strumento deve dimostrare di poter dire anche di no.
+            if not catena:
+                esito = "non misurabile"
+            else:
+                esito = ("identici" if not mancanti and not inventati
+                         else ("MANCANO DA NOI" if mancanti else "ABBIAMO DI PIU'"))
             # SI TIMBRA A CHE PUNTO ERA LA CONVERSIONE (15/09). Le fette stanno riscrivendo lo
             # storico nel formato completo: pota() svuota i file dai record senza hash di blocco e
             # le fette li riscaricano. Finche' dura, un pool puo' essere legittimamente mezzo vuoto.
@@ -242,7 +287,8 @@ def main():
             nuove.append({"acq": int(time.time()), "chain": chain, "da": da, "a": a, "seme": SEME,
                           "catena": len(catena), "casa": len(casa), "al_tetto": len(al_tetto),
                           "mancanti": len(mancanti), "inventati": len(inventati), "esito": esito,
-                          "conversione": conversione(chain)})
+                          "conversione": conversione(chain),
+                          "pool_senza_nascita": len(senza_nascita), "prima_di_noi": prima_di_noi})
 
     if nuove:
         try:
@@ -251,7 +297,7 @@ def main():
         except Exception: pass
     righe += nuove
 
-    valide = [r for r in righe if r.get("esito") != "lettura fallita"]
+    valide = [r for r in righe if r.get("esito") not in ("lettura fallita", "non misurabile")]
     ok = [r for r in valide if r.get("esito") == "identici"]
     L = ["# 🔍 INTEGRITÀ — quello che abbiamo corrisponde a quello che la catena dice?",
          f"*{time.strftime('%Y-%m-%d %H:%M UTC', time.gmtime())} · seme {SEME} · condizione 5 · €0*", "",
