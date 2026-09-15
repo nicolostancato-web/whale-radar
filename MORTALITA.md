@@ -1,5 +1,5 @@
 # ⚰️ MORTALITÀ — quanti token spariscono prima di entrare nei nostri conti
-*2026-09-15 10:27 UTC*
+*2026-09-15 11:09 UTC*
 
 > **Perché conta:** impariamo sui token sopravvissuti abbastanza da avere una serie di prezzi. Chi
 > muore subito non entra nel campione — quindi nello storico ci sono **meno −100% di quanti ne
@@ -7,9 +7,9 @@
 
 | chain | pool scoperti (>12h) | mai tentati (limite nostro) | **tentati** | senza dati = morti | tasso di morte |
 |---|---|---|---|---|---|
-| base | 15253 | 12717 | 2536 | **457** | **18%** |
-| solana | 15305 | 13158 | 2147 | **393** | **18%** |
-| bsc | 17535 | 16454 | 1081 | **353** | **33%** |
+| base | 14707 | 12717 | 1990 | **457** | **23%** |
+| solana | 14713 | 13158 | 1555 | **393** | **25%** |
+| bsc | 17441 | 16360 | 1081 | **353** | **33%** |
 
 ## Come si legge
 
@@ -17,7 +17,7 @@
 poche decine di pool per giro su migliaia scoperti). Quelli non dicono niente sul mercato.
 
 **Il tasso di morte vero** è calcolato solo sui pool che abbiamo davvero interrogato: in media
-il **23%** di quelli non ha mai prodotto una serie di prezzi utilizzabile — nati morti,
+il **27%** di quelli non ha mai prodotto una serie di prezzi utilizzabile — nati morti,
 o morti entro poche ore.
 
 **Regola prudente:** finché non misuriamo quanti muoiono DOPO l'entrata, trattiamo ogni
