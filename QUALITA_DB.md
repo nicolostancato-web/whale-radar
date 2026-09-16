@@ -1,5 +1,5 @@
 # 🧱 QUALITÀ DEL TERRENO — il database serve a qualcosa?
-*2026-09-16 01:37 UTC · controllo continuo · €0*
+*2026-09-16 01:49 UTC · controllo continuo · €0*
 
 > Gli altri controlli chiedono **«il sistema gira?»**. Questo chiede **«quello che sta
 > entrando serve a qualcosa?»**. Un collettore che funziona benissimo e produce dati che non
@@ -18,8 +18,8 @@
 | solana: scambi orfani | 🔴 **FALLISCE** | 73.1 | 3093 file su 4231 non si uniscono a nessuna serie di prezzo |
 | base: scambi orfani | 🟡 **ATTENZIONE** | 39.3 | 663 file su 1685 non si uniscono a nessuna serie di prezzo |
 | robinhood: serie con scambi | 🟡 **ATTENZIONE** | 37.6 | 949 su 2525 |
-| solana: freschezza | 🟡 **ATTENZIONE** | 10.3 | il dato piu' recente nel campione ha 10.3 ore (letto DENTRO i file, non dalla data del file) |
-| solana: timbro di acquisizione | 🟡 **ATTENZIONE** | 4.2 | 1 file su 24 fra i piu' recenti hanno il campo acq |
+| solana: freschezza | 🟡 **ATTENZIONE** | 10.5 | il dato piu' recente nel campione ha 10.5 ore (letto DENTRO i file, non dalla data del file) |
+| solana: timbro di acquisizione | 🟡 **ATTENZIONE** | 4.8 | 1 file su 21 fra i piu' recenti hanno il campo acq |
 | base: entita' duplicate | 🟢 **PASSA** | 0 | 1907 righe, 1907 pool distinti |
 | base: freschezza | 🟢 **PASSA** | 0.1 | il dato piu' recente nel campione ha 0.1 ore (letto DENTRO i file, non dalla data del file) |
 | base: storico dalla catena | 🟢 **PASSA** | 4597 | 4597 pool con storia dalla catena |
