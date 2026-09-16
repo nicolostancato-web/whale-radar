@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (solana)
-*2026-09-16 02:38 UTC · 20 segnali nuovi messi alla prova su 428 token*
+*2026-09-16 02:54 UTC · 20 segnali nuovi messi alla prova su 428 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-99%**.
 
@@ -12,26 +12,26 @@ Non è un fallimento: è la risposta onesta di oggi. Con più dati gli stessi se
 
 | il segnale | cosa guarda | risultato |
 |---|---|---|
-| `n_compratori x drawdown_pre (voto)` | quante persone diverse hanno comprato MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | -99% (+0) |
-| `n_compratori x drawdown_pre (filtro)` | quante persone diverse hanno comprato MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | -99% (+0) |
-| `n_compratori / drawdown_pre (voto)` | quante persone diverse hanno comprato RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -99% (+0) |
-| `n_compratori / drawdown_pre (filtro)` | quante persone diverse hanno comprato RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -99% (+0) |
-| `trade_al_minuto x usd_primi20 (voto)` | quanto è frenetico lo scambio MOLTIPLICATO per quanto pesano i primissimi 20 acquisti sul totale | -99% (+0) |
-| `trade_al_minuto x usd_primi20 (filtro)` | quanto è frenetico lo scambio MOLTIPLICATO per quanto pesano i primissimi 20 acquisti sul totale | -99% (+0) |
-| `trade_al_minuto / usd_primi20 (voto)` | quanto è frenetico lo scambio RAPPORTATO a quanto pesano i primissimi 20 acquisti sul totale | -99% (+0) |
-| `trade_al_minuto / usd_primi20 (filtro)` | quanto è frenetico lo scambio RAPPORTATO a quanto pesano i primissimi 20 acquisti sul totale | -99% (+0) |
-| `concentrazione_top1 x compra_e_rivende (voto)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
-| `concentrazione_top1 x compra_e_rivende (filtro)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
-| `concentrazione_top1 / compra_e_rivende (voto)` | quanto pesa il singolo compratore più grosso RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
-| `concentrazione_top1 / compra_e_rivende (filtro)` | quanto pesa il singolo compratore più grosso RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
-| `quota_wallet_nuovi x sbilanciamento (voto)` | la quota di denaro da wallet mai visti prima MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -99% (+0) |
-| `quota_wallet_nuovi x sbilanciamento (filtro)` | la quota di denaro da wallet mai visti prima MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -99% (+0) |
-| `quota_wallet_nuovi / sbilanciamento (voto)` | la quota di denaro da wallet mai visti prima RAPPORTATO a quanto il denaro che entra supera quello che esce | -99% (+0) |
-| `quota_wallet_nuovi / sbilanciamento (filtro)` | la quota di denaro da wallet mai visti prima RAPPORTATO a quanto il denaro che entra supera quello che esce | -99% (+0) |
-| `quota_wallet_vincenti x wallet_ripetuti (voto)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per quanti wallet comprano più di una volta | -99% (+0) |
-| `quota_wallet_vincenti x wallet_ripetuti (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per quanti wallet comprano più di una volta | -99% (+0) |
-| `quota_wallet_vincenti / wallet_ripetuti (voto)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a quanti wallet comprano più di una volta | -99% (+0) |
-| `quota_wallet_vincenti / wallet_ripetuti (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a quanti wallet comprano più di una volta | -99% (+0) |
+| `quota_wallet_reduci (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -99% (+0) |
+| `quota_wallet_reduci (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) | -99% (+0) |
+| `quota_wallet_vincenti (voto)` | la quota di denaro da wallet con almeno un successo alle spalle | -99% (+0) |
+| `quota_wallet_vincenti (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle | -99% (+0) |
+| `quota_wallet_nuovi (voto)` | la quota di denaro da wallet mai visti prima | -99% (+0) |
+| `quota_wallet_nuovi (filtro)` | la quota di denaro da wallet mai visti prima | -99% (+0) |
+| `eta_al_primo_trade (voto)` | quanto tempo passa dalla nascita al primo scambio | -99% (+0) |
+| `eta_al_primo_trade (filtro)` | quanto tempo passa dalla nascita al primo scambio | -99% (+0) |
+| `usd_primi20 (voto)` | quanto pesano i primissimi 20 acquisti sul totale | -99% (+0) |
+| `usd_primi20 (filtro)` | quanto pesano i primissimi 20 acquisti sul totale | -99% (+0) |
+| `wallet_ripetuti (voto)` | quanti wallet comprano più di una volta | -99% (+0) |
+| `wallet_ripetuti (filtro)` | quanti wallet comprano più di una volta | -99% (+0) |
+| `compra_e_rivende (voto)` | quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
+| `compra_e_rivende (filtro)` | quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
+| `sbilanciamento (voto)` | quanto il denaro che entra supera quello che esce | -99% (+0) |
+| `sbilanciamento (filtro)` | quanto il denaro che entra supera quello che esce | -99% (+0) |
+| `usd_primi20 x volume_ultima_su_media (voto)` | quanto pesano i primissimi 20 acquisti sul totale MOLTIPLICATO per se il volume sta accelerando proprio adesso | -99% (+0) |
+| `usd_primi20 x volume_ultima_su_media (filtro)` | quanto pesano i primissimi 20 acquisti sul totale MOLTIPLICATO per se il volume sta accelerando proprio adesso | -99% (+0) |
+| `usd_primi20 / volume_ultima_su_media (voto)` | quanto pesano i primissimi 20 acquisti sul totale RAPPORTATO a se il volume sta accelerando proprio adesso | -99% (+0) |
+| `usd_primi20 / volume_ultima_su_media (filtro)` | quanto pesano i primissimi 20 acquisti sul totale RAPPORTATO a se il volume sta accelerando proprio adesso | -99% (+0) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
