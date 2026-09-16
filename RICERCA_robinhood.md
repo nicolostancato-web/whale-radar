@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (robinhood)
-*2026-09-16 01:33 UTC · 10 segnali nuovi messi alla prova su 340 token*
+*2026-09-16 02:23 UTC · 10 segnali nuovi messi alla prova su 340 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-96%**.
 
@@ -8,8 +8,8 @@
 | il segnale | cosa guarda | porta a | guadagno |
 |---|---|---|---|
 | `drawdown_pre (filtro)` | quanto è già sceso dal massimo prima di entrare | **-55%** | **+42 punti** |
-| `buy_medio x drawdown_pre (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | **-60%** | **+37 punti** |
 | `volume_ultima_su_media (filtro)` | se il volume sta accelerando proprio adesso | **-69%** | **+27 punti** |
+| `ampiezza x volume_ultima_su_media (filtro)` | quanto oscilla il prezzo prima di entrare MOLTIPLICATO per se il volume sta accelerando proprio adesso | **-75%** | **+22 punti** |
 | `drawdown_pre x volume_ultima_su_media (filtro)` | quanto è già sceso dal massimo prima di entrare MOLTIPLICATO per se il volume sta accelerando proprio adesso | **-79%** | **+18 punti** |
 | `ampiezza (filtro)` | quanto oscilla il prezzo prima di entrare | **-80%** | **+16 punti** |
 | `drawdown_pre / volume_ultima_su_media (filtro)` | quanto è già sceso dal massimo prima di entrare RAPPORTATO a se il volume sta accelerando proprio adesso | **-85%** | **+11 punti** |
@@ -22,26 +22,26 @@
 | il segnale | cosa guarda | risultato |
 |---|---|---|
 | `drawdown_pre (filtro)` | quanto è già sceso dal massimo prima di entrare | -55% (+42) |
-| `buy_medio x drawdown_pre (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | -60% (+37) |
 | `volume_ultima_su_media (filtro)` | se il volume sta accelerando proprio adesso | -69% (+27) |
+| `ampiezza x volume_ultima_su_media (filtro)` | quanto oscilla il prezzo prima di entrare MOLTIPLICATO per se il volume sta accelerando proprio adesso | -75% (+22) |
 | `drawdown_pre x volume_ultima_su_media (filtro)` | quanto è già sceso dal massimo prima di entrare MOLTIPLICATO per se il volume sta accelerando proprio adesso | -79% (+18) |
 | `ampiezza (filtro)` | quanto oscilla il prezzo prima di entrare | -80% (+16) |
 | `drawdown_pre / volume_ultima_su_media (filtro)` | quanto è già sceso dal massimo prima di entrare RAPPORTATO a se il volume sta accelerando proprio adesso | -85% (+11) |
-| `quota_wallet_reduci x drawdown_pre (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | -96% (+0) |
-| `quota_wallet_reduci / drawdown_pre (voto)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -96% (+0) |
-| `quota_wallet_reduci x drawdown_pre (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | -98% (-1) |
-| `quota_wallet_reduci / drawdown_pre (filtro)` | la quota di denaro che arriva da wallet già visti in ALTRI token andati bene (insider) RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -98% (-1) |
+| `usd_primi20 / wallet_ripetuti (voto)` | quanto pesano i primissimi 20 acquisti sul totale RAPPORTATO a quanti wallet comprano più di una volta | -96% (+1) |
+| `usd_primi20 x wallet_ripetuti (voto)` | quanto pesano i primissimi 20 acquisti sul totale MOLTIPLICATO per quanti wallet comprano più di una volta | -96% (+0) |
+| `usd_primi20 x wallet_ripetuti (filtro)` | quanto pesano i primissimi 20 acquisti sul totale MOLTIPLICATO per quanti wallet comprano più di una volta | -98% (-1) |
+| `usd_primi20 / wallet_ripetuti (filtro)` | quanto pesano i primissimi 20 acquisti sul totale RAPPORTATO a quanti wallet comprano più di una volta | -98% (-1) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
-- `concentrazione_top5 (voto)` — già bocciato 35 volte 4h fa (si riprova fra 8h o quando i dati crescono)
-- `concentrazione_top5 (filtro)` — già bocciato 35 volte 4h fa (si riprova fra 8h o quando i dati crescono)
-- `concentrazione_top1 (voto)` — già bocciato 35 volte 4h fa (si riprova fra 8h o quando i dati crescono)
-- `concentrazione_top1 (filtro)` — già bocciato 35 volte 4h fa (si riprova fra 8h o quando i dati crescono)
-- `n_compratori (voto)` — già bocciato 35 volte 4h fa (si riprova fra 8h o quando i dati crescono)
-- `n_compratori (filtro)` — già bocciato 35 volte 4h fa (si riprova fra 8h o quando i dati crescono)
-- `buy_medio (voto)` — già bocciato 35 volte 4h fa (si riprova fra 8h o quando i dati crescono)
-- `buy_medio (filtro)` — già bocciato 35 volte 4h fa (si riprova fra 8h o quando i dati crescono)
+- `concentrazione_top5 (voto)` — già bocciato 35 volte 5h fa (si riprova fra 7h o quando i dati crescono)
+- `concentrazione_top5 (filtro)` — già bocciato 35 volte 5h fa (si riprova fra 7h o quando i dati crescono)
+- `concentrazione_top1 (voto)` — già bocciato 35 volte 5h fa (si riprova fra 7h o quando i dati crescono)
+- `concentrazione_top1 (filtro)` — già bocciato 35 volte 5h fa (si riprova fra 7h o quando i dati crescono)
+- `n_compratori (voto)` — già bocciato 35 volte 5h fa (si riprova fra 7h o quando i dati crescono)
+- `n_compratori (filtro)` — già bocciato 35 volte 5h fa (si riprova fra 7h o quando i dati crescono)
+- `buy_medio (voto)` — già bocciato 35 volte 5h fa (si riprova fra 7h o quando i dati crescono)
+- `buy_medio (filtro)` — già bocciato 35 volte 5h fa (si riprova fra 7h o quando i dati crescono)
 - `buy_grossi (voto)` — già bocciato 35 volte 3h fa (si riprova fra 9h o quando i dati crescono)
 - `buy_grossi (filtro)` — già bocciato 35 volte 3h fa (si riprova fra 9h o quando i dati crescono)
 
