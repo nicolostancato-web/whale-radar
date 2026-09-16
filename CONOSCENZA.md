@@ -527,7 +527,7 @@
 | `segnale:base:buy_medio x usd_primi20:voto` | base | 11 | +10130 punti |
 | `segnale:base:trade_al_minuto / drawdown_pre:voto` | base | 14 | +10122 punti |
 | `segnale:base:concentrazione_top5 x n_compratori:voto` | base | 14 | +9935 punti |
-| `segnale:base:concentrazione_top1 x n_compratori:voto` | base | 13 | +9787 punti |
+| `segnale:base:concentrazione_top1 x n_compratori:voto` | base | 14 | +9787 punti |
 | `segnale:base:sbilanciamento / accelerazione_denaro:voto` | base | 14 | +9270 punti |
 | `segnale:base:buy_grossi x ampiezza:voto` | base | 10 | +8310 punti |
 | `segnale:base:buy_grossi / drawdown_pre:voto` | base | 13 | +8042 punti |
