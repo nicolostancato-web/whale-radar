@@ -1,21 +1,37 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (solana)
-*2026-09-16 02:23 UTC · 4 segnali nuovi messi alla prova su 428 token*
+*2026-09-16 02:38 UTC · 20 segnali nuovi messi alla prova su 428 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-99%**.
 
 ## Nessun segnale nuovo ha superato la prova in questo giro
 
-Nessuno dei 4 candidati alza la percentuale di almeno 3 punti.
+Nessuno dei 20 candidati alza la percentuale di almeno 3 punti.
 Non è un fallimento: è la risposta onesta di oggi. Con più dati gli stessi segnali possono passare.
 
 ## Tutti i segnali provati, dal migliore al peggiore
 
 | il segnale | cosa guarda | risultato |
 |---|---|---|
-| `usd_primi20 x wallet_ripetuti (voto)` | quanto pesano i primissimi 20 acquisti sul totale MOLTIPLICATO per quanti wallet comprano più di una volta | -99% (+0) |
-| `usd_primi20 x wallet_ripetuti (filtro)` | quanto pesano i primissimi 20 acquisti sul totale MOLTIPLICATO per quanti wallet comprano più di una volta | -99% (+0) |
-| `usd_primi20 / wallet_ripetuti (voto)` | quanto pesano i primissimi 20 acquisti sul totale RAPPORTATO a quanti wallet comprano più di una volta | -99% (+0) |
-| `usd_primi20 / wallet_ripetuti (filtro)` | quanto pesano i primissimi 20 acquisti sul totale RAPPORTATO a quanti wallet comprano più di una volta | -99% (+0) |
+| `n_compratori x drawdown_pre (voto)` | quante persone diverse hanno comprato MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | -99% (+0) |
+| `n_compratori x drawdown_pre (filtro)` | quante persone diverse hanno comprato MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | -99% (+0) |
+| `n_compratori / drawdown_pre (voto)` | quante persone diverse hanno comprato RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -99% (+0) |
+| `n_compratori / drawdown_pre (filtro)` | quante persone diverse hanno comprato RAPPORTATO a quanto è già sceso dal massimo prima di entrare | -99% (+0) |
+| `trade_al_minuto x usd_primi20 (voto)` | quanto è frenetico lo scambio MOLTIPLICATO per quanto pesano i primissimi 20 acquisti sul totale | -99% (+0) |
+| `trade_al_minuto x usd_primi20 (filtro)` | quanto è frenetico lo scambio MOLTIPLICATO per quanto pesano i primissimi 20 acquisti sul totale | -99% (+0) |
+| `trade_al_minuto / usd_primi20 (voto)` | quanto è frenetico lo scambio RAPPORTATO a quanto pesano i primissimi 20 acquisti sul totale | -99% (+0) |
+| `trade_al_minuto / usd_primi20 (filtro)` | quanto è frenetico lo scambio RAPPORTATO a quanto pesano i primissimi 20 acquisti sul totale | -99% (+0) |
+| `concentrazione_top1 x compra_e_rivende (voto)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
+| `concentrazione_top1 x compra_e_rivende (filtro)` | quanto pesa il singolo compratore più grosso MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
+| `concentrazione_top1 / compra_e_rivende (voto)` | quanto pesa il singolo compratore più grosso RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
+| `concentrazione_top1 / compra_e_rivende (filtro)` | quanto pesa il singolo compratore più grosso RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -99% (+0) |
+| `quota_wallet_nuovi x sbilanciamento (voto)` | la quota di denaro da wallet mai visti prima MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -99% (+0) |
+| `quota_wallet_nuovi x sbilanciamento (filtro)` | la quota di denaro da wallet mai visti prima MOLTIPLICATO per quanto il denaro che entra supera quello che esce | -99% (+0) |
+| `quota_wallet_nuovi / sbilanciamento (voto)` | la quota di denaro da wallet mai visti prima RAPPORTATO a quanto il denaro che entra supera quello che esce | -99% (+0) |
+| `quota_wallet_nuovi / sbilanciamento (filtro)` | la quota di denaro da wallet mai visti prima RAPPORTATO a quanto il denaro che entra supera quello che esce | -99% (+0) |
+| `quota_wallet_vincenti x wallet_ripetuti (voto)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per quanti wallet comprano più di una volta | -99% (+0) |
+| `quota_wallet_vincenti x wallet_ripetuti (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle MOLTIPLICATO per quanti wallet comprano più di una volta | -99% (+0) |
+| `quota_wallet_vincenti / wallet_ripetuti (voto)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a quanti wallet comprano più di una volta | -99% (+0) |
+| `quota_wallet_vincenti / wallet_ripetuti (filtro)` | la quota di denaro da wallet con almeno un successo alle spalle RAPPORTATO a quanti wallet comprano più di una volta | -99% (+0) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
