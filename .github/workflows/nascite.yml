@@ -1,0 +1,51 @@
+name: nascite
+# IL RECUPERO DELLE NASCITE PERDUTE.
+#
+# PERCHE' UNA CORSIA SUA (16/09). Le fette filtrano per righe.json NEL MOMENTO in cui passano, e non
+# tornano mai sui propri passi: un pool scoperto dopo che sono transitate dal suo blocco di nascita
+# resta senza storia per sempre. Su robinhood sono 354 pool su 768 — il 46% — ed e' la ragione
+# principale per cui l'audit di integrita' trova solo il 16% di finestre identiche.
+# Prima l'avevo messo dentro la corsia database, ma li' ha 420 secondi a giro e chiude una fascia
+# ogni sei giri: ottanta ore per farne 75, e intanto ruba tempo ai controlli. Qui ha due ore e mezza
+# per volta e il segnalibro delle fasce gia' chiuse, quindi finisce in un giorno senza dare fastidio.
+#
+# SOLO ROBINHOOD: base ha gia' il 97% delle nascite. Accendere una corsia per il 3% mancante sarebbe
+# esattamente il genere di lavoro che sembra diligenza e invece e' spreco.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "17 */3 * * *"
+permissions:
+  contents: write
+concurrency:
+  group: nascite
+  cancel-in-progress: false
+jobs:
+  recupera:
+    runs-on: ubuntu-latest
+    timeout-minutes: 200
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Recupero nascite
+        env:
+          CHAIN: robinhood
+          BUDGET_SEC: "9000"
+          PAUSA: "0.35"
+        run: python agents/recupero_nascite.py
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          if ! git commit -m "nascite $(date -u +%H:%MZ)"; then
+            echo "NIENTE DA SALVARE"; exit 0
+          fi
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1
+            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 15 + 5))
+          done
+          echo "NON SONO RIUSCITO A SPINGERE: le nascite recuperate restano sul runner e vanno perse."
+          exit 1
