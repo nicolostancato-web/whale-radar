@@ -1,5 +1,5 @@
 # 🧪 CORSIA SPERIMENTI — cosa e' successo nell'ultimo giro
-*2026-09-16 00:22 UTC · giro 48*
+*2026-09-16 00:26 UTC · giro 49*
 
 | esperimento | esito | ultima cosa detta |
 |---|---|---|
@@ -11,7 +11,7 @@
 | `ritardo.py` | ok | RITARDO | base:574 robinhood:544 solana:633 |
 | `esaurimento.py` | ok | ESAURIMENTO | dentro:125 controlli:4000 |
 | `coorte.py` | ok | COORTE | 31 nuove, 839 totali |
-| `staffetta.py` | ok | STAFFETTA | vive:4 mute:0 aperti:0 |
+| `staffetta.py` | ok | STAFFETTA | vive:3 mute:1 aperti:0 |
 
 > Un giro che dura pochi secondi non e' un giro veloce: e' un giro in cui
 > nessuno ha lavorato. Per questo qui sotto c'e' anche quanto e' durato.
