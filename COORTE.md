@@ -18,7 +18,6 @@
 | None | False | 21 | ❓ non so (contratto muto) |
 | False | False | 15 | ⚫ mortalità vera |
 | False | True | 1 | ⚠️ incoerente |
-| None | True | 1 | ❓ non so |
 
 > Fra i casi in cui **non abbiamo la candela** e la catena ha risposto: **812 su 827** erano ancora vivi — cioè **buchi nostri**, non morti.
 
