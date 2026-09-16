@@ -12,17 +12,17 @@
 
 | chi | cosa fa | ultimo lavoro | entro | |
 |---|---|---|---|---|
-| **Esploratore** | prova strategie: entrata, stop, take profit, segnali | 15 min fa | 240 min | ✅ in orario · 21624 strategie provate |
-| **Ricercatore** | inventa segnali nuovi dai dati grezzi | 10 min fa | 360 min | ✅ in orario · niente da fare in questo giro (dichiarato) |
-| **Cervello** | misura la percentuale della chain | 703 min fa | 240 min | ❌ NON MISURA PIÙ |
+| **Esploratore** | prova strategie: entrata, stop, take profit, segnali | 16 min fa | 240 min | ✅ in orario · 21624 strategie provate |
+| **Ricercatore** | inventa segnali nuovi dai dati grezzi | 11 min fa | 360 min | ✅ in orario · niente da fare in questo giro (dichiarato) |
+| **Cervello** | misura la percentuale della chain | 704 min fa | 240 min | ❌ NON MISURA PIÙ |
 | **Accumulo** | i dati devono crescere | 4848 token | — | ⏳ nessun token nuovo (normale entro l'ora) |
 
 ### SOLANA — 🟢 tutto in ordine
 
 | chi | cosa fa | ultimo lavoro | entro | |
 |---|---|---|---|---|
-| **Esploratore** | prova strategie: entrata, stop, take profit, segnali | 22 min fa | 240 min | ✅ in orario · 6428 strategie provate |
-| **Ricercatore** | inventa segnali nuovi dai dati grezzi | 17 min fa | 360 min | ✅ in orario · niente da fare in questo giro (dichiarato) |
+| **Esploratore** | prova strategie: entrata, stop, take profit, segnali | 6 min fa | 240 min | ✅ in orario · 6431 strategie provate |
+| **Ricercatore** | inventa segnali nuovi dai dati grezzi | 1 min fa | 360 min | ✅ in orario · niente da fare in questo giro (dichiarato) |
 | **Cervello** | misura la percentuale della chain | 89 min fa | 240 min | ✅ misurata |
 | **Accumulo** | i dati devono crescere | 1467 token | — | ⏳ nessun token nuovo (normale entro l'ora) |
 
@@ -31,8 +31,8 @@
 | chi | cosa fa | ultimo lavoro | entro | |
 |---|---|---|---|---|
 | **Esploratore** | prova strategie sul pipeline completo | mai | 240 min | ⏸️ congelato — non deve lavorare, aspetta il verdetto sull'holdout |
-| **Ricercatore** | inventa segnali nuovi dai dati grezzi | 17 min fa | 480 min | ✅ in orario · 50 segnali provati |
-| **Cervello** | misura la percentuale della chain | 143 min fa | 2160 min | ✅ misurata |
+| **Ricercatore** | inventa segnali nuovi dai dati grezzi | 1 min fa | 480 min | ✅ in orario · 10 segnali provati |
+| **Cervello** | misura la percentuale della chain | 144 min fa | 2160 min | ✅ misurata |
 | **Accumulo** | i dati devono crescere | 2627 token | — | ⏳ nessun token nuovo (normale entro l'ora) |
 
 ### BSC — 🔴 2 non rispondono
@@ -42,32 +42,32 @@
 | **Esploratore** | prova strategie: entrata, stop, take profit, segnali | 173.2 ore fa | 480 min | ❌ NON RISPONDE |
 | **Ricercatore** | inventa segnali nuovi dai dati grezzi | 173.2 ore fa | 480 min | ❌ NON RISPONDE |
 | **Cervello** | misura la percentuale della chain | 89 min fa | 480 min | ✅ misurata |
-| **Accumulo** | i dati devono crescere | 1074 token | — | ⚠️ FERMO da oltre un'ora |
+| **Accumulo** | i dati devono crescere | 1074 token | — | ⏳ nessun token nuovo (normale entro l'ora) |
 
 ## I servizi comuni (valgono per tutte le chain)
 
 | chi | cosa fa | ultimo lavoro | entro | |
 |---|---|---|---|---|
-| **Verità** | controlla che la percentuale non sia una favola | 39 min fa | 90 min | ✅ in orario |
-| **Security** | nessuna credenziale nel repo pubblico | 39 min fa | 90 min | ✅ in orario |
-| **CFO** | che tutto continui a costare zero | 39 min fa | 90 min | ✅ in orario |
-| **Memoria** | ricorda cosa è già stato provato e bocciato | 9 min fa | 90 min | ✅ in orario · 2414 idee in archivio |
-| **Proposte** | porta all'investitore ciò che aspetta una decisione | 39 min fa | 90 min | ✅ in orario |
-| **Operations** | i meeting sui goal, ripara ciò che si ferma | 39 min fa | 90 min | ✅ in orario · 10 meeting tenuti |
-| **Segretario** | scrive il verbale della riunione | 39 min fa | 90 min | ✅ in orario |
+| **Verità** | controlla che la percentuale non sia una favola | 40 min fa | 90 min | ✅ in orario |
+| **Security** | nessuna credenziale nel repo pubblico | 40 min fa | 90 min | ✅ in orario |
+| **CFO** | che tutto continui a costare zero | 40 min fa | 90 min | ✅ in orario |
+| **Memoria** | ricorda cosa è già stato provato e bocciato | 1 min fa | 90 min | ✅ in orario · 2414 idee in archivio |
+| **Proposte** | porta all'investitore ciò che aspetta una decisione | 40 min fa | 90 min | ✅ in orario |
+| **Operations** | i meeting sui goal, ripara ciò che si ferma | 40 min fa | 90 min | ✅ in orario · 10 meeting tenuti |
+| **Segretario** | scrive il verbale della riunione | 40 min fa | 90 min | ✅ in orario |
 | **Statistico** | com'è FATTA la percentuale (robustezza, out-of-time) | 19.8 ore fa | 180 min | ❌ NON RISPONDE |
-| **Necroforo** | quanti token muoiono e spariscono dai conti | 38 min fa | 180 min | ✅ in orario |
-| **Giudice** | prova le proposte sui dati mai visti (cassaforte) | 34 min fa | 180 min | ✅ in orario · niente da fare in questo giro (dichiarato) |
-| **Heartbeat** | controlla che il MOTORE sia vivo, da fuori | 15 min fa | 180 min | ✅ in orario |
-| **Forward Base** | la catena che porta al trade su Base | 39 min fa | 120 min | ✅ in orario |
-| **Tassametro** | misura quanto costa DAVVERO entrare e uscire | 9 min fa | 240 min | ✅ in orario · 500 size misurate |
-| **Censore** | ogni pool ha uno stato: morto o non raccolto? | 38 min fa | 240 min | ✅ in orario · 3 chain censite |
-| **Perito** | il token si può vendere? chi lo controlla? | 38 min fa | 240 min | ✅ in orario · 5422 token in archivio |
-| **Anagrafe** | chi ha creato il token e i suoi precedenti | 38 min fa | 240 min | ✅ in orario · 5495 token con creatore |
-| **Contabile** | misura e modello dei costi devono dire lo stesso | 89 min fa | 300 min | ✅ in orario |
-| **Reputazione** | chi ha creato il token ha gia' combinato disastri? | 150 min fa | 300 min | ✅ in orario |
-| **Talento** | esiste un wallet che sa qualcosa? (excess vs comparabili) | 89 min fa | 300 min | ✅ in orario |
-| **Corrente** | sta entrando capitale INDIPENDENTE, o e' una mano sola? | 75 min fa | 300 min | ✅ in orario |
+| **Necroforo** | quanti token muoiono e spariscono dai conti | 39 min fa | 180 min | ✅ in orario |
+| **Giudice** | prova le proposte sui dati mai visti (cassaforte) | 35 min fa | 180 min | ✅ in orario · niente da fare in questo giro (dichiarato) |
+| **Heartbeat** | controlla che il MOTORE sia vivo, da fuori | 1 min fa | 180 min | ✅ in orario |
+| **Forward Base** | la catena che porta al trade su Base | 40 min fa | 120 min | ✅ in orario |
+| **Tassametro** | misura quanto costa DAVVERO entrare e uscire | 10 min fa | 240 min | ✅ in orario · 500 size misurate |
+| **Censore** | ogni pool ha uno stato: morto o non raccolto? | 39 min fa | 240 min | ✅ in orario · 3 chain censite |
+| **Perito** | il token si può vendere? chi lo controlla? | 39 min fa | 240 min | ✅ in orario · 5422 token in archivio |
+| **Anagrafe** | chi ha creato il token e i suoi precedenti | 39 min fa | 240 min | ✅ in orario · 5495 token con creatore |
+| **Contabile** | misura e modello dei costi devono dire lo stesso | 90 min fa | 300 min | ✅ in orario |
+| **Reputazione** | chi ha creato il token ha gia' combinato disastri? | 184 min fa | 300 min | ✅ in orario |
+| **Talento** | esiste un wallet che sa qualcosa? (excess vs comparabili) | 90 min fa | 300 min | ✅ in orario |
+| **Corrente** | sta entrando capitale INDIPENDENTE, o e' una mano sola? | 85 min fa | 300 min | ✅ in orario |
 
 ## E quello che dicono è VERO?
 

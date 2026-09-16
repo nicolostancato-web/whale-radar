@@ -5,10 +5,10 @@
 
 | corsia | stato | ultimo commit | azione |
 |---|---|---|---|
-| **motore** | 🟢 viva — ultimo commit 34 min fa | `engine misure2 01:49Z` | — |
-| **ricerca** | 🟢 viva — ultimo commit 5 min fa | `ricerca base giro30 02:18Z` | — |
-| **loop 0** | 🟢 viva — ultimo commit 15 min fa | `loop0 giro9 02:08Z` | — |
-| **sperimenti** | 🟢 viva — ultimo commit 0 min fa | `sperimenti giro19 02:23Z` | — |
+| **motore** | 🟢 viva — ultimo commit 35 min fa | `engine misure2 01:49Z` | — |
+| **ricerca** | 🟢 viva — ultimo commit 0 min fa | `ricerca solana giro31 02:23Z` | — |
+| **loop 0** | 🟢 viva — ultimo commit 0 min fa | `loop0 giro10 02:23Z` | — |
+| **sperimenti** | 🟢 viva — ultimo commit 1 min fa | `sperimenti giro19 02:23Z` | — |
 
 > **Perché vive fuori:** un guardiano che sta dentro la cosa che deve sorvegliare si
 > blocca insieme a lei. Il 30/08 il motore ha girato 2h23 senza committare e se n'è accorto
