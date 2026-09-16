@@ -1,5 +1,5 @@
 # 📈 QUANTO COSTA USCIRE, SECONDO QUANTO E' LIQUIDO IL TOKEN
-*2026-09-15 22:19 UTC · 122 osservazioni (misure con il volume dell'ORA in cui sono state prese, non la mediana storica) · €0*
+*2026-09-16 00:54 UTC · 120 osservazioni (misure con il volume dell'ORA in cui sono state prese, non la mediana storica) · €0*
 
 > Un costo costante è comodo e sbagliato. Su un pool che gira 50.000 dollari l'ora, uscire
 > con 25 dollari non si sente. Sullo stesso token quando il volume è crollato a 200, quei
@@ -10,14 +10,14 @@
 | 0.02% – 0.67% | **2.8%** | 3.2% | 20 |
 | 0.68% – 6.13% | **5.0%** | 7.0% | 20 |
 | 6.20% – 81.52% | **4.5%** | 9.1% | 20 |
-| 87.61% – 1075.68% | **8.7%** | 18.2% | 20 |
-| 1139.45% – 13619.24% | **5.0%** | 10.5% | 20 |
-| 16239.35% – 345546.69% | **9.4%** | 28.5% | 20 |
+| 87.61% – 1230.40% | **8.1%** | 18.2% | 20 |
+| 1752.26% – 19915.56% | **4.8%** | 10.5% | 20 |
+| 22943.33% – 1727733.47% | **16.9%** | 28.5% | 20 |
 
 ## Cosa dicono i dati
 
 > ✅ **La relazione c'è.** Passando dai token più liquidi ai più sottili il costo di uscita
-> si moltiplica per **3.4**. Non è più un'assunzione: è misurato, e il backtest può
+> si moltiplica per **6.0**. Non è più un'assunzione: è misurato, e il backtest può
 > usare la curva invece di una costante.
 
 > Il punto pratico: **lo stop scatta quando il volume è crollato**, cioè nella fascia più
@@ -43,7 +43,7 @@ Tre limiti, e il terzo non è correggibile con i dati che abbiamo:
 > sostituiranno questa estrapolazione.
 
 > Nota sul campione: si usano solo le misure per cui esiste una candela nell'ora in cui sono
-> state prese. Sono meno (122 contro le oltre mille grezze), ma sono le uniche in cui
+> state prese. Sono meno (120 contro le oltre mille grezze), ma sono le uniche in cui
 > calibrazione e applicazione guardano la stessa grandezza. **Meno punti giusti battono più
 > punti sbagliati.**
 
