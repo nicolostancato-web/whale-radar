@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (robinhood)
-*2026-09-16 00:09 UTC · 20 segnali nuovi messi alla prova su 340 token*
+*2026-09-16 00:25 UTC · 8 segnali nuovi messi alla prova su 340 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-96%**.
 
@@ -23,22 +23,10 @@
 | `buy_medio x drawdown_pre (filtro)` | quanto compra in media ciascuno MOLTIPLICATO per quanto è già sceso dal massimo prima di entrare | -59% (+37) |
 | `volume_ultima_su_media (filtro)` | se il volume sta accelerando proprio adesso | -69% (+27) |
 | `ampiezza (filtro)` | quanto oscilla il prezzo prima di entrare | -80% (+17) |
-| `concentrazione_top5 x compra_e_rivende (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -96% (+1) |
-| `concentrazione_top5 / wallet_ripetuti (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a quanti wallet comprano più di una volta | -96% (+1) |
-| `concentrazione_top5 / compra_e_rivende (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -96% (+0) |
-| `concentrazione_top5 x wallet_ripetuti (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per quanti wallet comprano più di una volta | -96% (+0) |
-| `concentrazione_top5 x trade_al_minuto (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per quanto è frenetico lo scambio | -96% (+0) |
-| `concentrazione_top5 / trade_al_minuto (voto)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a quanto è frenetico lo scambio | -96% (+0) |
-| `sbilanciamento x ampiezza (voto)` | quanto il denaro che entra supera quello che esce MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -96% (+0) |
-| `sbilanciamento / ampiezza (voto)` | quanto il denaro che entra supera quello che esce RAPPORTATO a quanto oscilla il prezzo prima di entrare | -96% (+0) |
-| `sbilanciamento x ampiezza (filtro)` | quanto il denaro che entra supera quello che esce MOLTIPLICATO per quanto oscilla il prezzo prima di entrare | -97% (-1) |
-| `sbilanciamento / ampiezza (filtro)` | quanto il denaro che entra supera quello che esce RAPPORTATO a quanto oscilla il prezzo prima di entrare | -97% (-1) |
-| `concentrazione_top5 x compra_e_rivende (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per quanti di quelli che hanno comprato stanno già rivendendo | -98% (-1) |
-| `concentrazione_top5 / compra_e_rivende (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a quanti di quelli che hanno comprato stanno già rivendendo | -98% (-1) |
-| `concentrazione_top5 x wallet_ripetuti (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per quanti wallet comprano più di una volta | -98% (-1) |
-| `concentrazione_top5 / wallet_ripetuti (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a quanti wallet comprano più di una volta | -98% (-1) |
-| `concentrazione_top5 x trade_al_minuto (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi MOLTIPLICATO per quanto è frenetico lo scambio | -98% (-1) |
-| `concentrazione_top5 / trade_al_minuto (filtro)` | quanto del denaro iniziale arriva dai 5 compratori più grossi RAPPORTATO a quanto è frenetico lo scambio | -98% (-1) |
+| `buy_grossi x volume_ultima_su_media (voto)` | la quota di denaro che arriva da acquisti sopra i 500 dollari MOLTIPLICATO per se il volume sta accelerando proprio adesso | -96% (+0) |
+| `buy_grossi / volume_ultima_su_media (voto)` | la quota di denaro che arriva da acquisti sopra i 500 dollari RAPPORTATO a se il volume sta accelerando proprio adesso | -96% (+0) |
+| `buy_grossi x volume_ultima_su_media (filtro)` | la quota di denaro che arriva da acquisti sopra i 500 dollari MOLTIPLICATO per se il volume sta accelerando proprio adesso | -98% (-1) |
+| `buy_grossi / volume_ultima_su_media (filtro)` | la quota di denaro che arriva da acquisti sopra i 500 dollari RAPPORTATO a se il volume sta accelerando proprio adesso | -98% (-1) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
