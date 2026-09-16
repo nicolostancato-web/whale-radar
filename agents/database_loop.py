@@ -99,10 +99,8 @@ def main():
         # sono 354 pool su 768 — il 46% — ed e' la ragione principale per cui l'audit trova solo il
         # 16% di finestre identiche. Lavora a morsi, col segnalibro delle fasce gia' fatte, quindi
         # ogni giro ne chiude qualcuna e non ricomincia mai da capo.
-        for ch in ("robinhood", "base"):
-            rc, ult = sh("python agents/recupero_nascite.py",
-                         {"CHAIN": ch, "BUDGET_SEC": "420", "PAUSA": "0.35"}, timeout=470)
-            esiti.append((f"recupero nascite {ch}", rc, ult))
+        # (il recupero nascite e' passato in una corsia sua, nascite.yml: qui aveva 420 secondi a
+        # giro e chiudeva una fascia ogni sei giri — ottanta ore — rubando tempo ai controlli.)
         rc, ult = sh("python agents/elenco_righe.py", timeout=280)
         esiti.append(("elenco righe", rc, ult))
         rc, ult = sh("python agents/integrita.py", {"INTEGRITA_FINESTRE": "10"}, timeout=300)
