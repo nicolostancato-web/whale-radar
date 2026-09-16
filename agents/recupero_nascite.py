@@ -206,9 +206,25 @@ def main():
         print(f"RECUPERO | {CHAIN}: nessun pool senza le sue prime ore", flush=True)
         return
 
-    bande = {}
-    for n0, p in da_fare:
-        bande.setdefault(n0 // limite, set()).add(p)
+    # NIENTE SECCHI: L'UNIONE DEGLI INTERVALLI VERI (16/09, dopo aver visto il difetto).
+    # Prima raggruppavo i pool in secchi da sei ore e scandivo il secchio. Ma un pool nato a fine
+    # secchio ha la sua finestra di vita che sborda di ore oltre il tratto scandito: di quelli
+    # raccoglievo solo l'inizio. Si vedeva dal conto — i «tardivi» SALIVANO mentre lavoravo, da 34
+    # a 41: pool che ricevevano record, ma non quelli delle prime ore.
+    # Il secchio era una comodita' mia, non una proprieta' dei dati. Adesso ogni pool porta il suo
+    # intervallo vero [nascita, nascita + ore di vita] e si scandisce l'UNIONE: gli intervalli che
+    # si toccano si fondono, quindi i pool nati vicini continuano a costare una scansione sola, ma
+    # nessuno resta tagliato a meta'.
+    grezze = sorted((n0 - MARGINE, n0 + limite + MARGINE, p) for n0, p in da_fare)
+    tratti = []
+    for a, b, p in grezze:
+        if tratti and a <= tratti[-1][1]:
+            tratti[-1][1] = max(tratti[-1][1], b)
+            tratti[-1][2].add(p)
+        else:
+            tratti.append([a, b, {p}])
+    bande = {f"{a}-{b}": pool for a, b, pool in tratti}
+    durate = [(b - a) / 3600 for a, b, _ in tratti]
 
     ck = {}
     if os.path.exists(CK):
@@ -224,30 +240,43 @@ def main():
         print(f"RECUPERO | {CHAIN}: il nodo non risponde", flush=True)
         return
     punta = int(pp, 16)
-    print(f"RECUPERO | {CHAIN}: {len(da_fare)} pool senza le prime ore, in {len(bande)} fasce "
-          f"({len(fatte)} gia' fatte) | {len(coppie)} coppie tempo-blocco", flush=True)
+    print(f"RECUPERO | {CHAIN}: {len(da_fare)} pool senza le prime ore, in {len(bande)} tratti "
+          f"({len(fatte)} gia' fatti) | durata mediana {sorted(durate)[len(durate)//2]:.1f}h, "
+          f"totale {sum(durate):.0f}h", flush=True)
 
     per_pool = {}
     presi = chiamate = bande_fatte = 0
     ultimo_salvataggio = time.time()
 
-    for banda in sorted(bande, reverse=True):          # dalle piu' recenti: valgono di piu'
+    for banda in sorted(bande, key=lambda k: -int(k.split("-")[0])):   # dai piu' recenti: valgono di piu'
         if time.time() - t0 > BUDGET:
             break
         if str(banda) in fatte:
             continue
         cerco = bande[banda]
-        t_da = banda * limite - MARGINE
-        t_a = (banda + 1) * limite + MARGINE
+        t_da, t_a = (int(x) for x in banda.split("-"))
         cc = [0]
         b_da = blocco_a(url, t_da, punta, cc)
         b_a = blocco_a(url, t_a, punta, cc)
         chiamate += cc[0]
-        if not b_da or not b_a or b_a <= b_da:
-            print(f"RECUPERO | fascia {banda}: fuori da cio' che conosciamo, salto", flush=True)
-            fatte.add(str(banda))
+        if not b_a:
+            # L'ESTREMO OLTRE LA PUNTA NON E' UN ERRORE, E' DOMANI (16/09). Il tratto piu' recente
+            # arriva fino a ore che la catena non ha ancora prodotto: la bisezione torna a mani
+            # vuote. Prima lo segnavo «fatto» e quei pool sparivano per sempre senza che nessuno
+            # se ne accorgesse — il modo piu' silenzioso di perdere lavoro.
+            # Si scandisce fino a dove la catena arriva; il resto sara' di domani, e il tratto
+            # resta aperto apposta.
+            b_a = punta
+        if not b_da or b_a <= b_da:
+            print(f"RECUPERO | tratto {banda}: non convertibile, lo lascio APERTO", flush=True)
             continue
-        cur = b_da
+        # IL SEGNALIBRO VA DENTRO IL TRATTO, NON SOLO FRA I TRATTI (16/09). Il tratto piu' lungo
+        # e' di 266 ore — undici giorni, ~24.000 chiamate — perche' gli intervalli dei pool nati
+        # vicini si fondono. Senza cursore salvato, ogni interruzione lo fa ricominciare da zero:
+        # si lavorerebbero due ore per ritrovarsi al punto di partenza, all'infinito.
+        cur = int(ck.get("cursori", {}).get(str(banda), b_da))
+        if cur <= b_da or cur >= b_a:
+            cur = b_da
         while cur < b_a and time.time() - t0 <= BUDGET:
             fine = min(cur + ampiezza, b_a)
             log, err = rpc(url, "eth_getLogs", [{"fromBlock": hex(cur), "toBlock": hex(fine),
@@ -286,14 +315,17 @@ def main():
                 n = scarica(per_pool)
                 per_pool = {}
                 ck["fatte"] = sorted(fatte)
+                ck.setdefault("cursori", {})[str(banda)] = cur
                 try:
                     json.dump(ck, open(CK, "w"))
                 except Exception:
                     pass
                 salva_e_spingi(f"recupero {CHAIN} +{n}")
                 ultimo_salvataggio = time.time()
+        ck.setdefault("cursori", {})[str(banda)] = cur
         if cur >= b_a:
             fatte.add(str(banda))
+            ck["cursori"].pop(str(banda), None)
             bande_fatte += 1
 
     n = scarica(per_pool)
