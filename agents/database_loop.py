@@ -94,6 +94,15 @@ def main():
         # doppione non si vede perche' i due record sono identici.
         # Sta nella corsia sua, che non divide il tempo con nient'altro. Qui si controlla soltanto
         # che sia viva: se tace, il guardiano lo dice, ma nessuno raccoglie al posto suo.
+        # IL RECUPERO DELLE NASCITE (16/09). Le fette non tornano sui propri passi: un pool scoperto
+        # dopo che sono passate dal suo blocco di nascita resta senza storia per sempre. Su robinhood
+        # sono 354 pool su 768 — il 46% — ed e' la ragione principale per cui l'audit trova solo il
+        # 16% di finestre identiche. Lavora a morsi, col segnalibro delle fasce gia' fatte, quindi
+        # ogni giro ne chiude qualcuna e non ricomincia mai da capo.
+        for ch in ("robinhood", "base"):
+            rc, ult = sh("python agents/recupero_nascite.py",
+                         {"CHAIN": ch, "BUDGET_SEC": "420", "PAUSA": "0.35"}, timeout=470)
+            esiti.append((f"recupero nascite {ch}", rc, ult))
         rc, ult = sh("python agents/elenco_righe.py", timeout=280)
         esiti.append(("elenco righe", rc, ult))
         rc, ult = sh("python agents/integrita.py", {"INTEGRITA_FINESTRE": "10"}, timeout=300)
