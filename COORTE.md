@@ -1,5 +1,5 @@
 # 🧫 COORTE — è morto, o non l'abbiamo guardato?
-*2026-09-16 00:46 UTC · test prospettico · €0*
+*2026-09-16 00:51 UTC · test prospettico · €0*
 
 > L'audit aveva misurato che le serie escluse vivono 1 ora e le ammesse 23, e l'avevo
 > chiamato survivorship bias. La revisione ha corretto: è una **durata osservata**, non la
