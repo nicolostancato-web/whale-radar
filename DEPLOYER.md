@@ -1,23 +1,23 @@
 # 👤 DEPLOYER — chi crea questi token, e cosa ha fatto prima
-*2026-09-15 23:57 UTC · dai dati di sicurezza, nessuna chiamata extra*
+*2026-09-16 01:08 UTC · dai dati di sicurezza, nessuna chiamata extra*
 
 > La consulenza esterna indicava questa come l'area **più preziosa del prezzo orario**: non guardare
 > il token, guardare CHI l'ha fatto. I precedenti di un creatore sono noti PRIMA di comprare.
 
 | | quanti |
 |---|---|
-| token con creatore identificato | **5492** |
-| creatori distinti | 4273 |
+| token con creatore identificato | **5495** |
+| creatori distinti | 4275 |
 | **creatori seriali** (più di un token) | **282** |
-| token il cui creatore ha già fatto honeypot | **445** |
-| token dove il creatore tiene oltre il 5% | 1953 |
+| token il cui creatore ha già fatto honeypot | **446** |
+| token dove il creatore tiene oltre il 5% | 1954 |
 
 ## I creatori seriali
 
 | creatore | token creati |
 |---|---|
 | `0x16d4e81e…d00478` | 107 |
-| `0x1278c1e4…b0697c` | 59 |
+| `0x1278c1e4…b0697c` | 60 |
 | `0x58f6e5e3…297a3f` | 58 |
 | `0x048ef106…b4cef5` | 52 |
 | `0x18c4ec54…9d757c` | 45 |
