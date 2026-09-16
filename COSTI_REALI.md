@@ -1,5 +1,5 @@
 # 💸 COSTI REALI — quanto costa DAVVERO entrare e uscire
-*2026-09-15 23:59 UTC · quote vere da Jupiter su 2501 token Solana vivi · €0*
+*2026-09-16 00:15 UTC · quote vere da Jupiter su 2502 token Solana vivi · €0*
 
 > **Perché**: nel modello assumiamo 15% di slippage per lato. Non l'abbiamo mai misurato.
 > Con quel 15% un token deve salire del **50% solo per pareggiare**; se il costo vero fosse molto
@@ -7,12 +7,12 @@
 
 | size | costo andata+ritorno (mediana) | migliore | peggiore | token misurati |
 |---|---|---|---|---|
-| $25 | **4.1%** | 3.6% | 100.0% | 14 |
-| $100 | **8.7%** | 6.8% | 100.0% | 14 |
-| $500 | **27.2%** | 20.7% | 100.0% | 14 |
+| $25 | **4.1%** | 2.7% | 100.0% | 10 |
+| $100 | **8.7%** | 3.6% | 100.0% | 10 |
+| $500 | **27.2%** | 8.4% | 100.0% | 9 |
 
-- misure accumulate finora: **2501 token** (l'archivio cresce a ogni giro)
-- token che NON si possono rivendere: **588** su 2501 (**24%**)
+- misure accumulate finora: **2502 token** (l'archivio cresce a ogni giro)
+- token che NON si possono rivendere: **588** su 2502 (**24%**)
 
 > Il costo qui sotto vale **solo per i token vendibili**. Quelli invendibili non sono un costo
 > alto: sono una perdita totale, e vanno contati a parte — non spalmati sulla media.
