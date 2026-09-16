@@ -17,11 +17,11 @@ indulgente con il nostro lavoro.
 
 | # | condizione | soglia | stato oggi |
 |---|---|---|---|
-| **1** | **Copertura per chain** (non aggregata) | ≥95% delle righe eleggibili, **in ciascuna chain**, misurata come **quota di finestre identiche nell'audit** — non come quota di pool per cui esiste un file (vedi «La copertura che ci raccontavamo», sotto) | base 80% 🔴 · robinhood 86% 🔴 · **solana 0%** 🔴 |
+| **1** | **Copertura per chain** (non aggregata) | ≥95% delle righe eleggibili, **in ciascuna chain**. Due misure, entrambe necessarie: (a) **nascite possedute** — quota di pool di cui abbiamo le prime ore; (b) **finestre identiche** nell'audit | **nascite**: base 97% 🟡 · robinhood 55% 🔴 (sale, recupero in corso) · solana n/d 🔴 — **finestre identiche**: 16% 🔴 |
 | **2** | **Solana esiste** | non dichiarabile sufficiente finché la copertura è «non iniziata» | 🔴 **non iniziata** |
 | **3** | **Point-in-time provato** | ≥299 osservazioni **prospettiche** per strato chain/fonte, zero ritardi oltre l'embargo dichiarato | 🟡 **51.482 scambi** raccolti alla punta (base + robinhood), ritardo mediano **5,2 minuti**. Il conteggio per strato va ancora fatto |
 | **4** | **Backfill etichettato** | 100% dei record porta `acq` **e** la classe: `ricostruzione-storica` o `point-in-time-certificato`. Nessun record può essere marcato PIT solo perché oggi è recuperabile | 🟡 `acq` c'è, **la classe no** |
-| **5** | **Integrità degli eventi** | audit indipendente su ≥299 finestre stratificate, zero discrepanze su evento canonico, pool, quantità grezze, ordinamento | 🟡 **58 finestre, 48 identiche (83%)**, gira da solo nella corsia database. **Zero record inventati** |
+| **5** | **Integrità degli eventi** | audit indipendente su ≥299 finestre stratificate, zero discrepanze su evento canonico, pool, quantità grezze, ordinamento | 🔴 **19 finestre misurabili, 3 identiche (16%)**. **Zero record inventati** — le due accuse erano residui del vecchio formato |
 | **6** | **Mappatura completa** | 100% dei record con chain, pool, **coppia di token**, block hash, id evento canonico, istante, **e semantica del wallet dichiarata**. I mancanti restano mancanti, non si inventano | 🔴 mancano coppia token, block hash, semantica del wallet |
 | **7** | **Sopravvivenza** | ≥59 esclusioni campionate a caso con classificazione della causa, zero controesempi | 🔴 **17**, e non campionate a caso |
 
@@ -102,3 +102,33 @@ Oggi dice **83%** (48 su 58), non 99,6%. La condizione 1 adesso si misura così.
 invisibile. Le fette saltano intervalli interi, e se un pump vive dentro un intervallo saltato, per
 noi quel token non si è mai mosso. Avremmo cercato il segnale in un archivio che ci nasconde proprio
 i momenti in cui succede qualcosa — e dato la colpa al segnale.
+
+---
+
+## Perché il database era incompleto: le fette non tornano sui propri passi
+*trovato il 16/09 alle tre di notte, inseguendo quattro finestre di robinhood*
+
+Le fette filtrano per `righe.json` **nel momento in cui passano**. Quando una fetta è transitata dal
+blocco in cui un pool è nato, se quel pool non era ancora nella lista i suoi scambi sono stati
+scartati — e le fette non tornano mai indietro. Ogni pool scoperto tardi, tipicamente dalla coda viva
+che lavora alla punta, **resta senza storia per sempre**.
+
+| | prime ore possedute | vuoti | tardivi |
+|---|---|---|---|
+| base | 1858/1907 = **97%** | 49 | 0 |
+| robinhood | 422/768 = **55%** | 302 | 44 |
+
+È la ragione principale del 16% di finestre identiche. Rimedio: `agents/recupero_nascite.py` in una
+corsia sua (`nascite.yml`), che sa esattamente cosa manca e dove sta e va solo lì. Robinhood soltanto:
+accendere una corsia per il 3% mancante di base sarebbe lavoro che sembra diligenza ed è spreco.
+
+**Le tre misure che si sono corrette da sole, in ordine.** Vale la pena rileggerle insieme, perché
+sono lo stesso errore in tre travestimenti: uno strumento che, non sapendo, rassicurava.
+
+1. **99,6% di copertura** contava i pool con un file, non i blocchi dentro il file.
+2. **83% di finestre identiche** contava come «identica» ogni finestra dove non si confrontava
+   nulla — una escludeva 1057 eventi e ne confrontava 1.
+3. **2 record inventati** erano residui del vecchio formato, senza indice completo, quindi
+   inconfrontabili per costruzione. Record inventati veri: **zero**.
+
+Il numero onesto, oggi, è 16%. Preferisco consegnarlo così.

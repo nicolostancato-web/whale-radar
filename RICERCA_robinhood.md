@@ -1,5 +1,5 @@
 # 🧪 TEAM · RICERCA — segnali nuovi, inventati dal sistema (robinhood)
-*2026-09-16 02:23 UTC · 10 segnali nuovi messi alla prova su 340 token*
+*2026-09-16 02:39 UTC · 6 segnali nuovi messi alla prova su 340 token*
 
 **Punto di partenza:** con i segnali attuali la percentuale robusta è **-96%**.
 
@@ -27,10 +27,6 @@
 | `drawdown_pre x volume_ultima_su_media (filtro)` | quanto è già sceso dal massimo prima di entrare MOLTIPLICATO per se il volume sta accelerando proprio adesso | -79% (+18) |
 | `ampiezza (filtro)` | quanto oscilla il prezzo prima di entrare | -80% (+16) |
 | `drawdown_pre / volume_ultima_su_media (filtro)` | quanto è già sceso dal massimo prima di entrare RAPPORTATO a se il volume sta accelerando proprio adesso | -85% (+11) |
-| `usd_primi20 / wallet_ripetuti (voto)` | quanto pesano i primissimi 20 acquisti sul totale RAPPORTATO a quanti wallet comprano più di una volta | -96% (+1) |
-| `usd_primi20 x wallet_ripetuti (voto)` | quanto pesano i primissimi 20 acquisti sul totale MOLTIPLICATO per quanti wallet comprano più di una volta | -96% (+0) |
-| `usd_primi20 x wallet_ripetuti (filtro)` | quanto pesano i primissimi 20 acquisti sul totale MOLTIPLICATO per quanti wallet comprano più di una volta | -98% (-1) |
-| `usd_primi20 / wallet_ripetuti (filtro)` | quanto pesano i primissimi 20 acquisti sul totale RAPPORTATO a quanti wallet comprano più di una volta | -98% (-1) |
 
 ## Non riprovati (la memoria del team dice che è inutile)
 
@@ -42,8 +38,8 @@
 - `n_compratori (filtro)` — già bocciato 35 volte 5h fa (si riprova fra 7h o quando i dati crescono)
 - `buy_medio (voto)` — già bocciato 35 volte 5h fa (si riprova fra 7h o quando i dati crescono)
 - `buy_medio (filtro)` — già bocciato 35 volte 5h fa (si riprova fra 7h o quando i dati crescono)
-- `buy_grossi (voto)` — già bocciato 35 volte 3h fa (si riprova fra 9h o quando i dati crescono)
-- `buy_grossi (filtro)` — già bocciato 35 volte 3h fa (si riprova fra 9h o quando i dati crescono)
+- `buy_grossi (voto)` — già bocciato 35 volte 4h fa (si riprova fra 8h o quando i dati crescono)
+- `buy_grossi (filtro)` — già bocciato 35 volte 4h fa (si riprova fra 8h o quando i dati crescono)
 
 > **Perché questo ruolo esiste:** l'insider su Solana l'ha inventato un umano. Qui il sistema
 > costruisce da sé segnali nuovi dai dati grezzi e li mette alla prova. Uno dei mattoni è proprio
