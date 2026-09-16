@@ -1,14 +1,14 @@
 # 💓 HEARTBEAT — le quattro corsie sono vive?
-*2026-09-15 23:53 UTC · controllo da FUORI ogni corsia*
+*2026-09-16 00:09 UTC · controllo da FUORI ogni corsia*
 
-## 3/4 vive
+## 4/4 vive
 
 | corsia | stato | ultimo commit | azione |
 |---|---|---|---|
-| **motore** | ❓ nessun commit recente | `?` | accesa |
-| **ricerca** | 🟢 viva — ultimo commit 0 min fa | `ricerca robinhood giro5 23:53Z` | — |
-| **loop 0** | 🟢 viva — ultimo commit 16 min fa | `loop0 giro16 23:38Z` | — |
-| **sperimenti** | 🟢 viva — ultimo commit 3 min fa | `sperimenti giro40 23:50Z` | — |
+| **motore** | 🟢 viva — ultimo commit 8 min fa | `engine misure0 00:01Z` | — |
+| **ricerca** | 🟢 viva — ultimo commit 1 min fa | `ricerca solana giro7 00:08Z` | — |
+| **loop 0** | 🟢 viva — ultimo commit 1 min fa | `loop0 giro1 00:08Z` | — |
+| **sperimenti** | 🟢 viva — ultimo commit 3 min fa | `sperimenti giro44 00:06Z` | — |
 
 > **Perché vive fuori:** un guardiano che sta dentro la cosa che deve sorvegliare si
 > blocca insieme a lei. Il 30/08 il motore ha girato 2h23 senza committare e se n'è accorto
