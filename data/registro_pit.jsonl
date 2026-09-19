@@ -1270,3 +1270,4 @@
 {"acq": 1789814152, "agente": "multichain_trades", "fonte": "geckoterminal", "chain": "base", "quanti": 4, "giro": "35433669780", "dettaglio": {"pool_interrogati": 90}}
 {"acq": 1789814323, "agente": "multichain_trades", "fonte": "geckoterminal", "chain": "solana", "quanti": 11, "giro": "35433669780", "dettaglio": {"pool_interrogati": 90}}
 {"acq": 1789814353, "agente": "pulse", "fonte": "dexscreener+geckoterminal", "chain": "tutte", "quanti": 49, "giro": "35433669780"}
+{"acq": 1789818671, "agente": "coda_viva", "fonte": "catena-viva", "chain": "robinhood", "quanti": 2234, "giro": "35438717496", "dettaglio": {"chiamate": 5322}}
