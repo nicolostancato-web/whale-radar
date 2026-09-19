@@ -349,38 +349,53 @@ def main():
                 if ha_dentro:
                     giudicabili.add(pool)
                     # fin dove arriva il nostro archivio per questo pool
-                    # IL LIMITE VA PRESO SULLA RACCOLTA DI QUEL TRATTO, NON SU TUTTO IL POOL
-                    # (19/09, correzione della correzione). Prendevo il blocco piu' alto fra TUTTE
-                    # le righe del pool, comprese quelle recentissime della coda viva: cosi' il
-                    # limite sta sempre oltre la finestra e la regola non toglie mai niente.
-                    # Misurato col contatore: «fuori_tetto: 0» su ogni finestra, cioe' una regola
-                    # scritta, pubblicata e inerte. Adesso si guarda il blocco piu' alto NON OLTRE
-                    # la fine della finestra: e' quello il punto fino a cui possiamo rispondere.
-                    _hi = None
+                    # I TRATTI SI CONTANO PER CARTELLA, NON PER POOL (19/09, quinta e ultima
+                    # versione di questa regola — le prime quattro sbagliavano in modi diversi).
+                    # Storico e coda viva hanno TETTI SEPARATI di 300 righe e coprono zone lontane
+                    # fra loro. Misurato su un pool che falliva:
+                    #     storico  300 righe, blocchi 50.842.459-50.842.741
+                    #     vivo     300 righe, blocchi 51.357.675-51.474.986
+                    # Mezzo milione di blocchi di distanza. Qualunque limite calcolato sul POOL
+                    # (il massimo fra tutte le righe) cade oltre la finestra e non esclude niente:
+                    # infatti il contatore diceva «fuori_tetto: 0» su ogni finestra — una regola
+                    # scritta, pubblicata e inerte.
+                    # La verita' e' che pretendiamo completezza solo DENTRO i tratti che abbiamo
+                    # davvero raccolto, e i tratti sono due, uno per raccoglitore. Un evento fuori
+                    # da entrambi non e' mancante: non l'abbiamo mai promesso.
+                    _tratti = []
                     for cart in ("storico", "vivo"):
                         f2 = f"data/multichain/{chain}/{cart}/{pool}.jsonl.gz"
                         if not os.path.exists(f2):
                             continue
+                        _lo = _hi2 = None
                         try:
                             for l in gzip.open(f2, "rt"):
                                 if not l.strip():
                                     continue
                                 b0 = json.loads(l).get("blocco")
-                                if b0 is not None and b0 <= a:
-                                    _hi = b0 if _hi is None else max(_hi, b0)
+                                if b0 is None:
+                                    continue
+                                _lo = b0 if _lo is None else min(_lo, b0)
+                                _hi2 = b0 if _hi2 is None else max(_hi2, b0)
                         except Exception:
                             pass
-                    if _hi is not None:
-                        ultimo_nostro[pool] = _hi
+                        if _lo is not None:
+                            _tratti.append((_lo, _hi2))
+                    if _tratti:
+                        ultimo_nostro[pool] = _tratti
                 else:
                     al_tetto.add(pool)          # non giudicabile: non stavamo raccogliendo qui
             catena = {k: v for k, v in catena.items() if v not in al_tetto}
             # oltre il nostro ultimo record non si giudica: li' avevamo smesso di proposito
             _fuori_tetto = 0
             for _k in list(catena):
-                _pool = catena[_k]
-                _hi = ultimo_nostro.get(_pool)
-                if _hi is not None and _blocco_di.get(_k, 0) > _hi:
+                _tr = ultimo_nostro.get(catena[_k])
+                if not _tr:
+                    continue
+                _b = _blocco_di.get(_k)
+                if _b is None:
+                    continue
+                if not any(lo <= _b <= hi for lo, hi in _tr):
                     del catena[_k]
                     _fuori_tetto += 1
             casa = {k: v for k, v in casa.items() if v[0] not in al_tetto}
