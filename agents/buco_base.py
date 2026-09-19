@@ -40,7 +40,24 @@ LOTTO = 10 if CHAIN == "base" else 100         # misurato: base rifiuta lotti pi
 ORE = float(os.environ.get("ORE_VITA", 8))
 BUDGET = int(os.environ.get("BUDGET_SEC", 900))
 ELENCO = f"data/{CHAIN}_mai_letti.json"
-CK = f"data/multichain/{CHAIN}/buco_ckpt.json"
+# LE FETTE (19/09): il nodo limita per INDIRIZZO IP, misurato ieri sulle coppie (un filo 0,24
+# pool/s, tre fili 0,22, sei fili zero). Da una macchina sola non si accelera. Ma ogni lavoro di
+# GitHub ha un IP proprio: con 23.079 pool da prendere a ~60 secondi l'uno, una corsia sola impiega
+# giorni e sei fette li dividono per sei.
+FETTA = os.environ.get("FETTA")
+N_FETTE = int(os.environ.get("N_FETTE", 6))
+CK = (f"data/multichain/{CHAIN}/buco_ckpt_f{FETTA}.json" if FETTA is not None
+      else f"data/multichain/{CHAIN}/buco_ckpt.json")
+
+
+def mia(pool):
+    """True se questo pool tocca a questa fetta. Senza fetta, tocca tutto a noi."""
+    if FETTA is None:
+        return True
+    try:
+        return int(pool[-6:], 16) % N_FETTE == int(FETTA)
+    except Exception:
+        return True
 t0 = time.time()
 
 
@@ -93,12 +110,55 @@ def main():
     # voci sporche. Il buco non era un incidente chiuso: e' una falla che si riapre, perche' il
     # registro cresce di continuo e lo scavo a fasce non passa dove quei pool sono nati.
     # Una lista fissa cura il sintomo una volta sola. Calcolare i bersagli a ogni giro cura la falla.
-    bersagli = []
+    # I BERSAGLI SONO LA POPOLAZIONE DEFINITA, NON SOLO IL REGISTRO (19/09).
+    # Con le coppie finalmente risolte (base 98%, robinhood 100%) la definizione di DEFINIZIONE.md
+    # si puo' finalmente APPLICARE, e dice che la popolazione da studiare e' 7.084 pool su base e
+    # 15.995 su robinhood. Ne avevamo 228 e 227: il 3,2% e l'1,4%.
+    # La condizione 1 del cancello chiede >=95% di QUELLA popolazione. Non ci si arriva raccogliendo
+    # meglio i pool che gia' abbiamo: bisogna prendere gli altri ventiduemila.
+    # Perche' proprio qui: questo agente parte dai POOL invece che dai blocchi, va dritto alla
+    # nascita di ognuno e ne prende le prime ore. E' esattamente il lavoro che serve, gia' scritto e
+    # gia' verificato contro la catena (istanti esatti al secondo, blockhash giusti, zero duplicati).
+    # E IL CRITERIO NON GUARDA IL FUTURO. Si entra per «ha almeno 20 scambi nell'intervallo
+    # dichiarato e ha una valuta di base da un lato»: entrambe cose vere al momento in cui si
+    # decide. Il vecchio registro invece chiedeva almeno 5 candele e un minimo di volume — cioe'
+    # ESSERE SOPRAVVISSUTI — ed escludeva cosi' il 52% dei pool proprio perche' erano andati male.
+    # Quella e' la selezione che gonfia qualunque percentuale il loop 1 andra' a misurare.
     reg = {}
     try:
         reg = json.load(open(f"data/multichain/{CHAIN}/righe.json")).get("pool", {})
     except Exception:
         pass
+    voluti = dict(reg)
+    if os.environ.get("POPOLAZIONE", "1") == "1":
+        try:
+            basi = set(json.load(open("data/valute_base.json"))[CHAIN])
+            cop = {k.lower(): v for k, v in
+                   json.load(open(f"data/multichain/{CHAIN}/coppie.json")).get("coppie", {}).items()}
+            n_pop = 0
+            with gzip.open(f"data/multichain/{CHAIN}/censimento.jsonl.gz", "rt") as fo:
+                for l in fo:
+                    if not l.strip():
+                        continue
+                    d0 = json.loads(l)
+                    if d0.get("scambi", 0) < 20:
+                        continue
+                    v = cop.get(d0["pool"])
+                    if not v:
+                        continue
+                    t_0 = (v.get("t0") or "").lower()
+                    t_1 = (v.get("t1") or "").lower()
+                    if (t_0 in basi) == (t_1 in basi):
+                        continue                  # o nessuno o entrambi: non e' la nostra popolazione
+                    voluti.setdefault(d0["pool"], {"ent": None, "t0": None})
+                    n_pop += 1
+            print(f"BUCO | {CHAIN}: popolazione definita {n_pop} pool "
+                  f"(registro {len(reg)}, da cercare in tutto {len(voluti)})", flush=True)
+        except Exception as e:
+            print(f"BUCO | {CHAIN}: popolazione non leggibile ({type(e).__name__}), "
+                  f"resto sul registro", flush=True)
+    reg = voluti
+    bersagli = []
     sporche = set()
     try:
         for x in json.load(open("data/quarantena_registro.json"))["non_sono_pool"].get(CHAIN, []):
@@ -109,17 +169,16 @@ def main():
         pl = p.lower()
         if pl in sporche:
             continue                      # gia' verificato che non e' un pool: non si ritenta
-        righe = 0
-        for cart in ("storico", "vivo"):
-            f = f"data/multichain/{CHAIN}/{cart}/{pl}.jsonl.gz"
-            if os.path.exists(f):
-                try:
-                    righe += sum(1 for l in gzip.open(f, "rt") if l.strip())
-                except Exception:
-                    pass
-            if righe:
-                break
-        if not righe:
+        # BASTA SAPERE SE IL FILE C'E', NON QUANTE RIGHE HA (19/09). Qui si aprivano e si
+        # DECOMPRIMEVANO tutti i file per contarne le righe: con 8.778 bersagli vuol dire leggere
+        # un centinaio di megabyte a ogni giro, e infatti il budget finiva nel censimento invece che
+        # nella raccolta — un pool visitato in tre minuti. La domanda e' «di questo pool abbiamo
+        # qualcosa?», e a quella risponde l'esistenza di un file non vuoto.
+        if not mia(pl):
+            continue
+        if not any(os.path.exists(f"data/multichain/{CHAIN}/{c}/{pl}.jsonl.gz")
+                   and os.path.getsize(f"data/multichain/{CHAIN}/{c}/{pl}.jsonl.gz") > 40
+                   for c in ("storico", "vivo")):
             bersagli.append(pl)
     # l'elenco storico resta come semenza, se c'e' ancora qualcosa dentro che non abbiamo preso
     if os.path.exists(ELENCO):
@@ -161,6 +220,18 @@ def main():
         except Exception:
             fatti = set()
 
+    # dove il censimento ha visto ogni pool per la prima volta: e' l'ancora di ripiego
+    primo_censimento = {}
+    try:
+        with gzip.open(f"data/multichain/{CHAIN}/censimento.jsonl.gz", "rt") as fo:
+            for l in fo:
+                if l.strip():
+                    d0 = json.loads(l)
+                    if d0.get("primo"):
+                        primo_censimento[d0["pool"]] = int(d0["primo"])
+    except Exception:
+        pass
+
     per_pool = {}
     presi = saltati = 0
     for pool in bersagli:
@@ -170,8 +241,19 @@ def main():
             continue
         d = nasc.get(pool)
         if not d:
-            saltati += 1
-            continue
+            # L'ANCORA DI RIPIEGO VIENE DAL CENSIMENTO (19/09). Senza, questo agente saltava 6.434
+            # bersagli su 6.536: la nascita risolta dalla catena ce l'ha solo il vecchio registro, e
+            # la popolazione definita e' fatta quasi tutta di pool che il registro non ha mai visto.
+            # Il censimento pero' sa in quale blocco li ha visti scambiare la PRIMA VOLTA dentro
+            # l'intervallo dichiarato. Non e' la nascita — se il pool e' nato prima dell'intervallo,
+            # il suo vero inizio e' altrove — ma e' un punto di partenza onesto, e le righe raccolte
+            # cosi' vengono marcate «ancora: censimento» invece di spacciarsi per nascita.
+            # nascita_vera.py potra' raffinarle dopo; intanto i dati entrano, invece di non entrare.
+            b0 = primo_censimento.get(pool)
+            if not b0:
+                saltati += 1
+                continue
+            d = {"bn": b0, "ripiego": True}
         # la nascita in blocchi: quella dichiarata se c'e', altrimenti dal suo istante vero
         bn0 = int(d["bn"]) if d.get("bn") else int(punta - (ora - int(d["ts"])) / max(0.01, sec))
         fine = bn0 + int(ORE * 3600 / max(0.01, sec))
@@ -207,7 +289,8 @@ def main():
                  "tx": l.get("transactionHash"), "bh": l.get("blockHash"),
                  "ti": int(l.get("transactionIndex", "0x0"), 16),
                  "li": int(l.get("logIndex", "0x0"), 16),
-                 "classe": "recupero-buco", "w": fi["w"], "w_sem": fi.get("w_sem"),
+                 "classe": "recupero-buco",
+                 "ancora": "censimento" if d.get("ripiego") else "nascita", "w": fi["w"], "w_sem": fi.get("w_sem"),
                  "a0": fi["a0"], "a1": fi["a1"], "dex": fi["v"],
                  "mgr": l.get("address", "").lower(), "fonte": "catena"})
         fatti.add(pool)
