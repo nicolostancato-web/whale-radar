@@ -22,7 +22,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        fetta: [0, 1, 2, 3, 4, 5]
+        # TRE FETTE PER CHAIN, NON SEI (19/09). Sei per due chain fanno dodici lavori, e il tetto
+        # di GitHub su repo pubblico e' venti: il 17/09 lo scavo storico ne occupava dodici e la
+        # corsia del database e' rimasta in coda 135 minuti. Una corsia che riempie in fretta ma
+        # ferma i controlli non sta andando piu' veloce, sta solo spostando il ritardo.
+        fetta: [0, 1, 2]
         chain: [base, robinhood]
     steps:
       - uses: actions/checkout@v4
@@ -32,7 +36,7 @@ jobs:
         env:
           CHAIN: ${{ matrix.chain }}
           FETTA: ${{ matrix.fetta }}
-          N_FETTE: "6"
+          N_FETTE: "3"
           BUDGET_SEC: "2400"
         run: python agents/buco_base.py
       - name: Salva
