@@ -38,6 +38,8 @@ URL = {"base": "https://mainnet.base.org",
 AMPIEZZA = 2000 if CHAIN == "base" else 20000   # misurato: base rifiuta oltre, con qualunque filtro
 LOTTO = 10 if CHAIN == "base" else 100         # misurato: base rifiuta lotti piu' grandi con 413
 ORE = float(os.environ.get("ORE_VITA", 8))
+# secondi per blocco, misurati sulle due chain (servono a leggere l'arco del censimento)
+SEC_BLOCCO = 2.0 if CHAIN == "base" else 0.106
 BUDGET = int(os.environ.get("BUDGET_SEC", 900))
 ELENCO = f"data/{CHAIN}_mai_letti.json"
 # LE FETTE (19/09): il nodo limita per INDIRIZZO IP, misurato ieri sulle coppie (un filo 0,24
@@ -150,7 +152,21 @@ def main():
                     t_1 = (v.get("t1") or "").lower()
                     if (t_0 in basi) == (t_1 in basi):
                         continue                  # o nessuno o entrambi: non e' la nostra popolazione
-                    voluti.setdefault(d0["pool"], {"ent": None, "t0": None})
+                    # QUANTO E' CONCENTRATA L'ATTIVITA' (19/09). Il censimento conta gli scambi su
+                    # TUTTO l'intervallo dichiarato, che e' di settimane: un pool con 23 scambi
+                    # sparsi su 1,4 milioni di blocchi soddisfa «>=20 scambi» ed e' un pool
+                    # dormiente, non un evento. Misurato su sei pool a caso: quelli con arco stretto
+                    # rendono 201 e 239 righe nelle prime ore, quelli con arco largo UNA.
+                    # E qui c'e' la scoperta che conta: i pool che GIA' abbiamo sono in maggioranza
+                    # i diluiti (14,2% di copertura), mentre dei concentrati abbiamo il 4,0%. Ha una
+                    # causa — il vecchio registro sceglieva i sopravvissuti con almeno 5 candele,
+                    # cioe' i longevi — e una conseguenza: il picco breve, che e' come si presenta
+                    # una memecoin che pompa, nel nostro archivio quasi non c'e'.
+                    # Non cambio la definizione (quella si registra in DEFINIZIONE.md, non si sposta
+                    # in un agente): cambio l'ORDINE, e prendo prima quelli concentrati.
+                    arco_ore = (d0.get("ultimo", 0) - d0.get("primo", 0)) * SEC_BLOCCO / 3600.0
+                    voluti.setdefault(d0["pool"], {"ent": None, "t0": None,
+                                                   "arco_ore": round(arco_ore, 2)})
                     n_pop += 1
             print(f"BUCO | {CHAIN}: popolazione definita {n_pop} pool "
                   f"(registro {len(reg)}, da cercare in tutto {len(voluti)})", flush=True)
@@ -188,6 +204,8 @@ def main():
                     bersagli.append(p)
         except Exception:
             pass
+    # I CONCENTRATI PER PRIMI: rendono righe utili subito, i diluiti ne rendono una a testa.
+    bersagli.sort(key=lambda p: (reg.get(p) or {}).get("arco_ore") or 1e9)
     if not bersagli:
         print(f"BUCO | {CHAIN}: nessun pool del registro e' senza righe. Niente da recuperare.",
               flush=True)
