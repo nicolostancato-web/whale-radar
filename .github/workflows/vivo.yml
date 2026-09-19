@@ -1,0 +1,103 @@
+name: vivo
+# LA CODA VIVA: l'unico dato che potra' essere certificato point-in-time.
+#
+# PERCHE' UNA CORSIA SUA (15/09). Girava dentro la corsia database, insieme ad altre otto cose: se
+# quel giro finisce il tempo o muore, si perdono i blocchi di ADESSO — e quelli, a differenza del
+# backfill, non si possono rifare domani. Il ritardo misurato fra il fatto e il timbro e' di 9,8
+# minuti contro le 362 ore della ricostruzione storica: e' la differenza fra un dato su cui si puo'
+# decidere e uno su cui si puo' solo esplorare.
+# Una cosa che non si puo' recuperare merita di non dipendere da nient'altro.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "*/55 * * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: vivo
+  cancel-in-progress: false
+jobs:
+  coda:
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        chain: [base, robinhood]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Segna l'inizio
+        run: date +%s > /tmp/inizio_giro
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Coda viva
+        env:
+          CHAIN: ${{ matrix.chain }}
+          # GIRI PIU' CORTI PERDONO MENO (16/09). Un giro da due ore e mezza su un runner gratuito
+          # puo' essere sfrattato a meta': e' successo, e base ha perso ottanta minuti di coda viva
+          # — dato che non si recupera, a differenza del backfill.
+          # Il salvataggio ogni dieci minuti limita il danno, ma il vero rimedio e' un giro corto:
+          # adesso che la corsia si riarma da sola alla fine, spezzarla non costa niente e ogni
+          # sfratto costa un'ora invece di due e mezza.
+          BUDGET_SEC: "3300"
+          PAUSA: "1.6"
+        run: python agents/coda_viva.py
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          if ! git commit -m "vivo ${{ matrix.chain }} $(date -u +%H:%MZ)"; then
+            echo "NIENTE DA SALVARE"; exit 1
+          fi
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1
+            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 15 + 5))
+          done
+          echo "NON SONO RIUSCITO A SPINGERE: i dati della coda viva restano sul runner e vanno persi."
+          exit 1
+      - name: Riarmo
+        # UNA CORSIA CHE FINISCE NON DEVE ASPETTARE UN ORARIO (16/09). Il recupero nascite e'
+        # rimasto fermo CINQUE ORE E MEZZA dopo aver finito il suo giro: la pianificazione a tre ore
+        # non l'ha ripreso, perche' GitHub salta i cron quando il repo e' occupato — e il nostro lo
+        # e' sempre. Cinque ore di lavoro gratis buttate perche' aspettavamo un orologio.
+        # Qui la corsia si riarma da sola appena finisce. Il lavoro e' finito (il segnalibro dice
+        # dove si era), i runner sono gratis, e non c'e' nessuna ragione perche' stia ferma.
+        # Se non c'e' piu' niente da fare, il giro dopo se ne accorge da solo e costa pochi secondi.
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DURATA=$(( $(date +%s) - $(cat /tmp/inizio_giro 2>/dev/null || echo 0) ))
+          # UN GIRO CHE MUORE SUBITO NON SI RIARMA (16/09, difetto chiuso appena creato). Il riarmo
+          # automatico e' giusto per una corsia che ha lavorato; ma se un giro fallisce in dieci
+          # secondi — credenziale scaduta, nodo morto, errore di sintassi — si rilancerebbe subito,
+          # e il ciclo brucerebbe i runner all'infinito senza raccogliere nulla.
+          # Sotto i cinque minuti si ferma e si fa vedere: un guasto deve costare attenzione, non
+          # diventare un motore perpetuo.
+          if [ "$DURATA" -lt 300 ]; then
+            echo "GIRO DURATO SOLO ${DURATA}s: non mi riarmo, c'e' qualcosa che non va."
+            exit 0
+          fi
+          # UN RIARMO CHE NON SI ACCORGE DI ESSERE STATO RIFIUTATO (17/09). Il passo risultava
+          # «riuscito» e stampava «riarmata», ma nessun giro ripartiva: mancava il permesso
+          # actions:write e la richiesta veniva respinta con 403 — mentre curl, che non guarda il
+          # codice di risposta, usciva contento. La corsia e' rimasta ferma tre ore e mezza
+          # dichiarando di essersi riarmata.
+          # E' la stessa famiglia di difetti che ho inseguito tutto il giorno: qualcosa che dice
+          # di aver fatto una cosa che non ha fatto. Adesso si guarda il codice, e se non e' 204
+          # il passo FALLISCE e si vede.
+          CODICE=$(curl -s -o /tmp/riarmo.out -w "%{http_code}" -X POST \
+            -H "Authorization: token $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/vivo.yml/dispatches" \
+            -d '{"ref":"main"}')
+          if [ "$CODICE" != "204" ]; then
+            echo "RIARMO RESPINTO (HTTP $CODICE): la corsia NON ripartira'."
+            cat /tmp/riarmo.out
+            exit 1
+          fi
+          echo "riarmata dopo ${DURATA}s"

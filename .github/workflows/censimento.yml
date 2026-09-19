@@ -1,0 +1,75 @@
+name: censimento
+# IL CENSIMENTO — l'universo vero, e il collo di bottiglia del gate.
+#
+# PERCHE' UNA CORSIA SUA (18/09). Il censimento e' il DENOMINATORE di tutto: finche' non e'
+# completo, «copertura 84%» divide per il nostro stesso registro — una lista che abbiamo scelto
+# noi, che puo' salire al 100% mentre la realta' peggiora. E' il rilievo numero uno della
+# revisione esterna, e nessuna delle sette condizioni si puo' chiudere prima.
+# Dentro la corsia database riceveva 200 secondi per giro, divisi fra due chain, e robinhood fa
+# una chiamata ogni 8 secondi perche' i suoi blocchi sono fittissimi di scambi: significa 25
+# chiamate per giro su 859 necessarie. Non era ferma, era affamata.
+# Adesso che loop 0 e loop 1 sono spenti ci sono sedici slot liberi: tanto vale usarli per la
+# cosa che blocca tutto il resto.
+#
+# L'INTERVALLO E' GIA' DICHIARATO nel segnalibro e NON si sposta: se lo ricalcolasse seguendo la
+# punta non finirebbe mai, e il denominatore cambierebbe sotto i piedi a chi lo usa.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "*/50 * * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: censimento
+  cancel-in-progress: false
+jobs:
+  censisci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        chain: [robinhood, base]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Segna l'inizio
+        run: date +%s > /tmp/inizio_giro
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Censimento
+        env:
+          CHAIN: ${{ matrix.chain }}
+          BUDGET_SEC: "3300"
+        run: python agents/censimento.py
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A data/multichain
+          if ! git commit -m "censimento ${{ matrix.chain }} $(date -u +%H:%MZ)"; then
+            echo "niente di nuovo"; exit 0
+          fi
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1
+            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 15 + 5))
+          done
+          echo "NON SONO RIUSCITO A SPINGERE: il censimento resta sul runner."
+          exit 1
+      - name: Riarmo
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DURATA=$(( $(date +%s) - $(cat /tmp/inizio_giro 2>/dev/null || echo 0) ))
+          if [ "$DURATA" -lt 300 ]; then
+            echo "GIRO DURATO SOLO ${DURATA}s: non mi riarmo."; exit 0
+          fi
+          CODICE=$(curl -s -o /tmp/r.out -w "%{http_code}" -X POST \
+            -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/censimento.yml/dispatches" \
+            -d '{"ref":"main"}')
+          [ "$CODICE" = "204" ] || { echo "RIARMO RESPINTO (HTTP $CODICE)"; cat /tmp/r.out; exit 1; }
+          echo "riarmata dopo ${DURATA}s"

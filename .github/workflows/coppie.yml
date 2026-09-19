@@ -1,0 +1,130 @@
+name: coppie
+# QUATTRO IP INVECE DI UNO (18/09). Il nodo pubblico limita per indirizzo IP: misurato, da una
+# macchina sola si ottengono 0,24 pool al secondo e ne' i fili ne' i lotti cambiano nulla (tre fili
+# rendono 0,22, sei fili zero, i lotti da 10 rendono ZERO perche' il nodo tronca la risposta in
+# silenzio). A base restavano 4.349 indirizzi: cinque ore di chiamate pure.
+# Ogni lavoro qui gira su un runner con IP proprio, quindi quattro fette vanno quattro volte piu'
+# veloci. E' la stessa leva gia' usata per lo scavo storico.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "25 */2 * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: coppie
+  cancel-in-progress: false
+jobs:
+  risolvi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        fetta: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Coppie base
+        env:
+          CHAIN: base
+          FETTA: ${{ matrix.fetta }}
+          N_FETTE: "4"
+          BUDGET_SEC: "1500"
+        run: python agents/coppie_token.py
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          if ! git commit -m "coppie fetta ${{ matrix.fetta }} $(date -u +%H:%MZ)"; then
+            echo "NIENTE DA SALVARE"; exit 0
+          fi
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1
+            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 15 + 5))
+          done
+          echo "NON SONO RIUSCITO A SPINGERE: le coppie di questa fetta vanno perse."
+          exit 1
+  unisci:
+    needs: risolvi
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      # SI RIPRENDE LO STATO PIU' FRESCO PRIMA DI UNIRE (18/09). Al primo giro l'unione ha visto
+      # solo una parte delle fette e ha perso 839 coppie: il checkout di questo lavoro puo' essere
+      # anteriore all'ultima spinta delle fette, anche se le aspetta tutte. Rifacendo l'unione a
+      # mano sullo stato aggiornato, base passava dal 29% al 38%.
+      # Un fetch prima di unire costa un secondo e toglie di mezzo la corsa fra i lavori.
+      - name: Prendi le fette piu' recenti
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+      - name: Segna l'inizio
+        run: date +%s > /tmp/inizio_giro
+      - name: Unisci le fette
+        run: python agents/coppie_unisci.py
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          if ! git commit -m "coppie unite $(date -u +%H:%MZ)"; then
+            echo "NIENTE DA UNIRE"; exit 0
+          fi
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1
+            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 15 + 5))
+          done
+          exit 1
+      - name: Riarmo
+        # IL CRON DA SOLO NON BASTA (19/09). Misurato stanotte: pianificata ogni due ore, questa
+        # corsia ha girato DUE volte invece di sei. GitHub salta i cron quando il repo e' occupato,
+        # e il nostro lo e' sempre. Quattro giri persi sono quattro giri di coppie non risolte,
+        # sull'unico lavoro che oggi blocca il cancello.
+        # Stessa soluzione gia' usata da nascite e vivo: la corsia si riarma da sola appena finisce.
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # LA GUARDIA DEVE MISURARE LA CORSIA, NON QUESTO LAVORO (19/09, difetto trovato al primo
+          # giro vero). Prima confrontavo con 120s un cronometro fatto partire DENTRO il lavoro di
+          # unione, che dura tre minuti — mentre la corsia intera ne dura trenta. Risultato: la
+          # guardia scattava sempre, il riarmo non partiva mai, e il passo usciva lo stesso con
+          # «success». Ventotto minuti dopo non c'era nessuna corsa nuova e il registro diceva
+          # «Riarmo=success».
+          # E' la stessa famiglia di difetti di ieri: qualcosa che dichiara di aver fatto una cosa
+          # che non ha fatto. Adesso il tempo si chiede alla corsa stessa, non a un cronometro
+          # locale che misura il pezzo sbagliato.
+          INIZIO=$(curl -s -H "Authorization: token $GH_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            | python3 -c "import sys,json,calendar,time; d=json.load(sys.stdin); print(calendar.timegm(time.strptime(d['run_started_at'],'%Y-%m-%dT%H:%M:%SZ')))")
+          DURATA=$(( $(date +%s) - ${INIZIO:-0} ))
+          echo "la corsia intera e' durata ${DURATA}s"
+          # un giro che muore subito non si riarma: un guasto deve costare attenzione, non
+          # diventare un motore perpetuo che brucia runner senza raccogliere nulla.
+          if [ "$DURATA" -lt 300 ]; then
+            echo "CORSIA DURATA SOLO ${DURATA}s: non mi riarmo, c'e' qualcosa che non va."
+            exit 0
+          fi
+          # e si guarda il codice della risposta: senza, un riarmo respinto con 403 si dichiara
+          # riuscito e la corsia resta ferma per ore sostenendo di essere ripartita.
+          CODICE=$(curl -s -o /tmp/riarmo.out -w "%{http_code}" -X POST \
+            -H "Authorization: token $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/coppie.yml/dispatches" \
+            -d '{"ref":"main"}')
+          if [ "$CODICE" != "204" ]; then
+            echo "RIARMO RESPINTO (HTTP $CODICE): la corsia NON ripartira'."
+            cat /tmp/riarmo.out
+            exit 1
+          fi
+          echo "riarmata dopo ${DURATA}s"

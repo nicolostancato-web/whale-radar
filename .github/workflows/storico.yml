@@ -1,0 +1,92 @@
+name: storico
+# LO STORICO COMPLETO DALLA CATENA, IN PARALLELO.
+# Scoperta del 14/09: il limite delle ~300 transazioni e' della FONTE gratuita, non della catena.
+# Chiedendo una FASCIA DI BLOCCHI per tutti i pool insieme (invece di un pool alla volta) il nodo
+# pubblico risponde subito. Sei fette scavano porzioni diverse di storia contemporaneamente: ogni
+# lavoro gira su una macchina diversa, quindi ha un limite di chiamate suo.
+# Costo: €0 — repo pubblico, minuti GitHub gratuiti e illimitati, nodi pubblici gratuiti.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "10 */4 * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: storico
+  cancel-in-progress: false
+jobs:
+  scava:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      # DODICI FETTE, NON SEI (15/09). Misurato ieri: usiamo il 27% del tetto di UN indirizzo, e
+      # GitHub concede fino a 20 lavori in parallelo su repo pubblico — ognuno su una macchina
+      # diversa, quindi con un limite di chiamate suo. Con sei fette la copertura saliva di un punto
+      # l'ora: troppo poco per arrivare in fondo stanotte. Dodici dimezzano il tempo, e restano
+      # otto lavori liberi per le altre corsie.
+      # Le fette coprono 0, 6, 12, 18, 24, 30 giorni indietro: i pool che valutiamo hanno una
+      # mediana di 23-25 giorni, quindi la fascia giusta e' tutta dentro.
+      max-parallel: 12
+      matrix:
+        # SEI FETTE, NON DODICI (17/09, misurato). Il tetto del piano gratuito e' 20 job
+        # in parallelo e le fette ne occupavano DODICI: il 60% della capacita'. Le altre
+        # cinque corsie — controlli del database, nascite, loop0, ricerca, engine —
+        # restavano in coda: la corsia database ha aspettato 135 MINUTI.
+        # E' un'inversione di priorita': il backfill ricostruisce storia vecchia (in parte
+        # sulla finestra sbagliata, visto che le nascite erano sfasate), mentre in coda
+        # aspettano i controlli che dicono se quella storia vale qualcosa.
+        # Sei fette scavano meta' del volume ma lasciano respirare tutto il resto. Un
+        # pezzo che lavora al massimo affamando gli altri non sta aiutando.
+        include:
+          # BASE HA FINITO (15/09): copertura 96%. Tenere sei fette a scavare una chain completa
+          # e' lavoro sprecato che pesa sulla storia del repo. Ne resta UNA, per i token nuovi che
+          # nascono ogni ora. Le altre cinque passano a Robinhood, che e' al 60% e ha VENTI VOLTE
+          # piu' blocchi da coprire (847.000 al giorno contro 43.200).
+          # RIEQUILIBRIO (15/09, secondo). Base era passata a una sola fetta perche' aveva finito.
+          # Ma poi le ho aggiunto i campi mancanti — block hash, indice transazione, semantica del
+          # wallet — e i 59.000 record vecchi vanno riscritti col formato completo: e' di nuovo
+          # lavoro da fare. Robinhood intanto e' salita al 69%.
+          # Sei e sei, distanziate di 6 giorni: coprono 0-36 giorni per entrambe.
+          - { chain: base,      fetta: 0 }
+          - { chain: base,      fetta: 1 }
+          - { chain: base,      fetta: 2 }
+          - { chain: base,      fetta: 3 }
+          - { chain: base,      fetta: 4 }
+          - { chain: base,      fetta: 5 }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Scava lo storico
+        env:
+          CHAIN: ${{ matrix.chain }}
+          FETTA: ${{ matrix.fetta }}
+          FETTE: "3"
+          PAUSA: "1.4"
+          BUDGET_SEC: "9000"
+          ORE_VITA: "6"
+          TETTO_POOL: "300"
+          GIORNI_FETTA: "6"
+        run: python agents/storico_evm.py
+      # IL SALVATAGGIO DEVE URLARE SE FALLISCE (14/09). La prima versione provava otto volte e poi
+      # finiva in silenzio con esito "riuscito": sei lavori hanno raccolto dati e riportato successo
+      # senza aver spinto niente. Un passo che fallisce e dice di essere riuscito e' peggio di un
+      # passo che fallisce.
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          if ! git commit -m "storico ${{ matrix.chain }} fetta${{ matrix.fetta }} $(date -u +%H:%MZ)"; then
+            echo "NIENTE DA SALVARE: il collettore non ha prodotto dati nuovi."
+            exit 1
+          fi
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1
+            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 15 + 5))
+          done
+          echo "NON SONO RIUSCITO A SPINGERE dopo 10 tentativi: i dati raccolti restano sul runner e vanno persi."
+          exit 1

@@ -1,0 +1,1040 @@
+================================================================================
+STATO WHALE-RADAR — 19 SETTEMBRE 2026, mattina
+LEGGI PRIMA QUESTA PARTE. Sotto c'e' lo storico.
+================================================================================
+
+DOVE SIAMO. Il loop 1 (la ricerca della percentuale) e' FERMO per decisione del
+fondatore: si lavora solo al database, e il cancello si apre quando il database e'
+PERFETTO.
+
+DUE COSE GROSSE SONO EMERSE OGGI, ed entrambe cambiano il piano. Le metto in cima
+perche' sono quelle su cui voglio essere messo sotto torchio.
+
+--------------------------------------------------------------------------------
+1. LA COPERTURA VERA E' 4%, NON 59%
+--------------------------------------------------------------------------------
+Ieri avevamo scritto DEFINIZIONE.md (cosa conta come memecoin) ma non era
+applicabile: conoscevamo la coppia di token per il 4% dei pool censiti. Con la
+corsia parallela nuova siamo saliti al 81%, quindi OGGI si applica.
+
+Applicata a base, sui 9854 pool con >=20 scambi nell'intervallo dichiarato:
+
+    memecoin secondo la definizione      5780  (57%)
+    coppia ancora ignota                 2051  (21%)
+    nessun lato e' valuta di base        2038  (21%)
+    coppia fra valute (infrastruttura)    123  ( 1%)
+
+    DI QUEI 5780 MEMECOIN NE ABBIAMO 228. IL 4%.
+
+E il 59% che riportavo ieri? E' un'altra domanda, e vanno tenute separate:
+  - copertura dell'AUDIT (59%): su finestre scelte ATTORNO ai pool che teniamo,
+    quanti eventi riguardano pool che stavamo raccogliendo. Dice quanto e' denso
+    l'archivio DOVE GUARDIAMO.
+  - copertura della POPOLAZIONE (4%): quanti dei pool che la definizione chiama
+    memecoin abbiamo davvero. Dice quanto del MERCATO teniamo.
+La condizione 1 chiede >=95% della popolazione definita. Siamo al 4%.
+
+PERCHE' NON CE NE ERAVAMO ACCORTI: i pool che teniamo sono molto piu' attivi della
+media (mediana 2.388 scambi contro 73). Guardando l'ATTIVITA' sembriamo coprire il
+30%; guardando i POOL, il 4%. Abbiamo i pochi grossi e ci mancano i molti piccoli —
+ed e' esattamente li' che una memecoin nasce prima di diventare grossa.
+
+CONSEGUENZA ONESTA: non siamo vicini a chiudere il cancello. Quello che ho chiuso
+in due giorni (il buco dei pool mai letti, il registro sporco, l'audit che misurava
+una chain sola, le nascite sbagliate) erano difetti veri, ma riguardavano la
+QUALITA' di cio' che teniamo. La QUANTITA' e' al 4% del dovuto.
+
+--------------------------------------------------------------------------------
+2. IL REPO E' A 3,1 GB E CRESCE DI ~700 MB AL GIORNO
+--------------------------------------------------------------------------------
+Trovato mentre preparavo i numeri per l'allargamento.
+
+    dati veri che servono          301 MB
+    repo su GitHub                 3162 MB
+    cartella .git in locale        3,4 GB
+    commit il 16/09                3.800
+    commit il 17/09                3.722
+    file .gz toccati per commit      174 (media)
+
+Dieci volte il peso dei dati e' CRONOLOGIA. Motivo strutturale: i dati sono file
+.gz, e fra due gzip non esiste delta — un file compresso cambiato di una riga e'
+per git un blob interamente nuovo. Ogni giro ne tocca 174 e ognuno resta nella
+storia per sempre.
+
+Limiti GitHub: consigliato <1 GB, avviso >5 GB, oltre 10 GB si puo' essere
+bloccati. PROIEZIONE: avviso in ~3 giorni, blocco in ~10.
+
+E QUESTO RICADE SUL PUNTO 1: per portare la copertura dal 4% al 95% servirebbe un
+fattore VENTI sui pool. Con questa curva il fattore venti non e' discutibile — il
+repo morirebbe prima. La domanda non e' piu' «quanto raccogliamo» ma «dove mettiamo
+i dati».
+
+Le tre strade (dettaglio in REPO_AL_LIMITE.md):
+  a) ramo separato per i dati, riscritto ogni settimana: repo torna a ~350 MB e ci
+     resta; si perde il poter rileggere lo stato di un giorno passato
+  b) squash periodico di main: stesso guadagno, ma riscrittura distruttiva
+  c) i dati fuori da git (Release o bucket): corsie da riscrivere, il bucket costa
+
+NON HO RISCRITTO NIENTE. Riscrivere la storia di un repo e' irreversibile e non la
+prendo da solo mentre dodici corsie ci scrivono dentro. Aspetto la decisione.
+
+--------------------------------------------------------------------------------
+3. COSA E' STATO CHIUSO DAVVERO (18-19/09)
+--------------------------------------------------------------------------------
+- IL BUCO DEI POOL MAI LETTI. Su una finestra che falliva mancavano 128 eventi;
+  tutti appartenevano a pool per cui non avevamo UNA SOLA RIGA, e ZERO cadevano in
+  tratti che stavamo gia' leggendo (cioe': l'archivio non e' troncato, mancavano
+  pool interi). Recuperati: 128 -> 0 sulla stessa finestra.
+  E ho scoperto che NON era un incidente chiuso: il giorno dopo c'erano altri 66
+  pool nella stessa condizione, tutti POOL VERI (25 su 25 controllati). Il
+  recuperatore adesso calcola i bersagli a ogni giro invece di leggere una lista
+  fissa: ne ha trovati 167.
+- IL REGISTRO SPORCO. 201 voci di robinhood NON SONO POOL (mai uno swap in tutta
+  la chain). Tolte, le nascite risolte passano dal 63% all'85% — in pari con base.
+  Avevo raccontato per settimane che robinhood era indietro: era il denominatore.
+- L'AUDIT MISURAVA UNA CHAIN SOLA: 141 finestre non misurabili su robinhood contro
+  17 di base. Corretto (tre tentativi, i primi due sbagliati in direzioni opposte).
+  Ora l'audit emette DUE numeri accanto — FEDELTA' e COPERTURA — e il secondo
+  impedisce di alzare il primo giudicando meno.
+  Stato: base fedelta' 88% / copertura 60% (199 finestre)
+         robinhood fedelta' 96% / copertura 87% (185 finestre)
+- IL NODO CHE MENTE. Il nodo pubblico di base risponde "0x" a una eth_call valida
+  quando e' sotto carico, SENZA segnalare errore. Mi era costato 28 falsi positivi
+  (pool veri messi in quarantena). Delimitato con misure: eth_call mente,
+  eth_getLogs no. Rimedio in agents/chiamata.py, che distingue «il nodo tace» da
+  «il contratto nega» — confonderli era la causa.
+- VELOCITA' DELLE COPPIE. Provati e SCARTATI con misura: lotti da 10 (rendono ZERO,
+  il nodo tronca la risposta in silenzio), eventi di creazione (1 pool utile per
+  chiamata), 3 fili paralleli (0,22 pool/s contro 0,24 di un filo solo), 6 fili
+  (zero). Il nodo limita per INDIRIZZO IP. Soluzione: 4 lavori GitHub paralleli,
+  4 IP. Base e' passata dal 28% al 81% in una notte.
+- UN RIARMO CHE MENTIVA. La corsia coppie dichiarava «Riarmo=success» e non
+  ripartiva mai: la guardia misurava la durata del lavoro di UNIONE (3 minuti)
+  invece della corsia (30), quindi scattava sempre. Corretto e VERIFICATO: adesso
+  genera davvero la corsa nuova.
+
+--------------------------------------------------------------------------------
+4. STATO DEL DATABASE ADESSO
+--------------------------------------------------------------------------------
+                                        base        robinhood
+  righe raccolte                        994606        1543805
+  registro (pool che seguiamo)            1922           596
+  nascite risolte dalla catena            1614           506
+  censimento (pool che hanno scambiato)  56460        110678
+  di cui attivi (>=20 scambi)             9854         19642
+  coppie di token risolte sugli attivi      81%          100%
+
+--------------------------------------------------------------------------------
+5. LE DECISIONI CHE ASPETTANO IL FONDATORE
+--------------------------------------------------------------------------------
+  a) DEFINIZIONE.md si approva cosi' com'e'? (lista valute di base, soglia 20
+     scambi) Finche' non e' approvata, sto misurando contro una proposta.
+  b) Si allarga la raccolta a tutta la popolazione definita (fattore venti) o si
+     restringe la popolazione con un criterio dichiarato, e la condizione 1 si
+     misura su quella?
+  c) Dove mettiamo i dati, visto il punto 2? Senza questa, la (b) non e' nemmeno
+     eseguibile.
+
+--------------------------------------------------------------------------------
+6. LA DOMANDA SU CUI VOGLIO ESSERE MESSO SOTTO TORCHIO
+--------------------------------------------------------------------------------
+Il filo di tutti gli errori di questi due giorni e' sempre lo stesso: MISURO UNA
+POPOLAZIONE CHE HA SCELTO IL MIO PROCESSO.
+  - il denominatore che si restringe   (integrita' 41% invece di 24%)
+  - il denominatore che si gonfia      (nascite robinhood 63% invece di 85%)
+  - il campione che sopravvive al nodo (28 pool veri messi in quarantena)
+  - l'audit che copre una chain sola   (robinhood 96% non misurabile)
+  - la copertura misurata dove guardo  (59% invece del 4% vero)
+
+L'ultimo e' il piu' grave e l'ho trovato solo oggi, dopo averne corretti quattro
+della stessa specie. QUINDI: quali ALTRE percentuali in questo documento hanno un
+denominatore scelto da noi e mai verificato dall'esterno? Attaccami su quelle.
+
+Una riserva che nessuno mi ha chiesto e che tengo aperta: su base la pulizia del
+registro NON e' verificata come su robinhood. Il nodo base rifiuta le domande a
+tutta altezza (si ferma a 2.000 blocchi con qualunque filtro), quindi non ho potuto
+chiedere «hai mai scambiato in tutta la chain». Su base ho usato un test piu'
+debole, e il 97% del registro e' verificato solo PER COSTRUZIONE (ha righe
+raccolte, quindi scambia). Non e' «base e' pulita»: e' «base non e' stata
+verificata allo stesso modo».
+
+================================================================================
+FINE AGGIORNAMENTO 19/09 — sotto, i documenti precedenti
+================================================================================
+
+
+
+================================================================================
+WHALE-RADAR — STATO COMPLETO DEL DATABASE E DEI RISULTATI
+Scritto il 17 settembre 2026, sera. Destinato a essere letto da un'altra AI per
+rispondere a domande su come siamo messi.
+================================================================================
+
+QUESTO DOCUMENTO CONTIENE TUTTO: cosa stiamo costruendo, i numeri veri di oggi,
+ogni difetto trovato e come è stato chiuso, i risultati degli esperimenti, e
+soprattutto ciò che NON sappiamo ancora. È scritto per essere autosufficiente:
+chi lo legge non ha bisogno di altro contesto.
+
+--------------------------------------------------------------------------------
+1. CHE COS'È QUESTO SISTEMA
+--------------------------------------------------------------------------------
+
+Whale-radar raccoglie gli scambi (swap) di memecoin da alcune blockchain per
+poter poi cercare, in modo statisticamente onesto, se esiste un vantaggio
+ripetibile su cui valga la pena rischiare soldi veri.
+
+Chi lo fa: un fondatore solo, budget vicino a zero. Tutto gira gratis su GitHub
+Actions con nodi RPC pubblici e API gratuite.
+
+Chain seguite:
+  - base       (EVM, matura, ben indicizzata dai servizi terzi)
+  - robinhood  (EVM, nuovissima, mal indicizzata dai servizi terzi)
+  - solana     (fuori dallo scopo del database per decisione del 16/09)
+  - bsc        (analisi storica, non più raccolta attiva)
+
+Cosa teniamo di ogni pool: le PRIME SEI ORE DI VITA, massimo 300 scambi per
+pool. La scelta è deliberata: l'ipotesi di ricerca è che il vantaggio, se
+esiste, stia nei primi momenti di vita di un token.
+
+Come raccogliamo, tre modi con proprietà diverse:
+  - FETTE (storico): scavano all'indietro nella catena leggendo i log degli
+    eventi di swap su intervalli di blocchi. Ricostruzione storica.
+  - CODA VIVA: sta attaccata alla punta della catena e prende i fatti mentre
+    succedono. È l'unico dato che potrà essere certificato point-in-time.
+  - RECUPERO NASCITE: va a prendere le prime ore dei pool scoperti tardi.
+
+Firme degli eventi di swap usate (trovate empiricamente, non da tutorial):
+  V2  0xd78ad95fa46c994b6551d0da85fc275fe613ce37657fb8d5e3d130840159d822
+  V3  0xc42079f94a6350d7e6235f29174924f928cc2ac818eb64fed8004e115fbcca67
+  V4  0x40e9cecb9f5f1f1c5b9c97dec2917b7ee92e57ba5563708daca94dd84ad7112f
+  Initialize (creazione pool V4)
+      0xdd466e674ea557f56295e2d0218a125ea4b4f0f6f3307b95f85e6110838d6438
+
+Per i pool V4 l'identità NON è un indirizzo: vivono dentro un contratto solo
+(il PoolManager) e l'identità è un id a 64 caratteri che sta in topics[1].
+Questo ha richiesto codice diverso da quello dei pool V2/V3.
+
+--------------------------------------------------------------------------------
+2. I NUMERI DI OGGI (17 settembre 2026, sera)
+--------------------------------------------------------------------------------
+
+NASCITE (data di creazione di ogni pool — vedi sezione 4.6 per perché conta)
+  base:       1609 su 1925 risolte dalla catena = 84%
+              20 non confermate (dichiarate tali)
+              errore delle candele: mediana +0,00 ore, ma il 23% oltre 6 ore
+  robinhood:  481 su 795 = 61%
+              75 non confermate
+              errore delle candele: mediana +15,59 ore, il 76% oltre 6 ore
+
+COPPIE DI TOKEN (quali due token stanno ai lati di ogni pool)
+  base:       1984 su 1925 = 103%  (il registro si è ristretto, da qui >100%)
+  robinhood:  620 su 795 = 78%
+  Nota: era 0% il 16 settembre mattina. Non esisteva alcun raccoglitore.
+
+INTEGRITÀ (quello che abbiamo corrisponde a quello che dice la catena?)
+  finestre con misure corrette: 566
+  di cui misurabili:            353
+  di cui identiche:             126 = 36%
+  record inventati:             0
+  quota mancante mediana nelle finestre con discrepanza: 66%
+  pool esclusi perché al tetto dei 300 scambi: mediana 3 per finestra
+  finestre totali a registro (comprese quelle con misure vecchie): 2240
+
+CANONICITÀ (i blocchi che abbiamo appartengono ancora alla catena?)
+  base:       110.824 blocchi verificati, 0 orfani
+  robinhood:   81.796 blocchi verificati, 0 orfani
+  intervalli dichiarati e verificati per intero: 45 su base, 33 su robinhood
+  ANOMALIA APERTA: l'ultimo intervallo di base riporta "300 altezze lette,
+  0 rotture, 301 altezze mancanti" — un conteggio incoerente, probabilmente
+  perché il nodo di base accetta solo lotti da 10 blocchi e il controllo non
+  legge tutte le altezze dichiarate. Da indagare.
+
+CODA VIVA (il dato preso mentre succede)
+  base:       221.270 scambi, ultimo 3 minuti fa, ritardo mediano 0,0 minuti
+              point-in-time certificabili: 148.057 su 166.475
+              buchi dichiarati: 3
+  robinhood:  315.096 scambi, ultimo 3 minuti fa, ritardo mediano 0,1 minuti
+              point-in-time certificabili: 258.969 su 295.455
+              buchi dichiarati: 24
+
+UNIVERSO INDIPENDENTE (tutti i pool che esistono sulla catena, che li
+conoscessimo o no)
+  base:        7.823 pool scoperti
+  robinhood:  28.523 pool scoperti
+  Per confronto: il nostro registro ne contiene 1925 e 795.
+
+SOPRAVVIVENZA (perché i pool che NON abbiamo non ce li abbiamo)
+  robinhood: 1240 pool con esito
+     mai scambiato    655 (53%)
+     sotto soglia     297 (24%)
+     scoperto tardi   288 (23%)
+  base: 8507 pool con esito
+     mai scambiato   5077 (60%)
+     sotto soglia    1887 (22%)
+     scoperto tardi  1539 (18%)
+     preso              4
+  PERSI SENZA RAGIONE: ZERO su entrambe le chain.
+
+RECUPERO NASCITE (robinhood)
+  tratti chiusi: 12, cursori aperti: 8
+
+--------------------------------------------------------------------------------
+3. LE SETTE CONDIZIONI CHE CI SIAMO DATI
+--------------------------------------------------------------------------------
+
+Prima di dichiarare il database utilizzabile per cercare un vantaggio, ci siamo
+imposti sette condizioni. Nessuna è stata scelta a posteriori.
+
+1. COPERTURA PER CHAIN (non aggregata), ≥95%
+   Stato: ROSSA.
+   Si misura su due metri: nascite possedute e finestre identiche nell'audit.
+   base 84% di nascite risolte, robinhood 61%. Finestre identiche: 36%.
+
+2. SOLANA ESISTE
+   Stato: FUORI SCOPO per decisione del 16/09, non dichiarata verde.
+   Motivo: Solana non è EVM, non c'è eth_getLogs, servirebbe un'architettura
+   diversa. Stimati 3-5 giorni. Decisione: prima finire base e robinhood.
+
+3. POINT-IN-TIME PROVATO (≥299 osservazioni prospettiche per strato)
+   Stato: GIALLA.
+   La coda viva raccoglie con ritardo mediano di 0,0-0,1 minuti e oltre 400.000
+   scambi certificabili. Il conteggio per strato va ancora formalizzato.
+
+4. OGNI RECORD ETICHETTATO (acq + classe)
+   Stato: GIALLA.
+   L'etichetta la decide il ritardo MISURATO, non l'intenzione. Ogni record
+   porta dentro il proprio ritardo. La bonifica dei record vecchi è completa
+   su base (1044 pool su 1044).
+
+5. INTEGRITÀ SU ≥299 FINESTRE, ZERO DISCREPANZE
+   Stato: ROSSA. 126 identiche su 353 misurabili = 36%.
+   QUESTIONE APERTA: "zero discrepanze" preso alla lettera non si raggiungerà
+   mai — basta una riorganizzazione della catena. La lettura proposta è "zero
+   discrepanze NON SPIEGATE": ogni scarto deve avere una causa scritta. La
+   decisione è in sospeso.
+
+6. MAPPATURA COMPLETA (chain, pool, coppia di token, block hash, istante,
+   semantica del wallet dichiarata)
+   Stato: GIALLA. Coppie di token da 0% a 103%/78%. Block hash presente.
+   La semantica del wallet è dichiarata in ogni record (v2:to, v3:recipient,
+   v4:sender) — scelta importante perché quel campo può essere un router, un
+   aggregatore o un contratto, non necessariamente chi ha DECISO lo scambio.
+
+7. SOPRAVVIVENZA (≥59 esclusioni campionate a caso con causa classificata)
+   Stato: VERDE.
+   9747 pool classificati fra le due chain, zero "persi senza ragione".
+
+--------------------------------------------------------------------------------
+4. TUTTI I DIFETTI TROVATI E CHIUSI
+--------------------------------------------------------------------------------
+
+Questa è la parte più importante del documento. In tre giorni sono stati trovati
+e chiusi venti difetti. Riletti insieme hanno una firma comune: STRUMENTI CHE,
+NON SAPENDO, RASSICURAVANO. Quasi nessuno era un errore di raccolta dei dati:
+erano misure che descrivevano qualcosa di diverso da quello che il loro nome
+diceva.
+
+4.1  "99,6% DI COPERTURA" CONTAVA I FILE, NON I BLOCCHI
+     Dicevamo 99,6% su base e 76% su robinhood. Quel numero contava i pool per
+     cui ESISTE UN FILE. Prova: un pool "coperto" aveva 400 record spalmati su
+     28 milioni di blocchi — dati ai due bordi, vuoto in mezzo.
+     La copertura vera è la quota di finestre identiche dell'audit: allora 83%,
+     poi corretta a 16%, oggi 36%.
+
+4.2  "83% DI FINESTRE IDENTICHE" CHIAMAVA IDENTICHE LE FINESTRE VUOTE
+     Dopo aver escluso (giustamente) gli eventi fuori dalla finestra di
+     conservazione, spesso non restava NIENTE da confrontare. Quelle finestre
+     venivano registrate "identici". Misurato: una finestra escludeva 1057
+     eventi e ne confrontava 1, e risultava verde.
+     Corretto: una finestra senza confronti è "NON MISURABILE", non identica.
+     Effetto immediato: da 83% a 16%.
+
+4.3  "2 RECORD INVENTATI" ERANO AVANZI DEL VECCHIO FORMATO
+     L'audit accusava 2 record di essere inventati — il difetto peggiore
+     possibile. Verificato a mano: avevano bh:None e classe:None, cioè erano
+     record di prima del cambio formato, mai salvati con l'indice completo,
+     quindi inconfrontabili per costruzione.
+     Record inventati reali: ZERO, e tali sono rimasti su 566 finestre.
+
+4.4  LE FETTE NON TORNANO SUI PROPRI PASSI
+     Le fette filtrano la lista dei pool NEL MOMENTO in cui passano. Un pool
+     scoperto dopo che una fetta è transitata dal suo blocco di nascita resta
+     senza storia per sempre.
+     Su robinhood erano 354 pool su 768.
+
+4.5  IL REGISTRO DEI POOL VENIVA DA UN'API DI TERZE PARTI
+     Il nostro elenco di pool nasceva da GeckoTerminal, che impiega ore o
+     giorni a elencare un pool nuovo. Ma noi teniamo le PRIME SEI ORE di vita.
+     Arrivavamo sistematicamente dopo la finestra che dicevamo di studiare.
+     Misura che l'ha svelato: nelle ultime 24 ore su robinhood erano nati
+     16.514 pool; il nostro registro ne conosceva CINQUE.
+     Rimedio: lo "scopritore" legge l'evento Initialize dalla catena, che esiste
+     nell'istante in cui il pool nasce e non dipende da nessuno. Risultato:
+     un pool entra nel registro in secondi invece che in ore, e la coda viva è
+     passata da 118 a oltre 600 pool osservati.
+
+4.6  LA NASCITA CHE USAVAMO ERA SBAGLIATA — IL DIFETTO PIÙ GRAVE
+     Tutto il database usava come "nascita" di un pool il primo istante delle
+     sue CANDELE. Ma le candele cominciano quando GeckoTerminal SI ACCORGE del
+     pool, non quando il pool nasce.
+     Misurato contro l'evento Initialize della catena:
+        base, pool V4:        errore mediano +0,00 ore, 23% oltre 6 ore
+        robinhood, pool V4:   errore mediano +15,6 ore, 76% oltre 6 ore
+        robinhood, indirizzo: errore mediano +114 ore (quasi 5 giorni)
+     Significato: su robinhood, per tre quarti dei pool, quelle che abbiamo
+     raccolto e chiamato "prime sei ore" NON SI SOVRAPPONGONO alle prime sei
+     ore vere. Non è un dato impreciso: è il dato di un altro periodo.
+     Contagia: l'audit di integrità (il filtro decide cosa confrontare), la
+     classificazione delle esclusioni, la misura di copertura, la selezione dei
+     pool giovani, e il LOOP 1 (vedi sezione 5).
+     Rimedio: agents/nascita_vera.py. Per i pool V4 l'evento Initialize, con
+     una sola chiamata su tutta la catena. Per i pool con indirizzo il primo
+     scambio trovato camminando all'indietro.
+
+4.7  L'ORARIO DEI RECORD ERA FALSO FINO A 84 MINUTI
+     L'istante di ogni scambio veniva interpolato da un riferimento (blocco di
+     punta, ora) preso UNA VOLTA all'avvio del giro. Quel riferimento invecchia
+     con il giro: dopo un'ora, i blocchi appena presi risultavano vecchi di
+     mezz'ora.
+     Misurato su un blocco vero: istante scritto 1789538007, istante vero
+     1789539905, errore -31,6 minuti. Su base lo scarto mediano della bonifica
+     è risultato 76-84 minuti.
+     Due conseguenze: (a) il ritardo sembrava 21 minuti quando il vero era
+     ZERO, e declassavamo record point-in-time perfetti; (b) il campo ts —
+     su cui poggiano embargo, unioni e ogni analisi futura — conteneva un orario
+     inventato.
+     Rimedio: si chiedono alla catena gli istanti veri dei due estremi di ogni
+     lotto e si interpola solo dentro quelli. Verificato: errore 0 secondi.
+     Più una bonifica retroattiva: 2033 pool corretti, base completa (1044/1044).
+
+4.8  LA CODA VIVA RINCORREVA INVECE DI SALTARE ALLA PUNTA
+     Il cursore accumulava arretrato e lo rincorreva in ordine senza mai
+     raggiungere la punta: ritardo mediano salito a 67,6 minuti su base e 53 su
+     robinhood, mentre continuava a marchiare ogni record "point-in-time".
+     Rimedio: se resta indietro oltre una soglia, SALTA alla punta e DICHIARA
+     il buco (scritto in vivo_buchi.jsonl). Quei blocchi il backfill li rifà
+     domani; il blocco di adesso, se lo perdi mentre rincorri, non torna più.
+     Risultato: ritardo mediano 0,0-0,1 minuti.
+
+4.9  LA SOGLIA DELL'ARRETRATO ERA IN BLOCCHI, NON IN TEMPO
+     Ventimila blocchi sono 33 minuti su robinhood (10 blocchi/s) e UNDICI ORE
+     su base (1 blocco ogni 2 s). La stessa soglia scritta in blocchi vuol dire
+     cose lontanissime su due chain diverse.
+
+4.10 IL TETTO DEI 300 SCAMBI VENIVA CONTATO COME GUASTO
+     L'audit escludeva i pool "al tetto" — quelli di cui smettiamo di
+     raccogliere per nostra scelta — ma li contava DOPO che il filtro della
+     nascita aveva già ristretto l'insieme.
+     Misurato su una finestra: 90 pool su 96 erano al tetto, l'audit ne ha
+     riconosciuti 4, e 656 eventi che non raccogliamo deliberatamente sono
+     finiti fra i "mancanti".
+     Rimedio in due passi: prima unendo catena+casa (da 4 a 40 esclusi), poi
+     usando la popolazione dei LOG GREZZI, prima di ogni filtro (69-141 esclusi
+     per finestra). I mancanti sono crollati da 60-191 a 2-40.
+
+4.11 QUATTRO RACCOGLITORI RIPARTIVANO DA CAPO A OGNI GIRO
+     Fette, recupero nascite, sopravvivenza e coppie di token: ognuno, a un
+     certo punto, ricominciava dal principio invece di riprendere dove si era
+     fermato. Sintomo sempre identico: un numero che si blocca e sembra un
+     limite esterno. Le coppie di token erano "piantate al 51%" per questo.
+
+4.12 LA CHIAVE DEL SEGNALIBRO ERA MOBILE
+     Nel recupero nascite i confini dei tratti nascono dalla fusione degli
+     intervalli dei pool: bastava che lo scopritore aggiungesse un pool e il
+     confine si spostava di qualche minuto, quindi la chiave cambiava e il
+     lavoro fatto non veniva più riconosciuto. Quattro cursori aperti su tratti
+     quasi identici, 16.837 chiamate senza chiudere un solo tratto.
+     Rimedio: confini arrotondati a una griglia di sei ore.
+
+4.13 UN CAMMINO TRONCATO CONTATO COME NASCITA
+     Il cammino all'indietro per trovare il primo scambio si fermava anche
+     quando finivano i tratti concessi — e in quel caso il "primo scambio" era
+     soltanto il bordo della ricerca. Misurato: 54 su 64 erano troncati, e
+     producevano scarti falsi di +257 ore.
+     Rimedio: si dichiara se il cammino è finito (fonte "catena") o è stato
+     troncato (fonte "catena-non-confermata"), e solo il primo entra nelle
+     statistiche.
+
+4.14 IL PASSO FISSO NON ARRIVAVA MAI IN FONDO
+     Tratti da 100.000 blocchi con tetto di 24 = 2,4 milioni, che su robinhood
+     sono 67 ore. Ogni pool che scambia da settimane si troncava: zero conferme.
+     Rimedio: passo che RADDOPPIA a ogni giro riuscito. Dieci chiamate coprono
+     cento milioni di blocchi invece di un milione. Da 0 a 16 conferme su 35.
+
+4.15 UN PEZZO SENZA LIMITE AFFAMAVA GLI ALTRI (dentro un agente)
+     La scansione dei pool V4 su base girava "finché c'è budget", quindi non
+     finiva mai e la sezione dei pool con indirizzo — 328 pool — non veniva mai
+     raggiunta: zero tentativi, giro dopo giro, in silenzio.
+     Rimedio: la scansione ha il 60% del tempo, il resto resta a chi viene dopo.
+
+4.16 IL BACKFILL AFFAMAVA I CONTROLLI (fra le corsie)
+     Lo stesso difetto un livello più su. Il tetto del piano gratuito è 20 job
+     in parallelo; le fette ne occupavano DODICI, il 60% della capacità. Le
+     altre cinque corsie restavano in coda: la corsia database ha aspettato
+     135 MINUTI, ricerca 75, engine 71.
+     Rimedio: sei fette invece di dodici.
+
+4.17 "NON PROVATO" CONTATO COME "NON LEGGIBILE"
+     Ripetuto in tre punti diversi (canonicità, bonifica orari, risoluzione
+     simboli): quando un lotto falliva, i suoi elementi venivano contati come
+     "irrecuperabili" invece di essere riprovati. Su un giro solo della bonifica
+     erano 3.162 record dichiarati perduti; insistendo, ZERO.
+
+4.18 IL to_date DELLA RICERCA SU X È ESCLUSIVO
+     Con from_date = to_date = giorno si chiede un intervallo VUOTO. Dieci
+     chiamate a pagamento buttate, e per dieci volte è stato letto "nessun
+     candidato" dando la colpa al prompt.
+
+4.19 IL GIUDICE AUTOMATICO CERCAVA "ZERO" IGNORANDO LE MAIUSCOLE
+     Una risposta perfettamente buona che dicesse "zero red flags" veniva
+     marcata come RIFIUTO. Il ciclo di addestramento si sarebbe addestrato sul
+     rumore del proprio metro, riscrivendo il prompt per un problema inesistente.
+
+4.20 IL RIARMO AUTOMATICO DICHIARAVA DI AVER FUNZIONATO SENZA FUNZIONARE
+     Mancava il permesso actions:write, la richiesta veniva respinta con 403, e
+     curl — che non guarda il codice di risposta — usciva contento stampando
+     "riarmata". La corsia è rimasta ferma tre ore e mezza dicendo di essersi
+     riavviata.
+     Rimedio: si controlla il codice HTTP e il passo FALLISCE se non è 204.
+
+ALTRI DIFETTI MINORI CHIUSI
+  - conteggio di sopravvivenza gonfiato: 3791 casi dichiarati erano 626 pool
+    distinti contati più volte
+  - una RecursionError pubblicata DUE VOLTE nello stesso giorno, perché la
+    verifica contava le definizioni di funzione invece delle chiamate, e il test
+    locale non attraversava il ramo modificato
+  - due chain con limiti di nodo diversi trattate come uguali: base accetta
+    2.000 blocchi per query di Initialize e lotti da 10 blocchi; robinhood
+    accetta 500.000 blocchi e lotti da 100. Una costante fissata al valore di
+    robinhood faceva fallire base sistematicamente, e sembrava "base è lenta"
+  - "base non fa i lotti" dedotto da UN solo tentativo con 25 blocchi; riprovato
+    per gradi, il limite vero è 10. Costo dell'errore: dieci volte la velocità
+    della bonifica su base
+
+--------------------------------------------------------------------------------
+5. IL LOOP 1 (la ricerca del vantaggio) — STATO E PROBLEMA GRAVE
+--------------------------------------------------------------------------------
+
+Il loop 1 è il ciclo che prova strategie sui dati raccolti e misura la
+percentuale per chain. Ultimo aggiornamento: 17 settembre, 09:18 UTC.
+
+RISULTATI ATTUALI (walk-forward, il cancello del live è a +40% robusta su 150+
+token):
+
+  chain       media   robusta   trade in guadagno   peso dei 3 colpi migliori
+  robinhood    -9%     -22%     35% (48 trade)      19%
+  base         -4%      -8%     22% (250 trade)      6%
+  solana      -24%     -26%     12% (370 trade)      4%
+  bsc         -21%     -24%     14% (397 trade)      4%
+
+Tutte NEGATIVE. Dettaglio su robinhood: su 49 token il modello ne sceglie 48, il
+colpo migliore ha fatto +246%, il trade mediano fa -19%, e togliendo i tre colpi
+migliori resta -22%. Tiene nel tempo? Prima metà dei token -14%, metà più
+recente -30%: sta PEGGIORANDO.
+
+IL PROBLEMA GRAVE, SCOPERTO IL 17 SETTEMBRE
+L'esploratore (agents/explorer.py) prende la data di nascita dalle CANDELE:
+
+    if d.get("t0"): nato = int(d["t0"])
+    ...
+    if cs[0][0] > t0c + entry_h * 3600: continue   # "preso troppo tardi"
+
+Quindi la finestra d'ingresso è calcolata sul dato che sappiamo sbagliato
+(sezione 4.6). Conseguenza:
+
+  base:           errore mediano 0 ore  -> testa l'ingresso nelle prime ore vere
+  robinhood V4:   +15,6 ore             -> testa l'ingresso al SECONDO giorno
+  robinhood indir: +114 ore             -> testa l'ingresso al QUINTO giorno
+
+Su robinhood il loop 1 crede di misurare "compro nelle prime ore di vita" e in
+realtà misura "compro giorni dopo il lancio". Ed è proprio robinhood il risultato
+peggiore (-22%). Entrare tardi su una memecoin è esattamente il modo di perdere.
+
+QUANTO CAMBIEREBBE, MISURATO
+  base:      373 token su 1606 (23%) hanno la nascita spostata di oltre 6 ore
+  robinhood: 358 token su 470 (76%) hanno la nascita spostata di oltre 6 ore
+
+Cioè: correggendo, su robinhood cambierebbe la finestra d'ingresso per TRE TOKEN
+SU QUATTRO, su base per UNO SU QUATTRO.
+
+STATO DELLA DECISIONE: IN SOSPESO. È stato proposto di collegare nascita_vera
+all'esploratore — cambiando solo da dove viene la data di nascita, senza toccare
+soglie, strategie o parametri — e si attende l'autorizzazione del fondatore.
+
+NOTA IMPORTANTE PER CHI ANALIZZA: il -8% di base su 250 trade è calcolato su dati
+in larga parte corretti, quindi è un risultato credibile. Il -22% di robinhood
+NON è credibile come misura della strategia che crediamo di testare.
+
+--------------------------------------------------------------------------------
+6. L'ESPERIMENTO SOCIAL SU X / GROK — CHIUSO CON VERDETTO NEGATIVO
+--------------------------------------------------------------------------------
+
+LA DOMANDA: quando l'attenzione su X accelera su una memecoin, quell'accelerazione
+contiene informazione sul comportamento successivo, o arriva dopo che prezzo e
+volume si sono già mossi?
+
+DUE DISEGNI PROVATI
+
+(a) LIVE — chiedere a Grok, adesso, quali memecoin mostrano attenzione iniziale.
+    Risultato: inutilizzabile. Su 39 confronti, 36 avevano il prezzo IDENTICO fra
+    una misura e l'altra: i token coinvolti non scambiano abbastanza perché il
+    prezzo si muova fra T+5m e T+30m. GIGADOG aveva 34 dollari di volume in 24
+    ore. Le finestre corte sono prive di senso su token così illiquidi.
+
+(b) RETROSPETTIVO — scegliere un giorno PASSATO e chiedere a Grok, con la vista
+    tappata a quel giorno tramite from_date/to_date dello strumento x_search,
+    quali memecoin mostravano segnali precoci. Poi verificare sui prezzi reali.
+    Questo disegno funziona, perché la verifica è immediata e Grok non può vedere
+    il futuro anche volendo — non è una promessa nel prompt, è un limite dello
+    strumento.
+
+IL RISULTATO DEL RETROSPETTIVO, CON GRUPPO DI CONTROLLO
+
+                                    ANNUSATA    CONTROLLO (a caso)
+  campione                          27 / 19 ver.  101 / 52 ver.
+  partiti (picco >= 1,5x)              26%           23%
+  chiusi sopra il prezzo d'ingresso    11%           37%
+  chiusura mediana a 24h              0,570         0,983
+  picco mediano                       1,186         1,031
+  crolli sotto la metà del valore      47%           17%
+
+LETTURA: sul trovare i pump l'annusata non aggiunge nulla (26% contro 23% è
+rumore). Sul tenere è NETTAMENTE PEGGIO del caso: i token casuali chiudono in
+pari, quelli annusati a -43%, e quasi la metà perde oltre metà del valore contro
+un sesto dei casuali.
+
+PERCHÉ: l'annusata funziona, trova davvero l'hype. Ma sulle memecoin l'hype è il
+segnale che qualcuno sta scaricando. Non è "nessun segnale": è un segnale reale,
+orientato nella direzione sbagliata per comprare.
+
+CONFERMA INDIPENDENTE: interrogando Grok su quanti post avesse davvero letto, la
+risposta è stata da 2 a 6 post da 2 a 6 account distinti per token. E in due casi
+il primo post era dell'account UFFICIALE del token (@Sibahe_, @CocaInuCoin). Non
+stavamo intercettando attenzione: stavamo leggendo il comunicato di chi vende.
+
+COME È STATO RESO ONESTO IL CONFRONTO
+  - stessi giorni, stesse chain, pool nati in quel giorno
+  - stesso verificatore, stessa soglia, stesse finestre per entrambi i gruppi
+  - scelta del controllo deterministica da un seme scritto: riproducibile
+  - nessun criterio che guardi cosa è successo dopo (non si escludono i morti)
+  - "PARTITO" definito PRIMA di guardare: picco >= 1,5x
+  - verdetto sdoppiato in picco / fondo / chiusura, perché il primo token
+    verificato ($USMS) ha fatto 2,26x e nelle STESSE sei ore è andato a ZERO
+
+IL PROMPT È STATO AFFINATO DA CHATGPT IN SEI VERSIONI
+  v0  JSON a otto campi          -> ZERO token, Grok si blocca
+  v1  una riga per token         -> 7 token con chain e contratti: funzionava
+  v2  forense, tutte le prove    -> "NESSUN CANDIDATO": scarta token che HA VISTO
+  v3  prove parziali ammesse     -> primo successo
+  v5  con fase di scoperta       -> 2 su 2
+  v9/v11                         -> 5, 6 e 7 token al giorno
+Il salto è avvenuto ammettendo candidati con prove PARZIALI purché dichiarino
+cosa manca, invece di scartarli.
+
+COSTO TOTALE DELL'ESPERIMENTO: 1,06 dollari.
+DECISIONE: corsia disattivata, chiave e codice conservati. Quando il database
+avrà candidati da verificare, si riattiva. Il pricing di X Search cambia il 21
+settembre da 5 dollari per 1000 CHIAMATE a 5 dollari per 1000 POST recuperati:
+con la cadenza precedente si passerebbe da ~7 a ~107 euro al mese.
+
+LA STRADA CHE RESTA APERTA: X come CONFERMA su un candidato che il database ha
+già selezionato, non come sorgente di candidati. Con i dati che abbiamo — ora
+esatta dell'accumulo on-chain e ora esatta del primo post — la domanda
+"l'attenzione arriva prima o dopo?" si risponde per ogni singolo caso invece che
+su un campione. E dato il risultato sopra, il controllo servirà probabilmente
+come BANDIERA ROSSA: se su X se ne parla già, sei arrivato dopo.
+
+--------------------------------------------------------------------------------
+7. QUELLO CHE NON SAPPIAMO ANCORA
+--------------------------------------------------------------------------------
+
+7.1  Perché l'integrità è al 36% e non più alta.
+     Nelle finestre con discrepanza manca il 66% degli eventi, in mediana. Le
+     cause note (tetto dei 300, finestra di vita, pool scoperti tardi) sono state
+     tutte escluse dal conteggio. Il residuo non è spiegato.
+     Ipotesi scartata: che i pool potati sotto i 300 record non venissero più
+     riconosciuti come al tetto. La firma sarebbe stata un affollamento nella
+     fascia 250-299; invece ci sono 6 pool su base e 3 su robinhood.
+     Dato che emerge invece: base ha il 41% dei pool con meno di 100 record.
+
+7.2  Se le candele di base siano accurate anche per i pool con indirizzo.
+     Sappiamo che sono esatte per i pool V4 di base (1609 casi, mediana 0 ore).
+     ASSUMIAMO che lo siano anche per i ~300 pool con indirizzo. NON l'abbiamo
+     verificato: il nodo di base obbliga a tratti da 4.000 blocchi e servirebbero
+     migliaia di chiamate per pool.
+     Questa assunzione è scritta esplicitamente perché su questo progetto le
+     assunzioni ragionevoli si sono rivelate false tre volte in due giorni.
+
+7.3  L'anomalia del controllo di canonicità su base.
+     L'ultimo intervallo dichiarato riporta "300 altezze lette, 0 rotture, 301
+     altezze mancanti": un conteggio incoerente.
+
+7.4  Se il 36% di integrità sia un tetto strutturale o un difetto ancora nascosto.
+     Ammorbidendo la condizione da "zero mancanti" a "meno del 10% mancante" il
+     tasso passerebbe solo da 36% a 41%: quindi non è una soglia troppo severa,
+     è dato che manca davvero.
+
+7.5  Se correggere la nascita nel loop 1 cambi il segno del risultato o solo il
+     valore. Non lo sapremo finché non lo si fa.
+
+--------------------------------------------------------------------------------
+8. COSTI
+--------------------------------------------------------------------------------
+
+Tutto il database: ZERO. Nodi RPC pubblici, GitHub Actions su repo pubblico,
+GeckoTerminal gratuito.
+Esperimento social: 1,06 dollari in totale (xAI/Grok API), corsia ora disattivata.
+Consulenze con ChatGPT: incluse nell'abbonamento esistente, zero costo marginale.
+
+VINCOLO NOTO: il tetto di 20 job in parallelo su GitHub Actions è la risorsa
+scarsa dell'intera infrastruttura, non i soldi.
+
+--------------------------------------------------------------------------------
+9. LE CORSIE CHE GIRANO
+--------------------------------------------------------------------------------
+
+  storico    6 fette che scavano la storia (erano 12, ridotte per non affamare
+             le altre)
+  vivo       la coda viva, giri da 55 minuti che si riarmano da soli
+  nascite    il recupero delle prime ore dei pool scoperti tardi
+  database   undici controlli in sequenza: scopritore, nascita vera, coppie di
+             token, bonifica orari, elenco righe, integrità, canonicità,
+             qualità, sopravvivenza, coorte, battito
+  loop0      ispezione permanente
+  ricerca, engine, sperimenti  la ricerca del vantaggio
+  social     DISATTIVATA
+
+Le corsie lunghe si riarmano da sole alla fine del giro, con una guardia: sotto i
+cinque minuti di durata NON si riarmano e il passo fallisce, perché un guasto
+deve costare attenzione e non diventare un motore perpetuo.
+
+--------------------------------------------------------------------------------
+10. LA LEZIONE TRASVERSALE
+--------------------------------------------------------------------------------
+
+Venti difetti in tre giorni, e quasi nessuno era nei dati raccolti. Erano tutti
+nelle MISURE: numeri veri su una popolazione e falsi sull'universo, soglie
+scritte nell'unità sbagliata, filtri applicati a popolazioni diverse da quelle
+giudicate, cammini troncati spacciati per risultati, e conteggi che dicevano
+"perduto" dove la verità era "non ho insistito".
+
+La regola che ne è uscita, applicata ovunque: OGNI NUMERO DEVE DICHIARARE DA DOVE
+VIENE E COSA HA ESCLUSO. Nel database ogni record porta il campo `fonte`
+(catena / catena-non-confermata / candela), ogni finestra dell'audit porta quanti
+pool ha escluso e perché, ogni nascita dice se il cammino che l'ha trovata è
+finito o è stato troncato.
+
+Un dato che non dice da dove viene costringe chi lo usa a fidarsi. E la fiducia è
+esattamente ciò che ci ha fatto perdere due giorni.
+
+================================================================================
+FINE
+================================================================================
+
+
+================================================================================
+APPENDICE — COME LAVORIAMO CON CHATGPT
+Aggiunta il 17 settembre 2026, sera, su richiesta esplicita del fondatore.
+================================================================================
+
+Questa appendice descrive in dettaglio il rapporto fra i due modelli: chi fa
+cosa, con che meccanismo, quante volte, con quali risultati concreti, e se
+conviene aumentare la frequenza.
+
+--------------------------------------------------------------------------------
+A.1  LA DIVISIONE DEL LAVORO
+--------------------------------------------------------------------------------
+
+CLAUDE (io) — costruisco.
+  Scrivo il codice, faccio girare le corsie, misuro, trovo i difetti, li riparo,
+  scrivo i documenti. Ho accesso al repository, ai nodi RPC, alle API, ai dati.
+  Posso cambiare le cose.
+
+CHATGPT — critica.
+  Non ha accesso a niente: riceve un fascicolo di testo che gli preparo io e
+  risponde a domande scritte. Non può leggere il repo, non può far girare
+  codice, non può vedere i dati grezzi. Solo lettura, e solo di quello che gli
+  passo.
+
+PERCHÉ SERVE UNO CHE NON PUÒ TOCCARE NIENTE
+Il motivo è scritto in astra_review.sh e vale la pena ripeterlo: il revisore
+interno l'ho scritto io, quindi controlla i modi di illudersi che AVEVO GIÀ
+IMMAGINATO. Contro l'errore che non abbiamo ancora concepito serve qualcuno
+fuori dal sistema, che non abbia partecipato alle decisioni e non abbia il mio
+stesso punto cieco.
+
+Non è una questione di quale modello sia più intelligente. È che io ho costruito
+le misure, quindi le mie verifiche ereditano le mie assunzioni. Un secondo
+modello non le eredita.
+
+--------------------------------------------------------------------------------
+A.2  IL MECCANISMO TECNICO
+--------------------------------------------------------------------------------
+
+Non usiamo l'API di OpenAI (che si pagherebbe a token). Usiamo il BINARIO
+dell'estensione ChatGPT di VS Code, già installata e già autenticata con
+l'abbonamento del fondatore:
+
+  ~/.vscode/extensions/openai.chatgpt-*/bin/macos-aarch64/codex
+
+Lo si invoca così:
+
+  codex exec --skip-git-repo-check -c model_reasoning_effort="high" "<prompt>"
+
+Note importanti:
+  - model_reasoning_effort="high" è impostato apposta: le consulenze che hanno
+    prodotto più valore hanno tutte richiesto ragionamento lungo
+  - COSTO MARGINALE ZERO: è l'abbonamento già attivo, nessun addebito per
+    chiamata, nessun limite di token da sorvegliare
+  - il binario NON è inchiodato a una versione: si cerca sempre la più recente
+    con `sort -V | tail -1`. Era stato fissato a una versione precisa e bastava
+    un aggiornamento di VS Code per far sparire la consulenza in silenzio
+  - una chiamata dura fra 5 e 15 minuti di tempo reale. Va lanciata in
+    sottofondo, altrimenti blocca tutto
+  - UNA CONSULENZA FALSA È PEGGIO DI NESSUNA CONSULENZA: se la chiamata
+    fallisce (piano scaduto, modello non disponibile, 401), l'errore finirebbe
+    dentro la risposta e verrebbe scritto nel file come se fosse il parere del
+    consulente — intestazione giusta, data di oggi, dentro un messaggio di
+    errore. Il guardiano avrebbe visto "ha parlato 0 ore fa" ed era verde su una
+    cosa morta. Adesso, se la risposta è più corta di 400 caratteri o contiene
+    marcatori di errore, il file vecchio NON si tocca e il fallimento si vede.
+
+--------------------------------------------------------------------------------
+A.3  I TRE MODI IN CUI LO USIAMO
+--------------------------------------------------------------------------------
+
+MODO 1 — REVISIONE PERIODICA PROGRAMMATA ("Astra")
+  Script: astra_review.sh, con fascicolo generato da agents/dossier_astra.py
+  Cadenza prevista: una volta al giorno
+  Cosa riceve: il fascicolo completo dello stato, non un riassunto — cosa ha
+  detto l'ultima volta, cosa abbiamo fatto dopo, i numeri di adesso, il
+  cimitero delle idee morte, e un angolo diverso ogni volta
+  Cosa produce: ASTRA_REVIEW.md con cinque sezioni fisse — assunzione
+  invisibile, verdetto di traiettoria, mosse in ordine, angolo del giorno,
+  richiamo su cosa è stato ignorato
+
+  STATO REALE: FERMA DAL 11 SETTEMBRE. L'ultimo file è datato 2026-09-11 07:50
+  UTC, sei giorni fa. Durante tutto il lavoro sul database questa consulenza
+  programmata NON ha girato, e le consultazioni sono state fatte tutte a mano.
+  È un difetto da chiudere.
+
+MODO 2 — CONSULTAZIONE AVVERSARIALE MIRATA (a mano, quando serve)
+  Gli preparo un fascicolo su un argomento specifico, con i numeri veri, e gli
+  faccio domande scritte per costringerlo a cercare l'errore invece di
+  commentare. Il formato che funziona:
+    1. L'ERRORE CHE NON HO ANCORA VISTO
+    2. QUALE DELLE MIE CONDIZIONI È SCRITTA MALE
+    3. COSA STO MISURANDO CHE NON VUOL DIRE QUELLO CHE CREDO
+    4. L'ORDINE GIUSTO (tre mosse, con giorni e condizione chiusa)
+    5. LA DOMANDA CHE NON MI STO FACENDO
+  Più un divieto esplicito per tenerlo sul pezzo (es. "non parlare di
+  strategie, solo di qualità del dato") e la richiesta di essere brutale.
+
+MODO 3 — CICLO DI AFFINAMENTO AUTOMATICO (prompt engineering)
+  Qui ChatGPT non critica: SCRIVE. Nel ciclo di addestramento del prompt per
+  Grok il giro è:
+    a) si prova il prompt corrente su dati veri (Grok, a pagamento)
+    b) un metro AUTOMATICO scritto prima decide se la risposta è usabile
+    c) ChatGPT riceve le risposte vere CON il punteggio già calcolato e
+       riscrive il prompt
+    d) si riparte dalla versione nuova
+  Il punto chiave: il mestiere di ChatGPT è capire PERCHÉ e riscrivere, NON
+  decidere SE. Se gli chiedessi "è andata bene?" senza un metro, mi direbbe
+  qualcosa di plausibile su qualunque risposta. Il giudizio deve essere
+  meccanico e precedente.
+
+MODO 4 (esiste ma non l'abbiamo usato in questa fase) — DOUBLE AGENT MANUALE
+  Protocollo descritto in crypto-radar/DOUBLE_AGENT.md: io scrivo un prompt
+  massivo, il fondatore lo incolla a mano in un'altra AI, riporta la risposta,
+  io ne estraggo l'oro. Serve quando vogliamo un modello a cui non abbiamo
+  accesso da riga di comando. È così che abbiamo usato Grok via chatbox di X.
+
+--------------------------------------------------------------------------------
+A.4  LO STORICO REALE DELLE CONSULTAZIONI (16-17 settembre)
+--------------------------------------------------------------------------------
+
+Nove consultazioni in due giorni, tutte a costo zero, tutte fatte a mano perché
+la programmata era ferma.
+
+CONSULTAZIONE 1 — audit avversariale del database (16/09 mattina)
+  Fascicolo: stato del database, sei difetti già trovati, le sette condizioni
+  Cosa ha prodotto, e sono quattro colpi tutti centrati:
+    (a) "Conservi block_hash e non lo ricontrolli mai. Per ogni record
+        point-in-time quel blocco può essere sostituito: resta nel database con
+        ts corretto e nessun record inventato, ma non appartiene più alla catena
+        canonica. Stai accumulando fatti orfani."
+        -> ha prodotto agents/canonicita.py. Misurato: 192.000 blocchi, ZERO
+           orfani. Il problema non c'era, ma non lo sapevamo.
+    (b) "La condizione 2 è scritta male: Solana può diventare verde con un solo
+        file incompleto."
+        -> accettato, condizione riscritta
+    (c) "Il 97% di nascite possedute misura 1857 file presenti sui 1910 pool
+        GIÀ NEL TUO ELENCO. Non misura che hai davvero l'inizio del pool. Se il
+        registro manca un pool, quel pool sparisce sia dal numeratore sia dal
+        denominatore: la percentuale può salire mentre la copertura reale
+        peggiora."
+        -> il colpo più utile dei due giorni
+    (d) "Qual è l'universo indipendente dai tuoi raccoglitori contro cui puoi
+        dimostrare che un pool o un evento non è mai entrato nel database?"
+        -> ha prodotto lo scopritore. La risposta era l'evento Initialize, che
+           avevo già in mano da venti minuti senza averla vista. Da lì: 660.830
+           pool esistenti contro 399 nel registro, e la scoperta che nelle
+           ultime 24 ore erano nati 16.514 pool e ne conoscevamo CINQUE.
+
+CONSULTAZIONE 2 — secondo giro avversariale (16/09 pomeriggio)
+  Fascicolo: cosa avevo fatto dei suoi quattro rilievi, più i numeri nuovi
+  Cosa ha prodotto:
+    (a) "Hai corretto il produttore dell'orario, ma non hai dimostrato di aver
+        corretto o escluso lo storico già scritto con ts inventati.
+        DOCUMENTARE UN DIFETTO NON È RIPARARLO."
+        -> aveva ragione: avevo scritto un documento sul difetto e lasciato i
+           dati sbagliati. Ha prodotto la bonifica retroattiva, 2033 pool
+           corretti, scarto mediano misurato 40-84 minuti
+    (b) Il bilancio della coda viva fatto a mente: "16.514 pool in 24 ore fanno
+        688 l'ora; se ne conservi sei ore dovresti averne ~4.100, ne dichiari
+        624. Mancano 3.500 pool senza una destinazione contabile."
+        -> ha prodotto il bilancio completo. Risposta: non mancavano, il 73%
+           non ha mai scambiato. Ma "probabile" non era un numero.
+    (c) "Lo 0,000% di orfani è ancora autoreferenziale: verifichi i blocchi
+        associati ai record che possiedi. Un blocco che non hai mai registrato
+        non possiede un block_hash da ricontrollare e quindi non può fallire il
+        test."
+        -> ha prodotto il controllo per intervallo dichiarato, col
+           concatenamento degli hash
+
+CONSULTAZIONI 3 e 4 — scrittura del prompt per Grok (17/09)
+  Non critica: produzione. La prima versione era corretta ma piatta; bocciata
+  dal fondatore con una critica giusta ("se chiedi dov'era l'hype è una domanda
+  stupida"). La seconda ha prodotto il prompt forense con la ricostruzione
+  della sequenza causale.
+
+CONSULTAZIONI 5-9 — il ciclo di addestramento (17/09)
+  Cinque giri automatici. Ogni giro: Grok risponde su due giorni veri, il metro
+  automatico giudica, ChatGPT riscrive. Progressione misurata:
+    v2  forense, tutte le prove insieme   -> 0 risposte usabili su 2
+    v3  prove parziali ammesse            -> 1 su 2
+    v5  con fase di scoperta esplicita    -> 2 su 2
+    v9/v11                                -> 5, 6 e 7 token al giorno
+  Il salto è avvenuto quando ChatGPT ha capito da solo il difetto: il prompt
+  pretendeva TUTTE le prove insieme e Grok scartava token che aveva visto. La
+  correzione — "una sequenza incompleta è utile: descrivi solo gli anelli
+  visibili e DICHIARA quelli mancanti" — è sua, non mia.
+
+BILANCIO: su nove consultazioni, TRE hanno prodotto un cambiamento strutturale
+(canonicità, universo indipendente, bonifica retroattiva), DUE hanno corretto
+una condizione scritta male, QUATTRO hanno migliorato un prompt. Zero
+consultazioni inutili.
+
+--------------------------------------------------------------------------------
+A.5  COSA FUNZIONA E COSA NO, IN PRATICA
+--------------------------------------------------------------------------------
+
+FUNZIONA
+  - Dargli i NUMERI VERI, non un riassunto. Il fascicolo con le misure grezze
+    produce rilievi specifici; un riassunto produce consigli generici.
+  - Dirgli cosa ho GIÀ provato e scartato. Senza quello ripropone cose morte.
+  - Chiedergli l'errore che non ho visto, non "cosa ne pensi".
+  - Vietargli esplicitamente gli argomenti fuori tema. Senza il divieto, un
+    prompt sulla qualità dei dati sfocia in consigli di trading.
+  - Chiedergli COSA SBAGLIERÀ COMUNQUE. Le sue previsioni di fallimento sono
+    state accurate: "confonderà correlazione con causalità", "la rete di account
+    può sembrare organica pur essendo coordinata". Entrambe verificate.
+  - Dargli il punteggio automatico già calcolato, così giudica il perché e non
+    il se.
+
+NON FUNZIONA
+  - Chiedergli se una cosa è andata bene. Dirà qualcosa di plausibile.
+  - Consultarlo senza materiale nuovo. Produce variazioni sullo stesso consiglio.
+  - Accettare la sua risposta senza verificarla. Il suo rilievo sulla canonicità
+    era giusto in linea di principio ma il problema misurato era ZERO: senza
+    verifica avremmo costruito una macchina per un guasto inesistente.
+
+--------------------------------------------------------------------------------
+A.6  SI PUÒ CONSULTARLO PIÙ SPESSO? L'ANALISI
+--------------------------------------------------------------------------------
+
+DOMANDA DEL FONDATORE: avrebbe senso una consultazione all'ora, dato che
+l'abbonamento è già pagato?
+
+TECNICAMENTE: SÌ, senza ostacoli.
+  - costo marginale: ZERO
+  - durata di una chiamata: 5-15 minuti in sottofondo, non blocca nulla
+  - nessun limite di frequenza incontrato in nove chiamate ravvicinate
+  - il meccanismo è già automatizzato (astra_review.sh)
+  - una all'ora = 24 al giorno, contro le 9 in due giorni di oggi
+
+L'ARGOMENTO CONTRARIO, che è scritto nello script stesso:
+"Un critico che parla ogni ora produce suggerimenti ogni ora, e ogni
+suggerimento è una spinta a toccare qualcosa. Il ritmo lento è una scelta, non
+un limite tecnico."
+
+Quell'argomento è stato scritto in una fase diversa: quando la strategia era
+congelata e la cosa giusta era NON toccare. In quella situazione un critico
+frequente è dannoso, perché ogni suggerimento erode la disciplina di stare
+fermi.
+
+MA ADESSO LA SITUAZIONE È OPPOSTA, e i numeri lo dicono:
+  - in due giorni sono stati trovati VENTI difetti
+  - ogni ora produce misure nuove: nascite risolte, finestre di audit, blocchi
+    verificati, pool recuperati
+  - stiamo COSTRUENDO, non congelando: qui toccare le cose è il lavoro
+  - nove consultazioni hanno prodotto nove risultati utili, zero rumore
+
+Quindi l'argomento del ritmo lento NON si applica a questa fase.
+
+IL VERO LIMITE NON È IL TEMPO, È IL MATERIALE NUOVO
+Una consultazione vale quanto l'evidenza nuova che porta. Consultarlo ogni ora
+quando in quell'ora non è cambiato niente produce variazioni sullo stesso
+consiglio — che è il modo in cui una consulenza diventa rumore e si smette di
+guardarla.
+
+LA PROPOSTA: CONSULTAZIONE A INNESCO, NON A OROLOGIO
+Invece di "ogni ora" o "una volta al giorno", far scattare la consultazione
+quando si è accumulato materiale nuovo sufficiente. Concretamente, uno di questi:
+  - sono stati chiusi N difetti da quando ha parlato (proposta: N = 3)
+  - una condizione ha cambiato stato (rossa->gialla o viceversa)
+  - una misura si è mossa di oltre il 10% (copertura, integrità, nascite)
+  - sono passate 6 ore comunque, come battito minimo
+  - una corsia è ferma o sta producendo risultati incoerenti
+
+Vantaggi rispetto a "ogni ora":
+  - non parla a vuoto quando non c'è niente di nuovo
+  - parla SUBITO quando qualcosa si muove, senza aspettare l'ora
+  - in una fase intensa come questa scatterebbe comunque 4-8 volte al giorno,
+    quindi si ottiene la frequenza alta senza la sua controindicazione
+
+RACCOMANDAZIONE CONCRETA, IN ORDINE DI PRIORITÀ
+
+1. RIACCENDERE LA CONSULENZA PROGRAMMATA. È ferma dal 11 settembre, sei giorni.
+   Questo è il difetto vero, prima di qualunque discorso sulla frequenza: non
+   stiamo usando meno ChatGPT del previsto, non lo stiamo usando affatto in
+   modo automatico.
+
+2. PORTARLA A INNESCO con battito minimo di 6 ore. In questa fase significa
+   4-8 consultazioni al giorno invece di una.
+
+3. AGGIUNGERE UN SECONDO TIPO DI CONSULTAZIONE, diverso dalla revisione
+   generale: un "controllore di misure" che riceve SOLO i numeri nuovi delle
+   ultime ore e ha una domanda sola — "quale di questi numeri misura la nostra
+   popolazione e la chiama universo?". È la domanda che ha prodotto il risultato
+   più grande dei due giorni, e vale la pena porla in modo sistematico invece
+   che per fortuna.
+
+4. NON aumentare oltre. Il collo di bottiglia non è quante volte lo consultiamo:
+   è quanto materiale nuovo produciamo e quanto velocemente riusciamo ad agire
+   sui suoi rilievi. Nove consultazioni in due giorni hanno prodotto più lavoro
+   di quanto sia stato possibile chiudere: cinque dei suoi rilievi sono stati
+   implementati, alcuni restano aperti.
+
+UN'AVVERTENZA ONESTA
+Aumentare la frequenza aumenta anche il rischio di inseguire i suggerimenti
+invece di finire il lavoro. Nelle ultime 24 ore è già succedesso di spendere sei
+accertamenti consecutivi su un singolo pezzo senza arrivare a una risposta,
+mentre il resto avanzava da solo. Un critico più frequente amplifica quella
+tendenza. Il contrappeso è la regola che ho applicato in quel caso: quando sei
+accertamenti di fila non danno una risposta, si scrive cosa non si sa e si passa
+oltre.
+
+================================================================================
+FINE APPENDICE
+================================================================================
