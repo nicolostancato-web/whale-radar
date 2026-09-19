@@ -1,5 +1,5 @@
 # 🔍 INTEGRITÀ — quello che abbiamo corrisponde a quello che la catena dice?
-*2026-09-19 14:48 UTC · seme 20260915 · condizione 5 · €0*
+*2026-09-19 15:26 UTC · seme 20260915 · condizione 5 · €0*
 
 > Zero duplicati **non dimostra completezza**. Un file può essere perfettamente pulito e
 > mancare metà degli scambi, e nessuno dei controlli che facciamo se ne accorgerebbe.
@@ -7,12 +7,12 @@
 > Qui si sorteggiano fasce di blocchi già scavate, si richiedono alla catena **da capo**, e
 > si confronta con quello che abbiamo in casa.
 
-**Finestre verificate: 1207** · identiche: **817** · letture fallite (non contano): 628
+**Finestre verificate: 1225** · identiche: **834** · letture fallite (non contano): 630
 
 | esito | finestre |
 |---|---|
-| ✅ identiche | 817 |
-| 🔴 MANCANO DA NOI | 390 |
+| ✅ identiche | 834 |
+| 🔴 MANCANO DA NOI | 391 |
 
 ## Le discrepanze
 
@@ -25,6 +25,6 @@
 
 ## Verdetto
 
-> 🔴 **390 discrepanze su 1207**. Una sola basta a far fallire
+> 🔴 **391 discrepanze su 1225**. Una sola basta a far fallire
 > la condizione: non stiamo misurando quanto siamo bravi, stiamo cercando se esiste
 > un modo silenzioso di perdere dati. Se esiste, va trovato prima di fidarsi.
