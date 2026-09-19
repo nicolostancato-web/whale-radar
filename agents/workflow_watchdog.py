@@ -8,7 +8,7 @@ Scrive WATCHDOG.md con lo stato + le azioni prese, cosi' quando Nicolo chiede 'n
 Auto-recovery: ri-dispatcha i workflow fermi/falliti (workflow_dispatch), max 1 volta per giro. €0 (repo pubblico).
 Usa GITHUB_TOKEN (automatico in Actions) e GITHUB_REPOSITORY. Nessun segreto hardcodato.
 """
-import urllib.request, json, os, time
+import urllib.request, json, os, time, calendar
 
 TOK = os.environ.get("GITHUB_TOKEN", "")
 REPO = os.environ.get("GITHUB_REPOSITORY", "nicolostancato-web/whale-radar")
@@ -30,11 +30,62 @@ def api(path, method="GET", body=None):
 
 
 def age_h(iso):
+    """Da quante ore e' successo. L'istante di GitHub e' UTC e va letto come UTC (19/09).
+
+    Prima usava time.mktime, che interpreta l'ora come LOCALE, e poi provava a correggere con
+    time.timezone — che vale l'offset STANDARD, non quello in vigore con l'ora legale. Sul runner di
+    GitHub (che vive in UTC) il conto tornava per caso; da qualunque altra macchina no: misurato
+    oggi, una corsia girata da 30 minuti risultava vecchia di 3 ore e mezza.
+    calendar.timegm legge l'istante come UTC e basta, senza correzioni da indovinare."""
     try:
-        t = time.mktime(time.strptime(iso, "%Y-%m-%dT%H:%M:%SZ"))
-        return (now - t) / 3600 - time.timezone / 3600   # iso e' UTC
+        return (now - calendar.timegm(time.strptime(iso, "%Y-%m-%dT%H:%M:%SZ"))) / 3600
     except Exception:
         return 999
+
+
+
+def intervallo_dichiarato(w):
+    """Ogni quante ore questa corsia DICE di voler girare, leggendo il suo cron.
+
+    Torna None se non ha un cron o se non lo so leggere: in quel caso chi chiama torna al metodo
+    vecchio invece di inventarsi un numero."""
+    try:
+        import base64, re
+        d = json.load(urllib.request.urlopen(urllib.request.Request(
+            f"https://api.github.com/repos/{REPO}/contents/{w['path']}",
+            headers={"Authorization": f"token {TOK}", "Accept": "application/vnd.github+json",
+                     "User-Agent": "whale-watchdog"}), timeout=25))
+        testo = base64.b64decode(d["content"]).decode(errors="replace")
+    except Exception:
+        return None
+    ore = []
+    for riga in testo.split("\n"):
+        r = riga.strip()
+        if not r.startswith("- cron:"):
+            continue
+        # IL COMMENTO IN CODA VA TOLTO PRIMA (19/09): le righe del repo sono scritte
+        # `- cron: "17 */2 * * *"   # ogni 2 ore`, e senza togliere il commento i campi diventano
+        # sette invece di cinque e la riga veniva scartata in silenzio — cioe' le corsie con un cron
+        # commentato risultavano «senza cron» e tornavano alla soglia adattiva, quella rotta.
+        espr = r.split("cron:")[1].split("#")[0].strip().strip('"').strip("'")
+        campi = espr.split()
+        if len(campi) != 5:
+            continue
+        minuto, ora, _, _, giorno = campi
+        if giorno not in ("*", "?"):
+            ore.append(168.0)                      # settimanale
+        elif ora.startswith("*/"):
+            try: ore.append(float(ora[2:]))
+            except Exception: pass
+        elif ora == "*":
+            if minuto.startswith("*/"):
+                try: ore.append(float(minuto[2:]) / 60.0)
+                except Exception: pass
+            else:
+                ore.append(1.0)                    # una volta l'ora
+        else:
+            ore.append(24.0)                       # a un'ora fissa del giorno
+    return min(ore) if ore else None
 
 
 def main():
@@ -67,11 +118,25 @@ def main():
                 if api(f"/runs/{r['id']}/cancel", "POST", {}) is not None:
                     fixed.append(f"{w['name']} #{r['run_number']}: chiuso, era appeso da "
                                  f"{age_h(r['created_at']):.1f}h e bloccava la corsia")
-        # intervallo TIPICO tra le run (mediana dei gap) → soglia adattiva: non ri-lanciare i cron lenti
-        ages = sorted(age_h(r["created_at"]) for r in rr)
-        gaps = [ages[i + 1] - ages[i] for i in range(len(ages) - 1) if ages[i + 1] - ages[i] > 0.01]
-        interval = sorted(gaps)[len(gaps) // 2] if gaps else 999
-        stale = max(STALE_HOURS, interval * 3)     # fermo se non gira da > 3x il suo ritmo normale
+        # LA SOGLIA VIENE DAL CRON DICHIARATO, NON DAL COMPORTAMENTO OSSERVATO (19/09).
+        # Prima era adattiva: mediana degli intervalli fra le ultime 8 corse, per 3. Sembra prudente
+        # ed e' invece il difetto: se GitHub salta i cron di una corsia (e lo fa, quando il repo e'
+        # occupato — e il nostro lo e' sempre), gli intervalli OSSERVATI diventano enormi, quindi la
+        # soglia diventa enorme, e il guardiano IMPARA IL GUASTO COME NORMALITA'.
+        # Misurato oggi: sette corsie su dodici erano ferme da 2-5 ore e il guardiano — che gira ogni
+        # due ore e le aveva viste — non ne ha rilanciata nessuna. storico girava ogni 5 ore perche'
+        # era rotta, quindi la soglia calcolata era 15 ore.
+        # E' la stessa malattia che sto correggendo da due giorni nei numeri: misurare una
+        # popolazione che il difetto stesso ha plasmato. Qui la cura e' identica: si confronta con
+        # quello che la corsia DICHIARA di voler fare, non con quello che le e' riuscito di fare.
+        atteso = intervallo_dichiarato(w)
+        if atteso:
+            stale = max(STALE_HOURS, atteso * 2.5)
+        else:
+            ages = sorted(age_h(r["created_at"]) for r in rr)
+            gaps = [ages[i + 1] - ages[i] for i in range(len(ages) - 1) if ages[i + 1] - ages[i] > 0.01]
+            interval = sorted(gaps)[len(gaps) // 2] if gaps else 999
+            stale = max(STALE_HOURS, interval * 3)
         status = "✅"
         # 1) fallimenti veri
         if fails >= 2:
