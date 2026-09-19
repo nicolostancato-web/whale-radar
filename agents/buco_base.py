@@ -252,6 +252,26 @@ def main():
             fatti = set(json.load(open(CK)).get("fatti", []))
         except Exception:
             fatti = set()
+    # UN POOL SEGNATO «FATTO» MA SENZA DATI TORNA IN CODA (19/09). Il segnalibro dice cosa abbiamo
+    # VISITATO, non cosa abbiamo OTTENUTO: finche' le due cose venivano confuse, 3.287 pool chiusi
+    # da una lettura fallita erano persi per sempre. Qui il segnalibro si rilegge alla luce di cio'
+    # che c'e' davvero su disco, quindi i giri vecchi si correggono da soli senza toccare i file.
+    _riaperti = 0
+    for _p in list(fatti):
+        _n = 0
+        for _c in ("storico", "vivo"):
+            _f = f"data/multichain/{CHAIN}/{_c}/{_p}.jsonl.gz"
+            if os.path.exists(_f):
+                try:
+                    _n += sum(1 for _l in gzip.open(_f, "rt") if _l.strip())
+                except Exception:
+                    pass
+        if _n < 20:
+            fatti.discard(_p)
+            _riaperti += 1
+    if _riaperti:
+        print(f"BUCO | {CHAIN}: {_riaperti} pool erano segnati fatti senza avere dati: li riapro",
+              flush=True)
 
     # dove il censimento ha visto ogni pool per la prima volta: e' l'ancora di ripiego
     primo_censimento = {}
@@ -291,9 +311,11 @@ def main():
         bn0 = int(d["bn"]) if d.get("bn") else int(punta - (ora - int(d["ts"])) / max(0.01, sec))
         fine = bn0 + int(ORE * 3600 / max(0.01, sec))
         righe = []
+        rotto = False
+        ampiezza = AMPIEZZA
         cur = bn0
         while cur < fine and time.time() - t0 < BUDGET:
-            a = min(fine, cur + AMPIEZZA)
+            a = min(fine, cur + ampiezza)
             f = {"fromBlock": hex(cur), "toBlock": hex(a)}
             if len(pool) == 66:
                 f["topics"] = [SWAP_V4, pool]
@@ -302,12 +324,25 @@ def main():
                 f["topics"] = [[SWAP_V2, SWAP_V3, SWAP_V4]]
             log, err = rpc("eth_getLogs", [f])
             if log is None:
+                # UN RIFIUTO DEL NODO NON E' UN POOL VUOTO (19/09). Qui si usciva dal ciclo e subito
+                # sotto, non avendo righe, il pool veniva ARCHIVIATO COME FATTO: mai piu' ritentato.
+                # Misurato su robinhood: 3.287 pool concentrati chiusi con mediana ZERO righe,
+                # mentre il censimento ne dichiarava 96 scambi. Non erano vuoti, era la lettura a
+                # fallire — e il segnalibro li ha sepolti.
+                # E' la stessa famiglia di difetti di questi giorni: «non tentato» scambiato per
+                # «verificato». Adesso prima si stringe la finestra e si riprova, e se proprio non
+                # si legge il pool resta APERTO per il giro prossimo.
+                if ampiezza > 500:
+                    ampiezza = max(500, ampiezza // 2)
+                    continue
+                rotto = True
                 break
             righe.extend(log)
             cur = a + 1
             time.sleep(0.15)
         if not righe:
-            fatti.add(pool)
+            if not rotto:
+                fatti.add(pool)      # letto davvero, e davvero non c'era niente
             continue
         ts = istanti({int(l["blockNumber"], 16) for l in righe})
         for l in righe:
@@ -326,7 +361,8 @@ def main():
                  "ancora": "censimento" if d.get("ripiego") else "nascita", "w": fi["w"], "w_sem": fi.get("w_sem"),
                  "a0": fi["a0"], "a1": fi["a1"], "dex": fi["v"],
                  "mgr": l.get("address", "").lower(), "fonte": "catena"})
-        fatti.add(pool)
+        if not rotto:
+            fatti.add(pool)
         presi += 1
 
     nuovi = scarica_su_disco(CHAIN, per_pool) if per_pool else 0
