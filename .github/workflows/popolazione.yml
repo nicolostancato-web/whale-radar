@@ -1,0 +1,86 @@
+name: popolazione
+# PORTA NEL DATABASE LA POPOLAZIONE DEFINITA (19/09).
+# Con le coppie finalmente risolte (base 98%, robinhood 100%) la definizione di DEFINIZIONE.md si
+# puo' applicare: la popolazione da studiare e' 7.084 pool su base e 15.995 su robinhood. Ne
+# avevamo 228 e 227 — il 3,2% e l'1,4%. La condizione 1 del cancello ne chiede il 95%.
+# Non ci si arriva raccogliendo meglio i pool che gia' abbiamo: bisogna prendere gli altri
+# ventiduemila, e a ~60 secondi l'uno una corsia sola impiegherebbe giorni. Sei fette, sei IP.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "5 */2 * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: popolazione
+  cancel-in-progress: false
+jobs:
+  riempi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    strategy:
+      fail-fast: false
+      matrix:
+        # TRE FETTE PER CHAIN, NON SEI (19/09). Sei per due chain fanno dodici lavori, e il tetto
+        # di GitHub su repo pubblico e' venti: il 17/09 lo scavo storico ne occupava dodici e la
+        # corsia del database e' rimasta in coda 135 minuti. Una corsia che riempie in fretta ma
+        # ferma i controlli non sta andando piu' veloce, sta solo spostando il ritardo.
+        fetta: [0, 1, 2]
+        chain: [base, robinhood]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Riempi
+        env:
+          CHAIN: ${{ matrix.chain }}
+          FETTA: ${{ matrix.fetta }}
+          N_FETTE: "3"
+          BUDGET_SEC: "2400"
+        run: python agents/buco_base.py
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          if ! git commit -m "popolazione ${{ matrix.chain }} f${{ matrix.fetta }} $(date -u +%H:%MZ)"; then
+            echo "NIENTE DA SALVARE"; exit 0
+          fi
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1
+            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 20 + 5))
+          done
+          echo "NON SONO RIUSCITO A SPINGERE: il raccolto di questa fetta va perso."
+          exit 1
+  riarmo:
+    needs: riempi
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Riarmo
+        # il cron da solo non basta: GitHub li salta quando il repo e' occupato, e il nostro lo e'
+        # sempre. La guardia chiede alla corsa quanto e' durata DAVVERO (misurare il lavoro
+        # sbagliato e' l'errore che ieri ha tenuto ferma la corsia coppie dichiarando successo).
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          INIZIO=$(curl -s -H "Authorization: token $GH_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            | python3 -c "import sys,json,calendar,time; d=json.load(sys.stdin); print(calendar.timegm(time.strptime(d['run_started_at'],'%Y-%m-%dT%H:%M:%SZ')))")
+          DURATA=$(( $(date +%s) - ${INIZIO:-0} ))
+          echo "la corsia e' durata ${DURATA}s"
+          if [ "$DURATA" -lt 300 ]; then
+            echo "SOLO ${DURATA}s: non mi riarmo, c'e' qualcosa che non va."; exit 0
+          fi
+          CODICE=$(curl -s -o /tmp/r.out -w "%{http_code}" -X POST \
+            -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/popolazione.yml/dispatches" \
+            -d '{"ref":"main"}')
+          if [ "$CODICE" != "204" ]; then
+            echo "RIARMO RESPINTO (HTTP $CODICE)"; cat /tmp/r.out; exit 1
+          fi
+          echo "riarmata dopo ${DURATA}s"
