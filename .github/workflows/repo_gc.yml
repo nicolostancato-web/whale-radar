@@ -4,7 +4,12 @@ name: repo_gc
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: "0 4 * * 0"
+    # OGNI GIORNO, NON OGNI SETTIMANA (19/09). Con la corsia della popolazione accesa il repo fa
+    # ~700 commit in mezza giornata, e ogni file .gz toccato entra intero nella storia (fra due
+    # gzip non esiste delta). Settimanale voleva dire arrivare al limite di GitHub prima del giro
+    # successivo: e' esattamente quello che e' successo, 3,1 GB accumulati in dodici giorni.
+    # Compattare costa due minuti e non cancella nulla: si fa tutti i giorni.
+    - cron: "0 3 * * *"
 permissions:
   contents: write
 concurrency:
