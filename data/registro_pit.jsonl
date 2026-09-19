@@ -1292,4 +1292,7 @@
 {"acq": 1789828530, "agente": "multichain_trades", "fonte": "geckoterminal", "chain": "base", "quanti": 0, "giro": "35446818024", "dettaglio": {"pool_interrogati": 90}}
 {"acq": 1789828700, "agente": "multichain_trades", "fonte": "geckoterminal", "chain": "solana", "quanti": 8, "giro": "35446818024", "dettaglio": {"pool_interrogati": 90}}
 {"acq": 1789828728, "agente": "pulse", "fonte": "dexscreener+geckoterminal", "chain": "tutte", "quanti": 26, "giro": "35446818024"}
-{"acq": 1789832036, "agente": "coda_viva", "fonte": "catena-viva", "chain": "base", "quanti": 837, "giro": "35449357555", "dettaglio": {"chiamate": 4851}}
+{"acq": 1789830643, "agente": "multichain_trades", "fonte": "geckoterminal", "chain": "robinhood", "quanti": 2, "giro": "35446818024", "dettaglio": {"pool_interrogati": 90}}
+{"acq": 1789830800, "agente": "multichain_trades", "fonte": "geckoterminal", "chain": "base", "quanti": 0, "giro": "35446818024", "dettaglio": {"pool_interrogati": 90}}
+{"acq": 1789830956, "agente": "multichain_trades", "fonte": "geckoterminal", "chain": "solana", "quanti": 9, "giro": "35446818024", "dettaglio": {"pool_interrogati": 90}}
+{"acq": 1789830984, "agente": "pulse", "fonte": "dexscreener+geckoterminal", "chain": "tutte", "quanti": 25, "giro": "35446818024"}
