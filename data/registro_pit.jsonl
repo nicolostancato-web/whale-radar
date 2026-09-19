@@ -1282,5 +1282,5 @@
 {"acq": 1789821259, "agente": "multichain_trades", "fonte": "geckoterminal", "chain": "base", "quanti": 4, "giro": "35433669780", "dettaglio": {"pool_interrogati": 90}}
 {"acq": 1789821427, "agente": "multichain_trades", "fonte": "geckoterminal", "chain": "solana", "quanti": 10, "giro": "35433669780", "dettaglio": {"pool_interrogati": 90}}
 {"acq": 1789821455, "agente": "pulse", "fonte": "dexscreener+geckoterminal", "chain": "tutte", "quanti": 46, "giro": "35433669780"}
-{"acq": 1789825062, "agente": "storico_evm", "fonte": "catena", "chain": "base", "quanti": 249593, "giro": "35442937347", "dettaglio": {"chiamate": 2591, "blocchi": 2277329, "fetta": 5}}
-{"acq": 1789825342, "agente": "coda_viva", "fonte": "catena-viva", "chain": "robinhood", "quanti": 3533, "giro": "35443845971", "dettaglio": {"chiamate": 5001}}
+{"acq": 1789825238, "agente": "storico_evm", "fonte": "catena", "chain": "base", "quanti": 391082, "giro": "35442937347", "dettaglio": {"chiamate": 2597, "blocchi": 1682712, "fetta": 1}}
+{"acq": 1789825667, "agente": "storico_evm", "fonte": "catena", "chain": "base", "quanti": 98997, "giro": "35442937347", "dettaglio": {"chiamate": 2591, "blocchi": 1714721, "fetta": 0}}
