@@ -165,8 +165,22 @@ def main():
                     # Non cambio la definizione (quella si registra in DEFINIZIONE.md, non si sposta
                     # in un agente): cambio l'ORDINE, e prendo prima quelli concentrati.
                     arco_ore = (d0.get("ultimo", 0) - d0.get("primo", 0)) * SEC_BLOCCO / 3600.0
+                    # L'ANCORA SUL BORDO NON E' UNA NASCITA (19/09). Il censimento vede un pool per
+                    # la prima volta quando il suo intervallo comincia: se il pool scambiava GIA'
+                    # prima, quel blocco non e' la sua nascita ma il bordo della nostra finestra, e
+                    # raccogliere otto ore da li' da' una fetta arbitraria di mezza vita — utile
+                    # quanto aprire un libro a caso e leggerne una pagina.
+                    # Misurato: capita al 36% della popolazione di base e all'8% di robinhood.
+                    # Non li scarto (i dati servono comunque, e sono marcati «ancora: censimento»),
+                    # ma vanno DOPO: prima si prendono quelli di cui vediamo davvero l'inizio.
+                    try:
+                        _da = int((d0.get("intervallo") or "0-0").split("-")[0])
+                    except Exception:
+                        _da = 0
+                    sul_bordo = 1 if (_da and d0.get("primo", 0) - _da < 2000) else 0
                     voluti.setdefault(d0["pool"], {"ent": None, "t0": None,
-                                                   "arco_ore": round(arco_ore, 2)})
+                                                   "arco_ore": round(arco_ore, 2),
+                                                   "bordo": sul_bordo})
                     n_pop += 1
             print(f"BUCO | {CHAIN}: popolazione definita {n_pop} pool "
                   f"(registro {len(reg)}, da cercare in tutto {len(voluti)})", flush=True)
@@ -205,7 +219,8 @@ def main():
         except Exception:
             pass
     # I CONCENTRATI PER PRIMI: rendono righe utili subito, i diluiti ne rendono una a testa.
-    bersagli.sort(key=lambda p: (reg.get(p) or {}).get("arco_ore") or 1e9)
+    bersagli.sort(key=lambda p: ((reg.get(p) or {}).get("bordo", 0),
+                                 (reg.get(p) or {}).get("arco_ore") or 1e9))
     if not bersagli:
         print(f"BUCO | {CHAIN}: nessun pool del registro e' senza righe. Niente da recuperare.",
               flush=True)
