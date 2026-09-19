@@ -231,6 +231,7 @@ def main():
             senza_nascita = set()
             prima_di_noi = 0
             catena = {}
+            _blocco_di = {}
             for l in log:
                 tp = l.get("topics") or []
                 pool = (tp[1].lower() if (tp and tp[0] == V4 and len(tp) > 1) else l["address"].lower())
@@ -256,6 +257,7 @@ def main():
                 if ts_ev and ts_ev > n0 + FINESTRA_VITA:
                     continue                       # fuori dalle prime ore: scartato per scelta, non perso
                 catena[(l.get("transactionHash"), int(l.get("logIndex", "0x0"), 16))] = pool
+            _blocco_di[(l.get("transactionHash"), int(l.get("logIndex", "0x0"), 16))] = int(l["blockNumber"], 16)
             # LA CATENA GREZZA, senza nessuno dei nostri filtri: serve per la domanda
             # «ce lo siamo inventato?», che e' diversa da «ci manca qualcosa?».
             grezza = set()
@@ -314,6 +316,17 @@ def main():
             # Restringere la fedelta' fa crollare la copertura. Non si possono alzare entrambe se
             # non raccogliendo davvero di piu'.
             eventi_catena_tot = len(catena)
+            # E SI GIUDICA SOLO FIN DOVE ARRIVIAMO (19/09, quarta correzione su questo punto).
+            # Con la regola «basta una riga dentro la finestra» restavano 28 finestre di base con
+            # eventi mancanti. Tracciata la peggiore: 63 eventi, tutti di DUE pool con esattamente
+            # 300 righe — cioe' al tetto dichiarato. Quegli eventi non mancano: sono quelli DOPO il
+            # punto in cui abbiamo smesso di raccogliere per nostra scelta.
+            # Giudicare oltre il proprio ultimo record vuol dire misurare come guasto una decisione
+            # presa a monte: il quinto modo, in tre giorni, in cui questo controllo confonde una
+            # nostra regola con un difetto.
+            # Adesso per ogni pool si guarda fin dove arriva davvero il nostro archivio, e si
+            # giudica solo entro quel punto.
+            ultimo_nostro = {}
             giudicabili = set()
             for pool in pool_nella_finestra:
                 ha_dentro = False
@@ -335,9 +348,41 @@ def main():
                         break
                 if ha_dentro:
                     giudicabili.add(pool)
+                    # fin dove arriva il nostro archivio per questo pool
+                    # IL LIMITE VA PRESO SULLA RACCOLTA DI QUEL TRATTO, NON SU TUTTO IL POOL
+                    # (19/09, correzione della correzione). Prendevo il blocco piu' alto fra TUTTE
+                    # le righe del pool, comprese quelle recentissime della coda viva: cosi' il
+                    # limite sta sempre oltre la finestra e la regola non toglie mai niente.
+                    # Misurato col contatore: «fuori_tetto: 0» su ogni finestra, cioe' una regola
+                    # scritta, pubblicata e inerte. Adesso si guarda il blocco piu' alto NON OLTRE
+                    # la fine della finestra: e' quello il punto fino a cui possiamo rispondere.
+                    _hi = None
+                    for cart in ("storico", "vivo"):
+                        f2 = f"data/multichain/{chain}/{cart}/{pool}.jsonl.gz"
+                        if not os.path.exists(f2):
+                            continue
+                        try:
+                            for l in gzip.open(f2, "rt"):
+                                if not l.strip():
+                                    continue
+                                b0 = json.loads(l).get("blocco")
+                                if b0 is not None and b0 <= a:
+                                    _hi = b0 if _hi is None else max(_hi, b0)
+                        except Exception:
+                            pass
+                    if _hi is not None:
+                        ultimo_nostro[pool] = _hi
                 else:
                     al_tetto.add(pool)          # non giudicabile: non stavamo raccogliendo qui
             catena = {k: v for k, v in catena.items() if v not in al_tetto}
+            # oltre il nostro ultimo record non si giudica: li' avevamo smesso di proposito
+            _fuori_tetto = 0
+            for _k in list(catena):
+                _pool = catena[_k]
+                _hi = ultimo_nostro.get(_pool)
+                if _hi is not None and _blocco_di.get(_k, 0) > _hi:
+                    del catena[_k]
+                    _fuori_tetto += 1
             casa = {k: v for k, v in casa.items() if v[0] not in al_tetto}
             # DUE DOMANDE DIVERSE, DUE METRI DIVERSI (15/09). Prima stavano sullo stesso metro e
             # il controllo ha dichiarato 298 record inventati su una finestra dove erano tutti veri.
@@ -379,6 +424,8 @@ def main():
                           # davvero raccogliendo. Senza questo numero, «zero mancanti» si ottiene
                           # giudicando sempre meno.
                           "eventi_catena": eventi_catena_tot,
+                          "fuori_tetto": _fuori_tetto,
+                          "giudicabili": len(giudicabili),
                           "copertura": round(len(catena) / max(1, eventi_catena_tot), 4),
                           "mancanti": len(mancanti), "inventati": len(inventati), "esito": esito,
                           "conversione": conversione(chain),
