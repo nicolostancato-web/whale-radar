@@ -1,0 +1,82 @@
+name: deposito
+# LA COPIA SU R2, IN PARALLELO A GIT — non al posto suo, non ancora.
+#
+# PERCHE' (26/09). Il repository era a 7,84 GB col blocco delle scritture a 10, e i dati veri erano
+# mezzo giga: il resto e' cronologia, perche' git conserva ogni versione di ogni file e un `.gz` che
+# cambia di una riga e' per git un file nuovo da capo.
+#
+# QUESTA CORSIA NON TOGLIE NIENTE DA GIT. Per una settimana i dati stanno in tutti e due i posti e
+# ogni giorno si verifica che la copia sia identica all'originale. Solo quando e' provata si
+# decide se le corsie possono smettere di scrivere dentro git.
+# La regola viene da tre file persi in due giorni: **prima si prova che la rete regge, poi si
+# toglie il pavimento.**
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "37 */6 * * *"
+permissions:
+  contents: read
+concurrency:
+  group: deposito
+  cancel-in-progress: false
+jobs:
+  deposita:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -q boto3
+      - name: Deposita e verifica subito
+        env:
+          R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+          R2_BUCKET: ${{ secrets.R2_BUCKET }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+        # SI VERIFICA NELLO STESSO GIRO IN CUI SI DEPOSITA (26/09). Una copia di sicurezza che
+        # nessuno ha mai riaperto non e' una copia di sicurezza: e' una speranza. Qui l'archivio
+        # viene ricaricato e confrontato impronta per impronta, e se non torna il giro FALLISCE.
+        run: |
+          python3 - <<'PY'
+          import hashlib, os, shutil, sys
+          sys.path.insert(0, "agents")
+          import deposito as D
+
+          def impronta(d):
+              h = hashlib.sha256()
+              for r, _, fs in os.walk(d):
+                  for f in sorted(fs):
+                      p = os.path.join(r, f)
+                      h.update(os.path.relpath(p, d).encode()); h.update(open(p, "rb").read())
+              return h.hexdigest()
+
+          CARTELLE = [("data/loop1", "loop1"),
+                      ("data/multichain/robinhood", "multichain-robinhood"),
+                      ("data/multichain/base", "multichain-base")]
+          guai = []
+          for cartella, nome in CARTELLE:
+              if not os.path.isdir(cartella):
+                  print(f"   {cartella}: assente, salto"); continue
+              chiave = f"{nome}.tar.gz"
+              if D.deposita_cartella(cartella, chiave) is None:
+                  guai.append(f"{nome}: deposito fallito"); continue
+              shutil.rmtree("/tmp/verifica", ignore_errors=True)
+              if D.ritira_cartella(chiave, "/tmp/verifica") is None:
+                  guai.append(f"{nome}: non ritirabile"); continue
+              a, b = impronta(cartella), impronta("/tmp/verifica")
+              print(f"   {nome}: {'IDENTICO' if a == b else 'DIVERSO — ' + a[:12] + ' vs ' + b[:12]}")
+              if a != b:
+                  guai.append(f"{nome}: la copia NON e' identica")
+          print()
+          tot = 0
+          for k, s, q in D.elenco():
+              print(f"   {k:32} {s/1e6:8.1f} MB")
+              tot += s
+          print(f"   TOTALE {tot/1e9:.2f} GB su 10 gratuiti ({100*tot/10e9:.1f}%)")
+          if tot > 8e9:
+              guai.append(f"deposito oltre gli 8 GB: {tot/1e9:.1f} GB, il gratuito finisce a 10")
+          if guai:
+              print("\nGUAI:"); [print("   -", g) for g in guai]; sys.exit(1)
+          print("\ndeposito verificato")
+          PY
