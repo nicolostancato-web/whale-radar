@@ -83,8 +83,14 @@ def _pubblica(fn):
                         "-c", "user.email=bot@users.noreply.github.com",
                         "commit", "-q", "-m", f"consulenza: {fn}"], check=True, capture_output=True)
         for _ in range(10):
-            subprocess.run(["git", "pull", "--no-rebase", "--no-edit", "-X", "ours",
-                            "origin", "main"], capture_output=True)
+            # si riappoggia invece di fondere: i merge dei cicli di tentativi erano il 75% dei
+            # commit del repository (26/09). Se il rebase non riesce, si fonde: meglio una
+            # cicatrice che una consulenza non pubblicata.
+            if subprocess.run(["git", "pull", "--rebase", "--autostash", "-q", "origin", "main"],
+                              capture_output=True).returncode != 0:
+                subprocess.run(["git", "pull", "--no-rebase", "--no-edit",
+                                "--allow-unrelated-histories", "-X", "ours", "origin", "main"],
+                               capture_output=True)
             if subprocess.run(["git", "push", "origin", "main"],
                               capture_output=True).returncode == 0:
                 print(f"   pubblicata su GitHub: {fn}", flush=True)
