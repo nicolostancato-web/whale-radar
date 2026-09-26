@@ -33,7 +33,7 @@ jobs:
           git add data/multichain/${{ matrix.chain }} 2>/dev/null || true
           git commit -m "multichain ${{ matrix.chain }} $(date -u +%Y-%m-%dT%H:%MZ)" || { echo niente; exit 0; }
           for i in 1 2 3 4 5 6; do
-            git pull --no-rebase --no-edit -X ours origin main || true
+            { git pull --rebase --autostash -q origin main || git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main; } || true
             git push origin main && { echo pushed; exit 0; }
             sleep $((RANDOM % 8 + 3))
           done
