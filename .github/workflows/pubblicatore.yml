@@ -1,0 +1,67 @@
+name: pubblicatore
+# IL PUBBLICATORE UNICO — l'unica corsia che scrive su `main`.
+#
+# PERCHE' ESISTE (26/09). Quattordici corsie spingevano tutte su `main`. I file non si pestavano —
+# ognuna scrive i suoi — ma il RIFERIMENTO e' uno: `git push origin main` viene rifiutato solo
+# perche' un'altra e' arrivata un istante prima. Il costo misurato quella mattina: passi di
+# salvataggio da quattordici minuti contro quattro di lavoro vero, e una corsia morta in silenzio
+# perche' aspettava il turno dentro il gruppo di concorrenza.
+#
+# ORA: ogni corsia consegna su un ramo suo (`dati/<nome>`), dove nessun altro scrive e il push
+# riesce al primo colpo. Questo pubblicatore raccoglie i rami e li porta su `main`, uno alla volta.
+# Un solo scrittore, nessuna contesa, e ogni corsia torna a fare il suo lavoro invece di litigare.
+#
+# LA REGOLA GENERALE, che vale oltre questo caso: **quando molti devono scrivere la stessa cosa,
+# non si accelera la coda — si toglie la coda.** Ogni corsia scrive dove e' sola; un unico
+# pubblicatore mette insieme.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "*/10 * * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: pubblicatore
+  cancel-in-progress: false
+jobs:
+  pubblica:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Raccogli i rami delle corsie
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git fetch origin '+refs/heads/dati/*:refs/remotes/origin/dati/*' || true
+          RAMI=$(git for-each-ref --format='%(refname:strip=3)' refs/remotes/origin/dati || true)
+          if [ -z "$RAMI" ]; then echo "nessun ramo da raccogliere"; exit 0; fi
+          PORTATI=0
+          for R in $RAMI; do
+            # SI GUARDA SE C'E' DAVVERO QUALCOSA, non se il comando riesce: un merge «riuscito» che
+            # non porta niente e' il modo in cui un sistema sembra vivo mentre e' fermo (26/09).
+            if git diff --quiet HEAD "origin/dati/$R"; then
+              echo "   dati/$R: niente di nuovo"; continue
+            fi
+            # `-X theirs`: il dato della corsia vince sul suo. Ogni corsia scrive SOLO le sue
+            # cartelle, quindi non puo' sovrascrivere il lavoro di un'altra.
+            if git merge --no-edit -X theirs "origin/dati/$R" -m "pubblico dati/$R"; then
+              echo "   dati/$R: portato su main"; PORTATI=$((PORTATI+1))
+            else
+              echo "   dati/$R: MERGE FALLITO, lo lascio dov'e' e lo dico"
+              git merge --abort || true
+            fi
+          done
+          echo "rami portati: $PORTATI"
+          if [ "$PORTATI" = "0" ]; then exit 0; fi
+          # QUI la contesa e' ammessa, perche' e' l'UNICO posto in cui succede: un solo scrittore,
+          # quindi i tentativi servono solo contro le corsie non ancora convertite.
+          for i in $(seq 1 15); do
+            git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main >/dev/null 2>&1 || true
+            if git push origin main; then echo "pubblicato al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 10 + 4))
+          done
+          echo "NON SONO RIUSCITO A PUBBLICARE: i dati restano sui rami delle corsie, non sono persi."
+          exit 1
