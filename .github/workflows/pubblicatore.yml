@@ -1,0 +1,73 @@
+name: pubblicatore
+# IL PUBBLICATORE UNICO — l'unica corsia che scrive su `main`.
+#
+# PERCHE' ESISTE (26/09). Quattordici corsie spingevano tutte su `main`. I file non si pestavano —
+# ognuna scrive i suoi — ma il RIFERIMENTO e' uno: `git push origin main` viene rifiutato solo
+# perche' un'altra e' arrivata un istante prima. Il costo misurato quella mattina: passi di
+# salvataggio da quattordici minuti contro quattro di lavoro vero, e una corsia morta in silenzio
+# perche' aspettava il turno dentro il gruppo di concorrenza.
+#
+# ORA: ogni corsia consegna su un ramo suo (`dati/<nome>`), dove nessun altro scrive e il push
+# riesce al primo colpo. Questo pubblicatore raccoglie i rami e li porta su `main`, uno alla volta.
+# Un solo scrittore, nessuna contesa, e ogni corsia torna a fare il suo lavoro invece di litigare.
+#
+# LA REGOLA GENERALE, che vale oltre questo caso: **quando molti devono scrivere la stessa cosa,
+# non si accelera la coda — si toglie la coda.** Ogni corsia scrive dove e' sola; un unico
+# pubblicatore mette insieme.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "*/10 * * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: pubblicatore
+  cancel-in-progress: false
+jobs:
+  pubblica:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Raccogli gli allegati delle corsie
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # SI RACCOLGONO ALLEGATI, NON RAMI (26/09). I rami per corsia non si potevano spingere da
+        # una copia superficiale: HTTP 500, cinque volte su cinque. Gli allegati non passano da git,
+        # quindi non hanno ne' quel problema ne' la contesa sul riferimento.
+        # Ogni voce e' «nome dell'allegato : cartella di destinazione». Aggiungere una corsia al
+        # sistema e' aggiungere una riga qui.
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          PORTATI=0
+          for VOCE in "dati-insieme:data/loop1"; do
+            NOME="${VOCE%%:*}"; DEST="${VOCE##*:}"
+            rm -rf /tmp/ritiro; mkdir -p /tmp/ritiro
+            if ! gh run download --repo "${{ github.repository }}" -n "$NOME" --dir /tmp/ritiro 2>/dev/null; then
+              echo "   $NOME: nessun allegato da ritirare"; continue
+            fi
+            mkdir -p "$DEST"
+            cp -r /tmp/ritiro/. "$DEST"/
+            git add -A "$DEST"
+            # SI GUARDA SE C'E' DAVVERO UNA DIFFERENZA, non se il comando riesce: un giro che
+            # dichiara successo senza portare niente e' il guasto piu' silenzioso che conosciamo.
+            if git diff --cached --quiet; then
+              echo "   $NOME: identico a quello che c'e' gia'"; continue
+            fi
+            git commit -q -m "pubblico $NOME $(date -u +%H:%MZ)"
+            echo "   $NOME: preso"; PORTATI=$((PORTATI+1))
+          done
+          echo "allegati portati: $PORTATI"
+          if [ "$PORTATI" = "0" ]; then exit 0; fi
+          # QUI la contesa e' ammessa: e' l'unico posto in cui succede. I tentativi servono contro
+          # le corsie non ancora convertite, che per ora spingono ancora su `main`.
+          for i in $(seq 1 15); do
+            git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main >/dev/null 2>&1 || true
+            if git push origin main; then echo "pubblicato al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 10 + 4))
+          done
+          echo "NON SONO RIUSCITO A PUBBLICARE: gli allegati restano dove sono, nulla e' perso."
+          exit 1

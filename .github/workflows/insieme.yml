@@ -90,22 +90,29 @@ jobs:
               print(f"{f}: {len(r)} pool, {len(g)} giudicabili ({100*len(g)/max(1,len(r)):.0f}%), "
                     f"trappole {100*len(tr)/max(1,len(g)):.1f}%")
           PY
-      - name: Salva
+      - name: Consegna senza toccare il repository
         if: steps.serve.outputs.salto != '1'
-        run: |
-          git config user.name "whale-radar-bot"
-          git config user.email "bot@users.noreply.github.com"
-          git add -A data/loop1
-          if ! git commit -m "insieme $(date -u +%H:%MZ)"; then
-            echo "NIENTE DA SALVARE"; exit 0
-          fi
-          for i in $(seq 1 20); do
-            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1 || true
-            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
-            sleep $((RANDOM % 15 + 5))
-          done
-          echo "NON SONO RIUSCITO A SPINGERE: l'insieme resta sul runner e va perso."
-          exit 1
+        # LE CORSIE NON SPINGONO PIU' (26/09, terza versione della stessa idea, e la prima che
+        # funziona). Un solo scrittore su `main` resta l'obiettivo; il modo di consegnare no.
+        #
+        # · Versione 1 — tutte su `main`: contesa sul riferimento, salvataggi da 14 minuti.
+        # · Versione 2 — un ramo per corsia: il push di un ramo NUOVO da una copia superficiale
+        #   (`--depth 1`) fa esplodere il server con HTTP 500, perche' git prova a spedire oggetti
+        #   che non sa se il server ha. Fallita cinque volte su cinque.
+        # · Versione 3 — questa: il risultato esce come ALLEGATO del giro. Niente git, niente
+        #   riferimenti, niente cronologia. Il pubblicatore lo raccoglie e lo mette su `main` lui.
+        #
+        # Vantaggio che non cercavo e vale piu' del resto: **il repository smette di gonfiarsi.**
+        # Era a 3,09 GB il 19/09 con proiezione di BLOCCO in dieci giorni, ed e' a 3,67 GB oggi.
+        # Ogni corsia che commetteva aggiungeva cronologia dieci volte piu' pesante dei dati.
+        # Con un solo scrittore, i commit passano da decine a uno ogni dieci minuti.
+        uses: actions/upload-artifact@v4
+        with:
+          name: dati-insieme
+          path: data/loop1
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: error
       - name: Riarmo
         # SOLO DOPO LAVORO VERO (26/09). Un giro che ha saltato non si riarma: dormirebbe tenendo
         # occupato il turno per non fare niente, che e' esattamente il difetto di stamattina.
