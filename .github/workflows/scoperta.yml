@@ -81,6 +81,19 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # UN GIRO CHE MUORE SUBITO NON SI RIARMA A RAFFICA (26/09). Questa guardia esisteva dal
+          # 16/09 nelle corsie col riarmo dentro il lavoro, e in QUESTE — dove il riarmo e' un
+          # lavoro separato — non era mai stata messa. Misurato stasera su `scoperta`: giri ogni
+          # NOVANTA SECONDI, perche' il lavoro falliva in fretta e il riarmo ripartiva subito.
+          # Una corsia rotta che si rilancia all'infinito occupa i posti macchina di tutte le
+          # altre: il guasto di una diventa il rallentamento di tutte.
+          # IN POSITIVO: **quando qualcosa fallisce, si riprova piu' piano, non piu' in fretta.**
+          if [ "${{ needs.scopri.result }}" != "success" ]; then
+            echo "il lavoro non e' riuscito: aspetto 10 minuti prima di riarmare"
+            sleep 600
+          else
+            sleep 60
+          fi
           # RIARMO: SI RIPROVA (22/09). Un rifiuto passeggero del server spegneva le corsie per
           # ore. Solo un rifiuto definitivo e' un no vero.
           for TENT in 1 2 3 4 5; do
