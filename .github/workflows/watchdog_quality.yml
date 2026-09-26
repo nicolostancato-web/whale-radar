@@ -25,7 +25,7 @@ jobs:
           git add HEALTH.md data/health_snapshot.json 2>/dev/null || true
           git commit -m "health $(date -u +%Y-%m-%dT%H:%MZ)" || echo "niente da committare"
           for i in 1 2 3; do
-            git pull --no-rebase --no-edit -X ours origin main || true
+            { git pull --rebase --autostash -q origin main || git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main; } || true
             git push origin main && break; sleep 4
           done
       - name: Fallisci (manda alert mail) se l'accumulo e' malato
