@@ -47,7 +47,7 @@ jobs:
           # PRIMA si scarica lo stato piu' recente, POI si fonde: cosi' non si cancella il lavoro
           # dell'altra chain, che gira in parallelo (25/09, base persa due volte).
           git stash push -- data/multichain/*/iniziatori_nuovi.json >/dev/null 2>&1 || true
-          git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1 || true
+          { git pull --rebase --autostash -q origin main || git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main; } >/dev/null 2>&1 || true
           git stash pop >/dev/null 2>&1 || true
           python agents/fondi_iniziatori.py
           git add -A
@@ -55,7 +55,7 @@ jobs:
             echo "NIENTE DA SALVARE"; exit 0
           fi
           for i in $(seq 1 20); do
-            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1 || true
+            { git pull --rebase --autostash -q origin main || git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main; } >/dev/null 2>&1 || true
             if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
             sleep $((RANDOM % 15 + 5 + i * 2))
           done
