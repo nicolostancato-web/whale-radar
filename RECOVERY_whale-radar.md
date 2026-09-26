@@ -64,3 +64,50 @@ Copia di lavoro: clone leggero con `--depth 1 --filter=blob:none` e sparse-check
 `agents .github data/loop1` (l'intero repo riempie il disco). Si pubblica **solo** con
 `./pubblica.sh "messaggio"`, che si rifiuta di spingere se qualcosa non compila.
 Revisori: Astra (max 3/giorno, a pagamento) e Grok (illimitato, dall'abbonamento, **mai via API**).
+
+---
+
+## Aggiornamento della sera del 26/09 — la giornata dell'infrastruttura
+
+**I dati hanno una seconda casa, e per la prima volta non dipendiamo da GitHub.**
+Cloudflare R2, bucket `whale-radar` in Europa. Prima copia completa: **112.000 file, 2,91 GB**,
+riletti e confrontati **byte per byte** nello stesso giro in cui sono stati caricati — una copia che
+nessuno ha mai riaperto non e' una copia, e' una speranza. Corsia `deposito.yml`, ogni 6 ore.
+**Niente e' stato tolto da git**: i dati stanno in tutti e due i posti finche' la copia non e'
+provata per una settimana.
+
+**Costo:** €0 sotto i 10 GB. Siamo al 29%. Oltre si pagano 1,5 centesimi per GB al mese — arrivare
+a 30 GB costerebbe **34 centesimi al mese**. Allarme automatico a 8 GB: la corsia fallisce apposta.
+La regola scritta in `agents/deposito.py`: **pochi archivi grossi, mai centomila file piccoli** —
+caricare un file alla volta ci sarebbe costato trenta dollari al mese senza accorgercene.
+
+**Perche' e' servito: il repository era a 7,84 GB con il blocco a 10.**
+E la causa non erano i dati. Su 400 commit, **299 erano fusioni** generate dai cicli di tentativi
+di cinquanta corsie che si contendevano lo stesso ramo. Il commit piu' vecchio raggiungibile era
+di **otto ore prima**: 2,4 GB di storia creata in una mattina.
+
+**Tre riparazioni, in ordine di valore:**
+1. le corsie **si riappoggiano invece di fondere** (47 corsie + `pubblica.sh` + le consulenze):
+   i commit all'ora sono passati da **864 a ~230**, misurato;
+2. `insieme.yml` non scrive piu' nel repository: consegna un **allegato**, e un solo
+   **pubblicatore** (`pubblicatore.yml`) lo porta su `main`. Pubblicato al primo tentativo invece
+   che al ventesimo;
+3. il deposito su R2, sopra.
+
+**Tre difetti miei, trovati e chiusi lo stesso giorno** — tutti della stessa famiglia, «una cosa
+che dichiara di aver fatto quello che non ha fatto»:
+- una pausa di 90 minuti nel riarmo teneva occupato il turno e faceva **cancellare** i giri: la
+  corsia e' rimasta ferma due ore dicendo «riuscito». *In positivo: per fare una cosa piu'
+  raramente si esce subito, non si resta in piedi ad aspettare.*
+- il controllo di freschezza leggeva la data dell'ultimo commit, e su una copia superficiale e'
+  sempre «adesso»: la corsia non avrebbe ricostruito **mai piu'**. *In positivo: un controllo non
+  deve dipendere da qualcosa che l'ambiente potrebbe non avere — il timbro vive nel dato.*
+- ho detto che i dati veri erano «mezzo giga»: sono **2,9 GB**. Avevo misurato sulla mia copia
+  parziale. *Stesso errore di stanotte: misurare su un campione e chiamarlo popolazione.*
+
+**Sul fronte strategia:** la profondita' (`liq`) si accumula, **168 pool completi su robinhood** e
+52 su base. E' la misura che mancava quando H6b e' morta. Le tre strade restano sul tavolo.
+
+## Come si pubblica, da oggi
+`./pubblica.sh "messaggio"` — si rifiuta di spingere se qualcosa non compila, e sopravvive alla
+riscrittura della cronologia a monte. **Non si usa `git push` a mano.**
