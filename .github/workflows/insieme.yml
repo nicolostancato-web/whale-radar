@@ -90,41 +90,29 @@ jobs:
               print(f"{f}: {len(r)} pool, {len(g)} giudicabili ({100*len(g)/max(1,len(r)):.0f}%), "
                     f"trappole {100*len(tr)/max(1,len(g)):.1f}%")
           PY
-      - name: Salva sul proprio ramo
+      - name: Consegna senza toccare il repository
         if: steps.serve.outputs.salto != '1'
-        # UN RAMO PER CORSIA, UN SOLO PUBBLICATORE (26/09, raccomandazione di Grok del 24/09
-        # implementata dopo che il conto e' arrivato tre volte in una mattina).
+        # LE CORSIE NON SPINGONO PIU' (26/09, terza versione della stessa idea, e la prima che
+        # funziona). Un solo scrittore su `main` resta l'obiettivo; il modo di consegnare no.
         #
-        # PRIMA: quattordici corsie spingevano sullo stesso ramo. Il conflitto non e' sui file —
-        # ognuna scrive i suoi — ma sul RIFERIMENTO: `git push origin main` puo' essere rifiutato
-        # solo perche' un'altra corsia e' arrivata un istante prima. Da qui il ciclo da venti
-        # tentativi, e passi «Salva» da quattordici minuti contro quattro di lavoro vero.
+        # · Versione 1 — tutte su `main`: contesa sul riferimento, salvataggi da 14 minuti.
+        # · Versione 2 — un ramo per corsia: il push di un ramo NUOVO da una copia superficiale
+        #   (`--depth 1`) fa esplodere il server con HTTP 500, perche' git prova a spedire oggetti
+        #   che non sa se il server ha. Fallita cinque volte su cinque.
+        # · Versione 3 — questa: il risultato esce come ALLEGATO del giro. Niente git, niente
+        #   riferimenti, niente cronologia. Il pubblicatore lo raccoglie e lo mette su `main` lui.
         #
-        # ADESSO: questa corsia spinge su un ramo tutto suo, dove nessun altro scrive, e riesce al
-        # primo colpo. Un pubblicatore unico raccoglie i rami e li porta su `main`.
-        # Il ramo si riparte SEMPRE da `main` e si spinge con `--force`: non e' una storia da
-        # conservare, e' una consegna. La storia vera vive su `main`.
-        #
-        # PERCHE' SI PROVA QUI E NON SUI COLLETTORI: se questo meccanismo ha un difetto, il peggio
-        # che succede e' che un insieme di analisi va rifatto — e si rifa' da solo al giro dopo.
-        # Sui collettori si perderebbero blocchi di ADESSO, che non tornano. Si sperimenta dove il
-        # danno e' recuperabile, e si propaga solo dopo aver visto funzionare.
-        run: |
-          git config user.name "whale-radar-bot"
-          git config user.email "bot@users.noreply.github.com"
-          git checkout -B dati/insieme
-          git add -A data/loop1
-          if ! git commit -m "insieme $(date -u +%H:%MZ)"; then
-            echo "NIENTE DA SALVARE"; exit 0
-          fi
-          for i in 1 2 3 4 5; do
-            if git push --force origin dati/insieme; then
-              echo "consegnato sul ramo dati/insieme al tentativo $i"; exit 0
-            fi
-            sleep $((RANDOM % 10 + 3))
-          done
-          echo "NON SONO RIUSCITO A CONSEGNARE: l'insieme resta sul runner e va perso."
-          exit 1
+        # Vantaggio che non cercavo e vale piu' del resto: **il repository smette di gonfiarsi.**
+        # Era a 3,09 GB il 19/09 con proiezione di BLOCCO in dieci giorni, ed e' a 3,67 GB oggi.
+        # Ogni corsia che commetteva aggiungeva cronologia dieci volte piu' pesante dei dati.
+        # Con un solo scrittore, i commit passano da decine a uno ogni dieci minuti.
+        uses: actions/upload-artifact@v4
+        with:
+          name: dati-insieme
+          path: data/loop1
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: error
       - name: Riarmo
         # SOLO DOPO LAVORO VERO (26/09). Un giro che ha saltato non si riarma: dormirebbe tenendo
         # occupato il turno per non fare niente, che e' esattamente il difetto di stamattina.

@@ -31,37 +31,43 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }
-      - name: Raccogli i rami delle corsie
+      - name: Raccogli gli allegati delle corsie
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # SI RACCOLGONO ALLEGATI, NON RAMI (26/09). I rami per corsia non si potevano spingere da
+        # una copia superficiale: HTTP 500, cinque volte su cinque. Gli allegati non passano da git,
+        # quindi non hanno ne' quel problema ne' la contesa sul riferimento.
+        # Ogni voce e' «nome dell'allegato : cartella di destinazione». Aggiungere una corsia al
+        # sistema e' aggiungere una riga qui.
         run: |
           git config user.name "whale-radar-bot"
           git config user.email "bot@users.noreply.github.com"
-          git fetch origin '+refs/heads/dati/*:refs/remotes/origin/dati/*' || true
-          RAMI=$(git for-each-ref --format='%(refname:strip=3)' refs/remotes/origin/dati || true)
-          if [ -z "$RAMI" ]; then echo "nessun ramo da raccogliere"; exit 0; fi
           PORTATI=0
-          for R in $RAMI; do
-            # SI GUARDA SE C'E' DAVVERO QUALCOSA, non se il comando riesce: un merge «riuscito» che
-            # non porta niente e' il modo in cui un sistema sembra vivo mentre e' fermo (26/09).
-            if git diff --quiet HEAD "origin/dati/$R"; then
-              echo "   dati/$R: niente di nuovo"; continue
+          for VOCE in "dati-insieme:data/loop1"; do
+            NOME="${VOCE%%:*}"; DEST="${VOCE##*:}"
+            rm -rf /tmp/ritiro; mkdir -p /tmp/ritiro
+            if ! gh run download --repo "${{ github.repository }}" -n "$NOME" --dir /tmp/ritiro 2>/dev/null; then
+              echo "   $NOME: nessun allegato da ritirare"; continue
             fi
-            # `-X theirs`: il dato della corsia vince sul suo. Ogni corsia scrive SOLO le sue
-            # cartelle, quindi non puo' sovrascrivere il lavoro di un'altra.
-            if git merge --no-edit -X theirs "origin/dati/$R" -m "pubblico dati/$R"; then
-              echo "   dati/$R: portato su main"; PORTATI=$((PORTATI+1))
-            else
-              echo "   dati/$R: MERGE FALLITO, lo lascio dov'e' e lo dico"
-              git merge --abort || true
+            mkdir -p "$DEST"
+            cp -r /tmp/ritiro/. "$DEST"/
+            git add -A "$DEST"
+            # SI GUARDA SE C'E' DAVVERO UNA DIFFERENZA, non se il comando riesce: un giro che
+            # dichiara successo senza portare niente e' il guasto piu' silenzioso che conosciamo.
+            if git diff --cached --quiet; then
+              echo "   $NOME: identico a quello che c'e' gia'"; continue
             fi
+            git commit -q -m "pubblico $NOME $(date -u +%H:%MZ)"
+            echo "   $NOME: preso"; PORTATI=$((PORTATI+1))
           done
-          echo "rami portati: $PORTATI"
+          echo "allegati portati: $PORTATI"
           if [ "$PORTATI" = "0" ]; then exit 0; fi
-          # QUI la contesa e' ammessa, perche' e' l'UNICO posto in cui succede: un solo scrittore,
-          # quindi i tentativi servono solo contro le corsie non ancora convertite.
+          # QUI la contesa e' ammessa: e' l'unico posto in cui succede. I tentativi servono contro
+          # le corsie non ancora convertite, che per ora spingono ancora su `main`.
           for i in $(seq 1 15); do
             git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main >/dev/null 2>&1 || true
             if git push origin main; then echo "pubblicato al tentativo $i"; exit 0; fi
             sleep $((RANDOM % 10 + 4))
           done
-          echo "NON SONO RIUSCITO A PUBBLICARE: i dati restano sui rami delle corsie, non sono persi."
+          echo "NON SONO RIUSCITO A PUBBLICARE: gli allegati restano dove sono, nulla e' perso."
           exit 1
