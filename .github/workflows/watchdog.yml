@@ -20,4 +20,4 @@ jobs:
           git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
           git add data/results/health.json 2>/dev/null || true
           git commit -m "watchdog $(date -u +%H:%MZ)" || exit 0
-          git pull --no-rebase --no-edit -X ours origin main || true; git push origin main || true
+          { git pull --rebase --autostash -q origin main || git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main; } || true; git push origin main || true
