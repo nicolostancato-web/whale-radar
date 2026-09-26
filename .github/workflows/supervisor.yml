@@ -32,7 +32,7 @@ jobs:
           git add SUPERVISOR.md 2>/dev/null || true
           git commit -m "supervisor $(date -u +%Y-%m-%dT%H:%MZ)" || echo niente
           for i in 1 2 3; do
-            git pull --no-rebase --no-edit -X ours origin main || true
+            { git pull --rebase --autostash -q origin main || git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main; } || true
             git push origin main && break; sleep 4
           done
       - name: Alert (mail) se un reparto fallisce
