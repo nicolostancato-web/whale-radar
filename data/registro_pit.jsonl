@@ -2192,3 +2192,5 @@
 {"acq": 1790445620, "agente": "pulse", "fonte": "dexscreener+geckoterminal", "chain": "tutte", "quanti": 0, "giro": "36260430146"}
 {"acq": 1790448354, "agente": "storico_evm", "fonte": "catena", "chain": "robinhood", "quanti": 3, "giro": "36254728927", "dettaglio": {"chiamate": 189, "blocchi": 11227441, "fetta": 0}}
 {"acq": 1790448373, "agente": "storico_evm", "fonte": "catena", "chain": "robinhood", "quanti": 0, "giro": "36254728927", "dettaglio": {"chiamate": 189, "blocchi": 21079959, "fetta": 3}}
+{"acq": 1790448415, "agente": "storico_evm", "fonte": "catena", "chain": "robinhood", "quanti": 0, "giro": "36254728927", "dettaglio": {"chiamate": 192, "blocchi": 25800853, "fetta": 2}}
+{"acq": 1790448469, "agente": "storico_evm", "fonte": "catena", "chain": "robinhood", "quanti": 0, "giro": "36254728927", "dettaglio": {"chiamate": 192, "blocchi": 20206632, "fetta": 1}}
