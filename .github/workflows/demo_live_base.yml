@@ -21,4 +21,4 @@ jobs:
           git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
           git add data/demo_live_base_state.json DEMO_LIVE_BASE.md 2>/dev/null || true
           git commit -m "demo_live_base $(date -u +%Y-%m-%dT%H:%MZ)" || { echo niente; exit 0; }
-          for i in 1 2 3 4 5; do git pull --no-rebase --no-edit -X ours origin main || true; git push origin main && exit 0; sleep $((RANDOM%6+2)); done
+          for i in 1 2 3 4 5; do { git pull --rebase --autostash -q origin main || git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main; } || true; git push origin main && exit 0; sleep $((RANDOM%6+2)); done
