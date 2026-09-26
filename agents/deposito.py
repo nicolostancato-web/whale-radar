@@ -96,7 +96,10 @@ def ritira_cartella(chiave, destinazione):
         return None
     os.makedirs(destinazione, exist_ok=True)
     with tarfile.open(fileobj=io.BytesIO(dati), mode="r:gz") as tar:
-        tar.extractall(destinazione)
+        # `filter="data"` e' obbligatorio da Python 3.14 e giusto comunque: rifiuta percorsi che
+        # scappano dalla cartella e metadati strani. Un archivio che arriva dalla rete non si apre
+        # mai a occhi chiusi, nemmeno quando l'abbiamo scritto noi.
+        tar.extractall(destinazione, filter="data")
         n = len(tar.getnames())
     print(f"DEPOSITO | ritirato {chiave}: {n} elementi in {destinazione}", flush=True)
     return n
