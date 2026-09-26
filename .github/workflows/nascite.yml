@@ -1,0 +1,166 @@
+name: nascite
+# IL RECUPERO DELLE NASCITE PERDUTE.
+#
+# PERCHE' UNA CORSIA SUA (16/09). Le fette filtrano per righe.json NEL MOMENTO in cui passano, e non
+# tornano mai sui propri passi: un pool scoperto dopo che sono transitate dal suo blocco di nascita
+# resta senza storia per sempre. Su robinhood sono 354 pool su 768 — il 46% — ed e' la ragione
+# principale per cui l'audit di integrita' trova solo il 16% di finestre identiche.
+# Prima l'avevo messo dentro la corsia database, ma li' ha 420 secondi a giro e chiude una fascia
+# ogni sei giri: ottanta ore per farne 75, e intanto ruba tempo ai controlli. Qui ha due ore e mezza
+# per volta e il segnalibro delle fasce gia' chiuse, quindi finisce in un giorno senza dare fastidio.
+#
+# SOLO ROBINHOOD: base ha gia' il 97% delle nascite. Accendere una corsia per il 3% mancante sarebbe
+# esattamente il genere di lavoro che sembra diligenza e invece e' spreco.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "27,57 * * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: nascite
+  cancel-in-progress: false
+jobs:
+  recupera:
+    runs-on: ubuntu-latest
+    timeout-minutes: 200
+    steps:
+      - uses: actions/checkout@v4
+      - name: Segna l'inizio
+        run: date +%s > /tmp/inizio_giro
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      # I POOL CHE HANNO SCAMBIATO E DI CUI NON ABBIAMO UNA RIGA (18/09). Non li prende lo scavo a
+      # fasce: sono nati fuori dai tratti coperti finora, e aspettare che ci arrivi vuol dire
+      # aspettare che lo scavo copra tutta la storia della chain. Qui si va dritti alla loro
+      # nascita, che gia' conosciamo. Sono 105, numerati in data/base_mai_letti.json: e' un lavoro
+      # che FINISCE, non una corsia perenne.
+      # VA PRIMA DEL RECUPERO NASCITE (18/09). Messo dopo, non partiva mai: il recupero ha
+      # 9.000 secondi di budget e li usa tutti, quindi il buco aspettava due ore e mezza ogni giro.
+      # E' un lavoro FINITO — 105 pool numerati — non una corsia perenne: fatto passare per primo si
+      # esaurisce in due giri e poi diventa un passo che non fa nulla, liberando la corsia per
+      # sempre. Un lavoro che finisce messo in coda a uno che non finisce mai non finisce mai.
+      - name: Buco base
+        env:
+          BUDGET_SEC: "2700"
+        run: python agents/buco_base.py
+      # ANCHE ROBINHOOD (19/09). L'agente ora calcola i bersagli da solo e vale per entrambe le
+      # chain: su robinhood sono pochi, ma «pochi» lo si sa solo guardando.
+      - name: Buco robinhood
+        env:
+          CHAIN: robinhood
+          BUDGET_SEC: "900"
+        run: python agents/buco_base.py
+      - name: Recupero nascite
+        env:
+          CHAIN: robinhood
+          BUDGET_SEC: "9000"
+          PAUSA: "0.35"
+        run: python agents/recupero_nascite.py
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          if ! git commit -m "nascite $(date -u +%H:%MZ)"; then
+            echo "NIENTE DA SALVARE"; exit 0
+          fi
+          # IL PULL NON DEVE UCCIDERE IL SALVATAGGIO (22/09). Il passo gira con `bash -e`: un
+          # comando che fallisce interrompe tutto. Il `git pull` dentro il ciclo dei tentativi era
+          # nudo, quindi al primo intoppo la shell moriva e i DIECI TENTATIVI NON VENIVANO MAI
+          # FATTI — con un messaggio che diceva «la riparazione di questa chain va persa», e
+          # infatti andava persa davvero.
+          # Misurato il 22/09: sei operai su sei falliti allo stesso modo, commit da 615 file
+          # buttato, mezz'ora di lavoro di tutta la corsia persa.
+          for i in $(seq 1 20); do   # 23/09: dieci non bastavano, i giri venivano buttati
+            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1 || true
+            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 15 + 5))
+          done
+          echo "NON SONO RIUSCITO A SPINGERE: le nascite recuperate restano sul runner e vanno perse."
+          exit 1
+      - name: Riarmo
+        # UNA CORSIA CHE FINISCE NON DEVE ASPETTARE UN ORARIO (16/09). Il recupero nascite e'
+        # rimasto fermo CINQUE ORE E MEZZA dopo aver finito il suo giro: la pianificazione a tre ore
+        # non l'ha ripreso, perche' GitHub salta i cron quando il repo e' occupato — e il nostro lo
+        # e' sempre. Cinque ore di lavoro gratis buttate perche' aspettavamo un orologio.
+        # Qui la corsia si riarma da sola appena finisce. Il lavoro e' finito (il segnalibro dice
+        # dove si era), i runner sono gratis, e non c'e' nessuna ragione perche' stia ferma.
+        # Se non c'e' piu' niente da fare, il giro dopo se ne accorge da solo e costa pochi secondi.
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DURATA=$(( $(date +%s) - $(cat /tmp/inizio_giro 2>/dev/null || echo 0) ))
+          # UN GIRO CHE MUORE SUBITO NON SI RIARMA (16/09, difetto chiuso appena creato). Il riarmo
+          # automatico e' giusto per una corsia che ha lavorato; ma se un giro fallisce in dieci
+          # secondi — credenziale scaduta, nodo morto, errore di sintassi — si rilancerebbe subito,
+          # e il ciclo brucerebbe i runner all'infinito senza raccogliere nulla.
+          # Sotto i cinque minuti si ferma e si fa vedere: un guasto deve costare attenzione, non
+          # diventare un motore perpetuo.
+          if [ "$DURATA" -lt 300 ]; then
+            # UNA GUARDIA NON DEVE UCCIDERE CIO' CHE SORVEGLIA (21/09). Serviva a non ripartire a
+            # raffica se la corsia falliva in pochi secondi. Ma «non mi riarmo» voleva dire che la
+            # corsia MORIVA, e il cron non la recuperava: GitHub salta i cron sui repo occupati, e
+            # il nostro lo e' sempre. La corsia popolazione e' rimasta ferma QUATTRO ORE cosi',
+            # col registro che diceva «success».
+            echo "SOLO ${DURATA}s: aspetto 5 minuti prima di riarmarmi, cosi' non parto a raffica."
+            sleep 300
+          fi
+          # UN RIARMO CHE NON SI ACCORGE DI ESSERE STATO RIFIUTATO (17/09). Il passo risultava
+          # «riuscito» e stampava «riarmata», ma nessun giro ripartiva: mancava il permesso
+          # actions:write e la richiesta veniva respinta con 403 — mentre curl, che non guarda il
+          # codice di risposta, usciva contento. La corsia e' rimasta ferma tre ore e mezza
+          # dichiarando di essersi riarmata.
+          # E' la stessa famiglia di difetti che ho inseguito tutto il giorno: qualcosa che dice
+          # di aver fatto una cosa che non ha fatto. Adesso si guarda il codice, e se non e' 204
+          # il passo FALLISCE e si vede.
+          # IL RIARMO SI RIPROVA (22/09). Un rifiuto passeggero del server di GitHub — un 500, un 429 —
+          # spegneva la corsia per ore: successo alle 02:33 su `popolazione`, tutti i lavori riusciti e
+          # la corsia ferma lo stesso perche' l'ultimo passo si e' arreso al primo tentativo.
+          # RIARMO: SI RIPROVA. Solo un rifiuto DEFINITIVO (4xx che non sia 429) e' un no vero.
+          for TENT in 1 2 3 4 5; do
+            CODICE=$(curl -s -o /tmp/riarmo.out -w "%{http_code}" -X POST \
+              -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/nascite.yml/dispatches" \
+              -d '{"ref":"main"}')
+            if [ "$CODICE" = "204" ]; then echo "riarmata (tentativo $TENT)"; exit 0; fi
+            echo "riarmo respinto (HTTP $CODICE), tentativo $TENT"
+            case "$CODICE" in
+              5*|429|000) sleep $((TENT * 15)) ;;
+              *) echo "rifiuto definitivo"; cat /tmp/riarmo.out; exit 1 ;;
+            esac
+          done
+          echo "NON SONO RIUSCITO A RIARMARMI dopo 5 tentativi"; cat /tmp/riarmo.out; exit 1
+          echo "riarmata dopo ${DURATA}s"
+
+  riarmo:
+    needs: recupera
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Riarmo
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # RIARMO (25/09). GitHub SALTA i cron sui repository occupati, e il nostro lo e' sempre.
+          # Misurato: le corsie CON riarmo hanno girato 13-16 volte, quelle senza 1-4.
+          # «nascite» aveva girato UNA volta sola. Il meccanismo esisteva dal 22/09 su otto corsie
+          # e non era stato propagato: e' la condizione 2 della regola di auto-apprendimento —
+          # propagare il miglioramento a TUTTI i pezzi simili, non solo dove e' emerso.
+          sleep 120
+          for TENT in 1 2 3 4 5; do
+            CODICE=$(curl -s -o /tmp/r.out -w "%{http_code}" -X POST \
+              -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/nascite.yml/dispatches" \
+              -d '{"ref":"main"}')
+            if [ "$CODICE" = "204" ]; then echo "riarmata (tentativo $TENT)"; exit 0; fi
+            echo "riarmo respinto (HTTP $CODICE), tentativo $TENT"
+            case "$CODICE" in
+              5*|429|000) sleep $((TENT * 15)) ;;
+              *) echo "rifiuto definitivo"; cat /tmp/r.out; exit 1 ;;
+            esac
+          done
+          echo "NON SONO RIUSCITO A RIARMARMI dopo 5 tentativi"; exit 1

@@ -1,0 +1,95 @@
+name: iniziatori
+# CHI HA DAVVERO FIRMATO OGNI SCAMBIO (25/09).
+# Il campo che usavamo come «chi ha fatto lo scambio» era il ROUTER: un solo indirizzo faceva il
+# 42,6% di tutti gli scambi, 2.001 distinti su 44.804. Tutto cio' che chiamavamo «compratori
+# distinti» misurava porte, non gente — e l'attribuzione economica era impossibile.
+# Il campo `from` della transazione e' l'iniziatore vero: 45% di indirizzi distinti, non 4%.
+# Ristretto ai pool che analizziamo e alla finestra prima della decisione: 603k invece di 2,4M.
+on:
+  schedule:
+    - cron: "7,37 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: iniziatori
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  raccogli:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        chain: [robinhood, base]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+
+      - name: Raccogli gli iniziatori
+        env:
+          CHAIN: ${{ matrix.chain }}
+          BUDGET_SEC: "1500"
+        run: python agents/iniziatori.py
+
+      - name: Salva
+        if: always()
+        env:
+          CHAIN: ${{ matrix.chain }}
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          # PRIMA si scarica lo stato piu' recente, POI si fonde: cosi' non si cancella il lavoro
+          # dell'altra chain, che gira in parallelo (25/09, base persa due volte).
+          git stash push -- data/multichain/*/iniziatori_nuovi.json >/dev/null 2>&1 || true
+          git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1 || true
+          git stash pop >/dev/null 2>&1 || true
+          python agents/fondi_iniziatori.py
+          git add -A
+          if ! git commit -m "iniziatori ${{ matrix.chain }} $(date -u +%H:%MZ)"; then
+            echo "NIENTE DA SALVARE"; exit 0
+          fi
+          for i in $(seq 1 20); do
+            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1 || true
+            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 15 + 5 + i * 2))
+          done
+          echo "NON SONO RIUSCITO A SPINGERE: il prossimo giro rifara' questi."
+          exit 1
+
+  riarmo:
+    needs: raccogli
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Riarmo
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # RIARMO (25/09). GitHub SALTA i cron sui repository occupati, e il nostro lo e' sempre:
+          # senza questo passo la corsia partiva ogni due ore invece che ogni trenta minuti, e il
+          # numero restava fermo senza che niente segnalasse un errore.
+          # Il meccanismo esisteva GIA' su otto corsie dal 22/09. Non l'ho applicato a quella nuova:
+          # e' la condizione 2 della regola di auto-apprendimento — propagare il miglioramento a
+          # TUTTI i pezzi simili — che ho scritto ieri e violato oggi.
+          # Si riprova: un rifiuto passeggero non e' un no.
+          sleep 120
+          for TENT in 1 2 3 4 5; do
+            CODICE=$(curl -s -o /tmp/r.out -w "%{http_code}" -X POST \
+              -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/iniziatori.yml/dispatches" \
+              -d '{"ref":"main"}')
+            if [ "$CODICE" = "204" ]; then echo "riarmata (tentativo $TENT)"; exit 0; fi
+            echo "riarmo respinto (HTTP $CODICE), tentativo $TENT"
+            case "$CODICE" in
+              5*|429|000) sleep $((TENT * 15)) ;;
+              *) echo "rifiuto definitivo"; cat /tmp/r.out; exit 1 ;;
+            esac
+          done
+          echo "NON SONO RIUSCITO A RIARMARMI dopo 5 tentativi"; exit 1

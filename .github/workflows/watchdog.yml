@@ -1,0 +1,23 @@
+name: watchdog
+# REPARTO WATCHDOG: ogni ora (:30) controlla che l'accumulator giri. Se fermo >2.5h -> workflow FALLISCE
+# -> GitHub manda email automatica al founder. Cosi non scopriamo dopo 2 mesi che era fermo. €0.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "47 * * * *"
+permissions:
+  contents: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: python agents/watchdog.py
+      - if: always()
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add data/results/health.json 2>/dev/null || true
+          git commit -m "watchdog $(date -u +%H:%MZ)" || exit 0
+          git pull --no-rebase --no-edit -X ours origin main || true; git push origin main || true

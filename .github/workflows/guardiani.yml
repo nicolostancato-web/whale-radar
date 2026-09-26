@@ -1,0 +1,58 @@
+name: guardiani
+# I GUARDIANI NON DEVONO DIPENDERE DAL LOOP 0 (21/09).
+# Il 17/09 abbiamo spento il loop 0 per concentrare tutto sul database. Dentro il loop 0 però
+# giravano anche i guardiani — e sono andati giu' con lui, senza che nessuno se ne accorgesse:
+# SECURITY.md e CFO.md sono rimasti fermi al 17/09 alle 18:23, cioè QUATTRO GIORNI.
+# Quattro giorni senza il controllo delle credenziali su un repo PUBBLICO, e senza il controllo
+# dei costi proprio mentre aprivamo una spesa a consumo su OpenAI.
+#
+# Nessuno l'ha visto perche' l'allarme era sepolto sotto 36 falsi allarmi dello stesso cruscotto.
+# Separare lo spento dal rotto non era cosmetica: e' servito a far emergere questo.
+#
+# Qui girano da soli, indipendenti da tutto il resto. Costano zero: uno non fa chiamate di rete,
+# l'altro interroga solo l'API di GitHub.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */3 * * *"
+
+concurrency:
+  group: guardiani
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  guardia:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+
+      # LA SICUREZZA PER PRIMA, E SE FALLISCE SI SENTE. Il repo e' pubblico: una credenziale
+      # finita qui dentro e' pubblica nel momento stesso in cui viene spinta.
+      - name: Credenziali nel repo pubblico
+        run: python agents/team_security.py
+
+      - name: Costi
+        if: always()
+        run: python agents/team_cfo.py
+
+      - name: Salva
+        if: always()
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          if ! git commit -m "guardiani $(date -u +%H:%MZ)"; then
+            echo "NIENTE DA SALVARE"; exit 0
+          fi
+          for i in 1 2 3 4 5; do
+            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1 || true
+            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 20 + 5))
+          done
+          echo "NON SONO RIUSCITO A SPINGERE"; exit 1

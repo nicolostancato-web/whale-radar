@@ -1,0 +1,108 @@
+name: riserve
+# L'ATTRIBUTO CHE MANCAVA AL DATABASE (22/09), trovato dal loop di ricerca su GitHub.
+# La ricerca ha segnalato che chi sorveglia questi mercati guarda i MOVIMENTI DI LIQUIDITA'.
+# Guardando cosa emette davvero un nostro pool — invece di fidarsi delle firme a memoria — si e'
+# visto che accanto a OGNI scambio c'e' un evento SYNC che porta le RISERVE del pool.
+#
+# La mattina stessa avevo scritto che le librerie di matematica degli AMM non ci servivano perche'
+# «partono dalle riserve, che noi non abbiamo». Le riserve ci sono: non le avevamo mai raccolte,
+# che e' una cosa diversa da non averle.
+#
+# Con queste si calcola l'impatto ESATTO di un ordine di qualunque dimensione, e si VEDE la
+# liquidita' sparire invece di indovinarla dall'impronta — la stima «un pool su undici» andava da
+# 2,3% a 9,2% a seconda di come si misurava, e per questo non la si poteva usare.
+#
+# Provato prima di accenderla: 6.183 letture su 606 pool in novanta secondi, allineata alla punta.
+# NON TOCCA I RACCOGLITORI ESISTENTI: scrive in una cartella sua.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "21,51 * * * *"      # rete di sicurezza: i cron vengono saltati sui repo occupati
+
+concurrency:
+  group: riserve
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  # SERVE ANCHE `actions: write` PER POTERSI RIARMARE (22/09). Senza, la chiamata che rilancia la
+  # corsia viene rifiutata subito — il riarmo e' fallito in 3 secondi al primo giro, e le corsie
+  # che funzionano da giorni ce l'hanno tutte. Il ciclo dei tentativi ha fatto la cosa giusta:
+  # ha riconosciuto un rifiuto DEFINITIVO e non ha insistito cinque volte per niente.
+  actions: write
+
+jobs:
+  raccogli:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        # DUE VERSI IN PARALLELO (22/09 sera). «Avanti» tiene il presente allineato alla punta;
+        # «indietro» ricostruisce il passato, che non era perso — era solo mai stato chiesto.
+        # Provato: 202.752 letture su 4.169 pool in 75 secondi, 1,7 giorni di storia recuperati.
+        # A quel ritmo una settimana di passato si ricostruisce in pochi minuti di calcolo.
+        include:
+          - { chain: base,      verso: avanti }
+          - { chain: robinhood, verso: avanti }
+          - { chain: base,      verso: indietro }
+          - { chain: robinhood, verso: indietro }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Raccogli le riserve
+        env:
+          CHAIN: ${{ matrix.chain }}
+          VERSO: ${{ matrix.verso }}
+          BUDGET_SEC: "1200"
+        run: python agents/riserve.py
+
+      - name: Salva
+        if: always()
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          if ! git commit -m "riserve ${{ matrix.chain }}/${{ matrix.verso }} $(date -u +%H:%MZ)"; then
+            echo "NIENTE DA SALVARE"; exit 0
+          fi
+          # il pull non deve uccidere il passo: la shell gira con -e (vedi le altre corsie, 22/09)
+          # 23/09: dieci tentativi non bastavano — il repository riceve spinte da nove corsie e
+          # un giro intero di liquidita' e' stato respinto e buttato. Venti tentativi, con l'attesa
+          # che cresce: la contesa e' a raffiche, e chi aspetta di piu' passa.
+          for i in $(seq 1 20); do
+            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1 || true
+            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 15 + 5 + i * 2))
+          done
+          # Nota: non si perde nulla per sempre. Anche il segnalibro resta indietro, quindi il giro
+          # successivo rilegge gli stessi blocchi. Si perde il TEMPO di questo giro, non i dati.
+          echo "NON SONO RIUSCITO A SPINGERE dopo 20 tentativi: il prossimo giro rifara' questi blocchi."
+          exit 1
+
+  riarmo:
+    needs: raccogli
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Riarmo
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # RIARMO: SI RIPROVA (22/09). Un rifiuto passeggero del server spegneva le corsie per
+          # ore. Solo un rifiuto definitivo e' un no vero.
+          for TENT in 1 2 3 4 5; do
+            CODICE=$(curl -s -o /tmp/r.out -w "%{http_code}" -X POST \
+              -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/riserve.yml/dispatches" \
+              -d '{"ref":"main"}')
+            if [ "$CODICE" = "204" ]; then echo "riarmata (tentativo $TENT)"; exit 0; fi
+            echo "riarmo respinto (HTTP $CODICE), tentativo $TENT"
+            case "$CODICE" in
+              5*|429|000) sleep $((TENT * 15)) ;;
+              *) echo "rifiuto definitivo"; cat /tmp/r.out; exit 1 ;;
+            esac
+          done
+          echo "NON SONO RIUSCITO A RIARMARMI dopo 5 tentativi"; exit 1

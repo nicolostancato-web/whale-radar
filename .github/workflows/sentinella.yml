@@ -1,0 +1,51 @@
+name: sentinella
+# SI ACCORGE QUANDO QUALCOSA SMETTE DI PRODURRE pur non dando errori (25/09).
+# Tutti i guasti di questi due giorni erano silenziosi: la corsia girava, usciva con successo, e non
+# produceva niente. La regola, in positivo: **misurare se il lavoro AVANZA**, non se il processo
+# termina senza errori.
+# Quando trova qualcosa di fermo, avvisa su Telegram: e' il caso in cui serve saperlo subito.
+on:
+  schedule:
+    - cron: "45 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: sentinella
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  guarda:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+
+      - name: Guarda se tutto avanza
+        id: guarda
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python agents/sentinella.py
+
+      - name: Salva lo stato
+        if: always()
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/loop1/sentinella.json
+          if ! git commit -m "sentinella $(date -u +%H:%MZ)"; then
+            echo "NIENTE DA SALVARE"; exit 0
+          fi
+          for i in $(seq 1 20); do
+            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1 || true
+            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 15 + 5 + i * 2))
+          done
+          echo "non spinto, riprovo al prossimo giro"; exit 0

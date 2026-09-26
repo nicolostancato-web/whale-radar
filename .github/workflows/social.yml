@@ -1,0 +1,64 @@
+name: social
+# ESPERIMENTO X / GROK — separato dal LOOP 1, non lo tocca e non lo legge.
+#
+# LA DOMANDA: quando l'attenzione su X accelera su una memecoin, quell'accelerazione arriva PRIMA
+# del movimento di prezzo, oppure lo commenta dopo? Non cerchiamo quale coin comprare.
+#
+# IL RITMO SE LO TIENE DA DENTRO (16/09, corretto dopo un'ora di vita). Il piano era un giro ogni
+# dieci minuti via cron. Misurato: in 33 minuti il cron non e' scattato nemmeno una volta — GitHub
+# limita le pianificazioni frequenti sul gratuito e le salta su un repo occupato.
+# Non era un dettaglio: senza misure puntuali la finestra T+5m verrebbe marcata PERSA ogni volta, e
+# l'esperimento si svuoterebbe da solo senza mai fallire. Adesso un giro resta vivo cinquanta
+# minuti, misura ogni due, e alla fine si riarma.
+#
+# COSTO, verificato e poi MISURATO sulla prima chiamata vera: $0,0606 a rilevazione, 5 ricerche X.
+# Tre al giorno = ~€6,70/mese. DAL 21/09 12:00 PT il prezzo cambia struttura ($5/1.000 POST invece
+# che per chiamata) e diventerebbe ~€107/mese: PRIMA DI QUELLA DATA VA RIDECISO.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "5 * * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: social
+  cancel-in-progress: false
+jobs:
+  osserva:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@v4
+      - name: Segna l'inizio
+        run: date +%s > /tmp/inizio_giro
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Corsia social
+        env:
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+          MIN_INTERVALLO_S: "21600"
+          DURATA_SEC: "3000"
+          OGNI_SEC: "120"
+        run: python agents/social_loop.py
+      - name: Riarmo
+        # Un giro che muore subito non si riarma: sotto i cinque minuti si ferma e si fa vedere.
+        # Un guasto deve costare attenzione, non diventare un motore perpetuo.
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DURATA=$(( $(date +%s) - $(cat /tmp/inizio_giro 2>/dev/null || echo 0) ))
+          if [ "$DURATA" -lt 300 ]; then
+            # UNA GUARDIA NON DEVE UCCIDERE CIO' CHE SORVEGLIA (21/09). Serviva a non ripartire a
+            # raffica se la corsia falliva in pochi secondi. Ma «non mi riarmo» voleva dire che la
+            # corsia MORIVA, e il cron non la recuperava: GitHub salta i cron sui repo occupati, e
+            # il nostro lo e' sempre. La corsia popolazione e' rimasta ferma QUATTRO ORE cosi',
+            # col registro che diceva «success».
+            echo "SOLO ${DURATA}s: aspetto 5 minuti prima di riarmarmi, cosi' non parto a raffica."
+            sleep 300
+          fi
+          curl -s -X POST -H "Authorization: token $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/social.yml/dispatches" \
+            -d '{"ref":"main"}' && echo "riarmata dopo ${DURATA}s"

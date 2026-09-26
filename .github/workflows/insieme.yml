@@ -1,0 +1,140 @@
+name: insieme
+# L'INSIEME DI ANALISI SI COSTRUISCE NEL CLOUD, NON SUL PORTATILE (25/09).
+#
+# Per sei giorni questo file l'ho costruito a mano sul Mac, perche' leggere centomila file grezzi
+# richiede tutta la cartella dei dati. Il 25/09 il disco si e' riempito, la copia di lavoro e'
+# stata cancellata, e con lei l'insieme: ogni analisi del giorno e' diventata irripetibile.
+# E' la terza volta che perdo qualcosa che viveva solo sul portatile.
+#
+# La regola imparata vale in positivo: CIO' CHE SERVE A DECIDERE SI COSTRUISCE DOVE VIVONO I DATI.
+# Qui l'insieme si rifa' da solo, ogni due ore, sulla macchina che ha gia' tutto — e finisce nel
+# repository, dove nessuna pulizia del disco puo' toccarlo.
+#
+# Porta con se' `_ore_osservate` e `_giudicabile`: l'esito si misura SOLO dove si e' guardato per
+# tutto l'orizzonte. Misurato il 25/09: trappole 35,0% su tutti contro 19,0% sui soli osservati
+# davvero, fondale -32,4% contro -17,0%. Per sei giorni ho chiamato trappola chi non aveva vendite
+# perche' NOI non avevamo guardato.
+on:
+  workflow_dispatch: {}
+  schedule:
+    # IL CRON TENTA SPESSO, IL LAVORO SI FA RARAMENTE (26/09). GitHub salta i cron sui repo
+    # occupati, quindi una sola occasione ogni due ore si perde facilmente — e' cosi' che questa
+    # corsia e' morta stamattina. Con un tentativo ogni mezz'ora ci sono quattro occasioni per
+    # ogni ricostruzione che serve, e i tentativi inutili escono in trenta secondi grazie al
+    # passo «Serve rifarlo?». Su un repository pubblico i minuti sono gratis: la cosa scarsa non
+    # e' il tempo macchina, e' il turno sul ramo — e chi salta non lo occupa.
+    - cron: "17,47 * * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: insieme
+  cancel-in-progress: false
+jobs:
+  costruisci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Segna l'inizio
+        run: date +%s > /tmp/inizio_giro
+      - name: Serve rifarlo?
+        id: serve
+        # SI DIRADA SALTANDO, NON DORMENDO (26/09, difetto creato e chiuso nella stessa mattina).
+        # Alle 06:50 ho messo una pausa di 90 minuti nel passo di riarmo per far cedere il passo
+        # alle corsie di raccolta. Giusto nell'intenzione, sbagliato nel modo: la pausa stava DENTRO
+        # il gruppo di concorrenza, quindi teneva occupato il posto per un'ora e mezza e i giri
+        # pianificati che arrivavano intanto venivano CANCELLATI. Risultato: la corsia e' rimasta
+        # ferma due ore e il registro diceva «cancelled», non «failed» — il modo piu' silenzioso
+        # di morire.
+        # La lezione, in positivo: **per fare una cosa piu' raramente, si esce subito quando non
+        # serve; non si resta in piedi ad aspettare.** Il turno si libera in dieci secondi e chi
+        # raccoglie passa avanti.
+        run: |
+          # SI LEGGE IL TIMBRO NEL DATO, NON LA CRONOLOGIA (26/09, secondo tentativo).
+          # Il primo usava `git log` su questo file: con `--depth 1` la cronologia e' una sola,
+          # datata adesso, e il controllo diceva sempre «fresco». La corsia e' girata a vuoto
+          # dichiarando successo.
+          ULTIMO=$(python3 -c "import json;print(json.load(open('data/loop1/insieme_timbro.json')).get('robinhood',0))" 2>/dev/null || echo 0)
+          ETA=$(( ( $(date +%s) - ULTIMO ) / 60 ))
+          echo "l'insieme ha $ETA minuti"
+          if [ "$ULTIMO" != "0" ] && [ "$ETA" -lt 100 ]; then
+            echo "abbastanza fresco: non lo rifaccio"
+            echo "salto=1" >> $GITHUB_OUTPUT
+          else
+            echo "salto=0" >> $GITHUB_OUTPUT
+          fi
+      - uses: actions/setup-python@v5
+        if: steps.serve.outputs.salto != '1'
+        with: { python-version: "3.11" }
+      - name: Costruisci l'insieme
+        if: steps.serve.outputs.salto != '1'
+        env:
+          ORE_ATTESA: "2"
+          ORIZZONTE_ORE: "6"
+        run: |
+          for CH in robinhood base; do
+            CHAIN=$CH python agents/insieme.py || echo "INSIEME $CH FALLITO"
+          done
+      - name: Quanto e' giudicabile
+        if: steps.serve.outputs.salto != '1'
+        # UNA COSTRUZIONE RIUSCITA NON E' UNA COSTRUZIONE SANA (25/09). Il file puo' esistere ed
+        # essere pieno di righe non giudicabili: senza questa riga nel registro non me ne accorgo.
+        run: |
+          python3 - <<'PY'
+          import glob, gzip, json
+          for f in sorted(glob.glob("data/loop1/insieme_*.jsonl.gz")):
+              r = [json.loads(l) for l in gzip.open(f, "rt")]
+              g = [x for x in r if x.get("_giudicabile")]
+              tr = [x for x in g if x.get("_uscita", 0) <= -0.9]
+              print(f"{f}: {len(r)} pool, {len(g)} giudicabili ({100*len(g)/max(1,len(r)):.0f}%), "
+                    f"trappole {100*len(tr)/max(1,len(g)):.1f}%")
+          PY
+      - name: Salva
+        if: steps.serve.outputs.salto != '1'
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A data/loop1
+          if ! git commit -m "insieme $(date -u +%H:%MZ)"; then
+            echo "NIENTE DA SALVARE"; exit 0
+          fi
+          for i in $(seq 1 20); do
+            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1 || true
+            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 15 + 5))
+          done
+          echo "NON SONO RIUSCITO A SPINGERE: l'insieme resta sul runner e va perso."
+          exit 1
+      - name: Riarmo
+        # SOLO DOPO LAVORO VERO (26/09). Un giro che ha saltato non si riarma: dormirebbe tenendo
+        # occupato il turno per non fare niente, che e' esattamente il difetto di stamattina.
+        # Quando c'e' da costruire, invece, la catena continua da sola senza aspettare l'orologio.
+        # GitHub salta i cron sui repo occupati, e il nostro lo e' sempre: senza riarmo questa
+        # corsia girerebbe una volta al giorno invece di dodici. Misurato il 25/09 sulle altre
+        # corsie: 13-16 giri con riarmo, 1-4 senza.
+        # La pausa di venti minuti esiste perche' questa e' una RICOSTRUZIONE, non una coda: non
+        # c'e' arretrato da smaltire, e riavviarla subito occuperebbe un posto macchina per nulla.
+        if: always() && steps.serve.outputs.salto != '1'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DURATA=$(( $(date +%s) - $(cat /tmp/inizio_giro 2>/dev/null || echo 0) ))
+          if [ "$DURATA" -lt 300 ]; then
+            echo "SOLO ${DURATA}s: qualcosa non va, aspetto 15 minuti prima di riarmarmi."
+            sleep 900
+          fi
+          sleep 120
+          for TENT in 1 2 3 4 5; do
+            CODICE=$(curl -s -o /tmp/r.out -w "%{http_code}" -X POST \
+              -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/insieme.yml/dispatches" \
+              -d '{"ref":"main"}')
+            if [ "$CODICE" = "204" ]; then echo "riarmata (tentativo $TENT)"; exit 0; fi
+            echo "riarmo respinto (HTTP $CODICE), tentativo $TENT"
+            case "$CODICE" in
+              5*|429|000) sleep $((TENT * 15)) ;;
+              *) echo "rifiuto definitivo"; cat /tmp/r.out; exit 1 ;;
+            esac
+          done
+          echo "NON SONO RIUSCITO A RIARMARMI dopo 5 tentativi"; exit 1

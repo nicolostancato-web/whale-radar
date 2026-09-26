@@ -1,0 +1,24 @@
+name: strategy_optimizer_solana
+# Loop STRATEGIA dedicato a Solana: sweep TP/timing, adotta la migliore ROBUSTA in data/strategy_solana.json.
+# Dispatch-only (nessun cron = zero peso). Gira anche dentro il MOTORE. €0.
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Ottimizza strategia Solana
+        env: { HELIUS_KEY: "${{ secrets.HELIUS_API }}" }
+        run: python agents/strategy_optimizer_solana.py || echo ko
+      - name: Salva
+        run: |
+          git config user.name bot; git config user.email bot@x.com
+          git add data/strategy_solana.json 2>/dev/null || true
+          git commit -m "strategy_solana $(date -u +%H:%MZ)" || exit 0
+          for i in 1 2 3 4; do git pull --no-rebase --no-edit -X ours origin main || true; git push origin main && exit 0; sleep 3; done

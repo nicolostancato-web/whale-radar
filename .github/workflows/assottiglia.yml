@@ -1,0 +1,52 @@
+name: assottiglia
+# UNA TANTUM (23/09). Un file di riserve era a 61,8 MB: GitHub avvisa a 50 e BLOCCA a 100.
+# Arrivati a 100 le spinte si fermano e TUTTA la raccolta muore.
+# Si tiene una lettura di liquidita' ogni 25 blocchi (~50 secondi su base) invece di una a ogni
+# movimento. 38 file, da 605 MB a 193. La risoluzione al secondo non la usiamo: serve la liquidita'
+# al momento della decisione, due ore dopo il primo scambio.
+# RI-OTTENIBILI: le riserve si riprendono dalla catena quando si vuole (22/09: 202.752 letture su
+# 4.169 pool in 75 secondi). Non e' un dato irripetibile.
+# Si fa QUI e non dal clone locale: il repository riceve spinte da nove corsie e da fuori si finisce
+# indietro di decine di commit prima di riuscire a spingere.
+on:
+  workflow_dispatch:
+    inputs:
+      prova:
+        description: "1 = non scrive niente, dice solo quanto risparmierebbe"
+        default: "0"
+
+permissions:
+  contents: write
+
+jobs:
+  assottiglia:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+
+      - name: Assottiglia
+        env:
+          PROVA: ${{ github.event.inputs.prova }}
+          GRANO: "25"
+          SOGLIA_MB: "5"
+        run: python agents/assottiglia_riserve.py
+
+      - name: Salva
+        if: github.event.inputs.prova != '1'
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          if ! git commit -m "assottiglia: una lettura di liquidita' ogni 25 blocchi sui file grossi"; then
+            echo "NIENTE DA ASSOTTIGLIARE"; exit 0
+          fi
+          for i in $(seq 1 25); do
+            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1 || true
+            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 15 + 5 + i * 2))
+          done
+          echo "NON SONO RIUSCITO A SPINGERE. Nulla e' perso: il prossimo giro rifara' tutto."
+          exit 1

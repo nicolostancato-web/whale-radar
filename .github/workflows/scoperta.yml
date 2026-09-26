@@ -1,0 +1,98 @@
+name: scoperta
+# LO SCOPRITORE ESISTEVA DAL 16/09 E NESSUNO LO LANCIAVA (22/09).
+# Il suo stesso commento lo definiva «la scoperta piu' importante finora»: chiede alla catena
+# quali pool NASCONO, invece di aspettare che un'API di terze parti se ne accorga ore o giorni
+# dopo. Era stato scritto, provato, e mai messo in produzione.
+#
+# Misurato oggi, ed e' il motivo per cui serviva: dei pool che abbiamo, arriviamo DOPO la nascita
+# nel 73,8% dei casi su base (ritardo mediano ~2 ore) e nel 91,4% su robinhood. Tutta la prima
+# vita di un token — primi compratori, lancio, prima corsa — non ce l'abbiamo.
+# E spiega una lamentela vecchia di mesi in questo progetto: «il filtro becca i token buoni ma
+# TARDI». Non era il filtro a essere lento: erano i dati ad arrivare tardi.
+#
+# Provato prima di accenderlo: 171 pool nuovi in sessanta secondi su base, e allineato alla punta
+# della catena. Non recupera il passato — quello e' perso — ma da qui in avanti le nascite le
+# prendiamo mentre accadono.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "11,41 * * * *"      # rete di sicurezza: i cron vengono saltati sui repo occupati
+
+concurrency:
+  group: scoperta
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  # SERVE ANCHE `actions: write` PER POTERSI RIARMARE (22/09). Senza, la chiamata che rilancia la
+  # corsia viene rifiutata subito — il riarmo e' fallito in 3 secondi al primo giro, e le corsie
+  # che funzionano da giorni ce l'hanno tutte. Il ciclo dei tentativi ha fatto la cosa giusta:
+  # ha riconosciuto un rifiuto DEFINITIVO e non ha insistito cinque volte per niente.
+  actions: write
+
+jobs:
+  scopri:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        chain: [base, robinhood]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Scopri i pool che nascono
+        env:
+          CHAIN: ${{ matrix.chain }}
+          BUDGET_SEC: "1200"
+        run: python agents/scopritore.py
+
+      - name: Salva
+        if: always()
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          if ! git commit -m "scoperta ${{ matrix.chain }} $(date -u +%H:%MZ)"; then
+            echo "NIENTE DA SALVARE"; exit 0
+          fi
+          # il pull non deve uccidere il passo: la shell gira con -e (vedi le altre corsie, 22/09)
+          # 23/09: dieci tentativi non bastavano. Con nove corsie che spingono in continuazione,
+          # un giro intero di lavoro veniva respinto e buttato (misurato su riserve e riparazione).
+          # Venti tentativi con l'attesa che CRESCE: la contesa arriva a raffiche, e chi aspetta di
+          # piu' passa. Nessun dato e' perso comunque — anche il segnalibro resta indietro, quindi
+          # il giro dopo rifa' il lavoro: si perde il tempo, non i dati.
+          for i in $(seq 1 20); do
+            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1 || true
+            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 15 + 5 + i * 2))
+          done
+          echo "NON SONO RIUSCITO A SPINGERE: le nascite scoperte vanno perse."
+          exit 1
+
+  riarmo:
+    needs: scopri
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Riarmo
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # RIARMO: SI RIPROVA (22/09). Un rifiuto passeggero del server spegneva le corsie per
+          # ore. Solo un rifiuto definitivo e' un no vero.
+          for TENT in 1 2 3 4 5; do
+            CODICE=$(curl -s -o /tmp/r.out -w "%{http_code}" -X POST \
+              -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/scoperta.yml/dispatches" \
+              -d '{"ref":"main"}')
+            if [ "$CODICE" = "204" ]; then echo "riarmata (tentativo $TENT)"; exit 0; fi
+            echo "riarmo respinto (HTTP $CODICE), tentativo $TENT"
+            case "$CODICE" in
+              5*|429|000) sleep $((TENT * 15)) ;;
+              *) echo "rifiuto definitivo"; cat /tmp/r.out; exit 1 ;;
+            esac
+          done
+          echo "NON SONO RIUSCITO A RIARMARMI dopo 5 tentativi"; exit 1

@@ -1,0 +1,85 @@
+name: pulizia_riserve
+# PULIZIA UNA TANTUM (22/09 sera) — e la causa e' mia.
+#
+# Il raccoglitore delle riserve chiedeva gli eventi di liquidita' PER TIPO, e il nodo risponde con
+# TUTTA la chain: in un'ora sono arrivati 240.349 pool, di cui il 97,5% non li seguiamo nemmeno.
+# 103 MB di file inutili, spinti sul repository a ogni giro. Il repo e' passato a 3.006 MB — la
+# stessa crisi del 20/09, rifatta da me.
+#
+# Il raccoglitore e' gia' corretto (adesso filtra sui pool di cui abbiamo gli scambi). Questa
+# corsia toglie cio' che era gia' arrivato.
+#
+# PERCHE' NON DAL CLONE LOCALE: il repository riceve spinte da otto corsie in continuazione, e da
+# fuori si finisce indietro di decine di commit prima di riuscire a spingere. Sei tentativi tutti
+# respinti. La pulizia va fatta dove girano le altre corsie.
+#
+# COSA CANCELLA, ESATTAMENTE: solo i file di riserve il cui pool NON compare fra quelli di cui
+# raccogliamo gli scambi. Sono inutili per definizione — e comunque ri-ottenibili dalla catena in
+# qualunque momento, cosa che stasera abbiamo dimostrato.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  pulisci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+
+      - name: Togli le riserve dei pool che non seguiamo
+        run: |
+          python3 - <<'PY'
+          import os
+          tolti = 0
+          peso = 0
+          for ch in ("base", "robinhood"):
+              d = f"data/multichain/{ch}/riserve"
+              if not os.path.isdir(d):
+                  continue
+              nostri = set()
+              for sub in ("storico", "vivo"):
+                  dd = f"data/multichain/{ch}/{sub}"
+                  if os.path.isdir(dd):
+                      nostri |= {fn.split(".")[0].lower() for fn in os.listdir(dd)}
+              # NON SI CANCELLA AL BUIO: se non conosciamo i pool, non si tocca niente.
+              if not nostri:
+                  print(f"{ch}: non conosco i pool, NON cancello nulla")
+                  continue
+              for fn in os.listdir(d):
+                  if fn.split(".")[0].lower() not in nostri:
+                      p = os.path.join(d, fn)
+                      peso += os.path.getsize(p)
+                      os.remove(p)
+                      tolti += 1
+              rimasti = os.listdir(d)
+              estranei = [f for f in rimasti
+                          if f.split(".")[0].lower() not in nostri]
+              print(f"{ch}: rimasti {len(rimasti)} file, estranei {len(estranei)}")
+          print(f"cancellati {tolti} file, {peso/1e6:.0f} MB")
+          PY
+
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          if ! git commit -m "pulizia: via le riserve dei pool che non seguiamo"; then
+            echo "NIENTE DA CANCELLARE"; exit 0
+          fi
+          # 23/09: dieci tentativi non bastavano. Con nove corsie che spingono in continuazione,
+          # un giro intero di lavoro veniva respinto e buttato (misurato su riserve e riparazione).
+          # Venti tentativi con l'attesa che CRESCE: la contesa arriva a raffiche, e chi aspetta di
+          # piu' passa. Nessun dato e' perso comunque — anche il segnalibro resta indietro, quindi
+          # il giro dopo rifa' il lavoro: si perde il tempo, non i dati.
+          for i in $(seq 1 20); do
+            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1 || true
+            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 15 + 5 + i * 2))
+          done
+          echo "NON SONO RIUSCITO A SPINGERE la pulizia"
+          exit 1

@@ -1,0 +1,162 @@
+name: riparazione
+# UNA CORSIA SUA PER GLI ISTANTI (20/09).
+# La riparazione degli orari e' il NONO agente su tredici nel giro della corsia database, dietro a
+# raccoglitori con budget da 150 a 420 secondi per due chain: un giro dura oltre quaranta minuti e
+# quando ci si arriva prende quel che resta. Misurato: i segnalibri di entrambe le chain fermi a
+# 2.000 e 4.280 pool per ore.
+# Ma il difetto che ripara non e' minore: lo scavo storico calcolava gli istanti per interpolazione
+# e su robinhood sbagliava di ORE, proprio mentre quella chain veniva riattivata. Le righe nuove
+# sono a posto da stamattina; tutto il passato no, e l'ordine temporale e' cio' su cui si regge la
+# domanda «chi e' entrato per primo».
+# Qui gira da sola, una fetta per chain, e si riarma.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "1,31 * * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: riparazione
+  cancel-in-progress: false
+jobs:
+  ripara:
+    runs-on: ubuntu-latest
+    # PIU' TEMPO DI LAVORO PER GIRO (22/09). Gli operai consumavano tutti i 25 minuti di budget
+    # su un tetto di 45: erano limitati dal TEMPO, non dal nodo (misurato: base serve sei gruppi
+    # in parallelo senza errori). Alzare il budget e' la leva vera, perche' ogni giro paga comunque
+    # il costo fisso di avvio, clone e salvataggio.
+    # Il tetto sale a 60 per lasciare margine: il 21/09 un budget troppo vicino al tetto faceva
+    # UCCIDERE il lavoro prima del salvataggio, e tre giri interi sono andati persi.
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        # CINQUE OPERAI SU ROBINHOOD, UNO SU BASE (21/09). Il lavoro non e' diviso a meta' perche'
+        # le due chain non stanno allo stesso punto: base e' al 87% e chiude in un minuto, robinhood
+        # e' al 37% con diciottomila file da verificare. Un solo operaio la portava avanti di mezzo
+        # punto ogni mezz'ora — giorni, per la misura che tiene fermo il loop 1.
+        # Le schegge si dividono i file per resto sul nome: insiemi disgiunti, nessuna tocca il file
+        # di un'altra, e ognuna tiene il proprio segnalibro.
+        include:
+          # ROBINHOOD DA CINQUE A TRE OPERAI (22/09). Il ritmo era calato da +7,2 a +2,1 punti a
+          # giro, con 11.500 record dichiarati «irrecuperabili» per operaio — mentre gli stessi
+          # blocchi, chiesti uno per uno, il nodo li serviva tutti (20 su 20).
+          # Quindi non e' il nodo a non avere i dati: e' che con cinque operai addosso rifiuta le
+          # richieste a gruppi, e ogni rifiuto butta via fino a cento blocchi per quel giro.
+          # Il limite di questa chain e' GLOBALE, non per operaio: era gia' stato misurato che tre
+          # schegge rendevano piu' di sei. Si torna a tre.
+          - { chain: robinhood, scheggia: 0, quante: 3 }
+          - { chain: robinhood, scheggia: 1, quante: 3 }
+          - { chain: robinhood, scheggia: 2, quante: 3 }
+          # BASE PASSA DA UNO A TRE OPERAI (22/09). Con uno solo era limitata dal TEMPO — 29
+          # minuti pieni di budget consumati — e avanzava di 0,2 punti a giro, mentre robinhood
+          # con cinque ne faceva 3. Il nodo di base regge gruppi da dieci (misurato: 10 ok, 15
+          # tronca) e non ha dato segnali di saturazione, quindi il collo di bottiglia erano le
+          # braccia, non il nodo. Tre e non cinque: si aggiunge quanto basta e si misura.
+          - { chain: base,      scheggia: 0, quante: 3 }
+          - { chain: base,      scheggia: 1, quante: 3 }
+          - { chain: base,      scheggia: 2, quante: 3 }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      # LA MEMORIA DEI BLOCCHI VIVE QUI, NON NEL REPO (21/09): un file riscritto a ogni giro
+      # gonfierebbe la cronologia di git di decine di mega al giorno.
+      # LA MEMORIA VECCHIA E' AVVELENATA E SI BUTTA (22/09). Conteneva orari abbinati al blocco
+      # sbagliato, e una memoria non si corregge da sola: serve un nome nuovo perche' nessuno la
+      # ritrovi. Il costo e' richiedere tutto da capo al nodo; il costo di tenerla sarebbe
+      # riprodurre l'errore per sempre, e in silenzio.
+      - name: Riprendi la memoria dei blocchi
+        uses: actions/cache@v4
+        with:
+          path: .cache_orari
+          key: orari2-${{ matrix.chain }}-${{ matrix.scheggia }}-${{ github.run_id }}
+          restore-keys: |
+            orari2-${{ matrix.chain }}-${{ matrix.scheggia }}-
+            orari2-${{ matrix.chain }}-
+      - name: Ripara gli istanti
+        env:
+          CHAIN: ${{ matrix.chain }}
+          SCHEGGIA: ${{ matrix.scheggia }}
+          QUANTE: ${{ matrix.quante }}
+          # IL BUDGET STA BEN DENTRO IL TETTO DEL LAVORO (21/09). Era 2100 secondi con un tetto
+          # di 45 minuti, e il lavoro di robinhood veniva UCCISO allo scadere: il passo di
+          # salvataggio non partiva mai e TUTTO il raccolto di quel giro andava perso — tre giri di
+          # fila, cancellati dopo 45 minuti ciascuno.
+          # Il controllo del budget stava solo fra un file e l'altro, e un file con molti blocchi e
+          # molte riprove puo' sforare da solo. Ora l'orologio comanda anche dentro la lettura degli
+          # istanti, e il budget lascia dieci minuti di margine per salvare e spingere.
+          BUDGET_SEC: "2400"
+        run: python agents/ripara_orario.py
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          if ! git commit -m "riparazione ${{ matrix.chain }}/${{ matrix.scheggia }} $(date -u +%H:%MZ)"; then
+            echo "NIENTE DA SALVARE"; exit 0
+          fi
+          # IL PULL NON DEVE UCCIDERE IL SALVATAGGIO (22/09). Il passo gira con `bash -e`: un
+          # comando che fallisce interrompe tutto. Il `git pull` dentro il ciclo dei tentativi era
+          # nudo, quindi al primo intoppo la shell moriva e i DIECI TENTATIVI NON VENIVANO MAI
+          # FATTI — con un messaggio che diceva «la riparazione di questa chain va persa», e
+          # infatti andava persa davvero.
+          # Misurato il 22/09: sei operai su sei falliti allo stesso modo, commit da 615 file
+          # buttato, mezz'ora di lavoro di tutta la corsia persa.
+          # 23/09: dieci tentativi non bastavano. Con nove corsie che spingono in continuazione,
+          # un giro intero di lavoro veniva respinto e buttato (misurato su riserve e riparazione).
+          # Venti tentativi con l'attesa che CRESCE: la contesa arriva a raffiche, e chi aspetta di
+          # piu' passa. Nessun dato e' perso comunque — anche il segnalibro resta indietro, quindi
+          # il giro dopo rifa' il lavoro: si perde il tempo, non i dati.
+          for i in $(seq 1 20); do
+            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1 || true
+            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 15 + 5 + i * 2))
+          done
+          echo "NON SONO RIUSCITO A SPINGERE: la riparazione di questa chain va persa."
+          exit 1
+  riarmo:
+    needs: ripara
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Riarmo
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          INIZIO=$(curl -s -H "Authorization: token $GH_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            | python3 -c "import sys,json,calendar,time; d=json.load(sys.stdin); print(calendar.timegm(time.strptime(d['run_started_at'],'%Y-%m-%dT%H:%M:%SZ')))")
+          DURATA=$(( $(date +%s) - ${INIZIO:-0} ))
+          echo "la corsia e' durata ${DURATA}s"
+          if [ "$DURATA" -lt 300 ]; then
+            # UNA GUARDIA NON DEVE UCCIDERE CIO' CHE SORVEGLIA (21/09). Serviva a non ripartire a
+            # raffica se la corsia falliva in pochi secondi. Ma «non mi riarmo» voleva dire che la
+            # corsia MORIVA, e il cron non la recuperava: GitHub salta i cron sui repo occupati, e
+            # il nostro lo e' sempre. La corsia popolazione e' rimasta ferma QUATTRO ORE cosi',
+            # col registro che diceva «success».
+            echo "SOLO ${DURATA}s: aspetto 5 minuti prima di riarmarmi, cosi' non parto a raffica."
+            sleep 300
+          fi
+          # IL RIARMO SI RIPROVA (22/09). Un rifiuto passeggero del server di GitHub — un 500,
+          # un 429 — spegneva la corsia per ore: e' successo alle 02:33, tutti i lavori riusciti e
+          # la corsia ferma lo stesso perche' l'ultimo passo si e' arreso al primo tentativo.
+          # RIARMO: SI RIPROVA invece di arrendersi. Solo un rifiuto DEFINITIVO (4xx che non sia
+          # 429) e' un no vero: quelli si riportano, gli altri si insistono.
+          for TENT in 1 2 3 4 5; do
+            CODICE=$(curl -s -o /tmp/r.out -w "%{http_code}" -X POST \
+              -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/riparazione.yml/dispatches" \
+              -d '{"ref":"main"}')
+            if [ "$CODICE" = "204" ]; then echo "riarmata (tentativo $TENT)"; exit 0; fi
+            echo "riarmo respinto (HTTP $CODICE), tentativo $TENT"
+            case "$CODICE" in
+              5*|429|000) sleep $((TENT * 15)) ;;
+              *) echo "rifiuto definitivo"; cat /tmp/r.out; exit 1 ;;
+            esac
+          done
+          echo "NON SONO RIUSCITO A RIARMARMI dopo 5 tentativi"; cat /tmp/r.out; exit 1
+          echo "riarmata dopo ${DURATA}s"

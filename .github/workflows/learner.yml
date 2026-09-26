@@ -1,0 +1,27 @@
+name: learner
+# LEARNER: il sistema impara dai propri trade. Gira ogni 3h (dopo il paper bot), addestra il modello
+# di selezione, scrive LEARNING.md + data/selection_model.json. Si attiva solo quando batte il caso. €0.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "37 */4 * * *"
+permissions:
+  contents: write
+concurrency:
+  group: learner
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: python agents/learner.py || echo "ko"
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add data/selection_model.json LEARNING.md 2>/dev/null || true
+          git commit -m "learner $(date -u +%Y-%m-%dT%H:%MZ)" || { echo niente; exit 0; }
+          for i in 1 2 3; do git pull --no-rebase --no-edit -X ours origin main || true; git push origin main && exit 0; sleep 4; done

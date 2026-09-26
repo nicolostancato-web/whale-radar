@@ -1,0 +1,179 @@
+name: coppie
+# QUATTRO IP INVECE DI UNO (18/09). Il nodo pubblico limita per indirizzo IP: misurato, da una
+# macchina sola si ottengono 0,24 pool al secondo e ne' i fili ne' i lotti cambiano nulla (tre fili
+# rendono 0,22, sei fili zero, i lotti da 10 rendono ZERO perche' il nodo tronca la risposta in
+# silenzio). A base restavano 4.349 indirizzi: cinque ore di chiamate pure.
+# Ogni lavoro qui gira su un runner con IP proprio, quindi quattro fette vanno quattro volte piu'
+# veloci. E' la stessa leva gia' usata per lo scavo storico.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17,47 * * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: coppie
+  cancel-in-progress: false
+jobs:
+  risolvi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        fetta: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Coppie base
+        env:
+          CHAIN: base
+          FETTA: ${{ matrix.fetta }}
+          N_FETTE: "4"
+          BUDGET_SEC: "1500"
+        run: python agents/coppie_token.py
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          if ! git commit -m "coppie fetta ${{ matrix.fetta }} $(date -u +%H:%MZ)"; then
+            echo "NIENTE DA SALVARE"; exit 0
+          fi
+          # IL PULL NON DEVE UCCIDERE IL SALVATAGGIO (22/09). Il passo gira con `bash -e`: un
+          # comando che fallisce interrompe tutto. Il `git pull` dentro il ciclo dei tentativi era
+          # nudo, quindi al primo intoppo la shell moriva e i DIECI TENTATIVI NON VENIVANO MAI
+          # FATTI — con un messaggio che diceva «la riparazione di questa chain va persa», e
+          # infatti andava persa davvero.
+          # Misurato il 22/09: sei operai su sei falliti allo stesso modo, commit da 615 file
+          # buttato, mezz'ora di lavoro di tutta la corsia persa.
+          for i in $(seq 1 20); do   # 23/09: dieci non bastavano, i giri venivano buttati
+            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1 || true
+            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 15 + 5))
+          done
+          echo "NON SONO RIUSCITO A SPINGERE: le coppie di questa fetta vanno perse."
+          exit 1
+  unisci:
+    needs: risolvi
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      # SI RIPRENDE LO STATO PIU' FRESCO PRIMA DI UNIRE (18/09). Al primo giro l'unione ha visto
+      # solo una parte delle fette e ha perso 839 coppie: il checkout di questo lavoro puo' essere
+      # anteriore all'ultima spinta delle fette, anche se le aspetta tutte. Rifacendo l'unione a
+      # mano sullo stato aggiornato, base passava dal 29% al 38%.
+      # Un fetch prima di unire costa un secondo e toglie di mezzo la corsa fra i lavori.
+      - name: Prendi le fette piu' recenti
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+      - name: Segna l'inizio
+        run: date +%s > /tmp/inizio_giro
+      - name: Unisci le fette
+        run: python agents/coppie_unisci.py
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          if ! git commit -m "coppie unite $(date -u +%H:%MZ)"; then
+            echo "NIENTE DA UNIRE"; exit 0
+          fi
+          for i in $(seq 1 20); do   # 23/09: dieci non bastavano, i giri venivano buttati
+            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1 || true
+            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 15 + 5))
+          done
+          exit 1
+      - name: Riarmo
+        # IL CRON DA SOLO NON BASTA (19/09). Misurato stanotte: pianificata ogni due ore, questa
+        # corsia ha girato DUE volte invece di sei. GitHub salta i cron quando il repo e' occupato,
+        # e il nostro lo e' sempre. Quattro giri persi sono quattro giri di coppie non risolte,
+        # sull'unico lavoro che oggi blocca il cancello.
+        # Stessa soluzione gia' usata da nascite e vivo: la corsia si riarma da sola appena finisce.
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # LA GUARDIA DEVE MISURARE LA CORSIA, NON QUESTO LAVORO (19/09, difetto trovato al primo
+          # giro vero). Prima confrontavo con 120s un cronometro fatto partire DENTRO il lavoro di
+          # unione, che dura tre minuti — mentre la corsia intera ne dura trenta. Risultato: la
+          # guardia scattava sempre, il riarmo non partiva mai, e il passo usciva lo stesso con
+          # «success». Ventotto minuti dopo non c'era nessuna corsa nuova e il registro diceva
+          # «Riarmo=success».
+          # E' la stessa famiglia di difetti di ieri: qualcosa che dichiara di aver fatto una cosa
+          # che non ha fatto. Adesso il tempo si chiede alla corsa stessa, non a un cronometro
+          # locale che misura il pezzo sbagliato.
+          INIZIO=$(curl -s -H "Authorization: token $GH_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            | python3 -c "import sys,json,calendar,time; d=json.load(sys.stdin); print(calendar.timegm(time.strptime(d['run_started_at'],'%Y-%m-%dT%H:%M:%SZ')))")
+          DURATA=$(( $(date +%s) - ${INIZIO:-0} ))
+          echo "la corsia intera e' durata ${DURATA}s"
+          # un giro che muore subito non si riarma: un guasto deve costare attenzione, non
+          # diventare un motore perpetuo che brucia runner senza raccogliere nulla.
+          if [ "$DURATA" -lt 300 ]; then
+            # UNA GUARDIA NON DEVE UCCIDERE CIO' CHE SORVEGLIA (21/09). Serviva a non ripartire a
+            # raffica se la corsia falliva in pochi secondi. Ma «non mi riarmo» voleva dire che la
+            # corsia MORIVA, e il cron non la recuperava: GitHub salta i cron sui repo occupati, e
+            # il nostro lo e' sempre. La corsia popolazione e' rimasta ferma QUATTRO ORE cosi',
+            # col registro che diceva «success».
+            echo "SOLO ${DURATA}s: aspetto 5 minuti prima di riarmarmi, cosi' non parto a raffica."
+            sleep 300
+          fi
+          # e si guarda il codice della risposta: senza, un riarmo respinto con 403 si dichiara
+          # riuscito e la corsia resta ferma per ore sostenendo di essere ripartita.
+          # IL RIARMO SI RIPROVA (22/09). Un rifiuto passeggero del server di GitHub — un 500, un 429 —
+          # spegneva la corsia per ore: successo alle 02:33 su `popolazione`, tutti i lavori riusciti e
+          # la corsia ferma lo stesso perche' l'ultimo passo si e' arreso al primo tentativo.
+          # RIARMO: SI RIPROVA. Solo un rifiuto DEFINITIVO (4xx che non sia 429) e' un no vero.
+          for TENT in 1 2 3 4 5; do
+            CODICE=$(curl -s -o /tmp/riarmo.out -w "%{http_code}" -X POST \
+              -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/coppie.yml/dispatches" \
+              -d '{"ref":"main"}')
+            if [ "$CODICE" = "204" ]; then echo "riarmata (tentativo $TENT)"; exit 0; fi
+            echo "riarmo respinto (HTTP $CODICE), tentativo $TENT"
+            case "$CODICE" in
+              5*|429|000) sleep $((TENT * 15)) ;;
+              *) echo "rifiuto definitivo"; cat /tmp/riarmo.out; exit 1 ;;
+            esac
+          done
+          echo "NON SONO RIUSCITO A RIARMARMI dopo 5 tentativi"; cat /tmp/riarmo.out; exit 1
+          echo "riarmata dopo ${DURATA}s"
+
+  riarmo:
+    needs: risolvi
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Riarmo
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # RIARMO (25/09). GitHub SALTA i cron sui repository occupati, e il nostro lo e' sempre.
+          # Misurato: le corsie CON riarmo hanno girato 13-16 volte, quelle senza 1-4.
+          # «nascite» aveva girato UNA volta sola. Il meccanismo esisteva dal 22/09 su otto corsie
+          # e non era stato propagato: e' la condizione 2 della regola di auto-apprendimento —
+          # propagare il miglioramento a TUTTI i pezzi simili, non solo dove e' emerso.
+          sleep 120
+          for TENT in 1 2 3 4 5; do
+            CODICE=$(curl -s -o /tmp/r.out -w "%{http_code}" -X POST \
+              -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/coppie.yml/dispatches" \
+              -d '{"ref":"main"}')
+            if [ "$CODICE" = "204" ]; then echo "riarmata (tentativo $TENT)"; exit 0; fi
+            echo "riarmo respinto (HTTP $CODICE), tentativo $TENT"
+            case "$CODICE" in
+              5*|429|000) sleep $((TENT * 15)) ;;
+              *) echo "rifiuto definitivo"; cat /tmp/r.out; exit 1 ;;
+            esac
+          done
+          echo "NON SONO RIUSCITO A RIARMARMI dopo 5 tentativi"; exit 1

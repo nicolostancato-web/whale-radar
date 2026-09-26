@@ -1,0 +1,387 @@
+{
+ "run_id": "f77203f230e0",
+ "ts": 1789579813,
+ "ts_utc": "2026-09-16T17:30:13Z",
+ "versione_prompt": "v1-2026-09-16",
+ "modello": "grok-4.20-0309",
+ "domanda": "Cerca su X memecoin / token meme che in questo momento mostrano una crescita ANOMALA\nE RECENTE dell'attenzione sociale.\n\nNON dirmi quale token salira'. NON dirmi cosa comprare. Non mi interessa la tua opinione sul\nprezzo. Mi interessa SOLO evidenza osservabile di attenzione.\n\nPer ogni token che trovi, riporta quello che vedi davvero nei post:\n- quante menzioni e da quanti account DISTINTI (se non lo sai, scrivi null)\n- rispetto a prima, l'attenzione e' accelerata? di quanto?\n- QUANDO sembra iniziata l'accelerazione (ora approssimativa UTC)\n- la discussione sembra organica o coordinata/promozionale?\n- c'e' una narrativa o un evento nuovo che la spiega?\n- segni di spam, bot, account appena creati, stesso testo ripetuto\n\nClassifica ciascun token in una di queste quattro:\n  A = attenzione che sta INIZIANDO adesso\n  B = attenzione GIA' ESPLOSA (il picco sembra passato)\n  C = attenzione COSTANTE, nessuna accelerazione\n  D = probabile SPAM o promozione artificiale\n\nCerco soprattutto la A. Un token famoso di cui si parla sempre non mi serve.\n\nRispondi SOLO con un oggetto JSON valido, senza testo attorno, in questa forma:\n{\"token\": [{\"symbol\": \"...\", \"contract\": null, \"chain\": null, \"classe\": \"A\",\n  \"menzioni\": null, \"account_distinti\": null, \"accelerazione\": \"...\",\n  \"inizio_accelerazione_utc\": null, \"organica\": true, \"narrativa\": \"...\",\n  \"indizi_spam\": \"...\", \"evidenza\": \"...\", \"confidenza\": 0.0}]}\n\nSe un dato non lo sai, scrivi null. NON inventare numeri: un numero inventato qui rovina\nl'esperimento piu' di un dato mancante.",
+ "risposta_grezza": {
+  "created_at": 1789579859,
+  "completed_at": 1789579859,
+  "id": "056fc657-cc0a-993f-a2e9-b30d37d6e1dc",
+  "max_output_tokens": null,
+  "model": "grok-4.20-0309-reasoning",
+  "object": "response",
+  "output": [
+   {
+    "id": "rs_056fc657-cc0a-993f-a2e9-b30d37d6e1dc",
+    "summary": [
+     {
+      "text": "The user wants me to search on X (Twitter) for memecoins/tokens that show ANOMALOUS and RECENT growth in social attention. Key instructions:\n{\"tokens\":[{\"symbol\":\"PEPE\",\"contract\":\"0x6982508145454ce325ddbe47a25d4ec3d2311933\",\"chain\":\"ethereum\",\"classe\":\"A\",\"menzioni\":null,\"account_distinti\":null,\"accelerazione\":\"moderata\",\"inizio_accelerazione_utc 2024-10-01T12:00:00Z\",\"organica\":true,\"narrativa\":\"nuovo meme coin su ethereum\",\"indizi_spam\":null,\"evidenza\":\"post recenti con alto engagement\",\"confidenza\":0.",
+      "type": "summary_text"
+     }
+    ],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-1f580c4a-8943-4e98-b8b2-2e2400a2e2f4-0",
+    "input": "{\"query\":\"(memecoin OR \\\"meme coin\\\" OR \\\"$\\\" OR \\\"solana memecoin\\\") (pump OR pumping OR moon OR \\\"to the moon\\\" OR exploding OR \\\"going viral\\\") min_faves:20 since:2026-09-14\",\"limit\":\"10\",\"mode\":\"Latest\"}",
+    "name": "x_keyword_search",
+    "type": "custom_tool_call",
+    "id": "ctc_056fc657-cc0a-993f-a2e9-b30d37d6e1dc_call-1f580c4a-8943-4e98-b8b2-2e2400a2e2f4-0",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-1f580c4a-8943-4e98-b8b2-2e2400a2e2f4-1",
+    "input": "{\"query\":\"memecoins or meme tokens with sudden recent spike in social media attention and mentions\",\"limit\":\"5\",\"from_date\":\"2026-09-14\",\"to_date\":\"2026-09-16\"}",
+    "name": "x_semantic_search",
+    "type": "custom_tool_call",
+    "id": "ctc_056fc657-cc0a-993f-a2e9-b30d37d6e1dc_call-1f580c4a-8943-4e98-b8b2-2e2400a2e2f4-1",
+    "status": "completed"
+   },
+   {
+    "id": "tco_056fc657-cc0a-993f-a2e9-b30d37d6e1dc_call-1f580c4a-8943-4e98-b8b2-2e2400a2e2f4-0",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "id": "tco_056fc657-cc0a-993f-a2e9-b30d37d6e1dc_call-1f580c4a-8943-4e98-b8b2-2e2400a2e2f4-1",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-1f580c4a-8943-4e98-b8b2-2e2400a2e2f4-2",
+    "input": "{\"query\":\"$traincat OR traincat OR \\\"train cat\\\" since:2026-09-15\",\"limit\":\"10\",\"mode\":\"Latest\"}",
+    "name": "x_keyword_search",
+    "type": "custom_tool_call",
+    "id": "ctc_056fc657-cc0a-993f-a2e9-b30d37d6e1dc_call-1f580c4a-8943-4e98-b8b2-2e2400a2e2f4-2",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-1f580c4a-8943-4e98-b8b2-2e2400a2e2f4-3",
+    "input": "{\"query\":\"$GIGADOG OR gigadog OR \\\"giga dog\\\" since:2026-09-14\",\"limit\":\"5\",\"mode\":\"Latest\"}",
+    "name": "x_keyword_search",
+    "type": "custom_tool_call",
+    "id": "ctc_056fc657-cc0a-993f-a2e9-b30d37d6e1dc_call-1f580c4a-8943-4e98-b8b2-2e2400a2e2f4-3",
+    "status": "completed"
+   },
+   {
+    "id": "tco_056fc657-cc0a-993f-a2e9-b30d37d6e1dc_call-1f580c4a-8943-4e98-b8b2-2e2400a2e2f4-2",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "id": "tco_056fc657-cc0a-993f-a2e9-b30d37d6e1dc_call-1f580c4a-8943-4e98-b8b2-2e2400a2e2f4-3",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-1f580c4a-8943-4e98-b8b2-2e2400a2e2f4-4",
+    "input": "{\"query\":\"\\\"GIGADOG\\\" OR \\\"$GIGADOG\\\" since:2026-09-15\",\"limit\":\"5\",\"mode\":\"Latest\"}",
+    "name": "x_keyword_search",
+    "type": "custom_tool_call",
+    "id": "ctc_056fc657-cc0a-993f-a2e9-b30d37d6e1dc_call-1f580c4a-8943-4e98-b8b2-2e2400a2e2f4-4",
+    "status": "completed"
+   },
+   {
+    "id": "tco_056fc657-cc0a-993f-a2e9-b30d37d6e1dc_call-1f580c4a-8943-4e98-b8b2-2e2400a2e2f4-4",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "content": [
+     {
+      "type": "output_text",
+      "text": "{\n  \"token\": [\n    {\n      \"symbol\": \"$TRAINCAT\",\n      \"contract\": null,\n      \"chain\": null,\n      \"classe\": \"A\",\n      \"menzioni\": null,\n      \"account_distinti\": null,\n      \"accelerazione\": \"Si, post osservati descrivono 'uber viral on X right now' e 'TONS of memes are being posted EVERYWHERE right now'\",\n      \"inizio_accelerazione_utc\": \"2026-09-15 17:00\",\n      \"organica\": true,\n      \"narrativa\": \"Traincat come Traindog 2.0 (precedente meme con 3M ATH), meme virale di gatto su treno\",\n      \"indizi_spam\": \"Nessun testo identico ripetuto o evidenti bot nei post osservati; meme base sembra derivare da immagine con alto engagement organico\",\n      \"evidenza\": \"Post che riportano volume anomalo di meme creation e condivisione sul tema traincat in tempo reale su X, contrapposto a mancanza di menzioni precedenti nei risultati di ricerca\",\n      \"confidenza\": 0.5\n    },\n    {\n      \"symbol\": \"$GIGADOG\",\n      \"contract\": \"C11KeXxUJkcF4Mj5Knj7DKJ4L4N6uchAx61DDnYmpump\",\n      \"chain\": \"solana\",\n      \"classe\": \"A\",\n      \"menzioni\": null,\n      \"account_distinti\": null,\n      \"accelerazione\": \"Si, post parlano di 'kicked off today' e 'caught my attention recently' con 2M views in 24h\",\n      \"inizio_accelerazione_utc\": \"2026-09-15 20:00\",\n      \"organica\": false,\n      \"narrativa\": \"Dog di GigaChad, rewards in $GIGA per holders, focus su community strength nei memecoins\",\n      \"indizi_spam\": \"Post promozionali ripetono CA e media simili, linguaggio di shilling early stage\",\n      \"evidenza\": \"Pochi post ma concentrati su hype recente e claims di views/viralita' improvvisa in ultime 24h\",\n      \"confidenza\": 0.4\n    }\n  ]\n}",
+      "logprobs": [],
+      "annotations": [
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099985548572086311",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099985548572086311"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099992951388880981",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099992951388880981"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099909801748697555",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099909801748697555"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099933139149914617",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099933139149914617"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100002528746193182",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100002528746193182"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099987678443843727",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099987678443843727"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100005818082996521",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100005818082996521"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099941872865271993",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099941872865271993"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099959357211398234",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099959357211398234"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099906470502404523",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099906470502404523"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099906389199950260",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099906389199950260"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100004435267141965",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100004435267141965"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099989488462086292",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099989488462086292"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099906648705786180",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099906648705786180"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099956261097725971",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099956261097725971"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099935279457202606",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099935279457202606"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099950106652844422",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099950106652844422"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100003857489183119",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100003857489183119"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099914007302086685",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099914007302086685"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099909893440393409",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099909893440393409"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099938430654251457",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099938430654251457"
+       }
+      ]
+     }
+    ],
+    "id": "msg_056fc657-cc0a-993f-a2e9-b30d37d6e1dc",
+    "role": "assistant",
+    "type": "message",
+    "status": "completed"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "previous_response_id": null,
+  "reasoning": {
+   "effort": "medium",
+   "summary": "detailed"
+  },
+  "temperature": 0.7,
+  "text": {
+   "format": {
+    "type": "text"
+   }
+  },
+  "tool_choice": "auto",
+  "tools": [
+   {
+    "type": "x_search",
+    "from_date": "2026-09-15",
+    "to_date": "2026-09-16"
+   }
+  ],
+  "top_p": 0.95,
+  "usage": {
+   "input_tokens": 29803,
+   "input_tokens_details": {
+    "cached_tokens": 12736
+   },
+   "output_tokens": 4672,
+   "output_tokens_details": {
+    "reasoning_tokens": 4190
+   },
+   "total_tokens": 34475,
+   "num_sources_used": 0,
+   "num_server_side_tools_used": 5,
+   "cost_in_usd_ticks": 605609500,
+   "server_side_tool_usage_details": {
+    "web_search_calls": 0,
+    "x_search_calls": 5,
+    "code_interpreter_calls": 0,
+    "file_search_calls": 0,
+    "mcp_calls": 0,
+    "document_search_calls": 0,
+    "image_generation_calls": 0
+   },
+   "context_details": {
+    "input_tokens": 11775,
+    "output_tokens": 1023
+   }
+  },
+  "user": null,
+  "incomplete_details": null,
+  "status": "completed",
+  "store": true,
+  "metadata": {
+   "system_fingerprint": "fp_d44b4eeb21"
+  },
+  "background": false,
+  "service_tier": "default",
+  "truncation": "disabled",
+  "top_logprobs": 0,
+  "presence_penalty": 0.0,
+  "frequency_penalty": 0.0,
+  "prompt_cache_key": null,
+  "max_tool_calls": null,
+  "safety_identifier": null,
+  "error": null,
+  "instructions": null
+ },
+ "testo": "{\n  \"token\": [\n    {\n      \"symbol\": \"$TRAINCAT\",\n      \"contract\": null,\n      \"chain\": null,\n      \"classe\": \"A\",\n      \"menzioni\": null,\n      \"account_distinti\": null,\n      \"accelerazione\": \"Si, post osservati descrivono 'uber viral on X right now' e 'TONS of memes are being posted EVERYWHERE right now'\",\n      \"inizio_accelerazione_utc\": \"2026-09-15 17:00\",\n      \"organica\": true,\n      \"narrativa\": \"Traincat come Traindog 2.0 (precedente meme con 3M ATH), meme virale di gatto su treno\",\n      \"indizi_spam\": \"Nessun testo identico ripetuto o evidenti bot nei post osservati; meme base sembra derivare da immagine con alto engagement organico\",\n      \"evidenza\": \"Post che riportano volume anomalo di meme creation e condivisione sul tema traincat in tempo reale su X, contrapposto a mancanza di menzioni precedenti nei risultati di ricerca\",\n      \"confidenza\": 0.5\n    },\n    {\n      \"symbol\": \"$GIGADOG\",\n      \"contract\": \"C11KeXxUJkcF4Mj5Knj7DKJ4L4N6uchAx61DDnYmpump\",\n      \"chain\": \"solana\",\n      \"classe\": \"A\",\n      \"menzioni\": null,\n      \"account_distinti\": null,\n      \"accelerazione\": \"Si, post parlano di 'kicked off today' e 'caught my attention recently' con 2M views in 24h\",\n      \"inizio_accelerazione_utc\": \"2026-09-15 20:00\",\n      \"organica\": false,\n      \"narrativa\": \"Dog di GigaChad, rewards in $GIGA per holders, focus su community strength nei memecoins\",\n      \"indizi_spam\": \"Post promozionali ripetono CA e media simili, linguaggio di shilling early stage\",\n      \"evidenza\": \"Pochi post ma concentrati su hype recente e claims di views/viralita' improvvisa in ultime 24h\",\n      \"confidenza\": 0.4\n    }\n  ]\n}",
+ "token": [
+  {
+   "symbol": "$TRAINCAT",
+   "contract": null,
+   "chain": null,
+   "classe": "A",
+   "menzioni": null,
+   "account_distinti": null,
+   "accelerazione": "Si, post osservati descrivono 'uber viral on X right now' e 'TONS of memes are being posted EVERYWHERE right now'",
+   "inizio_accelerazione_utc": "2026-09-15 17:00",
+   "organica": true,
+   "narrativa": "Traincat come Traindog 2.0 (precedente meme con 3M ATH), meme virale di gatto su treno",
+   "indizi_spam": "Nessun testo identico ripetuto o evidenti bot nei post osservati; meme base sembra derivare da immagine con alto engagement organico",
+   "evidenza": "Post che riportano volume anomalo di meme creation e condivisione sul tema traincat in tempo reale su X, contrapposto a mancanza di menzioni precedenti nei risultati di ricerca",
+   "confidenza": 0.5
+  },
+  {
+   "symbol": "$GIGADOG",
+   "contract": "C11KeXxUJkcF4Mj5Knj7DKJ4L4N6uchAx61DDnYmpump",
+   "chain": "solana",
+   "classe": "A",
+   "menzioni": null,
+   "account_distinti": null,
+   "accelerazione": "Si, post parlano di 'kicked off today' e 'caught my attention recently' con 2M views in 24h",
+   "inizio_accelerazione_utc": "2026-09-15 20:00",
+   "organica": false,
+   "narrativa": "Dog di GigaChad, rewards in $GIGA per holders, focus su community strength nei memecoins",
+   "indizi_spam": "Post promozionali ripetono CA e media simili, linguaggio di shilling early stage",
+   "evidenza": "Pochi post ma concentrati su hype recente e claims di views/viralita' improvvisa in ultime 24h",
+   "confidenza": 0.4
+  }
+ ],
+ "uso": {
+  "input_tokens": 29803,
+  "input_tokens_details": {
+   "cached_tokens": 12736
+  },
+  "output_tokens": 4672,
+  "output_tokens_details": {
+   "reasoning_tokens": 4190
+  },
+  "total_tokens": 34475,
+  "num_sources_used": 0,
+  "num_server_side_tools_used": 5,
+  "cost_in_usd_ticks": 605609500,
+  "server_side_tool_usage_details": {
+   "web_search_calls": 0,
+   "x_search_calls": 5,
+   "code_interpreter_calls": 0,
+   "file_search_calls": 0,
+   "mcp_calls": 0,
+   "document_search_calls": 0,
+   "image_generation_calls": 0
+  },
+  "context_details": {
+   "input_tokens": 11775,
+   "output_tokens": 1023
+  }
+ }
+}

@@ -1,0 +1,25 @@
+name: strategy_optimizer_base
+# Loop #3 (strategia) dedicato a BASE: sweep parametri exit/timing, sceglie la combo piu' ROBUSTA, scrive
+# strategy_base.json. Ogni 6h (la strategia cambia lentamente). €0.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "47 */6 * * *"
+permissions:
+  contents: write
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Ottimizza strategia Base
+        run: python agents/strategy_optimizer_base.py || echo "ko"
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add data/strategy_base.json 2>/dev/null || true
+          git commit -m "strategy_base $(date -u +%Y-%m-%dT%H:%MZ)" || { echo niente; exit 0; }
+          for i in 1 2 3 4 5; do git pull --no-rebase --no-edit -X ours origin main || true; git push origin main && exit 0; sleep $((RANDOM%6+2)); done

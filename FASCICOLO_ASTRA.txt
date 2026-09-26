@@ -1,0 +1,57 @@
+Sei il revisore esterno di un progetto di ricerca quantitativa su memecoin. Il tuo compito NON e'
+incoraggiare: e' trovare l'errore. Se il ragionamento regge, dillo in una riga e passa alle domande.
+
+CONTESTO
+Due chain EVM (robinhood, base). Raccogliamo ogni swap dei pool nuovi. Nessun euro e' mai stato
+rischiato: tutto e' misura su dati raccolti.
+
+LA DIREZIONE CHE HO APPENA DICHIARATO MORTA
+"Comprare un memecoin nuovo 2 ore dopo il primo scambio, da taker, e uscire entro 24 ore."
+
+COME MISURO (dopo tre correzioni fatte oggi, tutte che peggioravano il risultato)
+- Entrata: 2h dopo il primo swap osservato. Costo applicato 1,8% (slippage+fee, due lati).
+- Uscita: prezzo MEDIANO dei soli prezzi di VENDITA nelle 24h dopo, con almeno 5 vendite.
+  (Il prezzo mediano di TUTTI gli scambi e' quanto gli altri pagano per ENTRARE, non quanto
+  incasso per uscire: la differenza misurata e' 22 punti.)
+- Chi non ha almeno 5 vendite vale -98% (perdita totale), non e' escluso.
+- Giudicabile = il pool e' NATO almeno 24h prima della fine della raccolta. NON "abbiamo visto 24h
+  di scambi su quel pool": quel secondo criterio scarta i pool morti, cioe' le trappole, e migliora
+  il risultato di 7 punti. Ci sono cascato stamattina e l'ho corretto stasera.
+
+I NUMERI (giudicabili, orizzonte 24h)
+  robinhood  N=10.118  trappole (uscita <= -90%) 42,6%  pool sani +0,9%  portafoglio -41,2%
+  base       N= 4.649  trappole 53,1%                   pool sani +0,2%  portafoglio -51,9%
+
+IL RAGIONAMENTO CHE CHIUDE LA DIREZIONE
+Pareggio: (1-p)(1+R) + p*0,02 = 1, con R = rendimento dei sani.
+Con R = +0,9% serve p < 0,9%. p vera = 42,6%. Anche un rilevatore di trappole PERFETTO
+(cattura tutte le trappole, non scarta un solo pool sano) renderebbe +0,9% a operazione.
+Quindi il problema non e' il filtro: e' che il premio non esiste.
+
+LA CODA (ultima verifica, fatta stasera)
+Ho misurato `_max_vendibile` = massimo dei soli prezzi di VENDITA dopo l'entrata (limite superiore
+generoso: presuppone di vendere nel punto esatto).
+  robinhood: bersaglio +25% lo tocca 11,3% -> valore atteso -42,8%
+             bersaglio +900% lo tocca 0,4% -> valore atteso -38,7%
+  base:      bersaglio +25% lo tocca 3,9%  -> valore atteso -52,6%
+             bersaglio +900% lo tocca 0,8% -> valore atteso -45,4%
+La coda esiste (max osservato +2.000%) e non sposta il segno.
+
+COSE GIA' PROVATE E MORTE (7 strategie prima di questa)
+36 caratteristiche di flusso (modello si ferma al 10% di trappole nel decile migliore);
+proprieta' del contratto (ridondanti); multi-pool (peggiora); permessi hook Uniswap V4 (nessun
+effetto); ritiro liquidita' prima della decisione (22% vs 29%, nessuna differenza); 7 regole di
+uscita (tutte peggiori); filtro sul numero di persone vere dietro gli swap (taglia 0,7 / 2,7 / 10,8
+punti in tre blocchi temporali separati: funziona solo nell'ultimo terzo, quindi non regge).
+
+LE TRE DOMANDE
+1. C'e' un errore nel ragionamento che chiude la direzione? In particolare: il pareggio calcolato
+   sul rendimento MEDIO dei sani e' la misura giusta, o mi sta nascondendo qualcosa?
+2. Guardando il cadavere: cosa vedi tu che io non vedo? Quale numero avrei dovuto guardare il
+   primo giorno e non ho guardato?
+3. Quale STRUMENTO mi manca per guardare dove non ho mai guardato? Non "quale strategia provo":
+   quale misura, quale dato, quale angolo. Sii concreto e dimmi come si costruisce con swap grezzi
+   di due chain EVM.
+
+Rispondi in italiano, conciso, senza complimenti. Se una mia conclusione e' sbagliata, dillo subito
+e mostra il conto.

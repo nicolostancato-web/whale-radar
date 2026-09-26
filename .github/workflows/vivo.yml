@@ -1,0 +1,152 @@
+name: vivo
+# LA CODA VIVA: l'unico dato che potra' essere certificato point-in-time.
+#
+# PERCHE' UNA CORSIA SUA (15/09). Girava dentro la corsia database, insieme ad altre otto cose: se
+# quel giro finisce il tempo o muore, si perdono i blocchi di ADESSO — e quelli, a differenza del
+# backfill, non si possono rifare domani. Il ritardo misurato fra il fatto e il timbro e' di 9,8
+# minuti contro le 362 ore della ricostruzione storica: e' la differenza fra un dato su cui si puo'
+# decidere e uno su cui si puo' solo esplorare.
+# Una cosa che non si puo' recuperare merita di non dipendere da nient'altro.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "9,39 * * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: vivo
+  cancel-in-progress: false
+jobs:
+  coda:
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        chain: [base, robinhood]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Segna l'inizio
+        run: date +%s > /tmp/inizio_giro
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Coda viva
+        env:
+          CHAIN: ${{ matrix.chain }}
+          # GIRI PIU' CORTI PERDONO MENO (16/09). Un giro da due ore e mezza su un runner gratuito
+          # puo' essere sfrattato a meta': e' successo, e base ha perso ottanta minuti di coda viva
+          # — dato che non si recupera, a differenza del backfill.
+          # Il salvataggio ogni dieci minuti limita il danno, ma il vero rimedio e' un giro corto:
+          # adesso che la corsia si riarma da sola alla fine, spezzarla non costa niente e ogni
+          # sfratto costa un'ora invece di due e mezza.
+          BUDGET_SEC: "3300"
+          PAUSA: "1.6"
+        run: python agents/coda_viva.py
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          if ! git commit -m "vivo ${{ matrix.chain }} $(date -u +%H:%MZ)"; then
+            echo "NIENTE DA SALVARE"; exit 1
+          fi
+          # IL PULL NON DEVE UCCIDERE IL SALVATAGGIO (22/09). Il passo gira con `bash -e`: un
+          # comando che fallisce interrompe tutto. Il `git pull` dentro il ciclo dei tentativi era
+          # nudo, quindi al primo intoppo la shell moriva e i DIECI TENTATIVI NON VENIVANO MAI
+          # FATTI — con un messaggio che diceva «la riparazione di questa chain va persa», e
+          # infatti andava persa davvero.
+          # Misurato il 22/09: sei operai su sei falliti allo stesso modo, commit da 615 file
+          # buttato, mezz'ora di lavoro di tutta la corsia persa.
+          for i in $(seq 1 20); do   # 23/09: dieci non bastavano, i giri venivano buttati
+            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1 || true
+            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 15 + 5))
+          done
+          echo "NON SONO RIUSCITO A SPINGERE: i dati della coda viva restano sul runner e vanno persi."
+          exit 1
+      - name: Riarmo
+        # UNA CORSIA CHE FINISCE NON DEVE ASPETTARE UN ORARIO (16/09). Il recupero nascite e'
+        # rimasto fermo CINQUE ORE E MEZZA dopo aver finito il suo giro: la pianificazione a tre ore
+        # non l'ha ripreso, perche' GitHub salta i cron quando il repo e' occupato — e il nostro lo
+        # e' sempre. Cinque ore di lavoro gratis buttate perche' aspettavamo un orologio.
+        # Qui la corsia si riarma da sola appena finisce. Il lavoro e' finito (il segnalibro dice
+        # dove si era), i runner sono gratis, e non c'e' nessuna ragione perche' stia ferma.
+        # Se non c'e' piu' niente da fare, il giro dopo se ne accorge da solo e costa pochi secondi.
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DURATA=$(( $(date +%s) - $(cat /tmp/inizio_giro 2>/dev/null || echo 0) ))
+          # UN GIRO CHE MUORE SUBITO NON SI RIARMA (16/09, difetto chiuso appena creato). Il riarmo
+          # automatico e' giusto per una corsia che ha lavorato; ma se un giro fallisce in dieci
+          # secondi — credenziale scaduta, nodo morto, errore di sintassi — si rilancerebbe subito,
+          # e il ciclo brucerebbe i runner all'infinito senza raccogliere nulla.
+          # Sotto i cinque minuti si ferma e si fa vedere: un guasto deve costare attenzione, non
+          # diventare un motore perpetuo.
+          if [ "$DURATA" -lt 300 ]; then
+            # UNA GUARDIA NON DEVE UCCIDERE CIO' CHE SORVEGLIA (21/09). Serviva a non ripartire a
+            # raffica se la corsia falliva in pochi secondi. Ma «non mi riarmo» voleva dire che la
+            # corsia MORIVA, e il cron non la recuperava: GitHub salta i cron sui repo occupati, e
+            # il nostro lo e' sempre. La corsia popolazione e' rimasta ferma QUATTRO ORE cosi',
+            # col registro che diceva «success».
+            echo "SOLO ${DURATA}s: aspetto 5 minuti prima di riarmarmi, cosi' non parto a raffica."
+            sleep 300
+          fi
+          # UN RIARMO CHE NON SI ACCORGE DI ESSERE STATO RIFIUTATO (17/09). Il passo risultava
+          # «riuscito» e stampava «riarmata», ma nessun giro ripartiva: mancava il permesso
+          # actions:write e la richiesta veniva respinta con 403 — mentre curl, che non guarda il
+          # codice di risposta, usciva contento. La corsia e' rimasta ferma tre ore e mezza
+          # dichiarando di essersi riarmata.
+          # E' la stessa famiglia di difetti che ho inseguito tutto il giorno: qualcosa che dice
+          # di aver fatto una cosa che non ha fatto. Adesso si guarda il codice, e se non e' 204
+          # il passo FALLISCE e si vede.
+          # IL RIARMO SI RIPROVA (22/09). Un rifiuto passeggero del server di GitHub — un 500, un 429 —
+          # spegneva la corsia per ore: successo alle 02:33 su `popolazione`, tutti i lavori riusciti e
+          # la corsia ferma lo stesso perche' l'ultimo passo si e' arreso al primo tentativo.
+          # RIARMO: SI RIPROVA. Solo un rifiuto DEFINITIVO (4xx che non sia 429) e' un no vero.
+          for TENT in 1 2 3 4 5; do
+            CODICE=$(curl -s -o /tmp/riarmo.out -w "%{http_code}" -X POST \
+              -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/vivo.yml/dispatches" \
+              -d '{"ref":"main"}')
+            if [ "$CODICE" = "204" ]; then echo "riarmata (tentativo $TENT)"; exit 0; fi
+            echo "riarmo respinto (HTTP $CODICE), tentativo $TENT"
+            case "$CODICE" in
+              5*|429|000) sleep $((TENT * 15)) ;;
+              *) echo "rifiuto definitivo"; cat /tmp/riarmo.out; exit 1 ;;
+            esac
+          done
+          echo "NON SONO RIUSCITO A RIARMARMI dopo 5 tentativi"; cat /tmp/riarmo.out; exit 1
+          echo "riarmata dopo ${DURATA}s"
+
+  riarmo:
+    needs: coda
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Riarmo
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # RIARMO (25/09). GitHub SALTA i cron sui repository occupati, e il nostro lo e' sempre.
+          # Misurato: le corsie CON riarmo hanno girato 13-16 volte, quelle senza 1-4.
+          # «nascite» aveva girato UNA volta sola. Il meccanismo esisteva dal 22/09 su otto corsie
+          # e non era stato propagato: e' la condizione 2 della regola di auto-apprendimento —
+          # propagare il miglioramento a TUTTI i pezzi simili, non solo dove e' emerso.
+          sleep 120
+          for TENT in 1 2 3 4 5; do
+            CODICE=$(curl -s -o /tmp/r.out -w "%{http_code}" -X POST \
+              -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/vivo.yml/dispatches" \
+              -d '{"ref":"main"}')
+            if [ "$CODICE" = "204" ]; then echo "riarmata (tentativo $TENT)"; exit 0; fi
+            echo "riarmo respinto (HTTP $CODICE), tentativo $TENT"
+            case "$CODICE" in
+              5*|429|000) sleep $((TENT * 15)) ;;
+              *) echo "rifiuto definitivo"; cat /tmp/r.out; exit 1 ;;
+            esac
+          done
+          echo "NON SONO RIUSCITO A RIARMARMI dopo 5 tentativi"; exit 1

@@ -1,0 +1,94 @@
+name: previsioni
+# L'OROLOGIO DEL LOOP 1 (22/09). Scrive previsioni oggi, che verranno giudicate domani.
+# Non compra niente e non decide niente: scrive righe in un registro. Il costo di sbagliarsi e'
+# una riga sbagliata in un file.
+#
+# PARTE PRIMA CHE LA MACCHINA SIA RIFINITA, di proposito: le previsioni non si accumulano da sole,
+# si accumulano da quando si comincia a scriverle. Ne servono centinaia per dire qualcosa, e ogni
+# giorno passato ad aspettare la perfezione e' un giorno che non si recupera.
+# Il rigore non cambia: le ipotesi sono in IPOTESI.md, scritte prima, ognuna con la condizione che
+# la ucciderebbe. Cambia solo quando parte l'orologio.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/20 * * * *"      # rete di sicurezza: i cron vengono saltati sui repo occupati
+
+concurrency:
+  group: previsioni
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  # SERVE ANCHE `actions: write` PER POTERSI RIARMARE (22/09). Senza, la chiamata che rilancia la
+  # corsia viene rifiutata subito — il riarmo e' fallito in 3 secondi al primo giro, e le corsie
+  # che funzionano da giorni ce l'hanno tutte. Il ciclo dei tentativi ha fatto la cosa giusta:
+  # ha riconosciuto un rifiuto DEFINITIVO e non ha insistito cinque volte per niente.
+  actions: write
+
+jobs:
+  prevedi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        chain: [base, robinhood]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Scrivi le previsioni e chiudi quelle scadute
+        env:
+          CHAIN: ${{ matrix.chain }}
+          FINESTRA_ORE: "6"
+          MAX_PER_GIRO: "80"
+        run: python agents/previsioni.py
+
+      - name: Salva
+        if: always()
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          if ! git commit -m "previsioni ${{ matrix.chain }} $(date -u +%H:%MZ)"; then
+            echo "NIENTE DA SALVARE"; exit 0
+          fi
+          # il pull non deve uccidere il passo: la shell gira con -e (vedi le altre corsie, 22/09)
+          # 23/09: dieci tentativi non bastavano. Con nove corsie che spingono in continuazione,
+          # un giro intero di lavoro veniva respinto e buttato (misurato su riserve e riparazione).
+          # Venti tentativi con l'attesa che CRESCE: la contesa arriva a raffiche, e chi aspetta di
+          # piu' passa. Nessun dato e' perso comunque — anche il segnalibro resta indietro, quindi
+          # il giro dopo rifa' il lavoro: si perde il tempo, non i dati.
+          for i in $(seq 1 20); do
+            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1 || true
+            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 15 + 5 + i * 2))
+          done
+          echo "NON SONO RIUSCITO A SPINGERE: le previsioni scritte vanno perse."
+          exit 1
+
+  riarmo:
+    needs: prevedi
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Riarmo
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # RIARMO: SI RIPROVA (22/09). Un rifiuto passeggero del server spegneva le corsie per
+          # ore. Solo un rifiuto definitivo e' un no vero.
+          for TENT in 1 2 3 4 5; do
+            CODICE=$(curl -s -o /tmp/r.out -w "%{http_code}" -X POST \
+              -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/previsioni.yml/dispatches" \
+              -d '{"ref":"main"}')
+            if [ "$CODICE" = "204" ]; then echo "riarmata (tentativo $TENT)"; exit 0; fi
+            echo "riarmo respinto (HTTP $CODICE), tentativo $TENT"
+            case "$CODICE" in
+              5*|429|000) sleep $((TENT * 15)) ;;
+              *) echo "rifiuto definitivo"; cat /tmp/r.out; exit 1 ;;
+            esac
+          done
+          echo "NON SONO RIUSCITO A RIARMARMI dopo 5 tentativi"; exit 1

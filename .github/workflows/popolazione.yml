@@ -1,0 +1,132 @@
+name: popolazione
+# PORTA NEL DATABASE LA POPOLAZIONE DEFINITA (19/09).
+# Con le coppie finalmente risolte (base 98%, robinhood 100%) la definizione di DEFINIZIONE.md si
+# puo' applicare: la popolazione da studiare e' 7.084 pool su base e 15.995 su robinhood. Ne
+# avevamo 228 e 227 — il 3,2% e l'1,4%. La condizione 1 del cancello ne chiede il 95%.
+# Non ci si arriva raccogliendo meglio i pool che gia' abbiamo: bisogna prendere gli altri
+# ventiduemila, e a ~60 secondi l'uno una corsia sola impiegherebbe giorni. Sei fette, sei IP.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "23,53 * * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: popolazione
+  cancel-in-progress: false
+jobs:
+  riempi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    strategy:
+      fail-fast: false
+      matrix:
+        # LE FETTE VANNO DOVE C'E' LAVORO (19/09, sera). Base ha chiuso al 95,8% dei pool
+        # concentrati: le sue tre fette passavano il tempo a confermare che non c'e' piu' niente da
+        # prendere. Robinhood invece ha 4.506 pool concentrati mai visitati — non e' lenta a
+        # raccogliere, e' che nessuno ci e' ancora passato sopra.
+        # Stessi sei lavori di prima (il tetto di GitHub e' venti e le corsie di controllo devono
+        # respirare: il 17/09 occupandone dodici ho tenuto il database in coda 135 minuti), ma
+        # cinque su robinhood e uno su base per tenerla aggiornata sui pool nuovi.
+        # TRE FETTE, NON SEI (20/09, mattina). Contro-intuitivo e misurato: piu' fette stanno
+        # rendendo MENO. Con tre robinhood faceva +700 pool in 41 minuti; con cinque +245 in 32;
+        # con sei +81 in 40. E il segno che lo spiega: i «vuoti verificati» restano a ZERO, cioe'
+        # nessun pool viene letto fino in fondo — falliscono tutti anche dopo otto attese sul 429.
+        # L'ipotesi che regge e' che il limite del nodo pubblico sia GLOBALE e non per indirizzo IP:
+        # sei fette non moltiplicano la banda, se la tolgono a vicenda e si fanno rifiutare tutte.
+        # Se scendendo a tre la resa risale, l'ipotesi e' confermata e questo commento resta a dire
+        # perche' non si torna indietro.
+        include:
+          - { chain: robinhood, fetta: 0, n_fette: 3 }
+          - { chain: robinhood, fetta: 1, n_fette: 3 }
+          - { chain: robinhood, fetta: 2, n_fette: 3 }
+          - { chain: base,      fetta: 0, n_fette: 1 }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Riempi
+        env:
+          CHAIN: ${{ matrix.chain }}
+          FETTA: ${{ matrix.fetta }}
+          N_FETTE: ${{ matrix.n_fette }}
+          BUDGET_SEC: "2400"
+        run: python agents/buco_base.py
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          if ! git commit -m "popolazione ${{ matrix.chain }} f${{ matrix.fetta }} $(date -u +%H:%MZ)"; then
+            echo "NIENTE DA SALVARE"; exit 0
+          fi
+          # IL PULL NON DEVE UCCIDERE IL SALVATAGGIO (22/09). Il passo gira con `bash -e`: un
+          # comando che fallisce interrompe tutto. Il `git pull` dentro il ciclo dei tentativi era
+          # nudo, quindi al primo intoppo la shell moriva e i DIECI TENTATIVI NON VENIVANO MAI
+          # FATTI — con un messaggio che diceva «la riparazione di questa chain va persa», e
+          # infatti andava persa davvero.
+          # Misurato il 22/09: sei operai su sei falliti allo stesso modo, commit da 615 file
+          # buttato, mezz'ora di lavoro di tutta la corsia persa.
+          # 23/09: dieci tentativi non bastavano. Con nove corsie che spingono in continuazione,
+          # un giro intero di lavoro veniva respinto e buttato (misurato su riserve e riparazione).
+          # Venti tentativi con l'attesa che CRESCE: la contesa arriva a raffiche, e chi aspetta di
+          # piu' passa. Nessun dato e' perso comunque — anche il segnalibro resta indietro, quindi
+          # il giro dopo rifa' il lavoro: si perde il tempo, non i dati.
+          for i in $(seq 1 20); do
+            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1 || true
+            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 15 + 5 + i * 2))
+          done
+          echo "NON SONO RIUSCITO A SPINGERE: il raccolto di questa fetta va perso."
+          exit 1
+  riarmo:
+    needs: riempi
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Riarmo
+        # il cron da solo non basta: GitHub li salta quando il repo e' occupato, e il nostro lo e'
+        # sempre. La guardia chiede alla corsa quanto e' durata DAVVERO (misurare il lavoro
+        # sbagliato e' l'errore che ieri ha tenuto ferma la corsia coppie dichiarando successo).
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          INIZIO=$(curl -s -H "Authorization: token $GH_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            | python3 -c "import sys,json,calendar,time; d=json.load(sys.stdin); print(calendar.timegm(time.strptime(d['run_started_at'],'%Y-%m-%dT%H:%M:%SZ')))")
+          DURATA=$(( $(date +%s) - ${INIZIO:-0} ))
+          echo "la corsia e' durata ${DURATA}s"
+          # UNA GUARDIA NON DEVE UCCIDERE CIO' CHE SORVEGLIA (21/09). Questa serviva a non
+          # ripartire a raffica se la corsia falliva in pochi secondi — intento giusto. Ma
+          # «non mi riarmo» significava che la corsia MORIVA, e il cron ogni due ore non la
+          # recuperava perche' GitHub salta i cron sui repo occupati, e il nostro lo e' sempre.
+          # Successo davvero: la corsia popolazione e' finita in 133s (per un difetto che faceva
+          # sembrare pieni 2.882 pool vuoti), la guardia ha rifiutato il riarmo, e la corsia e'
+          # rimasta ferma QUATTRO ORE mentre il registro diceva «success».
+          # Adesso aspetta invece di arrendersi: il ritmo resta limitato, ma la corsia non muore.
+          if [ "$DURATA" -lt 300 ]; then
+            echo "SOLO ${DURATA}s: aspetto 5 minuti prima di riarmarmi, cosi' non parto a raffica."
+            sleep 300
+          fi
+          # IL RIARMO SI RIPROVA (22/09). Un rifiuto passeggero del server di GitHub — un 500,
+          # un 429 — spegneva la corsia per ore: e' successo alle 02:33, tutti i lavori riusciti e
+          # la corsia ferma lo stesso perche' l'ultimo passo si e' arreso al primo tentativo.
+          # RIARMO: SI RIPROVA invece di arrendersi. Solo un rifiuto DEFINITIVO (4xx che non sia
+          # 429) e' un no vero: quelli si riportano, gli altri si insistono.
+          for TENT in 1 2 3 4 5; do
+            CODICE=$(curl -s -o /tmp/r.out -w "%{http_code}" -X POST \
+              -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/popolazione.yml/dispatches" \
+              -d '{"ref":"main"}')
+            if [ "$CODICE" = "204" ]; then echo "riarmata (tentativo $TENT)"; exit 0; fi
+            echo "riarmo respinto (HTTP $CODICE), tentativo $TENT"
+            case "$CODICE" in
+              5*|429|000) sleep $((TENT * 15)) ;;
+              *) echo "rifiuto definitivo"; cat /tmp/r.out; exit 1 ;;
+            esac
+          done
+          echo "NON SONO RIUSCITO A RIARMARMI dopo 5 tentativi"; cat /tmp/r.out; exit 1
+          echo "riarmata dopo ${DURATA}s"

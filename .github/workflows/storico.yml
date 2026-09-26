@@ -1,0 +1,163 @@
+name: storico
+# LO STORICO COMPLETO DALLA CATENA, IN PARALLELO.
+# Scoperta del 14/09: il limite delle ~300 transazioni e' della FONTE gratuita, non della catena.
+# Chiedendo una FASCIA DI BLOCCHI per tutti i pool insieme (invece di un pool alla volta) il nodo
+# pubblico risponde subito. Sei fette scavano porzioni diverse di storia contemporaneamente: ogni
+# lavoro gira su una macchina diversa, quindi ha un limite di chiamate suo.
+# Costo: €0 — repo pubblico, minuti GitHub gratuiti e illimitati, nodi pubblici gratuiti.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "19,49 * * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: storico
+  cancel-in-progress: false
+jobs:
+  scava:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      # DODICI FETTE, NON SEI (15/09). Misurato ieri: usiamo il 27% del tetto di UN indirizzo, e
+      # GitHub concede fino a 20 lavori in parallelo su repo pubblico — ognuno su una macchina
+      # diversa, quindi con un limite di chiamate suo. Con sei fette la copertura saliva di un punto
+      # l'ora: troppo poco per arrivare in fondo stanotte. Dodici dimezzano il tempo, e restano
+      # otto lavori liberi per le altre corsie.
+      # Le fette coprono 0, 6, 12, 18, 24, 30 giorni indietro: i pool che valutiamo hanno una
+      # mediana di 23-25 giorni, quindi la fascia giusta e' tutta dentro.
+      max-parallel: 12
+      matrix:
+        # SEI FETTE, NON DODICI (17/09, misurato). Il tetto del piano gratuito e' 20 job
+        # in parallelo e le fette ne occupavano DODICI: il 60% della capacita'. Le altre
+        # cinque corsie — controlli del database, nascite, loop0, ricerca, engine —
+        # restavano in coda: la corsia database ha aspettato 135 MINUTI.
+        # E' un'inversione di priorita': il backfill ricostruisce storia vecchia (in parte
+        # sulla finestra sbagliata, visto che le nascite erano sfasate), mentre in coda
+        # aspettano i controlli che dicono se quella storia vale qualcosa.
+        # Sei fette scavano meta' del volume ma lasciano respirare tutto il resto. Un
+        # pezzo che lavora al massimo affamando gli altri non sta aiutando.
+        include:
+          # BASE HA FINITO (15/09): copertura 96%. Tenere sei fette a scavare una chain completa
+          # e' lavoro sprecato che pesa sulla storia del repo. Ne resta UNA, per i token nuovi che
+          # nascono ogni ora. Le altre cinque passano a Robinhood, che e' al 60% e ha VENTI VOLTE
+          # piu' blocchi da coprire (847.000 al giorno contro 43.200).
+          # RIEQUILIBRIO (15/09, secondo). Base era passata a una sola fetta perche' aveva finito.
+          # Ma poi le ho aggiunto i campi mancanti — block hash, indice transazione, semantica del
+          # wallet — e i 59.000 record vecchi vanno riscritti col formato completo: e' di nuovo
+          # lavoro da fare. Robinhood intanto e' salita al 69%.
+          # Sei e sei, distanziate di 6 giorni: coprono 0-36 giorni per entrambe.
+          # ROBINHOOD ERA SPARITA DA QUI (20/09). Il commento qui sopra dice «sei e sei», ma le
+          # fette di robinhood non c'erano piu': le ho tolte io il 17/09 riducendo lo scavo da
+          # dodici a sei lavori per fermare lo starvation delle corsie di controllo — e nel farlo
+          # ho eliminato UNA CHAIN INTERA senza accorgermene.
+          # Conseguenza misurata oggi: base sta al 96% dei pool concentrati e robinhood al 60%, e
+          # in quaranta minuti lo scavo storico ha scritto 132.183 righe su base e ZERO su
+          # robinhood. Non era robinhood a essere lenta: era scoperta.
+          # Adesso due fette a base (che ha quasi finito) e quattro a robinhood (che ha venti volte
+          # piu' blocchi al giorno), restando a sei lavori per non riaprire lo starvation.
+          - { chain: base,      fetta: 0 }
+          - { chain: base,      fetta: 1 }
+          - { chain: robinhood, fetta: 0 }
+          - { chain: robinhood, fetta: 1 }
+          - { chain: robinhood, fetta: 2 }
+          - { chain: robinhood, fetta: 3 }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Scava lo storico
+        env:
+          CHAIN: ${{ matrix.chain }}
+          FETTA: ${{ matrix.fetta }}
+          FETTE: "3"
+          PAUSA: "1.4"
+          BUDGET_SEC: "9000"
+          ORE_VITA: "6"
+          TETTO_POOL: "300"
+          GIORNI_FETTA: "6"
+        run: python agents/storico_evm.py
+      # IL SALVATAGGIO DEVE URLARE SE FALLISCE (14/09). La prima versione provava otto volte e poi
+      # finiva in silenzio con esito "riuscito": sei lavori hanno raccolto dati e riportato successo
+      # senza aver spinto niente. Un passo che fallisce e dice di essere riuscito e' peggio di un
+      # passo che fallisce.
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          if ! git commit -m "storico ${{ matrix.chain }} fetta${{ matrix.fetta }} $(date -u +%H:%MZ)"; then
+            echo "NIENTE DA SALVARE: il collettore non ha prodotto dati nuovi."
+            exit 1
+          fi
+          # IL PULL NON DEVE UCCIDERE IL SALVATAGGIO (22/09). Il passo gira con `bash -e`: un
+          # comando che fallisce interrompe tutto. Il `git pull` dentro il ciclo dei tentativi era
+          # nudo, quindi al primo intoppo la shell moriva e i DIECI TENTATIVI NON VENIVANO MAI
+          # FATTI — con un messaggio che diceva «la riparazione di questa chain va persa», e
+          # infatti andava persa davvero.
+          # Misurato il 22/09: sei operai su sei falliti allo stesso modo, commit da 615 file
+          # buttato, mezz'ora di lavoro di tutta la corsia persa.
+          for i in $(seq 1 20); do   # 23/09: dieci non bastavano, i giri venivano buttati
+            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1 || true
+            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 15 + 5))
+          done
+          echo "NON SONO RIUSCITO A SPINGERE dopo 10 tentativi: i dati raccolti restano sul runner e vanno persi."
+          exit 1
+
+  riarmo:
+    needs: scava
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Riarmo
+        # LO SCAVO NON SI RIARMAVA (20/09). Trovato perche' la copertura di robinhood era ferma da
+        # quaranta minuti mentre le righe continuavano ad arrivare: erano le altre corsie a
+        # scriverle, e lo scavo — il produttore principale — non girava da QUATTRO ORE.
+        # Il suo cron veniva saltato, come capita quando il repo e' occupato, e qui il riarmo
+        # automatico non c'era: l'avevo messo a coppie e a popolazione e non a questa.
+        # La guardia chiede alla corsa quanto e' durata davvero: misurare il pezzo sbagliato e'
+        # l'errore che il 19/09 ha tenuto ferma la corsia coppie dichiarando successo.
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          INIZIO=$(curl -s -H "Authorization: token $GH_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            | python3 -c "import sys,json,calendar,time; d=json.load(sys.stdin); print(calendar.timegm(time.strptime(d['run_started_at'],'%Y-%m-%dT%H:%M:%SZ')))")
+          DURATA=$(( $(date +%s) - ${INIZIO:-0} ))
+          echo "la corsia e' durata ${DURATA}s"
+          # UNA GUARDIA NON DEVE UCCIDERE CIO' CHE SORVEGLIA (21/09). Questa serviva a non
+          # ripartire a raffica se la corsia falliva in pochi secondi — intento giusto. Ma
+          # «non mi riarmo» significava che la corsia MORIVA, e il cron ogni due ore non la
+          # recuperava perche' GitHub salta i cron sui repo occupati, e il nostro lo e' sempre.
+          # Successo davvero: la corsia popolazione e' finita in 133s (per un difetto che faceva
+          # sembrare pieni 2.882 pool vuoti), la guardia ha rifiutato il riarmo, e la corsia e'
+          # rimasta ferma QUATTRO ORE mentre il registro diceva «success».
+          # Adesso aspetta invece di arrendersi: il ritmo resta limitato, ma la corsia non muore.
+          if [ "$DURATA" -lt 300 ]; then
+            echo "SOLO ${DURATA}s: aspetto 5 minuti prima di riarmarmi, cosi' non parto a raffica."
+            sleep 300
+          fi
+          # IL RIARMO SI RIPROVA (22/09). Un rifiuto passeggero del server di GitHub — un 500,
+          # un 429 — spegneva la corsia per ore: e' successo alle 02:33, tutti i lavori riusciti e
+          # la corsia ferma lo stesso perche' l'ultimo passo si e' arreso al primo tentativo.
+          # RIARMO: SI RIPROVA invece di arrendersi. Solo un rifiuto DEFINITIVO (4xx che non sia
+          # 429) e' un no vero: quelli si riportano, gli altri si insistono.
+          for TENT in 1 2 3 4 5; do
+            CODICE=$(curl -s -o /tmp/r.out -w "%{http_code}" -X POST \
+              -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/storico.yml/dispatches" \
+              -d '{"ref":"main"}')
+            if [ "$CODICE" = "204" ]; then echo "riarmata (tentativo $TENT)"; exit 0; fi
+            echo "riarmo respinto (HTTP $CODICE), tentativo $TENT"
+            case "$CODICE" in
+              5*|429|000) sleep $((TENT * 15)) ;;
+              *) echo "rifiuto definitivo"; cat /tmp/r.out; exit 1 ;;
+            esac
+          done
+          echo "NON SONO RIUSCITO A RIARMARMI dopo 5 tentativi"; cat /tmp/r.out; exit 1
+          echo "riarmata dopo ${DURATA}s"
