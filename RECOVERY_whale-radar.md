@@ -111,3 +111,28 @@ che dichiara di aver fatto quello che non ha fatto»:
 ## Come si pubblica, da oggi
 `./pubblica.sh "messaggio"` — si rifiuta di spingere se qualcosa non compila, e sopravvive alla
 riscrittura della cronologia a monte. **Non si usa `git push` a mano.**
+
+## Da fare domani — convertire le corsie agli allegati, ma con i delta
+
+`insieme` e' gia' convertita e funziona: consegna un allegato, il `pubblicatore` lo porta su `main`,
+push al primo tentativo. Ma **non si puo' copiare quel disegno sulle altre cosi' com'e'**.
+
+La differenza che conta: `insieme` **riscrive** il suo file da capo ogni volta, quindi l'ultimo
+allegato che arriva e' quello giusto. `scoperta`, `iniziatori`, i collettori invece **aggiungono
+righe in fondo**. Se il pubblicatore e' indietro di un giro, il giro dopo parte da uno stato vecchio
+e il suo allegato **cancella le righe del giro precedente**. Con git non succede perche' il `pull`
+fonde.
+
+**Il disegno giusto: la corsia consegna solo le righe NUOVE** (un delta chiamato col numero del
+giro), e il pubblicatore le accoda. Loss-free e indipendente dall'ordine di arrivo.
+Richiede di cambiare come scrivono gli agenti, non solo la corsia.
+
+**Ordine di conversione, dal meno rischioso:** corsie di analisi che riscrivono (fatto: `insieme`)
+→ corsie che accumulano dati rifacibili (`scoperta`: se il push fallisce il segnalibro resta
+indietro e il giro dopo rifa' il lavoro — si perde tempo, non dati) → **i collettori per ultimi**,
+perche' salvano a meta' giro per proteggersi dagli sfratti del runner ed e' l'unico posto dove si
+perdono blocchi che non tornano.
+
+*Scritto il 26/09 sera invece di farlo di fretta: stamattina ho rotto due volte la stessa corsia
+con due riparazioni. Quando l'incendio e' spento, la modifica rischiosa puo' aspettare il giorno
+dopo.*
