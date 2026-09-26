@@ -77,7 +77,7 @@ jobs:
           # piu' passa. Nessun dato e' perso comunque — anche il segnalibro resta indietro, quindi
           # il giro dopo rifa' il lavoro: si perde il tempo, non i dati.
           for i in $(seq 1 20); do
-            git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1 || true
+            { git pull --rebase --autostash -q origin main || git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main; } >/dev/null 2>&1 || true
             if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
             sleep $((RANDOM % 15 + 5 + i * 2))
           done

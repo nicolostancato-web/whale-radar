@@ -45,7 +45,13 @@ git -c user.name="whale-radar-bot" -c user.email="bot@users.noreply.github.com" 
 # `--allow-unrelated-histories` fa la cosa giusta: le due storie si uniscono, e `-X ours` tiene le
 # mie modifiche in caso di conflitto.
 for i in $(seq 1 10); do
-  git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main >/dev/null 2>&1 || true
+  # SI RIAPPOGGIA, NON SI FONDE (26/09). Su 400 commit recenti 299 erano «Merge», generati da
+  # questi cicli di tentativi: il repository cresceva dieci volte i dati per colpa delle cicatrici,
+  # non dei dati. Il rebase mette il mio commit sopra quello degli altri e non lascia niente.
+  # Se il rebase non se la sente (storie scollegate dopo un GC), si torna alla fusione: meglio un
+  # merge che un lavoro non pubblicato.
+  { git pull --rebase --autostash -q origin main >/dev/null 2>&1 \
+    || git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main >/dev/null 2>&1; } || true
   if git push origin main >/dev/null 2>&1; then echo "— spinto al tentativo $i"; exit 0; fi
   sleep 6
 done

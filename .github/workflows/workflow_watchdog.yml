@@ -26,6 +26,6 @@ jobs:
           git add WATCHDOG.md 2>/dev/null || true
           git commit -m "watchdog $(date -u +%Y-%m-%dT%H:%MZ)" || { echo niente; exit 0; }
           for i in 1 2 3 4 5; do
-            git pull --no-rebase --no-edit -X ours origin main || true
+            { git pull --rebase --autostash -q origin main || git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main; } || true
             git push origin main && exit 0; sleep $((RANDOM % 6 + 2))
           done
