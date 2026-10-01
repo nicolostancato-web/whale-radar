@@ -1,13 +1,16 @@
 {
- "quando": 1790836905,
- "impronta": "c1d6fad061a8cd7f52c73ab1edc2f8dd1809561107bd756d0928033a7836f46e",
+ "quando": 1790853747,
+ "impronta": "5232bd29380f5ef9afbac8e49cd23d6986dbd7fd651a177d782ac7552ce8326c",
  "file": [
   "PIANO_OTTOBRE.md",
+  "agents/ciclo_ipotesi.py",
+  "agents/combinazioni.py",
   "agents/decisioni.py",
   "agents/incidenti.py",
   "agents/prima_di_cancellare.py",
   "agents/rianima.py",
   "agents/segreti_non_escono.py",
+  "data/eccezioni_critico.json",
   "data/prodotti.json",
   "data/requisiti_stato.json",
   "pubblica.sh"

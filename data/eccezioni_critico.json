@@ -902,5 +902,27 @@
   "obiezioni": [
    "CANCELLI LA RAGIONE E LASCI IL NUMERO: MINIMO_POOL = 5000. Un valore senza piu' motivo non e' una scelta, e' un residuo — il 27/09 un 45 e' rimasto mezza giornata a difendere un problema che non esisteva piu'."
   ]
+ },
+ {
+  "quando": "2026-10-01 11:22",
+  "motivo": "lo spazio di ricerca passa da sei a ventiquattro configurazioni, taglia compresa",
+  "file": [
+   "PIANO_OTTOBRE.md",
+   "agents/ciclo_ipotesi.py",
+   "agents/combinazioni.py",
+   "agents/decisioni.py",
+   "agents/incidenti.py",
+   "agents/prima_di_cancellare.py",
+   "agents/rianima.py",
+   "agents/segreti_non_escono.py",
+   "data/autorizzazione.json",
+   "data/decisioni_stato.json",
+   "data/prodotti.json",
+   "data/requisiti_stato.json",
+   "pubblica.sh"
+  ],
+  "obiezioni": [
+   "CAMBI 13 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
  }
 ]
