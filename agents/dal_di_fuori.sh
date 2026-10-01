@@ -22,13 +22,21 @@ RILANCIATE=0
 for VOCE in $CRITICHE; do
   W="${VOCE%%:*}"; LIM="${VOCE##*:}"
   ETA=$(curl -s -H "Authorization: token $TOK" \
-    "https://api.github.com/repos/$REPO/actions/workflows/$W.yml/runs?per_page=1" \
+    "https://api.github.com/repos/$REPO/actions/workflows/$W.yml/runs?per_page=10" \
     | python3 -c "
 import sys,json,datetime as dt
 d=json.load(sys.stdin).get('workflow_runs',[])
 if not d: print(99999); raise SystemExit
-r=d[0]
-if r['status']!='completed': print(0); raise SystemExit   # sta girando: sta bene
+# in coda O in corso, su QUALSIASI dei giri recenti, non solo il piu' nuovo: una corsia che
+# aspetta un posto non va rilanciata, il rilancio la fa solo annullare (misurato 1/10 su hook)
+if any(x['status']!='completed' for x in d): print(0); raise SystemExit
+# L'ETA' SI CONTA DALL'ULTIMO SUCCESSO, NON DALL'ULTIMO LANCIO (1/10). Qui si prendeva d[0],
+# cioe' il giro piu' recente QUALUNQUE fosse il suo esito. Tre giri annullati di fila alle
+# 11:53/11:55/11:57 — che non hanno fatto nulla — rimettevano l'orologio a zero, e la guardia
+# diceva «nei limiti» su una corsia morta dalle 06:00. Un lancio non e' un lavoro.
+vivi=[x for x in d if x.get('conclusion')=='success']
+if not vivi: print(99999); raise SystemExit
+r=vivi[0]
 n=dt.datetime.strptime(r['created_at'],'%Y-%m-%dT%H:%M:%SZ').replace(tzinfo=dt.timezone.utc)
 print(int((dt.datetime.now(dt.timezone.utc)-n).total_seconds()//60))" 2>/dev/null || echo 0)
   if [ "${ETA:-0}" -gt "$LIM" ]; then
