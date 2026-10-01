@@ -1,0 +1,286 @@
+{
+ "corsie": {
+  "accumulator": {
+   "ore_massime_di_silenzio": 6,
+   "stato_atteso": "active"
+  },
+  "assottiglia": {
+   "nota": "a riposo o manuale: non deve girare da sola",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "active"
+  },
+  "astra": {
+   "ore_massime_di_silenzio": 9,
+   "stato_atteso": "active"
+  },
+  "censimento": {
+   "ore_massime_di_silenzio": 3,
+   "stato_atteso": "active"
+  },
+  "ciclo": {
+   "ore_massime_di_silenzio": 9,
+   "stato_atteso": "active"
+  },
+  "collector": {
+   "ore_massime_di_silenzio": 6,
+   "stato_atteso": "active"
+  },
+  "coppie": {
+   "ore_massime_di_silenzio": 3,
+   "stato_atteso": "active"
+  },
+  "data_analyst": {
+   "nota": "a riposo o manuale: non deve girare da sola",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "database": {
+   "ore_massime_di_silenzio": 15,
+   "stato_atteso": "active"
+  },
+  "demo_live": {
+   "nota": "a riposo o manuale: non deve girare da sola",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "demo_live_base": {
+   "nota": "a riposo o manuale: non deve girare da sola",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "deposito": {
+   "ore_massime_di_silenzio": 18,
+   "stato_atteso": "active"
+  },
+  "director": {
+   "nota": "a riposo o manuale: non deve girare da sola",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "edge_eval": {
+   "nota": "a riposo o manuale: non deve girare da sola",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "engine": {
+   "nota": "spenta per decisione: il silenzio e' il suo stato giusto",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "first_buyers": {
+   "nota": "a riposo o manuale: non deve girare da sola",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "guardiani": {
+   "ore_massime_di_silenzio": 9,
+   "stato_atteso": "active"
+  },
+  "health_audit": {
+   "nota": "a riposo o manuale: non deve girare da sola",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "heartbeat": {
+   "ore_massime_di_silenzio": 6,
+   "stato_atteso": "active"
+  },
+  "hook": {
+   "ore_massime_di_silenzio": 3,
+   "stato_atteso": "active"
+  },
+  "iniziatori": {
+   "ore_massime_di_silenzio": 3,
+   "stato_atteso": "active"
+  },
+  "insider": {
+   "nota": "a riposo o manuale: non deve girare da sola",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "insieme": {
+   "ore_massime_di_silenzio": 3,
+   "stato_atteso": "active"
+  },
+  "ispezione": {
+   "ore_massime_di_silenzio": 3,
+   "stato_atteso": "active"
+  },
+  "learner": {
+   "nota": "a riposo o manuale: non deve girare da sola",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "loop0": {
+   "nota": "spenta per decisione: il silenzio e' il suo stato giusto",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "multichain_brain": {
+   "nota": "a riposo o manuale: non deve girare da sola",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "multichain_collector": {
+   "nota": "a riposo o manuale: non deve girare da sola",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "multichain_rpc": {
+   "nota": "a riposo o manuale: non deve girare da sola",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "multichain_trades": {
+   "nota": "a riposo o manuale: non deve girare da sola",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "nascite": {
+   "ore_massime_di_silenzio": 3,
+   "stato_atteso": "active"
+  },
+  "paper_bot": {
+   "ore_massime_di_silenzio": 6,
+   "stato_atteso": "disabled_manually"
+  },
+  "piu_intelligente": {
+   "ore_massime_di_silenzio": 15,
+   "stato_atteso": "active"
+  },
+  "popolazione": {
+   "ore_massime_di_silenzio": 3,
+   "stato_atteso": "active"
+  },
+  "previsioni": {
+   "ore_massime_di_silenzio": 3,
+   "stato_atteso": "active"
+  },
+  "prova_avanti": {
+   "ore_massime_di_silenzio": 15,
+   "stato_atteso": "active"
+  },
+  "pubblicatore": {
+   "ore_massime_di_silenzio": 3,
+   "stato_atteso": "active"
+  },
+  "pulizia_riserve": {
+   "nota": "a riposo o manuale: non deve girare da sola",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "active"
+  },
+  "repo_gc": {
+   "ore_massime_di_silenzio": 9,
+   "stato_atteso": "active"
+  },
+  "ricerca": {
+   "nota": "spenta per decisione: il silenzio e' il suo stato giusto",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "riparazione": {
+   "ore_massime_di_silenzio": 3,
+   "stato_atteso": "active"
+  },
+  "riserve": {
+   "ore_massime_di_silenzio": 3,
+   "stato_atteso": "active"
+  },
+  "scoperta": {
+   "ore_massime_di_silenzio": 3,
+   "stato_atteso": "active"
+  },
+  "sentinella": {
+   "ore_massime_di_silenzio": 18,
+   "stato_atteso": "active"
+  },
+  "soccorso": {
+   "ore_massime_di_silenzio": 3,
+   "stato_atteso": "active"
+  },
+  "social": {
+   "nota": "spenta per decisione: il silenzio e' il suo stato giusto",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "solana_helius": {
+   "nota": "spenta per decisione: il silenzio e' il suo stato giusto",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "sperimenti": {
+   "nota": "spenta per decisione: il silenzio e' il suo stato giusto",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "storico": {
+   "ore_massime_di_silenzio": 3,
+   "stato_atteso": "active"
+  },
+  "strategy_optimizer": {
+   "nota": "a riposo o manuale: non deve girare da sola",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "strategy_optimizer_base": {
+   "nota": "a riposo o manuale: non deve girare da sola",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "strategy_optimizer_solana": {
+   "nota": "a riposo o manuale: non deve girare da sola",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "supervisor": {
+   "nota": "a riposo o manuale: non deve girare da sola",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "vivo": {
+   "ore_massime_di_silenzio": 3,
+   "stato_atteso": "active"
+  },
+  "wallet_forensics": {
+   "nota": "a riposo o manuale: non deve girare da sola",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "wallet_scores": {
+   "nota": "a riposo o manuale: non deve girare da sola",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "watchdog": {
+   "nota": "a riposo o manuale: non deve girare da sola",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "watchdog_quality": {
+   "nota": "a riposo o manuale: non deve girare da sola",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "whale_backfill": {
+   "nota": "a riposo o manuale: non deve girare da sola",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "whale_candles": {
+   "nota": "a riposo o manuale: non deve girare da sola",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "whale_enrich": {
+   "nota": "a riposo o manuale: non deve girare da sola",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  },
+  "workflow_watchdog": {
+   "nota": "spenta per decisione: il silenzio e' il suo stato giusto",
+   "ore_massime_di_silenzio": null,
+   "stato_atteso": "disabled_manually"
+  }
+ },
+ "generato": "2026-10-01T00:40:13+00:00"
+}

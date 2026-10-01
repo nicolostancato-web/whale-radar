@@ -1,0 +1,60 @@
+name: astra
+# SENZA RIARMO: e qui e' la scelta giusta — ogni giro COSTA ($0,17). Una corsia che si riarma da
+# sola chiamerebbe all'infinito. Ma il solo orologio viene saltato sui repo occupati — quindi
+# questa corsia sta sotto la RETE DEI GUARDIANI (agents/rianima.py): se tace piu' di dieci ore
+# la rilanciano loro, una volta.
+# IL CONSULENTE NON PUO' DIPENDERE DALLA MIA MEMORIA (30/09). Nicolo' ha chiesto «perche' Astra
+# non viene chiamato da giorni?» e la risposta era: perche' lo lanciavo io a mano, e ho smesso.
+# Il permesso c'era dal 23/09 (fino a tre al giorno), il budget pure, lo script funziona.
+# Mancava solo il pulsante, e il pulsante ero io.
+#
+# COSTO, come da regola: $0,17 a consulenza misurata (non stimata), tre al giorno al massimo —
+# il tetto lo impone lo script stesso, non questa corsia. Circa $0,51 al giorno nel caso pieno.
+on:
+  workflow_dispatch: {}
+  schedule:
+    # tre volte al giorno, distanziate: mattina, pomeriggio, sera (UTC)
+    - cron: "10 6,13,20 * * *"
+concurrency:
+  group: astra
+  cancel-in-progress: false
+jobs:
+  consulta:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Prepara il fascicolo
+        run: python3 -B agents/fascicolo_astra.py || echo "FASCICOLO FALLITO"
+      - name: Chiedi al consulente
+        # SE MANCA LA CHIAVE SI GRIDA, NON SI TACE (30/09). Una corsia che esce in silenzio
+        # perche' non ha le credenziali e' il difetto che questo progetto incontra piu' spesso:
+        # il registro dice «riuscito» e nessuno riceve niente.
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          MAX_AL_GIORNO: "3"
+        run: |
+          if [ -z "$OPENAI_API_KEY" ]; then
+            echo "MANCA IL SEGRETO OPENAI_API_KEY sul repository: il consulente non si puo'"
+            echo "chiamare da qui. Va aggiunto una volta sola in Settings > Secrets > Actions."
+            exit 1
+          fi
+          python3 -B agents/consulta_astra.py
+      - name: Consegna senza toccare il ramo
+        if: always()
+        run: |
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          git status --porcelain | awk '{print $NF}' | while read F; do
+            [ -f "$F" ] && mkdir -p "/tmp/consegna/$(dirname "$F")" && cp "$F" "/tmp/consegna/$F"
+          done
+          echo "consegno $(find /tmp/consegna -type f | wc -l) file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-astra
+          path: /tmp/consegna
+          retention-days: 7
+          overwrite: true
+          if-no-files-found: ignore

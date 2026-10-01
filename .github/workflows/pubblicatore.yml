@@ -1,0 +1,175 @@
+name: pubblicatore
+# IL PUBBLICATORE UNICO — l'unica corsia che scrive su `main`.
+#
+# PERCHE' ESISTE (26/09). Quattordici corsie spingevano tutte su `main`. I file non si pestavano —
+# ognuna scrive i suoi — ma il RIFERIMENTO e' uno: `git push origin main` viene rifiutato solo
+# perche' un'altra e' arrivata un istante prima. Il costo misurato quella mattina: passi di
+# salvataggio da quattordici minuti contro quattro di lavoro vero, e una corsia morta in silenzio
+# perche' aspettava il turno dentro il gruppo di concorrenza.
+#
+# ORA: ogni corsia consegna su un ramo suo (`dati/<nome>`), dove nessun altro scrive e il push
+# riesce al primo colpo. Questo pubblicatore raccoglie i rami e li porta su `main`, uno alla volta.
+# Un solo scrittore, nessuna contesa, e ogni corsia torna a fare il suo lavoro invece di litigare.
+#
+# LA REGOLA GENERALE, che vale oltre questo caso: **quando molti devono scrivere la stessa cosa,
+# non si accelera la coda — si toglie la coda.** Ogni corsia scrive dove e' sola; un unico
+# pubblicatore mette insieme.
+on:
+  workflow_dispatch: {}
+  schedule:
+      # L'OROLOGIO E' UNA RETE, NON UN MOTORE (30/09). Suonava ogni 20-30 minuti mentre il
+      # riarmo teneva la corsia gia' in movimento: ogni suonata finiva in coda e veniva
+      # ANNULLATA. Misurato: 36 cancellazioni su 73 giri, tutte inutili, e il rumore nascondeva
+      # le cancellazioni vere (i giri uccisi dal tempo massimo).
+      # Ora suona una volta all'ora: se la catena del riarmo si rompe, riparte da qui.
+    - cron: "*/20 * * * *"   # e' lo SCRITTORE UNICO: se la catena del riarmo si rompe, un'ora di ritardo ferma la pubblicazione di TUTTI i dati. La rete qui deve restare stretta.
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: pubblicatore
+  cancel-in-progress: false
+jobs:
+  pubblica:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Raccogli gli allegati delle corsie
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # SI RACCOLGONO ALLEGATI, NON RAMI (26/09). I rami per corsia non si potevano spingere da
+        # una copia superficiale: HTTP 500, cinque volte su cinque. Gli allegati non passano da git,
+        # quindi non hanno ne' quel problema ne' la contesa sul riferimento.
+        # Ogni voce e' «nome dell'allegato : cartella di destinazione». Aggiungere una corsia al
+        # sistema e' aggiungere una riga qui.
+        shell: bash
+        run: |
+          # NIENTE `-e` QUI (1/10): con l'uscita-al-primo-errore, un `du` o un `cp` che inciampa
+          # su un pacco uccide la raccolta intera. Lo scrittore unico deve essere l'ultimo a
+          # morire, non il primo.
+          set +e
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          PORTATI=0
+          # I NOMI SI CHIEDONO, NON SI INDOVINANO (29/09). L'elenco era fisso: quando sono nate
+          # le varianti («dati-insieme-h24», ...) il pubblicatore non sapeva che esistevano e le
+          # lasciava marcire come allegati. Ora chiede quali pacchi ci sono e li porta tutti.
+          VARIANTI=$(gh api "repos/${{ github.repository }}/actions/artifacts?per_page=100" \
+            --jq '.artifacts[] | select(.expired==false) | .name' 2>/dev/null \
+            | grep "^dati-insieme-" | sort -u | sed 's|$|:data/loop1|' || true)
+          # LE CORSIE CHE HANNO SMESSO DI SPINGERE (29/09). Chiunque consegni un pacco chiamato
+          # `consegna-*` finisce in `data`, senza che il pubblicatore debba conoscerlo: cosi'
+          # convertire una corsia e' cambiare la corsia, non anche questo file.
+          CONSEGNE=$(gh api "repos/${{ github.repository }}/actions/artifacts?per_page=100" \
+            --jq '.artifacts[] | select(.expired==false) | .name' 2>/dev/null \
+            | grep "^consegna-" | sort -u | sed 's|$|:data|' || true)
+          for VOCE in "dati-insieme:data/loop1" $VARIANTI $CONSEGNE; do
+            NOME="${VOCE%%:*}"; DEST="${VOCE##*:}"
+            rm -rf /tmp/ritiro; mkdir -p /tmp/ritiro
+            if ! gh run download --repo "${{ github.repository }}" -n "$NOME" --dir /tmp/ritiro 2>/dev/null; then
+              echo "   $NOME: nessun allegato da ritirare"; continue
+            fi
+            mkdir -p "$DEST"
+            # DERIVATO: si sostituisce. ACCUMULATO: si fonde (vedi agents/fondi_consegna.py).
+            # L'insieme si ricalcola da zero, quindi fonderlo duplicherebbe gli stessi pool.
+            # Chi accumula, invece, perderebbe le righe scritte fra la sua lettura e questa
+            # scrittura: la finestra e' stretta ma reale, e prima la chiudeva `git` fondendo.
+            # UN PACCO ROTTO NON DEVE FERMARE LO SCRITTORE UNICO (1/10). Grok da' il nome a
+            # questa famiglia: `head-of-line blocking`. Il 1/10 il pubblicatore e' FALLITO nel
+            # passo di raccolta: un pacco su dieci ha fatto cadere il turno, e con lui le nove
+            # consegne sane — compreso tutto il lavoro della notte in attesa di pubblicazione.
+            # Ora il pacco difettoso si SALTA, dicendolo, e gli altri passano.
+            if [ "${NOME#consegna-}" != "$NOME" ]; then
+              if ! python3 -B agents/fondi_consegna.py /tmp/ritiro .; then
+                echo "   $NOME: PACCO DIFETTOSO, lo salto. Gli altri passano."
+                continue
+              fi
+            else
+              if ! cp -r /tmp/ritiro/. "$DEST"/; then
+                echo "   $NOME: non copiabile, lo salto. Gli altri passano."
+                continue
+              fi
+            fi
+            # UN PACCO VECCHIO PUO' RIPORTARE IL GUASTO (29/09). `segnali.jsonl` era stato
+            # tolto da `main`, ma i pacchi gia' consegnati lo contenevano ancora: il pubblicatore
+            # lo ricopiava e la spinta tornava impossibile. Un anello chiuso che si richiudeva
+            # da solo ogni dieci minuti. Qui si rifiuta di scrivere cio' che bloccherebbe tutti.
+            find "$DEST" -type f -size +95M | while read G; do
+              echo "   SCARTATO $G ($(du -m "$G" | cut -f1) MB): oltre il limite di GitHub, "\
+                   "bloccherebbe OGNI spinta. Va compresso alla sorgente, non pubblicato."
+              rm -f "$G"
+            done
+            git add -A "$DEST"
+            # SI GUARDA SE C'E' DAVVERO UNA DIFFERENZA, non se il comando riesce: un giro che
+            # dichiara successo senza portare niente e' il guasto piu' silenzioso che conosciamo.
+            if git diff --cached --quiet; then
+              echo "   $NOME: identico a quello che c'e' gia'"; continue
+            fi
+            git commit -q -m "pubblico $NOME $(date -u +%H:%MZ)"
+            echo "   $NOME: preso"; PORTATI=$((PORTATI+1))
+          done
+          echo "allegati portati: $PORTATI"
+          if [ "$PORTATI" = "0" ]; then exit 0; fi
+          # QUI la contesa e' ammessa: e' l'unico posto in cui succede. I tentativi servono contro
+          # le corsie non ancora convertite, che per ora spingono ancora su `main`.
+          # SI CLASSIFICA L'ERRORE GREZZO PRIMA DI RITENTARE (1/10, consiglio di Grok).
+          # Il 30/09 un file oltre 100 MB ha reso impossibile ogni scrittura, e il loop ha
+          # ritentato per TRE ORE una cosa non ritentabile: nei registri si leggeva «contesa sul
+          # ramo». Grok lo chiama `fail-plausible`: il modello non tace l'errore, lo trasforma
+          # in un racconto credibile — e un racconto credibile manda a cercare nel posto
+          # sbagliato con la massima convinzione.
+          # Ora: TERMINALE si ferma subito, CONTESA riprova, SCONOSCIUTO si ferma e conserva
+          # lo stderr grezzo. Un errore che non riconosco NON e' una contesa.
+          for i in $(seq 1 15); do
+            git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main >/dev/null 2>&1 || true
+            if git push origin main 2>/tmp/spinta.err; then
+              echo "pubblicato al tentativo $i"; exit 0
+            fi
+            cat /tmp/spinta.err
+            if ! python3 -B agents/classifica_errore.py < /tmp/spinta.err; then
+              echo "NON RITENTO: l'errore non e' una contesa. Gli allegati restano dove sono."
+              exit 1
+            fi
+            sleep $((RANDOM % 10 + 4))
+          done
+          echo "NON SONO RIUSCITO A PUBBLICARE: gli allegati restano dove sono, nulla e' perso."
+          exit 1
+      - name: Riarmo
+        # IL PUBBLICATORE E' L'UNICO CHE SCRIVE: SE MUORE, NON ARRIVA PIU' NIENTE (27/09).
+        # Gliel'ho fatto nascere senza riarmo, fidandomi del cron ogni dieci minuti. Ma GitHub
+        # salta i cron sui repository occupati — e' la ragione per cui TUTTE le altre corsie hanno
+        # il riarmo, e l'ho scritto in nove file prima di dimenticarmene proprio qui.
+        # Misurato: fermo dalle 00:54 alle 04:30, con quattro allegati in attesa e `main` fermo.
+        # Il pezzo piu' importante era l'unico senza la protezione che ho dato a tutti gli altri.
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          sleep 240
+          # NON CHIEDERE SE C'E' GIA' QUALCUNO IN CODA (30/09, propagato dall'insieme).
+          # La coda di GitHub tiene UN giro in attesa: chi arriva dopo viene annullato. Misurato
+          # stanotte: 55 giri annullati su 71. Non si perde lavoro — ne resta sempre uno — ma il
+          # registro diventa illeggibile, e le cancellazioni finte NASCONDONO quelle vere: i tre
+          # giri uccisi dal tempo massimo li ho trovati per caso, in mezzo a questo rumore.
+          IN_CODA=$(curl -s -H "Authorization: token $GH_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/pubblicatore.yml/runs?per_page=20" \
+            | python3 -c "import json,sys; d=json.load(sys.stdin)['workflow_runs']; print(sum(1 for r in d if r['status'] in ('queued','pending','in_progress')))" 2>/dev/null || echo 0)
+          if [ "${IN_CODA:-0}" -gt 0 ]; then
+            echo "c'e' gia' un giro in coda ($IN_CODA): non ne aggiungo un altro"
+            exit 0
+          fi
+          for TENT in 1 2 3 4 5; do
+            CODICE=$(curl -s -o /tmp/r.out -w "%{http_code}" -X POST \
+              -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/pubblicatore.yml/dispatches" \
+              -d '{"ref":"main"}')
+            if [ "$CODICE" = "204" ]; then echo "riarmato (tentativo $TENT)"; exit 0; fi
+            echo "riarmo respinto (HTTP $CODICE), tentativo $TENT"
+            case "$CODICE" in
+              5*|429|000) sleep $((TENT * 15)) ;;
+              *) echo "rifiuto definitivo"; cat /tmp/r.out; exit 1 ;;
+            esac
+          done
+          echo "NON SONO RIUSCITO A RIARMARMI"; exit 1

@@ -1,0 +1,906 @@
+[
+ {
+  "quando": "2026-09-28 10:54",
+  "motivo": "e' la nascita del critico stesso: per esistere deve toccare solo strumenti, e la sua prima obiezione e' stata contro di se",
+  "file": [
+   "agents/critico.py",
+   "pubblica.sh"
+  ],
+  "obiezioni": [
+   "TOCCHI SOLO GLI STRUMENTI DI MISURA (agents/critico.py, pubblica.sh) e nient'altro. Stai aggiustando l'esame invece di studiare: se la modifica e' giusta, dillo a voce alta con MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-28 11:21",
+  "motivo": "pruning mirato: il critico impara a vedere un numero rimasto senza la sua ragione, che e' l'unica decadenza che ci e' costata qualcosa",
+  "file": [
+   "agents/critico.py"
+  ],
+  "obiezioni": [
+   "TOCCHI SOLO GLI STRUMENTI DI MISURA (agents/critico.py) e nient'altro. Stai aggiustando l'esame invece di studiare: se la modifica e' giusta, dillo a voce alta con MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-28 11:47",
+  "motivo": "misura di meta-learning: distingue le capacita' acquisite dalle affermazioni, senza aggiungere rituali",
+  "file": [
+   "agents/piu_intelligente.py",
+   "data/azioni_miglioramento.json",
+   "data/prove_del_giorno.json"
+  ],
+  "obiezioni": [
+   "TOCCHI SOLO GLI STRUMENTI DI MISURA (agents/piu_intelligente.py) e nient'altro. Stai aggiustando l'esame invece di studiare: se la modifica e' giusta, dillo a voce alta con MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-29 09:29",
+  "motivo": "registro l'ipotesi prima di guardarne il risultato",
+  "file": [
+   ".github/workflows/insieme.yml",
+   ".github/workflows/pubblicatore.yml",
+   "IPOTESI_H10.md",
+   "agents/chiavi_doppie.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/pubblica_file.py",
+   "data/lezioni.json",
+   "data/loop1/insieme_base_h168.jsonl.gz",
+   "data/loop1/insieme_base_h24.jsonl.gz",
+   "data/loop1/insieme_base_t6h72.jsonl.gz",
+   "data/loop1/insieme_base_tardi48.jsonl.gz",
+   "data/loop1/insieme_robinhood_h168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h24.jsonl.gz",
+   "data/loop1/insieme_robinhood_t6h72.jsonl.gz",
+   "data/loop1/insieme_robinhood_tardi48.jsonl.gz",
+   "data/prodotti.json",
+   "pubblica.sh"
+  ],
+  "obiezioni": [
+   "CAMBI 18 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-29 09:57",
+  "motivo": "due verdetti e tre lezioni strutturali dal giorno",
+  "file": [
+   ".github/workflows/insieme.yml",
+   ".github/workflows/pubblicatore.yml",
+   "IPOTESI_H10.md",
+   "VERDETTO_H10_H11.md",
+   "agents/chiavi_doppie.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/pubblica_file.py",
+   "agents/verdetto_h10.py",
+   "agents/verdetto_h11.py",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/loop1/insieme_base_h168.jsonl.gz",
+   "data/loop1/insieme_base_h24.jsonl.gz",
+   "data/loop1/insieme_base_t6h72.jsonl.gz",
+   "data/loop1/insieme_base_tardi48.jsonl.gz",
+   "data/loop1/insieme_robinhood_h168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h24.jsonl.gz",
+   "data/loop1/insieme_robinhood_t6h72.jsonl.gz",
+   "data/loop1/insieme_robinhood_tardi48.jsonl.gz",
+   "data/prodotti.json",
+   "pubblica.sh"
+  ],
+  "obiezioni": [
+   "CAMBI 22 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-29 10:25",
+  "motivo": "senza il cammino non si puo' provare nessuna regola d'uscita, e in dodici ipotesi non ne abbiamo provata una",
+  "file": [
+   ".github/workflows/insieme.yml",
+   ".github/workflows/pubblicatore.yml",
+   "IPOTESI_H10.md",
+   "VERDETTO_H10_H11.md",
+   "agents/chiavi_doppie.py",
+   "agents/dati.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/pubblica_file.py",
+   "agents/verdetto_h10.py",
+   "agents/verdetto_h11.py",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/loop1/insieme_base_h168.jsonl.gz",
+   "data/loop1/insieme_base_h24.jsonl.gz",
+   "data/loop1/insieme_base_t6h72.jsonl.gz",
+   "data/loop1/insieme_base_tardi48.jsonl.gz",
+   "data/loop1/insieme_robinhood_h168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h24.jsonl.gz",
+   "data/loop1/insieme_robinhood_t6h72.jsonl.gz",
+   "data/loop1/insieme_robinhood_tardi48.jsonl.gz",
+   "data/prodotti.json",
+   "pubblica.sh"
+  ],
+  "obiezioni": [
+   "CAMBI 23 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-29 10:53",
+  "motivo": "registro H13 e la soglia per credere al risultato a un mese, prima di avere i dati",
+  "file": [
+   ".github/workflows/insieme.yml",
+   ".github/workflows/pubblicatore.yml",
+   "IPOTESI_H10.md",
+   "IPOTESI_H13.md",
+   "VERDETTO_H10_H11.md",
+   "agents/chiavi_doppie.py",
+   "agents/dati.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/pubblica_file.py",
+   "agents/verdetto_h10.py",
+   "agents/verdetto_h11.py",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/loop1/insieme_base_cam168.jsonl.gz",
+   "data/loop1/insieme_base_h168.jsonl.gz",
+   "data/loop1/insieme_base_h24.jsonl.gz",
+   "data/loop1/insieme_base_h336.jsonl.gz",
+   "data/loop1/insieme_base_h720.jsonl.gz",
+   "data/loop1/insieme_base_t6h72.jsonl.gz",
+   "data/loop1/insieme_base_tardi48.jsonl.gz",
+   "data/loop1/insieme_robinhood_cam168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h24.jsonl.gz",
+   "data/loop1/insieme_robinhood_h336.jsonl.gz",
+   "data/loop1/insieme_robinhood_h720.jsonl.gz",
+   "data/loop1/insieme_robinhood_t6h72.jsonl.gz",
+   "data/loop1/insieme_robinhood_tardi48.jsonl.gz",
+   "data/prodotti.json",
+   "pubblica.sh"
+  ],
+  "obiezioni": [
+   "CAMBI 30 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-29 11:23",
+  "motivo": "due verdetti sulle uscite, la prima leva nuova in dodici ipotesi",
+  "file": [
+   ".github/workflows/insieme.yml",
+   ".github/workflows/pubblicatore.yml",
+   "IPOTESI_H10.md",
+   "IPOTESI_H13.md",
+   "VERDETTO_H10_H11.md",
+   "VERDETTO_H13_H14.md",
+   "agents/chiavi_doppie.py",
+   "agents/dati.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/pubblica_file.py",
+   "agents/verdetto_h10.py",
+   "agents/verdetto_h11.py",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/loop1/insieme_base_cam168.jsonl.gz",
+   "data/loop1/insieme_base_h168.jsonl.gz",
+   "data/loop1/insieme_base_h24.jsonl.gz",
+   "data/loop1/insieme_base_h336.jsonl.gz",
+   "data/loop1/insieme_base_h720.jsonl.gz",
+   "data/loop1/insieme_base_t6h72.jsonl.gz",
+   "data/loop1/insieme_base_tardi48.jsonl.gz",
+   "data/loop1/insieme_robinhood_cam168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h24.jsonl.gz",
+   "data/loop1/insieme_robinhood_h336.jsonl.gz",
+   "data/loop1/insieme_robinhood_h720.jsonl.gz",
+   "data/loop1/insieme_robinhood_t6h72.jsonl.gz",
+   "data/loop1/insieme_robinhood_tardi48.jsonl.gz",
+   "data/prodotti.json",
+   "pubblica.sh"
+  ],
+  "obiezioni": [
+   "CAMBI 31 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-29 11:51",
+  "motivo": "il cammino serve a simulare una vendita vera: senza dollari e senza tutti i soldi non si puo'",
+  "file": [
+   ".github/workflows/insieme.yml",
+   ".github/workflows/pubblicatore.yml",
+   "IPOTESI_H10.md",
+   "IPOTESI_H13.md",
+   "VERDETTO_H10_H11.md",
+   "VERDETTO_H13_H14.md",
+   "agents/chiavi_doppie.py",
+   "agents/dati.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/pubblica_file.py",
+   "agents/verdetto_h10.py",
+   "agents/verdetto_h11.py",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/loop1/insieme_base_cam168.jsonl.gz",
+   "data/loop1/insieme_base_h168.jsonl.gz",
+   "data/loop1/insieme_base_h24.jsonl.gz",
+   "data/loop1/insieme_base_h336.jsonl.gz",
+   "data/loop1/insieme_base_h720.jsonl.gz",
+   "data/loop1/insieme_base_t6h72.jsonl.gz",
+   "data/loop1/insieme_base_tardi48.jsonl.gz",
+   "data/loop1/insieme_robinhood_cam168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h24.jsonl.gz",
+   "data/loop1/insieme_robinhood_h336.jsonl.gz",
+   "data/loop1/insieme_robinhood_h720.jsonl.gz",
+   "data/loop1/insieme_robinhood_t6h72.jsonl.gz",
+   "data/loop1/insieme_robinhood_tardi48.jsonl.gz",
+   "data/prodotti.json",
+   "pubblica.sh"
+  ],
+  "obiezioni": [
+   "CAMBI 31 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-29 12:19",
+  "motivo": "correggo la lettura di tutti i numeri di oggi: il fondale misura l'uscita, non la tenuta",
+  "file": [
+   ".github/workflows/insieme.yml",
+   ".github/workflows/pubblicatore.yml",
+   "CORREZIONE_FONDALE.md",
+   "IPOTESI_H10.md",
+   "IPOTESI_H13.md",
+   "VERDETTO_H10_H11.md",
+   "VERDETTO_H13_H14.md",
+   "agents/chiavi_doppie.py",
+   "agents/dati.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/pubblica_file.py",
+   "agents/verdetto_h10.py",
+   "agents/verdetto_h11.py",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/loop1/insieme_base_cam168.jsonl.gz",
+   "data/loop1/insieme_base_cam720.jsonl.gz",
+   "data/loop1/insieme_base_h168.jsonl.gz",
+   "data/loop1/insieme_base_h24.jsonl.gz",
+   "data/loop1/insieme_base_h336.jsonl.gz",
+   "data/loop1/insieme_base_h720.jsonl.gz",
+   "data/loop1/insieme_base_t6h72.jsonl.gz",
+   "data/loop1/insieme_base_tardi48.jsonl.gz",
+   "data/loop1/insieme_robinhood_cam168.jsonl.gz",
+   "data/loop1/insieme_robinhood_cam720.jsonl.gz",
+   "data/loop1/insieme_robinhood_h168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h24.jsonl.gz",
+   "data/loop1/insieme_robinhood_h336.jsonl.gz",
+   "data/loop1/insieme_robinhood_h720.jsonl.gz",
+   "data/loop1/insieme_robinhood_t6h72.jsonl.gz",
+   "data/loop1/insieme_robinhood_tardi48.jsonl.gz",
+   "data/prodotti.json",
+   "pubblica.sh"
+  ],
+  "obiezioni": [
+   "CAMBI 34 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-29 12:48",
+  "motivo": "il risultato del giorno: la taglia domina la selezione",
+  "file": [
+   ".github/workflows/insieme.yml",
+   ".github/workflows/pubblicatore.yml",
+   "CORREZIONE_FONDALE.md",
+   "IPOTESI_H10.md",
+   "IPOTESI_H13.md",
+   "VERDETTO_H10_H11.md",
+   "VERDETTO_H13_H14.md",
+   "VERDETTO_TAGLIA.md",
+   "agents/chiavi_doppie.py",
+   "agents/dati.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/pubblica_file.py",
+   "agents/verdetto_h10.py",
+   "agents/verdetto_h11.py",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/loop1/insieme_base_cam168.jsonl.gz",
+   "data/loop1/insieme_base_cam720.jsonl.gz",
+   "data/loop1/insieme_base_h168.jsonl.gz",
+   "data/loop1/insieme_base_h24.jsonl.gz",
+   "data/loop1/insieme_base_h336.jsonl.gz",
+   "data/loop1/insieme_base_h720.jsonl.gz",
+   "data/loop1/insieme_base_t6h72.jsonl.gz",
+   "data/loop1/insieme_base_tardi48.jsonl.gz",
+   "data/loop1/insieme_robinhood_cam168.jsonl.gz",
+   "data/loop1/insieme_robinhood_cam720.jsonl.gz",
+   "data/loop1/insieme_robinhood_h168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h24.jsonl.gz",
+   "data/loop1/insieme_robinhood_h336.jsonl.gz",
+   "data/loop1/insieme_robinhood_h720.jsonl.gz",
+   "data/loop1/insieme_robinhood_t6h72.jsonl.gz",
+   "data/loop1/insieme_robinhood_tardi48.jsonl.gz",
+   "data/prodotti.json",
+   "pubblica.sh"
+  ],
+  "obiezioni": [
+   "CAMBI 35 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-29 13:16",
+  "motivo": "la domanda che chiude o apre il progetto: esiste una taglia a cui il fondale e' positivo?",
+  "file": [
+   ".github/workflows/insieme.yml",
+   ".github/workflows/pubblicatore.yml",
+   "CORREZIONE_FONDALE.md",
+   "IPOTESI_H10.md",
+   "IPOTESI_H13.md",
+   "VERDETTO_H10_H11.md",
+   "VERDETTO_H13_H14.md",
+   "VERDETTO_TAGLIA.md",
+   "agents/chiavi_doppie.py",
+   "agents/dati.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/pubblica_file.py",
+   "agents/verdetto_h10.py",
+   "agents/verdetto_h11.py",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/loop1/insieme_base_cam168.jsonl.gz",
+   "data/loop1/insieme_base_cam720.jsonl.gz",
+   "data/loop1/insieme_base_h168.jsonl.gz",
+   "data/loop1/insieme_base_h24.jsonl.gz",
+   "data/loop1/insieme_base_h336.jsonl.gz",
+   "data/loop1/insieme_base_h720.jsonl.gz",
+   "data/loop1/insieme_base_t6h72.jsonl.gz",
+   "data/loop1/insieme_base_tardi48.jsonl.gz",
+   "data/loop1/insieme_robinhood_cam168.jsonl.gz",
+   "data/loop1/insieme_robinhood_cam720.jsonl.gz",
+   "data/loop1/insieme_robinhood_h168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h24.jsonl.gz",
+   "data/loop1/insieme_robinhood_h336.jsonl.gz",
+   "data/loop1/insieme_robinhood_h720.jsonl.gz",
+   "data/loop1/insieme_robinhood_t6h72.jsonl.gz",
+   "data/loop1/insieme_robinhood_tardi48.jsonl.gz",
+   "data/prodotti.json",
+   "pubblica.sh"
+  ],
+  "obiezioni": [
+   "CAMBI 35 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-29 13:45",
+  "motivo": "verdetto strutturale: il mercato a +2h e' equo, il negativo era il nostro ordine",
+  "file": [
+   ".github/workflows/insieme.yml",
+   ".github/workflows/pubblicatore.yml",
+   "CORREZIONE_FONDALE.md",
+   "IPOTESI_H10.md",
+   "IPOTESI_H13.md",
+   "VERDETTO_H10_H11.md",
+   "VERDETTO_H13_H14.md",
+   "VERDETTO_TAGLIA.md",
+   "VERDETTO_TAGLIA_LIMITE.md",
+   "agents/chiavi_doppie.py",
+   "agents/dati.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/pubblica_file.py",
+   "agents/verdetto_h10.py",
+   "agents/verdetto_h11.py",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/loop1/insieme_base_cam168.jsonl.gz",
+   "data/loop1/insieme_base_cam720.jsonl.gz",
+   "data/loop1/insieme_base_h168.jsonl.gz",
+   "data/loop1/insieme_base_h24.jsonl.gz",
+   "data/loop1/insieme_base_h336.jsonl.gz",
+   "data/loop1/insieme_base_h720.jsonl.gz",
+   "data/loop1/insieme_base_t6h72.jsonl.gz",
+   "data/loop1/insieme_base_tag168.jsonl.gz",
+   "data/loop1/insieme_base_tag720.jsonl.gz",
+   "data/loop1/insieme_base_tardi48.jsonl.gz",
+   "data/loop1/insieme_robinhood_cam168.jsonl.gz",
+   "data/loop1/insieme_robinhood_cam720.jsonl.gz",
+   "data/loop1/insieme_robinhood_h168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h24.jsonl.gz",
+   "data/loop1/insieme_robinhood_h336.jsonl.gz",
+   "data/loop1/insieme_robinhood_h720.jsonl.gz",
+   "data/loop1/insieme_robinhood_t6h72.jsonl.gz",
+   "data/loop1/insieme_robinhood_tag168.jsonl.gz",
+   "data/loop1/insieme_robinhood_tag720.jsonl.gz",
+   "data/loop1/insieme_robinhood_tardi48.jsonl.gz",
+   "data/prodotti.json",
+   "pubblica.sh"
+  ],
+  "obiezioni": [
+   "CAMBI 40 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-29 14:14",
+  "motivo": "registro H15 e la trappola del prezzo d'ingresso prima di vedere i numeri",
+  "file": [
+   ".github/workflows/insieme.yml",
+   ".github/workflows/pubblicatore.yml",
+   "CORREZIONE_FONDALE.md",
+   "IPOTESI_H10.md",
+   "IPOTESI_H13.md",
+   "IPOTESI_H15.md",
+   "VERDETTO_H10_H11.md",
+   "VERDETTO_H13_H14.md",
+   "VERDETTO_TAGLIA.md",
+   "VERDETTO_TAGLIA_LIMITE.md",
+   "agents/chiavi_doppie.py",
+   "agents/dati.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/pubblica_file.py",
+   "agents/verdetto_h10.py",
+   "agents/verdetto_h11.py",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/loop1/insieme_base_cam168.jsonl.gz",
+   "data/loop1/insieme_base_cam720.jsonl.gz",
+   "data/loop1/insieme_base_h168.jsonl.gz",
+   "data/loop1/insieme_base_h24.jsonl.gz",
+   "data/loop1/insieme_base_h336.jsonl.gz",
+   "data/loop1/insieme_base_h720.jsonl.gz",
+   "data/loop1/insieme_base_t6h72.jsonl.gz",
+   "data/loop1/insieme_base_tag168.jsonl.gz",
+   "data/loop1/insieme_base_tag720.jsonl.gz",
+   "data/loop1/insieme_base_tardi48.jsonl.gz",
+   "data/loop1/insieme_robinhood_cam168.jsonl.gz",
+   "data/loop1/insieme_robinhood_cam720.jsonl.gz",
+   "data/loop1/insieme_robinhood_h168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h24.jsonl.gz",
+   "data/loop1/insieme_robinhood_h336.jsonl.gz",
+   "data/loop1/insieme_robinhood_h720.jsonl.gz",
+   "data/loop1/insieme_robinhood_t6h72.jsonl.gz",
+   "data/loop1/insieme_robinhood_tag168.jsonl.gz",
+   "data/loop1/insieme_robinhood_tag720.jsonl.gz",
+   "data/loop1/insieme_robinhood_tardi48.jsonl.gz",
+   "data/prodotti.json",
+   "pubblica.sh"
+  ],
+  "obiezioni": [
+   "CAMBI 41 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-29 17:10",
+  "motivo": "una guardia che avvisa prima del limite, non dopo",
+  "file": [
+   ".github/workflows/pubblicatore.yml",
+   "agents/file_troppo_grandi.py",
+   "agents/fondi_consegna.py",
+   "agents/lezioni.py",
+   "agents/registro_segnali.py",
+   "agents/verdetto_h4.py",
+   "data/lezioni.json",
+   "data/loop1/insieme_base_sc5.jsonl.gz",
+   "data/loop1/insieme_base_sc60.jsonl.gz",
+   "data/loop1/insieme_robinhood_sc5.jsonl.gz",
+   "data/loop1/insieme_robinhood_sc60.jsonl.gz",
+   "data/loop1/segnali.jsonl",
+   "data/loop1/segnali.jsonl.gz",
+   "data/prodotti.json",
+   "pubblica.sh"
+  ],
+  "obiezioni": [
+   "CAMBI 15 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-30 01:49",
+  "motivo": "55 cancellazioni finte su 71 giri nascondono quelle vere",
+  "file": [
+   ".github/workflows/censimento.yml",
+   ".github/workflows/coppie.yml",
+   ".github/workflows/director.yml",
+   ".github/workflows/edge_eval.yml",
+   ".github/workflows/guardiani.yml",
+   ".github/workflows/heartbeat.yml",
+   ".github/workflows/hook.yml",
+   ".github/workflows/iniziatori.yml",
+   ".github/workflows/nascite.yml",
+   ".github/workflows/popolazione.yml",
+   ".github/workflows/previsioni.yml",
+   ".github/workflows/pubblicatore.yml",
+   ".github/workflows/riparazione.yml",
+   ".github/workflows/riserve.yml",
+   ".github/workflows/scoperta.yml",
+   ".github/workflows/sentinella.yml",
+   ".github/workflows/soccorso.yml",
+   ".github/workflows/storico.yml",
+   ".github/workflows/vivo.yml"
+  ],
+  "obiezioni": [
+   "CAMBI 19 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-30 02:22",
+  "motivo": "36 cancellazioni inutili su 73 giri, generate dagli orologi che suonano su corsie gia' in moto",
+  "file": [
+   ".github/workflows/censimento.yml",
+   ".github/workflows/coppie.yml",
+   ".github/workflows/edge_eval.yml",
+   ".github/workflows/guardiani.yml",
+   ".github/workflows/heartbeat.yml",
+   ".github/workflows/hook.yml",
+   ".github/workflows/iniziatori.yml",
+   ".github/workflows/insieme.yml",
+   ".github/workflows/nascite.yml",
+   ".github/workflows/popolazione.yml",
+   ".github/workflows/previsioni.yml",
+   ".github/workflows/pubblicatore.yml",
+   ".github/workflows/riparazione.yml",
+   ".github/workflows/riserve.yml",
+   ".github/workflows/scoperta.yml",
+   ".github/workflows/soccorso.yml",
+   ".github/workflows/storico.yml",
+   ".github/workflows/vivo.yml"
+  ],
+  "obiezioni": [
+   "CAMBI 18 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-30 02:23",
+  "motivo": "correggo tre orologi che ho accelerato per errore e il pubblicatore che non deve rallentare",
+  "file": [
+   ".github/workflows/censimento.yml",
+   ".github/workflows/coppie.yml",
+   ".github/workflows/edge_eval.yml",
+   ".github/workflows/guardiani.yml",
+   ".github/workflows/heartbeat.yml",
+   ".github/workflows/hook.yml",
+   ".github/workflows/iniziatori.yml",
+   ".github/workflows/insieme.yml",
+   ".github/workflows/nascite.yml",
+   ".github/workflows/popolazione.yml",
+   ".github/workflows/previsioni.yml",
+   ".github/workflows/pubblicatore.yml",
+   ".github/workflows/riparazione.yml",
+   ".github/workflows/riserve.yml",
+   ".github/workflows/scoperta.yml",
+   ".github/workflows/soccorso.yml",
+   ".github/workflows/storico.yml",
+   ".github/workflows/vivo.yml",
+   "data/eccezioni_critico.json",
+   "data/prodotti.json"
+  ],
+  "obiezioni": [
+   "CAMBI 20 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-30 06:47",
+  "motivo": "26 corsie senza riarmo: quattro lo prendono, ventidue dichiarano perche' non serve",
+  "file": [
+   ".github/workflows/accumulator.yml",
+   ".github/workflows/assottiglia.yml",
+   ".github/workflows/collector.yml",
+   ".github/workflows/demo_live.yml",
+   ".github/workflows/demo_live_base.yml",
+   ".github/workflows/first_buyers.yml",
+   ".github/workflows/health_audit.yml",
+   ".github/workflows/heartbeat.yml",
+   ".github/workflows/insider.yml",
+   ".github/workflows/ispezione.yml",
+   ".github/workflows/learner.yml",
+   ".github/workflows/multichain_brain.yml",
+   ".github/workflows/multichain_collector.yml",
+   ".github/workflows/multichain_rpc.yml",
+   ".github/workflows/multichain_trades.yml",
+   ".github/workflows/paper_bot.yml",
+   ".github/workflows/pulizia_riserve.yml",
+   ".github/workflows/riparazione.yml",
+   ".github/workflows/riserve.yml",
+   ".github/workflows/sentinella.yml",
+   ".github/workflows/solana_helius.yml",
+   ".github/workflows/strategy_optimizer.yml",
+   ".github/workflows/strategy_optimizer_base.yml",
+   ".github/workflows/strategy_optimizer_solana.yml",
+   ".github/workflows/supervisor.yml",
+   ".github/workflows/wallet_forensics.yml",
+   ".github/workflows/wallet_scores.yml",
+   ".github/workflows/watchdog.yml",
+   ".github/workflows/watchdog_quality.yml",
+   ".github/workflows/whale_backfill.yml",
+   ".github/workflows/whale_candles.yml",
+   ".github/workflows/whale_enrich.yml",
+   ".github/workflows/workflow_watchdog.yml"
+  ],
+  "obiezioni": [
+   "CAMBI 33 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-30 07:22",
+  "motivo": "mettere a riposo un relitto non deve richiedere di rianimarlo",
+  "file": [
+   ".github/workflows/multichain_collector.yml",
+   ".github/workflows/watchdog.yml",
+   ".github/workflows/watchdog_quality.yml",
+   "pubblica.sh"
+  ],
+  "obiezioni": [
+   "CANCELLI LA RAGIONE E LASCI IL NUMERO: run: test \"$(cat /tmp/wd_exit)\" = \"EXIT=0\". Un valore senza piu' motivo non e' una scelta, e' un residuo — il 27/09 un 45 e' rimasto mezza giornata a difendere un problema che non esisteva piu'."
+  ]
+ },
+ {
+  "quando": "2026-09-30 07:55",
+  "motivo": "venti relitti della fase precedente, fermi da 34 giorni",
+  "file": [
+   ".github/workflows/data_analyst.yml",
+   ".github/workflows/demo_live.yml",
+   ".github/workflows/demo_live_base.yml",
+   ".github/workflows/director.yml",
+   ".github/workflows/edge_eval.yml",
+   ".github/workflows/first_buyers.yml",
+   ".github/workflows/health_audit.yml",
+   ".github/workflows/learner.yml",
+   ".github/workflows/multichain_brain.yml",
+   ".github/workflows/multichain_rpc.yml",
+   ".github/workflows/multichain_trades.yml",
+   ".github/workflows/strategy_optimizer.yml",
+   ".github/workflows/strategy_optimizer_base.yml",
+   ".github/workflows/strategy_optimizer_solana.yml",
+   ".github/workflows/supervisor.yml",
+   ".github/workflows/wallet_forensics.yml",
+   ".github/workflows/wallet_scores.yml",
+   ".github/workflows/whale_backfill.yml",
+   ".github/workflows/whale_candles.yml",
+   ".github/workflows/whale_enrich.yml"
+  ],
+  "obiezioni": [
+   "CAMBI 20 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-30 11:44",
+  "motivo": "sessanta cancellazioni su sessantanove: il riarmo non guardava chi stava gia' lavorando",
+  "file": [
+   ".github/workflows/collector.yml",
+   ".github/workflows/guardiani.yml",
+   ".github/workflows/heartbeat.yml",
+   ".github/workflows/hook.yml",
+   ".github/workflows/iniziatori.yml",
+   ".github/workflows/insieme.yml",
+   ".github/workflows/popolazione.yml",
+   ".github/workflows/previsioni.yml",
+   ".github/workflows/pubblicatore.yml",
+   ".github/workflows/riparazione.yml",
+   ".github/workflows/riserve.yml",
+   ".github/workflows/scoperta.yml",
+   ".github/workflows/sentinella.yml",
+   ".github/workflows/soccorso.yml",
+   ".github/workflows/storico.yml",
+   ".github/workflows/vivo.yml",
+   ".github/workflows/workflow_watchdog.yml"
+  ],
+  "obiezioni": [
+   "CAMBI 17 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-30 21:39",
+  "motivo": "il motore delle combinazioni, chiesto il 23/09 e costruito stanotte",
+  "file": [
+   ".github/workflows/deposito.yml",
+   "COMBINAZIONI_30-09.md",
+   "CONSULENZA_2026-09-30_2056.md",
+   "FASCICOLO_ASTRA.txt",
+   "agents/combinazioni.py",
+   "agents/decisioni.py",
+   "agents/memoria_conversazione.py",
+   "agents/rianima.py",
+   "data/consulenze/contatore.json",
+   "data/decisioni_stato.json",
+   "data/memoria/",
+   "data/prodotti.json",
+   "pubblica.sh"
+  ],
+  "obiezioni": [
+   "CAMBI 13 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-30 21:42",
+  "motivo": "la latenza uccide il numero di oggi: va scritto prima di qualsiasi altra cosa",
+  "file": [
+   ".github/workflows/deposito.yml",
+   "COMBINAZIONI_30-09.md",
+   "CONSULENZA_2026-09-30_2056.md",
+   "FASCICOLO_ASTRA.txt",
+   "LATENZA_LA_SCOPERTA.md",
+   "agents/combinazioni.py",
+   "agents/decisioni.py",
+   "agents/memoria_conversazione.py",
+   "agents/rianima.py",
+   "data/consulenze/contatore.json",
+   "data/decisioni_stato.json",
+   "data/eccezioni_critico.json",
+   "data/memoria/",
+   "data/prodotti.json",
+   "pubblica.sh"
+  ],
+  "obiezioni": [
+   "CAMBI 15 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-30 21:43",
+  "motivo": "il prezzo ottenibile diventa un vincolo, non una scoperta da ricordare",
+  "file": [
+   ".github/workflows/deposito.yml",
+   "COMBINAZIONI_30-09.md",
+   "CONSULENZA_2026-09-30_2056.md",
+   "FASCICOLO_ASTRA.txt",
+   "LATENZA_LA_SCOPERTA.md",
+   "agents/combinazioni.py",
+   "agents/dati.py",
+   "agents/decisioni.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/memoria_conversazione.py",
+   "agents/rianima.py",
+   "data/consulenze/contatore.json",
+   "data/decisioni_stato.json",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/memoria/",
+   "data/prodotti.json",
+   "pubblica.sh"
+  ],
+  "obiezioni": [
+   "CAMBI 19 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-30 22:02",
+  "motivo": "il verdetto sulle combinazioni: metodo buono, vantaggio assente",
+  "file": [
+   ".github/workflows/deposito.yml",
+   "COMBINAZIONI_30-09.md",
+   "CONSULENZA_2026-09-30_2056.md",
+   "FASCICOLO_ASTRA.txt",
+   "LATENZA_LA_SCOPERTA.md",
+   "VERDETTO_COMBINAZIONI.md",
+   "agents/combinazioni.py",
+   "agents/dati.py",
+   "agents/decisioni.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/memoria_conversazione.py",
+   "agents/rianima.py",
+   "data/consulenze/contatore.json",
+   "data/decisioni_stato.json",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/memoria/",
+   "data/prodotti.json",
+   "pubblica.sh"
+  ],
+  "obiezioni": [
+   "CAMBI 20 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-30 22:06",
+  "motivo": "l'assenza di autorizzazione deve negare, non permettere: e' l'inversione che chiude il caso compliance_check",
+  "file": [
+   ".github/workflows/deposito.yml",
+   "COMBINAZIONI_30-09.md",
+   "CONSULENZA_2026-09-30_2056.md",
+   "CONSULENZA_2026-09-30_2204.md",
+   "FASCICOLO_ASTRA.txt",
+   "LATENZA_LA_SCOPERTA.md",
+   "VERDETTO_COMBINAZIONI.md",
+   "agents/autorizzazione.py",
+   "agents/combinazioni.py",
+   "agents/dati.py",
+   "agents/decisioni.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/memoria_conversazione.py",
+   "agents/rianima.py",
+   "data/autorizzazione.json",
+   "data/consulenze/contatore.json",
+   "data/decisioni_stato.json",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/memoria/",
+   "data/prodotti.json",
+   "pubblica.sh"
+  ],
+  "obiezioni": [
+   "CAMBI 23 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-30 22:06",
+  "motivo": "l'assenza di autorizzazione deve negare, non permettere",
+  "file": [
+   ".github/workflows/deposito.yml",
+   "COMBINAZIONI_30-09.md",
+   "CONSULENZA_2026-09-30_2056.md",
+   "CONSULENZA_2026-09-30_2204.md",
+   "FASCICOLO_ASTRA.txt",
+   "LATENZA_LA_SCOPERTA.md",
+   "VERDETTO_COMBINAZIONI.md",
+   "agents/autorizzazione.py",
+   "agents/combinazioni.py",
+   "agents/dati.py",
+   "agents/decisioni.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/memoria_conversazione.py",
+   "agents/rianima.py",
+   "data/autorizzazione.json",
+   "data/consulenze/contatore.json",
+   "data/decisioni_stato.json",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/memoria/",
+   "data/prodotti.json",
+   "pubblica.sh"
+  ],
+  "obiezioni": [
+   "CAMBI 23 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-09-30 22:24",
+  "motivo": "la prova di ripristino ha scoperto che la memoria non era ancora depositata",
+  "file": [
+   ".github/workflows/deposito.yml",
+   "COMBINAZIONI_30-09.md",
+   "CONSULENZA_2026-09-30_2056.md",
+   "CONSULENZA_2026-09-30_2204.md",
+   "FASCICOLO_ASTRA.txt",
+   "LATENZA_LA_SCOPERTA.md",
+   "VERDETTO_COMBINAZIONI.md",
+   "agents/autorizzazione.py",
+   "agents/combinazioni.py",
+   "agents/dati.py",
+   "agents/decisioni.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/memoria_conversazione.py",
+   "agents/prova_ripristino.py",
+   "agents/rianima.py",
+   "data/autorizzazione.json",
+   "data/consulenze/contatore.json",
+   "data/decisioni_stato.json",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/memoria/",
+   "data/prodotti.json",
+   "pubblica.sh"
+  ],
+  "obiezioni": [
+   "CAMBI 24 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
+ },
+ {
+  "quando": "2026-10-01 00:17",
+  "motivo": "il giudice misurava un prezzo che non si puo' avere",
+  "file": [
+   "PROVA_IN_AVANTI.md",
+   "agents/prova_avanti.py",
+   "data/decisioni_stato.json",
+   "data/loop1/prova_avanti_base.json",
+   "data/loop1/prova_avanti_robinhood.json"
+  ],
+  "obiezioni": [
+   "CANCELLI LA RAGIONE E LASCI IL NUMERO: MINIMO_POOL = 5000. Un valore senza piu' motivo non e' una scelta, e' un residuo — il 27/09 un 45 e' rimasto mezza giornata a difendere un problema che non esisteva piu'."
+  ]
+ }
+]

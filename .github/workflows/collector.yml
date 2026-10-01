@@ -1,0 +1,59 @@
+name: collector
+# REPARTO COLLECTOR: accumula STORICO (candele daily+orarie + whale + pressione) in file immutabili.
+# Seriale, pacato, resumable (checkpoint). Ogni 4h da IP GitHub (rate-limit fresco). Commit dati. €0.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "51 */2 * * *"   # ogni 3 ore
+permissions:
+  contents: write
+concurrency:
+  group: collector
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: python agents/collector.py || echo "ko, riprovo al prossimo giro"
+      # PERCHE' LA RIAPPLICAZIONE FALLIVA (30/09). Ogni corsia provava gia' `pull --rebase` e
+      # cadeva sulla fusione solo come ripiego. Ma la copia e' SUPERFICIALE (`--depth 1`): senza un
+      # antenato in comune la riapplicazione non puo' riuscire, quindi il ripiego scattava SEMPRE.
+      # Risultato: 28 commit su 100 erano fusioni, e la cronologia cresceva dieci volte i dati.
+      # `git fetch --deepen 50` costa pochi secondi e restituisce l'antenato.
+      - name: Salva dati (file immutabili)
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add data/ 2>/dev/null || true
+          git commit -m "collector $(date -u +%Y-%m-%dT%H:%MZ)" || { echo niente; exit 0; }
+          for i in 1 2 3; do
+            { git fetch --deepen 50 -q origin main 2>/dev/null || true; git pull --rebase --autostash -q origin main || git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main; } || true
+            git push origin main && exit 0; sleep 4
+          done
+          exit 0
+      - name: Riarmo
+        # AGGIUNTO IL 30/09: porta i dati: se si ferma lei si ferma tutto, ed e' il caso in cui il riarmo conta di piu'.
+        # Aveva solo il cron, che GitHub salta sui repo occupati — quindi girava 1-4 volte al
+        # giorno invece di 13-16, dicendo «riuscito» ogni volta. Un guasto che si presenta come
+        # salute e' peggio di uno che grida.
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          IN_CODA=$(curl -s -H "Authorization: token $GH_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/collector.yml/runs?per_page=20" \
+            | python3 -c "import json,sys; d=json.load(sys.stdin)['workflow_runs']; print(sum(1 for r in d if r['status'] in ('queued','pending','in_progress')))" 2>/dev/null || echo 0)
+          if [ "${IN_CODA:-0}" -gt 0 ]; then echo "gia' in coda: non insisto"; exit 0; fi
+          sleep 2400
+          for TENT in 1 2 3; do
+            CODICE=$(curl -s -o /tmp/r.out -w "%{http_code}" -X POST \
+              -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/collector.yml/dispatches" \
+              -d '{"ref":"main"}')
+            if [ "$CODICE" = "204" ]; then echo "riarmata (tentativo $TENT)"; exit 0; fi
+            sleep $((TENT * 20))
+          done
+          echo "non sono riuscita a riarmarmi: restera' il cron"

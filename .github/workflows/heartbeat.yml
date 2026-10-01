@@ -1,0 +1,73 @@
+name: heartbeat
+# IL GUARDIANO DEL MOTORE, fuori dal motore: se il motore smette di committare, lo ri-lancia.
+# Un guardiano che sta dentro la cosa che sorveglia si blocca insieme a lei.
+on:
+  workflow_dispatch: {}
+  schedule:
+      # L'OROLOGIO E' UNA RETE, NON UN MOTORE (30/09). Suonava ogni 20-30 minuti mentre il
+      # riarmo teneva la corsia gia' in movimento: ogni suonata finiva in coda e veniva
+      # ANNULLATA. Misurato: 36 cancellazioni su 73 giri, tutte inutili, e il rumore nascondeva
+      # le cancellazioni vere (i giri uccisi dal tempo massimo).
+      # Ora suona una volta all'ora: se la catena del riarmo si rompe, riparte da qui.
+    - cron: "23 */2 * * *"   # girava ogni due ore ed e' sufficiente
+permissions:
+  contents: write
+  actions: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Il motore è vivo?
+        env:
+          WR_PAT: ${{ secrets.WR_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python agents/heartbeat.py
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add HEARTBEAT.md 2>/dev/null || true
+          git commit -m "heartbeat $(date -u +%H:%MZ)" || exit 0
+          for i in 1 2 3 4 5; do
+            { git fetch --deepen 50 -q origin main 2>/dev/null || true; git pull --rebase --autostash -q origin main || git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main; } || true
+            git push origin main && exit 0; sleep $((RANDOM % 6 + 2))
+          done
+      - name: Riarmo
+        # I GUARDIANI SONO GLI ULTIMI A CUI L'HO MESSO, E DOVEVANO ESSERE I PRIMI (28/09).
+        # `heartbeat` e `sentinella` sono i due pezzi che si accorgono quando le altre corsie
+        # muoiono — e non avevano nessun modo di ripartire se non l'orario, che su questo
+        # repository GitHub salta di continuo. Potevano morire nel modo esatto che esistono per
+        # scoprire, e nessuno se ne sarebbe accorto: **chi guarda tutti non e' guardato da nessuno.**
+        # Trovato dalla domanda quotidiana, non da me.
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          sleep 300
+          # NON CHIEDERE SE C'E' GIA' QUALCUNO IN CODA (30/09, propagato dall'insieme).
+          # La coda di GitHub tiene UN giro in attesa: chi arriva dopo viene annullato. Misurato
+          # stanotte: 55 giri annullati su 71. Non si perde lavoro — ne resta sempre uno — ma il
+          # registro diventa illeggibile, e le cancellazioni finte NASCONDONO quelle vere: i tre
+          # giri uccisi dal tempo massimo li ho trovati per caso, in mezzo a questo rumore.
+          IN_CODA=$(curl -s -H "Authorization: token $GH_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/heartbeat.yml/runs?per_page=20" \
+            | python3 -c "import json,sys; d=json.load(sys.stdin)['workflow_runs']; print(sum(1 for r in d if r['status'] in ('queued','pending','in_progress')))" 2>/dev/null || echo 0)
+          if [ "${IN_CODA:-0}" -gt 0 ]; then
+            echo "c'e' gia' un giro in coda ($IN_CODA): non ne aggiungo un altro"
+            exit 0
+          fi
+          for TENT in 1 2 3 4 5; do
+            CODICE=$(curl -s -o /tmp/r.out -w "%{http_code}" -X POST \
+              -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/heartbeat.yml/dispatches" \
+              -d '{"ref":"main"}')
+            if [ "$CODICE" = "204" ]; then echo "riarmato (tentativo $TENT)"; exit 0; fi
+            case "$CODICE" in
+              5*|429|000) sleep $((TENT * 20)) ;;
+              *) echo "rifiuto definitivo (HTTP $CODICE)"; cat /tmp/r.out; exit 1 ;;
+            esac
+          done
+          echo "NON SONO RIUSCITO A RIARMARMI"; exit 1

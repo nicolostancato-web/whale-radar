@@ -1,0 +1,114 @@
+name: censimento
+# IL CENSIMENTO — l'universo vero, e il collo di bottiglia del gate.
+#
+# PERCHE' UNA CORSIA SUA (18/09). Il censimento e' il DENOMINATORE di tutto: finche' non e'
+# completo, «copertura 84%» divide per il nostro stesso registro — una lista che abbiamo scelto
+# noi, che puo' salire al 100% mentre la realta' peggiora. E' il rilievo numero uno della
+# revisione esterna, e nessuna delle sette condizioni si puo' chiudere prima.
+# Dentro la corsia database riceveva 200 secondi per giro, divisi fra due chain, e robinhood fa
+# una chiamata ogni 8 secondi perche' i suoi blocchi sono fittissimi di scambi: significa 25
+# chiamate per giro su 859 necessarie. Non era ferma, era affamata.
+# Adesso che loop 0 e loop 1 sono spenti ci sono sedici slot liberi: tanto vale usarli per la
+# cosa che blocca tutto il resto.
+#
+# L'INTERVALLO E' GIA' DICHIARATO nel segnalibro e NON si sposta: se lo ricalcolasse seguendo la
+# punta non finirebbe mai, e il denominatore cambierebbe sotto i piedi a chi lo usa.
+on:
+  workflow_dispatch: {}
+  schedule:
+      # L'OROLOGIO E' UNA RETE, NON UN MOTORE (30/09). Suonava ogni 20-30 minuti mentre il
+      # riarmo teneva la corsia gia' in movimento: ogni suonata finiva in coda e veniva
+      # ANNULLATA. Misurato: 36 cancellazioni su 73 giri, tutte inutili, e il rumore nascondeva
+      # le cancellazioni vere (i giri uccisi dal tempo massimo).
+      # Ora suona una volta all'ora: se la catena del riarmo si rompe, riparte da qui.
+    - cron: "3 * * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: censimento
+  cancel-in-progress: false
+jobs:
+  censisci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        chain: [robinhood, base]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Segna l'inizio
+        run: date +%s > /tmp/inizio_giro
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Censimento
+        env:
+          CHAIN: ${{ matrix.chain }}
+          BUDGET_SEC: "3300"
+        run: python agents/censimento.py
+      - name: Consegna senza toccare il ramo
+        # NON SPINGE PIU' (29/09). Con cinquantuno corsie che scrivevano su `main`, questa perdeva
+        # la gara, moriva dopo venti tentativi e mandava una email di guasto al fondatore per un
+        # problema che non era suo. Oggi ha generato 7 fallimenti.
+        # Ora consegna in un pacco `consegna-*`: il pubblicatore li raccoglie tutti ed e' l'unico
+        # a scrivere. E' la stessa correzione gia' fatta per l'insieme e per i raccoglitori.
+        if: always()
+        run: |
+          # SOLO I FILE CAMBIATI (29/09). Consegnare tutta `data` vorrebbe dire spedire il
+          # repository intero a ogni giro: gigabyte di roba gia' su GitHub, per salvare qualche
+          # decina di file nuovi. Si mette da parte solo cio' che questa corsia ha toccato.
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            [ -f "$F" ] && mkdir -p "/tmp/consegna/$(dirname "$F")" && cp "$F" "/tmp/consegna/$F"
+          done
+          N=$(find /tmp/consegna -type f | wc -l)
+          echo "consegno $N file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-${{ github.workflow }}-${{ github.job }}-${{ strategy.job-index }}
+          path: /tmp/consegna/data
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: ignore
+      # IL RIARMO STA SOLO NEL LAVORO DEDICATO (30/09). Qui c'era anche, dentro un lavoro a
+      # MATRICE: una chiamata per fetta, piu' quella del lavoro dedicato. La coda ne tiene
+      # una e annulla le altre — tre cancellazioni su quattro, tutte finte, che coprivano
+      # quelle vere. Un riarmo per corsia, non per fetta.
+  riarmo:
+    needs: censisci
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Riarmo
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # RIARMO (25/09). GitHub SALTA i cron sui repository occupati, e il nostro lo e' sempre.
+          # Misurato: le corsie CON riarmo hanno girato 13-16 volte, quelle senza 1-4.
+          # «nascite» aveva girato UNA volta sola. Il meccanismo esisteva dal 22/09 su otto corsie
+          # e non era stato propagato: e' la condizione 2 della regola di auto-apprendimento —
+          # propagare il miglioramento a TUTTI i pezzi simili, non solo dove e' emerso.
+                    # IL RIARMO E' DIVENTATO IL MOTORE DEL PROBLEMA (30/09). Questa corsia riscrive un
+          # archivio da 11-33 MB A OGNI GIRO: a cento giri al giorno sono gigabyte di oggetti
+          # nuovi. Il repository e' passato da 4,66 a 7,13 GB in una giornata, con il limite a
+          # dieci — e quando lo tocchi si ferma TUTTO, senza rimedio rapido.
+          # La correzione vera e' scrivere solo le righe nuove invece dell'archivio intero; nel
+          # frattempo si rallenta, perche' un limite toccato costa piu' di dati meno freschi.
+          sleep 1800
+          for TENT in 1 2 3 4 5; do
+            CODICE=$(curl -s -o /tmp/r.out -w "%{http_code}" -X POST \
+              -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/censimento.yml/dispatches" \
+              -d '{"ref":"main"}')
+            if [ "$CODICE" = "204" ]; then echo "riarmata (tentativo $TENT)"; exit 0; fi
+            echo "riarmo respinto (HTTP $CODICE), tentativo $TENT"
+            case "$CODICE" in
+              5*|429|000) sleep $((TENT * 15)) ;;
+              *) echo "rifiuto definitivo"; cat /tmp/r.out; exit 1 ;;
+            esac
+          done
+          echo "NON SONO RIUSCITO A RIARMARMI dopo 5 tentativi"; exit 1

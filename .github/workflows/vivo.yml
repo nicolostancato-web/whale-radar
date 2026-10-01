@@ -1,0 +1,222 @@
+name: vivo
+# LA CODA VIVA: l'unico dato che potra' essere certificato point-in-time.
+#
+# PERCHE' UNA CORSIA SUA (15/09). Girava dentro la corsia database, insieme ad altre otto cose: se
+# quel giro finisce il tempo o muore, si perdono i blocchi di ADESSO — e quelli, a differenza del
+# backfill, non si possono rifare domani. Il ritardo misurato fra il fatto e il timbro e' di 9,8
+# minuti contro le 362 ore della ricostruzione storica: e' la differenza fra un dato su cui si puo'
+# decidere e uno su cui si puo' solo esplorare.
+# Una cosa che non si puo' recuperare merita di non dipendere da nient'altro.
+on:
+  workflow_dispatch: {}
+  schedule:
+      # L'OROLOGIO E' UNA RETE, NON UN MOTORE (30/09). Suonava ogni 20-30 minuti mentre il
+      # riarmo teneva la corsia gia' in movimento: ogni suonata finiva in coda e veniva
+      # ANNULLATA. Misurato: 36 cancellazioni su 73 giri, tutte inutili, e il rumore nascondeva
+      # le cancellazioni vere (i giri uccisi dal tempo massimo).
+      # Ora suona una volta all'ora: se la catena del riarmo si rompe, riparte da qui.
+      # L'OROLOGIO OGNI SEI ORE, NON OGNI ORA (30/09). Con il riarmo che funziona, ogni suonata
+      # dell'orologio arriva mentre la corsia sta gia' lavorando: finisce in coda e viene
+      # annullata. Diciassette corsie per ventiquattro suonate fanno quattrocento cancellazioni
+      # al giorno, e il rumore nasconde le cancellazioni vere.
+      # Resta come RETE: se la catena del riarmo si spezza, entro sei ore riparte.
+      # LA RETE DEVE ESSERE PIU' STRETTA DEL BUCO (30/09, imparata a caro prezzo).
+      # Stamattina ho portato questo orologio da un'ora a sei, ragionando che col riarmo
+      # funzionante le suonate erano solo rumore. Ma un giro ANNULLATO non esegue il passo di
+      # riarmo: la catena si spezza, e l'unica cosa che puo' riprenderla e' l'orologio.
+      # Alle 11:53 hook, scoperta e censimento sono stati annullati insieme. Sono rimasti fermi
+      # TRE ORE E MEZZA — raccolta dati e pubblicazione bloccate — perche' la rete successiva
+      # era a sei ore di distanza.
+      # Una rete piu' larga dell'intervallo in cui il guasto si presenta non e' una rete.
+    - cron: "9 * * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: vivo
+  cancel-in-progress: false
+jobs:
+  coda:
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        chain: [base, robinhood]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Segna l'inizio
+        run: date +%s > /tmp/inizio_giro
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Coda viva
+        env:
+          CHAIN: ${{ matrix.chain }}
+          # GIRI PIU' CORTI PERDONO MENO (16/09). Un giro da due ore e mezza su un runner gratuito
+          # puo' essere sfrattato a meta': e' successo, e base ha perso ottanta minuti di coda viva
+          # — dato che non si recupera, a differenza del backfill.
+          # Il salvataggio ogni dieci minuti limita il danno, ma il vero rimedio e' un giro corto:
+          # adesso che la corsia si riarma da sola alla fine, spezzarla non costa niente e ogni
+          # sfratto costa un'ora invece di due e mezza.
+          BUDGET_SEC: "3300"
+          PAUSA: "1.6"
+        run: python agents/coda_viva.py
+      - name: Consegna senza toccare il ramo
+        # NON SPINGE PIU' (30/09). Convertita solo ORA, non ieri: prima il pubblicatore COPIAVA,
+        # e questa corsia ACCUMULA righe — una copia avrebbe cancellato quelle scritte nel
+        # frattempo. Da quando il pubblicatore FONDE gli archivi `.jsonl.gz` (fondi_consegna.py),
+        # si puo' convertire.
+        #
+        # `storico` invece NO: ha una matrice chain x fetta, e piu' fette della stessa chain
+        # scrivono lo stesso segnalibro JSON — che viene copiato, non fuso. Si pesterebbero.
+        if: always()
+        run: |
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            [ -f "$F" ] && mkdir -p "/tmp/consegna/$(dirname "$F")" && cp "$F" "/tmp/consegna/$F"
+          done
+          echo "consegno $(find /tmp/consegna -type f | wc -l) file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-${{ github.workflow }}-${{ github.job }}-${{ strategy.job-index }}
+          path: /tmp/consegna/data
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: ignore
+      - name: Prepara il soccorso (solo i file cambiati)
+        # SI SALVA QUELLO CHE NON E' ANCORA AL SICURO, NON TUTTO (27/09, poche ore dopo averla
+        # scritta). La rete caricava l'INTERA cartella della chain: 1,5 GB per recuperare 3.664
+        # righe. Misurato: sette allegati da 1,5 GB in tre ore, e ogni recupero costava un quarto
+        # d'ora di scaricamento per unire poche centinaia di righe nuove.
+        # I file non ancora spinti li sa git: sono quelli che risultano modificati. Solo quelli.
+        if: failure()
+        run: |
+          rm -rf /tmp/soccorso_da_salvare; mkdir -p /tmp/soccorso_da_salvare
+          N=0
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            [ -f "$F" ] || continue
+            mkdir -p "/tmp/soccorso_da_salvare/$(dirname "$F")"
+            cp "$F" "/tmp/soccorso_da_salvare/$F"
+          done
+          echo "file da mettere in salvo: $(find /tmp/soccorso_da_salvare -type f | wc -l)"
+          du -sh /tmp/soccorso_da_salvare 2>/dev/null || true
+      - name: Rete di sicurezza se il salvataggio non e' riuscito
+        # I DATI NON SI BUTTANO MAI, NEMMENO QUANDO IL PUSH FALLISCE (27/09, 04:20).
+        # Misurato stanotte: 27 giri falliti in sei ore, e QUATTRO erano di questa corsia. Ogni
+        # fallimento diceva «i dati della coda viva restano sul runner e vanno persi» — e li
+        # perdeva davvero. Non e' tempo perso come per le corsie che rifanno il lavoro: la coda
+        # viva raccoglie i blocchi di ADESSO, e quelli non tornano.
+        # Qui, se il push non ce la fa, il lavoro esce come ALLEGATO invece di morire col runner.
+        # Non cambia niente nel percorso normale: e' una rete sotto il trapezio, non un trapezio
+        # nuovo. Il recupero si fa dopo, con calma, da un allegato che esiste ancora.
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: soccorso-${{ github.workflow }}-${{ matrix.chain }}-${{ github.run_id }}
+          path: /tmp/soccorso_da_salvare
+          retention-days: 7
+          if-no-files-found: ignore
+
+      - name: Riarmo
+        # UNA CORSIA CHE FINISCE NON DEVE ASPETTARE UN ORARIO (16/09). Il recupero nascite e'
+        # rimasto fermo CINQUE ORE E MEZZA dopo aver finito il suo giro: la pianificazione a tre ore
+        # non l'ha ripreso, perche' GitHub salta i cron quando il repo e' occupato — e il nostro lo
+        # e' sempre. Cinque ore di lavoro gratis buttate perche' aspettavamo un orologio.
+        # Qui la corsia si riarma da sola appena finisce. Il lavoro e' finito (il segnalibro dice
+        # dove si era), i runner sono gratis, e non c'e' nessuna ragione perche' stia ferma.
+        # Se non c'e' piu' niente da fare, il giro dopo se ne accorge da solo e costa pochi secondi.
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DURATA=$(( $(date +%s) - $(cat /tmp/inizio_giro 2>/dev/null || echo 0) ))
+          # UN GIRO CHE MUORE SUBITO NON SI RIARMA (16/09, difetto chiuso appena creato). Il riarmo
+          # automatico e' giusto per una corsia che ha lavorato; ma se un giro fallisce in dieci
+          # secondi — credenziale scaduta, nodo morto, errore di sintassi — si rilancerebbe subito,
+          # e il ciclo brucerebbe i runner all'infinito senza raccogliere nulla.
+          # Sotto i cinque minuti si ferma e si fa vedere: un guasto deve costare attenzione, non
+          # diventare un motore perpetuo.
+          if [ "$DURATA" -lt 300 ]; then
+            # UNA GUARDIA NON DEVE UCCIDERE CIO' CHE SORVEGLIA (21/09). Serviva a non ripartire a
+            # raffica se la corsia falliva in pochi secondi. Ma «non mi riarmo» voleva dire che la
+            # corsia MORIVA, e il cron non la recuperava: GitHub salta i cron sui repo occupati, e
+            # il nostro lo e' sempre. La corsia popolazione e' rimasta ferma QUATTRO ORE cosi',
+            # col registro che diceva «success».
+            echo "SOLO ${DURATA}s: aspetto 5 minuti prima di riarmarmi, cosi' non parto a raffica."
+            sleep 300
+          fi
+          # UN RIARMO CHE NON SI ACCORGE DI ESSERE STATO RIFIUTATO (17/09). Il passo risultava
+          # «riuscito» e stampava «riarmata», ma nessun giro ripartiva: mancava il permesso
+          # actions:write e la richiesta veniva respinta con 403 — mentre curl, che non guarda il
+          # codice di risposta, usciva contento. La corsia e' rimasta ferma tre ore e mezza
+          # dichiarando di essersi riarmata.
+          # E' la stessa famiglia di difetti che ho inseguito tutto il giorno: qualcosa che dice
+          # di aver fatto una cosa che non ha fatto. Adesso si guarda il codice, e se non e' 204
+          # il passo FALLISCE e si vede.
+          # IL RIARMO SI RIPROVA (22/09). Un rifiuto passeggero del server di GitHub — un 500, un 429 —
+          # spegneva la corsia per ore: successo alle 02:33 su `popolazione`, tutti i lavori riusciti e
+          # la corsia ferma lo stesso perche' l'ultimo passo si e' arreso al primo tentativo.
+          # RIARMO: SI RIPROVA. Solo un rifiuto DEFINITIVO (4xx che non sia 429) e' un no vero.
+          # NON CHIEDERE SE C'E' GIA' QUALCUNO IN CODA (30/09, propagato dall'insieme).
+          # La coda di GitHub tiene UN giro in attesa: chi arriva dopo viene annullato. Misurato
+          # stanotte: 55 giri annullati su 71. Non si perde lavoro — ne resta sempre uno — ma il
+          # registro diventa illeggibile, e le cancellazioni finte NASCONDONO quelle vere: i tre
+          # giri uccisi dal tempo massimo li ho trovati per caso, in mezzo a questo rumore.
+          # VENTI POSTI MACCHINA, NON DI PIU' (30/09). Stanotte ho aggiunto il riarmo a
+          # diciannove corsie: risultato, venti giri in esecuzione e diciannove in coda, con
+          # cancellazioni a raffica. E' lo stesso errore del 25/09 — il riarmo su troppe corsie
+          # affama quelle critiche — in forma nuova. Chi non e' critico aspetta mezz'ora.
+          sleep 1800
+          IN_CODA=$(curl -s -H "Authorization: token $GH_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/vivo.yml/runs?per_page=20" \
+            | python3 -c "import json,sys; d=json.load(sys.stdin)['workflow_runs']; print(sum(1 for r in d if r['status'] in ('queued','pending','in_progress')))" 2>/dev/null || echo 0)
+          if [ "${IN_CODA:-0}" -gt 0 ]; then
+            echo "c'e' gia' un giro in coda ($IN_CODA): non ne aggiungo un altro"
+            exit 0
+          fi
+          for TENT in 1 2 3 4 5; do
+            CODICE=$(curl -s -o /tmp/riarmo.out -w "%{http_code}" -X POST \
+              -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/vivo.yml/dispatches" \
+              -d '{"ref":"main"}')
+            if [ "$CODICE" = "204" ]; then echo "riarmata (tentativo $TENT)"; exit 0; fi
+            echo "riarmo respinto (HTTP $CODICE), tentativo $TENT"
+            case "$CODICE" in
+              5*|429|000) sleep $((TENT * 15)) ;;
+              *) echo "rifiuto definitivo"; cat /tmp/riarmo.out; exit 1 ;;
+            esac
+          done
+          echo "NON SONO RIUSCITO A RIARMARMI dopo 5 tentativi"; cat /tmp/riarmo.out; exit 1
+          echo "riarmata dopo ${DURATA}s"
+
+  riarmo:
+    needs: coda
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Riarmo
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # RIARMO (25/09). GitHub SALTA i cron sui repository occupati, e il nostro lo e' sempre.
+          # Misurato: le corsie CON riarmo hanno girato 13-16 volte, quelle senza 1-4.
+          # «nascite» aveva girato UNA volta sola. Il meccanismo esisteva dal 22/09 su otto corsie
+          # e non era stato propagato: e' la condizione 2 della regola di auto-apprendimento —
+          # propagare il miglioramento a TUTTI i pezzi simili, non solo dove e' emerso.
+          sleep 120
+          for TENT in 1 2 3 4 5; do
+            CODICE=$(curl -s -o /tmp/r.out -w "%{http_code}" -X POST \
+              -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/vivo.yml/dispatches" \
+              -d '{"ref":"main"}')
+            if [ "$CODICE" = "204" ]; then echo "riarmata (tentativo $TENT)"; exit 0; fi
+            echo "riarmo respinto (HTTP $CODICE), tentativo $TENT"
+            case "$CODICE" in
+              5*|429|000) sleep $((TENT * 15)) ;;
+              *) echo "rifiuto definitivo"; cat /tmp/r.out; exit 1 ;;
+            esac
+          done
+          echo "NON SONO RIUSCITO A RIARMARMI dopo 5 tentativi"; exit 1

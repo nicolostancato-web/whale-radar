@@ -1,0 +1,22 @@
+{
+ "quando": 1790836905,
+ "impronta": "c1d6fad061a8cd7f52c73ab1edc2f8dd1809561107bd756d0928033a7836f46e",
+ "file": [
+  "PIANO_OTTOBRE.md",
+  "agents/decisioni.py",
+  "agents/incidenti.py",
+  "agents/prima_di_cancellare.py",
+  "agents/rianima.py",
+  "agents/segreti_non_escono.py",
+  "data/prodotti.json",
+  "data/requisiti_stato.json",
+  "pubblica.sh"
+ ],
+ "controlli": {
+  "chiavi doppie": 0,
+  "file troppo grandi": 0,
+  "decisioni permanenti": 0,
+  "metro congelato": 0,
+  "guasti storici": 0
+ }
+}

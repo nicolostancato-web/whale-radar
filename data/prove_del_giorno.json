@@ -1,0 +1,59 @@
+{
+ "quando": 1790767300,
+ "giorni": 1,
+ "prove": {
+  "cambiamenti_veri": 46,
+  "scritture_delle_corsie": 450,
+  "righe_di_lezione_aggiunte": 2952,
+  "file_di_codice_toccati": 222,
+  "cambiamenti_su_'guardia'": 2,
+  "titoli_dei_cambiamenti": [
+   "sentinella 11:18Z",
+   "watchdog 2026-09-30T11:16Z",
+   "il guardiano chiede al file, non al passato: chi non ha piu' l'orologio dorme per scelta",
+   "il guardiano non risveglia chi dorme per scelta, e gira in una copia sola",
+   "heartbeat 11:15Z",
+   "watchdog 2026-09-30T11:12Z",
+   "heartbeat 11:09Z",
+   "watchdog 2026-09-30T11:08Z",
+   "heartbeat 11:06Z",
+   "heartbeat 11:02Z",
+   "watchdog 2026-09-30T11:01Z",
+   "accumulator 2026-09-30T11:01Z"
+  ],
+  "documenti_prodotti": [
+   "PROVA_IN_AVANTI.md",
+   "VERDETTO_H15_COMPLETO.md",
+   "VERDETTO_H15.md",
+   "VERDETTO_TAGLIA_LIMITE.md",
+   "VERDETTO_TAGLIA.md",
+   "VERDETTO_H13_H14.md",
+   "VERDETTO_H10_H11.md",
+   "IPOTESI_H13.md",
+   "IPOTESI_H10.md",
+   "CORREZIONE_FONDALE.md"
+  ],
+  "ipotesi_registrate": [
+   "IPOTESI_H13.md",
+   "IPOTESI_H10.md"
+  ],
+  "verdetti_emessi": [
+   "VERDETTO_H15_COMPLETO.md",
+   "VERDETTO_H15.md",
+   "VERDETTO_TAGLIA_LIMITE.md",
+   "VERDETTO_TAGLIA.md",
+   "VERDETTO_H13_H14.md",
+   "VERDETTO_H10_H11.md"
+  ],
+  "giri_di_ricerca": [],
+  "azioni": {
+   "chiuse": 6,
+   "con_un_controllo": 5,
+   "aperte": 7
+  },
+  "lezioni": {
+   "verificata": 13,
+   "ipotesi": 7
+  }
+ }
+}

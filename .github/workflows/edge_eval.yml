@@ -1,0 +1,48 @@
+name: edge_eval
+# A RIPOSO DAL 30/09. Ultimo giro il 26-27 agosto: si e' fermata quando il progetto ha cambiato
+# direzione, e in trentaquattro giorni nessuno se n'e' accorto. Una corsia che fallisce manda una
+# email; una che smette di esistere non manda niente — ed e' il guasto piu' silenzioso di tutti.
+#
+# NON e' cancellata: il codice resta e si lancia a mano da GitHub quando serve. Spento solo
+# l'orologio, perche' una corsia che nessuno legge consuma uno dei venti posti macchina e produce
+# rumore nei registri — e il rumore nasconde i guasti veri.
+# EDGE_EVAL: lo strumento del loop. Ogni giorno misura il walk-forward ONESTO (no-lookahead) e logga
+# l'edge nel tempo in EDGE.md + data/edge_history.jsonl. Vediamo l'ago muoversi verso il goal. €0.
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: edge_eval
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: python agents/edge_eval.py || echo "ko"
+      - name: Consegna senza toccare il ramo
+        # NON SPINGE PIU' (30/09). Consegna un pacco `consegna-*`: il pubblicatore li raccoglie
+        # tutti ed e' l'unico scrittore, e per gli archivi che si accumulano FONDE invece di
+        # sostituire. Cosi' questa corsia non perde piu' giri per contesa sul ramo.
+        #
+        # NON si converte: chi CANCELLA file (una consegna puo' solo aggiungere) e i GUARDIANI
+        # (il loro stato ritardato di dieci minuti diventa un falso allarme).
+        if: always()
+        run: |
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            [ -f "$F" ] && mkdir -p "/tmp/consegna/$(dirname "$F")" && cp "$F" "/tmp/consegna/$F"
+          done
+          echo "consegno $(find /tmp/consegna -type f | wc -l) file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-${{ github.workflow }}-${{ github.job }}-${{ strategy.job-index }}
+          path: /tmp/consegna/data
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: ignore

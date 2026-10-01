@@ -1,0 +1,252 @@
+name: insieme
+# L'INSIEME DI ANALISI SI COSTRUISCE NEL CLOUD, NON SUL PORTATILE (25/09).
+#
+# Per sei giorni questo file l'ho costruito a mano sul Mac, perche' leggere centomila file grezzi
+# richiede tutta la cartella dei dati. Il 25/09 il disco si e' riempito, la copia di lavoro e'
+# stata cancellata, e con lei l'insieme: ogni analisi del giorno e' diventata irripetibile.
+# E' la terza volta che perdo qualcosa che viveva solo sul portatile.
+#
+# La regola imparata vale in positivo: CIO' CHE SERVE A DECIDERE SI COSTRUISCE DOVE VIVONO I DATI.
+# Qui l'insieme si rifa' da solo, ogni due ore, sulla macchina che ha gia' tutto — e finisce nel
+# repository, dove nessuna pulizia del disco puo' toccarlo.
+#
+# Porta con se' `_ore_osservate` e `_giudicabile`: l'esito si misura SOLO dove si e' guardato per
+# tutto l'orizzonte. Misurato il 25/09: trappole 35,0% su tutti contro 19,0% sui soli osservati
+# davvero, fondale -32,4% contro -17,0%. Per sei giorni ho chiamato trappola chi non aveva vendite
+# perche' NOI non avevamo guardato.
+on:
+  workflow_dispatch:
+    # PER SFORNARE VARIANTI (29/09). Finora l'insieme si costruiva con un'entrata e un orizzonte
+    # fissi — +2h e 6h — e ogni ipotesi girava su quelli. Ma «quando entro» e «quanto tengo» sono
+    # due delle domande piu' grosse, e non le avevamo mai variate: non per scelta, perche' non si
+    # poteva. Da qui si costruisce una variante con parametri diversi, che finisce in un file suo.
+    inputs:
+      ore_attesa:    { description: "ore dopo la nascita in cui si compra", default: "2" }
+      entrata_scambio: { description: "si compra all'N-esimo scambio (vince sul tempo; 0 = usa il tempo)", default: "0" }
+      prezzo_ingresso: { description: "'mediano' = prezzo d'ingresso mediano sugli ultimi 5 scambi (toglie l'impatto dell'ultimo)", default: "" }
+      orizzonte_ore: { description: "per quante ore si tiene", default: "6" }
+      suffisso:      { description: "nome della variante (vuoto = quella ufficiale)", default: "" }
+  schedule:
+    # IL CRON TENTA SPESSO, IL LAVORO SI FA RARAMENTE (26/09). GitHub salta i cron sui repo
+    # occupati, quindi una sola occasione ogni due ore si perde facilmente — e' cosi' che questa
+    # corsia e' morta stamattina. Con un tentativo ogni mezz'ora ci sono quattro occasioni per
+    # ogni ricostruzione che serve, e i tentativi inutili escono in trenta secondi grazie al
+    # passo «Serve rifarlo?». Su un repository pubblico i minuti sono gratis: la cosa scarsa non
+    # e' il tempo macchina, e' il turno sul ramo — e chi salta non lo occupa.
+      # L'OROLOGIO E' UNA RETE, NON UN MOTORE (30/09). Suonava ogni 20-30 minuti mentre il
+      # riarmo teneva la corsia gia' in movimento: ogni suonata finiva in coda e veniva
+      # ANNULLATA. Misurato: 36 cancellazioni su 73 giri, tutte inutili, e il rumore nascondeva
+      # le cancellazioni vere (i giri uccisi dal tempo massimo).
+      # Ora suona una volta all'ora: se la catena del riarmo si rompe, riparte da qui.
+      # L'OROLOGIO OGNI SEI ORE, NON OGNI ORA (30/09). Con il riarmo che funziona, ogni suonata
+      # dell'orologio arriva mentre la corsia sta gia' lavorando: finisce in coda e viene
+      # annullata. Diciassette corsie per ventiquattro suonate fanno quattrocento cancellazioni
+      # al giorno, e il rumore nasconde le cancellazioni vere.
+      # Resta come RETE: se la catena del riarmo si spezza, entro sei ore riparte.
+      # LA RETE DEVE ESSERE PIU' STRETTA DEL BUCO (30/09, imparata a caro prezzo).
+      # Stamattina ho portato questo orologio da un'ora a sei, ragionando che col riarmo
+      # funzionante le suonate erano solo rumore. Ma un giro ANNULLATO non esegue il passo di
+      # riarmo: la catena si spezza, e l'unica cosa che puo' riprenderla e' l'orologio.
+      # Alle 11:53 hook, scoperta e censimento sono stati annullati insieme. Sono rimasti fermi
+      # TRE ORE E MEZZA — raccolta dati e pubblicazione bloccate — perche' la rete successiva
+      # era a sei ore di distanza.
+      # Una rete piu' larga dell'intervallo in cui il guasto si presenta non e' una rete.
+    - cron: "17 * * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  # UNA CODA PER VARIANTE (29/09). Con un gruppo solo, la coda tiene UN giro in attesa e butta i
+  # precedenti: ho lanciato quattro varianti insieme e tre sono morte prima di partire, senza errore.
+  # Le varianti non competono fra loro, quindi ognuna ha la sua coda.
+  group: insieme-${{ inputs.suffisso || 'ufficiale' }}
+  cancel-in-progress: false
+jobs:
+  costruisci:
+    runs-on: ubuntu-latest
+    # UN'ORA NON BASTA PER LE ENTRATE PRECOCI (29/09). Entrando al quinto scambio entrano nel
+    # campione anche i pool che non arrivavano a due ore: tre varianti su quattro sono state
+    # CANCELLATE esattamente a sessanta minuti. Cancellate, non fallite — e una cancellazione
+    # non manda nessuna email: il lavoro spariva in silenzio e io aspettavo un file che non
+    # sarebbe mai arrivato.
+    timeout-minutes: 170
+    steps:
+      - uses: actions/checkout@v4
+      - name: Segna l'inizio
+        run: date +%s > /tmp/inizio_giro
+      - name: Serve rifarlo?
+        id: serve
+        # SI DIRADA SALTANDO, NON DORMENDO (26/09, difetto creato e chiuso nella stessa mattina).
+        # Alle 06:50 ho messo una pausa di 90 minuti nel passo di riarmo per far cedere il passo
+        # alle corsie di raccolta. Giusto nell'intenzione, sbagliato nel modo: la pausa stava DENTRO
+        # il gruppo di concorrenza, quindi teneva occupato il posto per un'ora e mezza e i giri
+        # pianificati che arrivavano intanto venivano CANCELLATI. Risultato: la corsia e' rimasta
+        # ferma due ore e il registro diceva «cancelled», non «failed» — il modo piu' silenzioso
+        # di morire.
+        # La lezione, in positivo: **per fare una cosa piu' raramente, si esce subito quando non
+        # serve; non si resta in piedi ad aspettare.** Il turno si libera in dieci secondi e chi
+        # raccoglie passa avanti.
+        run: |
+          # SI LEGGE IL TIMBRO NEL DATO, NON LA CRONOLOGIA (26/09, secondo tentativo).
+          # Il primo usava `git log` su questo file: con `--depth 1` la cronologia e' una sola,
+          # datata adesso, e il controllo diceva sempre «fresco». La corsia e' girata a vuoto
+          # dichiarando successo.
+          # UNA VARIANTE NON SALTA MAI (29/09). Le varianti leggevano il timbro dell'insieme
+          # UFFICIALE: se quello era fresco uscivano senza costruire nulla, dichiarando successo.
+          # Tre strategie su quattro sono morte cosi', in silenzio. Chi chiede una variante la vuole.
+          if [ -n "${{ inputs.suffisso }}" ]; then
+            echo "variante «${{ inputs.suffisso }}»: si costruisce sempre"
+            echo "salto=0" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          ULTIMO=$(python3 -c "import json;print(json.load(open('data/loop1/insieme_timbro.json')).get('robinhood',0))" 2>/dev/null || echo 0)
+          ETA=$(( ( $(date +%s) - ULTIMO ) / 60 ))
+          echo "l'insieme ha $ETA minuti"
+          if [ "$ULTIMO" != "0" ] && [ "$ETA" -lt 100 ]; then
+            echo "abbastanza fresco: non lo rifaccio"
+            echo "salto=1" >> $GITHUB_OUTPUT
+          else
+            echo "salto=0" >> $GITHUB_OUTPUT
+          fi
+      - uses: actions/setup-python@v5
+        if: steps.serve.outputs.salto != '1'
+        with: { python-version: "3.11" }
+      - name: Costruisci l'insieme
+        if: steps.serve.outputs.salto != '1'
+        env:
+          ORE_ATTESA: ${{ inputs.ore_attesa || '2' }}
+          ENTRATA_SCAMBIO: ${{ inputs.entrata_scambio || '0' }}
+          PREZZO_INGRESSO: ${{ inputs.prezzo_ingresso || '' }}
+          ORIZZONTE_ORE: ${{ inputs.orizzonte_ore || '6' }}
+          SUFFISSO: ${{ inputs.suffisso || '' }}
+        run: |
+          for CH in robinhood base; do
+            CHAIN=$CH python agents/insieme.py || echo "INSIEME $CH FALLITO"
+          done
+      - name: Quanto e' giudicabile
+        if: steps.serve.outputs.salto != '1'
+        # UNA COSTRUZIONE RIUSCITA NON E' UNA COSTRUZIONE SANA (25/09). Il file puo' esistere ed
+        # essere pieno di righe non giudicabili: senza questa riga nel registro non me ne accorgo.
+        run: |
+          python3 - <<'PY'
+          import glob, gzip, json, os, sys
+          # SI FALLISCE PER IL PROPRIO PRODOTTO, NON PER QUELLO DEGLI ALTRI (29/09). Questo passo
+          # leggeva TUTTI i file dell'insieme: uno troncato — scritto in quel momento da un'altra
+          # corsia — faceva cadere il giro intero, che aveva costruito il suo benissimo.
+          # Un file illeggibile di un altro si segnala; solo il proprio fa fallire.
+          suf = os.environ.get("SUFFISSO", "").strip()
+          miei = {f"data/loop1/insieme_{c}{('_' + suf) if suf else ''}.jsonl.gz"
+                  for c in ("robinhood", "base")}
+          rotti_miei = []
+          for f in sorted(glob.glob("data/loop1/insieme_*.jsonl.gz")):
+              try:
+                  r = [json.loads(l) for l in gzip.open(f, "rt")]
+              except Exception as e:
+                  print(f"{f}: ILLEGGIBILE ({type(e).__name__}) — "
+                        + ("e' il mio" if f in miei else "non e' mio, tiro dritto"))
+                  if f in miei:
+                      rotti_miei.append(f)
+                  continue
+              g = [x for x in r if x.get("_giudicabile")]
+              tr = [x for x in g if x.get("_uscita", 0) <= -0.9]
+              print(f"{f}: {len(r)} pool, {len(g)} giudicabili ({100*len(g)/max(1,len(r)):.0f}%), "
+                    f"trappole {100*len(tr)/max(1,len(g)):.1f}%")
+          if rotti_miei:
+              sys.exit(1)
+          PY
+      - name: Consegna senza toccare il repository
+        if: steps.serve.outputs.salto != '1'
+        # LE CORSIE NON SPINGONO PIU' (26/09, terza versione della stessa idea, e la prima che
+        # funziona). Un solo scrittore su `main` resta l'obiettivo; il modo di consegnare no.
+        #
+        # · Versione 1 — tutte su `main`: contesa sul riferimento, salvataggi da 14 minuti.
+        # · Versione 2 — un ramo per corsia: il push di un ramo NUOVO da una copia superficiale
+        #   (`--depth 1`) fa esplodere il server con HTTP 500, perche' git prova a spedire oggetti
+        #   che non sa se il server ha. Fallita cinque volte su cinque.
+        # · Versione 3 — questa: il risultato esce come ALLEGATO del giro. Niente git, niente
+        #   riferimenti, niente cronologia. Il pubblicatore lo raccoglie e lo mette su `main` lui.
+        #
+        # Vantaggio che non cercavo e vale piu' del resto: **il repository smette di gonfiarsi.**
+        # Era a 3,09 GB il 19/09 con proiezione di BLOCCO in dieci giorni, ed e' a 3,67 GB oggi.
+        # Ogni corsia che commetteva aggiungeva cronologia dieci volte piu' pesante dei dati.
+        # Con un solo scrittore, i commit passano da decine a uno ogni dieci minuti.
+        uses: actions/upload-artifact@v4
+        with:
+          # UN PACCO PER VARIANTE (29/09). Tutte le varianti consegnavano in «dati-insieme» con
+          # «sovrascrivi»: l'ultima cancellava le altre e il pubblicatore ne trovava una sola.
+          # Tre strategie costruite correttamente non sono mai arrivate su GitHub.
+          name: dati-insieme${{ inputs.suffisso && format('-{0}', inputs.suffisso) || '' }}
+          path: data/loop1
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: error
+      - name: Riarmo
+        # UNA VARIANTE NON SI RIARMA (29/09): il riarmo serve a tenere viva la catena ufficiale,
+        # e una variante la si chiede a mano quando serve. Riarmandosi occuperebbe posti macchina
+        # per rifare all'infinito una misura che si fa una volta.
+        # SOLO DOPO LAVORO VERO (26/09). Un giro che ha saltato non si riarma: dormirebbe tenendo
+        # occupato il turno per non fare niente, che e' esattamente il difetto di stamattina.
+        # Quando c'e' da costruire, invece, la catena continua da sola senza aspettare l'orologio.
+        # GitHub salta i cron sui repo occupati, e il nostro lo e' sempre: senza riarmo questa
+        # corsia girerebbe una volta al giorno invece di dodici. Misurato il 25/09 sulle altre
+        # corsie: 13-16 giri con riarmo, 1-4 senza.
+        # La pausa di venti minuti esiste perche' questa e' una RICOSTRUZIONE, non una coda: non
+        # c'e' arretrato da smaltire, e riavviarla subito occuperebbe un posto macchina per nulla.
+        if: ${{ always() && !inputs.suffisso }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # CHI SALTA SI RIARMA LO STESSO, SOLO PIU' PIANO (27/09, terza volta che rompo questa
+          # corsia con un'ottimizzazione). Avevo deciso che un giro che salta non si riarma, per non
+          # tenere occupato il turno. Risultato: alle 00:56 un giro ha saltato perche' il dato era
+          # fresco, la catena si e' interrotta li', e il cron non l'ha ripresa — GitHub salta i cron
+          # sui repository occupati. Corsia ferma TRE ORE, con tutti i giri che dicevano «riuscito».
+          # LA LEZIONE, e vale oltre questa corsia: **per qualcosa che non deve fermarsi, la
+          # continuita' viene prima del risparmio.** Un turno occupato cinque minuti costa poco;
+          # una corsia morta costa tre ore e non si vede.
+          DURATA=$(( $(date +%s) - $(cat /tmp/inizio_giro 2>/dev/null || echo 0) ))
+          if [ "${{ steps.serve.outputs.salto }}" = "1" ]; then
+            # QUINDICI MINUTI, NON CINQUE (28/09). La soglia per ricostruire e' cento minuti:
+            # ripassare ogni cinque significa venti giri a vuoto per uno utile, e ognuno occupa
+            # un posto macchina. Misurato: quasi dieci giri l'ora, quasi tutti saltati, mentre
+            # questa stessa corsia restava in coda per mancanza di posti.
+            echo "ho saltato: aspetto 15 minuti e ripasso"
+            sleep 900
+          elif [ "$DURATA" -lt 300 ]; then
+            echo "SOLO ${DURATA}s di lavoro: qualcosa non va, aspetto 15 minuti."
+            sleep 900
+          else
+            sleep 120
+          fi
+          # NON SI CHIAMA CHI E' GIA' IN FILA (28/09). Misurato: tre giri annullati e due in coda
+          # nello stesso minuto. Il cron e il riarmo si sovrapponevano, ogni nuovo arrivo cancellava
+          # quello in attesa, e la ricostruzione non finiva mai — il timbro era fermo da 115 minuti
+          # con la corsia apparentemente «attiva».
+          # Un riarmo che non guarda se c'e' gia' qualcuno in coda non tiene viva la corsia: la
+          # tiene occupata. Prima di chiamare, si controlla.
+          IN_CODA=$(curl -s -H "Authorization: token $GH_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/insieme.yml/runs?per_page=20" \
+            | python3 -c "import json,sys; d=json.load(sys.stdin)['workflow_runs']; print(sum(1 for r in d if r['status'] in ('queued','pending','in_progress')))" 2>/dev/null || echo 0)
+          # NON BASTA GUARDARE LA CODA: ANCHE CHI GIA' LAVORA (30/09). Il controllo contava
+          # solo 'queued' e 'pending'. Ma mentre un giro e' IN ESECUZIONE, il riarmo del giro
+          # precedente ne accodava un altro — che poi veniva annullato quando quello in corso
+          # finiva e si riarmava a sua volta. Misurato: 60 giri annullati su 69, e il giudice
+          # della prova in avanti annullato quattro volte di fila.
+          # Una parola mancante nell'elenco degli stati, sessanta cancellazioni al giorno.
+          if [ "${IN_CODA:-0}" -gt 0 ]; then
+            echo "c'e' gia' un giro in coda ($IN_CODA): non ne aggiungo un altro"
+            exit 0
+          fi
+          for TENT in 1 2 3 4 5; do
+            CODICE=$(curl -s -o /tmp/r.out -w "%{http_code}" -X POST \
+              -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/insieme.yml/dispatches" \
+              -d '{"ref":"main"}')
+            if [ "$CODICE" = "204" ]; then echo "riarmata (tentativo $TENT)"; exit 0; fi
+            echo "riarmo respinto (HTTP $CODICE), tentativo $TENT"
+            case "$CODICE" in
+              5*|429|000) sleep $((TENT * 15)) ;;
+              *) echo "rifiuto definitivo"; cat /tmp/r.out; exit 1 ;;
+            esac
+          done
+          echo "NON SONO RIUSCITO A RIARMARMI dopo 5 tentativi"; exit 1

@@ -1,0 +1,58 @@
+DOMANDA SULL'ARCHITETTURA, non sui dati. Posta dal fondatore l'1/10:
+
+«Mi vai a vedere quali sono gli errori piu' comuni, quali sono le trappole dove i gigantic
+workflow che stiamo creando cadono. Quali sono i punti carenti quando si creano i workflow,
+dove casca il sistema? Vedrai che ci sono delle robe da fare che non abbiamo fatto, come quella
+della memoria, che ci fanno perdere tempo e ci fanno cascare. Gli studenti di ingegneria AI
+studiano anche questo: come si comportano i modelli, come creando dei modelli giganti il
+sistema crolla in certe cose.»
+
+IL SISTEMA, IN NUMERI VERI (1/10/2026):
+- 60 processi definiti su GitHub Actions, 40 attivi, ~25 che girano davvero.
+- 161 script Python. Venti macchine gratis in parallelo, sempre sature.
+- Un solo scrittore sul ramo (un pubblicatore), gli altri consegnano pacchi.
+- Un repository da 4-7 GB con un limite a 10. Un deposito su R2 (100 GB) con verifica.
+- Un agente (io, Claude) che lavora in loop autonomo con risvegli ogni 20-30 minuti.
+
+I GUASTI REALI DEGLI ULTIMI TRE GIORNI, tutti scoperti per caso o dal fondatore:
+1. 33 processi su 60 fermi da un mese. Nessuno se n'era accorto: un processo che FALLISCE manda
+   una email, uno che SMETTE DI ESISTERE non manda niente.
+2. Tutti e tre i guardiani morti da cinque ore, insieme alla rete di sicurezza.
+3. Il consulente esterno muto per sette giorni: nessun processo lo eseguiva, lo lanciavo a mano.
+4. Il sistema costruito per non dimenticare le decisioni (compliance_check.py, strategy.yaml)
+   ERA SPARITO e nessuno se n'era accorto.
+5. Una direttiva del fondatore del 23/09 («analizza migliaia di combinazioni incrociate»)
+   persa per sette giorni: il 30/09 gli ho portato una manopola sola.
+6. Il repository cresceva 6,2 GB/giorno per UNA riga che riordinava un archivio.
+7. Un file oltre il limite GitHub ha bloccato OGNI scrittura per tre ore; nei registri si
+   leggeva «contesa sul ramo», cioe' il sintomo.
+8. Ho ottimizzato via una protezione («tanto ora il riarmo funziona») e tre ore dopo la catena
+   si e' spezzata proprio dove serviva quella protezione.
+
+CONTROMISURE COSTRUITE NELLE ULTIME SEI ORE:
+- Decisioni permanenti come DATI, ognuna con un controllo che gira da solo e puo' fallire;
+  una violazione grave ferma la pubblicazione.
+- 3.031 messaggi del fondatore estratti dai trascritti e interrogabili per parola.
+- Rete di guardiani che si sorvegliano a vicenda e si rilanciano.
+- La memoria (documenti, codice, decisioni) portata fuori da GitHub e verificata.
+- Lezioni con una prova che PUO' fallire: 24 lezioni, 17 provate.
+
+LE DOMANDE:
+
+(a) Quali sono i modi di fallimento DOCUMENTATI dei sistemi multi-agente di lunga durata, in
+    ordine di frequenza? Voglio il meccanismo, non il consiglio. Se esistono nomi consolidati
+    per questi guasti, dammeli: cercarli e' piu' facile che reinventarli.
+
+(b) Le mie contromisure sono strutturalmente sufficienti, o sono l'ennesimo strato che fra due
+    settimane sara' sparito come compliance_check.py? Cosa rende una difesa contro l'oblio
+    non-dimenticabile? C'e' una proprieta' formale che la distingue da una che si perde?
+
+(c) Il fondatore vuole un sistema che «sa il goal e crea soluzioni in loop, una dietro l'altra,
+    finche' non ne trova una, senza scordarsi niente». Stanotte ho costruito un motore che
+    prova 10.700 combinazioni con tre divisioni del tempo e un controllo sul rumore, e ha
+    correttamente detto NO. Come si automatizza questo ciclo senza che diventi una fabbrica di
+    rumore che si auto-approva? Qual e' il tasso di falsi positivi accettabile e come si misura?
+
+(d) Cosa manca che non ho nemmeno nominato?
+
+Sii brutale. Se qualcosa che ho costruito e' teatro, dillo.

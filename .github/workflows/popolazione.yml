@@ -1,0 +1,158 @@
+name: popolazione
+# PORTA NEL DATABASE LA POPOLAZIONE DEFINITA (19/09).
+# Con le coppie finalmente risolte (base 98%, robinhood 100%) la definizione di DEFINIZIONE.md si
+# puo' applicare: la popolazione da studiare e' 7.084 pool su base e 15.995 su robinhood. Ne
+# avevamo 228 e 227 — il 3,2% e l'1,4%. La condizione 1 del cancello ne chiede il 95%.
+# Non ci si arriva raccogliendo meglio i pool che gia' abbiamo: bisogna prendere gli altri
+# ventiduemila, e a ~60 secondi l'uno una corsia sola impiegherebbe giorni. Sei fette, sei IP.
+on:
+  workflow_dispatch:
+  schedule:
+      # L'OROLOGIO E' UNA RETE, NON UN MOTORE (30/09). Suonava ogni 20-30 minuti mentre il
+      # riarmo teneva la corsia gia' in movimento: ogni suonata finiva in coda e veniva
+      # ANNULLATA. Misurato: 36 cancellazioni su 73 giri, tutte inutili, e il rumore nascondeva
+      # le cancellazioni vere (i giri uccisi dal tempo massimo).
+      # Ora suona una volta all'ora: se la catena del riarmo si rompe, riparte da qui.
+      # L'OROLOGIO OGNI SEI ORE, NON OGNI ORA (30/09). Con il riarmo che funziona, ogni suonata
+      # dell'orologio arriva mentre la corsia sta gia' lavorando: finisce in coda e viene
+      # annullata. Diciassette corsie per ventiquattro suonate fanno quattrocento cancellazioni
+      # al giorno, e il rumore nasconde le cancellazioni vere.
+      # Resta come RETE: se la catena del riarmo si spezza, entro sei ore riparte.
+      # LA RETE DEVE ESSERE PIU' STRETTA DEL BUCO (30/09, imparata a caro prezzo).
+      # Stamattina ho portato questo orologio da un'ora a sei, ragionando che col riarmo
+      # funzionante le suonate erano solo rumore. Ma un giro ANNULLATO non esegue il passo di
+      # riarmo: la catena si spezza, e l'unica cosa che puo' riprenderla e' l'orologio.
+      # Alle 11:53 hook, scoperta e censimento sono stati annullati insieme. Sono rimasti fermi
+      # TRE ORE E MEZZA — raccolta dati e pubblicazione bloccate — perche' la rete successiva
+      # era a sei ore di distanza.
+      # Una rete piu' larga dell'intervallo in cui il guasto si presenta non e' una rete.
+    - cron: "23 * * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: popolazione
+  cancel-in-progress: false
+jobs:
+  riempi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    strategy:
+      fail-fast: false
+      matrix:
+        # LE FETTE VANNO DOVE C'E' LAVORO (19/09, sera). Base ha chiuso al 95,8% dei pool
+        # concentrati: le sue tre fette passavano il tempo a confermare che non c'e' piu' niente da
+        # prendere. Robinhood invece ha 4.506 pool concentrati mai visitati — non e' lenta a
+        # raccogliere, e' che nessuno ci e' ancora passato sopra.
+        # Stessi sei lavori di prima (il tetto di GitHub e' venti e le corsie di controllo devono
+        # respirare: il 17/09 occupandone dodici ho tenuto il database in coda 135 minuti), ma
+        # cinque su robinhood e uno su base per tenerla aggiornata sui pool nuovi.
+        # TRE FETTE, NON SEI (20/09, mattina). Contro-intuitivo e misurato: piu' fette stanno
+        # rendendo MENO. Con tre robinhood faceva +700 pool in 41 minuti; con cinque +245 in 32;
+        # con sei +81 in 40. E il segno che lo spiega: i «vuoti verificati» restano a ZERO, cioe'
+        # nessun pool viene letto fino in fondo — falliscono tutti anche dopo otto attese sul 429.
+        # L'ipotesi che regge e' che il limite del nodo pubblico sia GLOBALE e non per indirizzo IP:
+        # sei fette non moltiplicano la banda, se la tolgono a vicenda e si fanno rifiutare tutte.
+        # Se scendendo a tre la resa risale, l'ipotesi e' confermata e questo commento resta a dire
+        # perche' non si torna indietro.
+        include:
+          - { chain: robinhood, fetta: 0, n_fette: 3 }
+          - { chain: robinhood, fetta: 1, n_fette: 3 }
+          - { chain: robinhood, fetta: 2, n_fette: 3 }
+          - { chain: base,      fetta: 0, n_fette: 1 }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Riempi
+        env:
+          CHAIN: ${{ matrix.chain }}
+          FETTA: ${{ matrix.fetta }}
+          N_FETTE: ${{ matrix.n_fette }}
+          BUDGET_SEC: "2400"
+        run: python agents/buco_base.py
+      - name: Consegna senza toccare il ramo
+        # NON SPINGE PIU' (30/09). Con cinquantuno corsie che scrivevano su `main`, questa perdeva
+        # la gara e moriva, mandando una email di guasto al fondatore per un problema non suo.
+        # Consegna un pacco `consegna-*`: il pubblicatore li raccoglie tutti ed e' l'unico
+        # scrittore, e per gli archivi che si accumulano FONDE invece di sostituire.
+        #
+        # NON si converte una corsia che CANCELLA file (es. assottiglia): una consegna puo' solo
+        # aggiungere, e le cancellazioni non arriverebbero mai sul ramo.
+        if: always()
+        run: |
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            [ -f "$F" ] && mkdir -p "/tmp/consegna/$(dirname "$F")" && cp "$F" "/tmp/consegna/$F"
+          done
+          echo "consegno $(find /tmp/consegna -type f | wc -l) file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-${{ github.workflow }}-${{ github.job }}-${{ strategy.job-index }}
+          path: /tmp/consegna/data
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: ignore
+      - uses: actions/checkout@v4
+      - name: Riarmo
+        if: ${{ always() && strategy.job-index == 0 }}
+        # il cron da solo non basta: GitHub li salta quando il repo e' occupato, e il nostro lo e'
+        # sempre. La guardia chiede alla corsa quanto e' durata DAVVERO (misurare il lavoro
+        # sbagliato e' l'errore che ieri ha tenuto ferma la corsia coppie dichiarando successo).
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          INIZIO=$(curl -s -H "Authorization: token $GH_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            | python3 -c "import sys,json,calendar,time; d=json.load(sys.stdin); print(calendar.timegm(time.strptime(d['run_started_at'],'%Y-%m-%dT%H:%M:%SZ')))")
+          DURATA=$(( $(date +%s) - ${INIZIO:-0} ))
+          echo "la corsia e' durata ${DURATA}s"
+          # UNA GUARDIA NON DEVE UCCIDERE CIO' CHE SORVEGLIA (21/09). Questa serviva a non
+          # ripartire a raffica se la corsia falliva in pochi secondi — intento giusto. Ma
+          # «non mi riarmo» significava che la corsia MORIVA, e il cron ogni due ore non la
+          # recuperava perche' GitHub salta i cron sui repo occupati, e il nostro lo e' sempre.
+          # Successo davvero: la corsia popolazione e' finita in 133s (per un difetto che faceva
+          # sembrare pieni 2.882 pool vuoti), la guardia ha rifiutato il riarmo, e la corsia e'
+          # rimasta ferma QUATTRO ORE mentre il registro diceva «success».
+          # Adesso aspetta invece di arrendersi: il ritmo resta limitato, ma la corsia non muore.
+          if [ "$DURATA" -lt 300 ]; then
+            echo "SOLO ${DURATA}s: aspetto 5 minuti prima di riarmarmi, cosi' non parto a raffica."
+            sleep 300
+          fi
+          # IL RIARMO SI RIPROVA (22/09). Un rifiuto passeggero del server di GitHub — un 500,
+          # un 429 — spegneva la corsia per ore: e' successo alle 02:33, tutti i lavori riusciti e
+          # la corsia ferma lo stesso perche' l'ultimo passo si e' arreso al primo tentativo.
+          # RIARMO: SI RIPROVA invece di arrendersi. Solo un rifiuto DEFINITIVO (4xx che non sia
+          # 429) e' un no vero: quelli si riportano, gli altri si insistono.
+          # NON CHIEDERE SE C'E' GIA' QUALCUNO IN CODA (30/09, propagato dall'insieme).
+          # La coda di GitHub tiene UN giro in attesa: chi arriva dopo viene annullato. Misurato
+          # stanotte: 55 giri annullati su 71. Non si perde lavoro — ne resta sempre uno — ma il
+          # registro diventa illeggibile, e le cancellazioni finte NASCONDONO quelle vere: i tre
+          # giri uccisi dal tempo massimo li ho trovati per caso, in mezzo a questo rumore.
+          # VENTI POSTI MACCHINA, NON DI PIU' (30/09). Stanotte ho aggiunto il riarmo a
+          # diciannove corsie: risultato, venti giri in esecuzione e diciannove in coda, con
+          # cancellazioni a raffica. E' lo stesso errore del 25/09 — il riarmo su troppe corsie
+          # affama quelle critiche — in forma nuova. Chi non e' critico aspetta mezz'ora.
+          sleep 1800
+          IN_CODA=$(curl -s -H "Authorization: token $GH_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/popolazione.yml/runs?per_page=20" \
+            | python3 -c "import json,sys; d=json.load(sys.stdin)['workflow_runs']; print(sum(1 for r in d if r['status'] in ('queued','pending','in_progress')))" 2>/dev/null || echo 0)
+          if [ "${IN_CODA:-0}" -gt 0 ]; then
+            echo "c'e' gia' un giro in coda ($IN_CODA): non ne aggiungo un altro"
+            exit 0
+          fi
+          for TENT in 1 2 3 4 5; do
+            CODICE=$(curl -s -o /tmp/r.out -w "%{http_code}" -X POST \
+              -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/popolazione.yml/dispatches" \
+              -d '{"ref":"main"}')
+            if [ "$CODICE" = "204" ]; then echo "riarmata (tentativo $TENT)"; exit 0; fi
+            echo "riarmo respinto (HTTP $CODICE), tentativo $TENT"
+            case "$CODICE" in
+              5*|429|000) sleep $((TENT * 15)) ;;
+              *) echo "rifiuto definitivo"; cat /tmp/r.out; exit 1 ;;
+            esac
+          done
+          echo "NON SONO RIUSCITO A RIARMARMI dopo 5 tentativi"; cat /tmp/r.out; exit 1
+          echo "riarmata dopo ${DURATA}s"

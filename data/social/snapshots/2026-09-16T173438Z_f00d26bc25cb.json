@@ -1,0 +1,451 @@
+{
+ "run_id": "f00d26bc25cb",
+ "ts": 1789580078,
+ "ts_utc": "2026-09-16T17:34:38Z",
+ "versione_prompt": "v1-2026-09-16",
+ "modello": "grok-4.20-0309",
+ "domanda": "Cerca su X memecoin / token meme che in questo momento mostrano una crescita ANOMALA\nE RECENTE dell'attenzione sociale.\n\nNON dirmi quale token salira'. NON dirmi cosa comprare. Non mi interessa la tua opinione sul\nprezzo. Mi interessa SOLO evidenza osservabile di attenzione.\n\nPer ogni token che trovi, riporta quello che vedi davvero nei post:\n- quante menzioni e da quanti account DISTINTI (se non lo sai, scrivi null)\n- rispetto a prima, l'attenzione e' accelerata? di quanto?\n- QUANDO sembra iniziata l'accelerazione (ora approssimativa UTC)\n- la discussione sembra organica o coordinata/promozionale?\n- c'e' una narrativa o un evento nuovo che la spiega?\n- segni di spam, bot, account appena creati, stesso testo ripetuto\n\nClassifica ciascun token in una di queste quattro:\n  A = attenzione che sta INIZIANDO adesso\n  B = attenzione GIA' ESPLOSA (il picco sembra passato)\n  C = attenzione COSTANTE, nessuna accelerazione\n  D = probabile SPAM o promozione artificiale\n\nCerco soprattutto la A. Un token famoso di cui si parla sempre non mi serve.\n\nRispondi SOLO con un oggetto JSON valido, senza testo attorno, in questa forma:\n{\"token\": [{\"symbol\": \"...\", \"contract\": null, \"chain\": null, \"classe\": \"A\",\n  \"menzioni\": null, \"account_distinti\": null, \"accelerazione\": \"...\",\n  \"inizio_accelerazione_utc\": null, \"organica\": true, \"narrativa\": \"...\",\n  \"indizi_spam\": \"...\", \"evidenza\": \"...\", \"confidenza\": 0.0}]}\n\nSe un dato non lo sai, scrivi null. NON inventare numeri: un numero inventato qui rovina\nl'esperimento piu' di un dato mancante.",
+ "risposta_grezza": {
+  "created_at": 1789580146,
+  "completed_at": 1789580146,
+  "id": "5352c560-5056-99ef-9d01-66f02b5f971a",
+  "max_output_tokens": null,
+  "model": "grok-4.20-0309-reasoning",
+  "object": "response",
+  "output": [
+   {
+    "id": "rs_5352c560-5056-99ef-9d01-66f02b5f971a",
+    "summary": [
+     {
+      "text": "The user wants me to search on X (Twitter) for memecoins/tokens that are showing ANOMALOUS and RECENT growth in social attention. Key instructions:\n",
+      "type": "summary_text"
+     }
+    ],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-e8f458a0-fe06-4690-ba22-019f04baed32-0",
+    "input": "{\"query\":\"memecoin OR meme coin suddenly gaining massive attention or going viral right now\",\"limit\":\"10\",\"from_date\":\"2026-09-14\",\"to_date\":\"2026-09-17\",\"min_score_threshold\":\"0.2\"}",
+    "name": "x_semantic_search",
+    "type": "custom_tool_call",
+    "id": "ctc_5352c560-5056-99ef-9d01-66f02b5f971a_call-e8f458a0-fe06-4690-ba22-019f04baed32-0",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-e8f458a0-fe06-4690-ba22-019f04baed32-1",
+    "input": "{\"query\":\"(memecoin OR \\\"meme coin\\\" OR memecoin) (viral OR exploding OR \\\"going crazy\\\" OR \\\"just launched\\\" OR pumping) since:2026-09-15\",\"limit\":\"10\",\"mode\":\"Latest\"}",
+    "name": "x_keyword_search",
+    "type": "custom_tool_call",
+    "id": "ctc_5352c560-5056-99ef-9d01-66f02b5f971a_call-e8f458a0-fe06-4690-ba22-019f04baed32-1",
+    "status": "completed"
+   },
+   {
+    "id": "tco_5352c560-5056-99ef-9d01-66f02b5f971a_call-e8f458a0-fe06-4690-ba22-019f04baed32-0",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "id": "tco_5352c560-5056-99ef-9d01-66f02b5f971a_call-e8f458a0-fe06-4690-ba22-019f04baed32-1",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-e8f458a0-fe06-4690-ba22-019f04baed32-2",
+    "input": "{\"query\":\"$traincat OR traincat OR \\\"train cat\\\" since:2026-09-15\",\"limit\":\"10\",\"mode\":\"Latest\"}",
+    "name": "x_keyword_search",
+    "type": "custom_tool_call",
+    "id": "ctc_5352c560-5056-99ef-9d01-66f02b5f971a_call-e8f458a0-fe06-4690-ba22-019f04baed32-2",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-e8f458a0-fe06-4690-ba22-019f04baed32-3",
+    "input": "{\"query\":\"$boogie OR boogie memecoin since:2026-09-15\",\"limit\":\"5\",\"mode\":\"Latest\"}",
+    "name": "x_keyword_search",
+    "type": "custom_tool_call",
+    "id": "ctc_5352c560-5056-99ef-9d01-66f02b5f971a_call-e8f458a0-fe06-4690-ba22-019f04baed32-3",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-e8f458a0-fe06-4690-ba22-019f04baed32-4",
+    "input": "{\"query\":\"$gigadog OR gigadog since:2026-09-14\",\"limit\":\"5\",\"mode\":\"Latest\"}",
+    "name": "x_keyword_search",
+    "type": "custom_tool_call",
+    "id": "ctc_5352c560-5056-99ef-9d01-66f02b5f971a_call-e8f458a0-fe06-4690-ba22-019f04baed32-4",
+    "status": "completed"
+   },
+   {
+    "id": "tco_5352c560-5056-99ef-9d01-66f02b5f971a_call-e8f458a0-fe06-4690-ba22-019f04baed32-2",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "id": "tco_5352c560-5056-99ef-9d01-66f02b5f971a_call-e8f458a0-fe06-4690-ba22-019f04baed32-3",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "id": "tco_5352c560-5056-99ef-9d01-66f02b5f971a_call-e8f458a0-fe06-4690-ba22-019f04baed32-4",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-e8f458a0-fe06-4690-ba22-019f04baed32-5",
+    "input": "{\"query\":\"\\\"Cashcat\\\" OR \\\"Zcat\\\" (TikTok OR tiktok) (meme OR memecoin) since:2026-09-14\",\"limit\":\"10\",\"mode\":\"Latest\"}",
+    "name": "x_keyword_search",
+    "type": "custom_tool_call",
+    "id": "ctc_5352c560-5056-99ef-9d01-66f02b5f971a_call-e8f458a0-fe06-4690-ba22-019f04baed32-5",
+    "status": "completed"
+   },
+   {
+    "id": "tco_5352c560-5056-99ef-9d01-66f02b5f971a_call-e8f458a0-fe06-4690-ba22-019f04baed32-5",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-e8f458a0-fe06-4690-ba22-019f04baed32-6",
+    "input": "{\"query\":\"hot new memecoin OR trending memecoin right now on tiktok or X\",\"limit\":\"5\",\"from_date\":\"2026-09-15\",\"min_score_threshold\":\"0.25\"}",
+    "name": "x_semantic_search",
+    "type": "custom_tool_call",
+    "id": "ctc_5352c560-5056-99ef-9d01-66f02b5f971a_call-e8f458a0-fe06-4690-ba22-019f04baed32-6",
+    "status": "completed"
+   },
+   {
+    "id": "tco_5352c560-5056-99ef-9d01-66f02b5f971a_call-e8f458a0-fe06-4690-ba22-019f04baed32-6",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "content": [
+     {
+      "type": "output_text",
+      "text": "```json\n{\"token\": [{\"symbol\": \"TRAINCAT\", \"contract\": null, \"chain\": null, \"classe\": \"A\", \"menzioni\": null, \"account_distinti\": null, \"accelerazione\": \"Claimed as 'uber viral on X right now' with 'TONS of memes being posted EVERYWHERE'\", \"inizio_accelerazione_utc\": \"2026-09-15 17:30\", \"organica\": false, \"narrativa\": \"Traindog 2.0 - viral train-themed cat meme with prior similar token reaching 3M ATH\", \"indizi_spam\": \"Primarily one promotional KOL post claiming widespread activity; keyword search returned mostly unrelated RP character account instead of organic memes\", \"evidenza\": \"Isolated KOL post at ~17:31 UTC on 15 Sep highlighting sudden meme proliferation on X\", \"confidenza\": 0.35}, {\"symbol\": \"GIGADOG\", \"contract\": null, \"chain\": null, \"classe\": \"A\", \"menzioni\": null, \"account_distinti\": null, \"accelerazione\": \"Recent pickup with claims of 2M+ views in 24h and active memeing\", \"inizio_accelerazione_utc\": \"2026-09-15 20:00\", \"organica\": true, \"narrativa\": \"Community strength becoming key differentiator for memes this cycle; $GIGADOG showing strong community power\", \"indizi_spam\": \"None observed in sampled posts\", \"evidenza\": \"Discussion post noting recent high view count, memeing, and potential as cycle meme\", \"confidenza\": 0.4}, {\"symbol\": \"BOOGIE\", \"contract\": null, \"chain\": null, \"classe\": \"D\", \"menzioni\": null, \"account_distinti\": null, \"accelerazione\": \"Promoted as having TikTok trend with 5k+ videos still increasing\", \"inizio_accelerazione_utc\": \"2026-09-15 13:00\", \"organica\": false, \"narrativa\": \"New trending memecoin with growing TikTok presence\", \"indizi_spam\": \"Self-promotional post using 'let's get in while it's still early' + direct CA drop; search returned no confirming posts\", \"evidenza\": \"Isolated promotional post claiming TikTok virality\", \"confidenza\": 0.55}]}\n```",
+      "logprobs": [],
+      "annotations": [
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099760988476031241",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099760988476031241"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100005240653349116",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100005240653349116"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100004435267141965",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100004435267141965"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099845248931226035",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099845248931226035"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099982741953519718",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099982741953519718"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099668067064431071",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099668067064431071"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099906648705786180",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099906648705786180"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099919263129579916",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099919263129579916"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100011363221590395",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100011363221590395"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099909801748697555",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099909801748697555"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099985611763622345",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099985611763622345"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099906389199950260",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099906389199950260"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099927582913261735",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099927582913261735"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099992951388880981",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099992951388880981"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100002528746193182",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100002528746193182"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099985548572086311",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099985548572086311"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099989488462086292",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099989488462086292"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099938430654251457",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099938430654251457"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099909893440393409",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099909893440393409"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099986071236874668",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099986071236874668"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099881676939608423",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099881676939608423"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100003338960126372",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100003338960126372"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099906470502404523",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099906470502404523"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2099914007302086685",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2099914007302086685"
+       }
+      ]
+     }
+    ],
+    "id": "msg_5352c560-5056-99ef-9d01-66f02b5f971a",
+    "role": "assistant",
+    "type": "message",
+    "status": "completed"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "previous_response_id": null,
+  "reasoning": {
+   "effort": "medium",
+   "summary": "detailed"
+  },
+  "temperature": 0.7,
+  "text": {
+   "format": {
+    "type": "text"
+   }
+  },
+  "tool_choice": "auto",
+  "tools": [
+   {
+    "type": "x_search",
+    "from_date": "2026-09-15",
+    "to_date": "2026-09-16"
+   }
+  ],
+  "top_p": 0.95,
+  "usage": {
+   "input_tokens": 47138,
+   "input_tokens_details": {
+    "cached_tokens": 23360
+   },
+   "output_tokens": 6974,
+   "output_tokens_details": {
+    "reasoning_tokens": 6462
+   },
+   "total_tokens": 54112,
+   "num_sources_used": 0,
+   "num_server_side_tools_used": 7,
+   "cost_in_usd_ticks": 868295000,
+   "server_side_tool_usage_details": {
+    "web_search_calls": 0,
+    "x_search_calls": 7,
+    "code_interpreter_calls": 0,
+    "file_search_calls": 0,
+    "mcp_calls": 0,
+    "document_search_calls": 0,
+    "image_generation_calls": 0
+   },
+   "context_details": {
+    "input_tokens": 15423,
+    "output_tokens": 1289
+   }
+  },
+  "user": null,
+  "incomplete_details": null,
+  "status": "completed",
+  "store": true,
+  "metadata": {
+   "system_fingerprint": "fp_d44b4eeb21"
+  },
+  "background": false,
+  "service_tier": "default",
+  "truncation": "disabled",
+  "top_logprobs": 0,
+  "presence_penalty": 0.0,
+  "frequency_penalty": 0.0,
+  "prompt_cache_key": null,
+  "max_tool_calls": null,
+  "safety_identifier": null,
+  "error": null,
+  "instructions": null
+ },
+ "testo": "```json\n{\"token\": [{\"symbol\": \"TRAINCAT\", \"contract\": null, \"chain\": null, \"classe\": \"A\", \"menzioni\": null, \"account_distinti\": null, \"accelerazione\": \"Claimed as 'uber viral on X right now' with 'TONS of memes being posted EVERYWHERE'\", \"inizio_accelerazione_utc\": \"2026-09-15 17:30\", \"organica\": false, \"narrativa\": \"Traindog 2.0 - viral train-themed cat meme with prior similar token reaching 3M ATH\", \"indizi_spam\": \"Primarily one promotional KOL post claiming widespread activity; keyword search returned mostly unrelated RP character account instead of organic memes\", \"evidenza\": \"Isolated KOL post at ~17:31 UTC on 15 Sep highlighting sudden meme proliferation on X\", \"confidenza\": 0.35}, {\"symbol\": \"GIGADOG\", \"contract\": null, \"chain\": null, \"classe\": \"A\", \"menzioni\": null, \"account_distinti\": null, \"accelerazione\": \"Recent pickup with claims of 2M+ views in 24h and active memeing\", \"inizio_accelerazione_utc\": \"2026-09-15 20:00\", \"organica\": true, \"narrativa\": \"Community strength becoming key differentiator for memes this cycle; $GIGADOG showing strong community power\", \"indizi_spam\": \"None observed in sampled posts\", \"evidenza\": \"Discussion post noting recent high view count, memeing, and potential as cycle meme\", \"confidenza\": 0.4}, {\"symbol\": \"BOOGIE\", \"contract\": null, \"chain\": null, \"classe\": \"D\", \"menzioni\": null, \"account_distinti\": null, \"accelerazione\": \"Promoted as having TikTok trend with 5k+ videos still increasing\", \"inizio_accelerazione_utc\": \"2026-09-15 13:00\", \"organica\": false, \"narrativa\": \"New trending memecoin with growing TikTok presence\", \"indizi_spam\": \"Self-promotional post using 'let's get in while it's still early' + direct CA drop; search returned no confirming posts\", \"evidenza\": \"Isolated promotional post claiming TikTok virality\", \"confidenza\": 0.55}]}\n```",
+ "token": [
+  {
+   "symbol": "TRAINCAT",
+   "contract": null,
+   "chain": null,
+   "classe": "A",
+   "menzioni": null,
+   "account_distinti": null,
+   "accelerazione": "Claimed as 'uber viral on X right now' with 'TONS of memes being posted EVERYWHERE'",
+   "inizio_accelerazione_utc": "2026-09-15 17:30",
+   "organica": false,
+   "narrativa": "Traindog 2.0 - viral train-themed cat meme with prior similar token reaching 3M ATH",
+   "indizi_spam": "Primarily one promotional KOL post claiming widespread activity; keyword search returned mostly unrelated RP character account instead of organic memes",
+   "evidenza": "Isolated KOL post at ~17:31 UTC on 15 Sep highlighting sudden meme proliferation on X",
+   "confidenza": 0.35
+  },
+  {
+   "symbol": "GIGADOG",
+   "contract": null,
+   "chain": null,
+   "classe": "A",
+   "menzioni": null,
+   "account_distinti": null,
+   "accelerazione": "Recent pickup with claims of 2M+ views in 24h and active memeing",
+   "inizio_accelerazione_utc": "2026-09-15 20:00",
+   "organica": true,
+   "narrativa": "Community strength becoming key differentiator for memes this cycle; $GIGADOG showing strong community power",
+   "indizi_spam": "None observed in sampled posts",
+   "evidenza": "Discussion post noting recent high view count, memeing, and potential as cycle meme",
+   "confidenza": 0.4
+  },
+  {
+   "symbol": "BOOGIE",
+   "contract": null,
+   "chain": null,
+   "classe": "D",
+   "menzioni": null,
+   "account_distinti": null,
+   "accelerazione": "Promoted as having TikTok trend with 5k+ videos still increasing",
+   "inizio_accelerazione_utc": "2026-09-15 13:00",
+   "organica": false,
+   "narrativa": "New trending memecoin with growing TikTok presence",
+   "indizi_spam": "Self-promotional post using 'let's get in while it's still early' + direct CA drop; search returned no confirming posts",
+   "evidenza": "Isolated promotional post claiming TikTok virality",
+   "confidenza": 0.55
+  }
+ ],
+ "uso": {
+  "input_tokens": 47138,
+  "input_tokens_details": {
+   "cached_tokens": 23360
+  },
+  "output_tokens": 6974,
+  "output_tokens_details": {
+   "reasoning_tokens": 6462
+  },
+  "total_tokens": 54112,
+  "num_sources_used": 0,
+  "num_server_side_tools_used": 7,
+  "cost_in_usd_ticks": 868295000,
+  "server_side_tool_usage_details": {
+   "web_search_calls": 0,
+   "x_search_calls": 7,
+   "code_interpreter_calls": 0,
+   "file_search_calls": 0,
+   "mcp_calls": 0,
+   "document_search_calls": 0,
+   "image_generation_calls": 0
+  },
+  "context_details": {
+   "input_tokens": 15423,
+   "output_tokens": 1289
+  }
+ }
+}

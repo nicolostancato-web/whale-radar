@@ -1,0 +1,170 @@
+name: soccorso
+# RIMETTE DENTRO CIO' CHE LA RETE DI SICUREZZA HA SALVATO.
+#
+# Quando un collettore non riesce a spingere, i suoi dati escono come allegato `soccorso-*` invece
+# di morire col runner. Questa corsia li ritrova, li UNISCE ai dati attuali (riga per riga, senza
+# sovrascrivere nulla) e li porta su `main`.
+#
+# PERCHE' NON BASTA LA RETE. Un salvataggio che nessuno rimette dentro e' un cassetto, non un
+# recupero: il 27/09 la rete ha salvato 1,48 GB di blocchi in diretta alle 04:13, e senza questa
+# corsia sarebbero rimasti li' a scadere fra sette giorni.
+# **Una copia di sicurezza vale quanto il percorso che la riporta a casa.**
+on:
+  workflow_dispatch: {}
+  schedule:
+      # L'OROLOGIO E' UNA RETE, NON UN MOTORE (30/09). Suonava ogni 20-30 minuti mentre il
+      # riarmo teneva la corsia gia' in movimento: ogni suonata finiva in coda e veniva
+      # ANNULLATA. Misurato: 36 cancellazioni su 73 giri, tutte inutili, e il rumore nascondeva
+      # le cancellazioni vere (i giri uccisi dal tempo massimo).
+      # Ora suona una volta all'ora: se la catena del riarmo si rompe, riparte da qui.
+      # L'OROLOGIO OGNI SEI ORE, NON OGNI ORA (30/09). Con il riarmo che funziona, ogni suonata
+      # dell'orologio arriva mentre la corsia sta gia' lavorando: finisce in coda e viene
+      # annullata. Diciassette corsie per ventiquattro suonate fanno quattrocento cancellazioni
+      # al giorno, e il rumore nasconde le cancellazioni vere.
+      # Resta come RETE: se la catena del riarmo si spezza, entro sei ore riparte.
+      # LA RETE DEVE ESSERE PIU' STRETTA DEL BUCO (30/09, imparata a caro prezzo).
+      # Stamattina ho portato questo orologio da un'ora a sei, ragionando che col riarmo
+      # funzionante le suonate erano solo rumore. Ma un giro ANNULLATO non esegue il passo di
+      # riarmo: la catena si spezza, e l'unica cosa che puo' riprenderla e' l'orologio.
+      # Alle 11:53 hook, scoperta e censimento sono stati annullati insieme. Sono rimasti fermi
+      # TRE ORE E MEZZA — raccolta dati e pubblicazione bloccate — perche' la rete successiva
+      # era a sei ore di distanza.
+      # Una rete piu' larga dell'intervallo in cui il guasto si presenta non e' una rete.
+    - cron: "5 * * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: soccorso
+  cancel-in-progress: false
+jobs:
+  recupera:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Cerca e rimetti dentro
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          # UN SOCCORSO PER GIRO (27/09). Con sette allegati da 1,5 GB in coda, un giro solo
+          # avrebbe scaricato dieci giga e sarebbe morto per tempo scaduto a meta' strada — e chi
+          # muore a meta' non salva niente e rifa' tutto. Uno alla volta: ogni giro o porta a casa
+          # il suo, o fallisce senza aver sprecato il lavoro degli altri.
+          # Si prende il PIU' VECCHIO: e' quello che rischia di scadere per primo.
+          NOMI=$(gh api "repos/${{ github.repository }}/actions/artifacts?per_page=100" \
+                 --jq '[.artifacts[] | select(.expired==false) | select(.name|startswith("soccorso-"))]
+                       | sort_by(.created_at) | .[0].name // empty')
+          if [ -z "$NOMI" ]; then echo "nessun soccorso da rimettere dentro"; exit 0; fi
+          RECUPERATE=0
+          for N in $NOMI; do
+            echo "--- $N"
+            # la chain sta nel nome: soccorso-<corsia>-<chain>[-fN]-<numero>
+            CH=$(echo "$N" | cut -d- -f3)
+            rm -rf /tmp/soccorso; mkdir -p /tmp/soccorso
+            if ! gh run download --repo "${{ github.repository }}" -n "$N" --dir /tmp/soccorso 2>/dev/null; then
+              echo "   non scaricabile, lo lascio dov'e'"; continue
+            fi
+            # QUI SI SCARICA SOLTANTO. L'unione la fa il ciclo qui sotto, che riparte dallo stato
+            # piu' recente del server: farla anche qui significava farla DUE VOLTE, e la prima su
+            # tutti i 67.000 file dell'allegato invece che sui 199 che contano.
+            # E' il difetto di stamattina rifatto dentro un file solo: **ho aggiunto il pezzo nuovo
+            # e ho lasciato in piedi quello vecchio.** Trentacinque minuti a giro, tutti sprecati.
+            echo "$N" >> /tmp/fatti
+          done
+          # SI RIPARTE DALLO STATO PIU' RECENTE E SI RIFA' L'UNIONE (27/09, terza stesura e
+          # la prima basata su una CAUSA MISURATA invece che su una spiegazione plausibile).
+          #
+          # Cosa succedeva davvero, letto nei registri dopo aver tolto il silenziatore che avevo
+          # messo io: il push veniva RIFIUTATO («fetch first») perche' il ramo era avanti, e il
+          # `git pull` che doveva rimediare falliva — questa corsia scarica una copia superficiale,
+          # e dopo che il compattatore riscrive la storia il pull non si aggancia piu'.
+          # Le mie due spiegazioni precedenti — «troppi pochi tentativi», poi «il push e' grosso» —
+          # erano tutte e due sbagliate, e la seconda l'avevo perfino scritta come lezione.
+          #
+          # LA RIPARAZIONE SFRUTTA UNA PROPRIETA' CHE ABBIAMO GIA': **l'unione e' ripetibile.**
+          # Rifarla sullo stato piu' recente da' lo stesso risultato, perche' unisce per identita'
+          # dello scambio e non per ordine. Quindi invece di litigare col pull, si riparte pulito
+          # dall'ultimo stato del server e si rifa' il lavoro: pochi secondi, e il push non puo'
+          # essere rifiutato perche' parte proprio da li'.
+          VINTO=""
+          for TENT in 1 2 3 4 5 6 7 8; do
+            git fetch --depth 1 -q origin main && git reset --hard -q FETCH_HEAD
+            # dal secondo tentativo si guardano solo i file che al primo avevano qualcosa
+            SOLO=""; [ "$TENT" -gt 1 ] && SOLO="--solo-toccati"
+            python3 agents/recupero_soccorso.py /tmp/soccorso "data/multichain/$CH" $SOLO | tee /tmp/esito
+            R=$(grep -o '[0-9]\+ righe RECUPERATE' /tmp/esito | grep -o '[0-9]\+' || echo 0)
+            if [ "$R" = "0" ]; then
+              echo "   niente di nuovo da rimettere dentro: il soccorso era gia' rientrato"
+              VINTO=1; break
+            fi
+            git add -A data
+            git commit -q -m "soccorso: $R righe rimesse dentro" || true
+            if git push origin main; then
+              echo "   $R righe messe al sicuro su main (tentativo $TENT)"
+              VINTO=1; break
+            fi
+            echo "   tentativo $TENT non passato (il motivo e' qui sopra), riparto dallo stato nuovo"
+            sleep $((RANDOM % 8 + 3))
+          done
+          if [ -z "$VINTO" ]; then
+            echo "NON HO FINITO: l'allegato resta dov'e', si riprova al giro dopo. Niente e' perso."
+            exit 1
+          fi
+          # SI CANCELLA L'ALLEGATO SOLO DOPO CHE I DATI SONO AL SICURO SU `main` (27/09).
+          # Prima del push, quell'allegato e' l'unica copia esistente: cancellarlo per «pulizia»
+          # sarebbe buttare via esattamente cio' che la rete aveva salvato.
+          if [ -f /tmp/fatti ]; then
+            while read N; do
+              ID=$(gh api "repos/${{ github.repository }}/actions/artifacts?per_page=100" \
+                   --jq ".artifacts[] | select(.name==\"$N\") | .id" | head -1)
+              [ -n "$ID" ] && gh api -X DELETE "repos/${{ github.repository }}/actions/artifacts/$ID" \
+                && echo "   $N rimosso (i dati sono su main)"
+            done < /tmp/fatti
+          fi
+      - name: Riarmo
+        # TERZA CORSIA CHE NASCE SENZA RIARMO (27/09). Prima il pubblicatore, poi questa. GitHub
+        # salta i cron sui repository occupati, quindi una corsia senza riarmo semplicemente NON
+        # GIRA — e questa e' l'unico percorso di ritorno per dati gia' salvati: ferma lei, i
+        # soccorsi restano nel cassetto fino a scadere.
+        # La regola la conosco e l'ho scritta in dieci file: **una corsia nuova nasce col riarmo,
+        # non glielo si aggiunge dopo averla vista ferma.** Da mettere nel modello di ogni corsia.
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # CHI NON HA NIENTE DA FARE SI FA DA PARTE (28/09). Misurato: questa corsia girava
+          # TREDICI volte l'ora con la coda vuota, occupando posti macchina mentre l'insieme e il
+          # pubblicatore restavano in fila. Le macchine gratuite sono venti in tutto e ne erano
+          # occupate diciannove: chi gira a vuoto non e' innocuo, ruba il turno a chi lavora.
+          # Se c'e' un soccorso da rimettere dentro si torna fra tre minuti; se non c'e' niente,
+          # fra venti. La coda si riempie solo quando un collettore fallisce, cioe' di rado.
+          if [ -s /tmp/fatti ]; then sleep 180; else sleep 1200; fi
+          # NON CHIEDERE SE C'E' GIA' QUALCUNO IN CODA (30/09, propagato dall'insieme).
+          # La coda di GitHub tiene UN giro in attesa: chi arriva dopo viene annullato. Misurato
+          # stanotte: 55 giri annullati su 71. Non si perde lavoro — ne resta sempre uno — ma il
+          # registro diventa illeggibile, e le cancellazioni finte NASCONDONO quelle vere: i tre
+          # giri uccisi dal tempo massimo li ho trovati per caso, in mezzo a questo rumore.
+          IN_CODA=$(curl -s -H "Authorization: token $GH_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/soccorso.yml/runs?per_page=20" \
+            | python3 -c "import json,sys; d=json.load(sys.stdin)['workflow_runs']; print(sum(1 for r in d if r['status'] in ('queued','pending','in_progress')))" 2>/dev/null || echo 0)
+          if [ "${IN_CODA:-0}" -gt 0 ]; then
+            echo "c'e' gia' un giro in coda ($IN_CODA): non ne aggiungo un altro"
+            exit 0
+          fi
+          for TENT in 1 2 3 4 5; do
+            CODICE=$(curl -s -o /tmp/r.out -w "%{http_code}" -X POST \
+              -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/soccorso.yml/dispatches" \
+              -d '{"ref":"main"}')
+            if [ "$CODICE" = "204" ]; then echo "riarmato (tentativo $TENT)"; exit 0; fi
+            case "$CODICE" in
+              5*|429|000) sleep $((TENT * 15)) ;;
+              *) echo "rifiuto definitivo (HTTP $CODICE)"; cat /tmp/r.out; exit 1 ;;
+            esac
+          done
+          echo "NON SONO RIUSCITO A RIARMARMI"; exit 1

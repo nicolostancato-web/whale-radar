@@ -1,0 +1,920 @@
+[
+ {
+  "quando": 1790665330,
+  "messaggio": "le uscite si leggono da un registro che sopravvive alla compattazione, non dalla storia",
+  "file": [
+   "PIU_INTELLIGENTE.md",
+   "agents/piu_intelligente.py",
+   "agents/pubblica_file.py",
+   "data/azioni_miglioramento.json",
+   "data/prove_del_giorno.json"
+  ]
+ },
+ {
+  "quando": 1790666901,
+  "messaggio": "H9 registrata: la successione di pattern col bersaglio sul rendimento incassabile",
+  "file": [
+   "IPOTESI_H9.md",
+   "data/prodotti.json"
+  ]
+ },
+ {
+  "quando": 1790667210,
+  "messaggio": "l'insieme accetta entrata e orizzonte come parametri: si possono sfornare varianti",
+  "file": [
+   ".github/workflows/insieme.yml",
+   "agents/insieme.py"
+  ]
+ },
+ {
+  "quando": 1790668974,
+  "messaggio": "una coda per variante: lanciarne quattro insieme ne buttava tre",
+  "file": [
+   ".github/workflows/insieme.yml",
+   "agents/insieme.py",
+   "data/prodotti.json"
+  ]
+ },
+ {
+  "quando": 1790670676,
+  "messaggio": "le varianti non saltano mai, e chi pubblica grida se il file non e' cambiato",
+  "file": [
+   ".github/workflows/insieme.yml",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/pubblica_file.py",
+   "data/lezioni.json",
+   "data/prodotti.json"
+  ]
+ },
+ {
+  "quando": 1790672415,
+  "messaggio": "un pacco per variante e il pubblicatore chiede quali pacchi esistono",
+  "file": [
+   ".github/workflows/insieme.yml",
+   ".github/workflows/pubblicatore.yml",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/pubblica_file.py",
+   "data/lezioni.json",
+   "data/prodotti.json",
+   "data/loop1/insieme_base_t6h72.jsonl.gz",
+   "data/loop1/insieme_robinhood_t6h72.jsonl.gz"
+  ]
+ },
+ {
+  "quando": 1790672542,
+  "messaggio": "un controllo severo quanto GitHub: le chiavi doppie fermano la pubblicazione",
+  "file": [
+   ".github/workflows/insieme.yml",
+   ".github/workflows/pubblicatore.yml",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/pubblica_file.py",
+   "data/lezioni.json",
+   "data/prodotti.json",
+   "pubblica.sh",
+   "agents/chiavi_doppie.py",
+   "data/loop1/insieme_base_t6h72.jsonl.gz",
+   "data/loop1/insieme_robinhood_t6h72.jsonl.gz"
+  ]
+ },
+ {
+  "quando": 1790674201,
+  "messaggio": "H10: il pattern di H9 misurato sulla finestra da una settimana",
+  "file": [
+   ".github/workflows/insieme.yml",
+   ".github/workflows/pubblicatore.yml",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/pubblica_file.py",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/prodotti.json",
+   "pubblica.sh",
+   "IPOTESI_H10.md",
+   "agents/chiavi_doppie.py",
+   "data/loop1/insieme_base_h168.jsonl.gz",
+   "data/loop1/insieme_base_h24.jsonl.gz",
+   "data/loop1/insieme_base_t6h72.jsonl.gz",
+   "data/loop1/insieme_base_tardi48.jsonl.gz",
+   "data/loop1/insieme_robinhood_h168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h24.jsonl.gz",
+   "data/loop1/insieme_robinhood_t6h72.jsonl.gz",
+   "data/loop1/insieme_robinhood_tardi48.jsonl.gz"
+  ]
+ },
+ {
+  "quando": 1790675919,
+  "messaggio": "verdetto H10 e H11: muoiono, ma trentasei punti recuperati",
+  "file": [
+   ".github/workflows/insieme.yml",
+   ".github/workflows/pubblicatore.yml",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/pubblica_file.py",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/prodotti.json",
+   "pubblica.sh",
+   "IPOTESI_H10.md",
+   "VERDETTO_H10_H11.md",
+   "agents/chiavi_doppie.py",
+   "agents/verdetto_h10.py",
+   "agents/verdetto_h11.py",
+   "data/loop1/insieme_base_h168.jsonl.gz",
+   "data/loop1/insieme_base_h24.jsonl.gz",
+   "data/loop1/insieme_base_t6h72.jsonl.gz",
+   "data/loop1/insieme_base_tardi48.jsonl.gz",
+   "data/loop1/insieme_robinhood_h168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h24.jsonl.gz",
+   "data/loop1/insieme_robinhood_t6h72.jsonl.gz",
+   "data/loop1/insieme_robinhood_tardi48.jsonl.gz"
+  ]
+ },
+ {
+  "quando": 1790677594,
+  "messaggio": "il cammino del pool entra nel dato: si possono provare le regole d'uscita",
+  "file": [
+   ".github/workflows/insieme.yml",
+   ".github/workflows/pubblicatore.yml",
+   "agents/dati.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/pubblica_file.py",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/prodotti.json",
+   "pubblica.sh",
+   "IPOTESI_H10.md",
+   "VERDETTO_H10_H11.md",
+   "agents/chiavi_doppie.py",
+   "agents/verdetto_h10.py",
+   "agents/verdetto_h11.py",
+   "data/loop1/insieme_base_h168.jsonl.gz",
+   "data/loop1/insieme_base_h24.jsonl.gz",
+   "data/loop1/insieme_base_t6h72.jsonl.gz",
+   "data/loop1/insieme_base_tardi48.jsonl.gz",
+   "data/loop1/insieme_robinhood_h168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h24.jsonl.gz",
+   "data/loop1/insieme_robinhood_t6h72.jsonl.gz",
+   "data/loop1/insieme_robinhood_tardi48.jsonl.gz"
+  ]
+ },
+ {
+  "quando": 1790679289,
+  "messaggio": "H13: la prima ipotesi sulle uscite invece che sugli acquisti",
+  "file": [
+   ".github/workflows/insieme.yml",
+   ".github/workflows/pubblicatore.yml",
+   "agents/dati.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/pubblica_file.py",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/prodotti.json",
+   "pubblica.sh",
+   "IPOTESI_H10.md",
+   "IPOTESI_H13.md",
+   "VERDETTO_H10_H11.md",
+   "agents/chiavi_doppie.py",
+   "agents/verdetto_h10.py",
+   "agents/verdetto_h11.py",
+   "data/loop1/insieme_base_cam168.jsonl.gz",
+   "data/loop1/insieme_base_h168.jsonl.gz",
+   "data/loop1/insieme_base_h24.jsonl.gz",
+   "data/loop1/insieme_base_h336.jsonl.gz",
+   "data/loop1/insieme_base_h720.jsonl.gz",
+   "data/loop1/insieme_base_t6h72.jsonl.gz",
+   "data/loop1/insieme_base_tardi48.jsonl.gz",
+   "data/loop1/insieme_robinhood_cam168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h24.jsonl.gz",
+   "data/loop1/insieme_robinhood_h336.jsonl.gz",
+   "data/loop1/insieme_robinhood_h720.jsonl.gz",
+   "data/loop1/insieme_robinhood_t6h72.jsonl.gz",
+   "data/loop1/insieme_robinhood_tardi48.jsonl.gz"
+  ]
+ },
+ {
+  "quando": 1790681063,
+  "messaggio": "verdetto H13 e H14: lo stop di prezzo e' una tassa, il bersaglio forse no",
+  "file": [
+   ".github/workflows/insieme.yml",
+   ".github/workflows/pubblicatore.yml",
+   "agents/dati.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/pubblica_file.py",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/prodotti.json",
+   "pubblica.sh",
+   "IPOTESI_H10.md",
+   "IPOTESI_H13.md",
+   "VERDETTO_H10_H11.md",
+   "VERDETTO_H13_H14.md",
+   "agents/chiavi_doppie.py",
+   "agents/verdetto_h10.py",
+   "agents/verdetto_h11.py",
+   "data/loop1/insieme_base_cam168.jsonl.gz",
+   "data/loop1/insieme_base_h168.jsonl.gz",
+   "data/loop1/insieme_base_h24.jsonl.gz",
+   "data/loop1/insieme_base_h336.jsonl.gz",
+   "data/loop1/insieme_base_h720.jsonl.gz",
+   "data/loop1/insieme_base_t6h72.jsonl.gz",
+   "data/loop1/insieme_base_tardi48.jsonl.gz",
+   "data/loop1/insieme_robinhood_cam168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h24.jsonl.gz",
+   "data/loop1/insieme_robinhood_h336.jsonl.gz",
+   "data/loop1/insieme_robinhood_h720.jsonl.gz",
+   "data/loop1/insieme_robinhood_t6h72.jsonl.gz",
+   "data/loop1/insieme_robinhood_tardi48.jsonl.gz"
+  ]
+ },
+ {
+  "quando": 1790682729,
+  "messaggio": "il cammino accorpa invece di scartare e parla in dollari",
+  "file": [
+   ".github/workflows/insieme.yml",
+   ".github/workflows/pubblicatore.yml",
+   "agents/dati.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/pubblica_file.py",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/prodotti.json",
+   "pubblica.sh",
+   "IPOTESI_H10.md",
+   "IPOTESI_H13.md",
+   "VERDETTO_H10_H11.md",
+   "VERDETTO_H13_H14.md",
+   "agents/chiavi_doppie.py",
+   "agents/verdetto_h10.py",
+   "agents/verdetto_h11.py",
+   "data/loop1/insieme_base_cam168.jsonl.gz",
+   "data/loop1/insieme_base_h168.jsonl.gz",
+   "data/loop1/insieme_base_h24.jsonl.gz",
+   "data/loop1/insieme_base_h336.jsonl.gz",
+   "data/loop1/insieme_base_h720.jsonl.gz",
+   "data/loop1/insieme_base_t6h72.jsonl.gz",
+   "data/loop1/insieme_base_tardi48.jsonl.gz",
+   "data/loop1/insieme_robinhood_cam168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h24.jsonl.gz",
+   "data/loop1/insieme_robinhood_h336.jsonl.gz",
+   "data/loop1/insieme_robinhood_h720.jsonl.gz",
+   "data/loop1/insieme_robinhood_t6h72.jsonl.gz",
+   "data/loop1/insieme_robinhood_tardi48.jsonl.gz"
+  ]
+ },
+ {
+  "quando": 1790684473,
+  "messaggio": "correzione: il fondale misurava chi liquida subito, non chi tiene",
+  "file": [
+   ".github/workflows/insieme.yml",
+   ".github/workflows/pubblicatore.yml",
+   "agents/dati.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/pubblica_file.py",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/prodotti.json",
+   "pubblica.sh",
+   "CORREZIONE_FONDALE.md",
+   "IPOTESI_H10.md",
+   "IPOTESI_H13.md",
+   "VERDETTO_H10_H11.md",
+   "VERDETTO_H13_H14.md",
+   "agents/chiavi_doppie.py",
+   "agents/verdetto_h10.py",
+   "agents/verdetto_h11.py",
+   "data/loop1/insieme_base_cam168.jsonl.gz",
+   "data/loop1/insieme_base_cam720.jsonl.gz",
+   "data/loop1/insieme_base_h168.jsonl.gz",
+   "data/loop1/insieme_base_h24.jsonl.gz",
+   "data/loop1/insieme_base_h336.jsonl.gz",
+   "data/loop1/insieme_base_h720.jsonl.gz",
+   "data/loop1/insieme_base_t6h72.jsonl.gz",
+   "data/loop1/insieme_base_tardi48.jsonl.gz",
+   "data/loop1/insieme_robinhood_cam168.jsonl.gz",
+   "data/loop1/insieme_robinhood_cam720.jsonl.gz",
+   "data/loop1/insieme_robinhood_h168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h24.jsonl.gz",
+   "data/loop1/insieme_robinhood_h336.jsonl.gz",
+   "data/loop1/insieme_robinhood_h720.jsonl.gz",
+   "data/loop1/insieme_robinhood_t6h72.jsonl.gz",
+   "data/loop1/insieme_robinhood_tardi48.jsonl.gz"
+  ]
+ },
+ {
+  "quando": 1790686194,
+  "messaggio": "non e' la scelta, e' la taglia: il fondale passa da -53% a -0,2%",
+  "file": [
+   ".github/workflows/insieme.yml",
+   ".github/workflows/pubblicatore.yml",
+   "agents/dati.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/pubblica_file.py",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/prodotti.json",
+   "pubblica.sh",
+   "CORREZIONE_FONDALE.md",
+   "IPOTESI_H10.md",
+   "IPOTESI_H13.md",
+   "VERDETTO_H10_H11.md",
+   "VERDETTO_H13_H14.md",
+   "VERDETTO_TAGLIA.md",
+   "agents/chiavi_doppie.py",
+   "agents/verdetto_h10.py",
+   "agents/verdetto_h11.py",
+   "data/loop1/insieme_base_cam168.jsonl.gz",
+   "data/loop1/insieme_base_cam720.jsonl.gz",
+   "data/loop1/insieme_base_h168.jsonl.gz",
+   "data/loop1/insieme_base_h24.jsonl.gz",
+   "data/loop1/insieme_base_h336.jsonl.gz",
+   "data/loop1/insieme_base_h720.jsonl.gz",
+   "data/loop1/insieme_base_t6h72.jsonl.gz",
+   "data/loop1/insieme_base_tardi48.jsonl.gz",
+   "data/loop1/insieme_robinhood_cam168.jsonl.gz",
+   "data/loop1/insieme_robinhood_cam720.jsonl.gz",
+   "data/loop1/insieme_robinhood_h168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h24.jsonl.gz",
+   "data/loop1/insieme_robinhood_h336.jsonl.gz",
+   "data/loop1/insieme_robinhood_h720.jsonl.gz",
+   "data/loop1/insieme_robinhood_t6h72.jsonl.gz",
+   "data/loop1/insieme_robinhood_tardi48.jsonl.gz"
+  ]
+ },
+ {
+  "quando": 1790687892,
+  "messaggio": "si misurano anche  e : dove si ferma il vantaggio della taglia",
+  "file": [
+   ".github/workflows/insieme.yml",
+   ".github/workflows/pubblicatore.yml",
+   "agents/dati.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/pubblica_file.py",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/prodotti.json",
+   "pubblica.sh",
+   "CORREZIONE_FONDALE.md",
+   "IPOTESI_H10.md",
+   "IPOTESI_H13.md",
+   "VERDETTO_H10_H11.md",
+   "VERDETTO_H13_H14.md",
+   "VERDETTO_TAGLIA.md",
+   "agents/chiavi_doppie.py",
+   "agents/verdetto_h10.py",
+   "agents/verdetto_h11.py",
+   "data/loop1/insieme_base_cam168.jsonl.gz",
+   "data/loop1/insieme_base_cam720.jsonl.gz",
+   "data/loop1/insieme_base_h168.jsonl.gz",
+   "data/loop1/insieme_base_h24.jsonl.gz",
+   "data/loop1/insieme_base_h336.jsonl.gz",
+   "data/loop1/insieme_base_h720.jsonl.gz",
+   "data/loop1/insieme_base_t6h72.jsonl.gz",
+   "data/loop1/insieme_base_tardi48.jsonl.gz",
+   "data/loop1/insieme_robinhood_cam168.jsonl.gz",
+   "data/loop1/insieme_robinhood_cam720.jsonl.gz",
+   "data/loop1/insieme_robinhood_h168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h24.jsonl.gz",
+   "data/loop1/insieme_robinhood_h336.jsonl.gz",
+   "data/loop1/insieme_robinhood_h720.jsonl.gz",
+   "data/loop1/insieme_robinhood_t6h72.jsonl.gz",
+   "data/loop1/insieme_robinhood_tardi48.jsonl.gz"
+  ]
+ },
+ {
+  "quando": 1790689620,
+  "messaggio": "verdetto: a +2h il gioco e' equo, e paghiamo la commissione",
+  "file": [
+   ".github/workflows/insieme.yml",
+   ".github/workflows/pubblicatore.yml",
+   "agents/dati.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/pubblica_file.py",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/prodotti.json",
+   "pubblica.sh",
+   "CORREZIONE_FONDALE.md",
+   "IPOTESI_H10.md",
+   "IPOTESI_H13.md",
+   "VERDETTO_H10_H11.md",
+   "VERDETTO_H13_H14.md",
+   "VERDETTO_TAGLIA.md",
+   "VERDETTO_TAGLIA_LIMITE.md",
+   "agents/chiavi_doppie.py",
+   "agents/verdetto_h10.py",
+   "agents/verdetto_h11.py",
+   "data/loop1/insieme_base_cam168.jsonl.gz",
+   "data/loop1/insieme_base_cam720.jsonl.gz",
+   "data/loop1/insieme_base_h168.jsonl.gz",
+   "data/loop1/insieme_base_h24.jsonl.gz",
+   "data/loop1/insieme_base_h336.jsonl.gz",
+   "data/loop1/insieme_base_h720.jsonl.gz",
+   "data/loop1/insieme_base_t6h72.jsonl.gz",
+   "data/loop1/insieme_base_tag168.jsonl.gz",
+   "data/loop1/insieme_base_tag720.jsonl.gz",
+   "data/loop1/insieme_base_tardi48.jsonl.gz",
+   "data/loop1/insieme_robinhood_cam168.jsonl.gz",
+   "data/loop1/insieme_robinhood_cam720.jsonl.gz",
+   "data/loop1/insieme_robinhood_h168.jsonl.gz",
+   "data/loop1/insieme_robinhood_h24.jsonl.gz",
+   "data/loop1/insieme_robinhood_h336.jsonl.gz",
+   "data/loop1/insieme_robinhood_h720.jsonl.gz",
+   "data/loop1/insieme_robinhood_t6h72.jsonl.gz",
+   "data/loop1/insieme_robinhood_tag168.jsonl.gz",
+   "data/loop1/insieme_robinhood_tag720.jsonl.gz",
+   "data/loop1/insieme_robinhood_tardi48.jsonl.gz"
+  ]
+ },
+ {
+  "quando": 1790693939,
+  "messaggio": "hook non spinge piu': consegna in un pacco, e il pubblicatore raccoglie qualunque consegna",
+  "file": [
+   ".github/workflows/hook.yml",
+   ".github/workflows/pubblicatore.yml",
+   "data/loop1/insieme_base_min3.jsonl.gz",
+   "data/loop1/insieme_robinhood_min3.jsonl.gz"
+  ]
+ },
+ {
+  "quando": 1790694631,
+  "messaggio": "verdetto H15: entrare prima vale otto punti, ma non basta ancora",
+  "file": [
+   ".github/workflows/hook.yml",
+   ".github/workflows/pubblicatore.yml",
+   "data/prodotti.json",
+   "VERDETTO_H15.md",
+   "data/loop1/insieme_base_min3.jsonl.gz",
+   "data/loop1/insieme_robinhood_min3.jsonl.gz"
+  ]
+ },
+ {
+  "quando": 1790694716,
+  "messaggio": "previsioni, scoperta, censimento e hook consegnano invece di spingere",
+  "file": [
+   ".github/workflows/censimento.yml",
+   ".github/workflows/hook.yml",
+   ".github/workflows/previsioni.yml",
+   ".github/workflows/pubblicatore.yml",
+   ".github/workflows/scoperta.yml",
+   "data/lezioni.json",
+   "data/prodotti.json",
+   "VERDETTO_H15.md",
+   "data/loop1/insieme_base_min3.jsonl.gz",
+   "data/loop1/insieme_robinhood_min3.jsonl.gz"
+  ]
+ },
+ {
+  "quando": 1790696361,
+  "messaggio": "un giro fallisce per il proprio prodotto rotto, non per quello di un altro",
+  "file": [
+   ".github/workflows/censimento.yml",
+   ".github/workflows/hook.yml",
+   ".github/workflows/insieme.yml",
+   ".github/workflows/previsioni.yml",
+   ".github/workflows/pubblicatore.yml",
+   ".github/workflows/scoperta.yml",
+   "data/lezioni.json",
+   "data/prodotti.json",
+   "VERDETTO_H15.md",
+   "data/loop1/insieme_base_min3.jsonl.gz",
+   "data/loop1/insieme_robinhood_min3.jsonl.gz"
+  ]
+ },
+ {
+  "quando": 1790699944,
+  "messaggio": "il pubblicatore fonde cio' che si accumula e sostituisce cio' che si ricalcola",
+  "file": [
+   ".github/workflows/pubblicatore.yml",
+   "agents/fondi_consegna.py",
+   "data/loop1/insieme_base_sc60.jsonl.gz",
+   "data/loop1/insieme_robinhood_sc60.jsonl.gz"
+  ]
+ },
+ {
+  "quando": 1790701777,
+  "messaggio": "segnali compresso: 104,8 MB -> 5,6 MB, e le spinte tornano possibili",
+  "file": [
+   ".github/workflows/pubblicatore.yml",
+   "agents/registro_segnali.py",
+   "agents/verdetto_h4.py",
+   "data/prodotti.json",
+   "agents/fondi_consegna.py",
+   "data/loop1/insieme_base_sc5.jsonl.gz",
+   "data/loop1/insieme_base_sc60.jsonl.gz",
+   "data/loop1/insieme_robinhood_sc5.jsonl.gz",
+   "data/loop1/insieme_robinhood_sc60.jsonl.gz",
+   "data/loop1/segnali.jsonl.gz"
+  ]
+ },
+ {
+  "quando": 1790709237,
+  "messaggio": "verdetto H15: c'e' una gobba al 25o scambio, ma la scelta resta la leva peggiore",
+  "file": [
+   "VERDETTO_H15_COMPLETO.md"
+  ]
+ },
+ {
+  "quando": 1790719700,
+  "messaggio": "la regola da provare in avanti: registrata prima, con le quattro cose che possono ucciderla",
+  "file": [
+   "PROVA_IN_AVANTI.md"
+  ]
+ },
+ {
+  "quando": 1790721555,
+  "messaggio": "correzione al contratto: il prezzo mediano gonfiava il guadagno, base non funziona",
+  "file": [
+   "data/prodotti.json",
+   "PROVA_IN_AVANTI.md"
+  ]
+ },
+ {
+  "quando": 1790723350,
+  "messaggio": "la forma del mestiere: il 90% perde poco, il 10% paga tutto",
+  "file": [
+   "data/prodotti.json",
+   "PROVA_IN_AVANTI.md"
+  ]
+ },
+ {
+  "quando": 1790725160,
+  "messaggio": "il gas non uccide la strategia: netto +19,0% a taglia , +11,4% anche nell'impennata",
+  "file": [
+   "data/prodotti.json",
+   "PROVA_IN_AVANTI.md"
+  ]
+ },
+ {
+  "quando": 1790725204,
+  "messaggio": "popolazione, nascite e iniziatori consegnano invece di spingere",
+  "file": [
+   ".github/workflows/iniziatori.yml",
+   ".github/workflows/nascite.yml",
+   ".github/workflows/popolazione.yml",
+   "data/prodotti.json",
+   "PROVA_IN_AVANTI.md"
+  ]
+ },
+ {
+  "quando": 1790734992,
+  "messaggio": "l'orologio torna a essere una rete: una volta all'ora sulle corsie che si riarmano",
+  "file": [
+   ".github/workflows/censimento.yml",
+   ".github/workflows/coppie.yml",
+   ".github/workflows/edge_eval.yml",
+   ".github/workflows/guardiani.yml",
+   ".github/workflows/heartbeat.yml",
+   ".github/workflows/hook.yml",
+   ".github/workflows/iniziatori.yml",
+   ".github/workflows/insieme.yml",
+   ".github/workflows/nascite.yml",
+   ".github/workflows/popolazione.yml",
+   ".github/workflows/previsioni.yml",
+   ".github/workflows/pubblicatore.yml",
+   ".github/workflows/riparazione.yml",
+   ".github/workflows/riserve.yml",
+   ".github/workflows/scoperta.yml",
+   ".github/workflows/soccorso.yml",
+   ".github/workflows/storico.yml",
+   ".github/workflows/vivo.yml",
+   "data/eccezioni_critico.json"
+  ]
+ },
+ {
+  "quando": 1790736987,
+  "messaggio": "un riarmo per corsia, non uno per fetta",
+  "file": [
+   ".github/workflows/censimento.yml",
+   ".github/workflows/coppie.yml",
+   ".github/workflows/nascite.yml",
+   ".github/workflows/popolazione.yml"
+  ]
+ },
+ {
+  "quando": 1790744760,
+  "messaggio": "il contabile lavora una chain per volta, per non sbattere sul tempo massimo",
+  "file": [
+   ".github/workflows/prova_avanti.yml"
+  ]
+ },
+ {
+  "quando": 1790799776,
+  "messaggio": "l'allarme sul consulente muto arriva dove qualcuno lo guarda",
+  "file": [
+   "agents/heartbeat.py",
+   "agents/lezioni.py",
+   "agents/rianima.py",
+   "agents/sentinella.py",
+   "data/lezioni.json"
+  ]
+ },
+ {
+  "quando": 1790799973,
+  "messaggio": "la corsia del consulente esterno: tre volte al giorno, sorvegliata dalla rete",
+  "file": [
+   "agents/rianima.py",
+   ".github/workflows/astra.yml"
+  ]
+ },
+ {
+  "quando": 1790801531,
+  "messaggio": "le decisioni permanenti diventano dati con un controllo che puo' fallire",
+  "file": [
+   "agents/rianima.py",
+   "pubblica.sh",
+   "agents/decisioni.py",
+   "data/decisioni_stato.json"
+  ]
+ },
+ {
+  "quando": 1790801591,
+  "messaggio": "il deposito da 100 GB porta fuori anche la memoria, non solo i dati",
+  "file": [
+   "agents/rianima.py",
+   "data/prodotti.json",
+   "pubblica.sh",
+   "agents/decisioni.py",
+   "data/decisioni_stato.json"
+  ]
+ },
+ {
+  "quando": 1790801659,
+  "messaggio": "il deposito porta fuori anche la memoria, ed e' sorvegliato dalla rete",
+  "file": [
+   ".github/workflows/deposito.yml",
+   "agents/rianima.py",
+   "data/prodotti.json",
+   "pubblica.sh",
+   "agents/decisioni.py",
+   "data/decisioni_stato.json"
+  ]
+ },
+ {
+  "quando": 1790804380,
+  "messaggio": "il motore delle combinazioni: 10.700 incroci, e il vincolo dei sessanta secondi",
+  "file": [
+   ".github/workflows/deposito.yml",
+   "FASCICOLO_ASTRA.txt",
+   "agents/rianima.py",
+   "data/consulenze/contatore.json",
+   "data/eccezioni_critico.json",
+   "data/prodotti.json",
+   "pubblica.sh",
+   "COMBINAZIONI_30-09.md",
+   "CONSULENZA_2026-09-30_2056.md",
+   "agents/combinazioni.py",
+   "agents/decisioni.py",
+   "agents/memoria_conversazione.py",
+   "data/decisioni_stato.json"
+  ]
+ },
+ {
+  "quando": 1790804549,
+  "messaggio": "la latenza uccide tutto: il prezzo che vedi non e' quello che paghi",
+  "file": [
+   ".github/workflows/deposito.yml",
+   "FASCICOLO_ASTRA.txt",
+   "agents/rianima.py",
+   "data/consulenze/contatore.json",
+   "data/eccezioni_critico.json",
+   "data/prodotti.json",
+   "pubblica.sh",
+   "COMBINAZIONI_30-09.md",
+   "CONSULENZA_2026-09-30_2056.md",
+   "LATENZA_LA_SCOPERTA.md",
+   "agents/combinazioni.py",
+   "agents/decisioni.py",
+   "agents/memoria_conversazione.py",
+   "data/decisioni_stato.json"
+  ]
+ },
+ {
+  "quando": 1790804614,
+  "messaggio": "ogni misura nasce col prezzo che si paga, non con quello che si vede",
+  "file": [
+   ".github/workflows/deposito.yml",
+   "FASCICOLO_ASTRA.txt",
+   "agents/dati.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/rianima.py",
+   "data/consulenze/contatore.json",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/prodotti.json",
+   "pubblica.sh",
+   "COMBINAZIONI_30-09.md",
+   "CONSULENZA_2026-09-30_2056.md",
+   "LATENZA_LA_SCOPERTA.md",
+   "agents/combinazioni.py",
+   "agents/decisioni.py",
+   "agents/memoria_conversazione.py",
+   "data/decisioni_stato.json"
+  ]
+ },
+ {
+  "quando": 1790805758,
+  "messaggio": "verdetto combinazioni: un caso positivo su quattro, cioe' rumore",
+  "file": [
+   ".github/workflows/deposito.yml",
+   "FASCICOLO_ASTRA.txt",
+   "agents/dati.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/rianima.py",
+   "data/consulenze/contatore.json",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/prodotti.json",
+   "pubblica.sh",
+   "COMBINAZIONI_30-09.md",
+   "CONSULENZA_2026-09-30_2056.md",
+   "LATENZA_LA_SCOPERTA.md",
+   "VERDETTO_COMBINAZIONI.md",
+   "agents/combinazioni.py",
+   "agents/decisioni.py",
+   "agents/memoria_conversazione.py",
+   "data/decisioni_stato.json"
+  ]
+ },
+ {
+  "quando": 1790806027,
+  "messaggio": "nessuna pubblicazione senza autorizzazione: l'assenza nega",
+  "file": [
+   ".github/workflows/deposito.yml",
+   "FASCICOLO_ASTRA.txt",
+   "agents/dati.py",
+   "agents/insieme.py",
+   "agents/lezioni.py",
+   "agents/rianima.py",
+   "data/consulenze/contatore.json",
+   "data/eccezioni_critico.json",
+   "data/lezioni.json",
+   "data/prodotti.json",
+   "pubblica.sh",
+   "COMBINAZIONI_30-09.md",
+   "CONSULENZA_2026-09-30_2056.md",
+   "CONSULENZA_2026-09-30_2204.md",
+   "LATENZA_LA_SCOPERTA.md",
+   "VERDETTO_COMBINAZIONI.md",
+   "agents/autorizzazione.py",
+   "agents/combinazioni.py",
+   "agents/decisioni.py",
+   "agents/memoria_conversazione.py",
+   "data/autorizzazione.json",
+   "data/decisioni_stato.json"
+  ]
+ },
+ {
+  "quando": 1790809338,
+  "messaggio": "il deposito prende tutta la memoria: l'elenco a mano aveva dimenticato le parole del fondatore",
+  "file": [
+   "agents/prova_ripristino.py",
+   "data/autorizzazione.json",
+   "data/decisioni_stato.json"
+  ]
+ },
+ {
+  "quando": 1790809372,
+  "messaggio": "il deposito prende tutta la memoria, ricorsivamente",
+  "file": [
+   ".github/workflows/deposito.yml",
+   "agents/prova_ripristino.py",
+   "data/autorizzazione.json",
+   "data/decisioni_stato.json",
+   "data/prodotti.json"
+  ]
+ },
+ {
+  "quando": 1790812401,
+  "messaggio": "si classifica l'errore grezzo prima di raccontarlo: fail-plausible",
+  "file": [
+   ".github/workflows/pubblicatore.yml",
+   "agents/lezioni.py",
+   "data/autorizzazione.json",
+   "data/decisioni_stato.json",
+   "data/lezioni.json",
+   "agents/classifica_errore.py",
+   "data/ripristino_provato.json"
+  ]
+ },
+ {
+  "quando": 1790812457,
+  "messaggio": "riprova",
+  "file": [
+   ".github/workflows/pubblicatore.yml",
+   "agents/lezioni.py",
+   "data/autorizzazione.json",
+   "data/decisioni_stato.json",
+   "data/lezioni.json",
+   "data/prodotti.json",
+   "agents/classifica_errore.py",
+   "data/ripristino_provato.json"
+  ]
+ },
+ {
+  "quando": 1790818513,
+  "messaggio": "il pubblicatore salta i pacchi rotti: chi e' l'unico a scrivere deve essere l'ultimo a morire",
+  "file": [
+   ".github/workflows/pubblicatore.yml",
+   "agents/lezioni.py",
+   "data/autorizzazione.json",
+   "data/decisioni_stato.json",
+   "data/lezioni.json"
+  ]
+ },
+ {
+  "quando": 1790820167,
+  "messaggio": "la notte dell'1 ottobre: i nomi dei guasti, e quelli che ho creato io riparando",
+  "file": [
+   ".github/workflows/pubblicatore.yml",
+   "agents/lezioni.py",
+   "data/autorizzazione.json",
+   "data/decisioni_stato.json",
+   "data/lezioni.json",
+   "data/prodotti.json",
+   "NOTTE_01-10.md"
+  ]
+ },
+ {
+  "quando": 1790822017,
+  "messaggio": "un osservatore fuori da GitHub: una rete sulla stessa infrastruttura e' un guardiano con piu' nomi",
+  "file": [
+   ".github/workflows/pubblicatore.yml",
+   "agents/decisioni.py",
+   "agents/inventario.py",
+   "agents/lezioni.py",
+   "data/autorizzazione.json",
+   "data/decisioni_stato.json",
+   "data/inventario_atteso.json",
+   "data/lezioni.json",
+   "data/prodotti.json",
+   "NOTTE_01-10.md",
+   "agents/dal_di_fuori.sh"
+  ]
+ },
+ {
+  "quando": 1790822071,
+  "messaggio": "prova riagganciata: il controllo e' severo sul testo, e deve restarlo",
+  "file": [
+   ".github/workflows/pubblicatore.yml",
+   "agents/decisioni.py",
+   "agents/inventario.py",
+   "agents/lezioni.py",
+   "data/autorizzazione.json",
+   "data/decisioni_stato.json",
+   "data/inventario_atteso.json",
+   "data/lezioni.json",
+   "data/prodotti.json",
+   "NOTTE_01-10.md",
+   "agents/dal_di_fuori.sh"
+  ]
+ },
+ {
+  "quando": 1790822114,
+  "messaggio": "rapporto del mattino aggiornato: la rete di guardiani era un guardiano solo",
+  "file": [
+   ".github/workflows/pubblicatore.yml",
+   "RAPPORTO_MATTINA.md",
+   "agents/decisioni.py",
+   "agents/inventario.py",
+   "agents/lezioni.py",
+   "data/autorizzazione.json",
+   "data/decisioni_stato.json",
+   "data/inventario_atteso.json",
+   "data/lezioni.json",
+   "data/prodotti.json",
+   "NOTTE_01-10.md",
+   "agents/dal_di_fuori.sh"
+  ]
+ },
+ {
+  "quando": 1790836311,
+  "messaggio": "niente si cancella se non e' su GitHub; nessun segreto esce; il banco non dipende piu' dai dati veri",
+  "file": [
+   "agents/decisioni.py",
+   "agents/incidenti.py",
+   "agents/rianima.py",
+   "data/autorizzazione.json",
+   "data/decisioni_stato.json",
+   "data/requisiti_stato.json",
+   "pubblica.sh",
+   "agents/prima_di_cancellare.py",
+   "agents/segreti_non_escono.py"
+  ]
+ }
+]
