@@ -1,58 +1,46 @@
 {
- "quando": 1790767300,
+ "quando": 1790855374,
  "giorni": 1,
  "prove": {
-  "cambiamenti_veri": 46,
-  "scritture_delle_corsie": 450,
-  "righe_di_lezione_aggiunte": 2952,
-  "file_di_codice_toccati": 222,
-  "cambiamenti_su_'guardia'": 2,
+  "cambiamenti_veri": 8,
+  "scritture_delle_corsie": 51,
+  "righe_di_lezione_aggiunte": 3095,
+  "file_di_codice_toccati": 237,
   "titoli_dei_cambiamenti": [
-   "sentinella 11:18Z",
-   "watchdog 2026-09-30T11:16Z",
-   "il guardiano chiede al file, non al passato: chi non ha piu' l'orologio dorme per scelta",
-   "il guardiano non risveglia chi dorme per scelta, e gira in una copia sola",
-   "heartbeat 11:15Z",
-   "watchdog 2026-09-30T11:12Z",
-   "heartbeat 11:09Z",
-   "watchdog 2026-09-30T11:08Z",
-   "heartbeat 11:06Z",
-   "heartbeat 11:02Z",
-   "watchdog 2026-09-30T11:01Z",
-   "accumulator 2026-09-30T11:01Z"
+   "lo spazio di ricerca allargato: chain, latenza, momento e taglia incrociati",
+   "lo spazio di ricerca allargato: chain, latenza, momento e taglia incrociati",
+   "lo spazio di ricerca allargato: chain, latenza, momento e taglia incrociati",
+   "lo spazio di ricerca allargato: chain, latenza, momento e taglia incrociati",
+   "lo spazio di ricerca allargato: chain, latenza, momento e taglia incrociati",
+   "lo spazio di ricerca allargato: chain, latenza, momento e taglia incrociati",
+   "database giro1 11:13Z",
+   "database giro0 10:28Z"
   ],
   "documenti_prodotti": [
-   "PROVA_IN_AVANTI.md",
-   "VERDETTO_H15_COMPLETO.md",
-   "VERDETTO_H15.md",
-   "VERDETTO_TAGLIA_LIMITE.md",
-   "VERDETTO_TAGLIA.md",
-   "VERDETTO_H13_H14.md",
-   "VERDETTO_H10_H11.md",
-   "IPOTESI_H13.md",
-   "IPOTESI_H10.md",
-   "CORREZIONE_FONDALE.md"
+   "PIANO_OTTOBRE.md",
+   "NOTTE_01-10.md",
+   "RAPPORTO_MATTINA.md",
+   "VERDETTO_COMBINAZIONI.md",
+   "LATENZA_LA_SCOPERTA.md",
+   "CONSULENZA_2026-09-30_2204.md",
+   "CONSULENZA_2026-09-30_2056.md",
+   "COMBINAZIONI_30-09.md"
   ],
-  "ipotesi_registrate": [
-   "IPOTESI_H13.md",
-   "IPOTESI_H10.md"
-  ],
+  "ipotesi_registrate": [],
   "verdetti_emessi": [
-   "VERDETTO_H15_COMPLETO.md",
-   "VERDETTO_H15.md",
-   "VERDETTO_TAGLIA_LIMITE.md",
-   "VERDETTO_TAGLIA.md",
-   "VERDETTO_H13_H14.md",
-   "VERDETTO_H10_H11.md"
+   "VERDETTO_COMBINAZIONI.md"
   ],
-  "giri_di_ricerca": [],
+  "giri_di_ricerca": [
+   "CONSULENZA_2026-09-30_2204.md",
+   "CONSULENZA_2026-09-30_2056.md"
+  ],
   "azioni": {
    "chiuse": 6,
    "con_un_controllo": 5,
    "aperte": 7
   },
   "lezioni": {
-   "verificata": 13,
+   "verificata": 24,
    "ipotesi": 7
   }
  }
