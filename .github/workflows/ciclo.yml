@@ -27,13 +27,12 @@ jobs:
         # IL CICLO SI PRODUCE L'INPUT: dipendere da un file che qualcun altro deve aggiornare
         # e' il modo in cui il contabile della prova in avanti sarebbe rimasto a zero per sempre.
         env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ENTRATA_SCAMBIO: "5"
           ORIZZONTE_ORE: "168"
           SUFFISSO: "sc5"
         run: |
-          for CH in robinhood base; do
-            CHAIN=$CH python3 -B agents/insieme.py || echo "COSTRUZIONE $CH FALLITA"
-          done
+          python3 -B agents/prendi_o_costruisci.py
       - name: Una prova, e la scrive nel registro
         run: python3 -B agents/ciclo_ipotesi.py
       - name: Consegna senza toccare il ramo
