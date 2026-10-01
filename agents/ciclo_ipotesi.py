@@ -35,13 +35,17 @@ REGISTRO = os.path.join(RADICE, "data", "ipotesi_provate.jsonl")
 
 # Le configurazioni da girare, a rotazione: chain, latenza, scambio d'ingresso.
 # La latenza 0 NON c'e': e' il prezzo che non si puo' avere.
+# LO SPAZIO DI RICERCA, ALLARGATO (1/10). Sei configurazioni erano poche per quello che Nicolo'
+# aveva chiesto il 23/09: «migliaia di combinazioni tutte perfette, parametri incrociati».
+# Qui si incrociano anche le CONDIZIONI DI CONTORNO — chain, latenza, momento d'ingresso,
+# taglia — perche' un vantaggio che esiste solo a una taglia o a una latenza non e' un vantaggio.
+# La latenza 0 NON c'e' mai: e' il prezzo che non si puo' avere.
 CONFIGURAZIONI = [
-    {"chain": "robinhood", "ritardo": 1, "entrata": 5},
-    {"chain": "base", "ritardo": 1, "entrata": 5},
-    {"chain": "robinhood", "ritardo": 2, "entrata": 5},
-    {"chain": "base", "ritardo": 2, "entrata": 5},
-    {"chain": "robinhood", "ritardo": 1, "entrata": 25},
-    {"chain": "base", "ritardo": 1, "entrata": 25},
+    {"chain": c, "ritardo": r, "entrata": e, "soldi": s}
+    for c in ("robinhood", "base")
+    for r in (1, 2, 3)
+    for e in (5, 25)
+    for s in (25.0, 100.0)
 ]
 
 
@@ -64,7 +68,9 @@ def soglia(n):
 
 
 def un_giro(conf):
-    amb = dict(os.environ, CHAIN=conf["chain"], RITARDO=str(conf["ritardo"]))
+    amb = dict(os.environ, CHAIN=conf["chain"], RITARDO=str(conf["ritardo"]),
+               SOLDI=str(conf.get("soldi", 25.0)),
+               ENTRATA_SCAMBIO=str(conf.get("entrata", 5)))
     r = subprocess.run([sys.executable, "-B", os.path.join(QUI, "combinazioni.py")],
                        capture_output=True, text=True, timeout=3000, env=amb)
     testo = r.stdout
