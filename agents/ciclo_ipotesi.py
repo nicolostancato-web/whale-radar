@@ -44,16 +44,47 @@ CONFIGURAZIONI = [
     {"chain": c, "ritardo": r, "entrata": e, "soldi": s}
     for c in ("robinhood", "base")
     for r in (1, 2, 3)
-    for e in (5, 25)
+    # L'INGRESSO 25 NON C'E' PIU' (1/10). C'era, ma era finto: `carica()` aveva "_sc5" scritto
+    # fisso e ignorava ENTRATA_SCAMBIO, quindi le dodici prove con ingresso 25 hanno dato
+    # margini IDENTICI a quelle con ingresso 5. Meta' dello spazio era un doppione contato come
+    # prova indipendente. Adesso carica() urla se l'insieme non c'e'; qui resta solo cio' che
+    # esiste davvero. Per riaprire questa dimensione va costruito insieme_<chain>_sc25.jsonl.gz.
+    for e in (5,)
     for s in (25.0, 100.0)
 ]
 
 
 def quante_prove():
-    """Quante configurazioni sono state provate da sempre. E' il denominatore."""
+    """Quante configurazioni sono state provate da sempre."""
     if not os.path.exists(REGISTRO):
         return 0
     return sum(1 for _ in open(REGISTRO, encoding="utf-8"))
+
+
+# QUANTE COMBINAZIONI GUARDA UN GIRO. Serve per il denominatore vero (vedi sotto).
+CONFRONTI_PER_GIRO = 10700
+
+
+def quanti_sguardi():
+    """IL DENOMINATORE VERO (1/10, dopo la revisione di Grok).
+
+    Scrivevo una riga per CONFIGURAZIONE e usavo quel conto come denominatore. Grok: «il
+    denominatore coincide con la riga che hai scelto di scrivere. Lo sguardo che poteva farti
+    cambiare idea sono i 10.700 confronti dentro ogni configurazione, e quella riga li cancella.»
+
+    Aveva ragione, ed e' un modo di barare con se stessi che non si vede: con 13 righe la
+    soglia chiedeva il 17%; gli sguardi veri erano 139.100 e la soglia onesta e' quasi il doppio.
+    Qui il denominatore e' la somma dei confronti davvero fatti, non delle righe scritte.
+    """
+    if not os.path.exists(REGISTRO):
+        return 0
+    n = 0
+    for riga in open(REGISTRO, encoding="utf-8"):
+        try:
+            n += int(json.loads(riga).get("confronti") or CONFRONTI_PER_GIRO)
+        except Exception:
+            n += CONFRONTI_PER_GIRO
+    return n
 
 
 def soglia(n):
@@ -92,14 +123,18 @@ def un_giro(conf):
 
 def main():
     n = quante_prove()
+    sguardi = quanti_sguardi()
     conf = CONFIGURAZIONI[n % len(CONFIGURAZIONI)]
     print(f"CICLO | prova numero {n+1}: {conf}", flush=True)
     verdetto, margine, testo = un_giro(conf)
-    s = soglia(n + 1)
+    # la soglia si calcola sugli SGUARDI, non sulle righe scritte
+    s = soglia(sguardi + CONFRONTI_PER_GIRO)
     candidata = verdetto == "segnale" and margine is not None and margine >= s
     riga = {"quando": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
             "prova": n + 1, "configurazione": conf, "verdetto": verdetto,
             "margine": round(margine, 4) if margine is not None else None,
+            "confronti": CONFRONTI_PER_GIRO,
+            "sguardi_totali": sguardi + CONFRONTI_PER_GIRO,
             "soglia_richiesta": round(s, 4),
             "candidata": candidata,
             "stato": "IN ATTESA DI REVISIONE ESTERNA" if candidata else "scartata"}
@@ -108,7 +143,9 @@ def main():
         h.write(json.dumps(riga, ensure_ascii=False) + "\n")
     print(f"   verdetto: {verdetto}   margine "
           f"{'%.1f%%' % (100*margine) if margine is not None else 'n/d'}   "
-          f"soglia richiesta {100*s:.1f}% (sale col numero di prove: {n+1} finora)", flush=True)
+          f"soglia richiesta {100*s:.1f}% "
+          f"(sugli SGUARDI veri: {sguardi + CONFRONTI_PER_GIRO:,} confronti, "
+          f"non sulle {n+1} righe del registro)", flush=True)
     if candidata:
         # NESSUNA AUTO-APPROVAZIONE: da qui non esiste percorso verso «adottata».
         print("   === CANDIDATA ===  supera la soglia. NON e' una strategia: resta in attesa "
