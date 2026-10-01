@@ -924,5 +924,31 @@
   "obiezioni": [
    "CAMBI 13 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
   ]
+ },
+ {
+  "quando": "2026-10-01 11:56",
+  "motivo": "tre corsie ricostruivano lo stesso insieme: tre ore e mezza di lavoro identico su venti macchine",
+  "file": [
+   ".github/workflows/ciclo.yml",
+   ".github/workflows/prova_avanti.yml",
+   "PIANO_OTTOBRE.md",
+   "agents/ciclo_ipotesi.py",
+   "agents/combinazioni.py",
+   "agents/decisioni.py",
+   "agents/incidenti.py",
+   "agents/prendi_o_costruisci.py",
+   "agents/prima_di_cancellare.py",
+   "agents/rianima.py",
+   "agents/segreti_non_escono.py",
+   "data/autorizzazione.json",
+   "data/decisioni_stato.json",
+   "data/eccezioni_critico.json",
+   "data/prodotti.json",
+   "data/requisiti_stato.json",
+   "pubblica.sh"
+  ],
+  "obiezioni": [
+   "CAMBI 17 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
  }
 ]
