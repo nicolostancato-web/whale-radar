@@ -162,8 +162,16 @@ def ferme_e_rilanciate(quali=None):
             giri = json.load(_api(
                 f"https://api.github.com/repos/{repo}/actions/workflows/{corsia}.yml/runs?per_page=3",
                 tok)).get("workflow_runs", [])
-            if not giri or giri[0]["status"] != "completed":
-                continue                       # sta girando adesso: sta bene
+            # NON SI RILANCIA CHI HA GIA' UN GIRO IN CODA (1/10). Qui si guardava solo il giro
+            # PIU' RECENTE: se quello era gia' stato annullato mentre un altro era ancora in
+            # coda, la corsia sembrava muta e si rilanciava lo stesso. Con tre guardie
+            # indipendenti (questa, `guardiani`, l'osservatore sul Mac) il risultato era un giro
+            # ogni due minuti — 11:53, 11:55, 11:57 — nessuno dei quali faceva in tempo a
+            # partire su venti macchine condivise. Misurato il 1/10: `hook` fermo da 342 minuti
+            # con OTTO giri di fila annullati, nessuno fallito.
+            # Una corsia che aspetta un posto non e' una corsia ferma: rilanciarla la allontana.
+            if not giri or any(g["status"] != "completed" for g in giri):
+                continue
             # NON SI RILANCIA CHI FALLISCE SEMPRE PER LO STESSO MOTIVO (1/10).
             # `astra` fallisce perche' manca la chiave fra i segreti: un guasto DETERMINISTICO.
             # La rete la vedeva muta, la rilanciava, fallendo di nuovo — e Nicolo' riceveva una
