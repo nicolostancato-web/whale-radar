@@ -1,7 +1,9 @@
 {
- "quando": "2026-10-01T11:56:38",
+ "quando": "2026-10-01T12:50:39",
  "rispettate": [
+  "atomi-congelati",
   "astra-tre-al-giorno",
+  "due-revisori",
   "prova-una-volta-sola",
   "modello-congelato",
   "niente-soldi-veri",
@@ -17,8 +19,6 @@
   "regola-ripetizione",
   "decisioni-protette"
  ],
- "avvisi": {
-  "due-revisori": "il secondo revisore tace da 6 giorni"
- },
+ "avvisi": {},
  "violazioni_gravi": {}
 }
