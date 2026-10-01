@@ -40,9 +40,13 @@ QUANTILI = (0.2, 0.5, 0.8)
 
 COSTO = 0.018
 RITARDO = int(os.environ.get("RITARDO", 1))   # scambi di latenza: 1 e' il minimo reale
+# LA TAGLIA FA PARTE DELLA STRATEGIA (1/10): un vantaggio che esiste solo a $25 e muore a
+# $100 non e' un vantaggio, e' una curiosita'. Misurato il 30/09: fra quelle due taglie
+# ballano quindici punti di fondale.
+SOLDI = float(os.environ.get("SOLDI", 25.0))
 
 
-def esito_con_ritardo(x, soldi=25.0, ritardo=None):
+def esito_con_ritardo(x, soldi=None, ritardo=None):
     """L'esito comprando al prezzo OTTENIBILE, cioe' quello dello scambio successivo.
 
     IL PREZZO CHE VEDI NON E' QUELLO CHE PAGHI (30/09 notte). Il prezzo d'ingresso usato finora
@@ -52,6 +56,7 @@ def esito_con_ritardo(x, soldi=25.0, ritardo=None):
     combinazione da +207% a +0,9%. Cercare sul vecchio esito significa cercare l'irraggiungibile.
     """
     r = RITARDO if ritardo is None else ritardo
+    soldi = SOLDI if soldi is None else soldi
     cam = x.get("_cammino") or []
     if len(cam) <= r:
         return None

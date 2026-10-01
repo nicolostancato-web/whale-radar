@@ -916,5 +916,22 @@
    "agents/prima_di_cancellare.py",
    "agents/segreti_non_escono.py"
   ]
+ },
+ {
+  "quando": 1790836916,
+  "messaggio": "il piano di ottobre: la regola della ripetizione e il punto in cui si smette",
+  "file": [
+   "agents/decisioni.py",
+   "agents/incidenti.py",
+   "agents/rianima.py",
+   "data/autorizzazione.json",
+   "data/decisioni_stato.json",
+   "data/prodotti.json",
+   "data/requisiti_stato.json",
+   "pubblica.sh",
+   "PIANO_OTTOBRE.md",
+   "agents/prima_di_cancellare.py",
+   "agents/segreti_non_escono.py"
+  ]
  }
 ]
