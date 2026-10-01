@@ -31,13 +31,14 @@ jobs:
         # ogni giorno senza avvicinarsi. Una prova che dipende da me che lancio un comando non e'
         # una prova. Se lo costruisce lui, con la regola scritta nel contratto: 5° scambio, 168 ore.
         env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CHAIN: ${{ matrix.chain }}
           ENTRATA_SCAMBIO: "5"
           ORIZZONTE_ORE: "168"
           SUFFISSO: "sc5"
         run: |
           pip install -q numpy
-          python3 -B agents/insieme.py || echo "COSTRUZIONE ${{ matrix.chain }} FALLITA"
+          python3 -B agents/prendi_o_costruisci.py
       - name: Conta i pool nuovi senza guardare il rendimento
         # IL PUNTO DI QUESTA CORSIA E' CIO' CHE NON FA (30/09). La regola della prova in avanti sta
         # in PROVA_IN_AVANTI.md e dice: si guarda UNA volta sola, al traguardo di 1.500 pool nuovi.
