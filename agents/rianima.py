@@ -160,7 +160,7 @@ def ferme_e_rilanciate(quali=None):
     for corsia, limite in (quali or CRITICHE).items():
         try:
             giri = json.load(_api(
-                f"https://api.github.com/repos/{repo}/actions/workflows/{corsia}.yml/runs?per_page=3",
+                f"https://api.github.com/repos/{repo}/actions/workflows/{corsia}.yml/runs?per_page=10",
                 tok)).get("workflow_runs", [])
             # NON SI RILANCIA CHI HA GIA' UN GIRO IN CODA (1/10). Qui si guardava solo il giro
             # PIU' RECENTE: se quello era gia' stato annullato mentre un altro era ancora in
@@ -184,7 +184,16 @@ def ferme_e_rilanciate(quali=None):
                 continue
             # L'ORA DI GITHUB E' UTC E VA LETTA COME UTC: `time.mktime` la leggerebbe come locale
             # e `time.timezone` non tiene conto dell'ora legale. Errore gia' fatto due volte.
-            nato = dt.datetime.strptime(giri[0]["created_at"], "%Y-%m-%dT%H:%M:%SZ").replace(
+            # L'ETA' SI CONTA DALL'ULTIMO SUCCESSO, NON DALL'ULTIMO LANCIO (1/10). Si prendeva
+            # giri[0], il piu' recente qualunque fosse l'esito: tre annullamenti di fila — che
+            # non fanno nulla — rimettevano l'orologio a zero, e la guardia diceva «nei limiti»
+            # su `hook`, morta da sei ore. Un lancio non e' un lavoro.
+            vivi = [g for g in giri if g.get("conclusion") == "success"]
+            # nessun successo fra i giri guardati: si usa il piu' vecchio che si vede, cosi'
+            # l'eta' e' almeno quella — e la corsia passa dalla stessa porta di rilancio di
+            # tutte le altre, invece che da una scorciatoia tutta sua
+            riferimento = vivi[0] if vivi else giri[-1]
+            nato = dt.datetime.strptime(riferimento["created_at"], "%Y-%m-%dT%H:%M:%SZ").replace(
                 tzinfo=dt.timezone.utc)
             minuti = (dt.datetime.now(dt.timezone.utc) - nato).total_seconds() / 60
             if minuti < limite:
