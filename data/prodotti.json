@@ -953,5 +953,28 @@
    "agents/prima_di_cancellare.py",
    "agents/segreti_non_escono.py"
   ]
+ },
+ {
+  "quando": 1790855816,
+  "messaggio": "prendi o costruisci: l'insieme si scarica se c'e', si ricostruisce solo se manca",
+  "file": [
+   ".github/workflows/ciclo.yml",
+   ".github/workflows/prova_avanti.yml",
+   "agents/ciclo_ipotesi.py",
+   "agents/combinazioni.py",
+   "agents/decisioni.py",
+   "agents/incidenti.py",
+   "agents/rianima.py",
+   "data/autorizzazione.json",
+   "data/decisioni_stato.json",
+   "data/eccezioni_critico.json",
+   "data/prodotti.json",
+   "data/requisiti_stato.json",
+   "pubblica.sh",
+   "PIANO_OTTOBRE.md",
+   "agents/prendi_o_costruisci.py",
+   "agents/prima_di_cancellare.py",
+   "agents/segreti_non_escono.py"
+  ]
  }
 ]
