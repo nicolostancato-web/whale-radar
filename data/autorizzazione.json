@@ -1,12 +1,15 @@
 {
- "quando": 1790853747,
- "impronta": "5232bd29380f5ef9afbac8e49cd23d6986dbd7fd651a177d782ac7552ce8326c",
+ "quando": 1790855798,
+ "impronta": "5deccf7ad4eb95d2ef4b62894555c3f9271774b33660e434e5c0d4e69234dcc6",
  "file": [
+  ".github/workflows/ciclo.yml",
+  ".github/workflows/prova_avanti.yml",
   "PIANO_OTTOBRE.md",
   "agents/ciclo_ipotesi.py",
   "agents/combinazioni.py",
   "agents/decisioni.py",
   "agents/incidenti.py",
+  "agents/prendi_o_costruisci.py",
   "agents/prima_di_cancellare.py",
   "agents/rianima.py",
   "agents/segreti_non_escono.py",
