@@ -76,14 +76,54 @@ def esito_con_ritardo(x, soldi=None, ritardo=None):
     return max(-0.99, min(20.0, u))
 
 
-def carica(chain, suffisso="_sc5"):
+def carica(chain, suffisso=None):
+    """Carica l'insieme del momento d'ingresso chiesto, e URLA se non esiste.
+
+    LA DIMENSIONE FANTASMA (1/10). Qui c'era `suffisso="_sc5"` scritto fisso, mentre il ciclo
+    passava ENTRATA_SCAMBIO=5 e 25 come se fossero due esperimenti diversi. Non lo erano: le
+    dodici prove con ingresso 25 hanno dato margini IDENTICI a quelle con ingresso 5
+    (-12,1/-12,1, +5,5/+5,5, +3,4/+3,4). Meta' dello spazio di ricerca era un doppione contato
+    come prova indipendente.
+
+    E' `specification drift`: la configurazione dichiara una dimensione che il codice ignora.
+    Non si e' visto per due giorni perche' il fallimento era SILENZIOSO — il programma girava,
+    finiva, stampava un numero plausibile. Qui diventa rumoroso: se l'insieme del momento
+    chiesto non c'e', si esce con errore. Un dato che non esiste non deve poter diventare una
+    misura che somiglia a un'altra.
+    """
+    if suffisso is None:
+        suffisso = "_sc%s" % os.environ.get("ENTRATA_SCAMBIO", "5")
     p = f"data/loop1/insieme_{chain}{suffisso}.jsonl.gz"
+    if not os.path.exists(p):
+        raise SystemExit(
+            f"COMBINAZIONI | manca {p}: il momento d'ingresso "
+            f"{os.environ.get('ENTRATA_SCAMBIO', '5')} non ha un insieme costruito. "
+            f"NON ripiego sull'ingresso 5: ripiegare in silenzio e' come sono nate dodici "
+            f"prove finte.")
     r = [json.loads(l) for l in gzip.open(p, "rt") if l.strip()]
-    r = [x for x in r if x.get("_giudicabile") and x.get("_cammino")]
-    # l'esito su cui si cerca e' quello col prezzo ottenibile, non l'osservato
+    # I POOL CHE SPARIVANO (1/10, dal punto cieco che ha nominato Grok).
+    # «Mescolare gli esiti e tenere ferme le condizioni lascia in piedi il campione. Nel mazzo
+    # ci sono soltanto le righe con uno scambio successivo archiviato. Passa una regola
+    # correlata con "qui c'e' un print archiviato": vera nel file, ineseguibile sul mercato.»
+    #
+    # Qui `_bersaglio is None` veniva buttato via. Ma non e' un dato mancante: e' un ESITO.
+    # Vuol dire che dopo il nostro acquisto non c'e' mai piu' stato uno scambio, cioe' che da
+    # quella pool non si esce. Chi ci entra perde tutto. Buttarli via significava misurare il
+    # mercato solo dove per caso qualcuno ha continuato a scambiare.
+    # Misurato il 1/10: erano il 10,5% di robinhood e il 5,4% di base, e contarli sposta il
+    # fondale da -6,3% a -16,1%. Dieci punti: piu' di ogni vantaggio mai trovato.
+    giudicabili = [x for x in r if x.get("_giudicabile")]
+    senza_cammino = [x for x in giudicabili if not x.get("_cammino")]
+    r = [x for x in giudicabili if x.get("_cammino")]
     for x in r:
-        x["_bersaglio"] = esito_con_ritardo(x)
-    r = [x for x in r if x["_bersaglio"] is not None]
+        e = esito_con_ritardo(x)
+        # niente scambio successivo = non si esce mai = si perde tutto, meno la commissione
+        x["_bersaglio"] = -1.0 if e is None else e
+        x["_mai_uscito"] = e is None
+    mai = sum(1 for x in r if x["_mai_uscito"])
+    print(f"   mazzo: {len(r):,} pool, di cui {mai:,} da cui non si esce mai "
+          f"(contati -100%, NON tolti); {len(senza_cammino):,} senza prezzo d'ingresso, "
+          f"non entrabili", flush=True)
     r.sort(key=lambda x: x["_t"])
     return r
 
