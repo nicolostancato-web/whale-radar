@@ -119,6 +119,13 @@ def main():
             vecchio = {}
     nuovo = {}
     fermi = []
+    # DUE CAMPANE, NON UNA (1/10). Qui ogni cosa ferma faceva uscire con errore, e GitHub manda
+    # un'email per ogni errore: 32 email identiche in tre giorni, tutte intitolate «sentinella
+    # failed». Non erano guasti — era l'allarme che suonava. Ma un allarme che suona uguale per
+    # «una corsia e' indietro di tre ore» e per «si sta cancellando lavoro» si smette di
+    # leggerlo: e' `automation bias`, e si paga il giorno in cui quello vero arriva.
+    # Qui l'email parte solo per i GRAVI. Gli avvisi si stampano e si leggono quando si guarda.
+    avvisi = []
     for p, (minuti, nome) in SORVEGLIATI.items():
         n = quanti(p)
         if n is None:
@@ -134,7 +141,9 @@ def main():
         if cresciuto < 0:
             fermi.append(f"{nome}: SCESO da {v['n']:,} a {n:,} — si sta cancellando lavoro")
         elif passati >= minuti and cresciuto == 0:
-            fermi.append(f"{nome}: fermo a {n:,} da {passati:.0f} minuti (atteso entro {minuti})")
+            # grave solo se il ritardo e' oltre il TRIPLO dell'atteso: sotto, e' la coda
+            riga = f"{nome}: fermo a {n:,} da {passati:.0f} minuti (atteso entro {minuti})"
+            (fermi if passati > 3 * minuti else avvisi).append(riga)
         else:
             print(f"SENTINELLA | {nome}: {n:,} (+{cresciuto:,} in {passati:.0f} min)", flush=True)
     # si conserva la misura precedente quando non e' passato abbastanza tempo
@@ -171,6 +180,9 @@ def main():
                          f"{lanciata}.")
         else:
             print(f"SENTINELLA | repository {gb:.2f} GB su 10", flush=True)
+    if avvisi:
+        print("SENTINELLA | AVVISI (non mandano email, si leggono qui): "
+              + " | ".join(avvisi), flush=True)
     if fermi:
         testo = "whale-radar: qualcosa si e' fermato senza dare errori.\n\n" + "\n".join(fermi)
         print("SENTINELLA | " + " | ".join(fermi), flush=True)
