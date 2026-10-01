@@ -42,6 +42,25 @@ def _esiste(percorso, testo=None):
     return True, ""
 
 
+def _copia_parziale():
+    """Vero se questa copia di lavoro NON ha tutti i file del ramo.
+
+    GUARDIA CIECA, NON TRANQUILLA (1/10). Il controllo su Astra ha gridato GRAVE — «il
+    consulente e' muto da 37 ore» — mentre Astra aveva girato TRE volte quella mattina. Il
+    controllo leggeva la copia locale, che e' sparsa e non contiene i file pubblicati dalle
+    corsie. Aveva ragione sul suo disco e torto sul mondo.
+    E' la famiglia gia' nominata in rianima.py: «non sapere non e' sapere che va male», cosi'
+    come non e' sapere che va bene. Una guardia che non puo' vedere deve dirlo, non decidere.
+    """
+    import subprocess
+    try:
+        r = subprocess.run(["git", "-C", RADICE, "config", "core.sparseCheckout"],
+                           capture_output=True, text=True, timeout=10)
+        return r.stdout.strip().lower() == "true"
+    except Exception:
+        return False
+
+
 def _ore_da_ultimo(prefisso):
     """Quante ore dall'ultimo file che comincia per <prefisso>. None se non ce n'e' nessuno."""
     piu_nuovo = None
@@ -66,6 +85,10 @@ def c_astra_gira():
     if not ok:
         return False, "non esiste nessuna corsia che chiami il consulente: dipende dalla memoria"
     ore = _ore_da_ultimo("CONSULENZA_")
+    if _copia_parziale() and (ore is None or ore > 36):
+        return True, ("NON POSSO CONTROLLARE: questa copia e' sparsa e non contiene i file "
+                      "pubblicati dalle corsie. Il silenzio qui non e' il silenzio di Astra. "
+                      "Guarda le corse della corsia astra su GitHub.")
     if ore is None:
         return False, "non trovo nessuna consulenza pubblicata"
     if ore > 36:
@@ -76,6 +99,8 @@ def c_astra_gira():
 def c_secondo_revisore():
     """Due revisori esterni, non uno: Astra toglie le illusioni, Grok guarda altrove."""
     ore = _ore_da_ultimo("REVISIONE_GROK_")
+    if _copia_parziale() and (ore is None or ore > 96):
+        return True, "NON POSSO CONTROLLARE: copia sparsa, le revisioni pubblicate non ci sono"
     if ore is None:
         return False, "non trovo nessuna revisione del secondo revisore"
     if ore > 96:
@@ -267,7 +292,53 @@ def c_regola_ripetizione():
 
 # ---------------------------------------------------------------- le decisioni
 
+def c_atomi_congelati():
+    """Gli atomi non cambiano per via di un risultato gia' visto.
+
+    LA PREVISIONE DI GROK (1/10), parola per parola: «Entro 48 ore il -12,1% diventa una
+    condizione nuova — solo 25$, "taglia piccola rispetto al trade successivo", un quarto atomo —
+    stimata sullo stesso campione, e il registro non cresce perche' la riga di configurazione e'
+    la stessa. Il fallimento genera il segnale dopo e la fetta di giudizio e' consumata.»
+
+    E' esattamente la mossa che verrebbe naturale domani. Quindi non deve essere possibile farla
+    per distrazione: l'elenco degli attributi su cui si cercano le condizioni e' congelato con
+    un'impronta e una data. Se cambia, il controllo e' grave e si ferma tutto, finche' qualcuno
+    non scrive PERCHE' e' cambiato in data/atomi_perche.json. Cambiarli resta possibile: resta
+    impossibile cambiarli senza accorgersene.
+    """
+    import gzip, hashlib
+    f = os.path.join(RADICE, "data", "atomi_congelati.json")
+    if not os.path.exists(f):
+        return False, "manca data/atomi_congelati.json: l'elenco degli atomi non e' congelato"
+    atteso = json.load(open(f, encoding="utf-8"))
+    ins = os.path.join(RADICE, "data", "loop1", "insieme_robinhood_sc5.jsonl.gz")
+    if not os.path.exists(ins):
+        return True, f"insieme non in copia locale: {atteso['quanti']} atomi congelati il {atteso['congelati_il']}"
+    try:
+        r = json.loads(next(l for l in gzip.open(ins, "rt") if l.strip()))
+    except Exception as e:
+        return False, f"non riesco a leggere l'insieme per controllare gli atomi: {e}"
+    nomi = sorted(k for k in r if not k.startswith("_"))
+    h = hashlib.sha256(("|".join(nomi)).encode()).hexdigest()[:16]
+    if h == atteso["impronta"]:
+        return True, f"{len(nomi)} atomi, impronta invariata dal {atteso['congelati_il']}"
+    aggiunti = sorted(set(nomi) - set(atteso["atomi"]))
+    tolti = sorted(set(atteso["atomi"]) - set(nomi))
+    perche = os.path.join(RADICE, "data", "atomi_perche.json")
+    if os.path.exists(perche):
+        return True, f"atomi cambiati MA dichiarati in data/atomi_perche.json: +{aggiunti} -{tolti}"
+    return False, (f"ATOMI CAMBIATI SENZA DICHIARAZIONE: aggiunti {aggiunti}, tolti {tolti}. "
+                   f"Se l'atomo nuovo nasce da un risultato gia' visto, non e' una scoperta: "
+                   f"e' la stessa misura riletta. Scrivi data/atomi_perche.json.")
+
+
 DECISIONI = [
+ {"id": "atomi-congelati", "data": "2026-10-01", "chi": "Grok (revisione esterna)",
+  "gravita": "grave",
+  "testo": "Gli attributi su cui si cercano le condizioni sono congelati. Un atomo nuovo "
+           "motivato da un risultato gia' visto non e' una scoperta: e' la stessa misura "
+           "riletta sullo stesso campione.",
+  "controllo": c_atomi_congelati},
  {"id": "astra-tre-al-giorno", "data": "2026-09-23", "chi": "Nicolo'", "gravita": "grave",
   "testo": "Il consulente esterno si chiama fino a tre volte al giorno, e ogni strategia deve "
            "passare dal suo commento. E' un pezzo fondamentale: senza di lui non c'e' revisione.",

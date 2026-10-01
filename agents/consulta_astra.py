@@ -94,8 +94,26 @@ def oggi_e_conto():
     return oggi, int(d.get(oggi, 0)), d
 
 
+# LA DISTANZA MINIMA (1/10). Il tetto di tre al giorno c'era e ha retto, ma oggi le tre chiamate
+# sono partite alle 06:29, 11:55 e 11:57: due a DUE MINUTI di distanza, cioe' sullo stesso
+# identico stato del sistema. Il budget era rispettato e la consulenza valeva un terzo.
+# E' la stessa famiglia del `retry storm`: un freno sul TOTALE non e' un freno sul RITMO.
+# Tre pareri su tre stati diversi valgono tre volte tre pareri sullo stesso stato.
+DISTANZA_MINIMA_ORE = float(os.environ.get("DISTANZA_MINIMA_ORE", 3))
+
+
+def troppo_presto(cont):
+    """Quante ore mancano prima che una nuova consulenza abbia senso. 0 = si puo'."""
+    u = cont.get("ultima")
+    if not u:
+        return 0.0
+    passate = (time.time() - float(u)) / 3600.0
+    return max(0.0, DISTANZA_MINIMA_ORE - passate)
+
+
 def segna(oggi, d):
     d[oggi] = d.get(oggi, 0) + 1
+    d["ultima"] = time.time()
     limite = time.strftime("%Y-%m-%d", time.gmtime(time.time() - 7 * 86400))
     for k in [x for x in d if x < limite]:
         d.pop(k, None)
@@ -109,6 +127,13 @@ def main():
         print(f"ASTRA | oggi ne ho gia' fatte {fatte} su {MAX_AL_GIORNO}: NON spedisco. "
               f"Il freno sta qui, non sul cap del provider — quello se ne accorge a soldi spesi.",
               flush=True)
+        return
+
+    manca = troppo_presto(cont)
+    if manca > 0:
+        print(f"ASTRA | l'ultima consulenza e' di meno di {DISTANZA_MINIMA_ORE:.0f} ore fa: "
+              f"NON spedisco, mancano {manca:.1f} ore. Lo stato del sistema non e' cambiato "
+              f"abbastanza perche' un secondo parere valga qualcosa.", flush=True)
         return
 
     if not os.path.exists(FASCICOLO):
