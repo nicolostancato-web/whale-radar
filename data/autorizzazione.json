@@ -1,6 +1,6 @@
 {
- "quando": 1790860762,
- "impronta": "a2bdf64052283ef4bbeab1e61aca2804f5c15a9a23689bdd6d65b0e46e365893",
+ "quando": 1790860926,
+ "impronta": "9e220595242374f54c7d00471ebacaaec8de52e8c4afbecf2e22d4c85258a18b",
  "file": [
   ".github/workflows/ciclo.yml",
   ".github/workflows/prova_avanti.yml",
