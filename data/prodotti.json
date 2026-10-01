@@ -1004,5 +1004,35 @@
    "agents/prima_di_cancellare.py",
    "agents/segreti_non_escono.py"
   ]
+ },
+ {
+  "quando": 1790860782,
+  "messaggio": "le email: la sentinella separa gravi e avvisi, le guardie non rilanciano chi e' gia' in coda",
+  "file": [
+   ".github/workflows/ciclo.yml",
+   ".github/workflows/prova_avanti.yml",
+   "FASCICOLO_ASTRA.txt",
+   "agents/ciclo_ipotesi.py",
+   "agents/combinazioni.py",
+   "agents/consulta_astra.py",
+   "agents/dal_di_fuori.sh",
+   "agents/decisioni.py",
+   "agents/incidenti.py",
+   "agents/rianima.py",
+   "agents/sentinella.py",
+   "data/autorizzazione.json",
+   "data/decisioni_stato.json",
+   "data/eccezioni_critico.json",
+   "data/ipotesi_provate.jsonl",
+   "data/prodotti.json",
+   "data/requisiti_stato.json",
+   "pubblica.sh",
+   "PIANO_OTTOBRE.md",
+   "REVISIONE_GROK_2026-10-01_1300.md",
+   "agents/prendi_o_costruisci.py",
+   "agents/prima_di_cancellare.py",
+   "agents/segreti_non_escono.py",
+   "data/atomi_congelati.json"
+  ]
  }
 ]
