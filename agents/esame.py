@@ -78,11 +78,17 @@ def misura(chain):
                 freddi += 1
                 if bool(r.get("ver")) and r["ver"] >= VALIDA_DA.get(ch, 0):
                     freddi_ok += 1
+    # UNA PERCENTUALE SU ZERO NON E' ZERO: NON ESISTE (1/10, rilievo di Grok).
+    # Qui c'era `max(1, freddi)`: col denominatore a zero si divideva per uno e usciva «0,0%».
+    # Il 1/10 l'esame ha stampato «istanti chiesti alla catena 0,0%» su un campione di ZERO file,
+    # e quel numero si legge come una misura pulita invece che come un fallimento del controllo.
+    # Grok: «un fallimento stampato come tasso pulito». La funzione qui sotto, `coppie`, faceva
+    # gia' la cosa giusta (torna None se non c'e' popolazione): la stessa regola arriva anche qui.
     return {
         "righe": tot,
         "freddi": freddi,
-        "istanti_freddi": round(100 * freddi_ok / max(1, freddi), 1),
-        "marchi_sospetti": round(100 * sospetti / max(1, tot), 1),
+        "istanti_freddi": round(100 * freddi_ok / freddi, 1) if freddi else None,
+        "marchi_sospetti": round(100 * sospetti / tot, 1) if tot else None,
     }
 
 
@@ -129,8 +135,11 @@ def main():
                 ("coppie risolte", pc, SOGLIE["coppie"], ">=",
                  f"{tot_pop} pool della popolazione congelata")):
             if valore is None:
-                print(f"     {nome:<22} NON MISURABILE  (manca la popolazione congelata per "
-                      f"questa chain)")
+                # «non misurabile» NON e' «misurato zero»: il denominatore e' vuoto, quindi
+                # il controllo non ha guardato niente — e un controllo che non guarda niente
+                # deve bocciare, non rassicurare.
+                print(f"     {nome:<22} NON MISURABILE  (denominatore vuoto: su {su}) "
+                      f"— NON PASSA, perche' non e' stato guardato niente")
                 esiti.append(False)
                 continue
             ok = valore >= soglia if verso == ">=" else valore <= soglia
