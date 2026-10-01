@@ -1014,5 +1014,38 @@
   "obiezioni": [
    "CAMBI 24 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
   ]
+ },
+ {
+  "quando": "2026-10-01 13:22",
+  "motivo": "Due file, una causa: le guardie contavano l'eta' dal LANCIO invece che dall'ESITO, e tre annullamenti rimettevano l'orologio a zero su una corsia morta da sei ore.",
+  "file": [
+   ".github/workflows/ciclo.yml",
+   ".github/workflows/prova_avanti.yml",
+   "FASCICOLO_ASTRA.txt",
+   "PIANO_OTTOBRE.md",
+   "REVISIONE_GROK_2026-10-01_1300.md",
+   "agents/ciclo_ipotesi.py",
+   "agents/combinazioni.py",
+   "agents/consulta_astra.py",
+   "agents/dal_di_fuori.sh",
+   "agents/decisioni.py",
+   "agents/incidenti.py",
+   "agents/prendi_o_costruisci.py",
+   "agents/prima_di_cancellare.py",
+   "agents/rianima.py",
+   "agents/segreti_non_escono.py",
+   "agents/sentinella.py",
+   "data/atomi_congelati.json",
+   "data/autorizzazione.json",
+   "data/decisioni_stato.json",
+   "data/eccezioni_critico.json",
+   "data/ipotesi_provate.jsonl",
+   "data/prodotti.json",
+   "data/requisiti_stato.json",
+   "pubblica.sh"
+  ],
+  "obiezioni": [
+   "CAMBI 24 FILE INSIEME (massimo 12). Con questo numero non si capisce quale modifica ha prodotto l'effetto, e tornare indietro e' un lavoro. Spezza in piu' pubblicazioni, oppure dichiara MOTIVO=\"...\"."
+  ]
  }
 ]
