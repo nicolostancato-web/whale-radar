@@ -20,7 +20,7 @@ Rispondi con al massimo dieci rilievi, il piu' grave per primo, ognuno con la mi
 precisa che lo dimostra e cosa dovremmo misurare per smentirti.
 
 ======================================================================
-MISURE DEL 2026-10-01 12:34 UTC
+MISURE DEL 2026-10-03 09:58 UTC
 ======================================================================
 
 --- BASE ---
