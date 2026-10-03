@@ -1,0 +1,131 @@
+name: nascite
+# IL RECUPERO DELLE NASCITE PERDUTE.
+#
+# PERCHE' UNA CORSIA SUA (16/09). Le fette filtrano per righe.json NEL MOMENTO in cui passano, e non
+# tornano mai sui propri passi: un pool scoperto dopo che sono transitate dal suo blocco di nascita
+# resta senza storia per sempre. Su robinhood sono 354 pool su 768 — il 46% — ed e' la ragione
+# principale per cui l'audit di integrita' trova solo il 16% di finestre identiche.
+# Prima l'avevo messo dentro la corsia database, ma li' ha 420 secondi a giro e chiude una fascia
+# ogni sei giri: ottanta ore per farne 75, e intanto ruba tempo ai controlli. Qui ha due ore e mezza
+# per volta e il segnalibro delle fasce gia' chiuse, quindi finisce in un giorno senza dare fastidio.
+#
+# SOLO ROBINHOOD: base ha gia' il 97% delle nascite. Accendere una corsia per il 3% mancante sarebbe
+# esattamente il genere di lavoro che sembra diligenza e invece e' spreco.
+on:
+  workflow_dispatch: {}
+  schedule:
+      # L'OROLOGIO E' UNA RETE, NON UN MOTORE (30/09). Suonava ogni 20-30 minuti mentre il
+      # riarmo teneva la corsia gia' in movimento: ogni suonata finiva in coda e veniva
+      # ANNULLATA. Misurato: 36 cancellazioni su 73 giri, tutte inutili, e il rumore nascondeva
+      # le cancellazioni vere (i giri uccisi dal tempo massimo).
+      # Ora suona una volta all'ora: se la catena del riarmo si rompe, riparte da qui.
+    - cron: "27 * * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: nascite
+  cancel-in-progress: false
+jobs:
+  recupera:
+    runs-on: ubuntu-latest
+    timeout-minutes: 200
+    steps:
+      - uses: actions/checkout@v4
+      - name: Segna l'inizio
+        run: date +%s > /tmp/inizio_giro
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      # I POOL CHE HANNO SCAMBIATO E DI CUI NON ABBIAMO UNA RIGA (18/09). Non li prende lo scavo a
+      # fasce: sono nati fuori dai tratti coperti finora, e aspettare che ci arrivi vuol dire
+      # aspettare che lo scavo copra tutta la storia della chain. Qui si va dritti alla loro
+      # nascita, che gia' conosciamo. Sono 105, numerati in data/base_mai_letti.json: e' un lavoro
+      # che FINISCE, non una corsia perenne.
+      # VA PRIMA DEL RECUPERO NASCITE (18/09). Messo dopo, non partiva mai: il recupero ha
+      # 9.000 secondi di budget e li usa tutti, quindi il buco aspettava due ore e mezza ogni giro.
+      # E' un lavoro FINITO — 105 pool numerati — non una corsia perenne: fatto passare per primo si
+      # esaurisce in due giri e poi diventa un passo che non fa nulla, liberando la corsia per
+      # sempre. Un lavoro che finisce messo in coda a uno che non finisce mai non finisce mai.
+      - name: Buco base
+        env:
+          BUDGET_SEC: "2700"
+        run: python agents/buco_base.py
+      # ANCHE ROBINHOOD (19/09). L'agente ora calcola i bersagli da solo e vale per entrambe le
+      # chain: su robinhood sono pochi, ma «pochi» lo si sa solo guardando.
+      - name: Buco robinhood
+        env:
+          CHAIN: robinhood
+          BUDGET_SEC: "900"
+        run: python agents/buco_base.py
+      - name: Recupero nascite
+        env:
+          CHAIN: robinhood
+          BUDGET_SEC: "9000"
+          PAUSA: "0.35"
+        run: python agents/recupero_nascite.py
+      - name: Consegna senza toccare il ramo
+        # NON SPINGE PIU' (30/09). Con cinquantuno corsie che scrivevano su `main`, questa perdeva
+        # la gara e moriva, mandando una email di guasto al fondatore per un problema non suo.
+        # Consegna un pacco `consegna-*`: il pubblicatore li raccoglie tutti ed e' l'unico
+        # scrittore, e per gli archivi che si accumulano FONDE invece di sostituire.
+        #
+        # NON si converte una corsia che CANCELLA file (es. assottiglia): una consegna puo' solo
+        # aggiungere, e le cancellazioni non arriverebbero mai sul ramo.
+        if: always()
+        run: |
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          # UN FILE CANCELLATO NON DEVE UCCIDERE LA CONSEGNA (2/10). `git status` elenca anche
+          # i file CANCELLATI, e qui `[ -f "$F" ]` su uno di quelli e' falso: con `bash -e`,
+          # che GitHub usa di default, il passo moriva lì. E' successo appena ho collegato la
+          # fusione degli iniziatori, che cancella il file dei nuovi dopo averli uniti: 24.000
+          # transazioni fuse correttamente e MAI consegnate, perche' il passo dopo e' morto su
+          # un file che non c'era piu'.
+          # Con `if`/`fi` invece di `&&` il caso normale non e' piu' un errore.
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            if [ -f "$F" ]; then
+              mkdir -p "/tmp/consegna/$(dirname "$F")"
+              cp "$F" "/tmp/consegna/$F"
+            fi
+          done
+          echo "consegno $(find /tmp/consegna -type f | wc -l) file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-${{ github.workflow }}-${{ github.job }}-${{ strategy.job-index }}
+          path: /tmp/consegna/data
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: ignore
+      # IL RIARMO STA SOLO NEL LAVORO DEDICATO (30/09). Qui c'era anche, dentro un lavoro a
+      # MATRICE: una chiamata per fetta, piu' quella del lavoro dedicato. La coda ne tiene
+      # una e annulla le altre — tre cancellazioni su quattro, tutte finte, che coprivano
+      # quelle vere. Un riarmo per corsia, non per fetta.
+  riarmo:
+    needs: recupera
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Riarmo
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # RIARMO (25/09). GitHub SALTA i cron sui repository occupati, e il nostro lo e' sempre.
+          # Misurato: le corsie CON riarmo hanno girato 13-16 volte, quelle senza 1-4.
+          # «nascite» aveva girato UNA volta sola. Il meccanismo esisteva dal 22/09 su otto corsie
+          # e non era stato propagato: e' la condizione 2 della regola di auto-apprendimento —
+          # propagare il miglioramento a TUTTI i pezzi simili, non solo dove e' emerso.
+          sleep 120
+          for TENT in 1 2 3 4 5; do
+            CODICE=$(curl -s -o /tmp/r.out -w "%{http_code}" -X POST \
+              -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/nascite.yml/dispatches" \
+              -d '{"ref":"main"}')
+            if [ "$CODICE" = "204" ]; then echo "riarmata (tentativo $TENT)"; exit 0; fi
+            echo "riarmo respinto (HTTP $CODICE), tentativo $TENT"
+            case "$CODICE" in
+              5*|429|000) sleep $((TENT * 15)) ;;
+              *) echo "rifiuto definitivo"; cat /tmp/r.out; exit 1 ;;
+            esac
+          done
+          echo "NON SONO RIUSCITO A RIARMARMI dopo 5 tentativi"; exit 1

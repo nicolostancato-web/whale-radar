@@ -1,0 +1,127 @@
+name: riserve
+# L'ATTRIBUTO CHE MANCAVA AL DATABASE (22/09), trovato dal loop di ricerca su GitHub.
+# La ricerca ha segnalato che chi sorveglia questi mercati guarda i MOVIMENTI DI LIQUIDITA'.
+# Guardando cosa emette davvero un nostro pool — invece di fidarsi delle firme a memoria — si e'
+# visto che accanto a OGNI scambio c'e' un evento SYNC che porta le RISERVE del pool.
+#
+# La mattina stessa avevo scritto che le librerie di matematica degli AMM non ci servivano perche'
+# «partono dalle riserve, che noi non abbiamo». Le riserve ci sono: non le avevamo mai raccolte,
+# che e' una cosa diversa da non averle.
+#
+# Con queste si calcola l'impatto ESATTO di un ordine di qualunque dimensione, e si VEDE la
+# liquidita' sparire invece di indovinarla dall'impronta — la stima «un pool su undici» andava da
+# 2,3% a 9,2% a seconda di come si misurava, e per questo non la si poteva usare.
+#
+# Provato prima di accenderla: 6.183 letture su 606 pool in novanta secondi, allineata alla punta.
+# NON TOCCA I RACCOGLITORI ESISTENTI: scrive in una cartella sua.
+on:
+  workflow_dispatch:
+  schedule:
+      # L'OROLOGIO E' UNA RETE, NON UN MOTORE (30/09). Suonava ogni 20-30 minuti mentre il
+      # riarmo teneva la corsia gia' in movimento: ogni suonata finiva in coda e veniva
+      # ANNULLATA. Misurato: 36 cancellazioni su 73 giri, tutte inutili, e il rumore nascondeva
+      # le cancellazioni vere (i giri uccisi dal tempo massimo).
+      # Ora suona una volta all'ora: se la catena del riarmo si rompe, riparte da qui.
+      # L'OROLOGIO OGNI SEI ORE, NON OGNI ORA (30/09). Con il riarmo che funziona, ogni suonata
+      # dell'orologio arriva mentre la corsia sta gia' lavorando: finisce in coda e viene
+      # annullata. Diciassette corsie per ventiquattro suonate fanno quattrocento cancellazioni
+      # al giorno, e il rumore nasconde le cancellazioni vere.
+      # Resta come RETE: se la catena del riarmo si spezza, entro sei ore riparte.
+      # LA RETE DEVE ESSERE PIU' STRETTA DEL BUCO (30/09, imparata a caro prezzo).
+      # Stamattina ho portato questo orologio da un'ora a sei, ragionando che col riarmo
+      # funzionante le suonate erano solo rumore. Ma un giro ANNULLATO non esegue il passo di
+      # riarmo: la catena si spezza, e l'unica cosa che puo' riprenderla e' l'orologio.
+      # Alle 11:53 hook, scoperta e censimento sono stati annullati insieme. Sono rimasti fermi
+      # TRE ORE E MEZZA — raccolta dati e pubblicazione bloccate — perche' la rete successiva
+      # era a sei ore di distanza.
+      # Una rete piu' larga dell'intervallo in cui il guasto si presenta non e' una rete.
+    - cron: "44 * * * *"      # rete di sicurezza: i cron vengono saltati sui repo occupati
+
+concurrency:
+  group: riserve
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  # SERVE ANCHE `actions: write` PER POTERSI RIARMARE (22/09). Senza, la chiamata che rilancia la
+  # corsia viene rifiutata subito — il riarmo e' fallito in 3 secondi al primo giro, e le corsie
+  # che funzionano da giorni ce l'hanno tutte. Il ciclo dei tentativi ha fatto la cosa giusta:
+  # ha riconosciuto un rifiuto DEFINITIVO e non ha insistito cinque volte per niente.
+  actions: write
+
+jobs:
+  raccogli:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        # DUE VERSI IN PARALLELO (22/09 sera). «Avanti» tiene il presente allineato alla punta;
+        # «indietro» ricostruisce il passato, che non era perso — era solo mai stato chiesto.
+        # Provato: 202.752 letture su 4.169 pool in 75 secondi, 1,7 giorni di storia recuperati.
+        # A quel ritmo una settimana di passato si ricostruisce in pochi minuti di calcolo.
+        include:
+          - { chain: base,      verso: avanti }
+          - { chain: robinhood, verso: avanti }
+          - { chain: base,      verso: indietro }
+          - { chain: robinhood, verso: indietro }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Raccogli le riserve
+        env:
+          CHAIN: ${{ matrix.chain }}
+          VERSO: ${{ matrix.verso }}
+          # BUDGET AL 60% DEL TETTO (1/10). Era 20 min su un tetto di 30 (66%): il lavoro
+          # si fermava in tempo ma non restava spazio per salvare e consegnare, e il giro
+          # veniva annullato per tempo scaduto con tutto dentro. Trovato da
+          # agents/budget_e_tetto.py, che adesso boccia la pubblicazione se qualcuno ci torna.
+          BUDGET_SEC: "1080"
+        run: python agents/riserve.py
+
+      - name: Consegna invece di spingere
+        # NON SPINGE PIU' DA SOLA (1/10, chiesto da Nicolo': «annullami tutte ste email»).
+        # Questa corsia faceva il suo lavoro — 63.283 letture su 124 pool nell'ultimo giro — e
+        # poi falliva nel PUSH: venti tentativi, tutti respinti per contesa sul ramo, quattro
+        # fallimenti su dieci giri. Ogni fallimento era una email, e il lavoro del giro finiva
+        # nel cestino. Il commento qui sotto diceva «si perde il TEMPO, non i dati»: vero per un
+        # giro solo, falso quando il giro dopo fallisce uguale. Con zero successi su dieci, i
+        # dati si perdevano davvero.
+        # Adesso consegna un allegato e se ne va: il `pubblicatore` e' l'unico che scrive sul
+        # ramo, quindi non c'e' nessuna contesa da perdere. Una consegna puo' solo aggiungere.
+        if: always()
+        run: |
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          # UN FILE CANCELLATO NON DEVE UCCIDERE LA CONSEGNA (2/10). `git status` elenca anche
+          # i file CANCELLATI, e qui `[ -f "$F" ]` su uno di quelli e' falso: con `bash -e`,
+          # che GitHub usa di default, il passo moriva lì. E' successo appena ho collegato la
+          # fusione degli iniziatori, che cancella il file dei nuovi dopo averli uniti: 24.000
+          # transazioni fuse correttamente e MAI consegnate, perche' il passo dopo e' morto su
+          # un file che non c'era piu'.
+          # Con `if`/`fi` invece di `&&` il caso normale non e' piu' un errore.
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            if [ -f "$F" ]; then
+              mkdir -p "/tmp/consegna/$(dirname "$F")"
+              cp "$F" "/tmp/consegna/$F"
+            fi
+          done
+          echo "consegno $(find /tmp/consegna -type f | wc -l) file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-${{ github.workflow }}-${{ matrix.chain }}-${{ matrix.verso }}
+          path: /tmp/consegna/data
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: ignore
+
+# SENZA RIARMO: il riarmo dormiva dentro il lavoro, il tetto scadeva mentre dormiva e il giro
+# veniva annullato buttando anche il dato raccolto. Misurato l'1-2/10: 622 minuti-macchina al
+# giorno spesi a dormire, il 52% della capacita' di venti macchine — e il riarmo esisteva
+# perche' GitHub salta gli orologi sui repository OCCUPATI, mentre era proprio quel dormire a
+# tenerli occupati. Il rimedio alimentava la malattia.
+# Propagato DOPO la prova, non prima: hook 0 successi su 10 -> riuscita in 5 e 16 minuti;
+# censimento -> riuscita in 2 minuti due volte; iniziatori annullata a 35 due volte ->
+# riuscita in 22. Cinque successi su cinque occasioni.
+# Il motore e' l'orologio; la rete e' la maglia di guardie. Vedi RIARMI_CHE_DORMONO.md.

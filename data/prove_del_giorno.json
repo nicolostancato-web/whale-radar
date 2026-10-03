@@ -1,0 +1,45 @@
+{
+ "quando": 1790941483,
+ "giorni": 1,
+ "prove": {
+  "cambiamenti_veri": 11,
+  "scritture_delle_corsie": 73,
+  "righe_di_lezione_aggiunte": 3442,
+  "file_di_codice_toccati": 243,
+  "titoli_dei_cambiamenti": [
+   "database giro2 11:40Z",
+   "database giro1 10:55Z",
+   "database giro0 10:09Z",
+   "il nonce era gia' nella risposta e lo buttavamo: l'eta' vera di chi compra, a zero chiamate",
+   "il nonce era gia' nella risposta e lo buttavamo: l'eta' vera di chi compra, a zero chiamate",
+   "il nonce era gia' nella risposta e lo buttavamo: l'eta' vera di chi compra, a zero chiamate",
+   "il nonce era gia' nella risposta e lo buttavamo: l'eta' vera di chi compra, a zero chiamate",
+   "il nonce era gia' nella risposta e lo buttavamo: l'eta' vera di chi compra, a zero chiamate",
+   "il nonce era gia' nella risposta e lo buttavamo: l'eta' vera di chi compra, a zero chiamate",
+   "il nonce era gia' nella risposta e lo buttavamo: l'eta' vera di chi compra, a zero chiamate",
+   "il nonce era gia' nella risposta e lo buttavamo: l'eta' vera di chi compra, a zero chiamate"
+  ],
+  "documenti_prodotti": [
+   "RIARMI_CHE_DORMONO.md",
+   "REVISIONE_GROK_2026-10-01_1300.md",
+   "PIANO_OTTOBRE.md",
+   "INSIDER_ESISTONO.md",
+   "CORREZIONE_LATENZA.md",
+   "SQUADRE_E_FINANZIATORI.md"
+  ],
+  "ipotesi_registrate": [],
+  "verdetti_emessi": [],
+  "giri_di_ricerca": [
+   "REVISIONE_GROK_2026-10-01_1300.md"
+  ],
+  "azioni": {
+   "chiuse": 6,
+   "con_un_controllo": 5,
+   "aperte": 7
+  },
+  "lezioni": {
+   "verificata": 24,
+   "ipotesi": 7
+  }
+ }
+}

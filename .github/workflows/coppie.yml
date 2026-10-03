@@ -1,0 +1,150 @@
+name: coppie
+# QUATTRO IP INVECE DI UNO (18/09). Il nodo pubblico limita per indirizzo IP: misurato, da una
+# macchina sola si ottengono 0,24 pool al secondo e ne' i fili ne' i lotti cambiano nulla (tre fili
+# rendono 0,22, sei fili zero, i lotti da 10 rendono ZERO perche' il nodo tronca la risposta in
+# silenzio). A base restavano 4.349 indirizzi: cinque ore di chiamate pure.
+# Ogni lavoro qui gira su un runner con IP proprio, quindi quattro fette vanno quattro volte piu'
+# veloci. E' la stessa leva gia' usata per lo scavo storico.
+on:
+  workflow_dispatch:
+  schedule:
+      # L'OROLOGIO E' UNA RETE, NON UN MOTORE (30/09). Suonava ogni 20-30 minuti mentre il
+      # riarmo teneva la corsia gia' in movimento: ogni suonata finiva in coda e veniva
+      # ANNULLATA. Misurato: 36 cancellazioni su 73 giri, tutte inutili, e il rumore nascondeva
+      # le cancellazioni vere (i giri uccisi dal tempo massimo).
+      # Ora suona una volta all'ora: se la catena del riarmo si rompe, riparte da qui.
+    - cron: "17 * * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: coppie
+  cancel-in-progress: false
+jobs:
+  risolvi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        fetta: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Coppie base
+        env:
+          CHAIN: base
+          FETTA: ${{ matrix.fetta }}
+          N_FETTE: "4"
+          BUDGET_SEC: "1500"
+        run: python agents/coppie_token.py
+      - name: Consegna senza toccare il ramo
+        # NON SPINGE PIU' (29/09). Diciotto fallimenti oggi, tutti per contesa sul ramo: venti
+        # tentativi, poi morte, poi una email al fondatore per un problema che non era suo.
+        # Ora consegna un pacco `consegna-*` e scrive solo il pubblicatore.
+        if: always()
+        run: |
+          # SOLO I FILE CAMBIATI: consegnare tutta `data` vorrebbe dire spedire il repository.
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          # UN FILE CANCELLATO NON DEVE UCCIDERE LA CONSEGNA (2/10). `git status` elenca anche
+          # i file CANCELLATI, e qui `[ -f "$F" ]` su uno di quelli e' falso: con `bash -e`,
+          # che GitHub usa di default, il passo moriva lì. E' successo appena ho collegato la
+          # fusione degli iniziatori, che cancella il file dei nuovi dopo averli uniti: 24.000
+          # transazioni fuse correttamente e MAI consegnate, perche' il passo dopo e' morto su
+          # un file che non c'era piu'.
+          # Con `if`/`fi` invece di `&&` il caso normale non e' piu' un errore.
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            if [ -f "$F" ]; then
+              mkdir -p "/tmp/consegna/$(dirname "$F")"
+              cp "$F" "/tmp/consegna/$F"
+            fi
+          done
+          echo "consegno $(find /tmp/consegna -type f | wc -l) file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-${{ github.workflow }}-${{ github.job }}-${{ strategy.job-index }}
+          path: /tmp/consegna/data
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: ignore
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      # SI RIPRENDE LO STATO PIU' FRESCO PRIMA DI UNIRE (18/09). Al primo giro l'unione ha visto
+      # solo una parte delle fette e ha perso 839 coppie: il checkout di questo lavoro puo' essere
+      # anteriore all'ultima spinta delle fette, anche se le aspetta tutte. Rifacendo l'unione a
+      # mano sullo stato aggiornato, base passava dal 29% al 38%.
+      # Un fetch prima di unire costa un secondo e toglie di mezzo la corsa fra i lavori.
+      - name: Prendi le fette piu' recenti
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+      - name: Segna l'inizio
+        run: date +%s > /tmp/inizio_giro
+      - name: Unisci le fette
+        run: python agents/coppie_unisci.py
+      - name: Consegna senza toccare il ramo
+        # NON SPINGE PIU' (29/09). Diciotto fallimenti oggi, tutti per contesa sul ramo: venti
+        # tentativi, poi morte, poi una email al fondatore per un problema che non era suo.
+        # Ora consegna un pacco `consegna-*` e scrive solo il pubblicatore.
+        if: always()
+        run: |
+          # SOLO I FILE CAMBIATI: consegnare tutta `data` vorrebbe dire spedire il repository.
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          # UN FILE CANCELLATO NON DEVE UCCIDERE LA CONSEGNA (2/10). `git status` elenca anche
+          # i file CANCELLATI, e qui `[ -f "$F" ]` su uno di quelli e' falso: con `bash -e`,
+          # che GitHub usa di default, il passo moriva lì. E' successo appena ho collegato la
+          # fusione degli iniziatori, che cancella il file dei nuovi dopo averli uniti: 24.000
+          # transazioni fuse correttamente e MAI consegnate, perche' il passo dopo e' morto su
+          # un file che non c'era piu'.
+          # Con `if`/`fi` invece di `&&` il caso normale non e' piu' un errore.
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            if [ -f "$F" ]; then
+              mkdir -p "/tmp/consegna/$(dirname "$F")"
+              cp "$F" "/tmp/consegna/$F"
+            fi
+          done
+          echo "consegno $(find /tmp/consegna -type f | wc -l) file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-${{ github.workflow }}-${{ github.job }}-${{ strategy.job-index }}
+          path: /tmp/consegna/data
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: ignore
+      # IL RIARMO STA SOLO NEL LAVORO DEDICATO (30/09). Qui c'era anche, dentro un lavoro a
+      # MATRICE: una chiamata per fetta, piu' quella del lavoro dedicato. La coda ne tiene
+      # una e annulla le altre — tre cancellazioni su quattro, tutte finte, che coprivano
+      # quelle vere. Un riarmo per corsia, non per fetta.
+  riarmo:
+    needs: risolvi
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Riarmo
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # RIARMO (25/09). GitHub SALTA i cron sui repository occupati, e il nostro lo e' sempre.
+          # Misurato: le corsie CON riarmo hanno girato 13-16 volte, quelle senza 1-4.
+          # «nascite» aveva girato UNA volta sola. Il meccanismo esisteva dal 22/09 su otto corsie
+          # e non era stato propagato: e' la condizione 2 della regola di auto-apprendimento —
+          # propagare il miglioramento a TUTTI i pezzi simili, non solo dove e' emerso.
+          sleep 120
+          for TENT in 1 2 3 4 5; do
+            CODICE=$(curl -s -o /tmp/r.out -w "%{http_code}" -X POST \
+              -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/coppie.yml/dispatches" \
+              -d '{"ref":"main"}')
+            if [ "$CODICE" = "204" ]; then echo "riarmata (tentativo $TENT)"; exit 0; fi
+            echo "riarmo respinto (HTTP $CODICE), tentativo $TENT"
+            case "$CODICE" in
+              5*|429|000) sleep $((TENT * 15)) ;;
+              *) echo "rifiuto definitivo"; cat /tmp/r.out; exit 1 ;;
+            esac
+          done
+          echo "NON SONO RIUSCITO A RIARMARMI dopo 5 tentativi"; exit 1

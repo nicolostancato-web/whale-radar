@@ -1,0 +1,46 @@
+name: collector
+# REPARTO COLLECTOR: accumula STORICO (candele daily+orarie + whale + pressione) in file immutabili.
+# Seriale, pacato, resumable (checkpoint). Ogni 4h da IP GitHub (rate-limit fresco). Commit dati. €0.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "51 */2 * * *"   # ogni 3 ore
+permissions:
+  contents: write
+concurrency:
+  group: collector
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: python agents/collector.py || echo "ko, riprovo al prossimo giro"
+      # PERCHE' LA RIAPPLICAZIONE FALLIVA (30/09). Ogni corsia provava gia' `pull --rebase` e
+      # cadeva sulla fusione solo come ripiego. Ma la copia e' SUPERFICIALE (`--depth 1`): senza un
+      # antenato in comune la riapplicazione non puo' riuscire, quindi il ripiego scattava SEMPRE.
+      # Risultato: 28 commit su 100 erano fusioni, e la cronologia cresceva dieci volte i dati.
+      # `git fetch --deepen 50` costa pochi secondi e restituisce l'antenato.
+      - name: Salva dati (file immutabili)
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add data/ 2>/dev/null || true
+          git commit -m "collector $(date -u +%Y-%m-%dT%H:%MZ)" || { echo niente; exit 0; }
+          for i in 1 2 3; do
+            { git fetch --deepen 50 -q origin main 2>/dev/null || true; git pull --rebase --autostash -q origin main || git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main; } || true
+            git push origin main && exit 0; sleep 4
+          done
+          exit 0
+
+# SENZA RIARMO: il riarmo dormiva dentro il lavoro, il tetto scadeva mentre dormiva e il giro
+# veniva annullato buttando anche il dato raccolto. Misurato l'1-2/10: 622 minuti-macchina al
+# giorno spesi a dormire, il 52% della capacita' di venti macchine — e il riarmo esisteva
+# perche' GitHub salta gli orologi sui repository OCCUPATI, mentre era proprio quel dormire a
+# tenerli occupati. Il rimedio alimentava la malattia.
+# Propagato DOPO la prova, non prima: hook 0 successi su 10 -> riuscita in 5 e 16 minuti;
+# censimento -> riuscita in 2 minuti due volte; iniziatori annullata a 35 due volte ->
+# riuscita in 22. Cinque successi su cinque occasioni.
+# Il motore e' l'orologio; la rete e' la maglia di guardie. Vedi RIARMI_CHE_DORMONO.md.

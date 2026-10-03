@@ -1,0 +1,77 @@
+name: prova_avanti
+# SENZA RIARMO: e' un contabile, non una coda. Passa una volta al giorno, guarda i pool nuovi e
+# aggiorna il conteggio. Riarmarsi occuperebbe un posto macchina per rifare lo stesso conto.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "50 5 * * *"
+concurrency:
+  group: prova_avanti
+  cancel-in-progress: false
+jobs:
+  conta:
+    # UNA CHAIN PER LAVORO (30/09). Il primo giro costruiva robinhood E base in sequenza dentro un
+    # lavoro solo: tre ore e ancora in corso, con il tempo massimo a 170 minuti addosso. Avrebbe
+    # sbattuto contro il limite e sarebbe stato ANNULLATO — cioe' fallito in silenzio, senza email,
+    # ogni notte. Separate, ognuna ha il suo tempo.
+    strategy:
+      fail-fast: false
+      matrix:
+        chain: [robinhood, base]
+    runs-on: ubuntu-latest
+    timeout-minutes: 170   # costruisce l'insieme al 5o scambio: e' la parte lenta
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Costruisce il suo dato da sola
+        # IL CONTABILE DEVE PRODURSI L'INPUT (30/09, lacuna trovata mezz'ora dopo averlo scritto).
+        # Leggeva `insieme_<chain>_sc5.jsonl.gz`, che costruivo A MANO: nessuna corsia lo rifaceva,
+        # quindi il contabile avrebbe contato zero pool nuovi per sempre, dicendo «servono 1.500»
+        # ogni giorno senza avvicinarsi. Una prova che dipende da me che lancio un comando non e'
+        # una prova. Se lo costruisce lui, con la regola scritta nel contratto: 5° scambio, 168 ore.
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CHAIN: ${{ matrix.chain }}
+          ENTRATA_SCAMBIO: "5"
+          ORIZZONTE_ORE: "168"
+          SUFFISSO: "sc5"
+        run: |
+          pip install -q numpy
+          python3 -B agents/prendi_o_costruisci.py
+      - name: Conta i pool nuovi senza guardare il rendimento
+        # IL PUNTO DI QUESTA CORSIA E' CIO' CHE NON FA (30/09). La regola della prova in avanti sta
+        # in PROVA_IN_AVANTI.md e dice: si guarda UNA volta sola, al traguardo di 1.500 pool nuovi.
+        # Una prova che dipende dalla mia disciplina non e' una prova: qui il rendimento non viene
+        # nemmeno stampato finche' il traguardo non arriva.
+        env:
+          OGGI: ${{ github.run_started_at }}
+        run: |
+          CHAIN=${{ matrix.chain }} python3 -B agents/prova_avanti.py \
+            || echo "PROVA AVANTI ${{ matrix.chain }} FALLITA"
+      - name: Consegna senza toccare il ramo
+        if: always()
+        run: |
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          # UN FILE CANCELLATO NON DEVE UCCIDERE LA CONSEGNA (2/10). `git status` elenca anche
+          # i file CANCELLATI, e qui `[ -f "$F" ]` su uno di quelli e' falso: con `bash -e`,
+          # che GitHub usa di default, il passo moriva lì. E' successo appena ho collegato la
+          # fusione degli iniziatori, che cancella il file dei nuovi dopo averli uniti: 24.000
+          # transazioni fuse correttamente e MAI consegnate, perche' il passo dopo e' morto su
+          # un file che non c'era piu'.
+          # Con `if`/`fi` invece di `&&` il caso normale non e' piu' un errore.
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            if [ -f "$F" ]; then
+              mkdir -p "/tmp/consegna/$(dirname "$F")"
+              cp "$F" "/tmp/consegna/$F"
+            fi
+          done
+          echo "consegno $(find /tmp/consegna -type f | wc -l) file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-prova-avanti-${{ matrix.chain }}
+          path: /tmp/consegna/data
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: ignore

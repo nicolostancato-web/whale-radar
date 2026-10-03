@@ -1,0 +1,238 @@
+STATO COMPLETO — whale-radar
+aggiornato 22 settembre 2026, sera
+
+===============================================================================
+IN TRE RIGHE
+===============================================================================
+Il database ha passato l'esame ed e' stato verificato contro la catena con codice
+indipendente (160 record su 160 corretti). La macchina del loop 1 e' finita: sei
+pezzi su sei. E abbiamo capito una cosa che cambia il progetto: il loop 1 non puo'
+studiare il passato — dev'essere una macchina che guarda avanti.
+
+===============================================================================
+1. IL DATABASE — PASSATO, E VERIFICATO DA FUORI
+===============================================================================
+
+                              base        robinhood     soglia
+  istanti verificati          100%        100%          >= 95%    PASSA
+  dati mal marcati            0,0%        0,0%          <= 0,5%   PASSA
+  coppie di token risolte     100%        100%          >= 95%    PASSA
+
+  VERDETTO: PASSA tutte le condizioni dichiarate
+
+CONTROLLO INDIPENDENTE (codice che non usa le nostre etichette, chiede alla catena):
+  160 record scelti a caso -> 160 corretti, zero errori.
+
+Dimensioni: base ~2,2 milioni di record su ~15.000 pool; robinhood ~4,2 milioni su
+~33.000 pool.
+
+PERCHE' QUESTA VOLTA CI CREDIAMO. Alle 02:00 di stanotte lo stesso esame era verde
+E MENTIVA: le tre verifiche che avevo fatto usavano tutte la stessa etichetta,
+scritta dal mio stesso codice. La revisione esterna l'ha demolita in una riga —
+«hai dimostrato il superamento dei cancelli secondo i TUOI verificatori» — e il
+controllo indipendente ha trovato il 17% dei dati di base sbagliato.
+La causa: chiedendo gli orari a gruppi, abbinavamo le risposte ai blocchi per
+POSIZIONE invece che per numero di blocco. Il nodo di base tronca i gruppi, le
+posizioni saltavano, e ogni blocco riceveva l'orario di un altro — risultando
+«verificato».
+
+===============================================================================
+2. LA SCOPERTA CHE CAMBIA IL PROGETTO
+===============================================================================
+Del PASSATO ci mancano tre cose, tutte misurate oggi:
+
+  l'inizio della vita dei pool    manca sul 74% (base) e 91% (robinhood)
+  le riserve, cioe' la liquidita' mancano sul 95-98%
+  la latenza che avremmo avuto    non ricostruibile
+
+Un vantaggio trovato sul passato sarebbe costruito su tre assenze: non sapremmo
+quando il pool e' nato, quanta liquidita' c'era, ne' se avremmo potuto vendere.
+
+QUINDI IL LOOP 1 NON E' UNA MACCHINA DA BACKTEST. E' una macchina che ANNOTA i
+segnali oggi, con i dati completi che da oggi raccogliamo, e li valuta quando la
+finestra si chiude.
+Non e' un ripiego, e' piu' solido: un risultato ottenuto in avanti non puo' essere
+contaminato dal futuro, per definizione.
+
+E spiega il vincolo: non aspettiamo dati per fare un backtest — aspettiamo che la
+macchina abbia qualcosa da giudicare.
+
+===============================================================================
+3. LA MACCHINA DEL LOOP 1 — FINITA, SPENTA
+===============================================================================
+Sei pezzi, tutti costruiti oggi e provati sui dati veri:
+
+ 1. MOTORE A VUOTO — quanto facilmente la macchina trova cose che non esistono.
+    Su 40 mercati costruiti SENZA alcun vantaggio: promuove 0 volte.
+    Su mercati con un vantaggio VERO dentro: lo trova 6 volte su 10, e indovina
+    sempre la condizione giusta. Non si inventa niente, ed e' prudente.
+
+ 2. IMPATTO REALE — quanto muove il prezzo un ordine, misurato su 912.628 scambi
+    veri: mediano 0,45%. Il vecchio motore usava 15% FISSO per ogni pool.
+
+ 3. VENDIBILITA' — in quel pool qualcuno e' mai riuscito a USCIRE?
+    Un pool su sei e' uno da cui praticamente nessuno esce. Li contavamo come
+    guadagni normali.
+
+ 4. AGGRESSIONI A PANINO — chi si infila prima e dopo il tuo ordine.
+    Circa 1 scambio su 100. Costo reale ma contenuto.
+
+ 5. POPOLAZIONE POINT-IN-TIME — chi si studia, deciso senza guardare il futuro.
+    La regola vecchia («>=20 scambi nell'intervallo») contava scambi fatti DOPO il
+    momento della decisione: fra il 12% e il 31% della popolazione attuale e' fatta
+    di pool entrati per merito del loro futuro.
+
+ 6. REGISTRO DEI SEGNALI — si scrive prima, e il voto arriva da solo quando la
+    finestra scade. Sei stati, non due: chi e' stato rifiutato, chi ha tentato e
+    fallito PAGANDO i costi, chi ha comprato e NON e' riuscito a vendere.
+    Alla prima accensione ha smascherato un difetto invece di produrre un
+    risultato — vedi sotto.
+
+IL LOOP 1 RESTA SPENTO: tutte le sue corsie sono disabilitate.
+
+===============================================================================
+4. IL LOOP DI RICERCA SU GITHUB — COSA HA PRODOTTO IN UN GIORNO
+===============================================================================
+L'idea del fondatore: la' fuori ci sono decine di squadre che hanno fatto i nostri
+due mesi, ognuna partendo da un'idea diversa. Consultarle non e' cercare codice —
+e' comprare esperienza gia' pagata da altri.
+
+PRESO E VERIFICATO SUI NOSTRI DATI (4):
+  - il controllo di vendibilita'  -> un pool su sei e' una trappola
+  - l'impatto misurato            -> 0,45% contro il 15% assunto
+  - le aggressioni a panino       -> 1 scambio su 100
+  - il confronto con uno studio esterno su 832.941 token:
+       loro 68,7% di token morti entro 24h, noi 68,2%.
+       E' la prima verifica dei nostri dati contro qualcosa di completamente
+       fuori dal nostro sistema, e l'abbiamo passata.
+
+DUE BUCHI STRUTTURALI TROVATI, ED ERANO NOSTRI:
+  - NON VEDEVAMO LE NASCITE dei pool. Esisteva un agente scritto il 16/09 — il suo
+    stesso commento lo definiva «la scoperta piu' importante finora» — e NESSUNA
+    CORSIA LO LANCIAVA. Adesso gira: 250 nascite all'ora su base.
+    Questo spiega la lamentela vecchia di mesi: «becchiamo i token buoni ma TARDI».
+    Non era il filtro lento: erano i dati ad arrivare tardi.
+  - NON RACCOGLIEVAMO LE RISERVE. Accanto a ogni scambio la catena emette un evento
+    con la liquidita' del pool. La mattina stessa avevo scritto che «le riserve non
+    le abbiamo»: non le avevamo mai raccolte, che e' un'altra cosa. Ora si'.
+
+CHIUSO CON UNA MISURA (2) — e vale quanto una strada aperta, perche' libera settimane:
+  - SEGUIRE I PORTAFOGLI VINCENTI: chi andava bene nel primo periodo, nel secondo
+    fa +0,01% su base e +0,14% su robinhood. Il costo di UN solo scambio e' 0,45%.
+    Il vantaggio e' sotto il costo di esecuzione. Filone chiuso.
+  - LANCI COORDINATI: campioni da 20 e 7 pool, direzioni opposte fra le chain.
+    Rumore. Ma inseguendo il PERCHE' non funzionava siamo arrivati alle nascite.
+
+UN PEZZO DI SPAZIO DI RICERCA ELIMINATO:
+  chi fa entrate rapide modella 100-200 MILLISECONDI di latenza. La nostra,
+  misurata, e' 1-3 secondi mediani e fino a 15 minuti. Siamo da dieci a mille volte
+  piu' lenti: le strategie «sniper» per noi non esistono, e il loop 1 non deve
+  nemmeno cercarle.
+
+===============================================================================
+5. DUE ERRORI MIEI, CORRETTI IN GIORNATA
+===============================================================================
+Li scrivo perche' il modo in cui sono venuti fuori e' il metodo.
+
+  «C'E' UN DIFETTO NEI PREZZI (decimali non normalizzati)». FALSO: avevo
+  diagnosticato una causa dopo aver guardato tre esempi, senza verificarla. Era un
+  singolo scambio anomalo e il mio uso del massimo.
+
+  «UN POOL SU UNDICI FINISCE IN CIMA (fuga con la cassa)». NON REGGE: applicando il
+  criterio di riproducibilita' preso la mattina stessa — rifallo cambiando
+  un'impostazione — il numero va da 2,3% a 9,2%. Il fenomeno esiste, il numero no.
+  Il criterio ha bocciato un mio risultato un'ora dopo che l'avevo adottato.
+
+E una terza, piu' utile: il registro dei segnali ha prodotto rendimenti da SEI
+MILIARDI percento. Ho creduto a un difetto di calcolo, sono andato a sostituire il
+prezzo con quello dalle riserve, e ho misurato: le riserve sono migliori nel caso
+tipico ma PEGGIORI negli estremi. Quindi non era un errore — sono eventi VERI:
+quando la liquidita' viene svuotata il prezzo esplode davvero, e l'incasso non
+esiste. La correzione giusta non era il prezzo: era pretendere che ci sia liquidita'
+nel momento in cui si esce.
+
+===============================================================================
+6. COSA GIRA ADESSO (otto corsie)
+===============================================================================
+  riparazione, storico, vivo, popolazione, coppie   il database
+  scoperta                                          le nascite, 250/ora
+  riserve                                           la liquidita', nuova
+  guardiani                                         sicurezza e costi, ogni 3h
+
+Il loop 0 (osservatorio) e' stato sistemato: distingue tre stati invece di due —
+funziona / fermo per decisione / rotto. Prima gridava 36 guasti che erano nostre
+scelte, e sotto quel rumore erano sepolti due guardiani fermi da QUATTRO GIORNI: il
+controllo delle credenziali su repo pubblico e quello dei costi.
+
+Solana: FERMA per decisione del 21/09. Dati intatti.
+
+===============================================================================
+7. COSTI
+===============================================================================
+Tutto a zero tranne il revisore esterno:
+  Astra (GPT-6) via API: 0,19 dollari in tutto su 3 chiamate, 1 consulenza al giorno
+  credito prepagato residuo ~10,6 dollari
+  ATTENZIONE APERTA: la ricarica automatica su OpenAI era ON senza limite mensile.
+  Va spenta, altrimenti il prepagato non e' un tetto.
+Repo pubblico = GitHub Actions gratis (se diventasse privato: ~346 $/mese).
+
+===============================================================================
+8. LE DATE
+===============================================================================
+  database                 FATTO (22/09)
+  macchina del loop 1      FATTA (22/09), spenta
+  accumulo dati in diretta in corso: base 24,6%, robinhood 39,6% dei record
+  PARTENZA                 circa una settimana
+
+La settimana e' il vincolo, e adesso si capisce meglio perche': il loop 1 giudichera'
+segnali annotati in avanti, e servono abbastanza segnali con finestra chiusa per
+poter dire qualcosa. Non si accorcia col codice.
+
+===============================================================================
+9. LA COSA DA RICORDARE
+===============================================================================
+In ventiquattro ore il database e' passato da «esame superato» a «17% di dati
+sbagliati» e di nuovo a «superato e verificato da fuori». La differenza fra le due
+volte non e' stata la bravura: e' stata l'esistenza di un revisore esterno che
+poteva dire di no, e di un controllo che non usava le nostre etichette.
+
+E il loop di ricerca ha prodotto in un giorno due buchi strutturali e due filoni
+chiusi. Nessuno dei quattro veniva da una nostra intuizione: venivano dal guardare
+cosa guardano gli altri, e accorgersi di cosa non guardavamo noi.
+
+
+## 23/09 notte — TROVATA LA SUCCESSIONE DI PATTERN (e demolite sei versioni sbagliate)
+
+RISULTATO: su robinhood, due condizioni al momento dell'ingresso quasi TRIPLICANO la probabilita'
+che un token faccia +50% o piu'.
+
+  Le condizioni, a 2 ore dal primo scambio visto:  >= 11 compratori distinti  E  >= 73 scambi
+
+  token che fanno    nel gruppo scelto   a caso    il caso fa meglio in
+  >= +25%                  18,4%          6,8%           0,0%
+  >= +50%                   9,5%          3,4%           0,0%
+  >= +100%                  4,8%          1,4%           0,2%
+  (147 pool scelti su 1.004 — su 400 mescolate casuali NESSUNA eguaglia le prime due soglie)
+
+SU BASE NON E' STABILITO: 37 pool scelti, i "successi" sono due token in tutto, e sulla misura
+robusta base va PEGGIO del non fare niente (16% di pool in guadagno contro 19% della chain intera).
+
+LA LEZIONE DI METODO, che vale piu' del numero: la MEDIA era la misura sbagliata dall'inizio.
+Sei versioni del risultato ("+63%", "+41%", "+12,9%", "+7 punti", "zero") erano tutte la stessa
+cosa: stavo misurando un singolo token fortunato, non una strategia. Togliendo i 3 token migliori,
+il +80% di base diventa -9,4%. La misura giusta e' una FREQUENZA, che un singolo token non sposta.
+
+TRE FALLE CHIUSE (tutte trovate dal revisore esterno Astra, nessuna da me):
+ 1. il momento della decisione guardava nel futuro ("un quarto della vita osservata" — la vita
+    osservata si conosce solo alla fine) -> ora 2 ore fisse dal primo scambio
+ 2. i pool in cui si entrava e non si usciva piu' venivano SCARTATI, cioe' si cancellavano i
+    fallimenti totali -> ora contano -98%
+ 3. "29 regole che reggono" non erano 29 conferme: toccano 263 pool distinti e ogni pool compare in
+    13 regole su 29 -> da ora si contano i pool distinti, mai le regole
+
+DATABASE: passa tutte le condizioni dell'esame su entrambe le chain (100% istanti, 0,0% marchi
+sospetti, 100% coppie).
+
+PROSSIMA PROVA, scritta PRIMA di vederne l'esito: sui pool che nascono da domani su robinhood,
+applicare le due condizioni dal vivo. Se in 150 pool scelti la quota di +50% non arriva almeno al
+7%, la successione di pattern non regge e si butta.
