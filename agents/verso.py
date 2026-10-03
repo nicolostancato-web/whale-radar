@@ -80,6 +80,51 @@ VALUTE = {
 }
 
 
+def valuta_lato(chain, pool):
+    """(quale lato e' la valuta: 't0' o 't1', decimali, prezzo in dollari) — o None.
+
+    PERCHE' SERVE IL LATO (3/10). `valuta(x, meme_t0)` prende la quantita' del lato che NON e'
+    il memecoin, deducendolo dalla mappa del verso. Se quella mappa sbaglia per un pool, prende
+    la quantita' del MEMECOIN — e su un token con mille miliardi di unita' e 18 decimali diventa
+    un importo in dollari astronomico.
+    Misurato il 3/10: due indirizzi risultavano aver perso 12,09 e 4,2 MILIONI di dollari, il
+    93% di tutte le perdite misurate. Quei due indirizzi hanno ZERO transazioni e saldo ZERO
+    sull'esploratore: non avevano scambiato niente. Il totale di «sedici milioni persi dal
+    mercato» era interamente un errore di unita' mio.
+    Qui il lato della valuta si legge DALLA FONTE (`coppie.json`), non si deduce: se il token in
+    `t0` e' una valuta nota, la valuta e' t0. Un fatto invece di un'inferenza.
+    """
+    p = f"data/multichain/{chain}/coppie.json"
+    if not os.path.exists(p):
+        return None
+    try:
+        v = json.load(open(p))["coppie"].get(pool.lower()) or {}
+    except Exception:
+        return None
+    for k in ("t0", "t1"):
+        a = (v.get(k) or "").lower()
+        if a in VALUTE:
+            d, pr = VALUTE[a]
+            return k, d, pr
+    return None
+
+
+def quantita_lato(x, lato):
+    """La quantita' grezza del lato chiesto, in valore assoluto."""
+    try:
+        return abs(float(x["a0" if lato == "t0" else "a1"]))
+    except Exception:
+        return 0.0
+
+
+def entra_valuta(x, lato):
+    """Vero se la VALUTA entra nel pool, cioe' se qualcuno sta COMPRANDO il memecoin."""
+    try:
+        return float(x["a0" if lato == "t0" else "a1"]) > 0
+    except Exception:
+        return False
+
+
 def valuta_del_pool(chain, pool):
     """(decimali, prezzo in dollari) della valuta di quel pool, o None se non la conosciamo."""
     p = f"data/multichain/{chain}/coppie.json"
