@@ -20,24 +20,24 @@ Rispondi con al massimo dieci rilievi, il piu' grave per primo, ognuno con la mi
 precisa che lo dimostra e cosa dovremmo misurare per smentirti.
 
 ======================================================================
-MISURE DEL 2026-10-02 18:25 UTC
+MISURE DEL 2026-10-03 17:17 UTC
 ======================================================================
 
 --- BASE ---
-  istanti chiesti alla catena: 94.1% dei record
-    (campione di 1075 file, 95919 righe, scelto per nome)
+  istanti chiesti alla catena: 94.3% dei record
+    (campione di 1131 file, 99222 righe, scelto per nome)
   marchi sospetti: 0.0%  <-- record che avevo marchiato
     'verificato' per errore il 20/09, e che vanno ancora ricontrollati
-  pool nel registro: 24629   coppie note: 30259
-  pool che hanno scambiato: 114843
+  pool nel registro: 26160   coppie note: 31935
+  pool che hanno scambiato: 118356
 
 --- ROBINHOOD ---
-  istanti chiesti alla catena: 94.6% dei record
-    (campione di 2019 file, 179961 righe, scelto per nome)
+  istanti chiesti alla catena: 94.7% dei record
+    (campione di 2097 file, 184505 righe, scelto per nome)
   marchi sospetti: 0.0%  <-- record che avevo marchiato
     'verificato' per errore il 20/09, e che vanno ancora ricontrollati
-  pool nel registro: 50970   coppie note: 60230
-  pool che hanno scambiato: 395143
+  pool nel registro: 53656   coppie note: 63107
+  pool che hanno scambiato: 401515
 
 --- METRO CONGELATO ---
   Il denominatore e' fissato in data/popolazione_congelata.json e NON si muove,
