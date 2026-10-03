@@ -1,6 +1,6 @@
 {
- "quando": 1791019222,
- "impronta": "72ce0a895bc97e76b711d26a64e457b2e288ffe20104d9db17c5ce3f76be9c5f",
+ "quando": 1791021199,
+ "impronta": "bfd464dbbec7b41bdc9e6c392974caea30738035705d3dcb2b9c6d0b689ab468",
  "file": [
   ".github/workflows/censimento.yml",
   ".github/workflows/ciclo.yml",
@@ -40,6 +40,7 @@
   "FLOTTE_CHI_PAGA.md",
   "FLOTTE_PRIMO_SGUARDO.md",
   "INSIDER_ESISTONO.md",
+  "LOOP2_CHI_VINCE.md",
   "PIANO_OTTOBRE.md",
   "RECOVERY_whale-radar.md",
   "REVISIONE_GROK_2026-10-01_1300.md",
