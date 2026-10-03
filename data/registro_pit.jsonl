@@ -3025,4 +3025,4 @@
 {"acq": 1791023202, "agente": "multichain_trades", "fonte": "geckoterminal", "chain": "base", "quanti": 0, "giro": "37111213339", "dettaglio": {"pool_interrogati": 90}}
 {"acq": 1791023358, "agente": "multichain_trades", "fonte": "geckoterminal", "chain": "solana", "quanti": 12, "giro": "37111213339", "dettaglio": {"pool_interrogati": 90}}
 {"acq": 1791023359, "agente": "pulse", "fonte": "dexscreener+geckoterminal", "chain": "tutte", "quanti": 0, "giro": "37111213339"}
-{"acq": 1791026834, "agente": "storico_evm", "fonte": "catena", "chain": "robinhood", "quanti": 155, "giro": "37111223780", "dettaglio": {"chiamate": 216, "blocchi": 32365736, "fetta": 2}}
+{"acq": 1791026922, "agente": "storico_evm", "fonte": "catena", "chain": "robinhood", "quanti": 21, "giro": "37111223780", "dettaglio": {"chiamate": 213, "blocchi": 28219037, "fetta": 3}}
