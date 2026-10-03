@@ -1,6 +1,6 @@
 {
- "quando": 1791021199,
- "impronta": "bfd464dbbec7b41bdc9e6c392974caea30738035705d3dcb2b9c6d0b689ab468",
+ "quando": 1791022663,
+ "impronta": "9653c35ef36df9be5902c1f9b1ffd08281edef6c99990e2e03d1133439388ee9",
  "file": [
   ".github/workflows/censimento.yml",
   ".github/workflows/ciclo.yml",
@@ -44,6 +44,7 @@
   "PIANO_OTTOBRE.md",
   "RECOVERY_whale-radar.md",
   "REVISIONE_GROK_2026-10-01_1300.md",
+  "REVISIONE_GROK_2026-10-03_DATABASE.md",
   "RIARMI_CHE_DORMONO.md",
   "SQUADRE_E_FINANZIATORI.md",
   "agents/a_fette.py",
