@@ -214,6 +214,55 @@ def carica(chain, suffisso=None):
                 print(f"   troppo poche pool col passato noto: l'attributo non entra "
                       f"nella ricerca", flush=True)
 
+    # IL PASSATO DELL'ENTITA', NON DEL SINGOLO INDIRIZZO (3/10, idea di Nicolo').
+    # «I portafogli con percentuali di successo collegati a main wallet»: una mano usa molti
+    # indirizzi, e il passato di un indirizzo nuovo e' vuoto per costruzione. Il passato della
+    # MANO non lo e'. Il legame che non si cambia a costo zero e' chi paga le prime commissioni.
+    # Stessa regola di onesta' di insider_storia: si usano solo le monete il cui esito era NOTO
+    # almeno sei ore prima della decisione. Senza quel vincolo compare un vantaggio che e'
+    # informazione dal futuro — misurato il 1/10: +16% che svaniva a zero.
+    percorso_fin = f"data/multichain/{chain}/finanziatori.json.gz"
+    if os.path.exists(percorso_ins) and os.path.exists(percorso_fin):
+        import collections
+        try:
+            fin = json.load(gzip.open(percorso_fin, "rt")).get("da", {})
+        except Exception:
+            fin = {}
+        if fin:
+            quante = collections.Counter(fin.values())
+            storia_e = collections.defaultdict(list)
+            chiusura = float(os.environ.get("ORE_CHIUSURA", 6)) * 3600
+            noti = 0
+            for x in r:
+                chi = primi.get(x.get("_pool")) or []
+                mani = {fin[w] for w in chi if w in fin}
+                lim = x["_t"] - chiusura
+                pre = [[e for t, e in storia_e[m] if t <= lim] for m in mani]
+                pre = [h for h in pre if h]
+                if pre:
+                    x["entita_storia"] = float(np.mean([np.mean(h) for h in pre]))
+                    x["entita_quante_mani"] = len(pre)
+                    x["entita_portafogli"] = max(quante[m] for m in mani)
+                    noti += 1
+                else:
+                    x["entita_storia"] = None
+                    x["entita_quante_mani"] = 0
+                    x["entita_portafogli"] = 0
+                for m in mani:
+                    storia_e[m].append((x["_t"], x["_bersaglio"]))
+            print(f"   passato dell'ENTITA' noto per {noti:,} pool su {len(r):,} "
+                  f"({100*noti/max(1,len(r)):.0f}%), {len(quante):,} mani conosciute", flush=True)
+            # come per insider_storia: un attributo assente in meta' delle righe fa inciampare
+            # la ricerca in silenzio. Entra solo se c'e' abbastanza materiale.
+            if noti >= 500:
+                r = [x for x in r if x.get("entita_storia") is not None]
+            else:
+                for x in r:
+                    for k in ("entita_storia", "entita_quante_mani", "entita_portafogli"):
+                        x.pop(k, None)
+                print(f"   troppo poche pool con una mano nota: l'attributo non entra "
+                      f"nella ricerca", flush=True)
+
     import bisect
     tempi = [x["_t"] for x in r]
     for i, x in enumerate(r):
