@@ -1,5 +1,5 @@
 # 🧱 QUALITÀ DEL TERRENO — il database serve a qualcosa?
-*2026-10-03 11:41 UTC · controllo continuo · €0*
+*2026-10-03 12:25 UTC · controllo continuo · €0*
 
 > Gli altri controlli chiedono **«il sistema gira?»**. Questo chiede **«quello che sta
 > entrando serve a qualcosa?»**. Un collettore che funziona benissimo e produce dati che non
@@ -10,13 +10,13 @@
 | controllo | esito | numero | perché |
 |---|---|---|---|
 | base: feature scambi vive | 🔴 **FALLISCE** | 6.9 | solo 133 righe su 1923 hanno scambi veri; le altre usano il valore di ripiego |
-| base: freschezza | 🔴 **FALLISCE** | 275.3 | il dato piu' recente nel campione ha 275.3 ore (letto DENTRO i file, non dalla data del file) |
+| base: freschezza | 🔴 **FALLISCE** | 276.1 | il dato piu' recente nel campione ha 276.1 ore (letto DENTRO i file, non dalla data del file) |
 | finestra dell'embargo | 🔴 **FALLISCE** | -27.7 | entrata a +3h meno ritardo 30.7h → NESSUNO scambio puo' mai entrare |
 | robinhood: feature scambi vive | 🔴 **FALLISCE** | 0.0 | solo 0 righe su 797 hanno scambi veri; le altre usano il valore di ripiego |
-| robinhood: freschezza | 🔴 **FALLISCE** | 295.4 | il dato piu' recente nel campione ha 295.4 ore (letto DENTRO i file, non dalla data del file) |
+| robinhood: freschezza | 🔴 **FALLISCE** | 296.1 | il dato piu' recente nel campione ha 296.1 ore (letto DENTRO i file, non dalla data del file) |
 | robinhood: scambi orfani | 🔴 **FALLISCE** | 73.2 | 4083 file su 5577 non si uniscono a nessuna serie di prezzo |
 | solana: feature scambi vive | 🔴 **FALLISCE** | 16.4 | solo 129 righe su 787 hanno scambi veri; le altre usano il valore di ripiego |
-| solana: freschezza | 🔴 **FALLISCE** | 383.3 | il dato piu' recente nel campione ha 383.3 ore (letto DENTRO i file, non dalla data del file) |
+| solana: freschezza | 🔴 **FALLISCE** | 384.1 | il dato piu' recente nel campione ha 384.1 ore (letto DENTRO i file, non dalla data del file) |
 | solana: scambi orfani | 🔴 **FALLISCE** | 65.3 | 3093 file su 4734 non si uniscono a nessuna serie di prezzo |
 | base: scambi orfani | 🟡 **ATTENZIONE** | 29.7 | 663 file su 2232 non si uniscono a nessuna serie di prezzo |
 | base: serie con scambi | 🟡 **ATTENZIONE** | 31.8 | 1569 su 4934 |
