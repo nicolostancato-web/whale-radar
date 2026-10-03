@@ -1,10 +1,10 @@
 {
- "quando": "2026-10-03T13:02:14Z",
+ "quando": "2026-10-03T17:08:49Z",
  "dove": "allegati della Release \u00abinsiemi\u00bb",
  "file": {
   "insieme_base.jsonl.gz": {
-   "byte": 2870875,
-   "impronta": "bd2b34aeca6b686c"
+   "byte": 2880167,
+   "impronta": "7746fa215aaaa65e"
   },
   "insieme_base_cam168.jsonl.gz": {
    "byte": 3949091,
@@ -99,8 +99,8 @@
    "impronta": "a53486710e95145d"
   },
   "insieme_robinhood.jsonl.gz": {
-   "byte": 6698739,
-   "impronta": "c6148649e881e3f3"
+   "byte": 6721754,
+   "impronta": "0bef919784a46c04"
   },
   "insieme_robinhood_cam168.jsonl.gz": {
    "byte": 8583155,
