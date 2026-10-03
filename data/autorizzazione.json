@@ -1,6 +1,6 @@
 {
- "quando": 1791020859,
- "impronta": "0361837731d985a9d8031a1a5fb12e45eb6c918a21a3800bdbf42aa71887884b",
+ "quando": 1791021199,
+ "impronta": "bfd464dbbec7b41bdc9e6c392974caea30738035705d3dcb2b9c6d0b689ab468",
  "file": [
   ".github/workflows/censimento.yml",
   ".github/workflows/ciclo.yml",
