@@ -85,6 +85,30 @@
    "perche": "Misurato: ordinando per questo, il quinto peggiore fa -24% (robinhood) e -48% (base), il migliore -0,3% e -3,7%. Sopravvive a due attacchi: il passato CHIUSO da sei ore (senza quella regola compariva un +16% che era futuro) e il controllo coi donatori della stessa ora (una parte era il momento, non le persone). Restano 16 e 20 punti attribuibili alle persone.",
    "non_nasce_da_un_risultato": "Nasce dalla convinzione di Nicolo' che esistano insider, espressa prima di qualunque misura, e dal materiale che era gia' sul disco.",
    "regola_che_lo_rende_onesto": "Si usano SOLO monete precedenti il cui esito era gia' noto almeno sei ore prima della decisione. Senza quel vincolo e' informazione dal futuro, e il positivo svanisce."
+  },
+  {
+   "quando": "2026-10-03",
+   "atomo": "entita_storia",
+   "cosa_misura": "la media degli esiti delle monete PRECEDENTI della MANO che finanzia i primi compratori, chiuse da almeno sei ore",
+   "perche": "Idea di Nicolo: «portafogli con percentuali di successo collegati a main wallet». Una mano usa molti indirizzi, e il passato di un indirizzo NUOVO e vuoto per costruzione: il passato della MANO non lo e. Il legame che non si cambia a costo zero e chi paga le prime commissioni.",
+   "non_nasce_da_un_risultato": "Nasce dallo shift deciso il 3/10 — dal grafico a chi vince — prima di qualunque misura su questi attributi.",
+   "regola_che_lo_rende_onesto": "Solo monete il cui esito era noto almeno sei ore prima della decisione, come insider_storia. Senza quel vincolo compare un vantaggio che e informazione dal futuro."
+  },
+  {
+   "quando": "2026-10-03",
+   "atomo": "entita_quante_mani",
+   "cosa_misura": "di quante mani finanziatrici conosciamo il passato, fra quelle dietro i primi compratori",
+   "perche": "Idea di Nicolo: «portafogli con percentuali di successo collegati a main wallet». Una mano usa molti indirizzi, e il passato di un indirizzo NUOVO e vuoto per costruzione: il passato della MANO non lo e. Il legame che non si cambia a costo zero e chi paga le prime commissioni.",
+   "non_nasce_da_un_risultato": "Nasce dallo shift deciso il 3/10 — dal grafico a chi vince — prima di qualunque misura su questi attributi.",
+   "regola_che_lo_rende_onesto": "Solo monete il cui esito era noto almeno sei ore prima della decisione, come insider_storia. Senza quel vincolo compare un vantaggio che e informazione dal futuro."
+  },
+  {
+   "quando": "2026-10-03",
+   "atomo": "entita_portafogli",
+   "cosa_misura": "quanti portafogli controlla la mano piu' grande fra quelle presenti",
+   "perche": "Idea di Nicolo: «portafogli con percentuali di successo collegati a main wallet». Una mano usa molti indirizzi, e il passato di un indirizzo NUOVO e vuoto per costruzione: il passato della MANO non lo e. Il legame che non si cambia a costo zero e chi paga le prime commissioni.",
+   "non_nasce_da_un_risultato": "Nasce dallo shift deciso il 3/10 — dal grafico a chi vince — prima di qualunque misura su questi attributi.",
+   "regola_che_lo_rende_onesto": "Solo monete il cui esito era noto almeno sei ore prima della decisione, come insider_storia. Senza quel vincolo compare un vantaggio che e informazione dal futuro."
   }
  ]
 }
