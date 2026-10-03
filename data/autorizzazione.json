@@ -1,6 +1,6 @@
 {
- "quando": 1790989099,
- "impronta": "e2a054291e390fbf9fa5c3b540c4ab5c104c0f2bbac39b505364547fd3e08038",
+ "quando": 1791019222,
+ "impronta": "72ce0a895bc97e76b711d26a64e457b2e288ffe20104d9db17c5ce3f76be9c5f",
  "file": [
   ".github/workflows/censimento.yml",
   ".github/workflows/ciclo.yml",
@@ -76,6 +76,7 @@
   "agents/rianima.py",
   "agents/segreti_non_escono.py",
   "agents/sentinella.py",
+  "agents/verso.py",
   "data/atomi_congelati.json",
   "data/atomi_perche.json",
   "data/atomi_usati.json",
