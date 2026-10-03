@@ -55,6 +55,7 @@ def main():
           f"{len(verso):,} pool con il verso noto", flush=True)
     conti = {}
     letti = saltati = senza_valuta = 0
+    assurdi = [0, 0.0]
     giro_piu_lungo = 0.0
     file_tutti = []
     for c in CARTELLE:
@@ -71,15 +72,11 @@ def main():
             break
         inizio = time.time()
         pool = os.path.basename(percorso).split(".")[0]
-        meme_t0 = verso.get(pool)
-        if meme_t0 is None:
-            saltati += 1
-            continue
-        vp = V.valuta_del_pool(CHAIN, pool)
+        vp = V.valuta_lato(CHAIN, pool)
         if not vp:
             senza_valuta += 1
             continue
-        decimali, in_dollari = vp
+        lato, decimali, in_dollari = vp
         try:
             righe = [json.loads(l) for l in gzip.open(percorso, "rt") if l.strip()]
         except Exception:
@@ -91,12 +88,21 @@ def main():
             chi = mappa.get(str(x.get("tx", "")).lower())
             if not chi:
                 continue
-            q = V.valuta(x, meme_t0)
+            q = V.quantita_lato(x, lato)
             if q <= 0:
                 continue
             dollari = (q / (10 ** decimali)) * in_dollari
+            # UN IMPORTO ASSURDO SI DICHIARA, NON SI SOMMA (3/10). Prima bastava un pool col
+            # verso sbagliato per attribuire dodici milioni di dollari a un indirizzo che non
+            # ha mai fatto una transazione, e quel numero finiva in un totale senza farsi
+            # vedere. Sopra il milione per singolo scambio su una moneta appena nata non e'
+            # un affare: e' un'unita' sbagliata. Si conta a parte e si stampa.
+            if dollari > 1_000_000:
+                assurdi[0] += 1
+                assurdi[1] += dollari
+                continue
             d = per_pool.setdefault(chi, {"compra": 0.0, "vende": 0.0})
-            d["vende" if V.e_vendita(x, meme_t0) else "compra"] += dollari
+            d["vende" if not V.entra_valuta(x, lato) else "compra"] += dollari
         for chi, d in per_pool.items():
             c = conti.setdefault(chi, {"speso": 0.0, "incassato": 0.0,
                                        "chiuso_speso": 0.0, "chiuso_incassato": 0.0,
@@ -120,6 +126,9 @@ def main():
                    for kk, vv in v.items()} for k, v in conti.items()}, open(pezzo, "w"))
     chiusi = [c for c in conti.values() if c["pool_chiusi"] >= 1]
     vincenti = [c for c in chiusi if c["chiuso_incassato"] > c["chiuso_speso"]]
+    if assurdi[0]:
+        print(f"PROFITTO | {assurdi[0]:,} scambi sopra il milione di dollari SCARTATI "
+              f"(${assurdi[1]:,.0f} in tutto): sono unita' sbagliate, non affari", flush=True)
     print(f"PROFITTO | {CHAIN}: {len(conti):,} persone su {letti:,} pool letti "
           f"({saltati:,} senza verso, {senza_valuta:,} senza valuta nota)", flush=True)
     print(f"PROFITTO | di chi ha almeno un pool CHIUSO ({len(chiusi):,}): "
