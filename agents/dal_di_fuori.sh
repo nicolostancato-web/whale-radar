@@ -172,7 +172,11 @@ fi
 python3 -B "$(dirname "$0")/cammino_posizioni.py"
 # IL CONTROLLO DI INTEGRITA' (9/10): sei verifiche sul database, a ogni giro. Un buco nei dati si
 # scopre quando li si analizza, e allora i cinque giorni sono passati e non si rifanno.
-python3 -B "$(dirname "$0")/integrita_database.py" || echo "   DAL DI FUORI | controllo integrita non girato" || echo "   DAL DI FUORI | prova in avanti non girata"
+# UN `|| echo` DI TROPPO (11/10). Questa riga portava in coda anche «prova in avanti non
+# girata», rimasto attaccato quando ho spostato quel messaggio dentro il blocco con l'allarme:
+# se l'integrita' fosse fallita, avrebbe stampato un motivo FALSO. Nessun danno finora perche'
+# non e' mai fallita — ed e' il tipo di bugia che si scopre solo nel giorno brutto.
+python3 -B "$(dirname "$0")/integrita_database.py" || echo "   DAL DI FUORI | controllo integrita non girato"
 # il peso del repository si MISURA a ogni giro (vedi quanto_pesa.py): al limite si ferma tutto
 python3 agents/quanto_pesa.py || echo "   PESO | metro non disponibile"
 
