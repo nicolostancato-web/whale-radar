@@ -1,0 +1,435 @@
+{
+ "run_id": "12951981f97b",
+ "ts": 1791249113,
+ "ts_utc": "2026-10-06T01:11:53Z",
+ "versione_prompt": "v1-2026-09-16",
+ "modello": "grok-4.20-0309",
+ "domanda": "Cerca su X memecoin / token meme che in questo momento mostrano una crescita ANOMALA\nE RECENTE dell'attenzione sociale.\n\nNON dirmi quale token salira'. NON dirmi cosa comprare. Non mi interessa la tua opinione sul\nprezzo. Mi interessa SOLO evidenza osservabile di attenzione.\n\nPer ogni token che trovi, riporta quello che vedi davvero nei post:\n- quante menzioni e da quanti account DISTINTI (se non lo sai, scrivi null)\n- rispetto a prima, l'attenzione e' accelerata? di quanto?\n- QUANDO sembra iniziata l'accelerazione (ora approssimativa UTC)\n- la discussione sembra organica o coordinata/promozionale?\n- c'e' una narrativa o un evento nuovo che la spiega?\n- segni di spam, bot, account appena creati, stesso testo ripetuto\n\nClassifica ciascun token in una di queste quattro:\n  A = attenzione che sta INIZIANDO adesso\n  B = attenzione GIA' ESPLOSA (il picco sembra passato)\n  C = attenzione COSTANTE, nessuna accelerazione\n  D = probabile SPAM o promozione artificiale\n\nCerco soprattutto la A. Un token famoso di cui si parla sempre non mi serve.\n\nRispondi SOLO con un oggetto JSON valido, senza testo attorno, in questa forma:\n{\"token\": [{\"symbol\": \"...\", \"contract\": null, \"chain\": null, \"classe\": \"A\",\n  \"menzioni\": null, \"account_distinti\": null, \"accelerazione\": \"...\",\n  \"inizio_accelerazione_utc\": null, \"organica\": true, \"narrativa\": \"...\",\n  \"indizi_spam\": \"...\", \"evidenza\": \"...\", \"confidenza\": 0.0}]}\n\nSe un dato non lo sai, scrivi null. NON inventare numeri: un numero inventato qui rovina\nl'esperimento piu' di un dato mancante.",
+ "risposta_grezza": {
+  "created_at": 1791249113,
+  "completed_at": 1791249138,
+  "id": "329302f8-59c3-90f6-b396-33397cd7ad1e",
+  "max_output_tokens": null,
+  "model": "grok-4.20-0309-reasoning",
+  "object": "response",
+  "output": [
+   {
+    "id": "rs_329302f8-59c3-90f6-b396-33397cd7ad1e",
+    "summary": [
+     {
+      "text": "Sto cercando su X (Twitter) memecoin con crescita anomala e recente dell'attenzione sociale.\n\nPer ogni token rilevato, analizzerò le menzioni e gli account distinti, l'accelerazione rispetto al passato, la data di inizio, la natura organica o promozionale della discussione, i nuovi narrative e i segnali di spam. Classificherò ogni caso in base a questi criteri.\n\nHo definito le quattro classi: A per attenzione iniziata ora, B per picco già superato, C per costante, D per spam o promozione artificiale. Cercherò solo casi A. Escluderò i token già celebri. La risposta sarà esclusivamente JSON valido.\n\nHo individuato gli strumenti X disponibili per la ricerca. Rilevare l'attenzione anomala e recente è complesso: devo distinguere un picco improvviso da una discussione costante.\n\nPer individuare i token emergenti userò filtri temporali stretti nelle ricerche X. L'accelerazione dell'attenzione richiede analisi di serie storiche che gli strumenti attuali non forniscono direttamente.\n\nHo scartato termini troppo generici come \"just launched\" o \"pumping\" perché spesso promozionali. Opto per query semantiche più mirate e filtri temporali recenti. Ho notato che la data corrente è il 6 ottobre 2026.",
+      "type": "summary_text"
+     }
+    ],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-0139d00b-0d5c-4d98-8854-87c71754ce4a-0",
+    "input": "{\"query\":\"(memecoin OR \\\"meme coin\\\" OR memecoins) (pumping OR \\\"to the moon\\\" OR viral OR exploding OR \\\"just launched\\\" OR \\\"attention\\\" OR trending) since:2026-10-05 min_faves:10 -filter:replies\",\"limit\":\"10\",\"mode\":\"Latest\"}",
+    "name": "x_keyword_search",
+    "type": "custom_tool_call",
+    "id": "ctc_329302f8-59c3-90f6-b396-33397cd7ad1e_call-0139d00b-0d5c-4d98-8854-87c71754ce4a-0",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-0139d00b-0d5c-4d98-8854-87c71754ce4a-1",
+    "input": "{\"query\":\"memecoins or meme tokens with recent sudden spike in social attention or going viral now on X\",\"limit\":\"5\",\"from_date\":\"2026-10-05\",\"min_score_threshold\":\"0.2\"}",
+    "name": "x_semantic_search",
+    "type": "custom_tool_call",
+    "id": "ctc_329302f8-59c3-90f6-b396-33397cd7ad1e_call-0139d00b-0d5c-4d98-8854-87c71754ce4a-1",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-0139d00b-0d5c-4d98-8854-87c71754ce4a-2",
+    "input": "{\"query\":\"$ (solana OR pump.fun OR raydium) (moon OR pump OR viral) since:2026-10-06\",\"limit\":\"5\",\"mode\":\"Latest\"}",
+    "name": "x_keyword_search",
+    "type": "custom_tool_call",
+    "id": "ctc_329302f8-59c3-90f6-b396-33397cd7ad1e_call-0139d00b-0d5c-4d98-8854-87c71754ce4a-2",
+    "status": "completed"
+   },
+   {
+    "id": "tco_329302f8-59c3-90f6-b396-33397cd7ad1e_call-0139d00b-0d5c-4d98-8854-87c71754ce4a-0",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "id": "tco_329302f8-59c3-90f6-b396-33397cd7ad1e_call-0139d00b-0d5c-4d98-8854-87c71754ce4a-2",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "id": "tco_329302f8-59c3-90f6-b396-33397cd7ad1e_call-0139d00b-0d5c-4d98-8854-87c71754ce4a-1",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-0139d00b-0d5c-4d98-8854-87c71754ce4a-3",
+    "input": "{\"query\":\"(glungus OR $glungus OR \\\"glungus coin\\\" OR @glungus_coin) since:2026-10-04\",\"limit\":\"10\",\"mode\":\"Latest\"}",
+    "name": "x_keyword_search",
+    "type": "custom_tool_call",
+    "id": "ctc_329302f8-59c3-90f6-b396-33397cd7ad1e_call-0139d00b-0d5c-4d98-8854-87c71754ce4a-3",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-0139d00b-0d5c-4d98-8854-87c71754ce4a-4",
+    "input": "{\"query\":\"(1096361 OR \\\"MemeBitcoin\\\" OR \\\"Meme Bitcoin\\\" OR 1096361BTC OR \\\"$1096361\\\") since:2026-10-04\",\"limit\":\"5\",\"mode\":\"Latest\"}",
+    "name": "x_keyword_search",
+    "type": "custom_tool_call",
+    "id": "ctc_329302f8-59c3-90f6-b396-33397cd7ad1e_call-0139d00b-0d5c-4d98-8854-87c71754ce4a-4",
+    "status": "completed"
+   },
+   {
+    "id": "tco_329302f8-59c3-90f6-b396-33397cd7ad1e_call-0139d00b-0d5c-4d98-8854-87c71754ce4a-3",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "id": "tco_329302f8-59c3-90f6-b396-33397cd7ad1e_call-0139d00b-0d5c-4d98-8854-87c71754ce4a-4",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "content": [
+     {
+      "type": "output_text",
+      "text": "{\n  \"token\": []\n}",
+      "logprobs": [],
+      "annotations": [
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2107184919713923246",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2107184919713923246"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2107157476181504500",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2107157476181504500"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2107152713800647164",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2107152713800647164"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2107256798260457582",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2107256798260457582"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2107258096750108866",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2107258096750108866"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2107146374005366843",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2107146374005366843"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2107256408328872080",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2107256408328872080"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2107256010838864325",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2107256010838864325"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2107157762354417719",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2107157762354417719"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2107197374242476220",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2107197374242476220"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2107151148767649946",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2107151148767649946"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2107259083149705306",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2107259083149705306"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2107258097165279673",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2107258097165279673"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2106935869060067796",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2106935869060067796"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2107153847496106271",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2107153847496106271"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2107157171938951604",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2107157171938951604"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2107258097702175181",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2107258097702175181"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2107258771269620053",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2107258771269620053"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2107258276190765144",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2107258276190765144"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2107157575057723692",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2107157575057723692"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2107156742203187455",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2107156742203187455"
+       }
+      ]
+     }
+    ],
+    "id": "msg_329302f8-59c3-90f6-b396-33397cd7ad1e",
+    "role": "assistant",
+    "type": "message",
+    "status": "completed"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "previous_response_id": null,
+  "reasoning": {
+   "effort": "medium",
+   "summary": "detailed"
+  },
+  "temperature": 0.7,
+  "text": {
+   "format": {
+    "type": "text"
+   }
+  },
+  "tool_choice": "auto",
+  "tools": [
+   {
+    "type": "x_search",
+    "from_date": "2026-10-05",
+    "to_date": "2026-10-06"
+   }
+  ],
+  "top_p": 0.95,
+  "usage": {
+   "input_tokens": 17816,
+   "input_tokens_details": {
+    "cached_tokens": 10048
+   },
+   "output_tokens": 4168,
+   "output_tokens_details": {
+    "reasoning_tokens": 3891
+   },
+   "total_tokens": 21984,
+   "num_sources_used": 0,
+   "num_server_side_tools_used": 5,
+   "cost_in_usd_ticks": 1271396000,
+   "server_side_tool_usage_details": {
+    "web_search_calls": 0,
+    "x_search_calls": 5,
+    "x_posts_fetched": 21,
+    "x_users_fetched": 0,
+    "code_interpreter_calls": 0,
+    "file_search_calls": 0,
+    "mcp_calls": 0,
+    "document_search_calls": 0,
+    "image_generation_calls": 0
+   },
+   "context_details": {
+    "input_tokens": 9618,
+    "output_tokens": 1165
+   }
+  },
+  "user": null,
+  "incomplete_details": null,
+  "status": "completed",
+  "store": true,
+  "metadata": {
+   "system_fingerprint": "fp_1fb66439292298c7"
+  },
+  "background": false,
+  "service_tier": "default",
+  "truncation": "disabled",
+  "top_logprobs": 0,
+  "presence_penalty": 0.0,
+  "frequency_penalty": 0.0,
+  "prompt_cache_key": null,
+  "max_tool_calls": null,
+  "safety_identifier": null,
+  "error": null,
+  "instructions": null
+ },
+ "testo": "{\n  \"token\": []\n}",
+ "token": [],
+ "uso": {
+  "input_tokens": 17816,
+  "input_tokens_details": {
+   "cached_tokens": 10048
+  },
+  "output_tokens": 4168,
+  "output_tokens_details": {
+   "reasoning_tokens": 3891
+  },
+  "total_tokens": 21984,
+  "num_sources_used": 0,
+  "num_server_side_tools_used": 5,
+  "cost_in_usd_ticks": 1271396000,
+  "server_side_tool_usage_details": {
+   "web_search_calls": 0,
+   "x_search_calls": 5,
+   "x_posts_fetched": 21,
+   "x_users_fetched": 0,
+   "code_interpreter_calls": 0,
+   "file_search_calls": 0,
+   "mcp_calls": 0,
+   "document_search_calls": 0,
+   "image_generation_calls": 0
+  },
+  "context_details": {
+   "input_tokens": 9618,
+   "output_tokens": 1165
+  }
+ },
+ "controllo": [
+  {
+   "symbol": "GETPAID",
+   "contract": "3VLA1MWpRxy6QQAxeHgXjMp7Rr5wC1t2hwLRqhvGpump",
+   "chain": "solana",
+   "prezzo_allo_snapshot": 2.491814194886544e-06,
+   "liquidita_allo_snapshot": 1979.7942158334,
+   "creato": "2026-10-06T01:11:38Z",
+   "fonte": "new_pools solana"
+  },
+  {
+   "symbol": "Neuron",
+   "contract": "EerZVB4oy3YNQbPiEDWpE8G4uowJ8X5wKbF5EzcFBAGS",
+   "chain": "solana",
+   "prezzo_allo_snapshot": 0.02890541406963829,
+   "liquidita_allo_snapshot": 114287.647426181,
+   "creato": "2026-10-06T01:11:35Z",
+   "fonte": "new_pools solana"
+  },
+  {
+   "symbol": "HPAD",
+   "contract": "8erMm2CdtG9eM1WUmN1t81gGkFMpP1ehLTUNuzQjTH6N",
+   "chain": "solana",
+   "prezzo_allo_snapshot": 1.4941400878478354e-07,
+   "liquidita_allo_snapshot": 241.392826199281,
+   "creato": "2026-10-06T01:11:27Z",
+   "fonte": "new_pools solana"
+  },
+  {
+   "symbol": "NEURALS",
+   "contract": "G9qtMaSyMkZmxh53n9XbP6sP2e1SrUjhVdsqso7gxt6g",
+   "chain": "solana",
+   "prezzo_allo_snapshot": 3.396234388838248e-06,
+   "liquidita_allo_snapshot": 2693.55349378762,
+   "creato": "2026-10-06T01:11:30Z",
+   "fonte": "new_pools solana"
+  },
+  {
+   "symbol": "$AA",
+   "contract": "8g2MkiKYqEP3BpxXEj29vCoBHXDzRK3dHYWiyKMupump",
+   "chain": "solana",
+   "prezzo_allo_snapshot": 9.581135070802449e-06,
+   "liquidita_allo_snapshot": 7573.68483475672,
+   "creato": "2026-10-06T01:11:25Z",
+   "fonte": "new_pools solana"
+  },
+  {
+   "symbol": "GOLDMIND",
+   "contract": "Hwwm27catYAG8WK1dUYkyQGjL5z8F3hh39ZEXbC1sozk",
+   "chain": "solana",
+   "prezzo_allo_snapshot": 5.041263140785288e-06,
+   "liquidita_allo_snapshot": 5044.56910663104,
+   "creato": "2026-10-06T01:11:40Z",
+   "fonte": "new_pools solana"
+  },
+  {
+   "symbol": "BPT",
+   "contract": "CDC7K7UbxaXALEbrm67i1niZ7r94oHwyxdnHLamHpump",
+   "chain": "solana",
+   "prezzo_allo_snapshot": 3.4466445851033224e-06,
+   "liquidita_allo_snapshot": 2733.23725040848,
+   "creato": "2026-10-06T01:11:35Z",
+   "fonte": "new_pools solana"
+  },
+  {
+   "symbol": "ELON",
+   "contract": "uXHtcfSpk9norzuAriHe8JrfSc8iMfFsnvP6jempump",
+   "chain": "solana",
+   "prezzo_allo_snapshot": 3.3850549983054236e-06,
+   "liquidita_allo_snapshot": 2684.68711915603,
+   "creato": "2026-10-06T01:11:27Z",
+   "fonte": "new_pools solana"
+  }
+ ],
+ "controllo_errore": null
+}

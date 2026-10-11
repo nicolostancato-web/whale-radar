@@ -1,0 +1,33 @@
+{
+ "chain": "robinhood",
+ "monete": 352,
+ "recenti": 176,
+ "prezzo_eth_usato": 2575.78,
+ "livelli": {
+  "2x": {
+   "monete": 85,
+   "su": 176,
+   "uscito_eth_mediana": 16.739147,
+   "uscito_dollari_mediana": 43116.36,
+   "scambio_piu_grande_eth_mediana": 0.686093,
+   "scambio_piu_grande_dollari": 1767.22
+  },
+  "5x": {
+   "monete": 32,
+   "su": 176,
+   "uscito_eth_mediana": 52.236815,
+   "uscito_dollari_mediana": 134550.54,
+   "scambio_piu_grande_eth_mediana": 1.496335,
+   "scambio_piu_grande_dollari": 3854.23
+  },
+  "10x": {
+   "monete": 14,
+   "su": 176,
+   "uscito_eth_mediana": 36.017185,
+   "uscito_dollari_mediana": 92772.35,
+   "scambio_piu_grande_eth_mediana": 1.65533,
+   "scambio_piu_grande_dollari": 4263.77
+  }
+ },
+ "nota": "denaro REALMENTE uscito dal pool verso chi vendeva, mentre il prezzo stava sopra il livello; misurato sul periodo recente"
+}

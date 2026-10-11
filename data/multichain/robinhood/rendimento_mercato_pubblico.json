@@ -1,0 +1,17 @@
+{
+ "acq": 1791359070,
+ "chain": "robinhood",
+ "taglia": [
+  0.01,
+  0.2
+ ],
+ "gas": 8.135e-06,
+ "posizioni_col_prezzo": 21302,
+ "giri": 3128,
+ "portafogli": 2348,
+ "ritorno_capitale_onesto": 4736.0586528544445,
+ "mai_usciti": 512,
+ "mediana_fra_chi_esce": 1.0509622997555164,
+ "metro": null,
+ "nota": "conto onesto: chi non esce vale zero. Gettoni che tornano, una sola valuta, gas incluso, lanciatori esclusi, taglia come filtro."
+}

@@ -1,0 +1,298 @@
+{
+ "acq": 1791283798,
+ "chain": "robinhood",
+ "fabbrica": "0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e",
+ "assets": {
+  "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec": {
+   "simbolo": "NVDA",
+   "decimali": 18
+  },
+  "0x4a0e65a3eccec6dbe60ae065f2e7bb85fae35eea": {
+   "simbolo": "SPCX",
+   "decimali": 18
+  },
+  "0x117cc2133c37b721f49de2a7a74833232b3b4c0c": {
+   "simbolo": "SPY",
+   "decimali": 18
+  },
+  "0x322f0929c4625ed5bad873c95208d54e1c003b2d": {
+   "simbolo": "TSLA",
+   "decimali": 18
+  },
+  "0x1b0e319c6a659f002271b69db8a7df2f911c153e": {
+   "simbolo": "GME",
+   "decimali": 18
+  },
+  "0xaf3d76f1834a1d425780943c99ea8a608f8a93f9": {
+   "simbolo": "AAPL",
+   "decimali": 18
+  },
+  "0x5fc5360d0400a0fd4f2af552add042d716f1d168": {
+   "simbolo": "USDG",
+   "decimali": 6
+  },
+  "0x0000000000000000000000000000000000000000": {
+   "simbolo": "NATIVO",
+   "decimali": 18
+  },
+  "0x2e0847e8910a9732eb3fb1bb4b70a580adad4fe3": {
+   "simbolo": "GOOGL",
+   "decimali": 18
+  },
+  "0x894e1ec2d74ffe5aef8dc8a9e84686accb964f2a": {
+   "simbolo": "PLTR",
+   "decimali": 18
+  },
+  "0xc0d6457c16cc70d6790dd43521c899c87ce02f35": {
+   "simbolo": "META",
+   "decimali": 18
+  },
+  "0xdf0992e440dd0be65bd8439b609d6d4366bf1cb5": {
+   "simbolo": "CRCL",
+   "decimali": 18
+  },
+  "0xb90a19ff0af67f7779aff50a882a9cff42446400": {
+   "simbolo": "SNDK",
+   "decimali": 18
+  },
+  "0x86923f96303d656e4aa86d9d42d1e57ad2023fdc": {
+   "simbolo": "AMD",
+   "decimali": 18
+  },
+  "0xff080c8ce2e5feadaca0da81314ae59d232d4afd": {
+   "simbolo": "MU",
+   "decimali": 18
+  },
+  "0x12f190a9f9d7d37a250758b26824b97ce941bf54": {
+   "simbolo": "AMZN",
+   "decimali": 18
+  },
+  "0x6330d8c3178a418788df01a47479c0ce7ccf450b": {
+   "simbolo": "COIN",
+   "decimali": 18
+  },
+  "0xe93237c50d904957cf27e7b1133b510c669c2e74": {
+   "simbolo": "MSFT",
+   "decimali": 18
+  },
+  "0x1d11f0496982706c5e14a514d4e79f2e6bde4516": {
+   "simbolo": "DJT",
+   "decimali": 18
+  },
+  "0x05b37fb53a299a1b874a619e1c4c404d52c36f4c": {
+   "simbolo": "RDDT",
+   "decimali": 18
+  },
+  "0xd5f3879160bc7c32ebb4dc785f8a4f505888de68": {
+   "simbolo": "QQQ",
+   "decimali": 18
+  },
+  "0x5e81213613b6b86eab4c6c50d718d34359459786": {
+   "simbolo": "TTWO",
+   "decimali": 18
+  },
+  "0x4ea005168d7f09a7a0ba9d1def21a479950e44c2": {
+   "simbolo": "COST",
+   "decimali": 18
+  },
+  "0xec262a75e413fafd0df80480274532c79d42da09": {
+   "simbolo": "MSTR",
+   "decimali": 18
+  },
+  "0xb1bf26c1d20ff267a4f93550d1e0d06ac40a114b": {
+   "simbolo": "RIVN",
+   "decimali": 18
+  },
+  "0xcec185eb182c47d1ba1efc84e6959e18cd620be4": {
+   "simbolo": "cbBTC",
+   "decimali": 8
+  },
+  "0xc9a981fee1f9dec688bb123ccdecc63d0debfc4e": {
+   "simbolo": "GLD",
+   "decimali": 18
+  },
+  "0xccee82fe024c36fa15e1005ede3e9e4787e23d09": {
+   "simbolo": "HIMS",
+   "decimali": 18
+  },
+  "0x48e39e56acdba37b09020c0b734a613c9a2f100a": {
+   "simbolo": "BB",
+   "decimali": 18
+  },
+  "0x9e7abd3c9139d14e4c86dce0e455aab7a0c2fb3e": {
+   "simbolo": "WYFI",
+   "decimali": 18
+  },
+  "0x941ae714ec6d8130c7b75d67160ca08f1e7d11dd": {
+   "simbolo": "DELL",
+   "decimali": 18
+  },
+  "0xa30fa36db767ad9ed3f7a60fc79526fb4d56d344": {
+   "simbolo": "USO",
+   "decimali": 18
+  },
+  "0x8005d266423c7ea827372c9c864491e5786600ea": {
+   "simbolo": "LLY",
+   "decimali": 18
+  },
+  "0xf0c4bf4c582cb3836e98394b1d4e7b7281101be8": {
+   "simbolo": "RBLX",
+   "decimali": 18
+  },
+  "0x84cab63bc87912e71ad199ff14a0ba45de68fef8": {
+   "simbolo": "SKHY",
+   "decimali": 18
+  },
+  "0x58ffe4a942d3885baa22d7520691f611ef09e7aa": {
+   "simbolo": "TSM",
+   "decimali": 18
+  },
+  "0x62fd0668e10d8b72339be2dcf7643001688ff13b": {
+   "simbolo": "MRVL",
+   "decimali": 18
+  },
+  "0x03dfbbe0ac4e7bcdafd08ed41a400326b77d8c80": {
+   "simbolo": "JNJ",
+   "decimali": 18
+  },
+  "0x4e62068525ab11fe768e29dfd00ef909b9803016": {
+   "simbolo": "LULU",
+   "decimali": 18
+  },
+  "0x41f4267525a8aff329540ef24fd83d9044758b33": {
+   "simbolo": "FIG",
+   "decimali": 18
+  },
+  "0x43b07d15ce533bec5476d70c22a78a1b2b662155": {
+   "simbolo": "MRNA",
+   "decimali": 18
+  },
+  "0x7066a64c24e4206cd62e83bf198c1e7eb361f51e": {
+   "simbolo": "PFE",
+   "decimali": 18
+  },
+  "0xf6589f11bc40b669e584073f428b05562f568733": {
+   "simbolo": "SNAP",
+   "decimali": 18
+  },
+  "0xe0444ef8bf4ed74f74fd73686e2ddf4c1c5591e8": {
+   "simbolo": "NFLX",
+   "decimali": 18
+  },
+  "0x408c14038a04f7bd235329e26d2bf569ee20e250": {
+   "simbolo": "NU",
+   "decimali": 18
+  },
+  "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b": {
+   "simbolo": "AMC",
+   "decimali": 18
+  },
+  "0x411efb0e7f985935daec3d4c3ebaea0d0ad7d89f": {
+   "simbolo": "SLV",
+   "decimali": 18
+  },
+  "0x92fd66527192e3e61d4ddd13322aa222de86f9b5": {
+   "simbolo": "SGOV",
+   "decimali": 18
+  },
+  "0x980dcf6766fa79f5cf0c4aadb3ab477ff15a9619": {
+   "simbolo": "IBM",
+   "decimali": 18
+  },
+  "0xf23250dac154d05bb671cb0d0ebef3c635c79ce2": {
+   "simbolo": "UPS",
+   "decimali": 18
+  },
+  "0x25c288e6d899b9bc30160965ad9644c67e73be0c": {
+   "simbolo": "F",
+   "decimali": 18
+  },
+  "0x822cc93ffd030293e9842c30bbd678f530701867": {
+   "simbolo": "BE",
+   "decimali": 18
+  },
+  "0xacef2e09adb47ad6abebad9ff06689e60615c2b6": {
+   "simbolo": "INDA",
+   "decimali": 18
+  },
+  "0xcef9027c7d6985b85f0ba431125073529a947a68": {
+   "simbolo": "BULL",
+   "decimali": 18
+  },
+  "0xad25ac6c84d497db898fa1e8387bf6af3532a1c4": {
+   "simbolo": "BABA",
+   "decimali": 18
+  },
+  "0xf53f66751b1eff985311b693531e3290f600c410": {
+   "simbolo": "SHOP",
+   "decimali": 18
+  },
+  "0xf3081494b87e8d5fb7960f066e931d1d0e6e3d67": {
+   "simbolo": "TAO",
+   "decimali": 18
+  },
+  "0xfde6b5d9bb419b10c23268c74e369abff39c0460": {
+   "simbolo": "RCAT",
+   "decimali": 18
+  },
+  "0x59818904ab4ce163b3ce4ffb64f2d6ca02c434b4": {
+   "simbolo": "QUBT",
+   "decimali": 18
+  },
+  "0x4d21483a44bf67a86b77e3da301411880797d452": {
+   "simbolo": "BA",
+   "decimali": 18
+  },
+  "0xba0cab75495255d0cb58e22b648bfed4ecd1f47e": {
+   "simbolo": "SNOW",
+   "decimali": 18
+  },
+  "0xae517a2903e68bd929dfd15be875f8369d53e94a": {
+   "simbolo": "CEG",
+   "decimali": 18
+  },
+  "0xc72b96e0e48ecd4dc75e1e45396e26300bc39681": {
+   "simbolo": "INTC",
+   "decimali": 18
+  },
+  "0x3b14c39e89d60d627b42a1a4ca45b5bb45fc12e2": {
+   "simbolo": "RKLB",
+   "decimali": 18
+  },
+  "0x329fcaceb9ad6f9580dd5f643fed0646900d043c": {
+   "simbolo": "LMT",
+   "decimali": 18
+  },
+  "0x7f0abef0c07280f82c6a08ead09ded6bae2c13fc": {
+   "simbolo": "EWY",
+   "decimali": 18
+  },
+  "0x116f00968269b7bfbad4109ce591d6e74c0601d4": {
+   "simbolo": "NET",
+   "decimali": 18
+  },
+  "0xaa07a0e9209e16ac99708c3ec70159c6ef3128a3": {
+   "simbolo": "ORBIO",
+   "decimali": 18
+  },
+  "0xab093def657f15df31b33922a95e047add645b29": {
+   "simbolo": "SHROOM",
+   "decimali": 18
+  },
+  "0x56910d4409f3a0c78c64dd8d0545ff0705389870": {
+   "simbolo": "Index",
+   "decimali": 18
+  },
+  "0x07ebb29a38fbcb41563817e5e19f2cec619c90d2": {
+   "simbolo": "BUN",
+   "decimali": 18
+  },
+  "0x63c12667638f2ae6fc6ae09b43d98ec84a8586ea": {
+   "simbolo": "wsNET",
+   "decimali": 18
+  }
+ },
+ "blocco_fino_a": 81568070,
+ "blocchi_indietro": 69000000,
+ "chiamate": 7
+}

@@ -1,0 +1,97 @@
+FASCICOLO PER IL REVISORE — ORGANIZZAZIONE DELLA MEMORIA E DEL DATABASE
+(10 ottobre 2026. Questo fascicolo NON chiede della strategia: chiede della MACCHINA.)
+
+LA RICHIESTA DEL FONDATORE, parole sue:
+«Se facciamo un sistema cosi' grosso l'AI sbaglia comunque. C'e' sempre qualcosa. Bisogna
+schedularle le robe, dire esattamente cosa deve fare, esattamente gli orari, esattamente dove
+deve scrivere. Poi anche il database: c'e' il vecchio database grosso, poi questo live che
+stiamo accumulando, ma tutti i file di ricerca scritti anche loro tecnicamente bisogna mettere
+un database. C'e' molta confusione, roba gira a caso. L'abbiamo fatto troppo grosso.»
+
+I QUATTRO GUASTI DI OGGI, per far capire che tipo di errori produce questo impianto:
+1. Una corsia pagava una consulenza esterna ogni giorno e NON la pubblicava: il codice di
+   pubblicazione cercava una cartella del Mac dello sviluppatore, che sul runner non esiste.
+   L'import falliva, il file moriva col runner, il registro diceva «success». TRENTA consulenze
+   pagate perse fra il 3 e il 10 ottobre, recuperate solo perche' la corsia caricava anche un
+   allegato con sette giorni di scadenza.
+2. Una guardia leggeva un file del flusso vecchio, fermo da 29 giorni, e concludeva «il
+   consulente tace da 698 ore»: falso, e copriva il guasto 1.
+3. Il repository e' arrivato a 9,85 GB su 10 (a zero si bloccano tutte le scritture) perche'
+   file da 3-52 MB vengono riscritti INTERI decine di volte al giorno. Spegnere le corsie che
+   li scrivevano non e' bastato: i loro allegati restano vivi sette giorni e il ripubblicatore
+   li rifondeva a ogni giro.
+4. Il ripubblicatore moriva INTERO quando una consegna conteneva un file di corsia (il token
+   non ha quel permesso): una consegna avvelenava tutte le altre dello stesso giro.
+
+COSA HO GIA' FATTO OGGI (misurato):
+  corsie accese                          34 -> 14
+  file scritti da piu' di una corsia      19 -> 2
+  crescita del repository       2,5 GB/giorno -> 0,07
+  peso / margine                 9,85/0,15 GB -> 7,68/2,32
+  chain lavorate                 2 (base+robinhood) -> 1 (solo robinhood)
+
+I DUE DEPOSITI:
+  GitHub  10 GB di limite, 7,68 usati. Tiene la STORIA: ogni versione di ogni file resta per
+          sempre, quindi un file riscritto intero costa il suo peso a ogni salvataggio.
+  R2     100 GB di limite, 6,31 usati. NON tiene la storia. Oggi contiene quattro archivi
+         compressi (base 3,17 GB, robinhood 2,57, loop1 0,56, memoria 9 MB) piu' il database
+         della demo (0,5 MB).
+
+LE 14 CORSIE ANCORA ACCESE, con orologio e destinazione:
+  astra                orologio: 10 6,13,20 * * *       consegna: allegato  scrive: CONSULENZA_<x>.md, data/consulenze/contatore.json, data/multichain/<x>/<x>
+  deposito             orologio: 37 */6 * * *           consegna: NIENTE    scrive: data/rilanci.json
+  guardia              orologio: 19 * * * *             consegna: NIENTE    scrive: -
+  guardiani            orologio: 32 */3 * * *           consegna: spinge    scrive: CFO.md, SECURITY.md, data/cfo_flags.json
+  heartbeat            orologio: 48 */2 * * *           consegna: spinge    scrive: HEARTBEAT.md
+  ispezione            orologio: 28 * * * *             consegna: spinge    scrive: ISPEZIONE.md, data/ispezione.json
+  nascite              orologio: 27 * * * *             consegna: allegato  scrive: data/<x>_mai_letti.json, data/multichain/<x>/<x>, data/multichain/<x>/<x>/<x>.jsonl.gz
+  prova_avanti         orologio: 50 5 * * *             consegna: allegato  scrive: data/loop1/<x>, data/loop1/insieme_<x><x>.jsonl.gz, data/loop1/insieme_<x>_sc5.jsonl.gz
+  pubblicatore         orologio: */20 * * * *           consegna: spinge    scrive: data/multichain/<chain>/arbitraggi.json.gz, data/multichain/<x>, data/multichain/<x>/iniziatori.json.gz
+  repo_gc              orologio: 0 3 * * *              consegna: spinge    scrive: -
+  sentinella           orologio: 45 */6 * * *           consegna: spinge    scrive: data/allarmi_da_leggere.jsonl, data/loop1/sentinella.json
+  soccorso             orologio: 5 * * * *              consegna: spinge    scrive: -
+  vivo                 orologio: 9 * * * *              consegna: allegato  scrive: data/multichain/<x>/coda_ckpt.json, data/multichain/<x>/universo.jsonl.gz, data/multichain/<x>/vivo/<x>.jsonl.gz
+  workflow_watchdog    orologio: a mano                 consegna: spinge    scrive: WATCHDOG.md, data/rilanci.json
+
+I FILE OLTRE 1 MB IN LOCALE:
+     52.2 MB  data/multichain/robinhood/curva_lanci.json.gz
+     16.6 MB  data/multichain/robinhood/coppie.json
+     15.6 MB  data/multichain/robinhood/serie_pool.jsonl
+      5.7 MB  data/multichain/robinhood/diplomate_vere.jsonl
+      3.2 MB  data/wallet_scores.json
+      2.9 MB  data/multichain/robinhood/tenute_pezzo_1.jsonl.gz
+      2.3 MB  data/multichain/robinhood/tenute_pezzo_2.jsonl.gz
+      2.1 MB  data/multichain/robinhood/tenute_pezzo_3.jsonl.gz
+      1.8 MB  data/popolazione_congelata.json
+      1.5 MB  data/prodotti.json
+      1.3 MB  data/potati.json
+      1.2 MB  data/multichain/robinhood/prova_in_avanti.json
+
+I DIFETTI DI FORMATO ANCORA APERTI (dal nostro «custode della memoria»):
+  curva_lanci.json.gz   52,2 MB in UN oggetto solo, letto da dieci script
+  coppie.json           16,6 MB in un dizionario unico
+  serie_pool.jsonl      12.820 byte per record: ogni record porta dentro una serie di prezzi
+  wallet_scores.json     3,2 MB in un dizionario unico
+  tenute_pezzo_1/2/3.jsonl.gz  2-3 MB ciascuno, compressi mentre crescono
+  Per confronto, il file fatto bene: diplomate_vere.jsonl, 69.966 record, 81 byte l'uno.
+
+LE DOMANDE, in ordine di importanza. Rispondi con decisioni operative, non con principi:
+
+1. Con due depositi dalle proprieta' opposte (GitHub versionato ma con storia e 10 GB; R2 senza
+   storia e con 100 GB), quale REGOLA decide dove va un dato? Vorrei un criterio che un
+   programma possa applicare da solo, non una linea guida.
+
+2. Il database: oggi ci sono tre cose diverse chiamate «database» — l'archivio storico delle
+   chain (gigabyte), la prova in avanti live (1,6 MB), e i file di ricerca sparsi. Come li
+   separeresti, e cosa NON deve stare nello stesso posto?
+
+3. Gli orologi: 14 corsie con orologi scelti a caso in momenti diversi. Come si decide
+   l'orario di una corsia in modo che non si pestino i piedi e che un guasto sia riconoscibile?
+
+4. Il guasto 1 (output che muore sul runner) e' la classe peggiore: il registro dice «riuscito»
+   e il lavoro e' perso. Che controllo lo renderebbe IMPOSSIBILE, non solo visibile?
+
+5. Cosa, di tutto quello che ho elencato, toglieresti del tutto? Il fondatore dice «l'abbiamo
+   fatto troppo grosso» e ha ragione: dimmi cosa muore senza che se ne accorga nessuno.
+
+Sii brutale. Se una mia correzione di oggi e' una pezza che fara' danni domani, dimmelo.

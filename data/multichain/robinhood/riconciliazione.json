@@ -1,0 +1,175 @@
+{
+ "acq": 1791643155,
+ "chain": "robinhood",
+ "confrontabili": 79,
+ "mediana_solo_pool": 1.4252470831004707,
+ "mediana_con_curva": 0.5,
+ "impossibili_solo_pool": 51,
+ "impossibili_con_curva": 0,
+ "quadrano": 23,
+ "banda": 0.05,
+ "non_confrontate_senza_pool": 12074,
+ "non_confrontate_senza_posizione": 1989,
+ "monete_con_piu_pool": 383,
+ "nota": "misura in PEZZI, non in denaro: nessun prezzo usato, quindi immune all'errore delle unita'",
+ "esempi_da_verificare_a_mano": [
+  {
+   "portafoglio": "0x59d173dd7606d1d172c186e9edf59e83a39e013f",
+   "moneta": "0x2ad522452ea0a85774a6c6a8ae0e9f4fec3b2ce1",
+   "pool": "0x54ee6e14d2e2ad27d3dece727057a08ec03fd74ef18d95d426d91a08a17b6088",
+   "gettoni_dalla_curva": 3007274.917243656,
+   "gettoni_dal_pool": 0.0,
+   "gettoni_venduti": 3007274.917243656,
+   "rapporto": 1.0,
+   "tx_vende": [
+    "0xa9d98d10139411870562fb81ecf8fa63fc801f644405d470be1d48d442edca44"
+   ],
+   "tx_compra": []
+  },
+  {
+   "portafoglio": "0x59d173dd7606d1d172c186e9edf59e83a39e013f",
+   "moneta": "0xc4f36c7c1d00dcaab1d01159466afa189bfc7161",
+   "pool": "0xbf2b37e83be2c037f02aab73d2d2dba7a054e1cf6a9de4575d532cc50fd61703",
+   "gettoni_dalla_curva": 2412119.457816021,
+   "gettoni_dal_pool": 0.0,
+   "gettoni_venduti": 2412119.4578160206,
+   "rapporto": 1.0,
+   "tx_vende": [
+    "0xe1e6fe1095f4808fa5bbd5578fac09b638672fb2f1d6359cc72646f35a2ed08c",
+    "0xf0c7fee86da43acee7d99ced8dbf302d091a2f20cad03cfa2dab3c9642da7f7f"
+   ],
+   "tx_compra": []
+  },
+  {
+   "portafoglio": "0xffe55d878f234a89755fc0fcb6a9651b1d814c27",
+   "moneta": "0xd39c5ed5231c86d2df7c86c5825dec3e61d937a8",
+   "pool": "0x6341ab9c49d50a8ca8a2b63e87bfee2807a41b560245f2f32b320ed5edd2cb58",
+   "gettoni_dalla_curva": 4845305.908204526,
+   "gettoni_dal_pool": 0.0,
+   "gettoni_venduti": 4845305.908204526,
+   "rapporto": 1.0,
+   "tx_vende": [
+    "0x979aeb8aa3304656b3e502fa0ba854618def4db059a4cf04290e0fccf44182a6"
+   ],
+   "tx_compra": []
+  },
+  {
+   "portafoglio": "0xffe55d878f234a89755fc0fcb6a9651b1d814c27",
+   "moneta": "0x56b5b96e31ebebcb35937835df7c700b881b1986",
+   "pool": "0xee1e8aadb4228aa2b19555f6d1d80ac85fd5ea13c3fc02acaf89d891fcfde507",
+   "gettoni_dalla_curva": 27528582.663111214,
+   "gettoni_dal_pool": 0.0,
+   "gettoni_venduti": 27528582.663111214,
+   "rapporto": 1.0,
+   "tx_vende": [
+    "0xc2bb42418b49047c5537c55c7eee366c26d9b9988639cc76ee488a7e5cadbcc2"
+   ],
+   "tx_compra": []
+  },
+  {
+   "portafoglio": "0xb8abfff6269bfc92abfaa80bd0cb0274630542c2",
+   "moneta": "0x3eb06ff05c832bc403ac9afe6c0a9953588b0d9b",
+   "pool": "0xd0b190d6020cabc9acb5daf29ae5e7130926b193155f384fba295313362b3a30",
+   "gettoni_dalla_curva": 9179915.6052561,
+   "gettoni_dal_pool": 0.0,
+   "gettoni_venduti": 9213615.44488161,
+   "rapporto": 1.0037,
+   "tx_vende": [
+    "0xc4b85afd460e009b2cc5ef6eba439cd81f31263d8398958f15e4d4b095e4d8c8"
+   ],
+   "tx_compra": []
+  },
+  {
+   "portafoglio": "0x1d05f7edae2ad5df71e67b64d4ca335f20f6ad5c",
+   "moneta": "0x03418705b732cdce195e776ed9b8331949178857",
+   "pool": "0x50da43415bda9e6a44c365dd1e47a14b7d1186503647650f51378cd16eb5d78e",
+   "gettoni_dalla_curva": 3253826.6792481,
+   "gettoni_dal_pool": 0.0,
+   "gettoni_venduti": 3253826.6792481,
+   "rapporto": 1.0,
+   "tx_vende": [
+    "0xad91f59934e5b1fc793290ea9fa6a585b57673ee6ba5ef6bb067e56e73980b95"
+   ],
+   "tx_compra": []
+  },
+  {
+   "portafoglio": "0xffe55d878f234a89755fc0fcb6a9651b1d814c27",
+   "moneta": "0x1f2141b535fd2b7270f7aef2fdafab4a6a2ce830",
+   "pool": "0x5bd14d46fc13b8d2a2ea90e6e6a90643b10150d4af8087c070eb5712a51f9405",
+   "gettoni_dalla_curva": 5397808.543894392,
+   "gettoni_dal_pool": 0.0,
+   "gettoni_venduti": 5397808.543894392,
+   "rapporto": 1.0,
+   "tx_vende": [
+    "0x629bea69a10219dad6b541c0885bf81955e83e01cc821970b2244b71e0077305"
+   ],
+   "tx_compra": []
+  },
+  {
+   "portafoglio": "0x66c5f2884976a895eb13c48b7e89e6479d5a5ce7",
+   "moneta": "0xdcfd4bcefa2fffd4f2ee6d3d244ad27ee823c830",
+   "pool": "0x59b6aebc57eb2eb78a4f27951a7ef692150ec8ceae7a9dd9f57488fe8a98b5a0",
+   "gettoni_dalla_curva": 15806809.243316203,
+   "gettoni_dal_pool": 0.0,
+   "gettoni_venduti": 15806809.24,
+   "rapporto": 1.0,
+   "tx_vende": [
+    "0xb05baaa0db6c266465f7aae2a4e493a4555614fc24b152d74c1e6bbe9ae1a636"
+   ],
+   "tx_compra": []
+  },
+  {
+   "portafoglio": "0xffe55d878f234a89755fc0fcb6a9651b1d814c27",
+   "moneta": "0x299704cb818e3d50ee8193b89a8dc1e551e6af96",
+   "pool": "0x6fd01e368b33992cfa3670cf452c1384e2e9043c03a6658e6f8b128bb386a876",
+   "gettoni_dalla_curva": 9785209.075461116,
+   "gettoni_dal_pool": 0.0,
+   "gettoni_venduti": 9785209.075461116,
+   "rapporto": 1.0,
+   "tx_vende": [
+    "0xd8e4e8be313adeb5a56a07037ccf1dff7082c6a0bba2181d95fd1368cf7cee49"
+   ],
+   "tx_compra": []
+  },
+  {
+   "portafoglio": "0xffe55d878f234a89755fc0fcb6a9651b1d814c27",
+   "moneta": "0x88ed3bdf2411299580df4f2bf8b3635b469effce",
+   "pool": "0x54c488ea1e77e0cca97abf08d3d927ac697e81118d9a513681b4cb1038d06160",
+   "gettoni_dalla_curva": 14234453.23141745,
+   "gettoni_dal_pool": 0.0,
+   "gettoni_venduti": 14234453.23141745,
+   "rapporto": 1.0,
+   "tx_vende": [
+    "0x23b6c4df8439b21482ddba74dd5cbf474b190c2ce438d00369db37bffffe8c5f"
+   ],
+   "tx_compra": []
+  },
+  {
+   "portafoglio": "0x66c5f2884976a895eb13c48b7e89e6479d5a5ce7",
+   "moneta": "0xab788aa69f7d35570d9e47a81fab2b3f90b32555",
+   "pool": "0x01f555b45f0cefa139897ab2b19f7e9c12d89a3bc7541e43fc81e125e5b8145d",
+   "gettoni_dalla_curva": 3487827.6405653125,
+   "gettoni_dal_pool": 0.0,
+   "gettoni_venduti": 3487827.6405653134,
+   "rapporto": 1.0,
+   "tx_vende": [
+    "0x8e296e21064233a643b9dce0a46f8e534f63406d1d9b7cbb555e978bba589043"
+   ],
+   "tx_compra": []
+  },
+  {
+   "portafoglio": "0x66c5f2884976a895eb13c48b7e89e6479d5a5ce7",
+   "moneta": "0x523a9a13e86db886cb631ab442bad74f94ef5da5",
+   "pool": "0xb96027924bc95648712c95ba628cc0a7dabc5e1973faecf64e4f440d51a931ee",
+   "gettoni_dalla_curva": 9024735.21606215,
+   "gettoni_dal_pool": 0.0,
+   "gettoni_venduti": 9024735.216062153,
+   "rapporto": 1.0,
+   "tx_vende": [
+    "0x7f2e9da237c02c0a1c66e32246f11e22d87db50ebaba0b9b2270016908338576",
+    "0x98d52e2a36620ed7144bbf70f0c7265b3fe0c8e0df61032dc020c37edcb692d8"
+   ],
+   "tx_compra": []
+  }
+ ]
+}

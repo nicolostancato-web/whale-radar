@@ -1,0 +1,449 @@
+Sei un revisore esterno severo e INDIPENDENTE. Non sei un secondo esploratore: non
+proporre strategie, non cercare tu un vantaggio. Il tuo unico compito e' trovare le FALLE.
+
+CONTESTO. Stiamo progettando (NON ancora costruendo) il motore che cerchera' un vantaggio
+statistico su memecoin di due chain. Il motore precedente provava 90 configurazioni di
+parametri, prendeva la migliore per rendimento medio e la applicava da sola.
+
+Due precedenti che contano piu' di qualunque teoria:
+ - due mesi fa abbiamo analizzato per un mese e mezzo un database poi rivelatosi
+   inaffidabile: lavoro tutto buttato;
+ - ad agosto abbiamo prodotto un risultato su carta da 323.000 euro che era un artefatto
+   di ESECUZIONE, non un segnale.
+In entrambi i casi il problema non e' stato un calcolo sbagliato: e' stato non aver
+previsto COME ci saremmo auto-ingannati.
+
+NON DIRMI SE TI PIACE. Rispondi a queste domande, in questo ordine:
+
+ 1. Dove questo metodo ci fa auto-ingannare NONOSTANTE sembri prudente? Cerca i punti in
+    cui una difesa dichiarata non difende davvero.
+ 2. Cosa manca che un metodologo serio metterebbe e qui non c'e'?
+ 3. Quali controlli aggiungeresti, e come si misurano in pratica?
+ 4. Quali soglie proposte sono arbitrarie in modo pericoloso (200 pool per cella, divisione
+    50/25/25, profondita' massima due condizioni, cassaforte aperta una volta sola)?
+ 5. Dove il documento CREDE di aver risolto un bias e invece lo ha solo spostato?
+ 6. Il documento sostiene che la MEDIANA sia il criterio sbagliato per una distribuzione
+    fortemente asimmetrica a destra, e che vada usata la media del portafoglio dopo i
+    costi. Questa argomentazione regge, o sta nascondendo un problema diverso?
+ 7. La sezione 13 propone che il loop 0 (il sorvegliante) verifichi che il loop 1 rispetti
+    il proprio metodo — non solo che giri. E' sufficiente? Un sorvegliante scritto dalla
+    stessa mano che scrive il sorvegliato ha un valore reale, o e' teatro?
+
+Al massimo dieci rilievi, il piu' grave per primo. Per ognuno: il rilievo in una frase,
+perche' e' pericoloso QUI e non in generale, e la misura o il controllo preciso che lo
+risolverebbe. Un rilievo senza una misura concreta non scriverlo.
+
+======================================================================
+# 🔬 Loop 1 — proposta di metodo
+
+*21 settembre 2026 · PROPOSTA, non ancora adottata · il loop 1 resta SPENTO*
+
+Documento preparato mentre il lavoro sul database continua in parallelo. Serve a progettare la
+macchina che cerchera', non a farla partire.
+
+---
+
+## 1. Com'e' fatto il loop 1 oggi
+
+Letto nel codice, non a memoria (`agents/strategy_optimizer.py`):
+
+```python
+for tp1, tp2, trail, hard, eh in itertools.product(...):   # 90 combinazioni
+    rets  = [outcome(after, tp1, tp2, trail, hard) for ...]
+    media = port(rets)
+    no3   = port(sorted(rets, reverse=True)[3:])           # media senza i 3 migliori
+results.sort(key=lambda r: (r["robusta"], r["media"]), reverse=True)
+best = results[0]                                          # e si applica da solo
+```
+
+Cioe': prova novanta configurazioni, calcola **un numero** per ognuna, prende la piu' alta, e
+**la applica in automatico** se supera la precedente di due punti.
+
+Quello che gia' c'e' e va tenuto: i **costi sono modellati** (slippage 15% per lato, fee 1%, gas
+su entrambi i lati, latenza 8% sul trailing) e la griglia e' tenuta piccola di proposito. Non e'
+un backtest ingenuo. Ma ha quattro difetti strutturali, e il terzo e' quello che ha prodotto il
+fantasma da 323.000 euro di agosto.
+
+### 1.1 Prende il massimo di novanta prove e lo chiama risultato
+
+Con novanta configurazioni provate sullo stesso campione, **la migliore e' migliore anche per
+fortuna**. Non c'e' correzione per la molteplicita', non c'e' un insieme di dati tenuto da parte,
+non c'e' nessun modo di distinguere «questa configurazione funziona» da «questa configurazione ha
+pescato bene sul campione che avevamo».
+
+Questo non e' un dettaglio statistico: e' *il* motivo per cui una ricerca di questo tipo trova
+sempre qualcosa.
+
+### 1.2 «Togliere i tre migliori» non e' una difesa, e' un danno
+
+La difesa contro il curve-fitting e' ordinare per `robusta` = media senza i tre risultati piu'
+alti. L'intenzione e' giusta — non fidarsi dei colpi fortunati — ma su questo mercato e' un
+autogol: **nelle memecoin il guadagno STA nella coda destra**. La maggioranza dei token va a zero
+e pochissimi fanno molti multipli. Togliere i tre migliori significa cancellare esattamente il
+meccanismo che dovrebbe farci guadagnare, e premiare le configurazioni che non lo catturano.
+
+E soprattutto: non risolve il problema del massimo su novanta prove. Sposta solo quale rumore
+vince.
+
+### 1.3 Lo slippage e' un numero fisso, e non puo' esserlo
+
+`ES = XS = 0.15` — quindici per cento per lato, uguale per ogni token e ogni dimensione
+dell'ordine. Su una memecoin con poca liquidita' e' ottimistico di molto; su una liquida e'
+pessimista. E siccome le configurazioni che «vincono» tendono a essere quelle che entrano presto
+su token piccoli, **lo slippage fisso favorisce sistematicamente proprio i casi dove e' piu'
+sbagliato**.
+
+Il paper da 323.000 euro di agosto era un artefatto di esecuzione, non di segnale. Questo e' lo
+stesso rischio con un altro vestito.
+
+### 1.4 Si applica da solo
+
+`meglio = cur_rob is None or best["robusta"] > cur_rob + 2` → e cambia la strategia viva. Una
+ricerca non validata che modifica il sistema in produzione e' il modo piu' rapido di inseguire il
+rumore con i soldi veri.
+
+---
+
+## 2. Cosa cambia nel metodo nuovo — e dove non sono d'accordo con l'impostazione proposta
+
+L'indicazione ricevuta e': smettere di inseguire la percentuale e cercare invece **condizioni**
+sotto cui la distribuzione dei rendimenti cambia. Sono d'accordo sulla direzione. Ma ci sono tre
+punti su cui, come richiesto, dico chiaramente che l'impostazione **rischia di peggiorare le cose**
+se presa alla lettera.
+
+### 2.1 Cercare condizioni e' PIU' pericoloso che cercare parametri, non meno
+
+Questo e' il rilievo piu' importante del documento.
+
+La griglia attuale prova novanta configurazioni. Lo spazio delle «condizioni A + B + C» su dieci
+variabili, ognuna tagliabile in tre o quattro soglie, con combinazioni fino a tre termini, e'
+nell'ordine delle **decine di migliaia**. Cercando li' dentro **si trovera' sempre** un
+sottoinsieme in cui la mediana si sposta — anche su dati completamente casuali. Garantito, non
+probabile.
+
+Passare da «quali parametri massimizzano la percentuale» a «in quali condizioni la distribuzione
+cambia» non riduce il problema: **lo moltiplica**, e lo rende piu' difficile da vedere, perche' il
+risultato arriva vestito da spiegazione («quando la liquidita' e' bassa e il token e' giovane...»)
+invece che da numero.
+
+Una spiegazione plausibile e' piu' pericolosa di una percentuale alta, perche' ci convince.
+
+**Cosa serve perche' l'idea resti buona senza diventare una trappola:**
+
+1. **Le ipotesi si dichiarano prima.** Un file `IPOTESI.md` versionato, con data, in cui ogni
+   ipotesi e' scritta *prima* di essere misurata: quale variabile, quale direzione attesa, quale
+   soglia, su quale popolazione. Se un'ipotesi nasce guardando i dati, va scritta ed etichettata
+   come **esplorativa** — e non potra' mai, da sola, diventare un edge: dovra' essere riconfermata
+   su dati mai visti.
+2. **Si conta quante domande abbiamo fatto.** Il numero di confronti tentati va registrato e
+   riportato accanto a ogni risultato. Senza quel numero, un p-value non significa niente.
+3. **Correzione per molteplicita'** (Benjamini-Hochberg sui falsi positivi attesi, non Bonferroni
+   che sarebbe troppo severo qui). Dichiarata prima, non scelta dopo.
+4. **Profondita' massima due condizioni**, non tre, finche' il campione non e' grande abbastanza.
+   Con «A + B + C» il numero di casi per cella crolla e ogni cella diventa rumore travestito da
+   scoperta. Il limite si alza solo quando il conteggio per cella lo permette (vedi §6).
+
+### 2.2 La mediana e' la statistica sbagliata per questo mercato
+
+Qui non sono d'accordo, e il motivo e' concreto.
+
+La distribuzione dei rendimenti delle memecoin e' **estremamente asimmetrica a destra**: la
+maggioranza dei token perde quasi tutto, una piccola frazione fa molti multipli. In una
+distribuzione cosi':
+
+- una strategia puo' avere **mediana negativa ed essere molto profittevole** (perdi poco spesso,
+  guadagni molto raramente);
+- e puo' avere **mediana positiva ed essere in perdita** (guadagni poco spesso, perdi tutto ogni
+  tanto).
+
+Giudicare per mediana ci farebbe **scartare sistematicamente l'unico meccanismo che in questo
+mercato funziona** — ed e' lo stesso errore, in forma opposta, del «togliere i tre migliori».
+
+**La mediana va guardata, non usata come criterio.** La proposta:
+
+| statistica | ruolo |
+|---|---|
+| mediana | **descrittiva** — dice com'e' fatto il caso tipico |
+| media dei rendimenti di portafoglio, al netto dei costi | **criterio primario** — e' quello che finisce sul conto |
+| quota di token che superano +100%, +300%, +1000% | **descrittiva della coda** — dov'e' il guadagno |
+| quota che va sotto −80% | **descrittiva del rischio** |
+| dispersione (IQR e deviazione) | **descrittiva** — quanto e' instabile |
+| **quanto capitale serve e per quanto resta bloccato** | **vincolo**, non statistica |
+
+Il criterio primario resta una media, ma **la media del portafoglio realizzato dopo i costi** —
+non la media delle percentuali dei token, che sopravvaluta sempre perche' ignora che non puoi
+mettere la stessa cifra su ogni candidato.
+
+### 2.3 «La distribuzione cambia» va reso misurabile, o e' un'impressione
+
+«La mediana si sposta in una certa direzione» non e' un criterio: su ogni taglio di un campione
+rumoroso qualcosa si sposta. Serve dichiarare prima:
+
+- **quale test**: Mann-Whitney per lo spostamento di posizione, Kolmogorov-Smirnov per la forma
+  della distribuzione, bootstrap per l'intervallo di confidenza sulla media di portafoglio;
+- **quale dimensione dell'effetto minima interessa** (non «significativo», ma «abbastanza grande
+  da pagare i costi»): la soglia proposta e' che il limite inferiore dell'intervallo di confidenza
+  al 95% della media di portafoglio, dopo i costi, sia **maggiore di zero**;
+- **quanti casi minimi per cella** perche' il confronto sia ammesso: proposta **200 token per
+  gruppo**, sotto quella soglia il confronto non si fa e si dichiara «campione insufficiente»
+  invece di riportare un numero.
+
+---
+
+## 3. Cosa deve misurare il loop 1
+
+Non «quanto rende», ma **come e' fatta la distribuzione dei risultati, e se cambia in modo
+utile al variare delle condizioni**.
+
+Per ogni candidato, alla fine della simulazione:
+
+- rendimento realizzato dopo costi, slippage dipendente dalla liquidita', gas e latenza;
+- tempo trascorso in posizione e capitale immobilizzato;
+- se la posizione e' stata **eseguibile**: volume disponibile nella finestra di entrata a un
+  prezzo entro la tolleranza (se non lo era, il candidato NON entra nel campione — e il fatto si
+  conta e si riporta);
+- l'esito peggiore intermedio (quanto e' sceso prima di risalire), perche' determina se una
+  posizione sarebbe sopravvissuta con capitale reale.
+
+Poi, sull'insieme: le statistiche della tabella in §2.2, sempre riportate **tutte insieme**. Mai
+una sola.
+
+---
+
+## 4. Quali variabili osservare
+
+Divise per quando sono conoscibili, perche' questa e' la distinzione che protegge dal leakage.
+
+**Note al momento della decisione** (ammesse come condizioni):
+eta' del pool dall'apertura; liquidita' in quel momento; numero di scambi fino a quel momento;
+numero di indirizzi distinti che hanno comprato; concentrazione dei compratori (quota del piu'
+grande); rapporto compre/vendite; velocita' di arrivo degli scambi (derivata del volume); valuta
+di base; chain; ora del giorno e giorno della settimana; se il creatore ha gia' creato altri pool
+e come sono andati **quelli precedenti a questo**.
+
+**Note solo dopo** (mai come condizioni, solo come esito):
+scambi totali nell'intervallo; durata di vita del pool; picco raggiunto; se e' sopravvissuto.
+
+> La soglia «almeno 20 scambi nell'intervallo» oggi usata per definire la popolazione appartiene
+> alla seconda lista. **Questa e' una contaminazione da risolvere prima di accendere il loop 1** —
+> vedi §9.
+
+---
+
+## 5. Come evitare di scegliere a posteriori
+
+Tre separazioni, in ordine di importanza.
+
+### 5.1 Esplorazione e validazione su dati diversi, divisi per TEMPO
+
+I dati si tagliano in tre, **in ordine cronologico** — mai a caso:
+
+| insieme | quota | a cosa serve | chi lo puo' vedere |
+|---|---|---|---|
+| **esplorazione** | il 50% piu' vecchio | generare ipotesi, guardare, provare | il loop 1, quante volte vuole |
+| **conferma** | il 25% successivo | testare le ipotesi dichiarate | una volta per ipotesi |
+| **cassaforte** | il 25% piu' recente | l'ultima parola | **una volta sola, per ipotesi, mai piu'** |
+
+Il taglio e' per tempo e non a caso perche' i mercati cambiano: un taglio casuale mescola periodi
+e ci farebbe validare su dati contemporanei a quelli su cui abbiamo cercato — che e' una forma
+sottile di guardare la risposta.
+
+**La cassaforte si apre una volta.** Un'ipotesi bocciata li' dentro non puo' essere ritentata con
+una piccola variazione: sarebbe lo stesso trucco della griglia da novanta, fatto piu' lentamente.
+Ogni apertura della cassaforte si registra in un file con data, ipotesi e esito, **anche quando il
+risultato e' brutto** — anzi, soprattutto.
+
+### 5.2 Walk-forward, non un taglio solo
+
+Anche dentro l'esplorazione: si stima su una finestra e si verifica sulla finestra successiva,
+scorrendo. Un risultato che regge solo in un periodo e' un risultato del periodo, non del metodo.
+
+### 5.3 Il loop 1 non applica niente
+
+Il loop 1 **propone**, non cambia la strategia viva. L'auto-applicazione va tolta. Una modifica
+alla strategia operativa passa da: proposta → revisione esterna → cassaforte → decisione scritta
+in `DECISIONS.md`.
+
+---
+
+## 6. Come costruire i campioni
+
+- **Unita' di analisi = il pool**, non lo scambio. Contare gli scambi gonfia il campione: mille
+  scambi dello stesso token sono un'osservazione, non mille.
+- **Nessun filtro che usi il futuro.** La popolazione si costruisce con cio' che era noto al
+  momento della decisione (§4).
+- **I morti restano dentro.** Un pool che non ha mai fatto nulla e' un'osservazione con
+  rendimento negativo, non un'assenza. Toglierli e' la definizione di survivorship bias.
+- **Minimo 200 pool per cella** perche' un confronto sia ammesso.
+- **Correlazione fra osservazioni**: token nati nello stesso momento sul mercato si muovono
+  insieme. Il bootstrap va fatto **a blocchi temporali**, non sui singoli token, altrimenti gli
+  intervalli di confidenza risultano molto piu' stretti del vero.
+
+---
+
+## 7. Come si evita il data leakage
+
+Tre cancelli, tutti verificabili dal codice:
+
+1. **Solo istanti verificati.** Il loop 1 rifiuta di leggere qualunque record con
+   `orario != "catena"`. Un istante interpolato e' letteralmente conoscenza del futuro: e' tutto
+   il lavoro che stiamo facendo sul database in questi giorni, e sarebbe sprecato se poi il
+   loop 1 leggesse anche gli altri.
+2. **Nessuna variabile calcolata su una finestra che include il momento della decisione o
+   successivi.** Ogni feature porta scritto l'istante fino al quale e' calcolata, e il codice
+   controlla che sia `< t_decisione`.
+3. **Prezzi di entrata presi dal lato giusto del libro**, con la latenza gia' dentro: si entra al
+   prezzo disponibile *dopo* il ritardo di esecuzione, non a quello che ha fatto scattare il
+   segnale.
+
+---
+
+## 8. Costi e slippage: dentro il simulatore, non sottratti alla fine
+
+Sostituire lo slippage fisso al 15% con un modello che dipende da **liquidita' del pool e
+dimensione dell'ordine**: su una curva a prodotto costante l'impatto e' calcolabile dalle riserve,
+e le riserve le abbiamo o le possiamo ricostruire dagli scambi.
+
+Conseguenza pratica da mettere in conto subito: **una parte dei candidati risultera' non
+eseguibile** — l'ordine che vorremmo fare muoverebbe il prezzo piu' del guadagno atteso. Quei
+candidati vanno contati ed esclusi, e il loro numero e' esso stesso un risultato: se il 90% dei
+segnali non e' eseguibile, non abbiamo un edge, abbiamo un grafico.
+
+Vanno inoltre modellati: gas su entrambi i lati, fee del pool, latenza fra segnale ed esecuzione,
+e la possibilita' che l'uscita avvenga a un prezzo peggiore di quello del trailing.
+
+---
+
+## 9. Cosa va risolto PRIMA di poter accendere il loop 1
+
+Non sono raccomandazioni: senza queste, qualunque risultato del loop 1 sarebbe contaminato.
+
+1. **La definizione della popolazione guarda il futuro.** «Almeno 20 scambi nell'intervallo» usa
+   informazione non disponibile al momento della decisione. Va sostituita con un criterio
+   point-in-time (per esempio: almeno N scambi entro X ore dall'apertura) e va misurato quanto
+   cambia la popolazione. *Trovato indipendentemente sia da Codex sia da Astra il 21/09.*
+2. **Gli istanti devono essere verificati** almeno al 95% sui file freddi (condizione dell'esame
+   del database).
+3. **Le riserve dei pool** servono per lo slippage dipendente dalla liquidita': se non ci sono,
+   vanno ricostruite o il modello di costo resta una finzione.
+4. **L'esame del database deve passare** (`agents/esame.py`). Oggi boccia 4 condizioni su 6.
+
+---
+
+## 10. Quando possiamo dire «forse c'e' un edge»
+
+Tutte e sei, non una scelta fra queste:
+
+1. l'ipotesi era **scritta prima** di essere misurata (o, se esplorativa, e' stata riconfermata da
+   zero su dati mai visti);
+2. il limite inferiore dell'intervallo di confidenza al 95% (bootstrap a blocchi) della media di
+   portafoglio **dopo i costi** e' **maggiore di zero**;
+3. regge in **walk-forward** su almeno tre finestre consecutive, non solo in aggregato;
+4. regge sulla **cassaforte**, aperta una volta sola;
+5. e' **eseguibile**: la quota di segnali scartati per liquidita' insufficiente e' dichiarata, e
+   il risultato tiene conto solo di quelli eseguibili;
+6. sopravvive a un **tentativo deliberato di spiegarlo altrimenti** — qualcuno (Astra) ha provato
+   a mostrare che e' un artefatto e non ci e' riuscito.
+
+E anche allora si chiama **ipotesi che ha superato i controlli**, non edge. La parola edge si usa
+quando ha fatto soldi veri, piccoli, in avanti.
+
+---
+
+## 11. Cosa NON deve fare il loop 1
+
+- non applica modifiche da solo;
+- non guarda la cassaforte se non nel momento dichiarato;
+- non riporta mai una statistica sola;
+- non elimina osservazioni scomode (i morti restano);
+- non cambia una soglia per far passare un risultato — si possono aggiungere condizioni, mai
+  abbassarne una;
+- non legge record con istanti non verificati.
+
+---
+
+## 12. Il ruolo di Astra, adesso e dopo
+
+**Adesso**: revisore di questo documento. Non gli si chiede se gli piace la strategia — gli si
+chiede dove questa impostazione ci fa auto-ingannare, cosa manca, quali controlli aggiungerebbe.
+
+**Dopo, a loop 1 acceso**: non un co-autore quotidiano. Si chiama quando:
+esce un risultato interessante; si cambia metodo; si deve decidere qualcosa di strutturale;
+serve deliberatamente una spiegazione alternativa; sospettiamo di esserci convinti da soli.
+
+La divisione: **io esploro e costruisco — Astra cerca le falle — la cassaforte decide.**
+
+---
+
+## 13. Il loop 0 deve sorvegliare il METODO, non solo il battito
+
+Oggi il loop 0 e' disallineato, e si vede a occhio nudo: il suo ultimo verdetto dice
+**«36 COMPONENTI NON RISPONDONO — la macchina non e' pronta»**, elencando Esploratore,
+Ricercatore e Cervello su quattro chain (base, robinhood, **solana**, **bsc**).
+
+Ma quegli agenti li abbiamo spenti NOI, e due di quelle chain sono fuori perimetro. Il loop 0 sta
+segnalando come guasto una nostra decisione.
+
+E' la stessa malattia che la revisione esterna ha trovato in `STAFFETTA.md` — un documento vecchio
+che ordina di riaccendere il motore mentre il motore e' fermo apposta. Il danno non e' il falso
+allarme in se': e' che **un cruscotto che segnala rosso quando tutto va bene smette di essere
+letto**, e quando il rosso sara' vero non se ne accorgera' nessuno.
+
+### 13.1 Prima correzione: distinguere lo spento dal rotto
+
+Il loop 0 deve conoscere tre stati, non due:
+
+| stato | significato | come si riconosce |
+|---|---|---|
+| **funziona** | ha lavorato entro il suo limite | ultimo lavoro recente |
+| **fermo per decisione** | lo abbiamo spento noi | scritto in `DECISIONS.md` |
+| **rotto** | dovrebbe lavorare e non lo fa | dovrebbe, e non l'ha fatto |
+
+Solo il terzo e' un allarme. E il secondo non e' silenzio: va mostrato come **fermo per
+decisione, dal giorno X**, cosi' che «spento e dimenticato» resti visibile senza gridare.
+Le chain fuori perimetro (solana, bsc) escono dal cruscotto per lo stesso motivo.
+
+### 13.2 Seconda correzione, quella che conta: il loop 0 fa rispettare le regole del loop 1
+
+Finche' il loop 1 e' spento, il loop 0 sorveglia il database: le condizioni dell'esame
+(`agents/esame.py`), le corsie di raccolta e riparazione, i giorni di silenzio della revisione
+esterna.
+
+Quando il loop 1 si accendera', il loop 0 **non deve limitarsi a chiedere «hai girato?»**. Deve
+verificare che il loop 1 stia rispettando il proprio metodo — perche' le regole di questo
+documento sono buone esattamente quanto la probabilita' che vengano seguite sotto pressione, e
+l'esperienza di questo progetto dice che quella probabilita' non e' alta. Il 10 luglio una
+decisione scritta («si esce quando escono le balene») e' stata semplicemente non rispettata dal
+codice, e nessuno se n'e' accorto.
+
+Controlli che il loop 0 dovra' fare a loop 1 acceso, ognuno misurabile:
+
+1. **Nessun record non verificato e' stato letto.** Il loop 1 dichiara quanti record ha usato e
+   quanti scartati per `orario != "catena"`. Se il secondo numero e' zero mentre il database ne
+   contiene, il cancello non sta funzionando.
+2. **La cassaforte e' stata aperta il numero di volte dichiarato, e non una di piu'.** Il registro
+   delle aperture e' un file append-only: il loop 0 conta le righe e le confronta con le ipotesi
+   registrate.
+3. **Nessuna soglia e' stata abbassata.** Le soglie vivono in un file versionato; il loop 0
+   confronta con la versione precedente e **urla se una soglia si e' mossa nella direzione che
+   fa passare piu' risultati**. Aggiungere condizioni e' lecito, allentarne una no.
+4. **Le ipotesi confermate erano registrate PRIMA.** Ogni risultato riporta l'identificativo
+   dell'ipotesi; il loop 0 verifica che quella riga esistesse in `IPOTESI.md` con data anteriore
+   alla misura.
+5. **Nessuna auto-applicazione.** Se `data/strategy.json` cambia senza una riga corrispondente in
+   `DECISIONS.md`, e' un allarme rosso.
+6. **Il conteggio dei confronti tentati e' riportato.** Un risultato senza quel numero e'
+   incompleto per costruzione, e il loop 0 lo segna come tale.
+
+In breve: **il loop 1 esplora, Astra cerca le falle, la cassaforte decide — e il loop 0 controlla
+che nessuno dei tre bari.** Senza il quarto, gli altri tre sono un accordo fra gentiluomini.
+
+---
+
+## 14. Cosa manca per costruirlo davvero
+
+- la scelta del criterio point-in-time che sostituisce «almeno 20 scambi», e la misura di quanto
+  cambia la popolazione;
+- la disponibilita' delle riserve dei pool per il modello di slippage;
+- la revisione di Astra su questo documento;
+- l'esame del database in verde.

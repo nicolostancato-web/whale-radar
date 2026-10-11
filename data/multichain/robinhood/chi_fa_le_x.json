@@ -1,0 +1,904 @@
+{
+ "chain": "robinhood",
+ "posizioni": 5513,
+ "sane": 2216,
+ "mediana_chiuse": 0.8119,
+ "grappoli": {
+  "portafogli": 1594,
+  "grappoli": 2,
+  "portafogli_in_grappolo": 12,
+  "quota_pct": 0.8,
+  "piu_grande": 9,
+  "nota": "i portafogli che comprano nella stessa transazione sono una persona sola: contarli separatamente moltiplica un successo per il numero di portafogli."
+ },
+ "primi": [
+  {
+   "chi": "0xad92b3118caf53524cb5a0ce73af2f3e429e3177",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 4.447,
+   "sopra": {
+    "2.0": 1,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 4.447,
+   "capitale": 0.01,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0xb5e55edfaff8883e5d55d683d593d4d122f40890",
+   "tentativi": 4,
+   "chiuse": 4,
+   "portafogli": 1,
+   "mediana": 0.392,
+   "sopra": {
+    "2.0": 1,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 3.453,
+   "capitale": 0.01,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0x3921650b3f3478212e5e308f9b0fffc38f68cbd3",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 3.353,
+   "sopra": {
+    "2.0": 1,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 3.353,
+   "capitale": 0.001995,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0xbd42c8c0fb6bc7da0d97658ee782295d536d5cdd",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 3.074,
+   "sopra": {
+    "2.0": 1,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 3.074,
+   "capitale": 0.056,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0xa2fb135c365a71ce549bc63b3b345ac1cb21ff18",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 2.987,
+   "sopra": {
+    "2.0": 1,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 2.987,
+   "capitale": 0.06,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0x74aa791fe1f5e5e3b2d3525a32460a60e2865929",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 2.914,
+   "sopra": {
+    "2.0": 1,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 2.914,
+   "capitale": 0.108,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0xa4b8c47818ba0a08df2db50d11a8220582d96fd1",
+   "tentativi": 8,
+   "chiuse": 8,
+   "portafogli": 1,
+   "mediana": 0.831,
+   "sopra": {
+    "2.0": 1,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 2.893,
+   "capitale": 53.721237,
+   "simbolo": "USDG"
+  },
+  {
+   "chi": "0x471abfdc318cfcddb176480b548efd65aab595b9",
+   "tentativi": 10,
+   "chiuse": 10,
+   "portafogli": 1,
+   "mediana": 0.89,
+   "sopra": {
+    "2.0": 1,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 2.779,
+   "capitale": 66.735992,
+   "simbolo": "USDG"
+  },
+  {
+   "chi": "0x10e0cbf81da57427393effca98a0c86f4ef44bec",
+   "tentativi": 2,
+   "chiuse": 2,
+   "portafogli": 1,
+   "mediana": 1.742,
+   "sopra": {
+    "2.0": 1,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 2.768,
+   "capitale": 0.015219,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0x5fb2557511a466359ef76e1628bb7194bd7ebc62",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 2.687,
+   "sopra": {
+    "2.0": 1,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 2.687,
+   "capitale": 0.1179,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0x5d0fa1e3af23a00ba7abe7b757c82bad2b643465",
+   "tentativi": 6,
+   "chiuse": 6,
+   "portafogli": 1,
+   "mediana": 0.928,
+   "sopra": {
+    "2.0": 1,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 2.584,
+   "capitale": 61.469512,
+   "simbolo": "USDG"
+  },
+  {
+   "chi": "0x3e7c18b0b1ec729819043a33115459b0ac9c000b",
+   "tentativi": 12,
+   "chiuse": 12,
+   "portafogli": 1,
+   "mediana": 0.739,
+   "sopra": {
+    "2.0": 1,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 2.571,
+   "capitale": 0.033,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0xf3ce52b1c49c09ac1ca3d57c1557b303c83732b3",
+   "tentativi": 6,
+   "chiuse": 6,
+   "portafogli": 1,
+   "mediana": 0.605,
+   "sopra": {
+    "2.0": 1,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 2.57,
+   "capitale": 0.015,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0x151a4d8dfe74dabc6184d5b62bd17a9ce685247c",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 9,
+   "mediana": 2.49,
+   "sopra": {
+    "2.0": 1,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 2.49,
+   "capitale": 1.85,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0x6abcd9f489614a2548669d81952c93750ca43647",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 2.4,
+   "sopra": {
+    "2.0": 1,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 2.4,
+   "capitale": 0.11,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0xd988f36199daef96d6014a6be88031a66dcc7c4a",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 2.391,
+   "sopra": {
+    "2.0": 1,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 2.391,
+   "capitale": 0.072,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0xf65b62ac82aac9b38186de8e31654116d639857a",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 2.297,
+   "sopra": {
+    "2.0": 1,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 2.297,
+   "capitale": 0.001865,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0x18023bc1c85be252c80d6cce20a838a6fffd8734",
+   "tentativi": 2,
+   "chiuse": 2,
+   "portafogli": 1,
+   "mediana": 1.613,
+   "sopra": {
+    "2.0": 1,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 2.293,
+   "capitale": 0.006,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0xb5a2be031ed423267b31418f36b22d17ab4ff2bd",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 2.288,
+   "sopra": {
+    "2.0": 1,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 2.288,
+   "capitale": 0.08,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0x097059d6a613a9f0df883fab972f2bdd192dc547",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 2.216,
+   "sopra": {
+    "2.0": 1,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 2.216,
+   "capitale": 0.096,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0x4e8b6fcb841599cea1e8609871175da2df7fa6dd",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 2.14,
+   "sopra": {
+    "2.0": 1,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 2.14,
+   "capitale": 0.082,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0xe2af4fa5c3d085d0998ef463bf63a533b1d5d7ef",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 2.058,
+   "sopra": {
+    "2.0": 1,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 2.058,
+   "capitale": 0.09,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0xe3c81049dcba6b94190ca731d3441d95e12d0ac8",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 2.051,
+   "sopra": {
+    "2.0": 1,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 2.051,
+   "capitale": 0.289779,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0x9eed092b5fc232338362858add47e0d9ebe01ea3",
+   "tentativi": 6,
+   "chiuse": 6,
+   "portafogli": 1,
+   "mediana": 0.962,
+   "sopra": {
+    "2.0": 1,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 2.029,
+   "capitale": 52.908983,
+   "simbolo": "NVDA"
+  },
+  {
+   "chi": "0x09925d26e13df47167812d9c3066924f51341643",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 2.007,
+   "sopra": {
+    "2.0": 1,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 2.007,
+   "capitale": 0.183,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0x1a4eba2cf630e5abc670f1e9058f5a7e239f94bd",
+   "tentativi": 2,
+   "chiuse": 2,
+   "portafogli": 1,
+   "mediana": 1.296,
+   "sopra": {
+    "2.0": 1,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 2.0,
+   "capitale": 0.07,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0x11111be4b1050d71c0062637d81b9823ebbbb2cf",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 1.991,
+   "sopra": {
+    "2.0": 0,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 1.991,
+   "capitale": 0.00045,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0x10abbd6ef2b9e9087d9598b3289594e37b45dbbd",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 1.99,
+   "sopra": {
+    "2.0": 0,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 1.99,
+   "capitale": 0.082,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0x2a298a2fdd27eeac421a047b7b9659e853a05e84",
+   "tentativi": 2,
+   "chiuse": 2,
+   "portafogli": 1,
+   "mediana": 1.536,
+   "sopra": {
+    "2.0": 0,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 1.986,
+   "capitale": 0.03,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0xbdc33ceb6b5f78b800cb5c7a5d220f4421b1d3bb",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 1.969,
+   "sopra": {
+    "2.0": 0,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 1.969,
+   "capitale": 0.035,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0xebfd0e6c9ab2ddafc85830baecf2164d5e7cd7c5",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 1.963,
+   "sopra": {
+    "2.0": 0,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 1.963,
+   "capitale": 0.042,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0xf1083a45bb0e3b036f9a9742e81d917644b17b2f",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 1.921,
+   "sopra": {
+    "2.0": 0,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 1.921,
+   "capitale": 0.058,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0xe72e4f1af6dbc7b056604e3943a5bb7c8f2218ad",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 1.882,
+   "sopra": {
+    "2.0": 0,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 1.882,
+   "capitale": 0.212802,
+   "simbolo": "GOOGL"
+  },
+  {
+   "chi": "0x7a30613ef14f22497aa99ff9924cc4018afc675b",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 1.866,
+   "sopra": {
+    "2.0": 0,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 1.866,
+   "capitale": 0.070962,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0x99cbba18c4d91a3ece29d1a82957e6b4b3abf8a0",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 1.854,
+   "sopra": {
+    "2.0": 0,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 1.854,
+   "capitale": 0.073,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0x98a2d62b77a723e4110b0cc159c4408ea893e6f0",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 1.851,
+   "sopra": {
+    "2.0": 0,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 1.851,
+   "capitale": 0.130348,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0x6040bccc228643f6875c63eca5a0e42976f7b2fa",
+   "tentativi": 2,
+   "chiuse": 2,
+   "portafogli": 1,
+   "mediana": 1.383,
+   "sopra": {
+    "2.0": 0,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 1.825,
+   "capitale": 0.03,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0x499768edb7e3571e0089c123847eb36da32bb75f",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 1.823,
+   "sopra": {
+    "2.0": 0,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 1.823,
+   "capitale": 0.358898,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0x13bf90c4fb6b24f420afb1bb1bdc1f736ca7c215",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 1.822,
+   "sopra": {
+    "2.0": 0,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 1.822,
+   "capitale": 0.046,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0x24566b47fe340aed5577acbdd3e08ef5c3cd9050",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 1.815,
+   "sopra": {
+    "2.0": 0,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 1.815,
+   "capitale": 0.087,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0x422557393876cbf27f5364e48fef711a83d471a0",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 1.811,
+   "sopra": {
+    "2.0": 0,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 1.811,
+   "capitale": 0.098798,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0x9794a124e96c03a941f5e379df0eda7afa226ce2",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 1.784,
+   "sopra": {
+    "2.0": 0,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 1.784,
+   "capitale": 0.05,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0x88d588f8aced26d8a175ac289dc1eb8d520353e3",
+   "tentativi": 4,
+   "chiuse": 4,
+   "portafogli": 1,
+   "mediana": 1.028,
+   "sopra": {
+    "2.0": 0,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 1.775,
+   "capitale": 0.054974,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0x1f1a1fa27058e96168919bf48d7a0ed29ef9dfbc",
+   "tentativi": 4,
+   "chiuse": 4,
+   "portafogli": 1,
+   "mediana": 1.016,
+   "sopra": {
+    "2.0": 0,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 1.764,
+   "capitale": 0.058214,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0xfaa367d59783d50ffd3a67dcabce8bc79959b735",
+   "tentativi": 3,
+   "chiuse": 3,
+   "portafogli": 1,
+   "mediana": 0.405,
+   "sopra": {
+    "2.0": 0,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 1.756,
+   "capitale": 0.004086,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0x15f023eeae851fee2b0b44b21bf5c7adbaa88b4d",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 1.752,
+   "sopra": {
+    "2.0": 0,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 1.752,
+   "capitale": 0.04,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0xb40eebeefda7c40bc1f20260aef06ac71f93f079",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 1.743,
+   "sopra": {
+    "2.0": 0,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 1.743,
+   "capitale": 4.649629,
+   "simbolo": "GME"
+  },
+  {
+   "chi": "0x069d7208f4c778922d805b007107ecf61607f498",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 1.695,
+   "sopra": {
+    "2.0": 0,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 1.695,
+   "capitale": 0.081181,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0x2f6d72c2b0cbec7f0690384f7b7a38db195fc37e",
+   "tentativi": 1,
+   "chiuse": 1,
+   "portafogli": 1,
+   "mediana": 1.694,
+   "sopra": {
+    "2.0": 0,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 1.694,
+   "capitale": 0.053,
+   "simbolo": "NATIVO"
+  },
+  {
+   "chi": "0xbdb0b32d79fe5eabd043b2bdec3a102535729680",
+   "tentativi": 12,
+   "chiuse": 12,
+   "portafogli": 1,
+   "mediana": 0.963,
+   "sopra": {
+    "2.0": 0,
+    "5.0": 0,
+    "10.0": 0
+   },
+   "migliore": 1.69,
+   "capitale": 68.103444,
+   "simbolo": "NATIVO"
+  }
+ ],
+ "casi_verificati": [
+  {
+   "portafoglio": "0xfebcbc0a8b2a1819be1f1696895f13e7ae65479a",
+   "moneta": "0x22bb10e3e1e932b03bef90bb1cf7305d896c55bb",
+   "x": 5.045,
+   "speso": 0.111625051,
+   "incassato": 0.563193509,
+   "valuta": "NATIVO",
+   "acquisti": [
+    "0xc7756ad9e78c05096018d3d5dc80b7e62d0edffe75bd6d8fbba03a40f352ee00"
+   ],
+   "vendite": [
+    "0x48ec34b93942bc2be50c656fd465c2aa6b9685aad79b1cd1abfa931bc0416b04",
+    "0xaa1d0f985ccb4e0b5496cb5b72bd8aaeb368a91b825ca5bbc5adc9af44d883cc",
+    "0x5359739986b8e79eaa12d89f79601c693cd87043079faf870a94df9d15758cda"
+   ],
+   "una_persona_con": [
+    "0x151a4d8dfe74dabc6184d5b62bd17a9ce685247c",
+    "0x1793de06fdb8d6bf3e4bbc6986bad79fe3ceff81",
+    "0x62986a6f9e50ebbacb9c8632ba8fee8b00422d00",
+    "0x787686b57321c4cbc771ac8fd57319c38c17ce2f",
+    "0xb3cf06829f61b1bf41b50a2593ca357348b5ac90",
+    "0xbc6fb0483eb8e44a4ae9cfd5cc5ff681b97f43be",
+    "0xe8949733583301922eb83de31bca2788547d7858",
+    "0xeac95f56de074de23780c93a5ea04bdb40f8c799",
+    "0xfebcbc0a8b2a1819be1f1696895f13e7ae65479a"
+   ]
+  },
+  {
+   "portafoglio": "0xeac95f56de074de23780c93a5ea04bdb40f8c799",
+   "moneta": "0x22bb10e3e1e932b03bef90bb1cf7305d896c55bb",
+   "x": 4.577,
+   "speso": 0.000736799,
+   "incassato": 0.003380743,
+   "valuta": "NATIVO",
+   "acquisti": [
+    "0xc7756ad9e78c05096018d3d5dc80b7e62d0edffe75bd6d8fbba03a40f352ee00"
+   ],
+   "vendite": [
+    "0x40893b0c87d56383a8cf069578cd19cd9c8b6a66443c52d6f808250be746a8c4"
+   ],
+   "una_persona_con": [
+    "0x151a4d8dfe74dabc6184d5b62bd17a9ce685247c",
+    "0x1793de06fdb8d6bf3e4bbc6986bad79fe3ceff81",
+    "0x62986a6f9e50ebbacb9c8632ba8fee8b00422d00",
+    "0x787686b57321c4cbc771ac8fd57319c38c17ce2f",
+    "0xb3cf06829f61b1bf41b50a2593ca357348b5ac90",
+    "0xbc6fb0483eb8e44a4ae9cfd5cc5ff681b97f43be",
+    "0xe8949733583301922eb83de31bca2788547d7858",
+    "0xeac95f56de074de23780c93a5ea04bdb40f8c799",
+    "0xfebcbc0a8b2a1819be1f1696895f13e7ae65479a"
+   ]
+  },
+  {
+   "portafoglio": "0xad92b3118caf53524cb5a0ce73af2f3e429e3177",
+   "moneta": "0x1ec72a220d35854b4ec348435b37a100c58d6698",
+   "x": 4.447,
+   "speso": 0.01,
+   "incassato": 0.044481796,
+   "valuta": "NATIVO",
+   "acquisti": [
+    "0x688407cdc577378aca7dfedec985fe1b7c388d299f5b417a34b37620cb19aaed"
+   ],
+   "vendite": [
+    "0x0eef586070d95297e607feebeaa936b7f85040560580330d1eb9a52809ad7c07"
+   ],
+   "una_persona_con": []
+  },
+  {
+   "portafoglio": "0xe8949733583301922eb83de31bca2788547d7858",
+   "moneta": "0x22bb10e3e1e932b03bef90bb1cf7305d896c55bb",
+   "x": 4.156,
+   "speso": 0.180515759,
+   "incassato": 0.750183414,
+   "valuta": "NATIVO",
+   "acquisti": [
+    "0xc7756ad9e78c05096018d3d5dc80b7e62d0edffe75bd6d8fbba03a40f352ee00"
+   ],
+   "vendite": [
+    "0x1cf6de326d0129f65ed705a28c71d3872364d35587e76287c836abe98a2311e7",
+    "0x071ef271e5bf6dc30ea1ae9e9f7d846c64841c32cafe1b0a45bd7ec4bf64ae97",
+    "0x0fcb4eac11980663319a4ffd62edf45465fa11bf864a1386a944b8c9eb570733"
+   ],
+   "una_persona_con": [
+    "0x151a4d8dfe74dabc6184d5b62bd17a9ce685247c",
+    "0x1793de06fdb8d6bf3e4bbc6986bad79fe3ceff81",
+    "0x62986a6f9e50ebbacb9c8632ba8fee8b00422d00",
+    "0x787686b57321c4cbc771ac8fd57319c38c17ce2f",
+    "0xb3cf06829f61b1bf41b50a2593ca357348b5ac90",
+    "0xbc6fb0483eb8e44a4ae9cfd5cc5ff681b97f43be",
+    "0xe8949733583301922eb83de31bca2788547d7858",
+    "0xeac95f56de074de23780c93a5ea04bdb40f8c799",
+    "0xfebcbc0a8b2a1819be1f1696895f13e7ae65479a"
+   ]
+  },
+  {
+   "portafoglio": "0x1793de06fdb8d6bf3e4bbc6986bad79fe3ceff81",
+   "moneta": "0x22bb10e3e1e932b03bef90bb1cf7305d896c55bb",
+   "x": 4.105,
+   "speso": 0.05,
+   "incassato": 0.205250849,
+   "valuta": "NATIVO",
+   "acquisti": [
+    "0xc7756ad9e78c05096018d3d5dc80b7e62d0edffe75bd6d8fbba03a40f352ee00"
+   ],
+   "vendite": [
+    "0x733bdefceb9b0358e62bc977e0cddba2ea97fc4e8ebf3499ab18c46cc8778d05"
+   ],
+   "una_persona_con": [
+    "0x151a4d8dfe74dabc6184d5b62bd17a9ce685247c",
+    "0x1793de06fdb8d6bf3e4bbc6986bad79fe3ceff81",
+    "0x62986a6f9e50ebbacb9c8632ba8fee8b00422d00",
+    "0x787686b57321c4cbc771ac8fd57319c38c17ce2f",
+    "0xb3cf06829f61b1bf41b50a2593ca357348b5ac90",
+    "0xbc6fb0483eb8e44a4ae9cfd5cc5ff681b97f43be",
+    "0xe8949733583301922eb83de31bca2788547d7858",
+    "0xeac95f56de074de23780c93a5ea04bdb40f8c799",
+    "0xfebcbc0a8b2a1819be1f1696895f13e7ae65479a"
+   ]
+  },
+  {
+   "portafoglio": "0xb5e55edfaff8883e5d55d683d593d4d122f40890",
+   "moneta": "0x3a9040c265fe37a5a5b4c8bfb15af7fbbd31c2a5",
+   "x": 3.453,
+   "speso": 0.0025,
+   "incassato": 0.00863944,
+   "valuta": "NATIVO",
+   "acquisti": [
+    "0xfd8b8ea1e2f63880a066a760ccda8467d7cd5775af5b9b512ab9ce1293148555"
+   ],
+   "vendite": [
+    "0x6b560704f57e1ebc165db2b11b05a4b53b1b902c081ffd73d0a7355990f7ff7c"
+   ],
+   "una_persona_con": []
+  }
+ ],
+ "casi_bocciati": [],
+ "regole": "posizione intera, gettoni che tornano 90-110%, una valuta sola, lanciatori esclusi, gas incluso, grappoli come una persona, ripetizione prima del picco, prova sulla chain prima di uscire"
+}
