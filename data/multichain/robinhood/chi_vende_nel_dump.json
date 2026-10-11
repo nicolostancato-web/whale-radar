@@ -4321,6 +4321,114 @@
     "quanti_poi_vendono_nel_crollo": 42,
     "quota_del_venduto_che_e_loro": 0.2268
    }
+  },
+  "0x9ec913475edd63457a27efdfc8156fb4cc417b42": {
+   "v": 1,
+   "pool": "0xdf2f4a7903a08bccc7a5bca2c21ab3ae89ec842a45b318213bb9fcb747e675b8",
+   "scambi": 185,
+   "aggiornato_al_blocco": 85411463,
+   "crollo": {
+    "profondita": 0.9503,
+    "da_x": 13.637,
+    "a_x": 0.6774,
+    "minuti_dal_mio_ingresso": -0.8,
+    "minuti_di_durata": 45.5,
+    "scambi_nel_crollo": 166
+   },
+   "trasferimenti_letti": 745,
+   "chi_vende": {
+    "venditori": 115,
+    "quota_del_primo": 0.0771,
+    "quota_dei_primi_tre": 0.2009,
+    "valuta_venduta": 3.769973,
+    "tetto_raggiunto": false,
+    "vendite_nella_finestra": 134,
+    "transazioni_di_vendita": 148,
+    "pezzi_senza_risposta": 0,
+    "attendibile": true,
+    "primi_cinque": [
+     {
+      "indirizzo": "0x371030c9d4c4d89c91a1354038a592e976c9a0f0",
+      "venduto": 0.290844,
+      "aveva_comprato_nel_primo_minuto": 0.0,
+      "prove": [
+       "0xc14bfa0b6c4a7cca5e41d32d1f991f044b6b2ecf7211503ecc2824b6e4b94b76"
+      ],
+      "provenienza": {
+       "dal_pool": 0.0,
+       "coniato": 0.0,
+       "dalla_curva": 1.0,
+       "da_un_altro_indirizzo": 0.0,
+       "gettoni_ricevuti": 24268793.6562,
+       "trasferimenti_ricevuti": 4,
+       "da_chi": [
+        [
+         "0x6d96118b59d159e94ae85b324ba1b825c07f1098",
+         24268793.6562,
+         "contratto"
+        ]
+       ],
+       "da_una_persona": 0.0,
+       "da_un_contratto": 1.0
+      }
+     },
+     {
+      "indirizzo": "0xb3cded8baad8460da745281d536480901f7f91ee",
+      "venduto": 0.241994,
+      "aveva_comprato_nel_primo_minuto": 0.0,
+      "prove": [
+       "0xf40ddcb675223ab0a14846c59ce83eca21f2b0e193b91ea2661db8f1957b11f8"
+      ],
+      "provenienza": {
+       "dal_pool": 0.0,
+       "coniato": 0.0,
+       "dalla_curva": 1.0,
+       "da_un_altro_indirizzo": 0.0,
+       "gettoni_ricevuti": 13003108.2857,
+       "trasferimenti_ricevuti": 3,
+       "da_chi": [
+        [
+         "0x6d96118b59d159e94ae85b324ba1b825c07f1098",
+         13003108.2857,
+         "contratto"
+        ]
+       ],
+       "da_una_persona": 0.0,
+       "da_un_contratto": 1.0
+      }
+     },
+     {
+      "indirizzo": "0x6704b75eda9db923ecd78d066a6a6461979324a6",
+      "venduto": 0.224536,
+      "aveva_comprato_nel_primo_minuto": 0.0,
+      "prove": [
+       "0x95afa870ee9161711df2cd828a3e8e68853011e44b295b4de864c75327c4d50a"
+      ],
+      "provenienza": {
+       "dal_pool": 0.0,
+       "coniato": 0.0,
+       "dalla_curva": 1.0,
+       "da_un_altro_indirizzo": 0.0,
+       "gettoni_ricevuti": 11878666.7312,
+       "trasferimenti_ricevuti": 2,
+       "da_chi": [
+        [
+         "0x6d96118b59d159e94ae85b324ba1b825c07f1098",
+         11878666.7312,
+         "contratto"
+        ]
+       ],
+       "da_una_persona": 0.0,
+       "da_un_contratto": 1.0
+      }
+     }
+    ]
+   },
+   "compratori_del_primo_minuto": {
+    "quanti": 23,
+    "quanti_poi_vendono_nel_crollo": 15,
+    "quota_del_venduto_che_e_loro": 0.0273
+   }
   }
  }
 }

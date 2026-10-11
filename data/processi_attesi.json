@@ -1,5 +1,11 @@
 {
- "quando": 1791675539,
- "accesi": [],
+ "quando": 1791678051,
+ "accesi": [
+  {
+   "pid": 803,
+   "ore": 0.1786111111111111,
+   "comando": "bash agents/dal_di_fuori.sh"
+  }
+ ],
  "sospetti": []
 }
