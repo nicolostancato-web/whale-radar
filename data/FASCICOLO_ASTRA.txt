@@ -20,7 +20,7 @@ Rispondi con al massimo dieci rilievi, il piu' grave per primo, ognuno con la mi
 precisa che lo dimostra e cosa dovremmo misurare per smentirti.
 
 ======================================================================
-MISURE DEL 2026-10-10 17:52 UTC
+MISURE DEL 2026-10-11 00:03 UTC
 ======================================================================
 
 --- BASE ---
@@ -33,7 +33,7 @@ MISURE DEL 2026-10-10 17:52 UTC
 
 --- ROBINHOOD ---
   istanti chiesti alla catena: 95.7% dei record
-    (campione di 2640 file, 225363 righe, scelto per nome)
+    (campione di 2640 file, 225455 righe, scelto per nome)
   marchi sospetti: 0.0%  <-- record che avevo marchiato
     'verificato' per errore il 20/09, e che vanno ancora ricontrollati
   pool nel registro: 70446   coppie note: 80918
