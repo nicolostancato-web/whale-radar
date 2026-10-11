@@ -43914,5 +43914,12 @@
    "data/ricerca_visibile.json",
    "data/ricevute_consegne.jsonl"
   ]
+ },
+ {
+  "quando": 1791678105,
+  "messaggio": "custode: separa i difetti che costano da quelli dormienti",
+  "file": [
+   "agents/custode_memoria.py"
+  ]
  }
 ]

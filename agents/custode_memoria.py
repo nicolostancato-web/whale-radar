@@ -174,6 +174,7 @@ def margini():
 def referto(radice="data"):
     """Il giro di tutta la memoria: chi e' sano, chi va riscritto, e quanto costa."""
     malati, sani, pesomal = [], 0, 0
+    dormienti = []
     for r, _, ff in os.walk(radice):
         for x in ff:
             p = os.path.join(r, x)
@@ -189,6 +190,20 @@ def referto(radice="data"):
                 peso = os.path.getsize(p)
                 n = riscritture(p)
                 costo = peso * n / 7 if n else 0.0     # MB al giorno aggiunti alla storia
+                # MALATO MA DORMIENTE NON E' UN DIFETTO APERTO (11/10). Due monoliti restano
+                # scritti male, ma le corsie che li riscrivevano sono spente: da oggi costano
+                # zero. Convertirli del tutto vorrebbe dire toccare ~40 agenti di fasi chiuse
+                # che li aprono a mano — churn senza beneficio, e il churn e' il posto da cui
+                # vengono gli errori. Restano elencati, ma separati: un referto che tiene in
+                # cima per sempre un difetto che non fa danno insegna a ignorare il referto.
+                # IL CRITERIO E' «RISCRITTO DI RECENTE», NON «MAI RISCRITTO» (11/10, seconda
+                # taratura). Contando sette giorni, questi file risultavano riscritti una volta —
+                # ma quella volta era PRIMA che spegnessi le corsie: e' storia, non previsione.
+                # Dormiente vuol dire che nessuno lo tocca ADESSO.
+                oggi = riscritture(p, giorni=1)
+                if not oggi:
+                    dormienti.append((peso, p))
+                    continue
                 malati.append((costo, peso, n, p, motivo))
                 pesomal += peso
     malati.sort(reverse=True)
@@ -200,7 +215,10 @@ def referto(radice="data"):
             print(f"   {nome:9} {usato:6.2f} GB su {lim:5.0f} — margine {lim-usato:6.2f} GB "
                   f"({100*usato/lim:.0f}% pieno)")
     print(f"\nCUSTODE | {sani} file sani, {len(malati)} da riscrivere "
-          f"({pesomal/1e6:.0f} MB fatti nel modo sbagliato)")
+          f"({pesomal/1e6:.0f} MB che costano ancora)"
+          + (f", {len(dormienti)} scritti male ma DORMIENTI "
+             f"({sum(x for x, _ in dormienti)/1e6:.0f} MB: nessuno li riscrive, "
+             f"costano zero)" if dormienti else ""))
     print("   (in ordine di COSTO: peso x riscritture, non di peso)")
     for costo, peso, nn, p, m in malati[:12]:
         q = f"{nn} riscritture/7gg" if nn is not None else "riscritture sconosciute"
