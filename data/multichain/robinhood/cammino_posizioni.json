@@ -6,7 +6,7 @@
    "blocco_entrata": 83526738,
    "stato": "chiusa",
    "scambi_dopo_entrata": 1193,
-   "aggiornato_al_blocco": 85408511,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 1.26722,
    "comprato_5min": 4123.43,
    "venduto_5min": 2737.1,
@@ -1474,8 +1474,8 @@
    "entrata": 1.7765055582398975e-08,
    "blocco_entrata": 83532951,
    "stato": "chiusa",
-   "scambi_dopo_entrata": 7834,
-   "aggiornato_al_blocco": 85408511,
+   "scambi_dopo_entrata": 7853,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 0.92133,
    "comprato_5min": 1912.32,
    "venduto_5min": 2256.85,
@@ -1502,8 +1502,8 @@
    "min_dopo_minuti": 458.2,
    "max_x": 8.27551,
    "max_dopo_minuti": 1257.8,
-   "ultimo_x": 3.99498,
-   "ultimo_dopo_minuti": 3125.6,
+   "ultimo_x": 4.12802,
+   "ultimo_dopo_minuti": 3165.1,
    "caduta_peggiore_da_un_picco": 0.15008,
    "discesa_peggiore_prima_del_2x": 0.1652,
    "minuti_per_raddoppiare": 1247.0,
@@ -3981,6 +3981,12 @@
      3.93706,
      3.9298,
      4.21918
+    ],
+    [
+     1869880,
+     4.01522,
+     3.99498,
+     4.25316
     ]
    ]
   },
@@ -3989,7 +3995,7 @@
    "blocco_entrata": 83601387,
    "stato": "chiusa",
    "scambi_dopo_entrata": 2297,
-   "aggiornato_al_blocco": 85408511,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 1.18178,
    "comprato_5min": 19526.71,
    "venduto_5min": 18810.76,
@@ -6784,7 +6790,7 @@
    "blocco_entrata": 83629855,
    "stato": "chiusa",
    "scambi_dopo_entrata": 1239,
-   "aggiornato_al_blocco": 85408511,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 0.46145,
    "comprato_5min": 12440.34,
    "venduto_5min": 13970.58,
@@ -8308,7 +8314,7 @@
    "blocco_entrata": 83676740,
    "stato": "chiusa",
    "scambi_dopo_entrata": 996,
-   "aggiornato_al_blocco": 85408511,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 0.75959,
    "comprato_5min": 4578.95,
    "venduto_5min": 6033.12,
@@ -9543,7 +9549,7 @@
    "blocco_entrata": 83713632,
    "stato": "chiusa",
    "scambi_dopo_entrata": 760,
-   "aggiornato_al_blocco": 85408511,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 0.77026,
    "comprato_5min": 1911.03,
    "venduto_5min": 3125.26,
@@ -10493,8 +10499,8 @@
    "entrata": 2.1966226694384477e-08,
    "blocco_entrata": 83778189,
    "stato": "chiusa",
-   "scambi_dopo_entrata": 2262,
-   "aggiornato_al_blocco": 85408511,
+   "scambi_dopo_entrata": 2265,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 1.19888,
    "comprato_5min": 2514.06,
    "venduto_5min": 1533.15,
@@ -10519,8 +10525,8 @@
    "min_dopo_minuti": 2238.2,
    "max_x": 1.9469,
    "max_dopo_minuti": 303.5,
-   "ultimo_x": 0.70529,
-   "ultimo_dopo_minuti": 2709.5,
+   "ultimo_x": 0.70128,
+   "ultimo_dopo_minuti": 2756.0,
    "caduta_peggiore_da_un_picco": 0.29854,
    "discesa_peggiore_prima_del_2x": null,
    "minuti_per_raddoppiare": null,
@@ -13237,6 +13243,12 @@
      0.70128,
      0.68734,
      0.70827
+    ],
+    [
+     1621075,
+     0.70177,
+     0.69801,
+     0.70601
     ]
    ]
   },
@@ -13244,8 +13256,8 @@
    "entrata": 3.34346387652531e-05,
    "blocco_entrata": 83813106,
    "stato": "chiusa",
-   "scambi_dopo_entrata": 4448,
-   "aggiornato_al_blocco": 85408511,
+   "scambi_dopo_entrata": 4451,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 0.88719,
    "comprato_5min": 1529.83,
    "venduto_5min": 2153.66,
@@ -13270,8 +13282,8 @@
    "min_dopo_minuti": 1187.7,
    "max_x": 4.14353,
    "max_dopo_minuti": 28.0,
-   "ultimo_x": 0.35821,
-   "ultimo_dopo_minuti": 2614.7,
+   "ultimo_x": 0.35737,
+   "ultimo_dopo_minuti": 2695.8,
    "caduta_peggiore_da_un_picco": 0.07406,
    "discesa_peggiore_prima_del_2x": 0.81711,
    "minuti_per_raddoppiare": 22.8,
@@ -15708,8 +15720,8 @@
    "entrata": 1.6704987288451576e-05,
    "blocco_entrata": 83905736,
    "stato": "chiusa",
-   "scambi_dopo_entrata": 4021,
-   "aggiornato_al_blocco": 85408511,
+   "scambi_dopo_entrata": 4022,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 1.25011,
    "comprato_5min": 12062.56,
    "venduto_5min": 11122.71,
@@ -15734,8 +15746,8 @@
    "min_dopo_minuti": 2353.2,
    "max_x": 4.48217,
    "max_dopo_minuti": 19.1,
-   "ultimo_x": 0.2033,
-   "ultimo_dopo_minuti": 2441.2,
+   "ultimo_x": 0.20423,
+   "ultimo_dopo_minuti": 2524.4,
    "caduta_peggiore_da_un_picco": 0.04394,
    "discesa_peggiore_prima_del_2x": 0.9012,
    "minuti_per_raddoppiare": 0.4,
@@ -18161,7 +18173,7 @@
    "blocco_entrata": 84116758,
    "stato": "chiusa",
    "scambi_dopo_entrata": 95,
-   "aggiornato_al_blocco": 85408511,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 0.86367,
    "comprato_5min": 400.74,
    "venduto_5min": 624.8,
@@ -18314,7 +18326,7 @@
    "blocco_entrata": 84118461,
    "stato": "chiusa",
    "scambi_dopo_entrata": 281,
-   "aggiornato_al_blocco": 85408511,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 0.72625,
    "comprato_5min": 832.7,
    "venduto_5min": 2963.85,
@@ -18688,8 +18700,8 @@
    "entrata": 2.2745411362382597e-08,
    "blocco_entrata": 84141399,
    "stato": "chiusa",
-   "scambi_dopo_entrata": 632,
-   "aggiornato_al_blocco": 85408511,
+   "scambi_dopo_entrata": 635,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 0.79833,
    "comprato_5min": 4357.92,
    "venduto_5min": 5346.17,
@@ -18714,8 +18726,8 @@
    "min_dopo_minuti": 321.6,
    "max_x": 1.0,
    "max_dopo_minuti": 0.0,
-   "ultimo_x": 0.67096,
-   "ultimo_dopo_minuti": 2086.6,
+   "ultimo_x": 0.65401,
+   "ultimo_dopo_minuti": 2130.3,
    "caduta_peggiore_da_un_picco": 0.40676,
    "discesa_peggiore_prima_del_2x": null,
    "minuti_per_raddoppiare": null,
@@ -19476,6 +19488,12 @@
      0.66654,
      0.66507,
      0.6823
+    ],
+    [
+     1223772,
+     0.6651,
+     0.65401,
+     0.67096
     ]
    ]
   },
@@ -19484,7 +19502,7 @@
    "blocco_entrata": 84182493,
    "stato": "chiusa",
    "scambi_dopo_entrata": 558,
-   "aggiornato_al_blocco": 85408511,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 0.77867,
    "comprato_5min": 1127.47,
    "venduto_5min": 3082.05,
@@ -20190,7 +20208,7 @@
    "blocco_entrata": 84211174,
    "stato": "chiusa",
    "scambi_dopo_entrata": 2280,
-   "aggiornato_al_blocco": 85408511,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 1.05724,
    "comprato_5min": 15896.44,
    "venduto_5min": 15665.41,
@@ -22964,8 +22982,8 @@
    "entrata": 2.1130321920878776e-08,
    "blocco_entrata": 84214632,
    "stato": "chiusa",
-   "scambi_dopo_entrata": 1232,
-   "aggiornato_al_blocco": 85408511,
+   "scambi_dopo_entrata": 1233,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 1.01318,
    "comprato_5min": 13779.02,
    "venduto_5min": 14181.73,
@@ -22990,8 +23008,8 @@
    "min_dopo_minuti": 4.0,
    "max_x": 6.7602,
    "max_dopo_minuti": 1434.2,
-   "ultimo_x": 6.51864,
-   "ultimo_dopo_minuti": 1913.8,
+   "ultimo_x": 6.51272,
+   "ultimo_dopo_minuti": 2015.2,
    "caduta_peggiore_da_un_picco": 0.51005,
    "discesa_peggiore_prima_del_2x": 0.9052,
    "minuti_per_raddoppiare": 14.5,
@@ -24480,8 +24498,8 @@
    "entrata": 1.78846201687614e-08,
    "blocco_entrata": 84266552,
    "stato": "chiusa",
-   "scambi_dopo_entrata": 9103,
-   "aggiornato_al_blocco": 85408511,
+   "scambi_dopo_entrata": 9133,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 1.63101,
    "comprato_5min": 21199.03,
    "venduto_5min": 18351.7,
@@ -24506,9 +24524,9 @@
    "min_dopo_minuti": 0.2,
    "max_x": 15.31028,
    "max_dopo_minuti": 224.5,
-   "ultimo_x": 2.09804,
-   "ultimo_dopo_minuti": 1902.6,
-   "caduta_peggiore_da_un_picco": 0.12933,
+   "ultimo_x": 2.01414,
+   "ultimo_dopo_minuti": 1940.8,
+   "caduta_peggiore_da_un_picco": 0.12478,
    "discesa_peggiore_prima_del_2x": 0.38837,
    "minuti_per_raddoppiare": 10.3,
    "massimo_dopo_il_raddoppio": 15.31028,
@@ -26991,6 +27009,18 @@
      2.09319,
      2.02273,
      2.19137
+    ],
+    [
+     1131417,
+     2.10483,
+     1.91047,
+     2.24719
+    ],
+    [
+     1147059,
+     2.0558,
+     1.95136,
+     2.13105
     ]
    ]
   },
@@ -26998,8 +27028,8 @@
    "entrata": 3.049633163069665e-06,
    "blocco_entrata": 84309280,
    "stato": "chiusa",
-   "scambi_dopo_entrata": 688,
-   "aggiornato_al_blocco": 85408511,
+   "scambi_dopo_entrata": 689,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 0.83154,
    "comprato_5min": 30121.64,
    "venduto_5min": 47919.45,
@@ -27024,8 +27054,8 @@
    "min_dopo_minuti": 809.4,
    "max_x": 1.04444,
    "max_dopo_minuti": 0.7,
-   "ultimo_x": 0.70196,
-   "ultimo_dopo_minuti": 1826.2,
+   "ultimo_x": 0.70239,
+   "ultimo_dopo_minuti": 1840.8,
    "caduta_peggiore_da_un_picco": 0.47303,
    "discesa_peggiore_prima_del_2x": null,
    "minuti_per_raddoppiare": null,
@@ -27860,7 +27890,7 @@
    "blocco_entrata": 84313333,
    "stato": "chiusa",
    "scambi_dopo_entrata": 423,
-   "aggiornato_al_blocco": 85408511,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 0.99018,
    "comprato_5min": 8592.5,
    "venduto_5min": 8931.64,
@@ -28402,8 +28432,8 @@
    "entrata": 4.3693977078136166e-08,
    "blocco_entrata": 84330848,
    "stato": "chiusa",
-   "scambi_dopo_entrata": 11634,
-   "aggiornato_al_blocco": 85408511,
+   "scambi_dopo_entrata": 11666,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 1.05609,
    "comprato_5min": 15923.32,
    "venduto_5min": 15610.03,
@@ -28428,8 +28458,8 @@
    "min_dopo_minuti": 0.2,
    "max_x": 7.09371,
    "max_dopo_minuti": 810.7,
-   "ultimo_x": 2.3846,
-   "ultimo_dopo_minuti": 1794.9,
+   "ultimo_x": 2.22861,
+   "ultimo_dopo_minuti": 1833.5,
    "caduta_peggiore_da_un_picco": 0.2181,
    "discesa_peggiore_prima_del_2x": 0.85804,
    "minuti_per_raddoppiare": 14.0,
@@ -30841,6 +30871,12 @@
      2.37864,
      2.08322,
      2.57215
+    ],
+    [
+     1074286,
+     2.42793,
+     2.21623,
+     2.51986
     ]
    ]
   },
@@ -30848,8 +30884,8 @@
    "entrata": 2.181724105831043e-08,
    "blocco_entrata": 84356061,
    "stato": "chiusa",
-   "scambi_dopo_entrata": 932,
-   "aggiornato_al_blocco": 85408511,
+   "scambi_dopo_entrata": 934,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 1.01016,
    "comprato_5min": 5622.09,
    "venduto_5min": 5916.45,
@@ -30870,13 +30906,13 @@
    "venduto_24h": 33867.48,
    "a_48h": null,
    "a_7g": null,
-   "min_x": 0.09964,
-   "min_dopo_minuti": 1684.8,
+   "min_x": 0.09181,
+   "min_dopo_minuti": 1761.2,
    "max_x": 1.51136,
    "max_dopo_minuti": 2.9,
-   "ultimo_x": 0.09964,
-   "ultimo_dopo_minuti": 1684.8,
-   "caduta_peggiore_da_un_picco": 0.06592,
+   "ultimo_x": 0.09181,
+   "ultimo_dopo_minuti": 1761.2,
+   "caduta_peggiore_da_un_picco": 0.06074,
    "discesa_peggiore_prima_del_2x": null,
    "minuti_per_raddoppiare": null,
    "passo_campionamento": 5,
@@ -32004,7 +32040,7 @@
    "blocco_entrata": 84370090,
    "stato": "chiusa",
    "scambi_dopo_entrata": 68,
-   "aggiornato_al_blocco": 85408511,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 0.93062,
    "comprato_5min": 9.32,
    "venduto_5min": 158.09,
@@ -32121,7 +32157,7 @@
    "blocco_entrata": 84378680,
    "stato": "chiusa",
    "scambi_dopo_entrata": 136,
-   "aggiornato_al_blocco": 85408511,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 0.57861,
    "comprato_5min": 805.39,
    "venduto_5min": 1689.26,
@@ -32321,8 +32357,8 @@
    "entrata": 1.338800831945235e-07,
    "blocco_entrata": 84405049,
    "stato": "chiusa",
-   "scambi_dopo_entrata": 3719,
-   "aggiornato_al_blocco": 85408511,
+   "scambi_dopo_entrata": 3720,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 1.31415,
    "comprato_5min": 76976.93,
    "venduto_5min": 73460.04,
@@ -32347,8 +32383,8 @@
    "min_dopo_minuti": 1628.5,
    "max_x": 4.13012,
    "max_dopo_minuti": 62.6,
-   "ultimo_x": 0.23583,
-   "ultimo_dopo_minuti": 1661.6,
+   "ultimo_x": 0.23548,
+   "ultimo_dopo_minuti": 1697.8,
    "caduta_peggiore_da_un_picco": 0.057,
    "discesa_peggiore_prima_del_2x": 0.75729,
    "minuti_per_raddoppiare": 39.8,
@@ -34839,8 +34875,8 @@
    "entrata": 1.0401141718113378e-06,
    "blocco_entrata": 84417887,
    "stato": "chiusa",
-   "scambi_dopo_entrata": 2890,
-   "aggiornato_al_blocco": 85408511,
+   "scambi_dopo_entrata": 2893,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 1.33931,
    "comprato_5min": 921724.01,
    "venduto_5min": 882851.95,
@@ -34865,8 +34901,8 @@
    "min_dopo_minuti": 1646.3,
    "max_x": 1.95756,
    "max_dopo_minuti": 1.6,
-   "ultimo_x": 0.3835,
-   "ultimo_dopo_minuti": 1650.4,
+   "ultimo_x": 0.38397,
+   "ultimo_dopo_minuti": 1679.5,
    "caduta_peggiore_da_un_picco": 0.19563,
    "discesa_peggiore_prima_del_2x": null,
    "minuti_per_raddoppiare": null,
@@ -37343,6 +37379,12 @@
      0.39055,
      0.38834,
      0.39282
+    ],
+    [
+     962842,
+     0.38351,
+     0.38295,
+     0.38753
     ]
    ]
   },
@@ -37350,8 +37392,8 @@
    "entrata": 1.8779616902862348e-08,
    "blocco_entrata": 84481325,
    "stato": "chiusa",
-   "scambi_dopo_entrata": 1503,
-   "aggiornato_al_blocco": 85408511,
+   "scambi_dopo_entrata": 1509,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 1.42146,
    "comprato_5min": 12558.04,
    "venduto_5min": 9901.49,
@@ -37376,8 +37418,8 @@
    "min_dopo_minuti": 1416.7,
    "max_x": 1.81923,
    "max_dopo_minuti": 7.0,
-   "ultimo_x": 0.35983,
-   "ultimo_dopo_minuti": 1540.3,
+   "ultimo_x": 0.3891,
+   "ultimo_dopo_minuti": 1565.3,
    "caduta_peggiore_da_un_picco": 0.16931,
    "discesa_peggiore_prima_del_2x": null,
    "minuti_per_raddoppiare": null,
@@ -39182,6 +39224,12 @@
      0.33519,
      0.33006,
      0.34504
+    ],
+    [
+     917018,
+     0.35983,
+     0.35387,
+     0.3727
     ]
    ]
   },
@@ -39189,8 +39237,8 @@
    "entrata": 1.4243905575260743e-08,
    "blocco_entrata": 84625617,
    "stato": "chiusa",
-   "scambi_dopo_entrata": 1594,
-   "aggiornato_al_blocco": 85408511,
+   "scambi_dopo_entrata": 1598,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 0.99627,
    "comprato_5min": 4117.47,
    "venduto_5min": 4243.91,
@@ -39213,8 +39261,8 @@
    "min_dopo_minuti": 1259.7,
    "max_x": 1.18742,
    "max_dopo_minuti": 3.4,
-   "ultimo_x": 0.22539,
-   "ultimo_dopo_minuti": 1302.9,
+   "ultimo_x": 0.22845,
+   "ultimo_dopo_minuti": 1340.7,
    "caduta_peggiore_da_un_picco": 0.15038,
    "discesa_peggiore_prima_del_2x": null,
    "minuti_per_raddoppiare": null,
@@ -41127,6 +41175,12 @@
      0.2148,
      0.1819,
      0.21938
+    ],
+    [
+     768143,
+     0.22451,
+     0.2128,
+     0.22574
     ]
    ]
   },
@@ -41134,8 +41188,8 @@
    "entrata": 1.8391046563567082e-08,
    "blocco_entrata": 84883199,
    "stato": "chiusa",
-   "scambi_dopo_entrata": 2969,
-   "aggiornato_al_blocco": 85408511,
+   "scambi_dopo_entrata": 2998,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 1.06145,
    "comprato_5min": 7031.35,
    "venduto_5min": 6944.9,
@@ -41158,8 +41212,8 @@
    "min_dopo_minuti": 854.5,
    "max_x": 2.05497,
    "max_dopo_minuti": 223.5,
-   "ultimo_x": 0.5124,
-   "ultimo_dopo_minuti": 875.0,
+   "ultimo_x": 0.48174,
+   "ultimo_dopo_minuti": 912.7,
    "caduta_peggiore_da_un_picco": 0.19181,
    "discesa_peggiore_prima_del_2x": 0.87941,
    "minuti_per_raddoppiare": 34.8,
@@ -43709,6 +43763,30 @@
      0.48373,
      0.46134,
      0.51232
+    ],
+    [
+     525014,
+     0.52163,
+     0.5124,
+     0.5321
+    ],
+    [
+     527669,
+     0.5399,
+     0.52127,
+     0.54159
+    ],
+    [
+     530716,
+     0.54918,
+     0.53261,
+     0.56024
+    ],
+    [
+     541875,
+     0.4807,
+     0.47603,
+     0.51746
     ]
    ]
   },
@@ -43716,8 +43794,8 @@
    "entrata": 9.831147707008451e-08,
    "blocco_entrata": 85128896,
    "stato": "chiusa",
-   "scambi_dopo_entrata": 1204,
-   "aggiornato_al_blocco": 85408511,
+   "scambi_dopo_entrata": 1213,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 0.91924,
    "comprato_5min": 27729.9,
    "venduto_5min": 28601.9,
@@ -43738,8 +43816,8 @@
    "min_dopo_minuti": 30.4,
    "max_x": 3.84227,
    "max_dopo_minuti": 101.7,
-   "ultimo_x": 2.00235,
-   "ultimo_dopo_minuti": 462.3,
+   "ultimo_x": 2.12941,
+   "ultimo_dopo_minuti": 494.6,
    "caduta_peggiore_da_un_picco": 0.44627,
    "discesa_peggiore_prima_del_2x": 0.44883,
    "minuti_per_raddoppiare": 61.7,
@@ -45185,6 +45263,18 @@
      2.10894,
      2.10503,
      2.14362
+    ],
+    [
+     265569,
+     2.0512,
+     2.00235,
+     2.1011
+    ],
+    [
+     287543,
+     2.17576,
+     2.11345,
+     2.23352
     ]
    ]
   },
@@ -45192,8 +45282,8 @@
    "entrata": 1.569828818336564e-08,
    "blocco_entrata": 85170690,
    "stato": "aperta",
-   "scambi_dopo_entrata": 522,
-   "aggiornato_al_blocco": 85408511,
+   "scambi_dopo_entrata": 525,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 0.53379,
    "comprato_5min": 4244.0,
    "venduto_5min": 6513.9,
@@ -45214,8 +45304,8 @@
    "min_dopo_minuti": 82.1,
    "max_x": 1.03329,
    "max_dopo_minuti": 0.1,
-   "ultimo_x": 0.07047,
-   "ultimo_dopo_minuti": 348.5,
+   "ultimo_x": 0.0709,
+   "ultimo_dopo_minuti": 432.4,
    "caduta_peggiore_da_un_picco": 0.06665,
    "discesa_peggiore_prima_del_2x": null,
    "minuti_per_raddoppiare": null,
@@ -45844,6 +45934,12 @@
      0.06948,
      0.06937,
      0.07061
+    ],
+    [
+     135384,
+     0.07064,
+     0.07038,
+     0.0709
     ]
    ]
   },
@@ -45851,8 +45947,8 @@
    "entrata": 3.1624679718076595e-08,
    "blocco_entrata": 85207265,
    "stato": "aperta",
-   "scambi_dopo_entrata": 2102,
-   "aggiornato_al_blocco": 85408511,
+   "scambi_dopo_entrata": 2210,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 1.06717,
    "comprato_5min": 11335.85,
    "venduto_5min": 11080.89,
@@ -45873,8 +45969,8 @@
    "min_dopo_minuti": 317.1,
    "max_x": 1.60347,
    "max_dopo_minuti": 95.1,
-   "ultimo_x": 0.78003,
-   "ultimo_dopo_minuti": 335.3,
+   "ultimo_x": 0.74696,
+   "ultimo_dopo_minuti": 376.0,
    "caduta_peggiore_da_un_picco": 0.4187,
    "discesa_peggiore_prima_del_2x": null,
    "minuti_per_raddoppiare": null,
@@ -48399,6 +48495,138 @@
      0.7801,
      0.78009,
      0.79351
+    ],
+    [
+     200776,
+     0.78003,
+     0.77997,
+     0.78004
+    ],
+    [
+     202326,
+     0.77995,
+     0.77343,
+     0.77997
+    ],
+    [
+     203509,
+     0.77346,
+     0.77343,
+     0.77486
+    ],
+    [
+     204608,
+     0.77639,
+     0.77487,
+     0.77673
+    ],
+    [
+     205503,
+     0.77675,
+     0.77673,
+     0.78295
+    ],
+    [
+     206482,
+     0.7827,
+     0.78165,
+     0.78291
+    ],
+    [
+     207638,
+     0.78266,
+     0.78264,
+     0.78274
+    ],
+    [
+     208922,
+     0.77208,
+     0.74165,
+     0.7826
+    ],
+    [
+     209891,
+     0.74156,
+     0.74108,
+     0.74165
+    ],
+    [
+     210806,
+     0.74061,
+     0.74053,
+     0.74146
+    ],
+    [
+     211739,
+     0.74063,
+     0.74059,
+     0.74066
+    ],
+    [
+     213313,
+     0.74004,
+     0.7397,
+     0.74061
+    ],
+    [
+     214517,
+     0.73998,
+     0.73987,
+     0.74001
+    ],
+    [
+     215946,
+     0.73998,
+     0.73987,
+     0.74479
+    ],
+    [
+     216774,
+     0.74339,
+     0.74335,
+     0.74341
+    ],
+    [
+     218169,
+     0.74439,
+     0.74345,
+     0.74569
+    ],
+    [
+     219073,
+     0.74626,
+     0.74547,
+     0.74665
+    ],
+    [
+     219836,
+     0.74532,
+     0.74486,
+     0.74574
+    ],
+    [
+     220924,
+     0.74492,
+     0.74395,
+     0.74539
+    ],
+    [
+     221878,
+     0.7469,
+     0.74682,
+     0.74784
+    ],
+    [
+     222773,
+     0.747,
+     0.74697,
+     0.74702
+    ],
+    [
+     224334,
+     0.74697,
+     0.74694,
+     0.74701
     ]
    ]
   },
@@ -48406,8 +48634,8 @@
    "entrata": 9.489787274350763e-08,
    "blocco_entrata": 85246391,
    "stato": "aperta",
-   "scambi_dopo_entrata": 361,
-   "aggiornato_al_blocco": 85408511,
+   "scambi_dopo_entrata": 363,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 0.01146,
    "comprato_5min": 5770.7,
    "venduto_5min": 26515.91,
@@ -48428,8 +48656,8 @@
    "min_dopo_minuti": 3.8,
    "max_x": 1.33953,
    "max_dopo_minuti": 0.9,
-   "ultimo_x": 0.01171,
-   "ultimo_dopo_minuti": 209.7,
+   "ultimo_x": 0.01182,
+   "ultimo_dopo_minuti": 294.0,
    "caduta_peggiore_da_un_picco": 0.0085,
    "discesa_peggiore_prima_del_2x": null,
    "minuti_per_raddoppiare": null,
@@ -48873,8 +49101,8 @@
    "entrata": 7.119835311947022e-08,
    "blocco_entrata": 85255170,
    "stato": "chiusa",
-   "scambi_dopo_entrata": 2931,
-   "aggiornato_al_blocco": 85408511,
+   "scambi_dopo_entrata": 2932,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 1.19273,
    "comprato_5min": 27624.09,
    "venduto_5min": 24472.93,
@@ -48895,8 +49123,8 @@
    "min_dopo_minuti": 77.1,
    "max_x": 3.07973,
    "max_dopo_minuti": 11.1,
-   "ultimo_x": 0.06018,
-   "ultimo_dopo_minuti": 243.6,
+   "ultimo_x": 0.06006,
+   "ultimo_dopo_minuti": 279.9,
    "caduta_peggiore_da_un_picco": 0.01084,
    "discesa_peggiore_prima_del_2x": 0.63177,
    "minuti_per_raddoppiare": 9.7,
@@ -51417,8 +51645,8 @@
    "entrata": 1.51177565139494e-08,
    "blocco_entrata": 85277915,
    "stato": "chiusa",
-   "scambi_dopo_entrata": 4660,
-   "aggiornato_al_blocco": 85408511,
+   "scambi_dopo_entrata": 4789,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 2.09018,
    "comprato_5min": 26680.43,
    "venduto_5min": 22177.46,
@@ -51428,7 +51656,9 @@
    "a_1h": 2.25549,
    "comprato_1h": 103392.75,
    "venduto_1h": 98024.46,
-   "a_4h": null,
+   "a_4h": 2.85989,
+   "comprato_4h": 158591.87,
+   "venduto_4h": 151725.37,
    "a_12h": null,
    "a_24h": null,
    "a_48h": null,
@@ -51437,8 +51667,8 @@
    "min_dopo_minuti": 0.0,
    "max_x": 4.38857,
    "max_dopo_minuti": 178.2,
-   "ultimo_x": 3.05463,
-   "ultimo_dopo_minuti": 217.1,
+   "ultimo_x": 2.58439,
+   "ultimo_dopo_minuti": 258.2,
    "caduta_peggiore_da_un_picco": 0.42823,
    "discesa_peggiore_prima_del_2x": 0.90384,
    "minuti_per_raddoppiare": 3.6,
@@ -53982,6 +54212,78 @@
      3.10681,
      2.87303,
      3.14801
+    ],
+    [
+     128702,
+     3.02057,
+     2.99867,
+     3.10767
+    ],
+    [
+     131579,
+     3.16966,
+     3.11654,
+     3.21479
+    ],
+    [
+     134016,
+     3.19907,
+     3.12495,
+     3.22039
+    ],
+    [
+     135713,
+     2.68941,
+     2.61538,
+     3.12333
+    ],
+    [
+     136634,
+     2.26521,
+     2.25076,
+     2.58892
+    ],
+    [
+     137922,
+     2.38598,
+     2.30848,
+     2.44143
+    ],
+    [
+     139166,
+     2.32971,
+     2.2943,
+     2.42963
+    ],
+    [
+     141619,
+     2.64621,
+     2.34696,
+     2.71139
+    ],
+    [
+     142376,
+     2.8073,
+     2.53712,
+     2.86114
+    ],
+    [
+     145068,
+     2.58645,
+     2.57651,
+     2.73341
+    ],
+    [
+     146921,
+     2.60247,
+     2.58047,
+     2.66763
+    ],
+    [
+     150218,
+     2.61942,
+     2.59181,
+     2.64911
     ]
    ]
   },
@@ -53989,8 +54291,8 @@
    "entrata": 1.8866861523058705e-08,
    "blocco_entrata": 85305372,
    "stato": "aperta",
-   "scambi_dopo_entrata": 253,
-   "aggiornato_al_blocco": 85408511,
+   "scambi_dopo_entrata": 254,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 0.57465,
    "comprato_5min": 2925.58,
    "venduto_5min": 5259.22,
@@ -54009,8 +54311,8 @@
    "min_dopo_minuti": 33.8,
    "max_x": 1.0002,
    "max_dopo_minuti": 0.8,
-   "ultimo_x": 0.49455,
-   "ultimo_dopo_minuti": 166.6,
+   "ultimo_x": 0.4943,
+   "ultimo_dopo_minuti": 178.2,
    "caduta_peggiore_da_un_picco": 0.44348,
    "discesa_peggiore_prima_del_2x": null,
    "minuti_per_raddoppiare": null,
@@ -54322,8 +54624,8 @@
    "entrata": 2.132142738589324e-08,
    "blocco_entrata": 85306312,
    "stato": "aperta",
-   "scambi_dopo_entrata": 2298,
-   "aggiornato_al_blocco": 85408511,
+   "scambi_dopo_entrata": 2350,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 0.20372,
    "comprato_5min": 18663.3,
    "venduto_5min": 24775.15,
@@ -54342,8 +54644,8 @@
    "min_dopo_minuti": 4.3,
    "max_x": 1.26713,
    "max_dopo_minuti": 60.7,
-   "ultimo_x": 0.34644,
-   "ultimo_dopo_minuti": 170.2,
+   "ultimo_x": 0.41295,
+   "ultimo_dopo_minuti": 208.4,
    "caduta_peggiore_da_un_picco": 0.15153,
    "discesa_peggiore_prima_del_2x": null,
    "minuti_per_raddoppiare": null,
@@ -57102,6 +57404,72 @@
      0.32978,
      0.32348,
      0.33361
+    ],
+    [
+     101978,
+     0.34644,
+     0.3337,
+     0.34778
+    ],
+    [
+     103353,
+     0.34859,
+     0.34458,
+     0.35527
+    ],
+    [
+     105526,
+     0.44245,
+     0.37585,
+     0.47253
+    ],
+    [
+     105528,
+     0.47146,
+     0.44397,
+     0.47321
+    ],
+    [
+     106012,
+     0.43661,
+     0.4352,
+     0.45012
+    ],
+    [
+     106307,
+     0.44725,
+     0.44374,
+     0.47253
+    ],
+    [
+     106965,
+     0.42899,
+     0.42542,
+     0.44574
+    ],
+    [
+     107446,
+     0.43655,
+     0.42811,
+     0.43676
+    ],
+    [
+     111033,
+     0.41067,
+     0.40983,
+     0.42952
+    ],
+    [
+     112889,
+     0.40874,
+     0.40855,
+     0.41004
+    ],
+    [
+     121869,
+     0.41101,
+     0.40879,
+     0.41295
     ]
    ]
   },
@@ -57109,27 +57477,29 @@
    "entrata": 1.7631985410556704e-09,
    "blocco_entrata": 85377624,
    "stato": "aperta",
-   "scambi_dopo_entrata": 54,
-   "aggiornato_al_blocco": 85408511,
+   "scambi_dopo_entrata": 59,
+   "aggiornato_al_blocco": 85432901,
    "a_5min": 0.73142,
    "comprato_5min": 103.34,
    "venduto_5min": 553.45,
    "a_15min": 0.7227,
    "comprato_15min": 108.91,
    "venduto_15min": 585.82,
-   "a_1h": null,
+   "a_1h": 0.68742,
+   "comprato_1h": 141.05,
+   "venduto_1h": 694.57,
    "a_4h": null,
    "a_12h": null,
    "a_24h": null,
    "a_48h": null,
    "a_7g": null,
-   "min_x": 0.67736,
-   "min_dopo_minuti": 44.7,
+   "min_x": 0.67547,
+   "min_dopo_minuti": 67.3,
    "max_x": 1.00974,
    "max_dopo_minuti": 0.0,
-   "ultimo_x": 0.68302,
-   "ultimo_dopo_minuti": 47.8,
-   "caduta_peggiore_da_un_picco": 0.67083,
+   "ultimo_x": 0.67547,
+   "ultimo_dopo_minuti": 67.3,
+   "caduta_peggiore_da_un_picco": 0.66896,
    "discesa_peggiore_prima_del_2x": null,
    "minuti_per_raddoppiare": null,
    "passo_campionamento": 5,
@@ -57193,10 +57563,16 @@
      0.68547,
      0.68131,
      0.68871
+    ],
+    [
+     26512,
+     0.67965,
+     0.67736,
+     0.68742
     ]
    ]
   }
  },
- "aggiornato": 1791677523,
- "blocco": 85408511
+ "aggiornato": 1791680044,
+ "blocco": 85432901
 }
