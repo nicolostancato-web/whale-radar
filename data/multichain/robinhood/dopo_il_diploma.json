@@ -1,0 +1,68 @@
+{
+ "chain": "robinhood",
+ "serie_usabili": 721,
+ "scelta": 360,
+ "cassaforte": 361,
+ "sulla_prima_meta": {
+  "vendo a 2x": {
+   "medio": 0.4115,
+   "mediana": 0.9608,
+   "vinte": 255,
+   "su": 360
+  },
+  "vendo a 3x": {
+   "medio": 0.6613,
+   "mediana": 1.9412,
+   "vinte": 200,
+   "su": 360
+  },
+  "vendo a 5x": {
+   "medio": 0.9411,
+   "mediana": -0.8271,
+   "vinte": 142,
+   "su": 360
+  },
+  "vendo a 10x": {
+   "medio": 1.3168,
+   "mediana": -0.9187,
+   "vinte": 92,
+   "su": 360
+  },
+  "vendo a 5x, taglio a 0,5x": {
+   "medio": 0.6511,
+   "mediana": -0.5098,
+   "vinte": 100,
+   "su": 360
+  },
+  "vendo a 10x, taglio a 0,5x": {
+   "medio": 1.0219,
+   "mediana": -0.5098,
+   "vinte": 67,
+   "su": 360
+  },
+  "vendo a 10x, taglio a 0,3x": {
+   "medio": 1.2228,
+   "mediana": -0.7059,
+   "vinte": 81,
+   "su": 360
+  },
+  "tengo fino alla fine": {
+   "medio": 1.6245,
+   "mediana": -0.9279,
+   "vinte": 34,
+   "su": 360
+  }
+ },
+ "regola_scelta": "vendo a 3x",
+ "cassaforte_esito": {
+  "medio": -0.0038,
+  "mediana": -0.9368,
+  "vinte": 115
+ },
+ "tenere_e_basta": {
+  "medio": -0.7046,
+  "mediana": -0.9454
+ },
+ "verdetto": "NON REGGE",
+ "nota": "scelta sulla MEDIANA della prima met\u00e0 nel tempo; cassaforte guardata una volta sola; prezzo = mediana di 10 scambi; 1% in entrata e 1% in uscita; manca ancora lo scivolamento misurato"
+}

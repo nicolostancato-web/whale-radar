@@ -1,0 +1,65 @@
+name: guardia
+# LA GUARDIA, OGNI ORA, DA DENTRO GITHUB (2/10).
+#
+# Da stanotte nessuna corsia si riarma piu' da sola: i riarmi che dormivano si mangiavano il 52%
+# della capacita' (RIARMI_CHE_DORMONO.md). Il motore e' diventato l'orologio, e la rete di
+# guardie e' il motore di riserva.
+#
+# Ma quella rete girava in due posti insufficienti:
+#  · dentro `heartbeat`, ogni DUE ore;
+#  · nell'osservatore sul mio Mac, che vive quanto la mia sessione — ed e' il limite dichiarato
+#    nella decisione «osservatore-esterno»: «parziale: si ferma con la sessione».
+#
+# Misurato oggi: gli orologi da quaranta minuti NON suonano (GitHub li accorpa e li salta), e
+# `finanziatori` e `pubblicatore` sono rimaste ferme oltre un'ora finche' non le ha rilanciate il
+# mio Mac. Un sistema che dipende dal mio portatile acceso non e' un sistema.
+#
+# Questa corsia fa solo una cosa, in pochi secondi: chiede a `rianima` di guardare le 28 corsie
+# sorvegliate e rilanciare quelle davvero mute. Nessun sonno, nessuna scrittura sul ramo.
+on:
+  workflow_dispatch: {}
+  # UN EVENTO, NON UN OROLOGIO (2/10). L'ho costruita un'ora fa con un cron orario per rendere
+  # il sistema indipendente dalla mia sessione. Misurato: **quel cron non suona**. Ultimo giro
+  # alle 19:26, nessuno alle 20:19 ne' alle 21:19. GitHub salta gli orologi su questo
+  # repository a qualunque frequenza — i quaranta minuti, i venti, e anche l'ora.
+  # Quindi la guardia non si appende a un orologio: si appende a un EVENTO che succede comunque.
+  # `workflow_run` su `pubblicatore` e' affidabile perche' e' una conseguenza, non una sveglia:
+  # ogni volta che lo scrittore unico finisce, la guardia guarda chi e' muto.
+  # Si lega SOLO al pubblicatore, non a tutte le corsie, perche' la guardia rilancia corsie e
+  # legarsi al loro completamento farebbe un anello che si alimenta da solo.
+  workflow_run:
+    workflows: [pubblicatore]
+    types: [completed]
+  schedule:
+    - cron: "19 * * * *"
+
+concurrency:
+  group: guardia
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  guarda:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 1 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Guarda chi e' muto e rilancialo
+        # UN COMANDO DI UNA RIGA (2/10). Qui c'era Python dentro `run: |` con le righe a colonna
+        # zero: quell'indentazione CHIUDE il blocco YAML, il file diventa illeggibile, GitHub non
+        # sa nemmeno il nome della corsia e FALLISCE a ogni suonata — nove email in un'ora.
+        # Il codice sta nei file di codice: qui ci va un comando, dove non c'e' indentazione da
+        # sbagliare. Vedi agents/guardia.py.
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python agents/guardia.py
+
+# SENZA RIARMO: e' la guardia, non puo' dipendere da se stessa. L'orologio ogni ora e' il ritmo
+# piu' fitto che GitHub rispetta con ragionevole affidabilita' — i quaranta minuti li salta
+# (misurato il 2/10: zero suonate in due ore).

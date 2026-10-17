@@ -1,0 +1,76 @@
+name: insider
+# I PRIMI COMPRATORI VERI: persone, non porte. Vedi agents/insider.py.
+# Nata l'1/10 con le tre lezioni della stessa giornata gia' dentro:
+#  · nessun riarmo che dorme (622 minuti-macchina al giorno buttati, vedi RIARMI_CHE_DORMONO.md)
+#  · budget al 60% del tetto, cosi' resta tempo per consegnare
+#  · consegna come allegato, mai una spinta: l'unico che scrive sul ramo e' il pubblicatore
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "38 */2 * * *"
+
+concurrency:
+  group: insider
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  trova:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        # BASE FERMATA (10/10, ordine di Nicolo': «se stai facendo qualcosa su base,
+        # stoppala»). Non spengo la corsia: le togliu base dalla MATRICE, cosi' robinhood
+        # — la chain della prova in avanti — continua senza interruzioni. Per riaccendere
+        # base basta rimettere la voce nell'elenco qui sotto.
+        chain: [robinhood]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Trova i primi compratori veri
+        env:
+          CHAIN: ${{ matrix.chain }}
+          # BUDGET AL 60% DEL TETTO (30 min): il 40% resta per salvare e consegnare
+          BUDGET_SEC: "1080"
+          # QUARANTA, NON DIECI (2/10): le flotte comprano nella scia, non per prime, e con
+          # dieci nomi per pool non le incontravamo mai — cinque pool toccati su seimila,
+          # qualunque fosse l'accumulo. Costa zero chiamate.
+          PRIMI_N: "40"
+        run: python agents/insider.py
+      - name: Consegna senza toccare il ramo
+        if: always()
+        run: |
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          # UN FILE CANCELLATO NON DEVE UCCIDERE LA CONSEGNA (2/10). `git status` elenca anche
+          # i file CANCELLATI, e qui `[ -f "$F" ]` su uno di quelli e' falso: con `bash -e`,
+          # che GitHub usa di default, il passo moriva lì. E' successo appena ho collegato la
+          # fusione degli iniziatori, che cancella il file dei nuovi dopo averli uniti: 24.000
+          # transazioni fuse correttamente e MAI consegnate, perche' il passo dopo e' morto su
+          # un file che non c'era piu'.
+          # Con `if`/`fi` invece di `&&` il caso normale non e' piu' un errore.
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            if [ -f "$F" ]; then
+              mkdir -p "/tmp/consegna/$(dirname "$F")"
+              cp "$F" "/tmp/consegna/$F"
+            fi
+          done
+          echo "consegno $(find /tmp/consegna -type f | wc -l) file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-${{ github.workflow }}-${{ matrix.chain }}
+          path: /tmp/consegna/data
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: ignore
+
+# SENZA RIARMO: nata il giorno in cui ho misurato che i riarmi che dormono si mangiano il 52%
+# della capacita' (RIARMI_CHE_DORMONO.md). Il motore e' l'orologio ogni due ore; la rete e' la
+# maglia di guardie, riparata e verificata l'1/10.

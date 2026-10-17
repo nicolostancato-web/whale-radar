@@ -1,0 +1,55 @@
+name: heartbeat
+# IL GUARDIANO DEL MOTORE, fuori dal motore: se il motore smette di committare, lo ri-lancia.
+# Un guardiano che sta dentro la cosa che sorveglia si blocca insieme a lei.
+on:
+  workflow_dispatch: {}
+  schedule:
+      # L'OROLOGIO E' UNA RETE, NON UN MOTORE (30/09). Suonava ogni 20-30 minuti mentre il
+      # riarmo teneva la corsia gia' in movimento: ogni suonata finiva in coda e veniva
+      # ANNULLATA. Misurato: 36 cancellazioni su 73 giri, tutte inutili, e il rumore nascondeva
+      # le cancellazioni vere (i giri uccisi dal tempo massimo).
+      # Ora suona una volta all'ora: se la catena del riarmo si rompe, riparte da qui.
+    - cron: "48 */2 * * *"   # girava ogni due ore ed e' sufficiente
+permissions:
+  contents: write
+  actions: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    # «ANNULLATO» PUO' VOLER DIRE «TEMPO SCADUTO» (1/10). Questa corsia non e' mai
+    # riuscita: zero giri buoni su dieci, tutti marcati `cancelled`. Non la uccideva
+    # nessuno — sfondava il suo `timeout-minutes` (6 minuti) e GitHub marca il
+    # timeout come ANNULLAMENTO, non come fallimento. Misurato: il lavoro ne consumava
+    # 9 minuti. Leggevo «annullato» come «superato in coda» e la rilanciavo a vuoto.
+    # E' la stessa lezione del 30/09 — tre varianti annullate in silenzio a 60 minuti —
+    # NON propagata qui. Il rimedio vero non e' dare sempre piu' tempo: se tocca anche
+    # questo tetto, il lavoro va limitato da dentro con un budget, non allargato da fuori.
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Il motore è vivo?
+        env:
+          WR_PAT: ${{ secrets.WR_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python agents/heartbeat.py
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add HEARTBEAT.md 2>/dev/null || true
+          git commit -m "heartbeat $(date -u +%H:%MZ)" || exit 0
+          for i in 1 2 3 4 5; do
+            { git fetch --deepen 50 -q origin main 2>/dev/null || true; git pull --rebase --autostash -q origin main || git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main; } || true
+            git push origin main && exit 0; sleep $((RANDOM % 6 + 2))
+          done
+
+# SENZA RIARMO: il riarmo dormiva dentro il lavoro, il tetto scadeva mentre dormiva e il giro
+# veniva annullato buttando anche il dato raccolto. Misurato l'1-2/10: 622 minuti-macchina al
+# giorno spesi a dormire, il 52% della capacita' di venti macchine — e il riarmo esisteva
+# perche' GitHub salta gli orologi sui repository OCCUPATI, mentre era proprio quel dormire a
+# tenerli occupati. Il rimedio alimentava la malattia.
+# Propagato DOPO la prova, non prima: hook 0 successi su 10 -> riuscita in 5 e 16 minuti;
+# censimento -> riuscita in 2 minuti due volte; iniziatori annullata a 35 due volte ->
+# riuscita in 22. Cinque successi su cinque occasioni.
+# Il motore e' l'orologio; la rete e' la maglia di guardie. Vedi RIARMI_CHE_DORMONO.md.

@@ -1,0 +1,860 @@
+{
+ "0x0bf182103080839e6c19a013cc9bc84ef7979999": {
+  "niente": true
+ },
+ "0x4d4703193a79b57a9cc803351755899b6ea26a54": {
+  "niente": true
+ },
+ "0x39d3f2f8d804252d2e6c049f4989151f4e0210e7": {
+  "niente": true
+ },
+ "0xd7a3a8ed080862b015213480c4aab890d12b7530": {
+  "niente": true
+ },
+ "0x1a472a10b002b3efa4e5af6d76c01f1b81e495bc": {
+  "niente": true
+ },
+ "0x80b3880ee894abc18aaa0f99eb9d00aff71d688d": {
+  "niente": true
+ },
+ "0xc4fd9896eba867845dcfd121b2e113efb4ada38e": {
+  "niente": true
+ },
+ "0x89286d2c60e7a96d3cca28c575ce33ca5280d3ac": {
+  "niente": true
+ },
+ "0x65404a7061e229ee0389b37d102da58d22e07a5d": {
+  "niente": true
+ },
+ "0x9de2df1e0a4da9262ae977cbde0a8a68665c6bc6": {
+  "niente": true
+ },
+ "0xa08c911d797783da15a22a762cc6b43d78d36e3d": {
+  "niente": true
+ },
+ "0x6691234ab2486d8542dccb8bddbb689d3d190265": {
+  "niente": true
+ },
+ "0xdaa08347da9bbb3c358079773e24d16d2a4566fe": {
+  "niente": true
+ },
+ "0x92af778971ac28e1286b411f2ba7b2f86200b1a6": {
+  "niente": true
+ },
+ "0xd7c9dec5104976246e0e7e04540a880306725a75": {
+  "niente": true
+ },
+ "0xebadb53c6a8c10aa6ab6f7d3821037857b71f1e6": {
+  "niente": true
+ },
+ "0xf5224a8f0ac4bf7c1c3a63e9b5ee5aef0a6b7441": {
+  "niente": true
+ },
+ "0x071913e02794c2fcd4232f0dbc8c3d71bcf531fe": {
+  "niente": true
+ },
+ "0x47c21b1fcb86f0b81c6765cd1d7dc4945011904c": {
+  "niente": true
+ },
+ "0xa4676102aba4cea6ee561d138ebcad9a02bf16a2": {
+  "niente": true
+ },
+ "0xc03f74dce25baf30401db6009ca6edfb08e74813": {
+  "niente": true
+ },
+ "0x57b2ab859cde2ffa6f990404db80bfbfb526334f": {
+  "niente": true
+ },
+ "0xebf571db9625e67edb78c2971e50828bba3f0a1e": {
+  "niente": true
+ },
+ "0xb12b7ecbd5d5f5c73fd936eb3e2dcffe85a99372": {
+  "niente": true
+ },
+ "0x5dccfa3e0a2961f5d71fc8f964c82a490c6de161": {
+  "niente": true
+ },
+ "0xf529ab741795702db625510f366c3e8a8f17ef91": {
+  "niente": true
+ },
+ "0xbf96a900a410b7143e613c14a6f30d68cf6a3430": {
+  "niente": true
+ },
+ "0x93a6798803d6bf28f4fa062f6bd36cdbc8d1f98a": {
+  "niente": true
+ },
+ "0x9d3125853e1d92e910f046a3adebd58334869541": {
+  "niente": true
+ },
+ "0xc3abaa38e6f45398839365eee4c48a3b42370539": {
+  "niente": true
+ },
+ "0x74711bf4dabf0157e59c532179cc1865351d634c": {
+  "niente": true
+ },
+ "0x13a221716f42abde7ee9eacbe33115a35e938b4e": {
+  "niente": true
+ },
+ "0xc58915614ac6da4286749220b690ae60974305df": {
+  "niente": true
+ },
+ "0xa5de5187d25ebb7bd91a168ae9ee62c7839511a4": {
+  "niente": true
+ },
+ "0x966c420db6aefd00f7098c0cb48313128dc9cf88": {
+  "niente": true
+ },
+ "0x85f11ef27edf9e5a9e3b4d5e9529bfd48137ce5e": {
+  "niente": true
+ },
+ "0x0343f8e99be66b2b91404b3e31226d8b8509d311": {
+  "niente": true
+ },
+ "0x81a6c2fc8df693295434b68d16aaea3692c51e14": {
+  "niente": true
+ },
+ "0x6516c38d7074f6e894020834dcfed65ce856c9cf": {
+  "minuti_per_la_soglia": 0.39,
+  "massimo_dopo": 1.217,
+  "minimo_dopo": 0.312,
+  "scambi_dopo": 137
+ },
+ "0xf40bd029a8bf7d524610c1ed89019004e1247ab5": {
+  "niente": true
+ },
+ "0x2a12b7b7bbb9e02cf4fdb6018e59fa7ffaa92281": {
+  "niente": true
+ },
+ "0x0e03fdcd4803151d138e2b724a3f4f1f5ca92c77": {
+  "niente": true
+ },
+ "0xf39003890dfa7e1e94164f3e08b724000f8fcc2c": {
+  "niente": true
+ },
+ "0x99c00d37a3c846b72cbf44401369770f56a5b2b8": {
+  "niente": true
+ },
+ "0x56217426c818326378b827e8eb36a58e728ee391": {
+  "niente": true
+ },
+ "0x47877cff19685d213564e4a52c61b8b66ac66e9a": {
+  "niente": true
+ },
+ "0xc740a55c90e1a70f2630f816ffa44072a44d66b9": {
+  "niente": true
+ },
+ "0xe9941cfc7838722826c047411a0c093ffc29ad0c": {
+  "niente": true
+ },
+ "0xe4d8ede843764676d62b4e6f8ac7920fba95eff2": {
+  "niente": true
+ },
+ "0x09899f02c243ba571988001c9e1c65ac884ffc51": {
+  "niente": true
+ },
+ "0xe7601c12d884e57709ef12aa9e704ccfc2c4c066": {
+  "niente": true
+ },
+ "0x2ee2d992b10c6bed8e264580f20a0d797c2615aa": {
+  "niente": true
+ },
+ "0x34fbafb53ad601f2332d07296c4ba2a3c372d239": {
+  "niente": true
+ },
+ "0x0645762d65d0a43ce0f29c0ef54d5b97eedd3779": {
+  "niente": true
+ },
+ "0xb30bd171675bf20c0a6837ef14952d7555aa5472": {
+  "niente": true
+ },
+ "0x4278fccf7d48c02b604e19110a27011e9e89acd2": {
+  "niente": true
+ },
+ "0x3c596bcffacb85635912f59a61970d167ac97203": {
+  "niente": true
+ },
+ "0xc9bf34e1a3f8cccc2bea39e8d16b0ca43ef815fc": {
+  "niente": true
+ },
+ "0x2acd9de212b4b12515dfeac69b5c94ac929b83db": {
+  "niente": true
+ },
+ "0x6de4d693e8661d2d1f92ae7a1a5cbcb4ac0b9076": {
+  "niente": true
+ },
+ "0x9116d16bc6bcdce32e6270b19fd32129dca50fca": {
+  "niente": true
+ },
+ "0x01d0b3c230761770e9c6e110d8b3e8916ae62f75": {
+  "niente": true
+ },
+ "0x8d3381163ef1705961bd9a523bd857a5bded5391": {
+  "niente": true
+ },
+ "0xfcb651c5c1c79d94b6a9d44d0828ff496dc70d73": {
+  "niente": true
+ },
+ "0x35e0fdb55e9d5129f541d87d50418edb18e7658c": {
+  "niente": true
+ },
+ "0xc6958d9421c6565b3c64175bcddd3612aa25125a": {
+  "niente": true
+ },
+ "0x9eab970115362b6e91042c96412a0bdf4ef15aee": {
+  "niente": true
+ },
+ "0xcb1ff842d9eca77c79d045a7895ca06d73990348": {
+  "niente": true
+ },
+ "0xacc22be785f9820e9c11e93fef33f90b213cb01d": {
+  "niente": true
+ },
+ "0x4cc9100e745629e87a81d3fc6092d9561e16db1c": {
+  "minuti_per_la_soglia": 0.5,
+  "massimo_dopo": 1.019,
+  "minimo_dopo": 0.296,
+  "scambi_dopo": 81
+ },
+ "0xa911d997eeff547e5c5b855d1a66969e49129723": {
+  "niente": true
+ },
+ "0x84db5414c190babe849e9596133a5f1107a31c52": {
+  "niente": true
+ },
+ "0x89f34edb8092b94cdb99529551656141c463a00e": {
+  "niente": true
+ },
+ "0x386d5021769b249d10b59a0694df62b99a64b3c9": {
+  "niente": true
+ },
+ "0xa650bc2295b4ddfbd9e59352eb2dfaddebeeb948": {
+  "niente": true
+ },
+ "0xefd31745b571758612934489d2a5913243fecee4": {
+  "niente": true
+ },
+ "0xf8cf884f6acc6ee2aa385c267bec1b0b62a1c959": {
+  "niente": true
+ },
+ "0x3afacaf4587b00920905843eef8c9d6fdb94f7f4": {
+  "niente": true
+ },
+ "0x984dcf6b0af6644738fd786599495333f3fef854": {
+  "niente": true
+ },
+ "0x13a6dd4c0a186d8a18332bb874b1fe38f449ac9c": {
+  "niente": true
+ },
+ "0x4376d6ba04d0623d1fb12ab3077ce95af3361623": {
+  "niente": true
+ },
+ "0x0fdcf3ff026609d32772d2ef08519ad01e93a192": {
+  "niente": true
+ },
+ "0xd332ba2b95e974137cba87c83fe82e1388e2315b": {
+  "niente": true
+ },
+ "0xdfe14acc84d7cf2e043d86354e8cdb2cff1f2a89": {
+  "niente": true
+ },
+ "0x33bef9e55c60747a92b3f97eea2ad520a3f8dc6a": {
+  "niente": true
+ },
+ "0xd9ba40480aa242b4f95fe3a54b9a257c39fb6437": {
+  "niente": true
+ },
+ "0x23ef8678a28e5302f3087c799a23f35057bf6350": {
+  "niente": true
+ },
+ "0x0088838244b882eff4be82c89f773cc4650301eb": {
+  "niente": true
+ },
+ "0xa6d29dced3e3ba6204460695020ba01b44a595b5": {
+  "niente": true
+ },
+ "0x7a74f7fd7443dfc0c00add1caf85c2c5e9979a85": {
+  "niente": true
+ },
+ "0x0c6bb36cd5a62c00304b7b02ad10dce3973245e2": {
+  "minuti_per_la_soglia": 0.42,
+  "massimo_dopo": 1.424,
+  "minimo_dopo": 0.295,
+  "scambi_dopo": 292
+ },
+ "0x67f151e1819de63106e024b2c01245e196822d90": {
+  "niente": true
+ },
+ "0x41539c0e106c7404ed2b9f27fb70e5bdddd79eb2": {
+  "niente": true
+ },
+ "0x8c600350822ba72124576c6b6d266e04bcc053b6": {
+  "niente": true
+ },
+ "0xcbf5a5a86ad067ff35d7f1c41814265f61dfa738": {
+  "niente": true
+ },
+ "0x4fc6788ab6f875fbfae60e8b3444915c438a0914": {
+  "niente": true
+ },
+ "0x5c7af4a0fec775435289c75c697a19d341c226be": {
+  "niente": true
+ },
+ "0xee5c8bf702c77d3326d71c00383105511c789de1": {
+  "niente": true
+ },
+ "0xc70552f5b6f588238dfd6bcea3bf3866388ed3ad": {
+  "niente": true
+ },
+ "0x668eb87f4de189ced64a04d3d3243830380d15b7": {
+  "minuti_per_la_soglia": 67.4,
+  "massimo_dopo": 1.782,
+  "minimo_dopo": 0.377,
+  "scambi_dopo": 495
+ },
+ "0x33011cece15744a1405f00043f393d12b06e761a": {
+  "niente": true
+ },
+ "0x340b7562578d40792e63819d958a27e0723728f5": {
+  "niente": true
+ },
+ "0x6ebe5b6d0f181f77e1c63a79672bc3b3c40c18a5": {
+  "niente": true
+ },
+ "0xd5527887b22c61fec20d94992e160d0192e48d14": {
+  "niente": true
+ },
+ "0x88136ef6849ff579e7b44eac203032990a2d3871": {
+  "niente": true
+ },
+ "0x11eadcf09ab1e8c98c98d20c6cbd39048abe41dd": {
+  "niente": true
+ },
+ "0x7406547371a9201e410c3c33efaab0f144bbe737": {
+  "niente": true
+ },
+ "0xe373c6a50cbc90f903e6cbe79966e92f15577950": {
+  "niente": true
+ },
+ "0xbccfa4a3bb00b24543326c419c9215a94e2c5465": {
+  "niente": true
+ },
+ "0xae8acb50ffcf59ff63e5a826e0b60e7ad9c7fb55": {
+  "niente": true
+ },
+ "0x62b6210fae07341c62fb73172823e7616b410d8f": {
+  "niente": true
+ },
+ "0x28a2bdbc3fbe881dca08c80bff4530bd2423c05d": {
+  "niente": true
+ },
+ "0x8b4411e6f2d39d4bbe68b58aaba96c9784415d5d": {
+  "niente": true
+ },
+ "0x0d97863475865dd32c37d45da7b14ddd87596042": {
+  "niente": true
+ },
+ "0x9ce4a1b6214ad990fd2c34aa3470adf39be22862": {
+  "niente": true
+ },
+ "0x50325ec96bce218a0a3a6b7de7596b37c1ddc55d": {
+  "niente": true
+ },
+ "0x3f168eb0acbec132ac0393698ac6ab3b25494a4c": {
+  "niente": true
+ },
+ "0x2cff051bd4b2fdcc68fa3948b387ff6b5042771a": {
+  "niente": true
+ },
+ "0xfb54e5cedd56864eb303e296808eb6cd125e3492": {
+  "niente": true
+ },
+ "0xdd13ff3ebb7fec23ffd27b4994c662a089d40665": {
+  "niente": true
+ },
+ "0xffa5d5584de9708d379ab2005e9095f9f7bed5be": {
+  "niente": true
+ },
+ "0x7485eb540d02d62cc2f28e480db3a52c5c7003eb": {
+  "niente": true
+ },
+ "0x4e5b625695283a6e3758183f38a48c4e6c07cdd3": {
+  "niente": true
+ },
+ "0x07bc8d31ab398e94ed7d8ca35fea3c7b64c0c071": {
+  "niente": true
+ },
+ "0x9b5400245152660206d4e332f8bcdd86ccbeb9cc": {
+  "niente": true
+ },
+ "0xb93f7c2276fbc01e4a2aebe72daa65f35c5b2666": {
+  "niente": true
+ },
+ "0x3bf4d9e13ac3c979664cba66b2c0da420dcbc55b": {
+  "niente": true
+ },
+ "0x732c200fc7cfcd2632d45513a82d3fee6107924d": {
+  "niente": true
+ },
+ "0x566402d8ef4ad2f91afda10ce0a5bd45b46001a5": {
+  "niente": true
+ },
+ "0x72b2e2b870ff0db74aa7b48a04b21833120912f1": {
+  "minuti_per_la_soglia": 4.57,
+  "massimo_dopo": 2.148,
+  "minimo_dopo": 0.718,
+  "scambi_dopo": 1187
+ },
+ "0xc813f18a85576e4f55c469f3cc851d2126d8d98b": {
+  "niente": true
+ },
+ "0x31250ff3f1396c4419892255beec7e378d74563f": {
+  "niente": true
+ },
+ "0x40cfc35b95df11b53e6ef120c87439c2dfb33bc6": {
+  "niente": true
+ },
+ "0xfc697d910de3de171406778c812b3976a9756e33": {
+  "niente": true
+ },
+ "0xda0994b9deac6ee1255e6540a384ddf7bb40c5a0": {
+  "niente": true
+ },
+ "0xcc40161558612ae7e8f043b1317b936f4f7c7fe6": {
+  "niente": true
+ },
+ "0xe40adc2c8a70c434f02f4c73782ca38e3ce8cb94": {
+  "niente": true
+ },
+ "0x77d2587ce0c383e9a04c616d6ac24bed7a52ff18": {
+  "niente": true
+ },
+ "0xaaa3e47dc08dab474316c1adaca9b78a950a8b08": {
+  "niente": true
+ },
+ "0xccc20e5e6c5cafcc4c34044a2fdab5e534375814": {
+  "niente": true
+ },
+ "0xe332de746d66890f855b15a63c29f8056b2bd177": {
+  "niente": true
+ },
+ "0xa319a74ab57c9cdf41ce2b9a48de1f5f6ae1677e": {
+  "niente": true
+ },
+ "0xf2085c6ec40e3df59e64be29bb3bb724a08934b7": {
+  "niente": true
+ },
+ "0x1f17066354c5044132fe0edb3346c80e7b99e314": {
+  "niente": true
+ },
+ "0x50ab45eff8aa6187d36f6165fdc081a50d9d4e78": {
+  "niente": true
+ },
+ "0x334c528f20ce64a3bfc71be1178eb01c2d7bc62e": {
+  "niente": true
+ },
+ "0xbc42b5a4fb27d1cafa13b4ae64767195072b5c1d": {
+  "niente": true
+ },
+ "0x80d3df8a880f969ab3bee46f6a31159a37719857": {
+  "niente": true
+ },
+ "0xbf9dd4c29ee15ece3c9ed1babe4ba2bcb03c8d89": {
+  "niente": true
+ },
+ "0xe88194f25300a6874ea4e6969ffaf247c1bbb2cf": {
+  "niente": true
+ },
+ "0xb646ce3edf7852f8dbc3493e17f500f63777aa10": {
+  "niente": true
+ },
+ "0x1e0b87bb8528e2ff14c3c568256a7f6da1d0bbc6": {
+  "niente": true
+ },
+ "0xffc99558c638f530e746fc0563870bf10d24743c": {
+  "niente": true
+ },
+ "0xb912f7cb93b996b6fd6ff3ce753393c3a94db506": {
+  "minuti_per_la_soglia": 7.58,
+  "massimo_dopo": 1.418,
+  "minimo_dopo": 0.345,
+  "scambi_dopo": 810
+ },
+ "0x9b36367a2df6a392dc8c9e09aa4b102f1360571c": {
+  "niente": true
+ },
+ "0x1d3997b767843f3afc17ed32051ccaa2012a11fa": {
+  "niente": true
+ },
+ "0x4f0f27a1478c40a42efe2f4c855a6e5302c034e2": {
+  "niente": true
+ },
+ "0xfa8497b1c23c93631d5923cab3f5c7e187856be9": {
+  "niente": true
+ },
+ "0x1d0a922dd4d13f7b47b000b1e108e738308c4053": {
+  "niente": true
+ },
+ "0x087f7f0779c82f5884ebefd309bd5b04ea4fd945": {
+  "niente": true
+ },
+ "0x5e610cc3a4056878d9d372bf1ba3d1fe5326941f": {
+  "niente": true
+ },
+ "0x61845b4baea7677062a3a7ffa4847ade6f7d1741": {
+  "niente": true
+ },
+ "0xfe53d0cd6ceb7f435267a2485a9ba5a25d7030e4": {
+  "minuti_per_la_soglia": 7.17,
+  "massimo_dopo": 1.35,
+  "minimo_dopo": 0.299,
+  "scambi_dopo": 412
+ },
+ "0x2134acdaa07d98f3bad9a024388517608d702869": {
+  "niente": true
+ },
+ "0x9f346fe769700ffab934626d7873aa20e1cf602e": {
+  "niente": true
+ },
+ "0x2b36f928005460b3c557335809c6116e52f8dcb2": {
+  "niente": true
+ },
+ "0xcec9e569da05a2d207e9e9a37d2d3c898972ee2c": {
+  "niente": true
+ },
+ "0xd0b0b77c159d9cc3695418bbfdf04a5a41e7bc0f": {
+  "niente": true
+ },
+ "0x04b7c7ea754c529aa8fcb249b9b6883e61263787": {
+  "niente": true
+ },
+ "0xd6d28adca34dceb43fbebec385eba65f2f48dd1b": {
+  "niente": true
+ },
+ "0x9f9d3bdb4f9f7c8e4a202bcc57991bc7b9de1efd": {
+  "niente": true
+ },
+ "0xfb5a0a6d080db71521a0fdd6fbb0b44682a020c7": {
+  "niente": true
+ },
+ "0x50a565d184bfeaa5e04ac81e089bb73d8f3d3a9d": {
+  "niente": true
+ },
+ "0xbb6428d067631455a1686ca3630e4e12498dee58": {
+  "niente": true
+ },
+ "0xb41e3c2d72afa9dbac62f4a6a1dff3eb8e23e657": {
+  "niente": true
+ },
+ "0x1360beec06b32cb248552a6395c6989c5fcdaa8c": {
+  "niente": true
+ },
+ "0x6177e0843732f13fbe05c589a8a40a1afcc19f0a": {
+  "niente": true
+ },
+ "0x1c537109b80c61c4262fe348db204ee76b53dd97": {
+  "niente": true
+ },
+ "0x8c5eed45233f74329add2415fb1136ee6886cedc": {
+  "niente": true
+ },
+ "0x6c9ea84d86be58be06c6bda568cc3db5c6a1baf5": {
+  "niente": true
+ },
+ "0xa48a6354eec0dd825d37a143ad807f552051dc8b": {
+  "niente": true
+ },
+ "0x870b9a77d51c6210358a6422d4baa9b79d0f3bd1": {
+  "niente": true
+ },
+ "0xe7fcb5e1ec5a751fb3d29877967fc1a1f196d73e": {
+  "niente": true
+ },
+ "0x3d03ac97ef95ae04b9b0a51fb09c673d2cd65349": {
+  "niente": true
+ },
+ "0x6a364c8982e27b9133a5d1d85c4549bb4fd081b8": {
+  "niente": true
+ },
+ "0x9bd5f52f933aa193ca8daaa660e8f055c7cfb2fb": {
+  "minuti_per_la_soglia": 13.82,
+  "massimo_dopo": 1.249,
+  "minimo_dopo": 0.283,
+  "scambi_dopo": 263
+ },
+ "0x3c59f13e289b44f8557df70df00cb7c97156bd13": {
+  "niente": true
+ },
+ "0x558dbe3211bccc75729fea51a87ac12f737ea7b3": {
+  "niente": true
+ },
+ "0x6a447ff93d10addd47a68945b871a0760662448e": {
+  "niente": true
+ },
+ "0xcc88d26018b15fb317267729ffdb85eeb32e4b8d": {
+  "niente": true
+ },
+ "0x5be76ab6ed74edb859b0a146281b1b12527915ab": {
+  "niente": true
+ },
+ "0xef679ccf39871db6afb3114c62407451b8be5a0c": {
+  "niente": true
+ },
+ "0x309e0d376e22a864465b256356111b447c33641a": {
+  "niente": true
+ },
+ "0x469043cd1575a2223487e252d9cda57b0c7475d8": {
+  "niente": true
+ },
+ "0xc95b8f4ae07384d96108bbc15b387f8aa4b26647": {
+  "niente": true
+ },
+ "0xb28a994ad7103a041a5014a16da38c6eabefec55": {
+  "niente": true
+ },
+ "0x42f95a14f854f43132d13d4f8b45d76989e64144": {
+  "niente": true
+ },
+ "0xf40eacd44feab49e04ea8db01d428aaebf83b1e3": {
+  "niente": true
+ },
+ "0xc4064687827264aaa408e7a304751050024d2e8e": {
+  "niente": true
+ },
+ "0x6bd957c98f43554bf9c44a30aed7fa86ec73fa8a": {
+  "niente": true
+ },
+ "0x0275fefbba3a3d895afdf637eb94364e3406ad04": {
+  "niente": true
+ },
+ "0x653ed0631f4eee66ddd9652a926921c7c3d7a1b7": {
+  "niente": true
+ },
+ "0x388ef2dca40d2ae5b06a13ef8ecfcf3dce46fe95": {
+  "niente": true
+ },
+ "0xc4eacc964254183c88b4b0ba2563b5419b6d4f61": {
+  "niente": true
+ },
+ "0xcb1467d7f803e99071a10c943dbda16fd5203c83": {
+  "niente": true
+ },
+ "0xd1baf9d78d0e5de5381d929796c09f9710784f13": {
+  "niente": true
+ },
+ "0xdd884213cba70842bf9ec53e426110f656b37834": {
+  "niente": true
+ },
+ "0x01a67024b289f796fa5f7cdeadf1e3ce039d328c": {
+  "niente": true
+ },
+ "0xd26dd9f9ebdb2703c6eb911ee3e1238cfac5f9ea": {
+  "niente": true
+ },
+ "0x7324fff72d908cf10ab695672b4055f3e25320b6": {
+  "niente": true
+ },
+ "0xc3fdb52e5ab3536b5d85cdb9c1a33a64d806c522": {
+  "niente": true
+ },
+ "0x107575f3dff1b7e74e4772c46f1b3e81f6f30791": {
+  "niente": true
+ },
+ "0x09decf7e3625647ff9954524a766dce8fbed6938": {
+  "niente": true
+ },
+ "0xa64e1608f3d223feb514754c5dc9ce1584e752b6": {
+  "niente": true
+ },
+ "0x63e7dee86ebb125bfa154bf6100261bd72d42726": {
+  "niente": true
+ },
+ "0x3f8db46676dc55a536cfe4c604df4bfbc015dc26": {
+  "niente": true
+ },
+ "0xaa5a57ee093e4f8b0dc558b031ec986b74c91cb7": {
+  "niente": true
+ },
+ "0x00f2a858589bfaa0a30b6db35059534bb899f18d": {
+  "niente": true
+ },
+ "0xfc7fd03b9f430597230a00206e3bb1cabff58d05": {
+  "niente": true
+ },
+ "0xfdf153fe4715089af879679f4ccbc86531f31d14": {
+  "niente": true
+ },
+ "0xe11a80e43adc651f6e061d130a8d96be71e18625": {
+  "niente": true
+ },
+ "0x585ef3d248c5f18c8ebc62abcc3425806b633f5d": {
+  "niente": true
+ },
+ "0x7b236b2a60d09d7094345614aad002bc03bd664c": {
+  "niente": true
+ },
+ "0x573f1921d052a63f582df744dfa22ff5332c16d5": {
+  "niente": true
+ },
+ "0xe10d7416412c33301dad875528b3c79695c2392d": {
+  "niente": true
+ },
+ "0x740417244a492ddc9283105589d5ed341ac5f77a": {
+  "niente": true
+ },
+ "0x23c16507093b517929be25ab3fa2c398d9ed4093": {
+  "niente": true
+ },
+ "0xa908d7576e18585cd2161a69d8b8ed44e7b37bd9": {
+  "niente": true
+ },
+ "0x1199bc66690b914c49097c44950de62fdf022b2d": {
+  "niente": true
+ },
+ "0xce25d39bdac5579fe92bc9e9bb037cf0194e8fa2": {
+  "niente": true
+ },
+ "0x6d8bf8ee7360850b9eedeb482e11d0485482a666": {
+  "niente": true
+ },
+ "0xfd784469f788bc08005c7349c131f521ee6daf50": {
+  "niente": true
+ },
+ "0x627cd13d966956af4b1b6a6122f004a8c3e29e91": {
+  "niente": true
+ },
+ "0x36f5ea7f826ac778018a2cbb9a1f50b6175431e1": {
+  "niente": true
+ },
+ "0x487533105be5345fab2bf29bf550521815711317": {
+  "niente": true
+ },
+ "0x9ff92ddfc4ee1140dc2509b46b95e9e98ccbddcc": {
+  "niente": true
+ },
+ "0x51bd026599a6feefacff03bc0f37a3bedf2c368f": {
+  "niente": true
+ },
+ "0xc30ab9d64559b2b0c24a4bda415338b3a50af221": {
+  "niente": true
+ },
+ "0x6bd4cf4bac3c1e8acfa1f9dc83a7cc18879d89d4": {
+  "niente": true
+ },
+ "0x5e7bbdf072a6118e1c3b5c68385cc77f37f17d94": {
+  "niente": true
+ },
+ "0x71884a8b97e67c0abca2d7631d7f146a3668f3e2": {
+  "niente": true
+ },
+ "0x6a01d0c4027ffaf3bae452e9dfded8cf9167daa8": {
+  "minuti_per_la_soglia": 0.37,
+  "massimo_dopo": 1.821,
+  "minimo_dopo": 0.305,
+  "scambi_dopo": 1132
+ },
+ "0xd8b1a2139abefb343b05da21a17de71e82469072": {
+  "niente": true
+ },
+ "0x6e44552df53d0631737407df32bb54d919b9afba": {
+  "niente": true
+ },
+ "0xefbe6d68677ed1a1318f00989583f44f109e231b": {
+  "niente": true
+ },
+ "0x67e32b76449b2045253ee3f49dbe130469ac0e4a": {
+  "niente": true
+ },
+ "0x837745291e10b4fc0e35219518c7a4f196450b53": {
+  "niente": true
+ },
+ "0x60ddd9580874adeb29f73689f0ff4096640fdc84": {
+  "niente": true
+ },
+ "0xc54a712dccc7315213ed16d8b43d40f851970049": {
+  "niente": true
+ },
+ "0x17584bbd4bd149917c7f592cc8b2efb712de7c16": {
+  "niente": true
+ },
+ "0xabb9328738edfeabb3fb978d5c080a39b616b261": {
+  "niente": true
+ },
+ "0x5cf8a05b1050abe0c7b0efb8d901ff43a1bb2fc3": {
+  "niente": true
+ },
+ "0x7d997ccc7e4bbdef125a04956f818ca1bf93023a": {
+  "niente": true
+ },
+ "0xc801b0fc6c1ae8a68feb1c2e2916062bed56cc54": {
+  "niente": true
+ },
+ "0xe57b104589f95ff78a2bce88ae32b643ea372c9c": {
+  "niente": true
+ },
+ "0x23a41d91e4b5f9935b91b89ab39dcff4dbd5d091": {
+  "minuti_per_la_soglia": 6.5,
+  "massimo_dopo": 3.584,
+  "minimo_dopo": 0.722,
+  "scambi_dopo": 1049
+ },
+ "0xb3e8f8e1f763c77ef4ca776ed119e4c4b6a3b84a": {
+  "niente": true
+ },
+ "0xf809b5d413df02fc9287da66338c28aff0b373dc": {
+  "minuti_per_la_soglia": 32.07,
+  "massimo_dopo": 1.042,
+  "minimo_dopo": 0.381,
+  "scambi_dopo": 87
+ },
+ "0x666b5210f881a239457bc44d560c87c732138af9": {
+  "niente": true
+ },
+ "0x7c4cfb63245891022bbdf44081498f65fa681853": {
+  "niente": true
+ },
+ "0x973e9a1084e9d9bbf5f0d273e3af70aca66bcc1b": {
+  "niente": true
+ },
+ "0x0c12375ecace06cfd951f65591603f091eb5994c": {
+  "niente": true
+ },
+ "0x34c5d8a64bb50e144bf160c42a7d6f48763b94a1": {
+  "niente": true
+ },
+ "0x65439e3327ab95922acca987815de30edbfb3ae5": {
+  "niente": true
+ },
+ "0x7fe1c3117c04e1027e1cd5667981e434a8955609": {
+  "niente": true
+ },
+ "0xe98420acba71b72bee4e83504f6a0c880915277b": {
+  "niente": true
+ },
+ "0xbd06c5b345f427f05ffd92999c15bbb7d4a9cdce": {
+  "niente": true
+ },
+ "0xb05a249b20cb7248d96ccadeafbd01c0ddc149d0": {
+  "niente": true
+ },
+ "0x6fe5f46119afe888e2a4ed2652857fe1e37c2992": {
+  "niente": true
+ },
+ "0xbbb626848f494502c8a1a2d4955e4ba3f05fda48": {
+  "niente": true
+ },
+ "0x65320a1036a29ed8fa55b939d182d28dc14321cc": {
+  "niente": true
+ },
+ "0xd36a5fa7239ce9d0e5720f2cdb29a44ffe4f1198": {
+  "niente": true
+ },
+ "0x94032016f570f19113bf3312db20bfd408f3835d": {
+  "niente": true
+ },
+ "0xbdcbe3fbd1aca8bbb645665b05e8dcb75b00ff60": {
+  "niente": true
+ },
+ "0x59b7e8d9596c5e23a975256ff2bf634dce30ce5f": {
+  "niente": true
+ }
+}

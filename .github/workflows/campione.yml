@@ -1,0 +1,72 @@
+name: campione
+# IL CANCELLO: nessun numero esce se un campione A CASO non passa la prova sulla chain.
+#
+# Direttiva di Nicolo' (5/10), dopo che un nostro «182X» si e' rivelato inesistente al suo
+# controllo su DexScreener: «ogni volta che credi che i dati siano veritieri, vai a
+# verificare tu: prendi e vai a vedere se ci sono esattamente le cose».
+#
+# Il campione si estrae A CASO con un seme dichiarato, non lo scelgo io: se scegliessi io
+# sceglierei quelli che reggono — non per disonesta', ma perche' si guarda dove si spera.
+# Regola d'uscita: anche UN SOLO caso falso = i dati non sono veritieri, e non si riporta
+# niente. Non «con cautela»: niente.
+# COSTO ZERO: esploratore pubblico, una chiamata per caso.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "51 */2 * * *"
+
+concurrency:
+  group: campione
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  prova:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        # BASE FERMATA (10/10, ordine di Nicolo': «se stai facendo qualcosa su base,
+        # stoppala»). Non spengo la corsia: le togliu base dalla MATRICE, cosi' robinhood
+        # — la chain della prova in avanti — continua senza interruzioni. Per riaccendere
+        # base basta rimettere la voce nell'elenco qui sotto.
+        chain: [robinhood]
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 1 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Campione a caso, provato sulla chain
+        id: prova
+        continue-on-error: true
+        env:
+          CHAIN: ${{ matrix.chain }}
+          QUANTI: "14"
+          PAUSA: "0.6"
+        run: python agents/campione_verificato.py
+      - name: Consegna senza toccare il ramo
+        if: always()
+        run: |
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            if [ -f "$F" ]; then
+              mkdir -p "/tmp/consegna/$(dirname "$F")"
+              cp "$F" "/tmp/consegna/$F"
+            fi
+          done
+          echo "consegno $(find /tmp/consegna -type f | wc -l) file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-${{ github.workflow }}-${{ matrix.chain }}
+          path: /tmp/consegna/data
+          retention-days: 7
+          overwrite: true
+          if-no-files-found: ignore
+
+# SENZA RIARMO: l'orologio e' il motore, la maglia di guardie e' la rete.
+# `continue-on-error` sul passo: un campione che BOCCIA non e' un guasto della corsia — e'
+# il suo risultato. Senza quello, un verdetto negativo verrebbe letto come un errore tecnico.

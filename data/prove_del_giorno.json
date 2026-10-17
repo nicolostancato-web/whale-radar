@@ -1,0 +1,57 @@
+{
+ "quando": 1791463407,
+ "giorni": 1,
+ "prove": {
+  "cambiamenti_veri": 55,
+  "scritture_delle_corsie": 158,
+  "righe_di_lezione_aggiunte": 4416,
+  "file_di_codice_toccati": 315,
+  "titoli_dei_cambiamenti": [
+   "consulenza: RICERCA_PRELANCIO_dove_si_annuncia_prima_2026-10-08_1224.md",
+   "consulenza: RICERCA_PRELANCIO_dove_si_annuncia_prima_2026-10-08_1224.md",
+   "consulenza: RICERCA_PRELANCIO_dove_si_annuncia_prima_2026-10-08_1224.md",
+   "consulenza: RICERCA_PRELANCIO_dove_si_annuncia_prima_2026-10-08_1224.md",
+   "consulenza: RICERCA_PRELANCIO_dove_si_annuncia_prima_2026-10-08_1224.md",
+   "consulenza: RICERCA_PRELANCIO_dove_si_annuncia_prima_2026-10-08_1224.md",
+   "consulenza: RICERCA_PRELANCIO_dove_si_annuncia_prima_2026-10-08_1224.md",
+   "consulenza: RICERCA_PRELANCIO_dove_si_annuncia_prima_2026-10-08_1224.md",
+   "consulenza: RICERCA_PRELANCIO_dove_si_annuncia_prima_2026-10-08_1224.md",
+   "consulenza: RICERCA_PRELANCIO_dove_si_annuncia_prima_2026-10-08_1224.md",
+   "consulenza: RICERCA_PRELANCIO_dove_si_annuncia_prima_2026-10-08_1224.md",
+   "consulenza: RICERCA_PRELANCIO_dove_si_annuncia_prima_2026-10-08_1224.md"
+  ],
+  "documenti_prodotti": [
+   "VERDETTO_COPIARE_SULLA_CURVA.md",
+   "VENDITE_INVERTITE.md",
+   "TRE_RIVENDICAZIONI_VERIFICATE.md",
+   "TRE_REQUISITI_PER_UN_CASO.md",
+   "TRADARE_DENTRO_LA_SCATOLA_NON_PAGA.md",
+   "TASSA_99_E_GLI_ESENTI.md",
+   "SI_DIPLOMA_L_8_PERCENTO.md",
+   "SETTE_ESTREMI_SU_OTTO_FALSI.md",
+   "SEI_METRI_E_UN_SOSPETTO.md",
+   "SEI_CASI_DA_VERIFICARE.md"
+  ],
+  "ipotesi_registrate": [],
+  "verdetti_emessi": [
+   "VERDETTO_COPIARE_SULLA_CURVA.md"
+  ],
+  "giri_di_ricerca": [
+   "RICERCA_VISIBILE_tassa_e_esenti_2026-10-07_1839.md",
+   "RICERCA_VISIBILE_tassa_e_esenti_2026-10-07_1810.md.troppo_corta",
+   "RICERCA_VISIBILE_tassa_e_esenti_2026-10-07_1658.md.troppo_corta",
+   "RICERCA_VISIBILE_grappoli_e_bundler_2026-10-07_2152.md",
+   "RICERCA_VISIBILE_dove_stanno_le_x_2026-10-08_0454.md",
+   "RICERCA_VISIBILE_dati_pubblici_robinhood_2026-10-08_1125.md"
+  ],
+  "azioni": {
+   "chiuse": 6,
+   "con_un_controllo": 5,
+   "aperte": 7
+  },
+  "lezioni": {
+   "verificata": 24,
+   "ipotesi": 7
+  }
+ }
+}

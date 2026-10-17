@@ -1,0 +1,34 @@
+name: multichain_brain
+# A RIPOSO DAL 30/09. Ultimo giro il 26-27 agosto: si e' fermata quando il progetto ha cambiato
+# direzione, e in trentaquattro giorni nessuno se n'e' accorto. Una corsia che fallisce manda una
+# email; una che smette di esistere non manda niente — ed e' il guasto piu' silenzioso di tutti.
+#
+# NON e' cancellata: il codice resta e si lancia a mano da GitHub quando serve. Spento solo
+# l'orologio, perche' una corsia che nessuno legge consuma uno dei venti posti macchina e produce
+# rumore nei registri — e il rumore nasconde i guasti veri.
+# SENZA RIARMO: e' un'analisi, non una raccolta. Le macchine gratis in parallelo sono venti e il
+# 25/09 il riarmo su troppe corsie ha affamato quelle critiche: qui l'orologio basta.
+# MULTICHAIN_BRAIN: il cervello+loop+autolearn su TUTTE le chain. Ogni giorno impara (walk-forward onesto)
+# su Solana/BSC/Base/Robinhood, scrive MULTICHAIN.md (quale chain rende di piu' + edge selezione). €0.
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: multichain_brain
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: python agents/multichain_brain.py || echo "ko"
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add MULTICHAIN.md 2>/dev/null || true
+          git commit -m "multichain_brain $(date -u +%Y-%m-%dT%H:%MZ)" || { echo niente; exit 0; }
+          for i in 1 2 3; do { git fetch --deepen 50 -q origin main 2>/dev/null || true; git pull --rebase --autostash -q origin main || git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main; } || true; git push origin main && exit 0; sleep 4; done

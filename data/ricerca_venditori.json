@@ -1,0 +1,37 @@
+{
+ "fatte": [
+  "da_dove_prendono_i_gettoni",
+  "chi_vende_in_un_crollo",
+  "i_gettoni_del_creatore",
+  "come_si_segue_un_venditore",
+  "i_venditori_ricorrenti"
+ ],
+ "ultima": 1791876036,
+ "storia": [
+  {
+   "nome": "da_dove_prendono_i_gettoni",
+   "quando": 1791660111,
+   "secondi": 562
+  },
+  {
+   "nome": "chi_vende_in_un_crollo",
+   "quando": 1791691313,
+   "secondi": 794
+  },
+  {
+   "nome": "i_gettoni_del_creatore",
+   "quando": 1791708973,
+   "secondi": 1020
+  },
+  {
+   "nome": "come_si_segue_un_venditore",
+   "quando": 1791740038,
+   "secondi": 1179
+  },
+  {
+   "nome": "i_venditori_ricorrenti",
+   "quando": 1791876036,
+   "secondi": 686
+  }
+ ]
+}

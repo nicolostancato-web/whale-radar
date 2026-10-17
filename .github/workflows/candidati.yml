@@ -1,0 +1,140 @@
+name: candidati
+# DETTAGLIO POSIZIONE PER POSIZIONE dei candidati vincenti (lista in data/candidati_vincenti.json).
+# Nata il 4/10 dalla direttiva di Nicolo': i vincenti si cercano per MULTIPLO RIPETUTO, non per
+# tasso di vincita. La tabella aggregata non distingue «cinque volte 8X» da «quattro pareggi e
+# un colpo da 40X» — che sono bravura e fortuna, cioe' cose opposte.
+# COSTO ZERO: legge solo i file degli scambi che abbiamo gia', nessuna chiamata a pagamento.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "41 */3 * * *"
+
+concurrency:
+  group: candidati
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  dettaglio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 80
+    strategy:
+      fail-fast: false
+      matrix:
+        # BASE FERMATA (10/10, ordine di Nicolo': «se stai facendo qualcosa su base,
+        # stoppala»). Non spengo la corsia: le togliu base dalla MATRICE, cosi' robinhood
+        # — la chain della prova in avanti — continua senza interruzioni. Per riaccendere
+        # base basta rimettere la voce nell'elenco qui sotto.
+        chain: [robinhood]
+        fetta: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 1 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Dettaglio dei candidati
+        env:
+          CHAIN: ${{ matrix.chain }}
+          FETTE: "4"
+          FETTA: ${{ matrix.fetta }}
+          # 60% del tetto: il 40% resta per salvare e consegnare (budget_e_tetto.py)
+          BUDGET_SEC: "900"
+        run: python agents/dettaglio_candidati.py
+      - name: Prendo l'elenco completo dei lanci
+        # L'elenco completo pesa 52 MB e NON passa dall'interfaccia di GitHub, quindi sul ramo
+        # c'e' solo una versione corta (1.987 monete invece di 675.145). Senza quello completo
+        # il passo qui sotto guarda una moneta su trecento. Me lo prendo dall'allegato.
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ID=$(gh api "repos/${{ github.repository }}/actions/artifacts?name=consegna-curva-lanci&per_page=1" --jq '.artifacts[0].id' 2>/dev/null)
+          if [ -z "$ID" ] || [ "$ID" = "null" ]; then echo "nessun elenco negli allegati"; exit 0; fi
+          gh api "repos/${{ github.repository }}/actions/artifacts/$ID/zip" > /tmp/l.zip 2>/dev/null || exit 0
+          mkdir -p /tmp/l && unzip -qo /tmp/l.zip -d /tmp/l || exit 0
+          T=$(find /tmp/l -name curva_lanci.json.gz | head -1)
+          if [ -n "$T" ]; then cp "$T" data/multichain/robinhood/ && echo "preso l'elenco completo ($(stat -c%s "$T") byte)"; fi
+
+      - name: Chi tiene i gettoni delle monete graduate
+        # SOSTITUISCE il passo dei firmatari qui sotto, che resta solo come riserva.
+        # Il vecchio risolveva i firmatari chiedendo i BLOCCHI uno per uno: 1,2 milioni di
+        # blocchi, e dopo piu' giri aveva completato 25 monete su 12.970.
+        # Questo legge i TRASFERIMENTI di un gettone con il filtro per indirizzo, dove l'RPC
+        # accetta finestre da 10 milioni di blocchi: una moneta intera in una chiamata.
+        # Misurato il 7/10: 386 trasferimenti e 97 indirizzi in 0,3 secondi.
+        env:
+          CHAIN: ${{ matrix.chain }}
+          FETTE: "4"
+          FETTA: ${{ matrix.fetta }}
+          BUDGET_SEC: "600"
+        run: python agents/chi_tiene_i_graduati.py
+      - name: Chi ha mandato davvero la transazione (nei pool graduati)
+        # DEVE STARE PRIMA del lato pool: senza i firmatari, quel passo attribuisce le uscite a
+        # un router e non a una persona. Misurato il 6/10: il campo `w` dei nostri scambi copre
+        # il 100% ma e' il router (72 indirizzi per 1.441 scambi, i primi 5 contratti al 67%),
+        # mentre la mappa `iniziatori` ha l'identita' giusta e copre l'1,6%.
+        env:
+          CHAIN: ${{ matrix.chain }}
+          FETTE: "4"
+          FETTA: ${{ matrix.fetta }}
+          # ridotto il 7/10: superato da chi_tiene_i_graduati, resta come riserva
+          BUDGET_SEC: "120"
+        run: python agents/firmatari_dei_pool.py
+      - name: Il lato pool delle monete graduate, per TUTTI i portafogli
+        # PERCHE' QUI. Serve leggere i file degli scambi, che questa corsia ha gia' in mano.
+        # Le monete graduate sono 5.169 su 675.145 (0,8%), quindi e' un lavoro piccolo; ma senza
+        # di esso chiunque esca nel pool risulta «non ha mai venduto», e il 6/10 quell'assenza
+        # mi aveva quasi fatto pubblicare che le monete graduate rendono 0,31x.
+        env:
+          CHAIN: ${{ matrix.chain }}
+          FETTE: "4"
+          FETTA: ${{ matrix.fetta }}
+          BUDGET_SEC: "420"
+        run: python agents/pool_dei_graduati.py
+      - name: Chi guadagna nel mercato pubblico
+        # Gira solo sulla fetta 0 di robinhood: legge TUTTI i pezzi delle tenute, quindi
+        # farlo quattro volte sarebbe lo stesso conto quattro volte.
+        if: matrix.chain == 'robinhood' && matrix.fetta == 0
+        continue-on-error: true
+        env:
+          CHAIN: robinhood
+          TENUTE: data/multichain/robinhood/tenute_pezzo_*.jsonl.gz
+        run: python agents/rendimento_mercato_pubblico.py
+      - name: Perche' vediamo solo vendite
+        env:
+          CHAIN: ${{ matrix.chain }}
+          FETTE: "4"
+          FETTA: ${{ matrix.fetta }}
+          BUDGET_SEC: "360"
+        run: python agents/perche_solo_vendite.py
+      - name: "Il ritardo: se copiamo N minuti dopo, quanto resta"
+        env:
+          CHAIN: ${{ matrix.chain }}
+          FETTE: "4"
+          FETTA: ${{ matrix.fetta }}
+          BUDGET_SEC: "420"
+          RITARDI: "0,60,300,900,3600"
+        run: python agents/ritardo_copia.py
+      - name: Consegna senza toccare il ramo
+        if: always()
+        run: |
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            if [ -f "$F" ]; then
+              mkdir -p "/tmp/consegna/$(dirname "$F")"
+              cp "$F" "/tmp/consegna/$F"
+            fi
+          done
+          echo "consegno $(find /tmp/consegna -type f | wc -l) file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-${{ github.workflow }}-${{ matrix.chain }}-${{ matrix.fetta }}
+          path: /tmp/consegna/data
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: ignore
+
+# SENZA RIARMO: l'orologio e' il motore, la maglia di guardie e' la rete (RIARMI_CHE_DORMONO.md).

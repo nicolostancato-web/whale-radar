@@ -1,0 +1,101 @@
+name: repo_gc
+# REPO_GC: PRUNE (elimina i token-stub inutili) + SQUASH storia. Il repo si gonfia coi dati grezzi (25k+ file).
+# Questo lo sgonfia davvero. Settimanale + on-demand. Force-push da GitHub Actions. €0.
+on:
+  workflow_dispatch: {}
+  schedule:
+    # OGNI GIORNO, NON OGNI SETTIMANA (19/09). Con la corsia della popolazione accesa il repo fa
+    # ~700 commit in mezza giornata, e ogni file .gz toccato entra intero nella storia (fra due
+    # gzip non esiste delta). Settimanale voleva dire arrivare al limite di GitHub prima del giro
+    # successivo: e' esattamente quello che e' successo, 3,1 GB accumulati in dodici giorni.
+    # Compattare costa due minuti e non cancella nulla: si fa tutti i giorni.
+    - cron: "0 3 * * *"
+permissions:
+  contents: write
+concurrency:
+  group: repo_gc
+  cancel-in-progress: false
+jobs:
+  gc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 1, token: "${{ secrets.WR_PAT }}" }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Prune stub + squash
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          echo "PRIMA: $(find data -type f | wc -l) file, .git=$(du -sh .git|cut -f1)"
+          # IL PRUNE E' SPENTO (19/09, decisione mia, e va spiegata).
+          # data_prune.py cancella candele e trade dei pool con meno di 5 candele — cioe' I POOL
+          # MORTI — e taglia i trade oltre le prime 4 ore col commento «tanto non li usa nessuno».
+          # Oggi ho misurato che il 52% dei pool viene gia' escluso dal registro per motivi che
+          # dipendono dall'ESITO (18% morti presto, 34% poco volume). I morti non sono rumore: sono
+          # il DENOMINATORE della percentuale che il loop 1 deve trovare. Se li cancelliamo, non
+          # possiamo piu' misurare quanto spesso si muore, e ogni percentuale nasce gonfiata.
+          # E i trade oltre le 4 ore sono l'ESITO, cioe' l'unica cosa che dice se una strategia ha
+          # funzionato.
+          # Lo squash da solo basta: 3.162 MB -> ~1.100 MB misurati su una copia, SENZA cancellare
+          # un solo file. Il peso e' cronologia, non dati.
+          echo "PRUNE SALTATO di proposito: non si cancella nessun file, si compatta solo la storia."
+          echo "file presenti: $(find data -type f | wc -l)"
+          # 23/09: la compattazione falliva con «cannot lock ref»: nove corsie spingono in
+          # continuazione e la spinta forzata perdeva la corsa. Non e' un errore da arrendersi:
+          # si riprova, e ogni volta si riparte dallo stato PIU' RECENTE del repository, cosi' non
+          # si sovrascrive il lavoro arrivato nel frattempo.
+          for i in 1 2 3 4 5 6; do
+            git fetch origin main
+            git checkout -B lavoro origin/main
+            git checkout --orphan fresh_$(date +%s)
+            git add -A
+            git commit -q -m "GC squash $(date -u +%Y-%m-%dT%H:%MZ)"
+            git branch -M main
+            if git push -f origin main; then
+              echo "GC fatto al tentativo $i."
+              exit 0
+            fi
+            echo "tentativo $i perso nella corsa, riparto dallo stato piu' recente"
+            sleep $((RANDOM % 20 + 10))
+          done
+          echo "NON SONO RIUSCITO A COMPATTARE: il repository resta grosso, nessun dato perso."
+          exit 1
+      # CHI STAVA GIA' LAVORANDO ORA E' ORFANO (05/09).
+      # Lo squash riscrive la storia con un force-push: i turni lunghi partiti PRIMA (motore, ricerca)
+      # hanno in mano una storia che non esiste piu' e non riescono piu' a pubblicare. Da fuori
+      # sembrano vivi — girano, calcolano, scrivono file — ma ogni loro commit finisce nel vuoto.
+      # E' successo stanotte: il motore ha lavorato 80 minuti senza che ne restasse traccia.
+      # Un processo che lavora e non lascia traccia e' peggio di uno fermo: quello almeno si vede.
+      # Qui si chiudono, cosi' ripartono puliti sulla storia nuova entro pochi minuti.
+      - name: Chiudi i turni resi orfani dallo squash
+        env: { GH_TOKEN: "${{ secrets.WR_PAT }}" }
+        run: |
+          # LA LISTA ERA VECCHIA (19/09). Citava engine/ricerca/loop0, che non girano piu'. Le
+          # corsie vive oggi sono altre, e senza chiuderle resterebbero a lavorare su una storia che
+          # non esiste piu': vive all'apparenza, ma ogni loro commit finisce nel vuoto.
+          for wf in popolazione.yml vivo.yml nascite.yml database.yml coppie.yml censimento.yml storico.yml collector.yml accumulator.yml ispezione.yml insider.yml solana_helius.yml heartbeat.yml; do
+            ids=$(curl -s -H "Authorization: token $GH_TOKEN" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/$wf/runs?status=in_progress&per_page=5" \
+              | python3 -c "import sys,json;print(' '.join(str(r['id']) for r in json.load(sys.stdin).get('workflow_runs',[])))" || true)
+            for id in $ids; do
+              echo "chiudo $wf run $id (storia riscritta sotto i piedi)"
+              curl -s -X POST -H "Authorization: token $GH_TOKEN" \
+                "https://api.github.com/repos/${{ github.repository }}/actions/runs/$id/cancel" >/dev/null || true
+              orfani=1
+            done
+            # E RIPARTONO SUBITO. Chiudere senza rilanciare lascia il sistema fermo fino al cron di
+            # riserva, che e' ogni 6 ore: il turno si ri-dispatcha da solo solo se ARRIVA IN FONDO, e
+            # uno annullato non ci arriva mai. E' successo: annullati i due turni orfani, sono rimasti
+            # giu' 45 minuti perche' nessuno li ha richiamati.
+            # Chi spegne qualcosa ha il dovere di riaccenderla: meta' riparazione e' un guasto nuovo.
+            if [ -n "$orfani" ]; then
+              sleep 5
+              curl -s -X POST -H "Authorization: token $GH_TOKEN" \
+                -H "Accept: application/vnd.github+json" \
+                "https://api.github.com/repos/${{ github.repository }}/actions/workflows/$wf/dispatches" \
+                -d '{"ref":"main"}' >/dev/null || true
+              echo "  -> $wf rilanciato"
+              orfani=""
+            fi
+          done
