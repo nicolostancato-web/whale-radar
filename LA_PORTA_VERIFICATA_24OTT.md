@@ -60,3 +60,44 @@ The new fact is the third row: not six oddities but **thirty-four applications
 doing this today on one chain**. It is standard practice, not a trick.
 
 > **EUR 500/day = EUR 244,799 of daily volume**, confirmed.
+
+---
+
+## WITHDRAWN the same evening: the measurement is not reproducible
+
+Same script, same parameters, a few hours later:
+
+| | afternoon | evening |
+|---|---|---|
+| transactions carrying a fee | 136 of 200 (**68%**) | **8 of 200 (4%)** |
+| median fee | 0.204% | **0.631%** |
+| distinct apps | 34 | **6** |
+
+A swing that size over four hours is not the market — it is **an unstable
+measurement**. Two snapshots of the same phenomenon this far apart means neither
+is a fact.
+
+**Withdrawn as measurements: 0.204%, 68%, and "34 apps".** They were not wrong
+through an identifiable coding error, which would be easier; they were false in
+their precision, which is worse, because they looked solid. The earlier claim
+that the rate "reproduces to within a ten-thousandth" was the artefact of
+comparing two overlapping samples from the same hours.
+
+### What still stands
+
+- **App fees are real**: seen in both samples, 136 times and 8 times. The
+  mechanism exists; it is not an artefact.
+- **The published rates are independent of my measurement**: Zora 0.20%,
+  LI.FI 0.25%, Rainbow 0.85%, Uniswap 0%.
+- Both of my discordant samples fall **inside** that published range, which is
+  the only confirmation I can honestly claim.
+
+So the door stays open and the price is of the order of **0.2–0.9%**. What I do
+not have is the decimal, and I had pretended to.
+
+### The lesson
+
+**One snapshot of heterogeneous flow is not a rate.** A rate requires repeated
+samples at different times, and the spread between them reported alongside the
+central value. A second sample taken four hours later would have cost ten
+minutes and would have prevented the claim.
