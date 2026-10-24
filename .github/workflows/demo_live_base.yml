@@ -1,0 +1,31 @@
+name: demo_live_base
+# A RIPOSO DAL 30/09. Ultimo giro il 26-27 agosto: si e' fermata quando il progetto ha cambiato
+# direzione, e in trentaquattro giorni nessuno se n'e' accorto. Una corsia che fallisce manda una
+# email; una che smette di esistere non manda niente — ed e' il guasto piu' silenzioso di tutti.
+#
+# NON e' cancellata: il codice resta e si lancia a mano da GitHub quando serve. Spento solo
+# l'orologio, perche' una corsia che nessuno legge consuma uno dei venti posti macchina e produce
+# rumore nei registri — e il rumore nasconde i guasti veri.
+# SENZA RIARMO: e' una dimostrazione, non una raccolta. Le macchine gratis in parallelo sono venti e il
+# 25/09 il riarmo su troppe corsie ha affamato quelle critiche: qui l'orologio basta.
+# Loop #2 (profitto) dedicato a BASE: conto demo-live forward €100->€3000, strategia da strategy_base.json. Ogni ora.
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Demo-live Base
+        run: python agents/demo_live_base.py || echo "ko"
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add data/demo_live_base_state.json DEMO_LIVE_BASE.md 2>/dev/null || true
+          git commit -m "demo_live_base $(date -u +%Y-%m-%dT%H:%MZ)" || { echo niente; exit 0; }
+          for i in 1 2 3 4 5; do { git fetch --deepen 50 -q origin main 2>/dev/null || true; git pull --rebase --autostash -q origin main || git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main; } || true; git push origin main && exit 0; sleep $((RANDOM%6+2)); done

@@ -1,0 +1,124 @@
+name: sentinella
+# SI ACCORGE QUANDO QUALCOSA SMETTE DI PRODURRE pur non dando errori (25/09).
+# Tutti i guasti di questi due giorni erano silenziosi: la corsia girava, usciva con successo, e non
+# produceva niente. La regola, in positivo: **misurare se il lavoro AVANZA**, non se il processo
+# termina senza errori.
+# Quando trova qualcosa di fermo, avvisa su Telegram: e' il caso in cui serve saperlo subito.
+on:
+  schedule:
+      # L'OROLOGIO OGNI SEI ORE, NON OGNI ORA (30/09). Con il riarmo che funziona, ogni suonata
+      # dell'orologio arriva mentre la corsia sta gia' lavorando: finisce in coda e viene
+      # annullata. Diciassette corsie per ventiquattro suonate fanno quattrocento cancellazioni
+      # al giorno, e il rumore nasconde le cancellazioni vere.
+      # Resta come RETE: se la catena del riarmo si spezza, entro sei ore riparte.
+    - cron: "45 */6 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: sentinella
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  guarda:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+
+      - name: Guarda se tutto avanza
+        id: guarda
+        # IL GUARDIANO NON PUO' CHIUDERE VERDE QUANDO TROVA UN GUASTO (27/09, trovato dalla domanda
+        # quotidiana al suo primo giro — e non l'avevo visto io).
+        # `sentinella.py` esce 1 apposta quando un archivio smette di crescere: e' il suo unico modo
+        # di gridare. Con `continue-on-error: true` quel grido veniva ingoiato e il giro risultava
+        # «riuscito». Cioe': **il pezzo costruito per accorgersi dei guasti silenziosi era il piu'
+        # silenzioso di tutti**, e sarebbe rimasto tale finche' non fosse successo qualcosa di grave.
+        # Restava verde per non far fallire il salvataggio dello stato: ma quello ha gia' `always()`
+        # e si salva lo stesso. Non c'era nessun guadagno, solo un allarme spento.
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          # SENZA QUESTO LA GUARDIA E' MUTA (30/09): `rianima.py` interroga GitHub per sapere chi
+          # non gira da troppo tempo. Senza token tornava una lista vuota IN SILENZIO — cioe' la
+          # guardia diceva «tutto bene» proprio perche' non poteva guardare.
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python agents/sentinella.py
+
+      - name: Salva lo stato
+        if: always()
+        run: |
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          # L'ALLARME VA CONSEGNATO, NON SOLO SCRITTO (10/10). Avevo spostato l'allarme dal
+          # fallimento-con-email a un file letto dalla maglia, ma la consegna portava via solo
+          # sentinella.json: l'allarme restava sul runner e moriva con lui. Era lo stesso
+          # difetto che stavo riparando — un allarme muto — in una riga che non avevo guardato.
+          git add data/loop1/sentinella.json data/allarmi_da_leggere.jsonl 2>/dev/null || \
+            git add data/loop1/sentinella.json
+          if ! git commit -m "sentinella $(date -u +%H:%MZ)"; then
+            echo "NIENTE DA SALVARE"; exit 0
+          fi
+          for i in $(seq 1 20); do
+            { git fetch --deepen 50 -q origin main 2>/dev/null || true; git pull --rebase --autostash -q origin main || git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main; } >/dev/null 2>&1 || true
+            if git push origin main; then echo "spinto al tentativo $i"; exit 0; fi
+            sleep $((RANDOM % 15 + 5 + i * 2))
+          done
+          echo "non spinto, riprovo al prossimo giro"; exit 0
+      - name: Riporta il verdetto della sentinella
+        # IL VERDETTO NON COLORA PIU' IL REGISTRO DI ROSSO (1/10, chiesto da Nicolo').
+        # Prima questo passo faceva fallire il giro apposta, perche' «un allarme che non colora
+        # il registro non lo legge nessuno». Era vero finche' l'unico canale era l'email. Ma
+        # trentadue email identiche in tre giorni hanno ottenuto l'opposto: Nicolo' ha smesso
+        # di aprirle. Adesso l'allarme parte su Telegram col testo dentro (vedi sentinella.py),
+        # e se Telegram non riesce a partire ALLORA il programma esce 1 e l'email arriva.
+        # Qui si stampa e basta: il rosso non serve piu' a nessuno.
+        if: always() && steps.guarda.outcome == 'failure'
+        run: |
+          echo "LA SENTINELLA HA TROVATO QUALCOSA CHE NON AVANZA — vedi il passo «Guarda se tutto avanza»"
+          echo "L'allarme e' partito su Telegram. Il giro NON fallisce: niente email."
+      - name: Riarmo
+        # I GUARDIANI SONO GLI ULTIMI A CUI L'HO MESSO, E DOVEVANO ESSERE I PRIMI (28/09).
+        # `heartbeat` e `sentinella` sono i due pezzi che si accorgono quando le altre corsie
+        # muoiono — e non avevano nessun modo di ripartire se non l'orario, che su questo
+        # repository GitHub salta di continuo. Potevano morire nel modo esatto che esistono per
+        # scoprire, e nessuno se ne sarebbe accorto: **chi guarda tutti non e' guardato da nessuno.**
+        # Trovato dalla domanda quotidiana, non da me.
+        if: always()
+        env:
+          # IL TOKEN DEL RIARMO (9/10). Con `secrets.GITHUB_TOKEN` il rilancio tornava **403**:
+          # nel repo i permessi predefiniti di quel token sono «sola lettura», e un rilancio e'
+          # una scrittura. Il permesso del repo e' il tetto, quindi non si puo' alzare dal
+          # workflow: serve un token proprio. Provato su `coppie`: «riarmata (tentativo 1)».
+          GH_TOKEN: ${{ secrets.WR_PAT }}
+        run: |
+          sleep 300
+          # NON CHIEDERE SE C'E' GIA' QUALCUNO IN CODA (30/09, propagato dall'insieme).
+          # La coda di GitHub tiene UN giro in attesa: chi arriva dopo viene annullato. Misurato
+          # stanotte: 55 giri annullati su 71. Non si perde lavoro — ne resta sempre uno — ma il
+          # registro diventa illeggibile, e le cancellazioni finte NASCONDONO quelle vere: i tre
+          # giri uccisi dal tempo massimo li ho trovati per caso, in mezzo a questo rumore.
+          IN_CODA=$(curl -s -H "Authorization: token $GH_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/sentinella.yml/runs?per_page=20" \
+            | python3 -c "import json,sys; d=json.load(sys.stdin)['workflow_runs']; print(sum(1 for r in d if r['status'] in ('queued','pending','in_progress')))" 2>/dev/null || echo 0)
+          if [ "${IN_CODA:-0}" -gt 0 ]; then
+            echo "c'e' gia' un giro in coda ($IN_CODA): non ne aggiungo un altro"
+            exit 0
+          fi
+          for TENT in 1 2 3 4 5; do
+            CODICE=$(curl -s -o /tmp/r.out -w "%{http_code}" -X POST \
+              -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/sentinella.yml/dispatches" \
+              -d '{"ref":"main"}')
+            if [ "$CODICE" = "204" ]; then echo "riarmato (tentativo $TENT)"; exit 0; fi
+            case "$CODICE" in
+              5*|429|000) sleep $((TENT * 20)) ;;
+              *) echo "rifiuto definitivo (HTTP $CODICE)"; cat /tmp/r.out; exit 1 ;;
+            esac
+          done
+          echo "NON SONO RIUSCITO A RIARMARMI"; exit 1

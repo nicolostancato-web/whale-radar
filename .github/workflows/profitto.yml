@@ -1,0 +1,67 @@
+name: profitto
+# QUANTO GUADAGNA OGNUNO, persona per persona. Domanda di Nicolo' il 3/10:
+# «questi wallet piccoli fanno dei profitti loro?»
+# Vedi agents/profitto_persone.py. Costo ZERO chiamate: legge i file degli scambi che abbiamo.
+on:
+  workflow_dispatch: {}
+  workflow_run:
+    workflows: [pubblicatore]
+    types: [completed]
+  schedule:
+    - cron: "41 */2 * * *"
+
+concurrency:
+  group: profitto
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  conta:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        # BASE FERMATA (10/10, ordine di Nicolo': «se stai facendo qualcosa su base,
+        # stoppala»). Non spengo la corsia: le togliu base dalla MATRICE, cosi' robinhood
+        # — la chain della prova in avanti — continua senza interruzioni. Per riaccendere
+        # base basta rimettere la voce nell'elenco qui sotto.
+        chain: [robinhood]
+        fetta: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 1 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Conta quanto ha guadagnato ognuno
+        env:
+          CHAIN: ${{ matrix.chain }}
+          FETTE: "4"
+          FETTA: ${{ matrix.fetta }}
+          BUDGET_SEC: "1080"
+        run: python agents/profitto_persone.py
+      - name: Consegna senza toccare il ramo
+        if: always()
+        run: |
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            if [ -f "$F" ]; then
+              mkdir -p "/tmp/consegna/$(dirname "$F")"
+              cp "$F" "/tmp/consegna/$F"
+            fi
+          done
+          echo "consegno $(find /tmp/consegna -type f | wc -l) file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-${{ github.workflow }}-${{ matrix.chain }}-${{ matrix.fetta }}
+          path: /tmp/consegna/data
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: ignore
+
+# SENZA RIARMO: il motore e' l'orologio piu' l'evento sul pubblicatore; la rete e' la maglia di
+# guardie. Nata il 3/10, dopo aver misurato che i riarmi che dormono si mangiano il 52% della
+# capacita' (RIARMI_CHE_DORMONO.md).

@@ -1,0 +1,22 @@
+{
+ "current_phase": "ACCUMULO",
+ "cycle_id": 59,
+ "boot_ts": 1786384567,
+ "last_analysis_ts": 1787823002,
+ "last_verdict": "NESSUN EDGE",
+ "consecutive_no_edge": 59,
+ "metrics": {
+  "token_whale": 316,
+  "token_candele": 2568,
+  "whales": 46023
+ },
+ "phase2": {
+  "ready": {
+   "24": 239,
+   "72": 253,
+   "168": 232
+  },
+  "phase2_ready": true,
+  "note": "72h su 253/40 token, 168h su 232/40"
+ }
+}

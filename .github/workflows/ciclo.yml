@@ -1,0 +1,63 @@
+name: ciclo
+# IL CICLO CHE SFORNA E SCARTA (1/10). Nicolo': «un sistema che sa il goal e crea una soluzione
+# in loop, una dietro l'altra, finche' non ne trova una, senza scordarsi niente».
+# Finora il ciclo lo guidavo io a mano: si fermava quando mi distraevo, ed e' esattamente quello
+# che e' successo per due giorni. Ora gira da solo, a rotazione sulle configurazioni.
+#
+# SENZA RIARMO: e' una ricerca pesante, non una coda. Sta sotto la rete dei guardiani, che la
+# rilancia se tace piu' di sei ore. Riarmarsi da sola vorrebbe dire cercare in continuazione, e
+# piu' si cerca piu' sale la soglia: il codice lo sa, ma il buon senso viene prima.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "25 */3 * * *"
+concurrency:
+  group: ciclo
+  cancel-in-progress: false
+jobs:
+  prova:
+    runs-on: ubuntu-latest
+    timeout-minutes: 170
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -q numpy
+      - name: Costruisce il dato che gli serve
+        # IL CICLO SI PRODUCE L'INPUT: dipendere da un file che qualcun altro deve aggiornare
+        # e' il modo in cui il contabile della prova in avanti sarebbe rimasto a zero per sempre.
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ENTRATA_SCAMBIO: "5"
+          ORIZZONTE_ORE: "168"
+          SUFFISSO: "sc5"
+        run: |
+          python3 -B agents/prendi_o_costruisci.py
+      - name: Una prova, e la scrive nel registro
+        run: python3 -B agents/ciclo_ipotesi.py
+      - name: Consegna senza toccare il ramo
+        if: always()
+        run: |
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          # UN FILE CANCELLATO NON DEVE UCCIDERE LA CONSEGNA (2/10). `git status` elenca anche
+          # i file CANCELLATI, e qui `[ -f "$F" ]` su uno di quelli e' falso: con `bash -e`,
+          # che GitHub usa di default, il passo moriva lì. E' successo appena ho collegato la
+          # fusione degli iniziatori, che cancella il file dei nuovi dopo averli uniti: 24.000
+          # transazioni fuse correttamente e MAI consegnate, perche' il passo dopo e' morto su
+          # un file che non c'era piu'.
+          # Con `if`/`fi` invece di `&&` il caso normale non e' piu' un errore.
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            if [ -f "$F" ]; then
+              mkdir -p "/tmp/consegna/$(dirname "$F")"
+              cp "$F" "/tmp/consegna/$F"
+            fi
+          done
+          echo "consegno $(find /tmp/consegna -type f | wc -l) file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-ciclo
+          path: /tmp/consegna/data
+          retention-days: 7
+          overwrite: true
+          if-no-files-found: ignore

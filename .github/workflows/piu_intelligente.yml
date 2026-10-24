@@ -1,0 +1,108 @@
+name: piu_intelligente
+# LA DOMANDA DI OGNI GIORNO: «come posso essere piu' forte, piu' sveglio, piu' preciso di ieri?»
+#
+# IDEA DI NICOLO (27/09): l'unico modo per arrivare a un'intelligenza che cresce da sola e' farsi
+# la domanda IN MODO SCHEDULATO — non quando capita, ma ogni giorno, come un turno di lavoro.
+#
+# E LA META' CHE MANCAVA, sempre parole sue: «tu mi dici, ho trovato questo errore, pero' non credo
+# che in automatico tu attui una strategia per non farlo piu'». Esatto: finora la lezione finiva in
+# un documento e contavo sulla memoria — che ho violato tre volte in due giorni sulla stessa regola.
+# Ora la risposta deve finire in un ELENCO DI LAVORO con uno stato, e resta aperta finche' non e'
+# fatta. Una lezione si puo' ignorare; una voce «da fare» con una data addosso si vede ogni giorno.
+#
+# E la domanda non e' solo sugli errori: **anche su cio' che e' andato BENE**, per renderlo migliore.
+# Un sistema che impara solo dai guai migliora la metà delle volte.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "55 5 * * *"      # una volta al giorno, prima che cominci la giornata di lavoro
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: piu_intelligente
+  cancel-in-progress: false
+jobs:
+  chiedi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 200 }     # servono i commit di ieri per raccogliere le prove
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: L'ho gia' fatta oggi?
+        id: serve
+        # UNA DOMANDA AL GIORNO VUOL DIRE UNA (28/09, difetto trovato prima che facesse danni).
+        # Questa corsia aveva un solo modo di partire: il cron. E GitHub salta i cron sui repository
+        # occupati — infatti non e' MAI girata da quando l'ho creata.
+        # Ma il riarmo che le avevo messo la farebbe ripartire ogni dieci minuti, cioe' centoquaranta
+        # volte al giorno: da «non gira mai» a «gira in continuazione», senza una via di mezzo.
+        # LA VIA DI MEZZO E' QUESTA: **si tenta spesso e si lavora una volta sola.** Il tentativo
+        # costa trenta secondi e tiene viva la catena; il lavoro si fa solo se oggi non e' gia' stato
+        # fatto. Stessa forma della corsia `insieme`, che avevo gia' imparato a fare cosi'.
+        run: |
+          OGGI=$(date -u +%Y-%m-%d)
+          FATTA=$(python3 -c "
+          import json,os,time
+          p='data/prove_del_giorno.json'
+          print(time.strftime('%Y-%m-%d', time.gmtime(json.load(open(p))['quando'])) if os.path.exists(p) else 'mai')
+          " 2>/dev/null || echo mai)
+          echo "ultima domanda: $FATTA, oggi e' $OGGI"
+          if [ "$FATTA" = "$OGGI" ]; then
+            echo "gia' fatta oggi: non la rifaccio"
+            echo "salto=1" >> $GITHUB_OUTPUT
+          else
+            echo "salto=0" >> $GITHUB_OUTPUT
+          fi
+      - name: Raccogli le prove del giorno
+        if: steps.serve.outputs.salto != '1'
+        # SOLO LE PROVE, non la domanda: vedi il commento in `agents/piu_intelligente.py`.
+        # Qui c'e' la storia del repository, che serve a misurare cosa e' successo davvero; non c'e'
+        # Grok, che vive nell'abbonamento sul Mac. Ognuno fa il pezzo che puo' fare.
+        env:
+          GIORNI: "1"
+          SOLO_PROVE: "1"
+        run: python agents/piu_intelligente.py
+      - name: Consegna senza toccare il ramo
+        # NON SPINGE PIU' (30/09). Consegna un pacco `consegna-*`: il pubblicatore li raccoglie
+        # tutti ed e' l'unico scrittore, e per gli archivi che si accumulano FONDE invece di
+        # sostituire. Cosi' questa corsia non perde piu' giri per contesa sul ramo.
+        #
+        # NON si converte: chi CANCELLA file (una consegna puo' solo aggiungere) e i GUARDIANI
+        # (il loro stato ritardato di dieci minuti diventa un falso allarme).
+        if: always()
+        run: |
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          # UN FILE CANCELLATO NON DEVE UCCIDERE LA CONSEGNA (2/10). `git status` elenca anche
+          # i file CANCELLATI, e qui `[ -f "$F" ]` su uno di quelli e' falso: con `bash -e`,
+          # che GitHub usa di default, il passo moriva lì. E' successo appena ho collegato la
+          # fusione degli iniziatori, che cancella il file dei nuovi dopo averli uniti: 24.000
+          # transazioni fuse correttamente e MAI consegnate, perche' il passo dopo e' morto su
+          # un file che non c'era piu'.
+          # Con `if`/`fi` invece di `&&` il caso normale non e' piu' un errore.
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            if [ -f "$F" ]; then
+              mkdir -p "/tmp/consegna/$(dirname "$F")"
+              cp "$F" "/tmp/consegna/$F"
+            fi
+          done
+          echo "consegno $(find /tmp/consegna -type f | wc -l) file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-${{ github.workflow }}-${{ github.job }}-${{ strategy.job-index }}
+          path: /tmp/consegna/data
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: ignore
+
+# SENZA RIARMO: il riarmo dormiva dentro il lavoro, il tetto scadeva mentre dormiva e il giro
+# veniva annullato buttando anche il dato raccolto. Misurato l'1-2/10: 622 minuti-macchina al
+# giorno spesi a dormire, il 52% della capacita' di venti macchine — e il riarmo esisteva
+# perche' GitHub salta gli orologi sui repository OCCUPATI, mentre era proprio quel dormire a
+# tenerli occupati. Il rimedio alimentava la malattia.
+# Propagato DOPO la prova, non prima: hook 0 successi su 10 -> riuscita in 5 e 16 minuti;
+# censimento -> riuscita in 2 minuti due volte; iniziatori annullata a 35 due volte ->
+# riuscita in 22. Cinque successi su cinque occasioni.
+# Il motore e' l'orologio; la rete e' la maglia di guardie. Vedi RIARMI_CHE_DORMONO.md.

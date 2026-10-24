@@ -1,0 +1,492 @@
+{
+ "letti_da": {
+  "data/multichain/robinhood/coppie.json": [
+   "agents/buco_base.py",
+   "agents/campione_verificato.py",
+   "agents/capienza.py",
+   "agents/chi_si_sta_diplomando.py",
+   "agents/chi_tiene_i_graduati.py",
+   "agents/combinazioni.py",
+   "agents/completezza.py",
+   "agents/coppie_token.py",
+   "agents/coppie_unisci.py",
+   "agents/curva_per_moneta.py",
+   "agents/custode_memoria.py",
+   "agents/database_loop.py",
+   "agents/diplomate_dalla_chain.py",
+   "agents/dopo_il_diploma.py",
+   "agents/elenco_righe.py",
+   "agents/esame.py",
+   "agents/fascicolo_astra.py",
+   "agents/firmatari_dei_pool.py",
+   "agents/il_12x_si_incassa.py",
+   "agents/incidenti.py",
+   "agents/lanciatori.py",
+   "agents/manifesto.py",
+   "agents/mercato_campione_vero.py",
+   "agents/pool_dei_graduati.py",
+   "agents/primi_minuti_nel_pool.py",
+   "agents/prova_a_secco.py",
+   "agents/prova_in_avanti.py",
+   "agents/riconcilia_gettoni.py",
+   "agents/verso.py",
+   "agents/verso_dei_segni.py",
+   "agents/x_di_chi_entra_prima.py"
+  ],
+  "data/multichain/robinhood/curva_lanci.json.gz": [
+   "agents/capienza.py",
+   "agents/chi_fa_le_x.py",
+   "agents/chi_si_sta_diplomando.py",
+   "agents/chi_tiene_i_graduati.py",
+   "agents/curva_per_moneta.py",
+   "agents/curva_pons.py",
+   "agents/custode_memoria.py",
+   "agents/diplomate_dalla_chain.py",
+   "agents/dopo_il_diploma.py",
+   "agents/firmatari_dei_pool.py",
+   "agents/il_12x_si_incassa.py",
+   "agents/manifesto.py",
+   "agents/mercato_non_pons.py",
+   "agents/metro_dei_bravi.py",
+   "agents/pool_dei_graduati.py",
+   "agents/primi_minuti_nel_pool.py",
+   "agents/prova_in_avanti.py",
+   "agents/quota_grappolo.py",
+   "agents/rendimento_mercato_pubblico.py",
+   "agents/riconcilia_gettoni.py",
+   "agents/riprova_dalla_chain.py",
+   "agents/scelta_al_diploma.py",
+   "agents/storie_complete.py",
+   "agents/trade_sulla_curva.py",
+   "agents/tratti_campione_vero.py",
+   "agents/x_di_chi_entra_prima.py"
+  ],
+  "data/multichain/robinhood/dopo_il_diploma.json": [
+   "agents/dopo_il_diploma.py"
+  ],
+  "data/multichain/robinhood/serie_pool.jsonl": [
+   "agents/capienza.py",
+   "agents/custode_memoria.py",
+   "agents/dopo_il_diploma.py",
+   "agents/manifesto.py",
+   "agents/primi_minuti_nel_pool.py",
+   "agents/quota_grappolo.py",
+   "agents/scelta_al_diploma.py"
+  ],
+  "data/explorer_rh.json": [
+   "agents/explorer_rh.py",
+   "agents/proposte.py"
+  ],
+  "data/pools.json": [
+   "agents/collector.py",
+   "agents/coorte.py",
+   "agents/costi_reali.py",
+   "agents/data_analyst.py",
+   "agents/data_prune.py",
+   "agents/demo_live.py",
+   "agents/edge_eval.py",
+   "agents/embargo.py",
+   "agents/explorer_rh.py",
+   "agents/first_buyers.py",
+   "agents/goal_base.py",
+   "agents/learner.py",
+   "agents/loop_engine.py",
+   "agents/mortalita.py",
+   "agents/multichain_collector.py",
+   "agents/multichain_rpc.py",
+   "agents/multichain_trades.py",
+   "agents/paper_bot.py",
+   "agents/pulse.py",
+   "agents/quotazione_altrove.py",
+   "agents/sicurezza_token.py",
+   "agents/solana_helius.py",
+   "agents/sperimentale.py",
+   "agents/strategy_optimizer.py",
+   "agents/validatore.py",
+   "agents/whale_backfill.py",
+   "agents/whale_candles.py"
+  ],
+  "data/strategy.json": [
+   "agents/demo_live.py",
+   "agents/edge_eval.py",
+   "agents/explorer_rh.py",
+   "agents/strategy_optimizer.py"
+  ],
+  "data/multichain/robinhood/mercato_non_pons.jsonl": [
+   "agents/mercato_non_pons.py"
+  ],
+  "data/costi_archivio.json": [
+   "agents/costi_reali.py",
+   "agents/costo_chain.py",
+   "agents/costo_modello.py",
+   "agents/curva_costo.py",
+   "agents/due_gambe.py",
+   "agents/scala_conto.py",
+   "agents/trappole.py"
+  ],
+  "data/costi_reali.json": [
+   "agents/costi_reali.py"
+  ],
+  "data/whale_candles_checkpoint.json": [
+   "agents/staffetta.py",
+   "agents/whale_candles.py"
+  ],
+  "data/proposte.json": [
+   "agents/gate.py",
+   "agents/ispezione.py",
+   "agents/proposte.py",
+   "agents/team_meeting.py",
+   "agents/validatore.py"
+  ],
+  "data/multichain/robinhood/diplomate_vere.jsonl": [
+   "agents/custode_memoria.py",
+   "agents/diplomate_dalla_chain.py",
+   "agents/manifesto.py",
+   "agents/mercato_campione_vero.py",
+   "agents/trade_sulla_curva.py",
+   "agents/tratti_campione_vero.py"
+  ],
+  "data/multichain/robinhood/trade_sulla_curva.jsonl": [
+   "agents/trade_sulla_curva.py"
+  ],
+  "data/conoscenza.json": [
+   "agents/conoscenza.py",
+   "agents/team_meeting.py"
+  ],
+  "data/costo_modello.json": [
+   "agents/costo_modello.py",
+   "agents/curva_costo.py",
+   "agents/metro.py"
+  ],
+  "data/bravi.json": [
+   "agents/finanziatori.py",
+   "agents/metro_dei_bravi.py",
+   "agents/prova_a_secco.py",
+   "agents/ritardo_copia.py"
+  ],
+  "data/strategy_base.json": [
+   "agents/demo_live_base.py",
+   "agents/goal_base.py",
+   "agents/strategy_optimizer_base.py"
+  ],
+  "data/potati.json": [
+   "agents/acquisti_non_contati.py",
+   "agents/creator_gate.py",
+   "agents/data_prune.py"
+  ],
+  "FASCICOLO_ASTRA.txt": [
+   "agents/consulta_astra.py",
+   "agents/consulta_grok.py",
+   "agents/fascicolo_astra.py",
+   "agents/prima_di_cancellare.py"
+  ],
+  "data/censimento.json": [
+   "agents/buco_base.py",
+   "agents/censimento.py",
+   "agents/coppie_token.py",
+   "agents/database_loop.py",
+   "agents/elenco_righe.py",
+   "agents/fascicolo_astra.py",
+   "agents/manifesto.py"
+  ],
+  "data/popolazione_congelata.json": [
+   "agents/esame.py",
+   "agents/fascicolo_astra.py"
+  ],
+  "data/flussi_obbligati.json": [
+   "agents/flussi_obbligati.py"
+  ],
+  "data/multichain/robinhood/primi_minuti_v2.jsonl": [
+   "agents/primi_minuti_nel_pool.py"
+  ],
+  "data/autorizzazione.json": [
+   "agents/autorizzazione.py",
+   "agents/prima_di_cancellare.py"
+  ],
+  "data/decisioni_stato.json": [
+   "agents/autorizzazione.py",
+   "agents/decisioni.py",
+   "agents/prima_di_cancellare.py"
+  ],
+  "data/lezioni.json": [
+   "agents/autorizzazione.py",
+   "agents/lezioni.py"
+  ],
+  "data/demo_live_base_state.json": [
+   "agents/auditor.py",
+   "agents/demo_live_base.py",
+   "agents/goal_base.py"
+  ],
+  "state.json": [
+   "agents/accumulator.py",
+   "agents/auditor.py",
+   "agents/demo_live.py",
+   "agents/demo_live_base.py",
+   "agents/director.py",
+   "agents/goal_base.py",
+   "agents/paper_bot.py",
+   "agents/watchdog.py"
+  ],
+  "data/paper_state.json": [
+   "agents/accumulator.py",
+   "agents/watchdog.py"
+  ],
+  "data/costi_evm.json": [
+   "agents/costo_evm.py",
+   "agents/due_gambe.py"
+  ],
+  "data/atomi_perche.json": [
+   "agents/combinazioni.py",
+   "agents/decisioni.py"
+  ],
+  "data/atomi_usati.json": [
+   "agents/combinazioni.py",
+   "agents/decisioni.py"
+  ],
+  "data/peso_repository.jsonl": [
+   "agents/manifesto.py",
+   "agents/quanto_pesa.py"
+  ],
+  "data/ricevute_consegne.jsonl": [
+   "agents/consegna_verificata.py",
+   "agents/manifesto.py"
+  ],
+  "data/deployer.json": [
+   "agents/deployer.py"
+  ],
+  "data/memoria/parole_del_fondatore.jsonl.gz": [
+   "agents/decisioni.py",
+   "agents/memoria_conversazione.py",
+   "agents/prova_ripristino.py",
+   "agents/requisiti.py"
+  ],
+  "data/requisiti_stato.json": [
+   "agents/prima_di_cancellare.py",
+   "agents/requisiti.py"
+  ],
+  "data/security_flags.json": [
+   "agents/team_security.py"
+  ],
+  "data/ripristino_provato.json": [
+   "agents/prima_di_cancellare.py",
+   "agents/prova_ripristino.py"
+  ],
+  "data/wallet_scores.json": [
+   "agents/classe_ricca.py",
+   "agents/qualita_db.py",
+   "agents/wallet_scores.py"
+  ],
+  "data/insider_scores.json": [
+   "agents/auditor.py",
+   "agents/wallet_insider.py"
+  ],
+  "data/ricerca_visibile.json": [
+   "agents/ricerca_visibile.py"
+  ],
+  "data/health_snapshot.json": [
+   "agents/watchdog_quality.py"
+  ],
+  "data/collector_checkpoint.json": [
+   "agents/collector.py"
+  ],
+  "data/strategy_solana.json": [
+   "agents/strategy_optimizer_solana.py"
+  ],
+  "data/multichain/robinhood/mercato_campione_vero.jsonl": [
+   "agents/mercato_campione_vero.py",
+   "agents/tratti_campione_vero.py"
+  ],
+  "data/candidati_vincenti.json": [
+   "agents/curva_pons.py",
+   "agents/dettaglio_candidati.py",
+   "agents/prova_a_secco.py"
+  ],
+  "data/quarantena_registro.json": [
+   "agents/buco_base.py",
+   "agents/elenco_righe.py"
+  ],
+  "data/valute_base.json": [
+   "agents/buco_base.py",
+   "agents/elenco_righe.py"
+  ],
+  "directives.json": [
+   "agents/analyst_core.py",
+   "agents/director.py"
+  ],
+  "metrics.json": [
+   "agents/analyst_core.py",
+   "agents/director.py"
+  ],
+  "data/coda_esperimenti.json": [
+   "agents/staffetta.py"
+  ],
+  "data/staffetta_storico.json": [
+   "agents/staffetta.py"
+  ],
+  "data/eccezioni_critico.json": [
+   "agents/critico.py"
+  ],
+  "data/whale_backfill_checkpoint.json": [
+   "agents/whale_backfill.py"
+  ],
+  "data/multichain/robinhood/quota_grappolo.jsonl": [
+   "agents/quota_grappolo.py"
+  ],
+  "data/ritardo_reale.json": [
+   "agents/acquisti_non_contati.py",
+   "agents/disponibilita.py",
+   "agents/embargo.py",
+   "agents/learner.py",
+   "agents/multichain_brain.py"
+  ],
+  "data/multichain/robinhood/tratti_campione_vero.jsonl": [
+   "agents/gestione_capitale.py",
+   "agents/tratti_campione_vero.py"
+  ],
+  "data/trappole.json": [
+   "agents/auditor.py",
+   "agents/explorer.py",
+   "agents/secondo_stadio.py",
+   "agents/trappole.py"
+  ],
+  "data/atomi_congelati.json": [
+   "agents/decisioni.py"
+  ],
+  "data/loops.json": [
+   "agents/loop_engine.py"
+  ],
+  "data/loops_rimedi.json": [
+   "agents/loop_engine.py"
+  ],
+  "data/scollegati_noti.json": [
+   "agents/agente_scollegato.py"
+  ],
+  "data/forensics_checkpoint.json": [
+   "agents/wallet_forensics.py"
+  ],
+  "data/prodotti.json": [
+   "agents/consulta_grok.py",
+   "agents/piu_intelligente.py",
+   "agents/pubblica_file.py",
+   "agents/ricerca_prelancio.py"
+  ],
+  "data/enrich_checkpoint.json": [
+   "agents/whale_enrich.py"
+  ],
+  "data/mortalita.json": [
+   "agents/mortalita.py"
+  ],
+  "data/azioni_miglioramento.json": [
+   "agents/piu_intelligente.py"
+  ],
+  "data/prove_del_giorno.json": [
+   "agents/piu_intelligente.py"
+  ],
+  "data/ricerca_base.json": [
+   "agents/ricerca_base.py"
+  ],
+  "data/demo_live_state.json": [
+   "agents/auditor.py",
+   "agents/demo_live.py"
+  ],
+  "data/selection_model.json": [
+   "agents/demo_live.py",
+   "agents/learner.py",
+   "agents/paper_bot.py"
+  ],
+  "data/multichain/robinhood/riempimento_curva.jsonl": [
+   "agents/chi_si_sta_diplomando.py"
+  ],
+  "data/feature_scoperte.json": [
+   "agents/team_ricerca.py"
+  ],
+  "data/evaporate.json": [
+   "agents/proposte.py"
+  ],
+  "data/explorer_base.json": [
+   "agents/proposte.py"
+  ],
+  "data/explorer_solana.json": [
+   "agents/proposte.py"
+  ],
+  "data/paper_bot_state.json": [
+   "agents/paper_bot.py"
+  ],
+  "data/multichain/robinhood/capienza.json": [
+   "agents/capienza.py"
+  ],
+  "data/multichain/robinhood/capienza.jsonl": [
+   "agents/capienza.py"
+  ],
+  "data/first_buyers_checkpoint.json": [
+   "agents/first_buyers.py"
+  ],
+  "data/ricerca_prelancio.json": [
+   "agents/ricerca_prelancio.py"
+  ],
+  "data/multichain/robinhood/scelta_al_diploma.json": [
+   "agents/scelta_al_diploma.py"
+  ],
+  "data/multichain/robinhood/tratti_al_diploma.jsonl": [
+   "agents/scelta_al_diploma.py"
+  ],
+  "data/multichain/robinhood/chi_fa_le_x.json": [
+   "agents/chi_fa_le_x.py"
+  ]
+ },
+ "letti_da_qualcosa_di_vivo": {
+  "data/multichain/robinhood/coppie.json": [
+   "agents/buco_base.py",
+   "agents/custode_memoria.py",
+   "agents/fascicolo_astra.py",
+   "agents/manifesto.py"
+  ],
+  "data/multichain/robinhood/curva_lanci.json.gz": [
+   "agents/custode_memoria.py",
+   "agents/manifesto.py"
+  ],
+  "data/multichain/robinhood/serie_pool.jsonl": [
+   "agents/custode_memoria.py",
+   "agents/manifesto.py"
+  ],
+  "data/proposte.json": [
+   "agents/ispezione.py"
+  ],
+  "data/multichain/robinhood/diplomate_vere.jsonl": [
+   "agents/custode_memoria.py",
+   "agents/manifesto.py"
+  ],
+  "FASCICOLO_ASTRA.txt": [
+   "agents/consulta_astra.py",
+   "agents/fascicolo_astra.py"
+  ],
+  "data/censimento.json": [
+   "agents/buco_base.py",
+   "agents/fascicolo_astra.py",
+   "agents/manifesto.py"
+  ],
+  "data/popolazione_congelata.json": [
+   "agents/fascicolo_astra.py"
+  ],
+  "data/peso_repository.jsonl": [
+   "agents/manifesto.py",
+   "agents/quanto_pesa.py"
+  ],
+  "data/ricevute_consegne.jsonl": [
+   "agents/consegna_verificata.py",
+   "agents/manifesto.py"
+  ],
+  "data/security_flags.json": [
+   "agents/team_security.py"
+  ],
+  "data/quarantena_registro.json": [
+   "agents/buco_base.py"
+  ],
+  "data/valute_base.json": [
+   "agents/buco_base.py"
+  ],
+  "data/prodotti.json": [
+   "agents/pubblica_file.py"
+  ]
+ }
+}
