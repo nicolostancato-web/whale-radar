@@ -66831,5 +66831,12 @@
    "LA_PORTA_VERIFICATA_24OTT.md",
    "agents/il_flusso_di_zora.py"
   ]
+ },
+ {
+  "quando": 1792871307,
+  "messaggio": "campionatore ripetuto: un tasso si cita solo con 6 campioni in 4 ore diverse, e sempre con l'intervallo",
+  "file": [
+   "agents/campiona_le_commissioni.py"
+  ]
  }
 ]
