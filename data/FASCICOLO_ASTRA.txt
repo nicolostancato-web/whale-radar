@@ -20,7 +20,7 @@ Rispondi con al massimo dieci rilievi, il piu' grave per primo, ognuno con la mi
 precisa che lo dimostra e cosa dovremmo misurare per smentirti.
 
 ======================================================================
-MISURE DEL 2026-10-24 10:55 UTC
+MISURE DEL 2026-10-24 17:43 UTC
 ======================================================================
 
 --- BASE ---
@@ -32,8 +32,8 @@ MISURE DEL 2026-10-24 10:55 UTC
   pool che hanno scambiato: 165913
 
 --- ROBINHOOD ---
-  istanti chiesti alla catena: 96.0% dei record
-    (campione di 2786 file, 242763 righe, scelto per nome)
+  istanti chiesti alla catena: 96.1% dei record
+    (campione di 2786 file, 248327 righe, scelto per nome)
   marchi sospetti: 0.0%  <-- record che avevo marchiato
     'verificato' per errore il 20/09, e che vanno ancora ricontrollati
   pool nel registro: 70446   coppie note: 80918
