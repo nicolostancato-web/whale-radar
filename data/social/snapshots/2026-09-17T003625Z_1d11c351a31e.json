@@ -1,0 +1,524 @@
+{
+ "run_id": "1d11c351a31e",
+ "ts": 1789605385,
+ "ts_utc": "2026-09-17T00:36:25Z",
+ "versione_prompt": "v1-2026-09-16",
+ "modello": "grok-4.20-0309",
+ "domanda": "Cerca su X memecoin / token meme che in questo momento mostrano una crescita ANOMALA\nE RECENTE dell'attenzione sociale.\n\nNON dirmi quale token salira'. NON dirmi cosa comprare. Non mi interessa la tua opinione sul\nprezzo. Mi interessa SOLO evidenza osservabile di attenzione.\n\nPer ogni token che trovi, riporta quello che vedi davvero nei post:\n- quante menzioni e da quanti account DISTINTI (se non lo sai, scrivi null)\n- rispetto a prima, l'attenzione e' accelerata? di quanto?\n- QUANDO sembra iniziata l'accelerazione (ora approssimativa UTC)\n- la discussione sembra organica o coordinata/promozionale?\n- c'e' una narrativa o un evento nuovo che la spiega?\n- segni di spam, bot, account appena creati, stesso testo ripetuto\n\nClassifica ciascun token in una di queste quattro:\n  A = attenzione che sta INIZIANDO adesso\n  B = attenzione GIA' ESPLOSA (il picco sembra passato)\n  C = attenzione COSTANTE, nessuna accelerazione\n  D = probabile SPAM o promozione artificiale\n\nCerco soprattutto la A. Un token famoso di cui si parla sempre non mi serve.\n\nRispondi SOLO con un oggetto JSON valido, senza testo attorno, in questa forma:\n{\"token\": [{\"symbol\": \"...\", \"contract\": null, \"chain\": null, \"classe\": \"A\",\n  \"menzioni\": null, \"account_distinti\": null, \"accelerazione\": \"...\",\n  \"inizio_accelerazione_utc\": null, \"organica\": true, \"narrativa\": \"...\",\n  \"indizi_spam\": \"...\", \"evidenza\": \"...\", \"confidenza\": 0.0}]}\n\nSe un dato non lo sai, scrivi null. NON inventare numeri: un numero inventato qui rovina\nl'esperimento piu' di un dato mancante.",
+ "risposta_grezza": {
+  "created_at": 1789605453,
+  "completed_at": 1789605453,
+  "id": "67e054c1-69cd-9ae6-8c07-8fe90a5c46a5",
+  "max_output_tokens": null,
+  "model": "grok-4.20-0309-reasoning",
+  "object": "response",
+  "output": [
+   {
+    "id": "rs_67e054c1-69cd-9ae6-8c07-8fe90a5c46a5",
+    "summary": [
+     {
+      "text": "The user wants me to search on X (Twitter) for memecoins/tokens that are showing ANOMALOUS and RECENT growth in social attention. Key instructions:\n",
+      "type": "summary_text"
+     }
+    ],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-8e1f9ddd-8a78-4c42-9d84-57fc7307c2a6-0",
+    "input": "{\"query\":\"memecoins or meme tokens with sudden recent surge in social attention buzz mentions\",\"limit\":\"10\",\"from_date\":\"2026-09-16\",\"min_score_threshold\":\"0.2\"}",
+    "name": "x_semantic_search",
+    "type": "custom_tool_call",
+    "id": "ctc_67e054c1-69cd-9ae6-8c07-8fe90a5c46a5_call-8e1f9ddd-8a78-4c42-9d84-57fc7307c2a6-0",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-8e1f9ddd-8a78-4c42-9d84-57fc7307c2a6-1",
+    "input": "{\"query\":\"(memecoin OR \\\"meme coin\\\" OR \\\"meme token\\\") (pump OR pumping OR moon OR \\\"to the moon\\\" OR launched OR \\\"just launched\\\" OR alpha OR trending) since:2026-09-17\",\"limit\":\"10\",\"mode\":\"Latest\"}",
+    "name": "x_keyword_search",
+    "type": "custom_tool_call",
+    "id": "ctc_67e054c1-69cd-9ae6-8c07-8fe90a5c46a5_call-8e1f9ddd-8a78-4c42-9d84-57fc7307c2a6-1",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-8e1f9ddd-8a78-4c42-9d84-57fc7307c2a6-2",
+    "input": "{\"query\":\"\\\"new memecoin\\\" OR \\\"solana memecoin\\\" OR \\\"base memecoin\\\" since:2026-09-17 min_faves:5\",\"limit\":\"5\",\"mode\":\"Latest\"}",
+    "name": "x_keyword_search",
+    "type": "custom_tool_call",
+    "id": "ctc_67e054c1-69cd-9ae6-8c07-8fe90a5c46a5_call-8e1f9ddd-8a78-4c42-9d84-57fc7307c2a6-2",
+    "status": "completed"
+   },
+   {
+    "id": "tco_67e054c1-69cd-9ae6-8c07-8fe90a5c46a5_call-8e1f9ddd-8a78-4c42-9d84-57fc7307c2a6-0",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "id": "tco_67e054c1-69cd-9ae6-8c07-8fe90a5c46a5_call-8e1f9ddd-8a78-4c42-9d84-57fc7307c2a6-1",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "id": "tco_67e054c1-69cd-9ae6-8c07-8fe90a5c46a5_call-8e1f9ddd-8a78-4c42-9d84-57fc7307c2a6-2",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-8e1f9ddd-8a78-4c42-9d84-57fc7307c2a6-3",
+    "input": "{\"query\":\"$PAIDLON OR PAIDLON since:2026-09-15\",\"limit\":\"5\",\"mode\":\"Latest\"}",
+    "name": "x_keyword_search",
+    "type": "custom_tool_call",
+    "id": "ctc_67e054c1-69cd-9ae6-8c07-8fe90a5c46a5_call-8e1f9ddd-8a78-4c42-9d84-57fc7307c2a6-3",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-8e1f9ddd-8a78-4c42-9d84-57fc7307c2a6-4",
+    "input": "{\"query\":\"(Cashcat OR $Cashcat OR $CASHCAT) (meme OR memecoin OR tiktok) since:2026-09-15\",\"limit\":\"5\",\"mode\":\"Latest\"}",
+    "name": "x_keyword_search",
+    "type": "custom_tool_call",
+    "id": "ctc_67e054c1-69cd-9ae6-8c07-8fe90a5c46a5_call-8e1f9ddd-8a78-4c42-9d84-57fc7307c2a6-4",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-8e1f9ddd-8a78-4c42-9d84-57fc7307c2a6-5",
+    "input": "{\"query\":\"ARC memecoins or ARC memes pumping or trending right now\",\"limit\":\"5\",\"from_date\":\"2026-09-15\"}",
+    "name": "x_semantic_search",
+    "type": "custom_tool_call",
+    "id": "ctc_67e054c1-69cd-9ae6-8c07-8fe90a5c46a5_call-8e1f9ddd-8a78-4c42-9d84-57fc7307c2a6-5",
+    "status": "completed"
+   },
+   {
+    "id": "tco_67e054c1-69cd-9ae6-8c07-8fe90a5c46a5_call-8e1f9ddd-8a78-4c42-9d84-57fc7307c2a6-3",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "id": "tco_67e054c1-69cd-9ae6-8c07-8fe90a5c46a5_call-8e1f9ddd-8a78-4c42-9d84-57fc7307c2a6-4",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "id": "tco_67e054c1-69cd-9ae6-8c07-8fe90a5c46a5_call-8e1f9ddd-8a78-4c42-9d84-57fc7307c2a6-5",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "content": [
+     {
+      "type": "output_text",
+      "text": "```json\n{\"token\": [{\"symbol\": \"$CASHCAT\", \"contract\": null, \"chain\": \"Robinhood\", \"classe\": \"A\", \"menzioni\": null, \"account_distinti\": null, \"accelerazione\": \"da quasi zero su CT a multipli post indipendenti in poche ore, trainati da trend TikTok\", \"inizio_accelerazione_utc\": \"2026-09-16 12:00\", \"organica\": true, \"narrativa\": \"Trend TikTok in formazione (simile a $Cashcat e $Zcat precedenti), primo meme rilevante sulla Robinhood chain con potenziale DOGE/PEPE level e chart strutturalmente forte\", \"indizi_spam\": \"nessuno osservato\", \"evidenza\": \"Post indipendenti da account diversi notano che il trend TikTok non è ancora stato notato su Crypto Twitter; cluster di menzioni serali con analisi chart e narrative Robinhood; engagement organico ma ancora basso\", \"confidenza\": 0.6}, {\"symbol\": \"$LONG\", \"contract\": null, \"chain\": \"ARC\", \"classe\": \"B\", \"menzioni\": null, \"account_distinti\": null, \"accelerazione\": \"esplosiva in meno di 24h con guadagni riportati oltre 650.000%\", \"inizio_accelerazione_utc\": \"2026-09-16 00:00\", \"organica\": true, \"narrativa\": \"Rotazione da stock memes a ARC memecoins con pumps paraboliche su più token (LONG, USDC meme, Argos, Tolly); update community su top performer ARC\", \"indizi_spam\": \"nessuno evidente, ma warning diffusi su rischio rug e take-profit massicci\", \"evidenza\": \"Post di aggiornamento con screenshot gains estremi in <24h, discussione su rotation narrative e profit taking; attenzione già elevata con commenti su exit liquidity\", \"confidenza\": 0.7}, {\"symbol\": \"$PAIDLON\", \"contract\": \"AowPHdsFTZNTa7JDGFUCRpyGa4niTS9GBG26CNWtpump\", \"chain\": \"Solana\", \"classe\": \"D\", \"menzioni\": null, \"account_distinti\": null, \"accelerazione\": \"burst improvviso di post simili in finestra di 20 minuti\", \"inizio_accelerazione_utc\": \"2026-09-16 23:40\", \"organica\": false, \"narrativa\": \"Campagna di voto/comunità per attenzione o listing\", \"indizi_spam\": \"multipli account con testo in inglese rotto/innaturale quasi identico, link ripetuti a siti netlify di voto sospetti, basso engagement, pattern bot-like\", \"evidenza\": \"Cluster di post con phrasing identica (\\\"Lodge the ballot immediately\\\", \\\"Your vote seems needed now\\\") tutti con stesso contract e link esterni; shill TG precedenti\", \"confidenza\": 0.85}]}\n```",
+      "logprobs": [],
+      "annotations": [
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100276026937078256",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100276026937078256"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100373812084707480",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100373812084707480"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100371655046668695",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100371655046668695"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100269434971504749",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100269434971504749"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100369829580419519",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100369829580419519"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100076897984184575",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100076897984184575"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100017932570947622",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100017932570947622"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100013840528220509",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100013840528220509"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100291029106639357",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100291029106639357"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100362397336645953",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100362397336645953"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100135413973242148",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100135413973242148"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100240589836980254",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100240589836980254"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100243389128056938",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100243389128056938"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100265304387445106",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100265304387445106"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100194740151205892",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100194740151205892"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100370550275162285",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100370550275162285"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100017687501910269",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100017687501910269"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100369610717761955",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100369610717761955"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100373863041315158",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100373863041315158"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100371854309343373",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100371854309343373"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100371404080185740",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100371404080185740"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2100144528086769864",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2100144528086769864"
+       }
+      ]
+     }
+    ],
+    "id": "msg_67e054c1-69cd-9ae6-8c07-8fe90a5c46a5",
+    "role": "assistant",
+    "type": "message",
+    "status": "completed"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "previous_response_id": null,
+  "reasoning": {
+   "effort": "medium",
+   "summary": "detailed"
+  },
+  "temperature": 0.7,
+  "text": {
+   "format": {
+    "type": "text"
+   }
+  },
+  "tool_choice": "auto",
+  "tools": [
+   {
+    "type": "x_search",
+    "from_date": "2026-09-16",
+    "to_date": "2026-09-17"
+   }
+  ],
+  "top_p": 0.95,
+  "usage": {
+   "input_tokens": 19009,
+   "input_tokens_details": {
+    "cached_tokens": 9152
+   },
+   "output_tokens": 6561,
+   "output_tokens_details": {
+    "reasoning_tokens": 5925
+   },
+   "total_tokens": 25570,
+   "num_sources_used": 0,
+   "num_server_side_tools_used": 6,
+   "cost_in_usd_ticks": 605541500,
+   "server_side_tool_usage_details": {
+    "web_search_calls": 0,
+    "x_search_calls": 6,
+    "code_interpreter_calls": 0,
+    "file_search_calls": 0,
+    "mcp_calls": 0,
+    "document_search_calls": 0,
+    "image_generation_calls": 0
+   },
+   "context_details": {
+    "input_tokens": 11290,
+    "output_tokens": 2992
+   }
+  },
+  "user": null,
+  "incomplete_details": null,
+  "status": "completed",
+  "store": true,
+  "metadata": {
+   "system_fingerprint": "fp_d44b4eeb21"
+  },
+  "background": false,
+  "service_tier": "default",
+  "truncation": "disabled",
+  "top_logprobs": 0,
+  "presence_penalty": 0.0,
+  "frequency_penalty": 0.0,
+  "prompt_cache_key": null,
+  "max_tool_calls": null,
+  "safety_identifier": null,
+  "error": null,
+  "instructions": null
+ },
+ "testo": "```json\n{\"token\": [{\"symbol\": \"$CASHCAT\", \"contract\": null, \"chain\": \"Robinhood\", \"classe\": \"A\", \"menzioni\": null, \"account_distinti\": null, \"accelerazione\": \"da quasi zero su CT a multipli post indipendenti in poche ore, trainati da trend TikTok\", \"inizio_accelerazione_utc\": \"2026-09-16 12:00\", \"organica\": true, \"narrativa\": \"Trend TikTok in formazione (simile a $Cashcat e $Zcat precedenti), primo meme rilevante sulla Robinhood chain con potenziale DOGE/PEPE level e chart strutturalmente forte\", \"indizi_spam\": \"nessuno osservato\", \"evidenza\": \"Post indipendenti da account diversi notano che il trend TikTok non è ancora stato notato su Crypto Twitter; cluster di menzioni serali con analisi chart e narrative Robinhood; engagement organico ma ancora basso\", \"confidenza\": 0.6}, {\"symbol\": \"$LONG\", \"contract\": null, \"chain\": \"ARC\", \"classe\": \"B\", \"menzioni\": null, \"account_distinti\": null, \"accelerazione\": \"esplosiva in meno di 24h con guadagni riportati oltre 650.000%\", \"inizio_accelerazione_utc\": \"2026-09-16 00:00\", \"organica\": true, \"narrativa\": \"Rotazione da stock memes a ARC memecoins con pumps paraboliche su più token (LONG, USDC meme, Argos, Tolly); update community su top performer ARC\", \"indizi_spam\": \"nessuno evidente, ma warning diffusi su rischio rug e take-profit massicci\", \"evidenza\": \"Post di aggiornamento con screenshot gains estremi in <24h, discussione su rotation narrative e profit taking; attenzione già elevata con commenti su exit liquidity\", \"confidenza\": 0.7}, {\"symbol\": \"$PAIDLON\", \"contract\": \"AowPHdsFTZNTa7JDGFUCRpyGa4niTS9GBG26CNWtpump\", \"chain\": \"Solana\", \"classe\": \"D\", \"menzioni\": null, \"account_distinti\": null, \"accelerazione\": \"burst improvviso di post simili in finestra di 20 minuti\", \"inizio_accelerazione_utc\": \"2026-09-16 23:40\", \"organica\": false, \"narrativa\": \"Campagna di voto/comunità per attenzione o listing\", \"indizi_spam\": \"multipli account con testo in inglese rotto/innaturale quasi identico, link ripetuti a siti netlify di voto sospetti, basso engagement, pattern bot-like\", \"evidenza\": \"Cluster di post con phrasing identica (\\\"Lodge the ballot immediately\\\", \\\"Your vote seems needed now\\\") tutti con stesso contract e link esterni; shill TG precedenti\", \"confidenza\": 0.85}]}\n```",
+ "token": [
+  {
+   "symbol": "$CASHCAT",
+   "contract": "9ivuoJSHNHJ126m5TsH3HRXKovHx9M1c43KH26FmBpqh",
+   "chain": "solana",
+   "classe": "A",
+   "menzioni": null,
+   "account_distinti": null,
+   "accelerazione": "da quasi zero su CT a multipli post indipendenti in poche ore, trainati da trend TikTok",
+   "inizio_accelerazione_utc": "2026-09-16 12:00",
+   "organica": true,
+   "narrativa": "Trend TikTok in formazione (simile a $Cashcat e $Zcat precedenti), primo meme rilevante sulla Robinhood chain con potenziale DOGE/PEPE level e chart strutturalmente forte",
+   "indizi_spam": "nessuno osservato",
+   "evidenza": "Post indipendenti da account diversi notano che il trend TikTok non è ancora stato notato su Crypto Twitter; cluster di menzioni serali con analisi chart e narrative Robinhood; engagement organico ma ancora basso",
+   "confidenza": 0.6,
+   "risoluzione": {
+    "risolto": true,
+    "chain": "solana",
+    "contract": "9ivuoJSHNHJ126m5TsH3HRXKovHx9M1c43KH26FmBpqh",
+    "liquidita_allo_snapshot": 204344556.9429,
+    "pool": "CASHCAT / USDC",
+    "candidati_esatti": 20,
+    "liquidita_secondo": 5191825.6611,
+    "scelta_fragile": false
+   },
+   "liquidita_allo_snapshot": 204344556.9429
+  },
+  {
+   "symbol": "$LONG",
+   "contract": "0x75da26c86806c261865faa25d80333ec8ee41b07",
+   "chain": "base",
+   "classe": "B",
+   "menzioni": null,
+   "account_distinti": null,
+   "accelerazione": "esplosiva in meno di 24h con guadagni riportati oltre 650.000%",
+   "inizio_accelerazione_utc": "2026-09-16 00:00",
+   "organica": true,
+   "narrativa": "Rotazione da stock memes a ARC memecoins con pumps paraboliche su più token (LONG, USDC meme, Argos, Tolly); update community su top performer ARC",
+   "indizi_spam": "nessuno evidente, ma warning diffusi su rischio rug e take-profit massicci",
+   "evidenza": "Post di aggiornamento con screenshot gains estremi in <24h, discussione su rotation narrative e profit taking; attenzione già elevata con commenti su exit liquidity",
+   "confidenza": 0.7,
+   "risoluzione": {
+    "risolto": true,
+    "chain": "base",
+    "contract": "0x75da26c86806c261865faa25d80333ec8ee41b07",
+    "liquidita_allo_snapshot": 2021276.8749,
+    "pool": "LONG / USDC",
+    "candidati_esatti": 6,
+    "liquidita_secondo": 266479.5664,
+    "scelta_fragile": false
+   },
+   "liquidita_allo_snapshot": 2021276.8749
+  },
+  {
+   "symbol": "$PAIDLON",
+   "contract": "AowPHdsFTZNTa7JDGFUCRpyGa4niTS9GBG26CNWtpump",
+   "chain": "Solana",
+   "classe": "D",
+   "menzioni": null,
+   "account_distinti": null,
+   "accelerazione": "burst improvviso di post simili in finestra di 20 minuti",
+   "inizio_accelerazione_utc": "2026-09-16 23:40",
+   "organica": false,
+   "narrativa": "Campagna di voto/comunità per attenzione o listing",
+   "indizi_spam": "multipli account con testo in inglese rotto/innaturale quasi identico, link ripetuti a siti netlify di voto sospetti, basso engagement, pattern bot-like",
+   "evidenza": "Cluster di post con phrasing identica (\"Lodge the ballot immediately\", \"Your vote seems needed now\") tutti con stesso contract e link esterni; shill TG precedenti",
+   "confidenza": 0.85,
+   "risoluzione": {
+    "risolto": true,
+    "fonte": "grok"
+   }
+  }
+ ],
+ "uso": {
+  "input_tokens": 19009,
+  "input_tokens_details": {
+   "cached_tokens": 9152
+  },
+  "output_tokens": 6561,
+  "output_tokens_details": {
+   "reasoning_tokens": 5925
+  },
+  "total_tokens": 25570,
+  "num_sources_used": 0,
+  "num_server_side_tools_used": 6,
+  "cost_in_usd_ticks": 605541500,
+  "server_side_tool_usage_details": {
+   "web_search_calls": 0,
+   "x_search_calls": 6,
+   "code_interpreter_calls": 0,
+   "file_search_calls": 0,
+   "mcp_calls": 0,
+   "document_search_calls": 0,
+   "image_generation_calls": 0
+  },
+  "context_details": {
+   "input_tokens": 11290,
+   "output_tokens": 2992
+  }
+ },
+ "controllo": [
+  {
+   "symbol": "SUSANITO",
+   "contract": "3AfL493zGKdJT5CZj1Ts6kQd4wtCfuZFymyqRknaAdWU",
+   "chain": "solana",
+   "prezzo_allo_snapshot": 0.00010364112802415816,
+   "liquidita_allo_snapshot": 20184.2494,
+   "creato": "2026-09-17T00:30:27Z",
+   "fonte": "new_pools solana"
+  },
+  {
+   "symbol": "ANSEM",
+   "contract": "xHWSRixaUCYpC14GwxvarBMW42kVXdGpwxcH9ufpump",
+   "chain": "solana",
+   "prezzo_allo_snapshot": 1.1328973662672438e-09,
+   "liquidita_allo_snapshot": 1.4086,
+   "creato": "2026-09-17T00:30:27Z",
+   "fonte": "new_pools solana"
+  },
+  {
+   "symbol": "ARC",
+   "contract": "B3v7YaGNEFjEASkoRguS3DQzLvLMkwqQZj9aUgSbBKzL",
+   "chain": "solana",
+   "prezzo_allo_snapshot": 0.0006736540534566078,
+   "liquidita_allo_snapshot": 18918.5868,
+   "creato": "2026-09-17T00:30:27Z",
+   "fonte": "new_pools solana"
+  },
+  {
+   "symbol": "NEMA",
+   "contract": "D6ShaXdTajBxFFMws61nuE3Fx2zYiAsjs6iH5r19pump",
+   "chain": "solana",
+   "prezzo_allo_snapshot": 0.0006547015283244377,
+   "liquidita_allo_snapshot": 65354.3721,
+   "creato": "2026-09-17T00:30:26Z",
+   "fonte": "new_pools solana"
+  },
+  {
+   "symbol": "LMAO",
+   "contract": "E442hiehd7VGaeyCFT8zbYdCrXhiLXdPzzuWzxHvQBMJ",
+   "chain": "solana",
+   "prezzo_allo_snapshot": 4.8207623200574887e-05,
+   "liquidita_allo_snapshot": 1074.7415,
+   "creato": "2026-09-17T00:30:27Z",
+   "fonte": "new_pools solana"
+  },
+  {
+   "symbol": "Villain",
+   "contract": "5rRGGaDmBB3mAuD9FZzLd6wQtFmGTHFAnYSjZSwQfbZw",
+   "chain": "solana",
+   "prezzo_allo_snapshot": 8.106790069707361e-05,
+   "liquidita_allo_snapshot": 13551.7254,
+   "creato": "2026-09-17T00:30:27Z",
+   "fonte": "new_pools solana"
+  },
+  {
+   "symbol": "baton",
+   "contract": "73YxS8RwAgEBdGTTz6yuEp3nVoPEeMeJtqH9ynbnv1Bk",
+   "chain": "solana",
+   "prezzo_allo_snapshot": 2.4845025944506953e-05,
+   "liquidita_allo_snapshot": 34476.5896,
+   "creato": "2026-09-17T00:30:26Z",
+   "fonte": "new_pools solana"
+  },
+  {
+   "symbol": "HUMAN?",
+   "contract": "7uJbvmsS74Jb9qeFAdYPxVafsYzDvwFjwFxDqFhwpump",
+   "chain": "solana",
+   "prezzo_allo_snapshot": 4.704688101869993e-06,
+   "liquidita_allo_snapshot": 3592.9361,
+   "creato": "2026-09-17T00:30:26Z",
+   "fonte": "new_pools solana"
+  }
+ ],
+ "controllo_errore": null
+}

@@ -1,0 +1,43 @@
+{
+ "fatte": [
+  "tassa_e_esenti",
+  "grappoli_e_bundler",
+  "chi_pubblica_vincite",
+  "dove_stanno_le_x",
+  "chi_compra_il_primo_blocco",
+  "dati_pubblici_robinhood"
+ ],
+ "storia": [
+  {
+   "nome": "tassa_e_esenti",
+   "quando": 1791398435,
+   "secondi": 664
+  },
+  {
+   "nome": "grappoli_e_bundler",
+   "quando": 1791410028,
+   "secondi": 462
+  },
+  {
+   "nome": "chi_pubblica_vincite",
+   "quando": 1791422061,
+   "secondi": 253
+  },
+  {
+   "nome": "dove_stanno_le_x",
+   "quando": 1791435352,
+   "secondi": 338
+  },
+  {
+   "nome": "chi_compra_il_primo_blocco",
+   "quando": 1791446490,
+   "secondi": 248
+  },
+  {
+   "nome": "dati_pubblici_robinhood",
+   "quando": 1791458808,
+   "secondi": 208
+  }
+ ],
+ "ultima": 1791458808
+}

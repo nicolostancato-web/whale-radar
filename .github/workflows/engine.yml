@@ -1,0 +1,27 @@
+name: engine
+# IL MOTORE UNICO: un solo processo che gira 5.5h eseguendo i reparti IN SEQUENZA e si ri-dispatcha da solo.
+# Rimpiazza ~15 workflow schedulati (i cron di GitHub sono inaffidabili su repo affollati). Stabile > veloce. €0.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "0 */6 * * *"   # BACKUP: se il self-redispatch fallisce, riparte comunque ogni 6h
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: engine
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350     # ~5.8h (limite job GitHub = 6h)
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Motore
+        env:
+          WR_PAT: ${{ secrets.WR_PAT }}
+          HELIUS_KEY: ${{ secrets.HELIUS_API }}
+          HELIUS_KEY2: ${{ secrets.HELIUS_API2 }}
+        run: python agents/engine.py

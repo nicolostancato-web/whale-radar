@@ -1,0 +1,26 @@
+name: database
+# LA QUINTA CORSIA: il TERRENO. Raccoglie cio' che evapora e controlla che serva a qualcosa.
+# Si ri-dispatcha da sola; il cron e' solo rete di sicurezza.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "40 */5 * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: database
+  cancel-in-progress: false
+jobs:
+  terreno:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Database
+        env:
+          WR_PAT: ${{ secrets.WR_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python agents/database_loop.py

@@ -1,0 +1,101 @@
+name: curva_lanci
+# IL MERCATO PRIMA DEL POOL. Su robinhood il 92,9% dei lanci passa da Pons, che vende i gettoni su
+# una CURVA prima che il pool Uniswap esista. Noi leggevamo solo il pool: per questo il 45-48%
+# delle posizioni risultava «comprata e mai venduta» e un'altra fetta «venduta senza acquisto».
+# QUESTO FILE: solo l'elenco dei lanci (7 chiamate).
+# Separato da curva.yml perche' budget_e_tetto.py somma i budget di TUTTI i lavori di un file e
+# li confronta con un solo tetto: due fasi di durata molto diversa nello stesso file fanno
+# scattare la guardia a ragione. Si separa il file, non si abbassa la guardia (lezione del 5/10:
+# un duplicato con la soglia piu' morbida e' come e' nato l'errore del budget).
+# Verificato sulla chain il 6/10: evento CurveBuy riconosciuto col keccak, 8 dei nostri 525
+# candidati trovati a ricevere sulla curva in sole 8 ore di chain.
+# COSTO ZERO: RPC pubblico della chain, nessuna chiave, nessun conto a consumo.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "09 */4 * * *"   # ogni 4h: in fase di convergenza l'elenco lanci deve stare al passo degli scambi
+
+concurrency:
+  group: curva_lanci
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  lanci:
+    # L'elenco dei lanci: col filtro address l'RPC accetta 10 milioni di blocchi per chiamata,
+    # quindi tutta la storia sta in 7 chiamate. Misurato, non assunto.
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 1 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: L'elenco dei lanci di Pons
+        env:
+          CHAIN: robinhood
+          FASE: lanci
+          BLOCCHI_INDIETRO: "69000000"
+          BUDGET_SEC: "660"     # 55% di 20 minuti
+        run: python agents/curva_pons.py
+      - name: Riconcilia i gettoni (i venduti erano stati comprati?)
+        # QUI E NON IN UNA CORSIA SUA. La riconciliazione ha bisogno di tre cose insieme:
+        # l'elenco dei lanci (prodotto dal passo sopra, fresco), le somme della curva e le
+        # posizioni nel pool. Metterla in una corsia a parte vorrebbe dire aspettare che
+        # l'elenco arrivi sul ramo, cioe' dipendere dal `pubblicatore` — che il 6/10 girava a
+        # 56 minuti su un tetto di 60. Qui l'elenco e' gia' sul disco.
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CHAIN: robinhood
+          SOMME: /tmp/giu/somme/*/multichain/robinhood/curva_somme_pezzo_*.json.gz
+          DETTAGLI: /tmp/giu/det/*/multichain/robinhood/dettaglio_candidati_pezzo_*.json
+        run: |
+          giu() {   # scarica un allegato per nome dentro una cartella
+            local NOME="$1" DOVE="$2"
+            local ID=$(gh api "repos/${{ github.repository }}/actions/artifacts?name=$NOME&per_page=1" --jq '.artifacts[0].id' 2>/dev/null)
+            [ -z "$ID" ] || [ "$ID" = "null" ] && return 0
+            gh api "repos/${{ github.repository }}/actions/artifacts/$ID/zip" > /tmp/a.zip 2>/dev/null || return 0
+            mkdir -p "$DOVE" && unzip -qo /tmp/a.zip -d "$DOVE" || true
+          }
+          rm -rf /tmp/giu && mkdir -p /tmp/giu
+          for F in 0 1 2 3 4 5 6 7 8 9; do giu "curva-somme-$F" "/tmp/giu/somme/$F"; done
+          for F in 0 1 2 3; do giu "consegna-candidati-robinhood-$F" "/tmp/giu/det/$F"; done
+          # la fila degli arrivi sta negli allegati piccoli, non in quelli delle somme
+          for F in 0 1 2 3 4 5 6 7 8 9; do giu "consegna-curva-scambi-$F" "/tmp/giu/scambi/$F"; done
+          echo "somme: $(find /tmp/giu/somme -name '*.json.gz' | wc -l) file, posizioni: $(find /tmp/giu/det -name 'dettaglio_candidati_pezzo_*.json' | wc -l) file"
+          python agents/riconcilia_gettoni.py
+          echo "--- chi entra prima fa tante X? ---"
+          FILA="/tmp/giu/scambi/*/multichain/robinhood/curva_fila_pezzo_*.json.gz" \
+            python agents/x_di_chi_entra_prima.py
+          echo "--- chi guadagna davvero, coi tentativi al denominatore ---"
+          SOMME="/tmp/giu/somme/*/multichain/robinhood/curva_somme_pezzo_*.json.gz" \
+            SOGLIE="2,5,10" python agents/storie_complete.py
+          echo "--- esistono operatori sistematicamente migliori? ---"
+          SOMME="/tmp/giu/somme/*/multichain/robinhood/curva_somme_pezzo_*.json.gz" \
+            python agents/metro_dei_bravi.py
+
+      - name: Consegna senza toccare il ramo
+        if: always()
+        run: |
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            if [ -f "$F" ]; then
+              mkdir -p "/tmp/consegna/$(dirname "$F")"
+              cp "$F" "/tmp/consegna/$F"
+            fi
+          done
+          echo "consegno $(find /tmp/consegna -type f | wc -l) file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-curva-lanci
+          path: /tmp/consegna/data
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: ignore
+
+
+# SENZA RIARMO: l'orologio e' il motore, la maglia di guardie e' la rete (RIARMI_CHE_DORMONO.md).

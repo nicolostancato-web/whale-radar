@@ -1,0 +1,106 @@
+name: hook
+# CHI PUO' BLOCCARTI L'USCITA (24/09).
+# Su Uniswap V4 un pool puo' impedire di vendere ANCHE avendo scambi veri da molti portafogli: il
+# blocco non sta negli swap, sta nei permessi dell'hook, scritti nei bit bassi del suo indirizzo.
+# Primo campione: il 43% dei pool V4 di base ha un hook che puo' toccare l'uscita.
+# Il nostro controllo di vendibilita' vede solo chi non ha MAI venduto: questa famiglia gli sfugge.
+on:
+  schedule:
+      # L'OROLOGIO E' UNA RETE, NON UN MOTORE (30/09). Suonava ogni 20-30 minuti mentre il
+      # riarmo teneva la corsia gia' in movimento: ogni suonata finiva in coda e veniva
+      # ANNULLATA. Misurato: 36 cancellazioni su 73 giri, tutte inutili, e il rumore nascondeva
+      # le cancellazioni vere (i giri uccisi dal tempo massimo).
+      # Ora suona una volta all'ora: se la catena del riarmo si rompe, riparte da qui.
+      # L'OROLOGIO OGNI SEI ORE, NON OGNI ORA (30/09). Con il riarmo che funziona, ogni suonata
+      # dell'orologio arriva mentre la corsia sta gia' lavorando: finisce in coda e viene
+      # annullata. Diciassette corsie per ventiquattro suonate fanno quattrocento cancellazioni
+      # al giorno, e il rumore nasconde le cancellazioni vere.
+      # Resta come RETE: se la catena del riarmo si spezza, entro sei ore riparte.
+      # LA RETE DEVE ESSERE PIU' STRETTA DEL BUCO (30/09, imparata a caro prezzo).
+      # Stamattina ho portato questo orologio da un'ora a sei, ragionando che col riarmo
+      # funzionante le suonate erano solo rumore. Ma un giro ANNULLATO non esegue il passo di
+      # riarmo: la catena si spezza, e l'unica cosa che puo' riprenderla e' l'orologio.
+      # Alle 11:53 hook, scoperta e censimento sono stati annullati insieme. Sono rimasti fermi
+      # TRE ORE E MEZZA — raccolta dati e pubblicazione bloccate — perche' la rete successiva
+      # era a sei ore di distanza.
+      # Una rete piu' larga dell'intervallo in cui il guasto si presenta non e' una rete.
+    - cron: "13 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: hook
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  raccogli:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        chain: [base, robinhood]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+
+      - name: Raccogli gli hook
+        env:
+          CHAIN: ${{ matrix.chain }}
+          # BUDGET AL 60% DEL TETTO (1/10). Era 25 min su un tetto di 35 (71%): il lavoro
+          # si fermava in tempo ma non restava spazio per salvare e consegnare, e il giro
+          # veniva annullato per tempo scaduto con tutto dentro. Trovato da
+          # agents/budget_e_tetto.py, che adesso boccia la pubblicazione se qualcuno ci torna.
+          BUDGET_SEC: "1260"
+        run: python agents/raccogli_hook.py
+
+      - name: Consegna senza toccare il ramo
+        # NON SPINGE PIU' (29/09). Con cinquantuno corsie che scrivono su `main`, questa perdeva
+        # la gara e moriva dopo venti tentativi: venti minuti di macchina per non salvare niente,
+        # piu' una email di guasto al fondatore per un problema che non era suo.
+        # Ora consegna in un pacco e scrive il pubblicatore, che e' l'unico scrittore.
+        # Il pacco si chiama `consegna-*`: il pubblicatore li raccoglie tutti senza conoscerli.
+        if: always()
+        run: |
+          # SOLO I FILE CAMBIATI (29/09). Consegnare tutta `data` vorrebbe dire spedire il
+          # repository intero a ogni giro: gigabyte di roba gia' su GitHub, per salvare qualche
+          # decina di file nuovi. Si mette da parte solo cio' che questa corsia ha toccato.
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          # UN FILE CANCELLATO NON DEVE UCCIDERE LA CONSEGNA (2/10). `git status` elenca anche
+          # i file CANCELLATI, e qui `[ -f "$F" ]` su uno di quelli e' falso: con `bash -e`,
+          # che GitHub usa di default, il passo moriva lì. E' successo appena ho collegato la
+          # fusione degli iniziatori, che cancella il file dei nuovi dopo averli uniti: 24.000
+          # transazioni fuse correttamente e MAI consegnate, perche' il passo dopo e' morto su
+          # un file che non c'era piu'.
+          # Con `if`/`fi` invece di `&&` il caso normale non e' piu' un errore.
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            if [ -f "$F" ]; then
+              mkdir -p "/tmp/consegna/$(dirname "$F")"
+              cp "$F" "/tmp/consegna/$F"
+            fi
+          done
+          N=$(find /tmp/consegna -type f | wc -l)
+          echo "consegno $N file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-hook-${{ matrix.chain }}
+          path: /tmp/consegna/data
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: ignore
+
+# SENZA RIARMO: il riarmo dormiva mezz'ora su una macchina prima di rilanciarsi, e una
+# macchina che dorme occupa un posto come una che lavora. Misurato l'1/10 su tutte le corsie:
+# 622 minuti-macchina a dormire per un giro di ognuna, il 52% della capacita' di venti macchine.
+# Ed era un cerchio: il riarmo esisteva perche' GitHub salta gli orologi sui repository
+# OCCUPATI, ed era proprio quel dormire a tenerlo occupato. Il rimedio alimentava la malattia.
+# Qui il motore e' l'orologio ogni ora, e la rete e' la maglia di guardie — riparata l'1/10, e
+# verificata la stessa sera: ha rimesso in moto quattro corsie davvero mute senza toccarne una
+# sola di sane. Questa corsia e' sorvegliata con un limite di 90 minuti di silenzio.
+# PRIMA DI PROPAGARE ALLE ALTRE DODICI: guardare per qualche ora che questa resti viva e NON
+# giri di continuo. Vedi RIARMI_CHE_DORMONO.md.

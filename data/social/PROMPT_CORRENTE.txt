@@ -1,0 +1,49 @@
+Analizza esclusivamente contenuti pubblici su X pubblicati il {GIORNO}, in UTC. Usa soltanto ciò che era osservabile entro le 23:59 UTC di quel giorno: ignora completamente prezzo, notorietà, performance, rug, dump e qualunque fatto successivo.
+
+Obiettivo: crea una watchlist retrospettiva di massimo 7 memecoin piccole o appena nate su Solana, Base o Robinhood Chain che, il {GIORNO}, mostravano tracce iniziali compatibili con una possibile accelerazione dell’attenzione. Non devi prevedere né dire se poi hanno avuto successo: la verifica sarà fatta separatamente sui dati di mercato.
+
+Regola di inclusione, semplice e inderogabile:
+includi un token se hai verificato:
+1. simbolo/ticker;
+2. chain;
+3. contract address completo;
+4. almeno una traccia concreta pubblicata o collegata a X il {GIORNO}.
+
+Senza contract address completo, escludi il token. Con simbolo, chain, CA e una traccia concreta, includilo sempre come “osservazione iniziale”, anche se tutte le altre prove sono assenti. Non rispondere “NESSUN CANDIDATO VERIFICABILE” finché esiste almeno un token che soddisfa questi quattro requisiti minimi.
+
+Cerca prima ampiezza, poi profondità:
+- trova lanci, nuove pair, migration, CA, ticker e post relativi a Solana, Base e Robinhood Chain;
+- usa combinazioni con: launch, new pair, migration, CA, contract, pump.fun, DexScreener, Birdeye, first call, early, alpha, CTO, meme, community, raid, buyers, volume, liquidity, holders, market cap;
+- per ogni possibile token, verifica subito ticker + chain + CA;
+- solo dopo cerca eventuali tracce aggiuntive nello stesso giorno.
+
+Per “traccia concreta” valgono, anche singolarmente:
+- lancio, nuova pair, migration o prima comparsa di ticker/CA;
+- call, seed, post del progetto/dev, CTO, meme o evento nascente;
+- post di tracker, caller, community o account aggiuntivo;
+- reply, repost, quote, discussione o engagement visibile;
+- riferimenti contemporanei a buyer, volume, liquidità, holders, market cap o swap;
+- raid o coordinamento, che è segnale di attenzione ma anche rischio.
+
+Ricostruisci la sequenza più breve che riesci a vedere il {GIORNO}, senza pretendere una storia completa:
+traccia iniziale → eventuale call/evento/meme → eventuale seconda menzione, tracker, discussione o metrica.
+Una sequenza incompleta è utile: descrivi solo gli anelli realmente visibili e dichiara quelli mancanti.
+
+Classifica così:
+- “accelerazione embrionale”: almeno due tracce concrete, oppure una breve sequenza temporale nello stesso giorno;
+- “osservazione iniziale”: ticker, chain, CA e una sola traccia concreta verificata.
+
+Dai priorità a segnali provenienti da fonti o tipi di fonte diversi, ma non trattare tracker, bot o alert automatici come prova di interesse organico. Possono bastare per includere un’osservazione iniziale; etichettali chiaramente come tali. Non inventare orari, metriche, causalità, engagement, fonti o collegamenti. Non scartare un candidato perché mancano primo caller, propagazione indipendente, dati on-chain, community organica o cronologia completa.
+
+Escludi DOGE, PEPE, SHIB e token già chiaramente noti prima del {GIORNO}. Escludi token la cui prima evidenza del giorno mostra una fase già evidentemente matura, salvo sia visibile una nuova accelerazione iniziata quel giorno.
+
+Rispondi senza introduzione né conclusione, massimo 7 candidati:
+
+$SIMBOLO | Chain | Contract
+Classe: accelerazione embrionale / osservazione iniziale
+Finestra osservata: HH:MM–HH:MM UTC oppure “orario parziale”
+Sequenza visibile: [solo tracce verificabili, in ordine temporale]
+Segnali osservati il {GIORNO}: [1–4 elementi concreti]
+Manca evidenza di: [elementi utili ma non verificati]
+Rischio visibile: [organico / probabilmente coordinato / red flag specifica / non determinabile]
+Fonti: [1–3 URL reali X o pagine token collegate, con orario se disponibile]

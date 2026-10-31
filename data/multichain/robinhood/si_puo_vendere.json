@@ -1,0 +1,64 @@
+{
+ "monete": {
+  "0xf782bbefee77c7cd5f362755bfd179ab93e70009": {
+   "acquisti": 271,
+   "vendite": 157,
+   "venditori_distinti": 35,
+   "vendita_mediana_$": 46.91,
+   "vendita_massima_$": 427.7,
+   "vendite_sopra_50$": 77,
+   "vendite_sopra_200$": 14,
+   "ultima_vendita_prima_del_diploma": true
+  },
+  "0xc3f40ab7a3b7025fa544895d7af5164572cc7a4f": {
+   "acquisti": 480,
+   "vendite": 247,
+   "venditori_distinti": 42,
+   "vendita_mediana_$": 51.52,
+   "vendita_massima_$": 757.97,
+   "vendite_sopra_50$": 126,
+   "vendite_sopra_200$": 39,
+   "ultima_vendita_prima_del_diploma": true
+  },
+  "0xbc8f6c10ea3640ccd349c9d0babb54aefa2aa0ab": {
+   "acquisti": 153,
+   "vendite": 82,
+   "venditori_distinti": 24,
+   "vendita_mediana_$": 46.75,
+   "vendita_massima_$": 649.51,
+   "vendite_sopra_50$": 40,
+   "vendite_sopra_200$": 7,
+   "ultima_vendita_prima_del_diploma": true
+  },
+  "0x5d6ca2ef84b2a55f46e44297980ca10038fbd247": {
+   "acquisti": 164,
+   "vendite": 92,
+   "venditori_distinti": 8,
+   "vendita_mediana_$": 232949.0,
+   "vendita_massima_$": 4567981.88,
+   "vendite_sopra_50$": 92,
+   "vendite_sopra_200$": 92,
+   "ultima_vendita_prima_del_diploma": true
+  },
+  "0x7ec55bfc4ca9c3127157e4a6d3e583a812d2ad33": {
+   "acquisti": 883,
+   "vendite": 682,
+   "venditori_distinti": 95,
+   "vendita_mediana_$": 55.34,
+   "vendita_massima_$": 1770.42,
+   "vendite_sopra_50$": 362,
+   "vendite_sopra_200$": 91,
+   "ultima_vendita_prima_del_diploma": false
+  },
+  "0xc11bfe9d3ccde5d5bb83d0fdc421f873bd482ab4": {
+   "acquisti": 131,
+   "vendite": 26,
+   "venditori_distinti": 11,
+   "vendita_mediana_$": 64.14,
+   "vendita_massima_$": 648.05,
+   "vendite_sopra_50$": 13,
+   "vendite_sopra_200$": 6,
+   "ultima_vendita_prima_del_diploma": true
+  }
+ }
+}

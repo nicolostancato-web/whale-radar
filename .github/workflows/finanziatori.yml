@@ -1,0 +1,114 @@
+name: finanziatori
+# CHI FINANZIA i portafogli che comprano per primi — l'ipotesi che Nicolo' porta da mesi.
+# Vedi agents/finanziatori.py e SQUADRE_E_FINANZIATORI.md.
+# COSTO ZERO EURO: `base.blockscout.com` e' un esploratore pubblico senza chiave. Il limite non
+# e' la bolletta, e' il numero di richieste: a 0,35 secondi ci chiude la porta (429 misurato il
+# 2/10). Si va a un secondo, e la velocita' si prende dalle QUATTRO FETTE, che girano su macchine
+# diverse — quindi indirizzi di rete diversi — invece di pestare sullo stesso servizio.
+# DUE CHAIN: `base.blockscout.com` e `robinhoodchain.blockscout.com`. Il secondo sembrava non
+# esistere per un giorno intero: rispondeva 403 perche' chiedevo male. Misurato il 3/10:
+# robinhood NON ci strozza (zero rifiuti), base si' (~10 per finestra).
+on:
+  workflow_dispatch: {}
+  schedule:
+    # SPESSO, NON LENTO (2/10). Il limite del servizio e' rigido: ~10 portafogli per fetta per
+    # finestra di tempo, qualunque sia la pausa fra le chiamate — provato a 1 e a 6 secondi,
+    # stesso risultato. Allungare la pausa non serve a niente.
+    # Ma ogni giro parte da macchine NUOVE, quindi da finestre nuove: quaranta portafogli per
+    # giro. Il bersaglio e' 300, quindi con un giro ogni quaranta minuti si finisce in cinque
+    # ore invece di ventiquattro. Le macchine sono gratis su un repository pubblico; il solo
+    # costo e' la coda, e la coda adesso e' vuota (zero annullamenti da sei ore).
+    # Quando il limite e' per finestra e non per velocita', si cambia il RITMO non la pausa.
+    - cron: "7,47 * * * *"
+
+concurrency:
+  group: finanziatori
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  risolvi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 21
+    strategy:
+      fail-fast: false
+      matrix:
+        # DUE CHAIN (3/10). Per un giorno ho scritto che «robinhood non ha un esploratore
+        # pubblico», in due documenti, come se fosse un fatto del mondo. Rispondeva 403 al mio
+        # `User-Agent: Mozilla/5.0`; con le intestazioni complete di un browser risponde.
+        # Quarta volta in un giorno che un «non si puo'» era un «non ho chiesto nel modo
+        # giusto» — e questa e' la piu' importante, perche' con due chain la REGOLA DI
+        # RIPETIZIONE diventa soddisfacibile: la differenza fra un indizio e una strategia.
+        # BASE FERMATA (10/10, ordine di Nicolo': «se stai facendo qualcosa su base,
+        # stoppala»). Non spengo la corsia: le togliu base dalla MATRICE, cosi' robinhood
+        # — la chain della prova in avanti — continua senza interruzioni. Per riaccendere
+        # base basta rimettere la voce nell'elenco qui sotto.
+        chain: [robinhood]
+        fetta: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Trova chi finanzia
+        env:
+          CHAIN: ${{ matrix.chain }}
+          FETTE: "4"
+          FETTA: ${{ matrix.fetta }}
+          # budget al 60% del tetto: il 40% resta per salvare e consegnare
+          BUDGET_SEC: "540"
+          # SEI SECONDI (2/10): a uno il servizio chiude la porta dopo dieci chiamate. Il
+          # bersaglio e' di 300 portafogli, non 11.275, quindi la pazienza costa poco.
+          PAUSA: "1.5"
+          # solo i portafogli creati per comprare: sopra questo nonce il finanziatore e' vecchio
+          MAX_NONCE: "1"
+          # SE LA CHIAVE C'E' SI USA, SE NON C'E' NON SI ROMPE NIENTE (2/10). Chiave GRATUITA
+          # di Etherscan (registrazione senza carta, 5 chiamate al secondo, 100.000 al giorno):
+          # con lei questa corsia finisce in un minuto invece di ventiquattro ore. Senza, usa
+          # Blockscout pubblico e macina. In nessuno dei due casi si spende un euro.
+          ETHERSCAN_KEY: ${{ secrets.ETHERSCAN_KEY }}
+        run: python agents/finanziatori.py
+      - name: "I finanziatori dei portafogli BRAVI (elenco esplicito, nessun filtro sul nonce)"
+        if: always()
+        env:
+          CHAIN: ${{ matrix.chain }}
+          FETTE: "4"
+          FETTA: ${{ matrix.fetta }}
+          BUDGET_SEC: "180"
+          PAUSA: "0.5"
+          # IL FILTRO SUL NONCE ESCLUDEVA PROPRIO LORO (5/10): i bravi fanno decine di
+          # operazioni, quindi nonce alto, quindi fuori per costruzione. Zero su cinquanta
+          # risolti, e avevo letto quello zero come copertura insufficiente invece che come
+          # criterio sbagliato.
+          SOLO_ELENCO: data/bravi.json
+          # ETICHETTA distinta: senza, questo passo sovrascriveva il pezzo del passo
+          # precedente (5/10). Due scrittori su un file e' perdita di dati silenziosa.
+          ETICHETTA: "_bravi"
+          ETHERSCAN_KEY: ${{ secrets.ETHERSCAN_KEY }}
+        run: python agents/finanziatori.py
+      - name: Consegna senza toccare il ramo
+        if: always()
+        run: |
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            if [ -f "$F" ]; then
+              mkdir -p "/tmp/consegna/$(dirname "$F")"
+              cp "$F" "/tmp/consegna/$F"
+            fi
+          done
+          echo "consegno $(find /tmp/consegna -type f | wc -l) file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-${{ github.workflow }}-${{ matrix.chain }}-${{ matrix.fetta }}
+          path: /tmp/consegna/data
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: ignore
+
+# SENZA RIARMO: nata dopo aver misurato che i riarmi che dormono si mangiano il 52% della
+# capacita' (RIARMI_CHE_DORMONO.md). Il motore e' l'orologio ogni tre ore; la rete e' la maglia
+# di guardie.

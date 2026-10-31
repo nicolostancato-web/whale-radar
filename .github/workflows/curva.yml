@@ -1,0 +1,166 @@
+name: curva
+# IL MERCATO PRIMA DEL POOL. Su robinhood il 92,9% dei lanci passa da Pons, che vende i gettoni su
+# una CURVA prima che il pool Uniswap esista. Noi leggevamo solo il pool: per questo il 45-48%
+# delle posizioni risultava «comprata e mai venduta» e un'altra fetta «venduta senza acquisto».
+# Verificato sulla chain il 6/10: evento CurveBuy riconosciuto col keccak, 8 dei nostri 525
+# candidati trovati a ricevere sulla curva in sole 8 ore di chain.
+# COSTO ZERO: RPC pubblico della chain, nessuna chiave, nessun conto a consumo.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "17 */2 * * *"   # ogni 2h finche la finestra storica non e coperta al 100%
+
+concurrency:
+  group: curva
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  actions: read   # per riprendersi il proprio contatore dall'allegato del giro precedente
+
+jobs:
+
+  scambi:
+    # Gli acquisti e le vendite: senza filtro address il limite scende a 30.000 blocchi, quindi
+    # 2.273 finestre x 2 tipi di evento = ~4.546 chiamate. A 10 fette sono ~455 a testa, misurate
+    # a ~2 secondi l'una: ~15 minuti, dentro il budget.
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        fetta: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 1 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Riprendo il mio contatore dal giro precedente
+        # PERCHE' DALL'ALLEGATO E NON DAL RAMO. La ripartenza ha senso solo se il contatore
+        # sopravvive al giro. Ma i dati arrivano sul ramo solo quando passa il `pubblicatore`,
+        # che e' lo SCRITTORE UNICO e il 6/10 e' stato intasato per ore da 2 GB di allegati
+        # altrui. Legare la convergenza di questa corsia a quella coda significa non convergere.
+        # L'allegato del giro precedente e' MIO, pesa poco e c'e' sempre: me lo riprendo da solo.
+        # Il `pubblicatore` continua a fare il suo lavoro; semplicemente non lo aspetto.
+        continue-on-error: true      # al primo giro non c'e' niente da riprendere: non e' un guasto
+        env:
+          GH_TOKEN: ${{ github.token }}
+          FETTA: ${{ matrix.fetta }}
+        run: |
+          ID=$(gh api "repos/${{ github.repository }}/actions/artifacts?per_page=100" \
+            --jq ".artifacts[] | select(.expired==false) | select(.name==\"consegna-curva-scambi-$FETTA\") | .id" \
+            | head -1)
+          if [ -z "$ID" ]; then echo "nessun allegato precedente per la fetta $FETTA: primo giro"; exit 0; fi
+          gh api "repos/${{ github.repository }}/actions/artifacts/$ID/zip" > /tmp/prec.zip 2>/dev/null || { echo "allegato $ID non scaricabile"; exit 0; }
+          mkdir -p /tmp/prec && unzip -qo /tmp/prec.zip -d /tmp/prec || { echo "allegato illeggibile"; exit 0; }
+          # si riprendono SOLO i propri file, per non sovrascrivere dati di altre corsie
+          # le somme ora vivono in un allegato separato: le prendo da li'
+          IDS=$(gh api "repos/${{ github.repository }}/actions/artifacts?per_page=100" \
+            --jq ".artifacts[] | select(.expired==false) | select(.name==\"curva-somme-$FETTA\") | .id" | head -1)
+          if [ -n "$IDS" ]; then
+            gh api "repos/${{ github.repository }}/actions/artifacts/$IDS/zip" > /tmp/som.zip 2>/dev/null \
+              && mkdir -p /tmp/prec && unzip -qo /tmp/som.zip -d /tmp/prec || true
+          fi
+          for F in curva_fatte_pezzo_$FETTA.json curva_somme_pezzo_$FETTA.json.gz curva_scambi_pezzo_$FETTA.jsonl.gz curva_copertura_pezzo_$FETTA.json curva_fila_pezzo_$FETTA.json.gz; do
+            T=$(find /tmp/prec -name "$F" | head -1)
+            if [ -n "$T" ]; then mkdir -p data/multichain/robinhood && cp "$T" "data/multichain/robinhood/$F" && echo "ripreso $F ($(stat -f%z "$T" 2>/dev/null || stat -c%s "$T") byte)"; fi
+          done
+
+      - name: Prendo l'elenco dei lanci (per sapere in che valuta si paga)
+        # SENZA QUESTO gli importi sono numeri senza unita'. L'elenco lo produce la corsia
+        # `curva_lanci`, e sul ramo arriva solo quando passa il `pubblicatore` — che il 6/10 e'
+        # stato fermo per ore. Stessa scelta del contatore: me lo prendo dall'allegato, che c'e'
+        # sempre ed e' fresco. Se non c'e', il passo non fallisce: gli importi resteranno grezzi
+        # e DICHIARATI tali, che e' meglio di importi convertiti col divisore sbagliato.
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ID=$(gh api "repos/${{ github.repository }}/actions/artifacts?per_page=100" \
+            --jq '.artifacts[] | select(.expired==false) | select(.name=="consegna-curva-lanci") | .id' \
+            | head -1)
+          if [ -z "$ID" ]; then echo "nessun elenco lanci negli allegati: importi grezzi"; exit 0; fi
+          gh api "repos/${{ github.repository }}/actions/artifacts/$ID/zip" > /tmp/lan.zip 2>/dev/null || { echo "non scaricabile"; exit 0; }
+          mkdir -p /tmp/lan && unzip -qo /tmp/lan.zip -d /tmp/lan || { echo "illeggibile"; exit 0; }
+          T=$(find /tmp/lan -name "curva_lanci.json.gz" | head -1)
+          if [ -n "$T" ]; then
+            mkdir -p data/multichain/robinhood && cp "$T" data/multichain/robinhood/curva_lanci.json.gz
+            echo "preso l'elenco lanci ($(stat -c%s "$T" 2>/dev/null || stat -f%z "$T") byte)"
+          fi
+
+      - name: Gli acquisti sulla curva
+        env:
+          CHAIN: robinhood
+          FASE: scambi
+          FETTE: "10"
+          FETTA: ${{ matrix.fetta }}
+          BLOCCHI_INDIETRO: "69000000"
+          # 60% del tetto: il 40% resta per salvare e consegnare (budget_e_tetto.py)
+          # 2280s = 38 min: insieme ai 15 del lettore intero fanno 53 min, il 59% del tetto di 90.
+          # Alzato il 6/10 perche' tre fette su dieci sono molto piu' dense delle altre
+          # (3,5 milioni di eventi contro 20.000) e col budget vecchio coprivano il 20-60% a
+          # giro: convergevano, ma in cinque giri invece di due.
+          BUDGET_SEC: "2280"
+        run: python agents/curva_pons.py
+      # LA LETTURA INTERA, PER MONETA (7/10). Il passo qui sopra legge per FINESTRE di blocchi
+      # recenti: i suoi conti sono esatti (verificati contro la chain, identici fino alla decima
+      # cifra) ma vede solo la coda della vita di una moneta. Misurato il 7/10: il 38% delle
+      # posizioni era PARZIALE, e quando lo e' se ne vede in mediana il 25%. Di un portafoglio di
+      # cui si vedono le vendite e non gli acquisti si dice che e' un fenomeno.
+      # Col filtro sull'indirizzo della curva la chain regge 10 milioni di blocchi per chiamata:
+      # due chiamate per moneta e la posizione e' INTERA per costruzione. 516 monete per fetta,
+      # ~4 minuti misurati. Dove il vecchio lettore era completo i due combaciano su 185 casi
+      # su 185: non e' un lettore diverso, e' lo stesso lettore sul pezzo di mondo giusto.
+      - name: La vita intera di ogni moneta graduata
+        if: always()
+        env:
+          CHAIN: robinhood
+          FETTE: "10"
+          FETTA: ${{ matrix.fetta }}
+          BUDGET_SEC: "900"
+        run: python agents/curva_per_moneta.py
+      # DUE CONSEGNE SEPARATE, e la ragione e' il costo che impongo agli altri.
+      # Il `pubblicatore` e' lo SCRITTORE UNICO del ramo e raccoglie TUTTI gli allegati che si
+      # chiamano `consegna-*`. Misurato il 6/10: ci mette 46-56 minuti su un tetto di 60, e un
+      # giro e' FALLITO a 56. I miei archivi delle somme pesano 290 MB a giro: non sono la causa
+      # (quasi 1 GB e' di un'altra corsia), ma sono esattamente il margine fra 51 e 56 minuti.
+      # Ero partito dicendo che non era colpa mia; i tempi dicono che ero la goccia.
+      # Questa corsia non ha piu' bisogno del ramo (si riprende contatore ed elenco dai propri
+      # allegati), quindi le somme NON passano piu' dallo scrittore unico: vanno in un allegato
+      # che non si chiama `consegna-`, con una conservazione lunga perche' non c'e' il ramo a
+      # fare da archivio. Sul ramo restano solo i file piccoli.
+      - name: Consegna i file piccoli (quelli che vanno sul ramo)
+        if: always()
+        run: |
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna/data/multichain/robinhood
+          for F in curva_fatte_pezzo_${{ matrix.fetta }}.json curva_copertura_pezzo_${{ matrix.fetta }}.json curva_scambi_pezzo_${{ matrix.fetta }}.jsonl.gz curva_fila_pezzo_${{ matrix.fetta }}.json.gz; do
+            [ -f "data/multichain/robinhood/$F" ] && cp "data/multichain/robinhood/$F" /tmp/consegna/data/multichain/robinhood/
+          done
+          echo "consegno $(find /tmp/consegna -type f | wc -l) file piccoli, $(du -sk /tmp/consegna | cut -f1) KB"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-curva-scambi-${{ matrix.fetta }}
+          path: /tmp/consegna/data
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: ignore
+      - name: Le somme, fuori dalla coda dello scrittore unico
+        if: always()
+        run: |
+          rm -rf /tmp/somme && mkdir -p /tmp/somme/data/multichain/robinhood
+          for F in curva_somme_pezzo_${{ matrix.fetta }}.json.gz moneta_pezzo_${{ matrix.fetta }}.jsonl.gz moneta_fatte_pezzo_${{ matrix.fetta }}.json; do
+            [ -f "data/multichain/robinhood/$F" ] && cp "data/multichain/robinhood/$F" /tmp/somme/data/multichain/robinhood/
+          done
+          echo "somme + vita intera: $(du -sk /tmp/somme | cut -f1) KB"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          # NIENTE prefisso `consegna-`: cosi' il pubblicatore non lo raccoglie e non paga per noi
+          name: curva-somme-${{ matrix.fetta }}
+          path: /tmp/somme/data
+          retention-days: 30
+          overwrite: true
+          if-no-files-found: ignore
+
+# SENZA RIARMO: l'orologio e' il motore, la maglia di guardie e' la rete (RIARMI_CHE_DORMONO.md).
