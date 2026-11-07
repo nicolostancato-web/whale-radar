@@ -2094,6 +2094,37 @@ except Exception as _e:
     dillo("la rotta che useremmo adesso rende abbastanza", False,
           str(_e)[:60])
 
+# IL CREDITO MORTO NON DEVE DIVENTARE UN CANDIDATO (7/11).
+# Trovato nell'autopsia della quattordicesima: tre posizioni con salute ZERO
+# sembravano le occasioni piu' succose che avessimo, e una (0xae9f7554b9) e'
+# stata la piu' rifiutata dalla sentinella, 37 pacchetti composti e spediti
+# a un cadavere. Debito 23 \$, garanzia 0,0000 \$: la garanzia era gia' stata
+# presa tutta, e la salute legge zero per QUELLO, non perche' siano ricche.
+# Una salute bassissima e una garanzia vuota sono la stessa cosa vista da
+# due lati, e guardavamo solo il lato che ci piaceva.
+# Qui si prova la riparazione: le posizioni con garanzia nulla devono
+# uscire col motivo «credito morto», senza comporre niente.
+try:
+    import pescatore as _PE5
+    _comp5 = json.load(open(f"{D}/composizione.json"))
+    _morti = [(k, v) for k, v in _comp5.items()
+              if isinstance(v, dict) and v.get("salute", 9) < 1
+              and (v.get("garanzia_usd") or 0) < 1]
+    if not _morti:
+        dillo("il credito morto non diventa un candidato", True,
+              "nessuna posizione caduta con garanzia vuota in questo momento")
+    else:
+        _esiti5 = []
+        for _k, _v in _morti[:3]:
+            _r5 = _PE5.tenta(_k, _v)
+            _esiti5.append(str(_r5.get("esito")))
+        _ok5 = all("credito morto" in e for e in _esiti5)
+        dillo("il credito morto non diventa un candidato", _ok5,
+              f"{len(_morti)} posizioni cadute con garanzia vuota, provate "
+              f"{len(_esiti5)}: {'; '.join(_esiti5)[:70]}")
+except Exception as _e:
+    dillo("il credito morto non diventa un candidato", False, str(_e)[:60])
+
 n=sum(1 for _,ok,_ in ESITI if not ok)
 print(f"\n{'='*72}\nC-CHECK: {len(ESITI)-n} a posto, {n} da sistemare")
 json.dump({"quando":time.time(),"esiti":[{"che":a,"ok":b,"dettaglio":c} for a,b,c in ESITI]},
