@@ -599,6 +599,30 @@ def tenta(utente, comp):
     tetto = tetto_per(gar, deb)
     if dus*1.07 > tetto:
         dus = tetto/1.07
+    # IL PREMIO VIENE DA QUELLO CHE SI PRENDE, NON DAL DEBITO (7/11).
+    # Trovato facendo l'autopsia della quattordicesima: tre posizioni con
+    # salute ZERO sembravano le occasioni piu' succose che avessimo, e una di
+    # loro (0xae9f7554b9) e' stata la piu' rifiutata dalla sentinella -- 37
+    # pacchetti composti e spediti. Sono CREDITO MORTO: debito 23 \$ e
+    # garanzia 0,0000 \$. La garanzia era gia' stata presa tutta da altri, e
+    # la salute legge zero per quel motivo, non perche' siano ricche.
+    # Il difetto era nella stima: il premio lo calcolavamo da `dus`, cioe'
+    # dal DEBITO, e a garanzia vuota veniva 1,61 \$ di premio atteso su
+    # qualcosa da cui non si prende NIENTE. Una salute bassissima e una
+    # garanzia vuota sono la stessa cosa vista da due lati, e noi guardavamo
+    # solo il lato che ci piaceva.
+    # Ora: si incassa al massimo la garanzia che c'e'. Se non c'e', il
+    # premio e' zero e la posizione esce subito, senza comporre un pacchetto.
+    _gar_usd = comp.get("garanzia_usd") or 0
+    _incassabile = min(_gar_usd, dus * 1.07)
+    _premio = _incassabile - dus
+    if _premio <= 0:
+        return {"esito": "credito morto: garanzia insufficiente",
+                "garanzia_usd": round(_gar_usd, 2),
+                "debito_da_chiudere": round(dus, 2)}
+    if _incassabile < dus * 1.07:
+        # la garanzia non copre tutta la fetta: si chiude meno debito
+        dus = _incassabile / 1.07
     if dus*0.07 < GUADAGNO_MINIMO_USD:
         return {"esito":"troppo piccola","premio_atteso":round(dus*0.07,2)}
     qd=int(dus/pd["prezzo_usd"]*10**pd["decimali"])
