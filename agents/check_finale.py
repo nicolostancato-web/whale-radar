@@ -1968,6 +1968,27 @@ dillo("una presa non puo' passare inosservata",
       f"{_chi_legge} agenti guardano il flag, "
       f"e il flag si scrive PRIMA dell'email")
 
+# I DUE CONTATORI DEVONO DIRE LO STESSO NUMERO DI TRANSAZIONI (7/11).
+# Guasto trovato in un giro del loop: la ricevuta di una transazione
+# aggregata (premio 1.126 $) non e' arrivata e il contatore delle occasioni
+# l'ha saltata IN SILENZIO -- 10 transazioni invece di 11, 9 occasioni
+# invece di 10, mentre il contatore sicuro diceva ancora 11. Un denominatore
+# che si abbassa perche' una fonte ha singhiozzato non e' una misura.
+# Due contatori indipendenti sulla stessa quantita' sono l'unico modo di
+# trovare un errore di conteggio: se divergono, uno dei due sta mentendo.
+try:
+    _cs2 = json.load(open(f"{D}/conta_sicuro.json"))
+    _vp2 = json.load(open(f"{D}/valeva_la_pena.json"))
+    _a = _cs2.get("transazioni")
+    _b = _vp2.get("transazioni")
+    dillo("i due contatori concordano sulle transazioni",
+          _a is not None and _a == _b,
+          f"contatore sicuro {_a}, contatore delle occasioni {_b}"
+          + ("" if _a == _b else "  <<< DIVERGONO: uno dei due perde casi"))
+except Exception as _e:
+    dillo("i due contatori concordano sulle transazioni", False,
+          str(_e)[:50])
+
 n=sum(1 for _,ok,_ in ESITI if not ok)
 print(f"\n{'='*72}\nC-CHECK: {len(ESITI)-n} a posto, {n} da sistemare")
 json.dump({"quando":time.time(),"esiti":[{"che":a,"ok":b,"dettaglio":c} for a,b,c in ESITI]},
