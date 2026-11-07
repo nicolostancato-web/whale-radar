@@ -1,0 +1,55 @@
+{
+ "finestra_blocchi": 3000,
+ "ore": 10.0,
+ "fino_al_blocco": 26363135,
+ "mercati": [
+  {
+   "mercato": "Aave v3 Core",
+   "indirizzo": "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
+   "eventi": 1,
+   "al_giorno": 2.4
+  },
+  {
+   "mercato": "Spark",
+   "indirizzo": "0xC13e21B648A5Ee794902342038FF3aDAB66BE987",
+   "eventi": 0,
+   "al_giorno": 0.0
+  },
+  {
+   "mercato": "Aave v2",
+   "indirizzo": "0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9",
+   "eventi": 0,
+   "al_giorno": 0.0
+  },
+  {
+   "mercato": "Morpho Blue",
+   "indirizzo": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+   "eventi": 0,
+   "al_giorno": 0.0
+  },
+  {
+   "mercato": "Compound v3 USDC",
+   "indirizzo": "0xc3d688B66703497DAA19211EEdff47f25384cdc3",
+   "eventi": 0,
+   "al_giorno": 0.0
+  },
+  {
+   "mercato": "Compound v3 WETH",
+   "indirizzo": "0xA17581A9E3356d9A858b789D68B4d866e593aE94",
+   "eventi": 0,
+   "al_giorno": 0.0
+  },
+  {
+   "mercato": "Compound v2 cETH",
+   "indirizzo": "0x4Ddc2D193948926D02f9B1fE9e1daa0718270ED5",
+   "eventi": 0,
+   "al_giorno": 0.0
+  },
+  {
+   "mercato": "Fluid",
+   "indirizzo": "0x52Aa899454998Be5b000Ad077a46Bbe360F4e497",
+   "eventi": 0,
+   "al_giorno": 0.0
+  }
+ ]
+}

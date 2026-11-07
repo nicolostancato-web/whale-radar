@@ -1,0 +1,33 @@
+{
+ "finestra": [
+  26348800,
+  26351800
+ ],
+ "ore": 10.0,
+ "mercati": [
+  {
+   "mercato": "Aave v3 Core",
+   "eventi": 10
+  },
+  {
+   "mercato": "Spark",
+   "eventi": 0
+  },
+  {
+   "mercato": "Morpho Blue",
+   "eventi": 16
+  },
+  {
+   "mercato": "Compound v3 USDC",
+   "eventi": 0
+  },
+  {
+   "mercato": "Compound v3 WETH",
+   "eventi": 0
+  },
+  {
+   "mercato": "Aave v2",
+   "eventi": 1
+  }
+ ]
+}
