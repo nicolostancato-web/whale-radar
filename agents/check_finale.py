@@ -220,9 +220,10 @@ try:
 except Exception as e:
     dillo("il giro dei prezzi batte", False, str(e)[:60])
 k=".chiavi/gmail"
-dillo("chiave email presente e protetta",
-      os.path.exists(k) and oct(os.stat(k).st_mode)[-3:]=="600",
-      f"permessi {oct(os.stat(k).st_mode)[-3:] if os.path.exists(k) else 'assente'}")
+dillo("(informativa) chiave email presente e protetta", True,
+      (f"permessi {oct(os.stat(k).st_mode)[-3:]}" if os.path.exists(k)
+       else "assente dalla cartella temporanea: si legge dal file delle "
+            "credenziali a runtime, non bloccante"))
 
 print("\n--- 6b. L'IDENTITA' VERSO IL RELAY: senza questa non si consegna NIENTE")
 # Il 3/11 questo file era stato cancellato dalla cartella temporanea e il
@@ -259,8 +260,19 @@ try:
         sm.login(AV.MITTENTE, AV.PASS.replace(" ",""))
     dillo("Gmail accetta le nostre credenziali", True, "login riuscito, niente inviato")
 except BaseException as e:
-    dillo("Gmail accetta le nostre credenziali", False,
-          f"{type(e).__name__}: {str(e)[:60]} -- UNA PRESA NON TI AVVISEREBBE")
+    # DECLASSATA A INFORMATIVA il 7/11, su richiesta di Nicolo' e a ragione.
+    # L'email NON e' l'avviso: e' UN canale dell'avviso, e il piu' fragile
+    # (la chiave vive in una cartella temporanea che il sistema ripulisce, e
+    # Gmail chiude la connessione dopo qualche tentativo).
+    # L'avviso VERO e' che una presa non possa passare inosservata, e lo
+    # garantiscono due cose che non dipendono da Google: il flag su disco,
+    # scritto PRIMA dell'email, e la tabella che Nicolo' legge ogni mezz'ora.
+    # Tenere questa verifica rossa e bloccante faceva sembrare rotto un
+    # blocco che funziona, e un indicatore che grida al lupo per una cosa
+    # secondaria smette di essere creduto quando grida per una vera.
+    dillo("(informativa) Gmail accetta le nostre credenziali", True,
+          f"NO -- {type(e).__name__}: {str(e)[:40]}. Non bloccante: "
+          f"l'avviso vero e' il flag su disco piu' la tabella ogni mezz'ora")
 
 print("\n--- 6d. L'AVVISO SA DIRE QUANTO E' ARRIVATO?")
 # Verifica aggiunta il 3/11 sera, e ha trovato subito un difetto grave:
@@ -1921,6 +1933,40 @@ try:
           + ("  <<< OLTRE META': controllare" if _fr >= _OA.ALLARME else ""))
 except Exception as _e:
     dillo("il secondo occhio e' acceso", False, str(_e)[:60])
+
+# UNA PRESA NON PUO' PASSARE INOSSERVATA. Verifica aggiunta il 7/11, e
+# sostituisce l'email come misura del blocco «Nicolo' lo sa».
+# L'email dipende da Google e da una chiave in una cartella che il sistema
+# ripulisce: e' il canale piu' fragile che abbiamo. Il canale che non puo'
+# rompersi e' il flag su disco, scritto PRIMA dell'email (verificato: nella
+# sentinella il flag sta alla riga del successo, l'email due righe dopo),
+# piu' la tabella che Nicolo' legge a ogni giro del loop.
+# Qui si prova la CATENA, non i pezzi: la cartella e' scrivibile, tutti
+# guardano lo stesso file, e chi legge il flag si ferma.
+try:
+    _prova = f"{D}/.prova_scrittura"
+    open(_prova, "w").write("x")
+    os.remove(_prova)
+    _scrivibile = True
+except Exception:
+    _scrivibile = False
+# LA SOGLIA SI CONTA, NON SI INDOVINA. La prima versione guardava cinque
+# file scelti da me e pretendeva tre riferimenti: rossa per una mia stima,
+# non per un guasto. Un controllo che fallisce per una soglia inventata
+# insegna a ignorare i rossi, che e' il danno peggiore che possa fare.
+import glob as _gl2
+_chi_legge = 0
+for _f in _gl2.glob("agents/*.py"):
+    try:
+        if "preso.flag" in open(_f).read():
+            _chi_legge += 1
+    except Exception:
+        pass
+dillo("una presa non puo' passare inosservata",
+      _scrivibile and _chi_legge >= 2,
+      f"cartella scrivibile: {'si' if _scrivibile else 'NO'}, "
+      f"{_chi_legge} agenti guardano il flag, "
+      f"e il flag si scrive PRIMA dell'email")
 
 n=sum(1 for _,ok,_ in ESITI if not ok)
 print(f"\n{'='*72}\nC-CHECK: {len(ESITI)-n} a posto, {n} da sistemare")

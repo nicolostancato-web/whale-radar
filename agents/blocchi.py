@@ -62,7 +62,12 @@ BLOCCHI = [
    "dentro c'e' l'offerta", "il pacchetto porta un'offerta",
    "portano l'offerta al costruttore",
    "la mancia e' una frazione sana", "la firma chi comanda", "va al nostro contratto"]),
+ # BLOCCO RIDEFINITO il 7/11. Misurava «l'email parte», cioe' il canale piu'
+ # fragile: dipende da Google e da una chiave in una cartella temporanea che
+ # il sistema ripulisce. Ora misura la cosa che conta -- che una presa non
+ # possa passare inosservata -- e l'email resta dentro come informativa.
  ("3. Avviso: Nicolo' lo sa", [
+   "una presa non puo' passare inosservata",
    "chiave email", "Gmail accetta", "legge l'accredito",
    "non inventa accrediti", "chi scrive il flag della presa avvisa",
    "il messaggio si costruisce", "dice il premio", "non sembra una prova",
