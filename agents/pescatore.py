@@ -378,6 +378,16 @@ def aggregatore_in_castigo():
 def _metti_in_castigo():
     _CASTIGO["fino"] = time.time() + CASTIGO_SECONDI
 def preventivo(src,dst,q,sd,dd):
+    # IL TIPO SI STABILISCE AL CONFINE (7/11).
+    # Un chiamante passava l'importo come STRINGA. vendita_uniswap fa
+    # aritmetica, esplodeva con TypeError, l'eccezione finiva in un `except`
+    # largo e si ripiegava su Curve -- che su WETH->USDT rende il 35,41%
+    # invece del 100%. Poi la guardia del contratto rifiutava l'occasione
+    # INTERA, 11.308 $ di premio, e per giorni ho creduto fosse il mercato.
+    # Un errore di tipo travestito da proprieta' del mercato, nascosto da un
+    # ripiego silenzioso. Qui si converte una volta, e tutti i rami sotto
+    # ricevono un numero.
+    q = int(q)
     """Ritorna (sede, calldata, posizione_importo, daApprovare)
     oppure (None, perche', None, None).
 
@@ -412,6 +422,39 @@ def preventivo(src,dst,q,sd,dd):
         if pos is None:
             return _ripiego_uniswap(src, dst, q,
                                     f"importo trovato {n} volte")
+        # UN PREVENTIVO SI CONFRONTA COL VALORE GIUSTO (7/11).
+        # Questa riga mancava, ed e' la causa per cui la prova completa
+        # falliva da giorni: Paraswap ci dava una rotta che su 76,71 WETH
+        # verso USDT rendeva 61.009 invece di 172.298, cioe' il 35,41%, e noi
+        # la accettavamo perche' lo scivolamento e' a 9000 punti base (90%:
+        # scelta deliberata, la difesa vera sta nel contratto). Risultato: la
+        # guardia del contratto rifiutava l'occasione INTERA -- 11.308 $ di
+        # premio -- invece di perdere due punti. Il modo piu' stupido di
+        # perdere: la macchina funziona e si dice no da sola.
+        # Sulla stessa taglia 1inch rende il 99,78%. Quindi non si stringe la
+        # tolleranza (gli scambi si annullerebbero): si cambia SEDE.
+        try:
+            import rotta_migliore as _RM
+            _rec = _RM.recupero(src, dst, int(q), int(pr["destAmount"]))
+            if _rec is not None and _rec < _RM.SOGLIA_RECUPERO:
+                _s2, _d2, _u2 = _RM.da_1inch(src, dst, int(q), CONTRATTO)
+                _rec2 = _RM.recupero(src, dst, int(q), _u2) if _s2 else None
+                if _s2 and _rec2 and _rec2 > _rec:
+                    _p2, _n2 = trova_posizione(_d2, str(int(q)))
+                    if _p2 is not None:
+                        print(f"   ROTTA CAMBIATA: paraswap rendeva "
+                              f"{_rec*100:.2f}%, 1inch rende "
+                              f"{_rec2*100:.2f}% -> uso 1inch")
+                        # 1inch preleva tramite il router stesso
+                        return _s2, _d2, _p2, 0
+                    print(f"   1inch rende {_rec2*100:.2f}% ma l'importo non "
+                          f"si trova nella calldata ({_n2} volte): tengo "
+                          f"paraswap")
+                else:
+                    print(f"   ATTENZIONE: paraswap rende solo "
+                          f"{_rec*100:.2f}% e non ho una sede migliore")
+        except Exception as _e:
+            print(f"   giudizio della rotta non riuscito: {str(_e)[:70]}")
         return tx.get("to"), dati, pos, PROXY
     except Exception as e:
         if "429" in str(e) or "Too Many" in str(e):
@@ -424,6 +467,22 @@ def _ripiego_uniswap(src, dst, q, perche):
     richiesta nuda torna rifiutata), il rinnovo degli ordini si e' fermato
     e 274 erano scaduti. Tutta la capacita' di vendere stava su UNA fonte
     gratuita che puo' chiudere la porta quando vuole."""
+    q = int(q)
+    # OGNI RIPIEGO SI GIUDICA. Prima nessuno dei tre livelli confrontava la
+    # resa col valore giusto: bastava che una sede rispondesse. Cosi' Curve
+    # al 35% e Uniswap al 100% ci sembravano la stessa cosa, e prendevamo la
+    # prima che parlava.
+    def _ok(sede, uscita, chi):
+        if not sede: return False
+        try:
+            import rotta_migliore as _RM
+            r = _RM.recupero(src, dst, q, uscita) if uscita else None
+            if r is not None and r < _RM.SOGLIA_RECUPERO:
+                print(f"   SEDE SCARTATA — {chi} rende solo {r*100:.2f}%")
+                return False
+        except Exception:
+            pass
+        return True
     try:
         from vendita_uniswap import preventivo as uni
         sede, dati, pos, app = uni(src, dst, q, CONTRATTO)
@@ -431,7 +490,10 @@ def _ripiego_uniswap(src, dst, q, perche):
             return sede, dati, pos, app
         uni_perche = dati
     except Exception as e2:
-        uni_perche = str(e2)[:50]
+        # UN'ECCEZIONE QUI NON SI INGHIOTTE: la si DICE. Il silenzio di
+        # questo `except` ha nascosto per giorni un errore di tipo.
+        uni_perche = f"{type(e2).__name__}: {str(e2)[:60]}"
+        print(f"   RIPIEGO UNISWAP ESPLOSO: {uni_perche}")
     # SECONDO RIPIEGO: CURVE. Collegato il 4/11 (gradino 8 della scaletta).
     # Alcune monete non hanno compratore su Uniswap e ce l'hanno su Curve:
     # osETH, sUSDe, rsETH, e GHO -- che e' la stablecoin di Aave ed e' il
@@ -440,8 +502,12 @@ def _ripiego_uniswap(src, dst, q, perche):
     try:
         from vendita_curve import preventivo as curv
         v2, d2, p2, a2, uscita, out = curv(src, dst, int(q))
-        if v2:
+        if v2 and _ok(v2, out or uscita, "curve"):
             return v2, d2, p2, a2
+        if v2:
+            return None, (f"curve rende troppo poco e non ho altre sedi "
+                          f"(aggregatore: {perche} | uniswap: "
+                          f"{uni_perche})"), None, None
         return None, f"aggregatore: {perche} | uniswap: {uni_perche} | curve: {d2}", None, None
     except Exception as e3:
         return None, f"aggregatore: {perche} | uniswap: {uni_perche} | curve: {str(e3)[:40]}", None, None
