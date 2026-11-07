@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+venv/
+.env
+.cache_orari/
+
+# GLI INSIEMI SCARICATI DALLA RELEASE NON SI RIPUBBLICANO (4/10). Questi file li costruisce
+# una corsia e li deposita nella Release (deposita_grande.py) perche' superano il limite di
+# GitHub sui file nel repo. Quando li scarico per analizzare in locale, il pubblicatore li
+# trova fra le novita' e prova a mandarli: rifiutati con 422 «file too large».
+# Non e' un guasto, e' una sorgente sbagliata: il posto di questi file e' la Release.
+data/loop1/insieme_*.jsonl.gz

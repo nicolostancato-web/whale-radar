@@ -1,0 +1,86 @@
+Sei un ingegnere MEV senior con dieci anni su Ethereum. Hai costruito e
+gestito bot di liquidazione su Aave, Compound e Morpho. Sei pagato per
+demolire, non per incoraggiare: se vedi un difetto lo dici senza ammorbidire.
+
+== COSA ABBIAMO COSTRUITO ==
+
+Un bot di liquidazione su Aave v3 mainnet. Capitale: 0,016 ETH (~37 dollari)
+nel portafoglio operativo. Il guadagno va a una cassa separata che il bot
+puo' solo accreditare. Contratto 0xE30b58692FB7a1a417d3e0F1F5585a8Bc4D51212.
+
+Architettura, in due pezzi:
+- un "pescatore" che legge la salute delle posizioni a ogni blocco e spara
+  quando una scende sotto 1,0;
+- una "sentinella" che intercetta nel mempool le transazioni di
+  aggiornamento prezzo di Chainlink (selettore 0x6fadcf72) e compone
+  pacchetti Flashbots [transazione_oracolo, nostra_liquidazione] con lo
+  stesso nonce, per entrare NELLO STESSO BLOCCO in cui il prezzo cambia.
+
+Esecuzione: prestito lampo Aave (0,05%), liquidationCall, vendita della
+garanzia, rimborso. La vendita si costruisce in anticipo (ordine "pronto")
+mentre la posizione e' ancora sana, perche' chiedere un preventivo costa
+885 ms e le liquidazioni grosse si prendono nello stesso blocco.
+Le rotte di vendita le costruiamo noi leggendo la catena: Uniswap v3
+(exactInputSingle / exactInput) e Curve (exchange), scegliendo la rotta per
+quanto rende DAVVERO (interrogando i Quoter), non per la liquidita'
+dichiarata. Minimo in uscita a zero: a difendere il guadagno c'e' un
+controllo dentro il contratto che pretende un quarto del premio atteso in
+dollari, misurato sugli importi veri al momento del colpo. Un pacchetto che
+si annulla non costa niente.
+
+Numeri misurati, veri, di oggi:
+- 12.000+ pacchetti consegnati al relay Flashbots e ACCETTATI
+- composizione + firma + consegna: 476 ms; preventivo dal vivo: 331 ms
+- 1.050 posizioni sorvegliate, ~800 ordini di vendita pronti
+- premio vero che Aave paga, letto dal protocollo: dal 4,50% (USDC, USDT)
+  all'8,50% (USDe, LBTC)
+- prove su copia della catena al blocco corrente: la liquidazione completa
+  PASSA su 6-8 profondita' di crollo forzato, sia via Uniswap sia via Curve
+
+== IL RISULTATO REALE ==
+
+**Zero prese. Mai vinto una liquidazione.** La cassa ha 0,21 dollari.
+
+E oggi abbiamo misurato cosa ci siamo persi: nelle ultime 24 ore su Aave ci
+sono state 5 liquidazioni vere per 422.496 dollari di premio totale. Noi:
+zero. La piu' grossa, 24.048.189 dollari di debito chiuso e ~300.000 di
+premio, l'ha presa un altro pagando 1,92 dollari di gas e MANCIA ZERO, in
+seconda posizione nel blocco. Quindi non era un'asta: e' arrivato prima.
+
+Noi quella posizione la conoscevamo, avevamo l'ordine di vendita pronto, e
+la sentinella la metteva fra le candidate. Ma stava a salute 1,0217 e la
+nostra "corsia veloce" (le posizioni che il pescatore controlla a ogni
+blocco) aveva la soglia a 1,02: finiva nella corsia lenta, controllata una
+volta ogni ~4 minuti. E' caduta in quella finestra.
+
+== LA DOMANDA ==
+
+1. Il motivo che abbiamo trovato (corsia lenta per una soglia scelta male)
+   spiega DAVVERO la sconfitta, o e' una spiegazione comoda che ci fa
+   sentire a posto? Cosa controlleresti per falsificarla?
+
+2. Il vincitore ha pagato mancia ZERO ed era in posizione 2. Cosa ti dice
+   questo su COME ha vinto? Noi mandiamo pacchetti privati a Flashbots:
+   e' la strategia giusta se le liquidazioni vengono prese con transazioni
+   pubbliche a prezzo base? Stiamo combattendo la guerra sbagliata?
+
+3. Con 37 dollari di capitale operativo, quali di questi problemi sono
+   davvero risolvibili e quali no? Dove il capitale e' un vincolo vero e
+   dove e' una scusa?
+
+4. Cosa NON stiamo misurando? La nostra autodiagnosi ha 90 verifiche e dava
+   tutto verde mentre perdevamo 422.000 dollari di premio, perche' ogni
+   verifica guardava dentro la macchina e nessuna guardava il mondo.
+   Quale altra cecita' di questo tipo vedi? Dove un controllo di meccanismo
+   ci sta facendo credere di stare bene?
+
+5. Siamo in un mestiere dove si puo' vincere con 37 dollari e un Mac, o
+   stiamo competendo con chi ha nodi dedicati, accordi con i costruttori di
+   blocchi e capitale? Se la risposta e' la seconda, dillo chiaramente e di'
+   qual e' il mestiere adiacente dove quei 37 dollari contano qualcosa.
+
+== FORMATO ==
+
+Per ognuna: la risposta secca prima, poi il perche', poi cosa misurare per
+verificarla. Se pensi che stiamo sbagliando l'intera impostazione, dillo al
+punto 1 e non ai punti successivi. Niente incoraggiamenti.

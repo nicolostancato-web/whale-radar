@@ -1,0 +1,208 @@
+{
+ "0x6d53d5e35f5226a1613877e071b81217387ac6b5": {
+  "asset": [
+   "LINK",
+   "WBTC"
+  ],
+  "selettori": [
+   "0x6fadcf72"
+  ],
+  "visto": 3
+ },
+ "0x0c46dc0ba85eab5a515f819f1a705ed324da687b": {
+  "asset": [
+   "LINK",
+   "WBTC",
+   "WETH",
+   "weETH",
+   "wstETH"
+  ],
+  "selettori": [
+   "0x6fadcf72"
+  ],
+  "visto": 3
+ },
+ "0xdb0f470c2e87a645b1d7f8900b9a8f5ade9af259": {
+  "asset": [
+   "WBTC",
+   "WETH",
+   "weETH",
+   "wstETH"
+  ],
+  "selettori": [
+   "0x6fadcf72"
+  ],
+  "visto": 2
+ },
+ "0x35a06994a99b335b700bb3c875408489a9f8bbef": {
+  "asset": [
+   "LINK"
+  ],
+  "selettori": [
+   "0x6fadcf72"
+  ],
+  "visto": 2
+ },
+ "0x8aadf849561dccec75da44d1147e736e0cc0134e": {
+  "asset": [
+   "LINK",
+   "WETH",
+   "weETH",
+   "wstETH"
+  ],
+  "selettori": [
+   "0x6fadcf72"
+  ],
+  "visto": 2
+ },
+ "0x7b740d24396b09f992b655a590139d7fbb5c73c8": {
+  "asset": [
+   "AAVE"
+  ],
+  "selettori": [
+   "0x6fadcf72"
+  ],
+  "visto": 2
+ },
+ "0x243205e5c413534d0702ea981a35256e6853857f": {
+  "asset": [
+   "WBTC"
+  ],
+  "selettori": [
+   "0x6fadcf72"
+  ],
+  "visto": 1
+ },
+ "0x65a43936d7e1295cca6f30f6a0b25fe49cab32c8": {
+  "asset": [
+   "WBTC"
+  ],
+  "selettori": [
+   "0x6fadcf72"
+  ],
+  "visto": 1
+ },
+ "0xf38326579519377178725a741c35999e8051e907": {
+  "asset": [
+   "WBTC"
+  ],
+  "selettori": [
+   "0x6fadcf72"
+  ],
+  "visto": 1
+ },
+ "0xc0c7eb4a39baa77fd52715bd1dce2246df85e489": {
+  "asset": [
+   "WBTC"
+  ],
+  "selettori": [
+   "0x6fadcf72"
+  ],
+  "visto": 1
+ },
+ "0xae80a59ba821544cb508808942c20c11442d8a9b": {
+  "asset": [
+   "WBTC"
+  ],
+  "selettori": [
+   "0x6fadcf72"
+  ],
+  "visto": 1
+ },
+ "0xc917e3bf6c211b326ffd4ed13e7d9a67682095ca": {
+  "asset": [
+   "WBTC"
+  ],
+  "selettori": [
+   "0x6fadcf72"
+  ],
+  "visto": 1
+ },
+ "0xe9e4d87b0e7f97dd622439c26605b3b038c276c4": {
+  "asset": [
+   "WBTC"
+  ],
+  "selettori": [
+   "0x6fadcf72"
+  ],
+  "visto": 1
+ },
+ "0x1d5804ae896c64ecc88e15379061ce6230f11895": {
+  "asset": [
+   "LINK"
+  ],
+  "selettori": [
+   "0x6fadcf72"
+  ],
+  "visto": 1
+ },
+ "0x0613a20e394593c2aeb627760e6d6fb816d77fbb": {
+  "asset": [
+   "WETH",
+   "weETH",
+   "wstETH"
+  ],
+  "selettori": [
+   "0x6fadcf72"
+  ],
+  "visto": 1
+ },
+ "0x7a13cd97d442856ff5387d55a7b3f09bf680102b": {
+  "asset": [
+   "WETH",
+   "weETH",
+   "wstETH"
+  ],
+  "selettori": [
+   "0x6fadcf72"
+  ],
+  "visto": 1
+ },
+ "0xe9dcbacc91db0e37562a8455c80d0734d7cf3bd1": {
+  "asset": [
+   "WETH",
+   "weETH",
+   "wstETH"
+  ],
+  "selettori": [
+   "0x6fadcf72"
+  ],
+  "visto": 1
+ },
+ "0x87b331d3bb9cf70dd85c3dc606b684a0bd61c772": {
+  "asset": [
+   "AAVE"
+  ],
+  "selettori": [
+   "0x6fadcf72"
+  ],
+  "visto": 1
+ },
+ "0xe62efa5462961055757c63931a15601545e4d273": {
+  "asset": [
+   "AAVE"
+  ],
+  "selettori": [
+   "0x6fadcf72"
+  ],
+  "visto": 1
+ },
+ "0x30d872350fe74f47c85847d6784b42f9b0816f04": {
+  "asset": [
+   "AAVE"
+  ],
+  "selettori": [
+   "0x6fadcf72"
+  ],
+  "visto": 1
+ },
+ "0xd8d2297bdf4a84569bcec83c92a81549be9c51e6": {
+  "asset": [
+   "AAVE"
+  ],
+  "selettori": [
+   "0x6fadcf72"
+  ],
+  "visto": 1
+ }
+}

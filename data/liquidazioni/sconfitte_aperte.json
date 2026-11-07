@@ -1,0 +1,24 @@
+{
+ "0xf5ff0c7106886a61fd": {
+  "quando": 1793760000,
+  "premio": 947639,
+  "blocco": 4,
+  "motivo": "nella gara e l'abbiamo persa: la sentinella la vedeva a 1,0217 dall'archivio mentre il vero era 1,0054, cioe' a tiro",
+  "tx": "0xf5ff0c7106886a61fddb7a03ab7da7b3ae50cd4ba62e1f418b7a07f98434a3eb",
+  "riparato_da": "la sentinella usa la salute VIVA, non l archivio + il pacchetto porta solo chi e alla portata (misurato: un aggiornamento muove lo 0,507%, quindi serve salute sotto 1,006)"
+ },
+ "0x40112774de7cffa37a": {
+  "quando": 1793893075.961329,
+  "premio": 2699.79,
+  "blocco": 4,
+  "motivo": "ordine pronto ma in corsia LENTA (salute 1.0803646269146887, soglia 1.05)",
+  "riparato_da": "tetto per coppia nel pacchetto (max 6 posti su 30): la coppia dominante passa dal 73% al 20% dei posti, e 3 delle 5 coppie delle cadute vere sono ora rappresentate. Misurato sul live, confermato da Astra e Grok."
+ },
+ "0xfee42a94b43f6738fc": {
+  "quando": 1793893075.961329,
+  "premio": 1005.31,
+  "blocco": 4,
+  "motivo": "ordine pronto ma in corsia LENTA (salute 1.0821415689524458, soglia 1.05)",
+  "riparato_da": "tetto per coppia nel pacchetto (max 6 posti su 30): la coppia dominante passa dal 73% al 20% dei posti, e 3 delle 5 coppie delle cadute vere sono ora rappresentate. Misurato sul live, confermato da Astra e Grok."
+ }
+}

@@ -1,0 +1,50 @@
+name: workflow_watchdog
+# A RIPOSO DALL'1/10, E IL MOTIVO VA SCRITTO PER INTERO.
+# Questa corsia era morta dal 27 agosto. L'1/10 l'ho RISVEGLIATA io, ragionando che «un guardiano
+# che muore non lo rilancia nessuno» — vero in generale, e fatto senza chiedermi perche' fosse
+# morta.
+# Poche ore dopo: 38 giri uccisi a META' LAVORO in tre raffiche, alle 22:25, 22:27 e 22:33 —
+# esattamente i tre minuti in cui questa corsia ha girato. Cinque raccoglitori di dati senza un
+# solo giro riuscito. Lei ha il potere di cancellare i giri che considera bloccati; la soglia
+# dice 6,2 ore, i giri uccisi avevano fra 11 e 77 minuti.
+# Non ho la prova nel registro (il log era parziale), ho la correlazione. E davanti a un
+# componente DISTRUTTIVO, risvegliato da me senza sapere perche' fosse morto, la correlazione
+# basta per rimetterlo a dormire.
+#
+# Il rilancio delle corsie ferme lo fa ora agents/rianima.py, che NON puo' cancellare niente.
+#
+# LA LEZIONE: non si rianima un componente che puo' distruggere senza prima sapere perche' era
+# morto. «Era spento» spesso vuol dire «qualcuno l'ha spento per un motivo».
+# Guardiano dei REPARTI: ogni 2h controlla tutti i workflow, rileva falliti/fermi, li RI-LANCIA da solo,
+# scrive WATCHDOG.md. Cosi' i problemi sono gia' gestiti prima che Nicolo chieda 'news?'. €0.
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  # TRE COPIE INSIEME NON SORVEGLIANO MEGLIO (30/09): ne ho viste tre in esecuzione nello stesso
+  # momento, che occupavano tre dei venti posti macchina per fare lo stesso identico lavoro.
+  group: workflow_watchdog
+  cancel-in-progress: false
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Controlla e auto-fixa i reparti
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python agents/workflow_watchdog.py || echo "ko"
+      - name: Salva report
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add WATCHDOG.md 2>/dev/null || true
+          git commit -m "watchdog $(date -u +%Y-%m-%dT%H:%MZ)" || { echo niente; exit 0; }
+          for i in 1 2 3 4 5; do
+            { git fetch --deepen 50 -q origin main 2>/dev/null || true; git pull --rebase --autostash -q origin main || git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main; } || true
+            git push origin main && exit 0; sleep $((RANDOM % 6 + 2))
+          done

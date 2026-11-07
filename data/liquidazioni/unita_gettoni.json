@@ -1,0 +1,154 @@
+[
+ {
+  "gettone": "0x18084fba666a33d37592fa2633fd49a74dd93a88",
+  "simbolo": "tBTC",
+  "decimali": 18,
+  "prezzo": 77935.71000403,
+  "esito": "OK",
+  "stato": "candidato"
+ },
+ {
+  "gettone": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+  "simbolo": "WBTC",
+  "decimali": 8,
+  "prezzo": 77879.03047957,
+  "esito": "OK",
+  "stato": "armato"
+ },
+ {
+  "gettone": "0x356b8d89c1e1239cbbb9de4815c39a1474d5ba7d",
+  "simbolo": "syrupUSDT",
+  "decimali": 6,
+  "prezzo": 1.14928789,
+  "esito": "OK",
+  "stato": "candidato"
+ },
+ {
+  "gettone": "0x4c9edd5852cd905f086c759e8383e09bff1e68b3",
+  "simbolo": "USDe",
+  "decimali": 18,
+  "prezzo": 0.99867077,
+  "esito": "OK",
+  "stato": "candidato"
+ },
+ {
+  "gettone": "0x514910771af9ca656af840dff83e8264ecf986ca",
+  "simbolo": "LINK",
+  "decimali": 18,
+  "prezzo": 11.35545059,
+  "esito": "OK",
+  "stato": "armato"
+ },
+ {
+  "gettone": "0x68749665ff8d2d112fa859aa293f07a622782f38",
+  "simbolo": "XAUt",
+  "decimali": 6,
+  "prezzo": 3901.69,
+  "esito": "OK",
+  "stato": "candidato"
+ },
+ {
+  "gettone": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+  "simbolo": "wstETH",
+  "decimali": 18,
+  "prezzo": 2837.81372,
+  "esito": "OK",
+  "stato": "armato"
+ },
+ {
+  "gettone": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+  "simbolo": "AAVE",
+  "decimali": 18,
+  "prezzo": 135.17728,
+  "esito": "OK",
+  "stato": "armato"
+ },
+ {
+  "gettone": "0x8236a87084f8b84306f72007f36f2618a5634494",
+  "simbolo": "LBTC",
+  "decimali": 8,
+  "prezzo": 78351.82623665,
+  "esito": "OK",
+  "stato": "candidato"
+ },
+ {
+  "gettone": "0x9d39a5de30e57443bff2a8307a4256c8797a3497",
+  "simbolo": "sUSDe",
+  "decimali": 18,
+  "prezzo": 1.25439241,
+  "esito": "OK",
+  "stato": "armato"
+ },
+ {
+  "gettone": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "simbolo": "USDC",
+  "decimali": 6,
+  "prezzo": 0.99968387,
+  "esito": "OK",
+  "stato": "armato"
+ },
+ {
+  "gettone": "0xa1290d69c65a6fe4df752f95823fae25cb99e5a7",
+  "simbolo": "rsETH",
+  "decimali": 18,
+  "prezzo": 2463.41826733,
+  "esito": "OK",
+  "stato": "candidato"
+ },
+ {
+  "gettone": "0xae78736cd615f374d3085123a210448e74fc6393",
+  "simbolo": "rETH",
+  "decimali": 18,
+  "prezzo": 2671.36463715,
+  "esito": "OK",
+  "stato": "candidato"
+ },
+ {
+  "gettone": "0xbe9895146f7af43049ca1c1ae358b0541ea49704",
+  "simbolo": "cbETH",
+  "decimali": 18,
+  "prezzo": 2599.01911112,
+  "esito": "OK",
+  "stato": "candidato"
+ },
+ {
+  "gettone": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+  "simbolo": "WETH",
+  "decimali": 18,
+  "prezzo": 2273.55,
+  "esito": "OK",
+  "stato": "armato"
+ },
+ {
+  "gettone": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+  "simbolo": "cbBTC",
+  "decimali": 8,
+  "prezzo": 77935.71000403,
+  "esito": "OK",
+  "stato": "candidato"
+ },
+ {
+  "gettone": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
+  "simbolo": "weETH",
+  "decimali": 18,
+  "prezzo": 2517.01592482,
+  "esito": "OK",
+  "stato": "armato"
+ },
+ {
+  "gettone": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+  "simbolo": "USDT",
+  "decimali": 6,
+  "prezzo": 0.99867077,
+  "esito": "OK",
+  "stato": "armato"
+ },
+ {
+  "gettone": "0xf1c9acdc66974dfb6decb12aa385b9cd01190e38",
+  "simbolo": "osETH",
+  "decimali": 18,
+  "prezzo": 2460.32891224,
+  "esito": "OK",
+  "stato": "candidato"
+ }
+]

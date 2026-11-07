@@ -1,0 +1,15 @@
+{
+ "quando": 1793649751,
+ "cadute": 1,
+ "armate": 1,
+ "pronte": 1,
+ "dettagli": [
+  {
+   "blocco": 26328571,
+   "utente": "0x92561d51c73d545a24d0525d0c616d83562ffcc2",
+   "premio": 280,
+   "era_armata": true,
+   "era_pronta": true
+  }
+ ]
+}

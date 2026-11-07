@@ -1,0 +1,60 @@
+{
+ "giorni": 88,
+ "liquidazioni": 568,
+ "decodificate": 568,
+ "frequenza": [
+  [
+   100,
+   189,
+   0.5,
+   184
+  ],
+  [
+   1000,
+   66,
+   1.3,
+   64
+  ],
+  [
+   5000,
+   27,
+   3.3,
+   26
+  ],
+  [
+   10000,
+   19,
+   4.6,
+   18
+  ],
+  [
+   25000,
+   12,
+   7.4,
+   11
+  ],
+  [
+   50000,
+   6,
+   14.7,
+   6
+  ],
+  [
+   100000,
+   4,
+   22.1,
+   4
+  ]
+ ],
+ "piu_grossa": 214993,
+ "premio_totale": 1301480,
+ "al_giorno": 14746,
+ "su_armate": 1271746,
+ "su_armate_al_giorno": 14410,
+ "su_armate_pct": 98,
+ "sopra_minimo_5": 282,
+ "sopra_minimo_al_giorno": 3.2,
+ "mediana_sopra_minimo": 205,
+ "polveri_sotto_5": 286,
+ "nota": "88 giorni contigui, 13 finestre da 50.000 blocchi, nessun buco. Le due misure (9 giorni e 88) coincidono ESATTAMENTE sui 9 giorni comuni: 93 eventi, mediana 134, somma 122.114. La mediana diversa (134 su 9 giorni, 4 su 88) NON e' un buco nei dati: e' variazione vera nel tempo, c'erano piu' polveri nei 79 giorni precedenti. Limite: i debiti in WETH/WBTC sono valutati al prezzo di OGGI; per gli stabili (la maggioranza) e' esatto."
+}

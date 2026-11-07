@@ -1,0 +1,322 @@
+name: pubblicatore
+# IL PUBBLICATORE UNICO — l'unica corsia che scrive su `main`.
+#
+# PERCHE' ESISTE (26/09). Quattordici corsie spingevano tutte su `main`. I file non si pestavano —
+# ognuna scrive i suoi — ma il RIFERIMENTO e' uno: `git push origin main` viene rifiutato solo
+# perche' un'altra e' arrivata un istante prima. Il costo misurato quella mattina: passi di
+# salvataggio da quattordici minuti contro quattro di lavoro vero, e una corsia morta in silenzio
+# perche' aspettava il turno dentro il gruppo di concorrenza.
+#
+# ORA: ogni corsia consegna su un ramo suo (`dati/<nome>`), dove nessun altro scrive e il push
+# riesce al primo colpo. Questo pubblicatore raccoglie i rami e li porta su `main`, uno alla volta.
+# Un solo scrittore, nessuna contesa, e ogni corsia torna a fare il suo lavoro invece di litigare.
+#
+# LA REGOLA GENERALE, che vale oltre questo caso: **quando molti devono scrivere la stessa cosa,
+# non si accelera la coda — si toglie la coda.** Ogni corsia scrive dove e' sola; un unico
+# pubblicatore mette insieme.
+on:
+  workflow_dispatch: {}
+  schedule:
+      # L'OROLOGIO E' UNA RETE, NON UN MOTORE (30/09). Suonava ogni 20-30 minuti mentre il
+      # riarmo teneva la corsia gia' in movimento: ogni suonata finiva in coda e veniva
+      # ANNULLATA. Misurato: 36 cancellazioni su 73 giri, tutte inutili, e il rumore nascondeva
+      # le cancellazioni vere (i giri uccisi dal tempo massimo).
+      # Ora suona una volta all'ora: se la catena del riarmo si rompe, riparte da qui.
+    - cron: "*/20 * * * *"   # e' lo SCRITTORE UNICO: se la catena del riarmo si rompe, un'ora di ritardo ferma la pubblicazione di TUTTI i dati. La rete qui deve restare stretta.
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: pubblicatore
+  cancel-in-progress: false
+jobs:
+  pubblica:
+    runs-on: ubuntu-latest
+    # IL TETTO DELLO SCRITTORE UNICO CRESCE COL LAVORO (2/10). Era 25 minuti: riuscito una volta
+    # a 20, annullato due volte a 25. Il suo lavoro non e' fisso — ritira OGNI allegato
+    # consegnato dalle corsie, e le corsie e le varianti aumentano. Un tetto tarato su ieri
+    # strozza lo scrittore unico, e quando lui si ferma si fermano TUTTI: le consegne restano
+    # allegati e nulla arriva sul ramo (stanotte la mappa delle persone e' rimasta ferma due ore
+    # per questo).
+    # Sessanta minuti, e se anche questo diventa stretto il rimedio NON e' alzarlo di nuovo:
+    # e' ritirare meno allegati per giro, perche' un lavoro che cresce senza limite non si
+    # risolve dando piu' tempo.
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Raccogli gli allegati delle corsie
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # SI RACCOLGONO ALLEGATI, NON RAMI (26/09). I rami per corsia non si potevano spingere da
+        # una copia superficiale: HTTP 500, cinque volte su cinque. Gli allegati non passano da git,
+        # quindi non hanno ne' quel problema ne' la contesa sul riferimento.
+        # Ogni voce e' «nome dell'allegato : cartella di destinazione». Aggiungere una corsia al
+        # sistema e' aggiungere una riga qui.
+        shell: bash
+        run: |
+          # NIENTE `-e` QUI (1/10): con l'uscita-al-primo-errore, un `du` o un `cp` che inciampa
+          # su un pacco uccide la raccolta intera. Lo scrittore unico deve essere l'ultimo a
+          # morire, non il primo.
+          set +e
+          git config user.name "whale-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          PORTATI=0
+          # I NOMI SI CHIEDONO, NON SI INDOVINANO (29/09). L'elenco era fisso: quando sono nate
+          # le varianti («dati-insieme-h24», ...) il pubblicatore non sapeva che esistevano e le
+          # lasciava marcire come allegati. Ora chiede quali pacchi ci sono e li porta tutti.
+          VARIANTI=$(gh api "repos/${{ github.repository }}/actions/artifacts?per_page=100" \
+            --jq '.artifacts[] | select(.expired==false) | .name' 2>/dev/null \
+            | grep "^dati-insieme-" | sort -u | sed 's|$|:data/loop1|' || true)
+          # LE CORSIE CHE HANNO SMESSO DI SPINGERE (29/09). Chiunque consegni un pacco chiamato
+          # `consegna-*` finisce in `data`, senza che il pubblicatore debba conoscerlo: cosi'
+          # convertire una corsia e' cambiare la corsia, non anche questo file.
+          CONSEGNE=$(gh api "repos/${{ github.repository }}/actions/artifacts?per_page=100" \
+            --jq '.artifacts[] | select(.expired==false) | .name' 2>/dev/null \
+            | grep "^consegna-" | sort -u | sed 's|$|:data|' || true)
+          # LE CONSEGNE DELLE CORSIE SPENTE NON SI FONDONO PIU' (10/10). Avevo spento cinque
+          # corsie della fase base perche' riscrivevano file da 9-32 MB, ma il peso continuava a
+          # salire: 170 MB in quattro ore, cioe' un giga al giorno. Il motivo era qui — le corsie
+          # erano spente, ma i loro ALLEGATI restano vivi sette giorni e il pubblicatore
+          # continuava a rifonderli a ogni giro, riscrivendo gli stessi file grossi nella storia.
+          # Spegnere il produttore non basta: va spenta anche la bocca che lo ripete.
+          # L'elenco e' data/corsie_spente.json, quello che porta anche il motivo: cosi' questa
+          # riga non va aggiornata a mano quando una corsia si riaccende.
+          SPENTE=$(python3 -c "import json;print(' '.join(json.load(open('data/corsie_spente.json'))))" 2>/dev/null || true)
+          for VOCE in "dati-insieme:data/loop1" $VARIANTI $CONSEGNE; do
+            NOME="${VOCE%%:*}"; DEST="${VOCE##*:}"
+            # confronto di PREFISSO, non `case` con variabile: la prima versione usava
+            # `case "$NOME" in consegna-$S-*)` e non scattava. Provata in bash, non a occhio.
+            SALTA=""
+            for S in $SPENTE; do
+              if [ "${NOME#consegna-$S}" != "$NOME" ] || [ "${NOME#dati-$S}" != "$NOME" ]; then
+                SALTA="$S"
+              fi
+            done
+            if [ -n "$SALTA" ]; then
+              echo "   $NOME: SALTATO, la corsia $SALTA e' spenta (vedi data/corsie_spente.json)"
+              continue
+            fi
+            rm -rf /tmp/ritiro; mkdir -p /tmp/ritiro
+            if ! gh run download --repo "${{ github.repository }}" -n "$NOME" --dir /tmp/ritiro 2>/dev/null; then
+              echo "   $NOME: nessun allegato da ritirare"; continue
+            fi
+            mkdir -p "$DEST"
+            # NIENTE MASSI NELLA SPINTA (2/10). Gli insiemi grossi vivono nel deposito (Release)
+            # da ieri, ma un allegato VECCHIO puo' ancora contenerne uno: stanotte un
+            # `insieme_robinhood_sc5.jsonl.gz` da 64 MB e' rientrato per questa strada, e con
+            # due versioni dello stesso oggetto nello stesso pacchetto la spinta diventa 127 MB
+            # e il ramo si blocca (gia' successo il 29/09, tre ore di tutto fermo).
+            # Qui si buttano i file oltre i 55 MB PRIMA di metterli nel commit, dicendo quali:
+            # un masso scartato ad alta voce costa meno di un ramo bloccato in silenzio.
+            TROVATI=$(find /tmp/ritiro -type f -size +55M 2>/dev/null)
+            if [ -n "$TROVATI" ]; then
+              echo "$TROVATI" | while read F; do
+                echo "   SCARTO $F ($(du -h "$F" | cut -f1)): oltre 55 MB, vive nel deposito non nel ramo"
+              done
+              echo "$TROVATI" | xargs -r rm -f
+            fi
+            # LE FASI PARCHEGGIATE NON TORNANO NEL RAMO (10/10). La guardia sopra e' tarata a
+            # 55 MB perche' nasceva per non far BLOCCARE la spinta. Ma il danno vero oggi e' un
+            # altro: file da 3-9 MB riscritti decine di volte al giorno riempiono la QUOTA, e la
+            # storia non si libera. Misurato: 53 MB ogni 30 minuti, cioe' 2,5 GB al giorno, con
+            # 0,78 GB di margine — sette ore e si ferma tutto, compresa la demo.
+            # Spegnere le corsie non basta: questi file viaggiano DENTRO le consegne di altre
+            # corsie ancora attive. Quindi il filtro guarda il POSTO, non chi consegna:
+            # data/multichain/base e data/loop1 sono le fasi chiuse, e i loro dati vivono gia'
+            # nel deposito R2 (multichain-base.tar.gz 3,17 GB, loop1.tar.gz 0,56 GB, caricati il
+            # 10/10). Niente va perso: viene tenuto fuori dal ramo, dove costerebbe storia.
+            # Robinhood NON e' toccata: e' la chain della demo.
+            # I FILE DI CORSIA NON PASSANO DA QUI (10/10, letto nel log di un giro fallito).
+            # Il 8/10 il pubblicatore e' morto con «refusing to allow a GitHub App to create or
+            # update workflow .github/workflows/coppie.yml without workflows permission»: una
+            # consegna conteneva un file di corsia, il token non ha quel permesso, e il push e'
+            # stato rifiutato INTERO — buttando anche tutte le altre consegne di quel giro.
+            # Una consegna avvelenava le altre. I file di corsia sono CODICE: li pubblico io con
+            # l'API dei contenuti, che funziona. Qui si buttano, dicendolo.
+            CORSIE=$(find /tmp/ritiro -path "*.github/workflows/*" -type f 2>/dev/null)
+            if [ -n "$CORSIE" ]; then
+              echo "$CORSIE" | while read F; do
+                echo "   SCARTO $F: un file di corsia non passa dal pubblicatore (il token non"
+                echo "   ha il permesso workflows, e il push verrebbe rifiutato INTERO)"
+              done
+              echo "$CORSIE" | xargs -r rm -f
+            fi
+            PARCHEGGIATE=$(find /tmp/ritiro -type f -size +2M \
+              \( -path "*/multichain/base/*" -o -path "*/loop1/*" \) 2>/dev/null)
+            if [ -n "$PARCHEGGIATE" ]; then
+              echo "$PARCHEGGIATE" | while read F; do
+                echo "   FUORI DAL RAMO $F ($(du -h "$F" | cut -f1)): fase parcheggiata, sta nel deposito"
+              done
+              echo "$PARCHEGGIATE" | xargs -r rm -f
+            fi
+            # DERIVATO: si sostituisce. ACCUMULATO: si fonde (vedi agents/fondi_consegna.py).
+            # L'insieme si ricalcola da zero, quindi fonderlo duplicherebbe gli stessi pool.
+            # Chi accumula, invece, perderebbe le righe scritte fra la sua lettura e questa
+            # scrittura: la finestra e' stretta ma reale, e prima la chiudeva `git` fondendo.
+            # UN PACCO ROTTO NON DEVE FERMARE LO SCRITTORE UNICO (1/10). Grok da' il nome a
+            # questa famiglia: `head-of-line blocking`. Il 1/10 il pubblicatore e' FALLITO nel
+            # passo di raccolta: un pacco su dieci ha fatto cadere il turno, e con lui le nove
+            # consegne sane — compreso tutto il lavoro della notte in attesa di pubblicazione.
+            # Ora il pacco difettoso si SALTA, dicendolo, e gli altri passano.
+            # CHI SI COSTRUISCE PER FUSIONE NON SI FA SOVRASCRIVERE DA UNA CONSEGNA (2/10).
+            # `iniziatori.json.gz`, `nonce.json.gz` e `finanziatori.json.gz` sono archivi che
+            # ACCUMULANO, e si costruiscono fondendo i pezzi delle fette piu' sotto. Ma gli
+            # allegati vecchi — undici, con gli stessi quattro nomi — contengono ancora una
+            # versione PIENA di quei file, da prima che le corsie passassero ai pezzi. Il
+            # pubblicatore scarica per nome, prende una generazione qualunque, e quella
+            # sovrascrive la fusione: misurato stasera, i finanziatori sono TORNATI da 3,2 a
+            # 1,7 KB. Dato perso.
+            # E' la stessa famiglia del 29/09 («un pacco vecchio puo' riportare il guasto»),
+            # dove `segnali.jsonl` tolto da main tornava dentro dai pacchi gia' consegnati.
+            # Qui non si indovina quale versione arriva: si dichiara che quei tre si
+            # costruiscono SOLO per fusione, e si buttano prima di copiare qualunque cosa.
+            find /tmp/ritiro -name "iniziatori.json.gz" -o -name "nonce.json.gz" \
+                 -o -name "finanziatori.json.gz" 2>/dev/null | while read V; do
+              echo "   scarto $(basename "$V") dalla consegna: si costruisce per fusione"
+              rm -f "$V"
+            done
+            if [ "${NOME#consegna-}" != "$NOME" ]; then
+              if ! python3 -B agents/fondi_consegna.py /tmp/ritiro .; then
+                echo "   $NOME: PACCO DIFETTOSO, lo salto. Gli altri passano."
+                continue
+              fi
+            else
+              if ! cp -r /tmp/ritiro/. "$DEST"/; then
+                echo "   $NOME: non copiabile, lo salto. Gli altri passano."
+                continue
+              fi
+            fi
+            # UN PACCO VECCHIO PUO' RIPORTARE IL GUASTO (29/09). `segnali.jsonl` era stato
+            # tolto da `main`, ma i pacchi gia' consegnati lo contenevano ancora: il pubblicatore
+            # lo ricopiava e la spinta tornava impossibile. Un anello chiuso che si richiudeva
+            # da solo ogni dieci minuti. Qui si rifiuta di scrivere cio' che bloccherebbe tutti.
+            find "$DEST" -type f -size +95M | while read G; do
+              echo "   SCARTATO $G ($(du -m "$G" | cut -f1) MB): oltre il limite di GitHub, "\
+                   "bloccherebbe OGNI spinta. Va compresso alla sorgente, non pubblicato."
+              rm -f "$G"
+            done
+            git add -A "$DEST"
+            # SI GUARDA SE C'E' DAVVERO UNA DIFFERENZA, non se il comando riesce: un giro che
+            # dichiara successo senza portare niente e' il guasto piu' silenzioso che conosciamo.
+            if git diff --cached --quiet; then
+              echo "   $NOME: identico a quello che c'e' gia'"; continue
+            fi
+            git commit -q -m "pubblico $NOME $(date -u +%H:%MZ)"
+            echo "   $NOME: preso"; PORTATI=$((PORTATI+1))
+          done
+          echo "allegati portati: $PORTATI"
+
+          # LA FUSIONE DEI PEZZI A FETTE, QUI E UNA VOLTA SOLA (2/10).
+          # `iniziatori` gira a quattro fette per chain, e ognuna consegna il suo
+          # `iniziatori_nuovi_<fetta>.json` e `nonce_nuovi_<fetta>.json`. Fondere DENTRO le fette
+          # significava quattro file diversi partendo dalla stessa base — il log diceva
+          # «354.066 + 12.108», «+ 6.694», «+ 7.316», «+ 8.582» — e lo scrittore ne prende uno:
+          # tre quarti del lavoro buttati in silenzio. E' l'incidente del 25/09 (base scesa da
+          # 12.581 a 8.052) riprodotto dalla parallelizzazione che ho aggiunto io stesso.
+          # Qui i quattro pezzi esistono insieme e lo scrittore e' uno: e' il solo posto giusto.
+          # Non blocca niente se fallisce: lo scrittore unico deve essere l'ultimo a morire.
+          # SI FONDE SULLA VERSIONE PIU' NUOVA, NON SULLA PROPRIA (2/10).
+          # Questo passo legge gli archivi che ACCUMULANO dal disco, e il disco e' il checkout
+          # di quando il giro e' partito — venti o trenta minuti prima. Nel frattempo il ramo e'
+          # andato avanti, e il `git pull -X ours` qui sotto tiene la versione DEL PUBBLICATORE
+          # su ogni file cambiato da entrambe le parti: per i derivati va bene (si rifanno), per
+          # chi accumula e' perdita secca.
+          # Misurato stasera, due volte: i finanziatori tornati da 4,4 a 3,0 KB e i nonce fusi
+          # «8.582 -> 18.338» mentre sul ramo c'erano gia' 19.321. Il lavoro non si perdeva nella
+          # raccolta: si perdeva nella RIUNIONE, perche' partivo da una copia vecchia della mia.
+          # Qui si riprende dal ramo la versione piu' nuova di quei tre archivi, PRIMA di fondere.
+          git fetch -q origin main 2>/dev/null || true
+          for V in data/multichain/robinhood/iniziatori.json.gz \
+                   data/multichain/robinhood/nonce.json.gz \
+                   data/multichain/base/iniziatori.json.gz \
+                   data/multichain/base/nonce.json.gz \
+                   data/multichain/base/finanziatori.json.gz \
+                   data/multichain/robinhood/finanziatori.json.gz \
+                   data/multichain/base/profitto.json.gz \
+                   data/multichain/robinhood/profitto.json.gz; do
+            if git checkout origin/main -- "$V" 2>/dev/null; then
+              echo "   ripreso dal ramo $(basename "$V") ($(du -h "$V" 2>/dev/null | cut -f1))"
+            fi
+          done
+
+          # I NOMI DA FONDERE SI RICAVANO DAI PEZZI, NON SI ELENCANO (4/10). Qui c'erano due
+          # blocchi copiati a mano, uno per `profitto` e uno per `finanziatori`. Stasera ho
+          # aggiunto `lanciatori` e l'archivio fuso non sarebbe mai nato: le fette avrebbero
+          # scritto pezzi per ore e l'attributo, che legge l'archivio, sarebbe rimasto spento.
+          # E' la quarta ricaduta di «pezzi scritti e mai collegati» (fondi_iniziatori.py, la
+          # cartella trades, l'elenco delle decisioni) e la seconda volta oggi che la cura e'
+          # la stessa: una lista che si RICAVA non puo' restare indietro, una che si RICORDA
+          # lo fa sempre.
+          # gli arbitraggi hanno una fusione PROPRIA: non si concatenano i pezzi, si fa
+          # l'intersezione delle unioni (vedi agents/fondi_arbitraggi.py). Usare la fusione
+          # generica qui darebbe un elenco sbagliato invece di un errore.
+          for CH in base robinhood; do
+            if ls data/multichain/$CH/arbitraggi_pezzo_*.json >/dev/null 2>&1; then
+              if CHAIN=$CH python agents/fondi_arbitraggi.py; then
+                git add -A data/multichain/$CH 2>/dev/null || true
+                if ! git diff --cached --quiet; then
+                  git commit -q -m "fondo gli arbitraggi di $CH $(date -u +%H:%MZ)" \
+                    && PORTATI=$((PORTATI+1))
+                fi
+              fi
+            fi
+          done
+          for CH in base robinhood; do
+            for N in $(ls data/multichain/$CH/*_pezzo_*.json 2>/dev/null \
+                       | sed 's#.*/##; s#_pezzo_.*##' | sort -u); do
+              if python agents/fondi_pezzi.py $CH "$N"; then
+                git add -A data/multichain/$CH 2>/dev/null || true
+                if ! git diff --cached --quiet; then
+                  git commit -q -m "fondo $N di $CH $(date -u +%H:%MZ)" \
+                    && PORTATI=$((PORTATI+1))
+                fi
+              fi
+            done
+          done
+          for CH in robinhood base; do
+            if CHAIN=$CH python agents/fondi_iniziatori.py; then
+              git add -A data/multichain/$CH 2>/dev/null || true
+              if ! git diff --cached --quiet; then
+                git commit -q -m "fondo i pezzi di $CH $(date -u +%H:%MZ)" && PORTATI=$((PORTATI+1))
+              fi
+            else
+              echo "   fusione $CH non riuscita: i pezzi restano, si riprova al prossimo giro"
+            fi
+          done
+          echo "dopo la fusione: $PORTATI cose da spingere"
+          if [ "$PORTATI" = "0" ]; then exit 0; fi
+          # QUI la contesa e' ammessa: e' l'unico posto in cui succede. I tentativi servono contro
+          # le corsie non ancora convertite, che per ora spingono ancora su `main`.
+          # SI CLASSIFICA L'ERRORE GREZZO PRIMA DI RITENTARE (1/10, consiglio di Grok).
+          # Il 30/09 un file oltre 100 MB ha reso impossibile ogni scrittura, e il loop ha
+          # ritentato per TRE ORE una cosa non ritentabile: nei registri si leggeva «contesa sul
+          # ramo». Grok lo chiama `fail-plausible`: il modello non tace l'errore, lo trasforma
+          # in un racconto credibile — e un racconto credibile manda a cercare nel posto
+          # sbagliato con la massima convinzione.
+          # Ora: TERMINALE si ferma subito, CONTESA riprova, SCONOSCIUTO si ferma e conserva
+          # lo stderr grezzo. Un errore che non riconosco NON e' una contesa.
+          for i in $(seq 1 15); do
+            git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main >/dev/null 2>&1 || true
+            if git push origin main 2>/tmp/spinta.err; then
+              echo "pubblicato al tentativo $i"; exit 0
+            fi
+            cat /tmp/spinta.err
+            if ! python3 -B agents/classifica_errore.py < /tmp/spinta.err; then
+              echo "NON RITENTO: l'errore non e' una contesa. Gli allegati restano dove sono."
+              exit 1
+            fi
+            sleep $((RANDOM % 10 + 4))
+          done
+          echo "NON SONO RIUSCITO A PUBBLICARE: gli allegati restano dove sono, nulla e' perso."
+          exit 1
+
+# SENZA RIARMO: il passo di riarmo dormiva fra i 10 e i 30 minuti DENTRO il lavoro, quindi il
+# tetto del lavoro scadeva mentre dormiva e il giro veniva annullato buttando anche il dato
+# gia' raccolto. Misurato il 2/10 su questa corsia: lavoro finito, «Riarmo» in corso da 32
+# minuti su un tetto di 35, e zero giri riusciti su dieci da giorni.
+# Il motore e' l'orologio; la rete e' la maglia di guardie, riparata l'1/10 e verificata la
+# stessa notte (ha rimesso in moto quattro corsie mute senza toccarne una sana).
+# La prova su due corsie e' andata: `hook` e' passata da zero successi su dieci a riuscire in
+# cinque minuti. Qui si propaga a tre, non a dodici: il 25/09 ne ho toccate sei in una volta e
+# ne sono cadute tre. Le altre nove aspettano. Vedi RIARMI_CHE_DORMONO.md.

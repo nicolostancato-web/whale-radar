@@ -1,0 +1,122 @@
+name: iniziatori
+# CHI HA DAVVERO FIRMATO OGNI SCAMBIO (25/09).
+# Il campo che usavamo come «chi ha fatto lo scambio» era il ROUTER: un solo indirizzo faceva il
+# 42,6% di tutti gli scambi, 2.001 distinti su 44.804. Tutto cio' che chiamavamo «compratori
+# distinti» misurava porte, non gente — e l'attribuzione economica era impossibile.
+# Il campo `from` della transazione e' l'iniziatore vero: 45% di indirizzi distinti, non 4%.
+# Ristretto ai pool che analizziamo e alla finestra prima della decisione: 603k invece di 2,4M.
+on:
+  schedule:
+      # L'OROLOGIO E' UNA RETE, NON UN MOTORE (30/09). Suonava ogni 20-30 minuti mentre il
+      # riarmo teneva la corsia gia' in movimento: ogni suonata finiva in coda e veniva
+      # ANNULLATA. Misurato: 36 cancellazioni su 73 giri, tutte inutili, e il rumore nascondeva
+      # le cancellazioni vere (i giri uccisi dal tempo massimo).
+      # Ora suona una volta all'ora: se la catena del riarmo si rompe, riparte da qui.
+      # L'OROLOGIO OGNI SEI ORE, NON OGNI ORA (30/09). Con il riarmo che funziona, ogni suonata
+      # dell'orologio arriva mentre la corsia sta gia' lavorando: finisce in coda e viene
+      # annullata. Diciassette corsie per ventiquattro suonate fanno quattrocento cancellazioni
+      # al giorno, e il rumore nasconde le cancellazioni vere.
+      # Resta come RETE: se la catena del riarmo si spezza, entro sei ore riparte.
+      # LA RETE DEVE ESSERE PIU' STRETTA DEL BUCO (30/09, imparata a caro prezzo).
+      # Stamattina ho portato questo orologio da un'ora a sei, ragionando che col riarmo
+      # funzionante le suonate erano solo rumore. Ma un giro ANNULLATO non esegue il passo di
+      # riarmo: la catena si spezza, e l'unica cosa che puo' riprenderla e' l'orologio.
+      # Alle 11:53 hook, scoperta e censimento sono stati annullati insieme. Sono rimasti fermi
+      # TRE ORE E MEZZA — raccolta dati e pubblicazione bloccate — perche' la rete successiva
+      # era a sei ore di distanza.
+      # Una rete piu' larga dell'intervallo in cui il guasto si presenta non e' una rete.
+    - cron: "7 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: iniziatori
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  raccogli:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        # QUATTRO FETTE PER CHAIN (2/10): otto lavori invece di due. L'elenco e' passato da
+        # 9.009 a 46.628 pool e al ritmo di un lavoro solo servivano giorni. Ogni lavoro prende
+        # `da_fare[FETTA::FETTE]`, quindi niente si sovrappone. Gli endpoint sono gratuiti: il
+        # limite da guardare e' il contatore «non risposti», non la bolletta.
+        chain: [robinhood, base]
+        fetta: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+
+      - name: Raccogli gli iniziatori
+        env:
+          CHAIN: ${{ matrix.chain }}
+          # IL BUDGET DEVE LASCIARE SPAZIO ALLA CONSEGNA (1/10). Qui il budget era 25 minuti
+          # su un tetto di 35: il ciclo si fermava in tempo, ma dopo il ciclo restano il
+          # salvataggio e la consegna, e il giro veniva ANNULLATO per tempo scaduto — misurato
+          # 35 minuti su 35 concessi, con tutto il lavoro perso.
+          # Fermare il lavoro al limite del tetto non e' fermarlo in tempo: in mezzo c'e' il
+          # mettere al sicuro, che e' la parte che non si puo' saltare.
+          # IN POSITIVO: il budget sta al 60% del tempo concesso, cosi' il 40% resta per
+          # consegnare. Meglio raccogliere meno e consegnarlo che raccogliere tutto e buttarlo.
+          BUDGET_SEC: "1260"
+        run: python agents/iniziatori.py
+
+      # LA FUSIONE NON STA PIU' QUI (2/10). Con quattro fette in parallelo, ognuna fondeva per
+      # conto suo nello stesso file partendo dalla stessa base: il log diceva
+      # «354.066 + 12.108», «+ 6.694», «+ 7.316», «+ 8.582» — quattro file diversi, e il
+      # pubblicatore ne prende UNO. Tre quarti del lavoro buttati, in silenzio.
+      # E' l'incidente del 25/09 (base scesa da 12.581 a 8.052) riprodotto dalla mia stessa
+      # parallelizzazione: avevo previsto il rischio sui file dei PEZZI e non sul punto di
+      # FUSIONE. Dove si uniscono i pezzi puo' esserci un solo scrittore, come su main.
+      # Adesso le fette consegnano solo i loro pezzi; la fusione la fa il pubblicatore, che e'
+      # l'unico posto dove i quattro pezzi esistono insieme.
+      - name: Consegna senza toccare il ramo
+        # NON SPINGE PIU' (30/09). Con cinquantuno corsie che scrivevano su `main`, questa perdeva
+        # la gara e moriva, mandando una email di guasto al fondatore per un problema non suo.
+        # Consegna un pacco `consegna-*`: il pubblicatore li raccoglie tutti ed e' l'unico
+        # scrittore, e per gli archivi che si accumulano FONDE invece di sostituire.
+        #
+        # NON si converte una corsia che CANCELLA file (es. assottiglia): una consegna puo' solo
+        # aggiungere, e le cancellazioni non arriverebbero mai sul ramo.
+        if: always()
+        run: |
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          # UN FILE CANCELLATO NON DEVE UCCIDERE LA CONSEGNA (2/10). `git status` elenca anche
+          # i file CANCELLATI, e qui `[ -f "$F" ]` su uno di quelli e' falso: con `bash -e`,
+          # che GitHub usa di default, il passo moriva lì. E' successo appena ho collegato la
+          # fusione degli iniziatori, che cancella il file dei nuovi dopo averli uniti: 24.000
+          # transazioni fuse correttamente e MAI consegnate, perche' il passo dopo e' morto su
+          # un file che non c'era piu'.
+          # Con `if`/`fi` invece di `&&` il caso normale non e' piu' un errore.
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            if [ -f "$F" ]; then
+              mkdir -p "/tmp/consegna/$(dirname "$F")"
+              cp "$F" "/tmp/consegna/$F"
+            fi
+          done
+          echo "consegno $(find /tmp/consegna -type f | wc -l) file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-${{ github.workflow }}-${{ github.job }}-${{ strategy.job-index }}
+          path: /tmp/consegna/data
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: ignore
+
+# SENZA RIARMO: il passo di riarmo dormiva fra i 10 e i 30 minuti DENTRO il lavoro, quindi il
+# tetto del lavoro scadeva mentre dormiva e il giro veniva annullato buttando anche il dato
+# gia' raccolto. Misurato il 2/10 su questa corsia: lavoro finito, «Riarmo» in corso da 32
+# minuti su un tetto di 35, e zero giri riusciti su dieci da giorni.
+# Il motore e' l'orologio; la rete e' la maglia di guardie, riparata l'1/10 e verificata la
+# stessa notte (ha rimesso in moto quattro corsie mute senza toccarne una sana).
+# La prova su due corsie e' andata: `hook` e' passata da zero successi su dieci a riuscire in
+# cinque minuti. Qui si propaga a tre, non a dodici: il 25/09 ne ho toccate sei in una volta e
+# ne sono cadute tre. Le altre nove aspettano. Vedi RIARMI_CHE_DORMONO.md.

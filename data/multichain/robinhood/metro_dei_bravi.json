@@ -1,0 +1,225 @@
+{
+ "acq": 1791643322,
+ "chain": "robinhood",
+ "valido": true,
+ "criterio_validita": "scarto fra mediane < 0.03",
+ "mediana_veri": 0.9233896128656698,
+ "mediana_finti": 0.9222674964965177,
+ "scarto": 0.0011221163691520486,
+ "operatori": 1950,
+ "min_operazioni": 50,
+ "taglia": [
+  0.01,
+  0.2
+ ],
+ "osservati": 265,
+ "caso_min": 37,
+ "caso_mediana": 52.0,
+ "caso_max": 61,
+ "giri": 20,
+ "ritorno_mediano_dei_buoni": 1.0623962513997405,
+ "migliore": 9.495076464671056e+16,
+ "non_dimostra": "che sia copiabile: dimostra che non e' sorteggio. Serve il test del copiatore con regola congelata.",
+ "primi_50": [
+  {
+   "portafoglio": "0xb1f4db1638d75cd96c296663543744f253451d03",
+   "ritorno": 9.495076464671056e+16
+  },
+  {
+   "portafoglio": "0x6509d9c8cf86ecc35e5981c656ddb9a306d59454",
+   "ritorno": 7.155861764827613e+16
+  },
+  {
+   "portafoglio": "0x1999fd95266e2ba4a133ee3d9931fc46b2b717e9",
+   "ritorno": 2.6311733721794748e+16
+  },
+  {
+   "portafoglio": "0xa95b2c900214e689122772d0568696b96ba15b5a",
+   "ritorno": 1.4558741143473778e+16
+  },
+  {
+   "portafoglio": "0x9d27c2760d0c42258ab4e8cdea85cdd015d79877",
+   "ritorno": 1.1873970262885262e+16
+  },
+  {
+   "portafoglio": "0x39b38686a19836ac10162c490e4558e120cbbe5f",
+   "ritorno": 8948642709394772.0
+  },
+  {
+   "portafoglio": "0x0757c3baea1bc7f9aa2c343597e3448d28f9ba91",
+   "ritorno": 5454676304407322.0
+  },
+  {
+   "portafoglio": "0xb0817f2cc3365df7f564f970169026c866a14a44",
+   "ritorno": 2574097595537259.0
+  },
+  {
+   "portafoglio": "0xeec71630b7c3d745679bbd7b75d248137e42dd06",
+   "ritorno": 1351447358370013.8
+  },
+  {
+   "portafoglio": "0xdf040d9df9fd77cd3318f54a8cdc44112a354c30",
+   "ritorno": 1262538978101375.2
+  },
+  {
+   "portafoglio": "0xbdb0b32d79fe5eabd043b2bdec3a102535729680",
+   "ritorno": 987435351621000.2
+  },
+  {
+   "portafoglio": "0x65050a9b7e5075a2ba5ced7b1b64ee66262c40dc",
+   "ritorno": 818856591620590.9
+  },
+  {
+   "portafoglio": "0x5d0fa1e3af23a00ba7abe7b757c82bad2b643465",
+   "ritorno": 278914128774687.97
+  },
+  {
+   "portafoglio": "0x6a96de27d21bcac2cc71a76a9cc8714653c2a02f",
+   "ritorno": 1.8428938655805485
+  },
+  {
+   "portafoglio": "0xeec3463b772580c21315457f7b4198f7b663561c",
+   "ritorno": 1.8143062530088072
+  },
+  {
+   "portafoglio": "0xe8ed9f630b1fc16c1b4c399e118943bddf3262a4",
+   "ritorno": 1.7745744426338836
+  },
+  {
+   "portafoglio": "0x9a646c8d4b0afc43b6dd4ce236a0fd0c3f325af7",
+   "ritorno": 1.718277232376437
+  },
+  {
+   "portafoglio": "0x28d84471539efba68fb4a12ddda7b8e6ddbb8f3a",
+   "ritorno": 1.5214068243337997
+  },
+  {
+   "portafoglio": "0x7ffd253840d14741238362e94ced499235bdb410",
+   "ritorno": 1.4648896104713467
+  },
+  {
+   "portafoglio": "0xe6850956450196c6345d25bcccfa23e18ca739b3",
+   "ritorno": 1.4347882203815752
+  },
+  {
+   "portafoglio": "0x800e75699e9fba533c3e58fb982e29629537d118",
+   "ritorno": 1.2965108195434811
+  },
+  {
+   "portafoglio": "0xe6ee0458dc987e0d6849d2f04d3df809a85dbeba",
+   "ritorno": 1.293241850237213
+  },
+  {
+   "portafoglio": "0x01fc935362eb9e778e0e09e0d1a15f8f21ac623f",
+   "ritorno": 1.2203688368891106
+  },
+  {
+   "portafoglio": "0xc771dd97742197f9485bd236bed4f85b4e86f494",
+   "ritorno": 1.2112028258808705
+  },
+  {
+   "portafoglio": "0x50507c59d2038b051d7da8380842d37962a88f0f",
+   "ritorno": 1.2111510851494474
+  },
+  {
+   "portafoglio": "0x13d372fc65ace149680dbfac94434c56bba6793a",
+   "ritorno": 1.2059017309905773
+  },
+  {
+   "portafoglio": "0x1d0aee06e2c54dda1b77d846d5837be230c1086b",
+   "ritorno": 1.2035976361133454
+  },
+  {
+   "portafoglio": "0x71b90df20da4c2430653139f3cd8c43a09208a40",
+   "ritorno": 1.196604999518843
+  },
+  {
+   "portafoglio": "0xaab6375f6821077fad8cd20a3785e9ebebfd8506",
+   "ritorno": 1.1958526433758032
+  },
+  {
+   "portafoglio": "0xc92fe9ae5116625977564aea2409f17de792656e",
+   "ritorno": 1.194705991796006
+  },
+  {
+   "portafoglio": "0xb683ca136bba7f40ef76528b2fb1cc5e38002408",
+   "ritorno": 1.1931613948057371
+  },
+  {
+   "portafoglio": "0xb4af3ac9715625de35e0452e65f1937df8db6a6f",
+   "ritorno": 1.1852363374536103
+  },
+  {
+   "portafoglio": "0x372fb32c57a480490d46f0c5e77838275ab5db5e",
+   "ritorno": 1.183374741460615
+  },
+  {
+   "portafoglio": "0x058e8a28eca696231445ab3d1175dddef2d84e4f",
+   "ritorno": 1.183073167036894
+  },
+  {
+   "portafoglio": "0x3ddf692dab6dd62a86010bbaf554ca291a2de9b1",
+   "ritorno": 1.1811503429981616
+  },
+  {
+   "portafoglio": "0xa58f78f7191972cffac38856febdcb6edc7ecac4",
+   "ritorno": 1.1790964066140026
+  },
+  {
+   "portafoglio": "0x51416939a16730d45e49bd306a41f97315cc1d8c",
+   "ritorno": 1.1758022194372508
+  },
+  {
+   "portafoglio": "0x64cafd2d30cbb49a6c127b7272c52a227c3c4895",
+   "ritorno": 1.1730676795027213
+  },
+  {
+   "portafoglio": "0x75c828a3d7e3beb3ec6e1e0ac94296e5463eec50",
+   "ritorno": 1.1690783570942955
+  },
+  {
+   "portafoglio": "0x5635cd67458cf53307ad60fe63cf8a54c08e4b5b",
+   "ritorno": 1.1681738437927716
+  },
+  {
+   "portafoglio": "0xb1de7900cba93431210a116be3a113a635c9644d",
+   "ritorno": 1.1674248455273646
+  },
+  {
+   "portafoglio": "0x9bbac73796cdac12eb4b05e84e579827e7033c1d",
+   "ritorno": 1.1611365086338776
+  },
+  {
+   "portafoglio": "0x177c5a1aafd53b8c37860f1d811444432507241d",
+   "ritorno": 1.1598814729032199
+  },
+  {
+   "portafoglio": "0xf4926ac5770868d7803e15e5e7b1f624ecac89b3",
+   "ritorno": 1.1568792042188938
+  },
+  {
+   "portafoglio": "0x0269f5f89403bd16fb8c52d279d4967ab1f49dde",
+   "ritorno": 1.1495545221010788
+  },
+  {
+   "portafoglio": "0x98b6bcd867df01383497871002785e9fc1056c32",
+   "ritorno": 1.1483640880411543
+  },
+  {
+   "portafoglio": "0xb3fde07d4b659e23cd5a2c7e8bfb139289c8c58d",
+   "ritorno": 1.1465141457947892
+  },
+  {
+   "portafoglio": "0xf620e62ba284957485e8b66673a32503ca18aae5",
+   "ritorno": 1.1456379070426579
+  },
+  {
+   "portafoglio": "0xcab701480761096bed5c2d0ff334eab1b0cb1008",
+   "ritorno": 1.1442304190097756
+  },
+  {
+   "portafoglio": "0x496a9ab450a5a91a4e0b2f98dfc80b9f8573ce31",
+   "ritorno": 1.1385530756787214
+  }
+ ]
+}

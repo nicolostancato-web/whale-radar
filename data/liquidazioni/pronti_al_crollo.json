@@ -1,0 +1,69 @@
+{
+ "quando": 1793778265.383069,
+ "margine_attuale_bp": 9000,
+ "righe": [
+  {
+   "calo_percento": 3,
+   "cadono": 0,
+   "con_ordine": 0,
+   "ordine_fresco": 0,
+   "scoperte": 0,
+   "premio_mediano": 0,
+   "premio_totale": 0
+  },
+  {
+   "calo_percento": 5,
+   "cadono": 10,
+   "con_ordine": 10,
+   "ordine_fresco": 10,
+   "scoperte": 0,
+   "premio_mediano": 385.0,
+   "premio_totale": 38006.0
+  },
+  {
+   "calo_percento": 6,
+   "cadono": 21,
+   "con_ordine": 20,
+   "ordine_fresco": 20,
+   "scoperte": 1,
+   "premio_mediano": 426.0,
+   "premio_totale": 86317.0
+  },
+  {
+   "calo_percento": 9,
+   "cadono": 71,
+   "con_ordine": 67,
+   "ordine_fresco": 67,
+   "scoperte": 4,
+   "premio_mediano": 908.0,
+   "premio_totale": 880966.0
+  },
+  {
+   "calo_percento": 12,
+   "cadono": 162,
+   "con_ordine": 154,
+   "ordine_fresco": 154,
+   "scoperte": 8,
+   "premio_mediano": 1438.0,
+   "premio_totale": 1942263.0
+  },
+  {
+   "calo_percento": 15,
+   "cadono": 283,
+   "con_ordine": 273,
+   "ordine_fresco": 252,
+   "scoperte": 31,
+   "premio_mediano": 1196.0,
+   "premio_totale": 2801412.0
+  },
+  {
+   "calo_percento": 20,
+   "cadono": 296,
+   "con_ordine": 282,
+   "ordine_fresco": 252,
+   "scoperte": 44,
+   "premio_mediano": 1268.0,
+   "premio_totale": 2908366.0
+  }
+ ]
+}

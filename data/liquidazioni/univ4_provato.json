@@ -1,0 +1,15 @@
+{
+ "quando": 1793843652.330221,
+ "provato_su": "fork locale",
+ "wbtc_usdc": {
+  "resa_pct": 100.35,
+  "nota": "801,53 USDC per 0,01 WBTC"
+ },
+ "wbtc_ether_nativo": {
+  "resa_pct": 100.5,
+  "nota": "+0,3321 ETH su indirizzo PULITO"
+ },
+ "codifica": "paga-tutto con massimo uint128, un solo punto da riscrivere",
+ "posizione_quantita_byte": 772,
+ "inciampo": "i conti predefiniti di anvil hanno delega EIP-7702 e inoltrano l ether: per provare un valore serve un indirizzo senza codice"
+}

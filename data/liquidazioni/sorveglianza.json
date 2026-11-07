@@ -1,0 +1,27 @@
+{
+ "quando": 1793881741.299621,
+ "occasioni": {
+  "so": true,
+  "ore": 2.6,
+  "eta_misura": 156,
+  "nel_mondo": 0,
+  "di_valore": 0,
+  "eravamo_pronti": 0,
+  "vinte": 0,
+  "perse_essendo_pronti": 0,
+  "autorizza_modifica": false,
+  "premio_passato": 0
+ },
+ "pronti": {
+  "fuori_posto": [],
+  "ordini_pronti": 692
+ },
+ "scivolamenti": {
+  "so": true,
+  "scesi": [],
+  "eta": 3,
+  "tutti_al_100": false
+ },
+ "idee": 5,
+ "permesso": false
+}

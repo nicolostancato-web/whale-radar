@@ -1,0 +1,126 @@
+{
+ "eventi": 13,
+ "transazioni": 11,
+ "occasioni": 10,
+ "righe": [
+  {
+   "tx": "0x0765b2d7dcc3c9096bad39506d86f58ceb3036d2728feec5062a8ddfa065d397",
+   "blocco": 26359633,
+   "premio_usd": 0.0,
+   "base_fee_gwei": 0.042561567,
+   "costo_nostro_usd": 0.13321341535527775,
+   "netto_usd": -0.13321341535527775,
+   "occasione": false
+  },
+  {
+   "tx": "0x285157d0da154393a1265ab62ac61b4c981387e8f0f8fb3cdbf60943b09cedb9",
+   "blocco": 26351313,
+   "premio_usd": 4.0,
+   "base_fee_gwei": 0.256674526,
+   "costo_nostro_usd": 0.8033653987212698,
+   "netto_usd": 3.1966346012787303,
+   "occasione": true
+  },
+  {
+   "tx": "0x303c2338b5ce97654ba0c6c46b9368eeca31c5ffb8d96a71ac5e1670bc90c913",
+   "blocco": 26351314,
+   "premio_usd": 1.32,
+   "base_fee_gwei": 0.240917862,
+   "costo_nostro_usd": 0.7540486283578678,
+   "netto_usd": 0.5659513716421323,
+   "occasione": true
+  },
+  {
+   "tx": "0x40112774de7cffa37aba9a29f95790e370376b20a1aa48a7a900bb07a5bea0b5",
+   "blocco": 26349452,
+   "premio_usd": 2699.79,
+   "base_fee_gwei": 9.849278549,
+   "costo_nostro_usd": 30.82724924807783,
+   "netto_usd": 2668.962750751922,
+   "occasione": true
+  },
+  {
+   "tx": "0x5d0dc50aabb3e20a18e6f386dd460157d074ab9f0b2b33e95d0e672a429b0d3c",
+   "blocco": 26352504,
+   "premio_usd": 0.01,
+   "base_fee_gwei": 0.039586098,
+   "costo_nostro_usd": 0.12390049725304356,
+   "netto_usd": -0.11390049725304356,
+   "occasione": false
+  },
+  {
+   "tx": "0x683dccc3e9eec2b2399cab2b24622a1a2dd97ce67f650ca0a9f1b39e9585e49b",
+   "blocco": 26352507,
+   "premio_usd": 0.08,
+   "base_fee_gwei": 0.050087962,
+   "costo_nostro_usd": 0.15677027319518966,
+   "netto_usd": -0.07677027319518966,
+   "occasione": false
+  },
+  {
+   "tx": "0x95c3ee07b3a1fa5647ebfa66301a7b13a91e7608e9bbc2741c2e0e3bc4daab6d",
+   "blocco": 26349651,
+   "premio_usd": 1126.19,
+   "base_fee_gwei": 8.2904058,
+   "costo_nostro_usd": 25.94813464690348,
+   "netto_usd": 1100.2418653530965,
+   "occasione": true
+  },
+  {
+   "tx": "0x95c3ee07b3a1fa5647ebfa66301a7b13a91e7608e9bbc2741c2e0e3bc4daab6d",
+   "blocco": 26349651,
+   "premio_usd": 1126.19,
+   "base_fee_gwei": 8.2904058,
+   "costo_nostro_usd": 25.94813464690348,
+   "netto_usd": 1100.2418653530965,
+   "occasione": true
+  },
+  {
+   "tx": "0xa0eb265b244db1b14dd813161f819a184f3bfa0e88558257615c8df068b4e79a",
+   "blocco": 26349514,
+   "premio_usd": 710.65,
+   "base_fee_gwei": 9.596937137,
+   "costo_nostro_usd": 30.03744605948533,
+   "netto_usd": 680.6125539405147,
+   "occasione": true
+  },
+  {
+   "tx": "0xa0eb265b244db1b14dd813161f819a184f3bfa0e88558257615c8df068b4e79a",
+   "blocco": 26349514,
+   "premio_usd": 710.65,
+   "base_fee_gwei": 9.596937137,
+   "costo_nostro_usd": 30.03744605948533,
+   "netto_usd": 680.6125539405147,
+   "occasione": true
+  },
+  {
+   "tx": "0xf56f8ecc42334a9f25b357fe671b547e106684f19495175291c6ad6ca80dba0d",
+   "blocco": 26350931,
+   "premio_usd": 18.16,
+   "base_fee_gwei": 0.228859637,
+   "costo_nostro_usd": 0.7163075993357833,
+   "netto_usd": 17.44369240066422,
+   "occasione": true
+  },
+  {
+   "tx": "0xf6e8d03d1cb813da4afee3de7c3dcf4bce48001a9967bb515c444dacaed65713",
+   "blocco": 26349403,
+   "premio_usd": 130.39,
+   "base_fee_gwei": 4.159178062,
+   "costo_nostro_usd": 13.017808172094911,
+   "netto_usd": 117.37219182790507,
+   "occasione": true
+  },
+  {
+   "tx": "0xfee42a94b43f6738fcc9f05b34d63ae6bfc70701515b383b8d27c605df20bd7c",
+   "blocco": 26349526,
+   "premio_usd": 1005.31,
+   "base_fee_gwei": 10.043110892,
+   "costo_nostro_usd": 31.433924947244307,
+   "netto_usd": 973.8760750527556,
+   "occasione": true
+  }
+ ],
+ "margine": 1.5,
+ "gas_nostro": 1400000
+}

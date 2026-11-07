@@ -1,0 +1,26 @@
+name: sperimenti
+# LA QUARTA CORSIA: le idee, come processo permanente. Prima giravano dentro il motore e rubavano
+# tempo all'accumulo che serve a misurarle. Si ri-dispatcha da sola; il cron e' solo rete di sicurezza.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "20 */5 * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: sperimenti
+  cancel-in-progress: false
+jobs:
+  idee:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Sperimenti
+        env:
+          WR_PAT: ${{ secrets.WR_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python agents/sperimenti_loop.py

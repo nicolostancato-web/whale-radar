@@ -1,0 +1,167 @@
+{
+ "misurato": "2026-11-03 21:45",
+ "perche": "Il tetto era per gettone, ma lo scivolamento dipende dalla COPPIA: wstETH verso WETH recupera il 99,96% fino a 2 milioni, wstETH verso le stabili crolla al 94,69% -- premio reale 1,27%, sotto la soglia che il contratto pretende (1,75%), quindi la posizione verrebbe RIFIUTATA invece di presa piu' piccola. Due posizioni vere ne dipendono: 3,48 e 1,48 milioni da chiudere, e sono coppie diverse, cioe' cadono davvero in un dump.",
+ "misure_wstETH_verso_stabili": {
+  "250000": 0.9919,
+  "500000": 0.9847,
+  "1000000": 0.9717,
+  "1500000": 0.9602,
+  "2000000": 0.9469
+ },
+ "premio_reale_atteso": {
+  "1000000": 0.0393,
+  "500000": 0.0532,
+  "2000000": 0.0127
+ },
+ "tetti": {
+  "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0->USD": 1000000,
+  "0x4c9edd5852cd905f086c759e8383e09bff1e68b3|0xdac17f958d2ee523a2206206994597c13d831ec7": 500000,
+  "0x4c9edd5852cd905f086c759e8383e09bff1e68b3|0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 100000,
+  "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0|0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": 2000000,
+  "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee|0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": 1000000,
+  "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0|0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 2000000,
+  "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee|0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": 2000000,
+  "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599|0x6b175474e89094c44da98b954eedeac495271d0f": 250000,
+  "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0|0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": 1000000,
+  "0xbe9895146f7af43049ca1c1ae358b0541ea49704|0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": 250000,
+  "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2|0x6b175474e89094c44da98b954eedeac495271d0f": 250000,
+  "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2|0xdac17f958d2ee523a2206206994597c13d831ec7": 2000000,
+  "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48|0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": 2000000,
+  "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48|0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": 2000000,
+  "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf|0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 500000,
+  "0x514910771af9ca656af840dff83e8264ecf986ca|0xdac17f958d2ee523a2206206994597c13d831ec7": 1000000,
+  "0x18084fba666a33d37592fa2633fd49a74dd93a88|0x6b175474e89094c44da98b954eedeac495271d0f": 25000,
+  "0xdac17f958d2ee523a2206206994597c13d831ec7|0x4c9edd5852cd905f086c759e8383e09bff1e68b3": 500000,
+  "0xdac17f958d2ee523a2206206994597c13d831ec7|0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 2000000,
+  "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9|0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 500000,
+  "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf|0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": 2000000,
+  "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0|0xdac17f958d2ee523a2206206994597c13d831ec7": 2000000,
+  "0x18084fba666a33d37592fa2633fd49a74dd93a88|0xdac17f958d2ee523a2206206994597c13d831ec7": 500000,
+  "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599|0x1abaea1f7c830bd89acc67ec4af516284b1bc33c": 1000000,
+  "0xdac17f958d2ee523a2206206994597c13d831ec7|0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": 2000000,
+  "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9|0xdac17f958d2ee523a2206206994597c13d831ec7": 500000,
+  "0xae78736cd615f374d3085123a210448e74fc6393|0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": 500000,
+  "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2|0x1abaea1f7c830bd89acc67ec4af516284b1bc33c": 1000000,
+  "0x68749665ff8d2d112fa859aa293f07a622782f38|0xdac17f958d2ee523a2206206994597c13d831ec7": 2000000,
+  "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599|0xdac17f958d2ee523a2206206994597c13d831ec7": 2000000,
+  "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48|0x8292bb45bf1ee4d140127049757c2e0ff06317ed": 2000000,
+  "0x514910771af9ca656af840dff83e8264ecf986ca|0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 1000000,
+  "0xae78736cd615f374d3085123a210448e74fc6393|0xdac17f958d2ee523a2206206994597c13d831ec7": 500000,
+  "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf|0xdac17f958d2ee523a2206206994597c13d831ec7": 1000000,
+  "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2|0x514910771af9ca656af840dff83e8264ecf986ca": 2000000,
+  "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599|0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": 2000000,
+  "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599|0x4c9edd5852cd905f086c759e8383e09bff1e68b3": 1000000,
+  "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee|0xdac17f958d2ee523a2206206994597c13d831ec7": 2000000,
+  "0x1abaea1f7c830bd89acc67ec4af516284b1bc33c|0xdac17f958d2ee523a2206206994597c13d831ec7": 250000,
+  "0x1abaea1f7c830bd89acc67ec4af516284b1bc33c|0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 250000,
+  "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2|0x4c9edd5852cd905f086c759e8383e09bff1e68b3": 1000000,
+  "0xdac17f958d2ee523a2206206994597c13d831ec7|0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": 2000000,
+  "0x8236a87084f8b84306f72007f36f2618a5634494|0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 50000,
+  "0x8236a87084f8b84306f72007f36f2618a5634494|0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": 50000,
+  "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf|0x6c3ea9036406852006290770bedfcaba0e23a0e8": 50000,
+  "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2|0xbe9895146f7af43049ca1c1ae358b0541ea49704": 100000,
+  "0xae78736cd615f374d3085123a210448e74fc6393|0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 500000,
+  "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48|0x1abaea1f7c830bd89acc67ec4af516284b1bc33c": 1000000,
+  "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2|0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 2000000,
+  "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48|0x4c9edd5852cd905f086c759e8383e09bff1e68b3": 1000000,
+  "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599|0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 2000000,
+  "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48|0xdac17f958d2ee523a2206206994597c13d831ec7": 2000000,
+  "0x68749665ff8d2d112fa859aa293f07a622782f38|0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 2000000,
+  "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2|0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": 2000000,
+  "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2|0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": 2000000,
+  "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2|0xe343167631d89b6ffc58b88d6b7fb0228795491d": 25000,
+  "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48|0x6b175474e89094c44da98b954eedeac495271d0f": 2000000,
+  "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2|0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": 1000000,
+  "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2|0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f": 5000,
+  "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599|0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f": 5000,
+  "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf|0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f": 5000,
+  "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9|0x8292bb45bf1ee4d140127049757c2e0ff06317ed": 2000,
+  "0xf1c9acdc66974dfb6decb12aa385b9cd01190e38|0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": 500000,
+  "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48|0xc139190f447e929f090edeb554d95abb8b18ac1c": 2000000,
+  "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf|0x6b175474e89094c44da98b954eedeac495271d0f": 50000,
+  "0x9d39a5de30e57443bff2a8307a4256c8797a3497|0xdac17f958d2ee523a2206206994597c13d831ec7": 1000,
+  "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0|0x8292bb45bf1ee4d140127049757c2e0ff06317ed": 2000,
+  "0xdac17f958d2ee523a2206206994597c13d831ec7|0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f": 2000000,
+  "0x68749665ff8d2d112fa859aa293f07a622782f38|0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f": 1000000,
+  "0xa35b1b31ce002fbf2058d22f30f95d405200a15b|0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": 1000,
+  "0x8236a87084f8b84306f72007f36f2618a5634494|0xdac17f958d2ee523a2206206994597c13d831ec7": 50000,
+  "0x8236a87084f8b84306f72007f36f2618a5634494|0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": 2000000,
+  "0x18084fba666a33d37592fa2633fd49a74dd93a88|0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 250000,
+  "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee|0xe343167631d89b6ffc58b88d6b7fb0228795491d": 100000
+ },
+ "misurato_il": "2026-11-06 09:49",
+ "come": "per dimezzamenti con il Quoter di Uniswap: il tetto e' la taglia piu' grande la cui resa resta sopra la soglia",
+ "senza_strada": {
+  "0xa1290d69c65a6fe4df752f95823fae25cb99e5a7|0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": {
+   "premio_in_gioco": 1363998.72,
+   "quando": 1793958178.127873
+  },
+  "0x9d39a5de30e57443bff2a8307a4256c8797a3497|0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": {
+   "premio_in_gioco": 1275042.54,
+   "quando": 1793958201.934152
+  },
+  "0x356b8d89c1e1239cbbb9de4815c39a1474d5ba7d|0xdac17f958d2ee523a2206206994597c13d831ec7": {
+   "premio_in_gioco": 282323.42,
+   "quando": 1793958259.629686
+  },
+  "0x356b8d89c1e1239cbbb9de4815c39a1474d5ba7d|0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f": {
+   "premio_in_gioco": 10458.28,
+   "quando": 1793958507.615801
+  },
+  "0x9d39a5de30e57443bff2a8307a4256c8797a3497|0x4c9edd5852cd905f086c759e8383e09bff1e68b3": {
+   "premio_in_gioco": 9522.08,
+   "quando": 1793958539.910978
+  },
+  "0x9d39a5de30e57443bff2a8307a4256c8797a3497|0xc139190f447e929f090edeb554d95abb8b18ac1c": {
+   "premio_in_gioco": 8210.48,
+   "quando": 1793958577.281194
+  },
+  "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0|0x1abaea1f7c830bd89acc67ec4af516284b1bc33c": {
+   "premio_in_gioco": 5147.33,
+   "quando": 1793802833.86683
+  },
+  "0x9d39a5de30e57443bff2a8307a4256c8797a3497|0xdc035d45d973e3ec169d2276ddab16f1e407384f": {
+   "premio_in_gioco": 2685.89,
+   "quando": 1793851169.78252
+  },
+  "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2|0xdc035d45d973e3ec169d2276ddab16f1e407384f": {
+   "premio_in_gioco": 1043.31,
+   "quando": 1793802925.104079
+  },
+  "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48|0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f": {
+   "premio_in_gioco": 720.89,
+   "quando": 1793802940.622973
+  },
+  "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9|0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f": {
+   "premio_in_gioco": 293.64,
+   "quando": 1793802980.863986
+  },
+  "0xae78736cd615f374d3085123a210448e74fc6393|0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f": {
+   "premio_in_gioco": 161.2,
+   "quando": 1793803008.920178
+  },
+  "0x59bc9fae5d62b19d4f8d07d758047acb9ee19d34|0x4c9edd5852cd905f086c759e8383e09bff1e68b3": {
+   "premio_in_gioco": 124.21,
+   "quando": 1793803016.991491
+  },
+  "0x68749665ff8d2d112fa859aa293f07a622782f38|0x4c9edd5852cd905f086c759e8383e09bff1e68b3": {
+   "premio_in_gioco": 113.43,
+   "quando": 1793803034.2501252
+  },
+  "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2|0xc139190f447e929f090edeb554d95abb8b18ac1c": {
+   "premio_in_gioco": 83.28,
+   "quando": 1793803042.590424
+  },
+  "0x9d39a5de30e57443bff2a8307a4256c8797a3497|0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": {
+   "premio_in_gioco": 10993.98,
+   "quando": 1793958493.660584
+  }
+ },
+ "nota_gho": "misurato il 4/11: la vasca Curve GHO/cbBTC/WETH regge 5.000 dollari di chiusura col 4,49% di premio; a 10.000 scende al 2,99% e a 20.000 va in perdita",
+ "perche_senza_strada": {
+  "0x9d39a5de30e57443bff2a8307a4256c8797a3497": "sUSDe: LA RITRATTAZIONE ERA SBAGLIATA, la conclusione originale era giusta. Misurato il 6/11 con numeri, non con ragionamenti. (1) Uniswap v4: NESSUNA pozza sUSDe verso USDC, WETH o USDe -- il quoter non risponde su nessun livello di commissione. Il 4/11 avevo ritirato la conclusione perche' il gestore della v4 DETIENE 728.000 dollari di sUSDe: detenere non e' scambiare, ed e' la stessa regola che ho scritto altrove -- la quantita' non e' opportunita'. Ho ritirato una conclusione giusta sulla base di una prova debole. (2) Curve: la pozza 0x79b6a7c23d23ef7c180e7fbe235c914dc5e6fa1f esiste e la calldata si costruisce, ma rende 330 DOLLARI QUALUNQUE SIA LA TAGLIA: 6,61% su $5.000, 1,32% su $25.000, 0,33% su $100.000, 0,07% su $500.000. E' secca. (3) Il riscatto verso USDe ha il raffreddamento di 7 giorni, quindi non serve a un prestito lampo. CONCLUSIONE: il premio da $1.275.043 su sUSDe->USDC NON E' RAGGIUNGIBILE, e saltare quelle 31 posizioni e' giusto. Non riaprire senza una pozza NUOVA misurata a taglia vera.",
+  "0xa1290d69c65a6fe4df752f95823fae25cb99e5a7": "rsETH: VERDETTO del 4/11, e la conclusione e NON COSTRUIRE. Avevo ipotizzato che la liquidita stesse su Balancer e valutato una terza scaletta per 1,77 milioni di premio. Misurato prima di costruire: i dieci milioni di dollari di rsETH in circolazione stanno in contratti che NON sono mercati di scambio -- 4.372 rsETH in 0x62de59c0 e 1.251 in 0x52aa8994, e nessuno dei due risponde a getVault/getPoolId (Balancer), coins (Curve), token0 (Uniswap) o asset (deposito standard). Fra i detentori c e SY-rsETH, cioe Pendle. Il gestore di Uniswap v4 ne tiene 14. Su Uniswap v3 la vasca rende lo 0,19% a 5.000 dollari. CONCLUSIONE: non esiste oggi una uscita atomica per rsETH a nessuna taglia utile, su nessuna piazza -- quindi nemmeno i concorrenti la prendono col prestito lampo. Balancer non risolverebbe niente: la scaletta sarebbe lavoro buttato. DA RIGUARDARE SE: compare una vasca rsETH con liquidita vera (la taratura rigira ogni due ore e lo vedrebbe da se).",
+  "_verifica_6_11": "Rivisitate tutte le coppie senza strada ($2.970.923 di premio in gioco) mentre si aspettava la 13a liquidazione. Le due grosse sono chiuse PER DAVVERO: rsETH->WETH ($1.363.999) perche' i 10 milioni in circolazione stanno in contratti non vendibili (Pendle SY-rsETH), verdetto del 4/11 confermato; sUSDe->USDC ($1.275.043) perche' v4 non ha pozza e Curve e' secca (sopra). Quindi l'ora spesa qui non ha prodotto codice: ha evitato di costruirne per giorni su un premio che non si puo' incassare. Misurare prima di costruire."
+ },
+ "nota_uniswap_v4": "Trovato il 4/11 cercando rsETH: il gestore di Uniswap v4 (0x000000000004444c5dc75cb358380d2e3de08a90) compare fra i detentori. Noi parliamo solo la v3 (factory + SwapRouter02), quindi una vasca v4 per noi e INVISIBILE. Su rsETH ne tiene solo 14, quindi oggi non cambia niente -- ma la liquidita migra verso la v4, e il giorno che una coppia che ci serve sta la, la vedremmo come vasca vuota invece che come vasca che non sappiamo leggere. Da tenere d occhio: e il tipo di cecita che non si annuncia."
+}

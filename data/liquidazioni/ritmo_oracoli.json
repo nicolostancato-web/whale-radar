@@ -1,0 +1,16 @@
+{
+ "ore": 24,
+ "aggiornamenti": 99,
+ "uno_ogni_minuti": 14.5,
+ "per_contratto": {
+  "ETH (WETH+weETH+wstETH)": 24,
+  "WBTC": 24,
+  "LINK": 24,
+  "AAVE": 26,
+  "BTC/USD": 1,
+  "sUSDe": 0,
+  "wstETH ratio": 0,
+  "weETH ratio": 0
+ },
+ "nota": "99 momenti al giorno in cui una liquidazione puo' NASCERE. Fra un aggiornamento e l'altro i prezzi in catena non si muovono, quindi non c'e' niente da sorvegliare: la gara si gioca tutta in quei 99 istanti. ETH/USD, che muove la maggior parte del nostro laghetto, aggiorna una volta all'ora. Misurato dagli eventi AnswerUpdated sulle ultime 24 ore."
+}

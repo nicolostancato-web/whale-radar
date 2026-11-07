@@ -1,0 +1,134 @@
+name: lanciatori
+# CHI HA LANCIATO LA MONETA, e come sono finite le sue monete precedenti.
+# Nata il 4/10 dalla decomposizione in RILEVATORE_DI_AZZERAMENTI.md: quattro quinti del
+# vantaggio che abbiamo vengono dall'EVITARE le monete che muoiono, e «quale moneta muore» non
+# e' una domanda di grafico — e' una domanda su CHI l'ha lanciata.
+#
+# COSTO ZERO EURO: Blockscout pubblico, nessuna chiave, nessuna carta.
+#
+# LA PORTA GIUSTA (4/10). L'endpoint compatibile Etherscan da' 5 risposte e 25 strozzature su
+# 30. La porta `/api/v2/` della STESSA casa da' 30 su 30 senza una strozzatura: misurato
+# 13,9 al minuto su robinhood e 80,9 su base. Il 1/10 avevo scritto che il limite era di
+# Blockscout; era di una sua porta. Prima di dichiarare un tetto, provare l'altra porta.
+#
+# QUANTO CI VUOLE, col conto fatto e non sperato: robinhood 48.021 gettoni a 13,9/min = 58 ore
+# su un solo filo, ~9,6 ore su sei fette. base 27.028 a 80,9/min = 5,6 ore, ~1,4 su quattro.
+on:
+  workflow_dispatch: {}
+  schedule:
+    # ogni ora: qui il limite NON e' per finestra (zero strozzature misurate), quindi serve
+    # tempo-macchina, non ritmo. Sei fette per giro, 20 minuti di budget ciascuna.
+    - cron: "23 * * * *"
+
+concurrency:
+  group: lanciatori
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  risolvi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 32
+    strategy:
+      fail-fast: false
+      matrix:
+        # FILI DIVERSI PER CHAIN, DECISI DALLA MISURA E NON A OCCHIO (5/10).
+        # Misurato stanotte sugli stessi gettoni:
+        #   robinhood — 1 filo: 10,5/min con ZERO strozzature (sei secondi per chiamata: e'
+        #               LATENZA, non un tetto). Con 8 fili: 76,9/min, ancora zero strozzature.
+        #               Sette volte piu' veloce, e 40 ore diventano meno di 6.
+        #   base      — 2 fili: 190,9/min, zero strozzature. 6 fili: 90 strozzate su 120.
+        #               La' il tetto e' del servizio, e spingere peggiora.
+        # La lezione del 1/10 («cambiare il ritmo delle corse, non la pausa») vale quando il
+        # limite e' per finestra; e' inutile quando il collo di bottiglia e' il tempo di
+        # risposta. Prima di scegliere il rimedio va misurato QUALE dei due si ha davanti, e
+        # si vede dal numero di strozzature a parita' di velocita'.
+        include:
+          # DODICI FETTE, NON PIU' FILI (5/10). Correzione della correzione, nella stessa notte.
+          # Avevo misurato il parallelismo su 100 chiamate e concluso «sette volte piu' veloce,
+          # zero strozzature». Era un CAMPIONE CHE LUSINGA: cento chiamate stanno dentro una
+          # finestra fresca. A pieno carico entrambe le chain strozzano duro — 4.299 e 7.764
+          # chiamate buttate contro 300-600 risolte in dodici minuti.
+          # E' la famiglia nominata il 24/09 («il campione che lusinga»), e la misura giusta
+          # dura quanto il carico vero, non quanto fa comodo.
+          # Il parallelismo serve ancora (da 10 a 42 al minuto, 2,5 volte), ma il limite e' PER
+          # FINESTRA, e per quello il rimedio e' quello del 1/10: piu' FINESTRE. Ogni fetta gira
+          # su una macchina diversa, quindi con un indirizzo di rete diverso e una finestra sua:
+          # dodici fette raddoppiano la portata senza strozzare di piu' ciascuna.
+          # Fili scesi a 4: oltre quella soglia si buttano chiamate senza guadagnare nulla.
+          - { chain: base,      fetta: 0, fili: 4 }
+          - { chain: base,      fetta: 1, fili: 4 }
+          - { chain: base,      fetta: 2, fili: 4 }
+          - { chain: base,      fetta: 3, fili: 4 }
+          - { chain: base,      fetta: 4, fili: 4 }
+          - { chain: base,      fetta: 5, fili: 4 }
+          - { chain: base,      fetta: 6, fili: 4 }
+          - { chain: base,      fetta: 7, fili: 4 }
+          - { chain: base,      fetta: 8, fili: 4 }
+          - { chain: base,      fetta: 9, fili: 4 }
+          - { chain: base,      fetta: 10, fili: 4 }
+          - { chain: base,      fetta: 11, fili: 4 }
+          - { chain: robinhood, fetta: 0, fili: 4 }
+          - { chain: robinhood, fetta: 1, fili: 4 }
+          - { chain: robinhood, fetta: 2, fili: 4 }
+          - { chain: robinhood, fetta: 3, fili: 4 }
+          - { chain: robinhood, fetta: 4, fili: 4 }
+          - { chain: robinhood, fetta: 5, fili: 4 }
+          - { chain: robinhood, fetta: 6, fili: 4 }
+          - { chain: robinhood, fetta: 7, fili: 4 }
+          - { chain: robinhood, fetta: 8, fili: 4 }
+          - { chain: robinhood, fetta: 9, fili: 4 }
+          - { chain: robinhood, fetta: 10, fili: 4 }
+          - { chain: robinhood, fetta: 11, fili: 4 }
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Trova chi ha lanciato
+        env:
+          CHAIN: ${{ matrix.chain }}
+          FETTE: "12"
+          FETTA: ${{ matrix.fetta }}
+          # 0,4 s: a questo ritmo zero strozzature su 120 letture misurate il 4/10
+          PAUSA: "0.4"
+          # IL BUDGET IN SECONDI E' IL VERO FRENO (4/10): al primo giro TETTO=900 su robinhood
+          # voleva 65 minuti a 13,9/min contro 25 di timeout, e sei fette su sei sono state
+          # uccise a meta' perdendo tutto. 1140s = 19 min, cioe' il 76% del tetto: il resto
+          # resta per salvare e consegnare.
+          BUDGET_SEC: "1140"
+          FILI: ${{ matrix.fili }}
+          # il tetto resta come rete, ma non e' piu' lui a decidere quando smettere.
+          # Alzato a 12.000: col parallelismo il freno vero e' il budget di tempo, e un tetto
+          # basso lascerebbe le macchine ferme a meta' finestra.
+          TETTO: "12000"
+          # si salva ogni cinquanta: una fetta uccisa non butta piu' il lavoro fatto
+          OGNI_QUANTI: "50"
+        run: python agents/lanciatori.py
+      - name: Consegna senza toccare il ramo
+        if: always()
+        run: |
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            if [ -f "$F" ]; then
+              mkdir -p "/tmp/consegna/$(dirname "$F")"
+              cp "$F" "/tmp/consegna/$F"
+            fi
+          done
+          echo "consegno $(find /tmp/consegna -type f | wc -l) file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-${{ github.workflow }}-${{ matrix.chain }}-${{ matrix.fetta }}
+          path: /tmp/consegna/data
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: ignore
+
+# SENZA RIARMO: i riarmi che dormono si mangiavano il 52% della capacita'
+# (RIARMI_CHE_DORMONO.md). Il motore e' l'orologio; la rete e' la maglia di guardie
+# in agents/dal_di_fuori.sh, che va aggiornata con questa corsia.

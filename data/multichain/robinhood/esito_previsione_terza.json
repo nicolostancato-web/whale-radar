@@ -1,0 +1,9 @@
+{
+ "monete_giudizio": 170,
+ "base": 0.3176,
+ "terzo_alto": 0.4286,
+ "terzo_basso": 0.1964,
+ "differenza": 0.1109,
+ "verdetto": "CONFERMATA",
+ "soglia_dichiarata": 0.1
+}

@@ -1,0 +1,162 @@
+{
+ "acq": 1791394768,
+ "chain": "robinhood",
+ "esito": "PROVA FALLITA",
+ "casi": [
+  {
+   "tx": "0x7d3f16700f79ff6ff02b1bed9dd5c39beaee7dff581fbadd5b25d93e3ee860a3",
+   "esito": "ok",
+   "atteso": 0.095742055959,
+   "sulla_chain": 0.09574205595887024,
+   "scarto_pct": 0.0
+  },
+  {
+   "tx": "0x209ee64edd7bf7343179eafb134cb3da640e293cc45f34a4ff093f44c359ee41",
+   "esito": "ok",
+   "atteso": 0.026442911319,
+   "sulla_chain": 0.026442911318870246,
+   "scarto_pct": 0.0
+  },
+  {
+   "tx": "0xb779e944b89804a68d9f3fab4c9fef132736626a5da78cdc8fab737c3ee54f8f",
+   "esito": "ok",
+   "atteso": 3.976732719027,
+   "sulla_chain": 3.9767327190270283,
+   "scarto_pct": 0.0
+  },
+  {
+   "tx": "0x1b742b36ac842740b37e7369fb4c3adfae81ac59aaf3386c7db1c410befa6655",
+   "esito": "ok",
+   "atteso": 5.3936e-08,
+   "sulla_chain": 5.3935719119e-08,
+   "scarto_pct": 0.0
+  },
+  {
+   "tx": "0xe2102dac8752e74c70a9d2539dca9b08a14d30c79ed97cd948ed625c55595240",
+   "esito": "ok",
+   "atteso": 0.002030408255,
+   "sulla_chain": 0.002030408254514428,
+   "scarto_pct": 0.0
+  },
+  {
+   "tx": "0xe53758c6ce1ee8f0a395187e7518d1dd0b98b194307bf0db3b402197c3d8a3dd",
+   "esito": "ok",
+   "atteso": 0.691315358924,
+   "sulla_chain": 0.6913153589235149,
+   "scarto_pct": 0.0
+  },
+  {
+   "tx": "0xc4d5d9a62025dafe43a9bb783c291712b489f945095945a5f61a86e63d25c447",
+   "esito": "ok",
+   "atteso": 20.438657,
+   "sulla_chain": 20.438657,
+   "scarto_pct": 0.0
+  },
+  {
+   "tx": "0x1f768c2d0d39e3cf0fbe1c2d002f03f4e95dae7741e1469ab1ad653950854236",
+   "esito": "ok",
+   "atteso": 24.841619,
+   "sulla_chain": 24.841619,
+   "scarto_pct": 0.0
+  },
+  {
+   "tx": "0x34e276ea03812072a0aba621cf3ecfb8b875139acf9992bc78bd331a3dd7b4f6",
+   "esito": "NON COMBACIA",
+   "atteso": 0.00020610538,
+   "sulla_chain": 0.553875,
+   "scarto_pct": 268633.9
+  },
+  {
+   "tx": "0x34e276ea03812072a0aba621cf3ecfb8b875139acf9992bc78bd331a3dd7b4f6",
+   "esito": "NON COMBACIA",
+   "atteso": 0.00020610538,
+   "sulla_chain": 0.553875,
+   "scarto_pct": 268633.9
+  },
+  {
+   "tx": "0x0aa2b801eddde1c3353cc1f578a9407a1b679f03b1b80b905cd876e2c3667da8",
+   "esito": "ok",
+   "atteso": 0.020241859193,
+   "sulla_chain": 0.020241859192737473,
+   "scarto_pct": 0.0
+  },
+  {
+   "tx": "0xe966855f8dc4625b2efd24335686fef8320e155eee620fcf35f08a9beb61be58",
+   "esito": "ok",
+   "atteso": 0.0498,
+   "sulla_chain": 0.0498,
+   "scarto_pct": 0.0
+  },
+  {
+   "tx": "0x4d7e828774690b12dc89d486e6b263c8b99c523395256efe761dbe6b83b82f5e",
+   "esito": "ok",
+   "atteso": 0.0198,
+   "sulla_chain": 0.0198,
+   "scarto_pct": 0.0
+  },
+  {
+   "tx": "0x5f68d628c7f990d76b833c0a45b919fb7a21a3a97a5d176a1e0fdeae1905b424",
+   "esito": "ok",
+   "atteso": 0.007207100143,
+   "sulla_chain": 0.007207100143106393,
+   "scarto_pct": 0.0
+  },
+  {
+   "tx": "0xaee4d2a281950fb1b987f4794586a6446fa4bf8a16c0b219125a5daf26ecae5b",
+   "esito": "ok",
+   "atteso": 1.27589795497,
+   "sulla_chain": 1.2758979549700367,
+   "scarto_pct": 0.0
+  },
+  {
+   "tx": "0x0b3838e6340cdbda23bfd607ce42ffd97bc2fe88493b9cb4cf044dfac201664c",
+   "esito": "ok",
+   "atteso": 0.922068064154,
+   "sulla_chain": 0.9220680641539738,
+   "scarto_pct": 0.0
+  },
+  {
+   "tx": "0xcc09c8d3b16350b53762c265a67d9a6b3a30379b50dcbc16536220791c615e6f",
+   "esito": "ok",
+   "atteso": 0.02982,
+   "sulla_chain": 0.02982,
+   "scarto_pct": 0.0
+  },
+  {
+   "tx": "0x2b39a919d5276e8d82dc0b98dc4a67c3c203b4877fe22362fc18de199292def3",
+   "esito": "ok",
+   "atteso": 0.017423545276,
+   "sulla_chain": 0.017423545275808465,
+   "scarto_pct": 0.0
+  },
+  {
+   "tx": "0x8d525b0d988760e16ce136d3b20297a11b25af97e424c125a66d7974596d2b84",
+   "esito": "ok",
+   "atteso": 122.309946,
+   "sulla_chain": 122.309946,
+   "scarto_pct": 0.0
+  },
+  {
+   "tx": "0x707cdf6dd364ba9543d7b3a57434b54ee73a812eb4f31f7171a964df2e9573d9",
+   "esito": "ok",
+   "atteso": 120.160424,
+   "sulla_chain": 120.160424,
+   "scarto_pct": 0.0
+  },
+  {
+   "tx": "0x93fd6ae0b50e5325be2ad248b61ffd72136a40272ae55c85852150f3b1e8fec2",
+   "esito": "ok",
+   "atteso": 0.010340551217,
+   "sulla_chain": 0.010340551216726335,
+   "scarto_pct": 0.0
+  },
+  {
+   "tx": "0x2d6b863190f7fdbfe748e88a295075a0f814c49dcaa922a7ecc65724f7587569",
+   "esito": "ok",
+   "atteso": 0.030345388477,
+   "sulla_chain": 0.030345388477494118,
+   "scarto_pct": 0.0
+  }
+ ],
+ "perche": "i miei importi non combaciano con la chain: il verdetto non si scrive. Si scrive il referto della prova, perche' un fallimento che non lascia traccia si ripete."
+}
