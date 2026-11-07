@@ -49,7 +49,18 @@ BANDA = 1.25
 # La guardia economica non sta piu' qui: sta nel pescatore, che dal 7/11
 # conosce il gas (vedi agents/gas_ora.py). Sorvegliare largo, sparare
 # stretto -- prima erano la stessa soglia e sbagliavano insieme.
-MINIMO_DEBITO = 10
+# SCESO A 5 il 7/11 pomeriggio, e il motivo e' un rosso da OTTO CENTESIMI.
+# Con 10 la soglia di sorveglianza era sopra la convenienza calcolata col gas
+# del momento (9,92 $ a 0,046 gwei): cioe' esistevano posizioni che pagavano
+# e che non stavamo guardando. La risposta giusta non era allentare il
+# controllo -- un controllo allentato per comodita' e' un controllo che non
+# serve -- ma sorvegliare piu' largo, perche' guardare costa poco e sparare
+# costa gas (vedi la separazione delle due soglie qui sopra).
+# Scelto 5 e non 9: la convenienza scende col gas, e col gas piu' basso che
+# abbiamo visto (0,03 gwei) arriva a ~7 $. Una soglia che va rincorsa a ogni
+# variazione di gas e' una soglia sbagliata; 5 sta sotto tutto l'intervallo
+# plausibile. Costo misurato: la lista passa da 2.380 a 2.489 posizioni.
+MINIMO_DEBITO = 5
 
 
 # --------------------------------------------------------------------------
