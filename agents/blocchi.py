@@ -145,6 +145,7 @@ BLOCCHI = [
    "il filtro per destinatario c'e'",
    "il consumo Alchemy e' sotto meta' del gratuito",
    "il conteggio distingue le occasioni dal traffico",
+   "i due contatori concordano sulle transazioni",
    "sorvegliamo piu' largo di quanto spariamo",
    "guardia in dollari attiva",
    "margine delle vendite",

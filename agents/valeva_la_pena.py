@@ -34,6 +34,35 @@ GAS_NOSTRO = 1_400_000      # quanto ne usiamo noi, non il vincitore
 MARGINE = 1.5               # lo stesso che pretende la guardia del pescatore
 
 
+# UNA RICEVUTA NON CAMBIA MAI: SI TIENE (7/11).
+# Guasto trovato in un giro del loop: la ricevuta di una delle transazioni
+# aggregate (premio 1.126 $) non e' arrivata dalle fonti, e questa misura
+# l'ha SALTATA IN SILENZIO -- le occasioni sono scese da 10 a 9 e le
+# transazioni da 11 a 10, mentre il contatore sicuro diceva ancora 11.
+# Un conteggio che si abbassa perche' una fonte ha singhiozzato non e' una
+# misura: e' una bugia che cambia da sola. E il denominatore su cui
+# giudichiamo tutto il sistema non puo' dipendere dall'umore di un nodo.
+# Due riparazioni: le ricevute (dati immutabili) si tengono su disco, e i
+# casi irrisolti si DICHIARANO invece di sparire.
+CACHE = f"{D}/ricevute.json"
+
+
+def _cache_leggi():
+    try:
+        return json.load(open(CACHE))
+    except Exception:
+        return {}
+
+
+def _cache_scrivi(d):
+    try:
+        t = CACHE + ".tmp"
+        json.dump(d, open(t, "w"))
+        os.replace(t, CACHE)
+    except Exception:
+        pass
+
+
 def _c(m, p):
     for u in R.FONTI:
         try:
@@ -56,11 +85,21 @@ def main():
         pass
 
     righe, visti = [], {}
+    cache = _cache_leggi()
+    nuove_in_cache = False
+    non_risolte = []
     for h in f[1]["hash"]:
         tx, idx = h.split(":")
-        r = visti.get(tx) or _c("eth_getTransactionReceipt", [tx])
+        r = visti.get(tx) or cache.get(tx)
+        if not r:
+            r = _c("eth_getTransactionReceipt", [tx])
+            if r:
+                cache[tx] = r
+                nuove_in_cache = True
         visti[tx] = r
         if not r:
+            if tx not in non_risolte:
+                non_risolte.append(tx)
             continue
         blk = _c("eth_getBlockByNumber", [r["blockNumber"], False])
         if not blk:
@@ -76,11 +115,17 @@ def main():
                       "netto_usd": premio - costo,
                       "occasione": premio > costo * MARGINE})
 
+    if nuove_in_cache:
+        _cache_scrivi(cache)
     occ = [x for x in righe if x["occasione"]]
     print(f"   eventi letti dal registro:  {len(f[1]['hash'])}")
     print(f"   transazioni distinte:       {len({x['tx'] for x in righe})}")
     print(f"   OCCASIONI (netto positivo con margine {MARGINE}x): "
           f"{len(occ)}")
+    if non_risolte:
+        print(f"   <<< NON LO SO su {len(non_risolte)} transazioni: nessuna "
+              f"fonte ha dato la ricevuta ({', '.join(t[:12] for t in non_risolte)}). "
+              f"I numeri qui sopra sono un MINIMO, non il conto.")
     print()
     print("   premio      base fee   ci costava   netto      verdetto")
     for x in sorted(righe, key=lambda y: -y["premio_usd"]):
