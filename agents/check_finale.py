@@ -2026,6 +2026,72 @@ except Exception as _e:
     dillo("il giudizio della rotta scarta una rotta cattiva", False,
           str(_e)[:60])
 
+# LA ROTTA CHE USEREMMO ADESSO, QUANTO RENDE? (7/11)
+# Lo stadio dopo «il giudizio funziona»: non si prova il giudizio con numeri
+# finti, si chiede la rotta VERA per la posizione piu' ricca fra quelle
+# vicine e si guarda quanto renderebbe oggi. E' la differenza fra «il
+# termometro funziona» e «il malato ha la febbre».
+# Nata da un buco nella riparazione di stamattina: avevo applicato il
+# giudizio al ramo Curve e NON al ramo Uniswap, cioe' quello che gira
+# sempre. La riparazione copriva il caso raro e lasciava scoperto quello
+# normale.
+try:
+    import rotta_migliore as _RM3
+    import pescatore as _PE3
+    from vendita_uniswap import _ULTIMA_RESA as _UR3
+    _comp3 = json.load(open(f"{D}/composizione.json"))
+    _cand3 = sorted(
+        ((v.get("debito_usd", 0), k, v) for k, v in _comp3.items()
+         if isinstance(v, dict) and v.get("salute", 9) < 1.02
+         and v.get("debito_usd", 0) > 1000),
+        reverse=True)
+    if not _cand3:
+        dillo("la rotta che useremmo adesso rende abbastanza", True,
+              "nessuna posizione vicina e grossa da provare")
+    else:
+        _d3, _a3, _v3 = _cand3[0]
+        _gar3 = _v3["garanzia_principale"]
+        _deb3 = _v3["debito_principale"]
+        _pz3 = json.load(open(f"{D}/prezzi_oracolo.json"))
+        _pg3 = _pz3.get(_gar3.lower(), {})
+        # LA TAGLIA E' QUELLA CHE FAREMMO, NON QUELLA CHE ESISTE.
+        # La prima versione ha preso la posizione piu' grossa (50,7 milioni
+        # di debito), ha chiesto la rotta per 25 milioni di garanzia, non ha
+        # trovato nessuna sede -- giustamente -- e ha segnato rosso. Ma
+        # quella vendita non la faremmo MAI: il pescatore taglia la taglia
+        # col tetto per coppia. Misurare un caso che non faremmo da' un
+        # rosso vero su una domanda falsa, e un rosso falso insegna a
+        # ignorare i rossi.
+        _usd3 = _d3 * 0.5
+        try:
+            _t3 = _PE3.tetto_per(_gar3.lower(), _deb3)
+            if _t3 and _usd3 * 1.07 > _t3:
+                _usd3 = _t3 / 1.07
+        except Exception:
+            pass
+        _q3 = int(_usd3 * 1.07 / _pg3["prezzo_usd"]
+                  * 10 ** _pg3["decimali"]) if _pg3.get("prezzo_usd") else 0
+        if not _q3:
+            dillo("la rotta che useremmo adesso rende abbastanza", False,
+                  "prezzo della garanzia mancante")
+        else:
+            _s3, _dd3, _p3, _ap3 = _PE3.preventivo(
+                _gar3, _deb3, str(_q3), _pg3["decimali"],
+                _pz3.get(_deb3.lower(), {}).get("decimali", 18))
+            _u3 = _UR3.get("uscita")
+            _r3 = _RM3.recupero(_gar3, _deb3, _q3, _u3) if _u3 else None
+            dillo("la rotta che useremmo adesso rende abbastanza",
+                  bool(_s3) and (_r3 is None or _r3 >= _RM3.SOGLIA_RECUPERO),
+                  (f"su ${_usd3:,.0f} di vendita (debito ${_d3:,.0f}, "
+                   f"tagliato dal tetto): "
+                   + (f"rende {_r3*100:.2f}%" if _r3 is not None
+                      else "resa non misurabile")
+                   + (f", sede {str(_s3)[:12]}" if _s3
+                      else "  <<< NESSUNA SEDE: rifiuteremmo")))
+except Exception as _e:
+    dillo("la rotta che useremmo adesso rende abbastanza", False,
+          str(_e)[:60])
+
 n=sum(1 for _,ok,_ in ESITI if not ok)
 print(f"\n{'='*72}\nC-CHECK: {len(ESITI)-n} a posto, {n} da sistemare")
 json.dump({"quando":time.time(),"esiti":[{"che":a,"ok":b,"dettaglio":c} for a,b,c in ESITI]},

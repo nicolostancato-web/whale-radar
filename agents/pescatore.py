@@ -484,11 +484,21 @@ def _ripiego_uniswap(src, dst, q, perche):
             pass
         return True
     try:
-        from vendita_uniswap import preventivo as uni
+        from vendita_uniswap import preventivo as uni, _ULTIMA_RESA
         sede, dati, pos, app = uni(src, dst, q, CONTRATTO)
-        if sede:
+        # BUCO NELLA MIA RIPARAZIONE DI STAMATTINA, trovato nel giro dopo:
+        # avevo scritto il giudizio e l'avevo applicato solo al ramo Curve.
+        # Il ramo Uniswap -- quello che gira SEMPRE, perche' Paraswap e' in
+        # castigo permanente per scelta -- passava senza essere giudicato.
+        # Cioe' la riparazione copriva il caso raro e lasciava scoperto
+        # quello normale. Il modulo registra gia' la resa in _ULTIMA_RESA:
+        # non serviva una richiesta in piu', serviva guardare.
+        if sede and _ok(sede, _ULTIMA_RESA.get("uscita"), "uniswap"):
             return sede, dati, pos, app
-        uni_perche = dati
+        if sede:
+            uni_perche = "scartata: rende troppo poco"
+        else:
+            uni_perche = dati
     except Exception as e2:
         # UN'ECCEZIONE QUI NON SI INGHIOTTE: la si DICE. Il silenzio di
         # questo `except` ha nascosto per giorni un errore di tipo.
@@ -504,10 +514,41 @@ def _ripiego_uniswap(src, dst, q, perche):
         v2, d2, p2, a2, uscita, out = curv(src, dst, int(q))
         if v2 and _ok(v2, out or uscita, "curve"):
             return v2, d2, p2, a2
-        if v2:
-            return None, (f"curve rende troppo poco e non ho altre sedi "
-                          f"(aggregatore: {perche} | uniswap: "
-                          f"{uni_perche})"), None, None
+        curve_perche = ("rende troppo poco" if v2 else str(d2)[:40])
+    except Exception as e3:
+        curve_perche = f"{type(e3).__name__}: {str(e3)[:40]}"
+    # ULTIMA SCELTA: 1INCH (7/11, e andava collegata qui dal principio).
+    # Il giudizio della rotta scartava giustamente le sedi che rendono poco,
+    # ma il ricambio era collegato SOLO al ramo di Paraswap -- che e' in
+    # castigo permanente per scelta nostra. Risultato: scartavamo e ci
+    # arrendevamo, invece di cambiare sede.
+    # Quanto costava: la posizione piu' ricca fra quelle vicine ha garanzia
+    # rsETH, 50,7 milioni di debito, e la nostra rotta rende lo 0,01%. 1inch
+    # la vende al 99,67%. Stamattina avevamo perfino DICHIARATO rsETH e
+    # sUSDe invendibili -- 2,97 milioni di premio messi da parte -- e invece
+    # era la nostra ricerca a essere troppo stretta.
+    # Sta per ULTIMA di proposito: e' una fonte con chiave e un tetto di
+    # richieste, e si usa quando le fonti senza chiave non bastano.
+    try:
+        import rotta_migliore as _RM4
+        _s4, _d4, _u4 = _RM4.da_1inch(src, dst, int(q), CONTRATTO)
+        if _s4 and _ok(_s4, _u4, "1inch"):
+            _p4, _n4 = trova_posizione(_d4, str(int(q)))
+            if _p4 is not None:
+                _r4 = _RM4.recupero(src, dst, int(q), _u4)
+                print(f"   SEDE DI RICAMBIO: 1inch rende "
+                      f"{(_r4 or 0)*100:.2f}% dove le altre no")
+                return _s4, _d4, _p4, 0      # 1inch preleva col router
+            print(f"   1inch rende bene ma l'importo compare {_n4} volte "
+                  f"nella calldata: non posso sostituirlo")
+    except Exception as e4:
+        print(f"   1inch non utilizzabile: {type(e4).__name__}: "
+              f"{str(e4)[:50]}")
+    return None, (f"nessuna sede rende abbastanza (aggregatore: {perche} | "
+                  f"uniswap: {uni_perche} | curve: {curve_perche})"), \
+        None, None
+    try:
+        pass
         return None, f"aggregatore: {perche} | uniswap: {uni_perche} | curve: {d2}", None, None
     except Exception as e3:
         return None, f"aggregatore: {perche} | uniswap: {uni_perche} | curve: {str(e3)[:40]}", None, None
