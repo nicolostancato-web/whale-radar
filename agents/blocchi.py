@@ -49,6 +49,7 @@ BLOCCHI = [
    "nessun ordine col selettore vecchio",
    "nessun ordine su una sede non provata",
    "il giudizio della rotta scarta una rotta cattiva",
+   "la rotta che useremmo adesso rende abbastanza",
    "c'e' una sede di ricambio se la prima rende poco",
    "dal prezzo che scende ai soldi in cassa",
    "nessun ordine cuce un indirizzo che non e' il nostro",
