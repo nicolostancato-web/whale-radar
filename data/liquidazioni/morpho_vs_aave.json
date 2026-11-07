@@ -1,0 +1,62 @@
+{
+  "finestre": [
+    {
+      "finestra": [
+        26348800,
+        26351800
+      ],
+      "morpho_eventi": 16,
+      "morpho_valutati": 5,
+      "morpho_premio": 368950.23,
+      "morpho_premi": [
+        366614.55,
+        2294.7,
+        24.63,
+        8.82,
+        7.53
+      ],
+      "aave_eventi": 10,
+      "persi": 0
+    },
+    {
+      "finestra": [
+        26352000,
+        26355000
+      ],
+      "morpho_eventi": 5,
+      "morpho_valutati": 1,
+      "morpho_premio": 246.31,
+      "morpho_premi": [
+        246.31
+      ],
+      "aave_eventi": 2,
+      "persi": 0
+    },
+    {
+      "finestra": [
+        26356000,
+        26359000
+      ],
+      "morpho_eventi": 1,
+      "morpho_valutati": 1,
+      "morpho_premio": 3545.95,
+      "morpho_premi": [
+        3545.95
+      ],
+      "aave_eventi": 0,
+      "persi": 0
+    },
+    {
+      "finestra": [
+        26360000,
+        26363000
+      ],
+      "morpho_eventi": 0,
+      "morpho_valutati": 0,
+      "morpho_premio": 0,
+      "morpho_premi": [],
+      "aave_eventi": 1,
+      "persi": 0
+    }
+  ]
+}
