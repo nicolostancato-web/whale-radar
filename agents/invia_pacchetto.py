@@ -145,6 +145,24 @@ PORTE = [("flashbots",  "https://relay.flashbots.net"),
          ("beaverbuild","https://rpc.beaverbuild.org"),
          ("buildernet", "https://rpc.buildernet.org"),
          ("titan",      "https://rpc.titanbuilder.xyz")]
+_BLX = {}
+
+
+def _chiave_blx():
+    """La credenziale bloXroute, letta UNA volta e tenuta in cache.
+    Non si rilegge il file delle credenziali a ogni colpo: siamo nel percorso
+    caldo, e una lettura di disco qui e' un regalo che facciamo ai
+    concorrenti. Se manca, si torna None e la terza porta semplicemente non
+    esiste -- nessun ripiego, nessun errore: le altre due bastano."""
+    if "k" not in _BLX:
+        try:
+            import chiavi
+            _BLX["k"] = chiavi.bloxroute()
+        except Exception:
+            _BLX["k"] = None
+    return _BLX["k"]
+
+
 def cast(*a):
     return subprocess.run([f"{FOUNDRY}/cast",*a],capture_output=True,
                           text=True).stdout.strip()
@@ -313,6 +331,29 @@ def a_tutte_le_porte_molti(metodo, corpi, kid=None):
         for nome, url in PORTE:
             if nome in NUDE:
                 lavoro.append((nome, url, corpo, intest_nudo))
+        # TERZA PORTA: bloXroute (7/11). Metodo e forma DIVERSI dagli altri,
+        # quindi non basta aggiungerla alla lista: `blxr_submit_bundle` vuole
+        # `transaction` + `block_number` e l'intestazione Authorization,
+        # niente firma.
+        # Perche' vale la pena: la consegna e' metà del nostro collo di
+        # bottiglia, la loro rete e' costruita per questo, e l'invio e'
+        # AUTORIZZATO sul piano gratuito -- provato con un payload vuoto, che
+        # viene rifiutato per il contenuto e non per il diritto. Zero euro.
+        # Non si aspetta e non si fa dipendere niente da lei: se e' lenta o
+        # cade, le altre due hanno gia' spedito.
+        _blx = _chiave_blx()
+        if _blx:
+            _txs = c.get("txs") or c.get("transaction") or []
+            _blocco = c.get("blockNumber") or c.get("block_number")
+            if _txs and _blocco:
+                _corpo_blx = json.dumps({
+                    "id": "1", "method": "blxr_submit_bundle",
+                    "params": {"transaction": [t[2:] if t.startswith("0x")
+                                               else t for t in _txs],
+                               "block_number": _blocco}}).encode()
+                lavoro.append(("bloxroute", "https://api.blxrbdn.com",
+                               _corpo_blx,
+                               dict(intest_nudo, Authorization=_blx)))
     def _firmate_dietro():
         """Le porte che vogliono la firma, fuori dal percorso critico."""
         ident = _IDENT.get(kid)
