@@ -2078,13 +2078,15 @@ try:
             _s3, _dd3, _p3, _ap3 = _PE3.preventivo(
                 _gar3, _deb3, str(_q3), _pg3["decimali"],
                 _pz3.get(_deb3.lower(), {}).get("decimali", 18))
-            _u3 = _UR3.get("uscita")
-            _r3 = _RM3.recupero(_gar3, _deb3, _q3, _u3) if _u3 else None
+            # la resa si legge da CHI HA SCELTO, non dal modulo di una sede
+            _sc3 = _RM3.ULTIMA_SCELTA
+            _r3 = _sc3.get("recupero")
+            _chi3 = _sc3.get("chi") or "?"
             dillo("la rotta che useremmo adesso rende abbastanza",
                   bool(_s3) and (_r3 is None or _r3 >= _RM3.SOGLIA_RECUPERO),
                   (f"su ${_usd3:,.0f} di vendita (debito ${_d3:,.0f}, "
                    f"tagliato dal tetto): "
-                   + (f"rende {_r3*100:.2f}%" if _r3 is not None
+                   + (f"{_chi3} rende {_r3*100:.2f}%" if _r3 is not None
                       else "resa non misurabile")
                    + (f", sede {str(_s3)[:12]}" if _s3
                       else "  <<< NESSUNA SEDE: rifiuteremmo")))

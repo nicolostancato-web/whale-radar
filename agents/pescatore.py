@@ -480,6 +480,9 @@ def _ripiego_uniswap(src, dst, q, perche):
             if r is not None and r < _RM.SOGLIA_RECUPERO:
                 print(f"   SEDE SCARTATA — {chi} rende solo {r*100:.2f}%")
                 return False
+            # la resa la registra CHI SCEGLIE: cosi' chi legge sa di quale
+            # sede sta parlando (vedi rotta_migliore.ULTIMA_SCELTA)
+            _RM.segna_scelta(chi, src, dst, q, uscita)
         except Exception:
             pass
         return True

@@ -35,6 +35,19 @@ SOGLIA_RECUPERO = 0.97      # sotto questo si cerca altrove
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
 _PREZZI = {"quando": 0.0, "d": {}}
+# CHI HA VINTO, E QUANTO RENDE. Lo registra chi SCEGLIE, non chi quota.
+# Errore mio del 7/11, dentro il controllo che avevo appena scritto per non
+# ripeterlo: leggevo la resa dal registro di vendita_uniswap mentre la sede
+# scelta era 1inch, e il controllo diceva "rende 0,01%" su una rotta che
+# rende il 99,67%. Misurare lo stadio sbagliato e' la mia famiglia di errori
+# piu' frequente, e ci ricasco anche negli strumenti che la sorvegliano.
+# Un numero porta il nome di CHI lo ha prodotto, sempre.
+ULTIMA_SCELTA = {"chi": None, "uscita": None, "recupero": None}
+
+
+def segna_scelta(chi, src, dst, q, uscita):
+    ULTIMA_SCELTA.update({"chi": chi, "uscita": uscita,
+                          "recupero": recupero(src, dst, q, uscita)})
 
 
 def _prezzi():
