@@ -1989,6 +1989,43 @@ except Exception as _e:
     dillo("i due contatori concordano sulle transazioni", False,
           str(_e)[:50])
 
+# IL GIUDIZIO DELLA ROTTA SCARTA DAVVERO UNA ROTTA CATTIVA? (7/11)
+# La riparazione del guasto piu' grave della giornata vive su questo ramo, e
+# il giorno in cui l'ho scritta NON si e' mai eseguito: Paraswap era in
+# castigo e `preventivo` usciva prima. Una riparazione non esercitata e' una
+# riparazione creduta per fede -- e proprio su questo ramo, perche' e' quello
+# che gira quando qualcosa e' gia' andato storto.
+# Qui si esercita con valori finti e senza rete: deterministico, e coglie una
+# regressione il giorno che qualcuno cambia la soglia o rompe il confronto.
+try:
+    import rotta_migliore as _RM2
+    _W = "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+    _U = "0xdac17f958d2ee523a2206206994597c13d831ec7"
+    _q = 76_670_800_000_000_000_000
+    _pv = _RM2.pari_valore(_W, _U, _q)
+    if not _pv:
+        dillo("il giudizio della rotta scarta una rotta cattiva", False,
+              "prezzo mancante: non posso giudicare")
+    else:
+        _cattiva = _RM2.recupero(_W, _U, _q, int(_pv * 0.3541))
+        _buona = _RM2.recupero(_W, _U, _q, int(_pv * 0.998))
+        _ok4 = (_cattiva < _RM2.SOGLIA_RECUPERO
+                and _buona >= _RM2.SOGLIA_RECUPERO)
+        dillo("il giudizio della rotta scarta una rotta cattiva", _ok4,
+              f"35,41% -> {'scartata' if _cattiva < _RM2.SOGLIA_RECUPERO else 'ACCETTATA'}, "
+              f"99,8% -> {'accettata' if _buona >= _RM2.SOGLIA_RECUPERO else 'SCARTATA'}, "
+              f"soglia {_RM2.SOGLIA_RECUPERO*100:.0f}%")
+    # e il ricambio deve esistere: una chiave assente rende il giudizio
+    # inutile, perche' scarteremmo senza avere dove andare
+    import chiavi as _CH2
+    dillo("c'e' una sede di ricambio se la prima rende poco",
+          bool(_CH2.uno_inch()),
+          "chiave 1inch presente" if _CH2.uno_inch() else
+          "NESSUNA chiave 1inch: scarteremmo senza alternative")
+except Exception as _e:
+    dillo("il giudizio della rotta scarta una rotta cattiva", False,
+          str(_e)[:60])
+
 n=sum(1 for _,ok,_ in ESITI if not ok)
 print(f"\n{'='*72}\nC-CHECK: {len(ESITI)-n} a posto, {n} da sistemare")
 json.dump({"quando":time.time(),"esiti":[{"che":a,"ok":b,"dettaglio":c} for a,b,c in ESITI]},

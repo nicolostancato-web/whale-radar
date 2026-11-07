@@ -48,6 +48,8 @@ BLOCCHI = [
    "la calldata usa un selettore che il contratto espone",
    "nessun ordine col selettore vecchio",
    "nessun ordine su una sede non provata",
+   "il giudizio della rotta scarta una rotta cattiva",
+   "c'e' una sede di ricambio se la prima rende poco",
    "dal prezzo che scende ai soldi in cassa",
    "nessun ordine cuce un indirizzo che non e' il nostro",
    "ARMATO", "ARMATA", "gettoni ammessi", "tutti i dati presenti", "la lista corta copre la popolazione in banda"]),
