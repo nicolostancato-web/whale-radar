@@ -1,0 +1,62 @@
+{
+ "0xa1290d69c65a6fe4df752f95823fae25cb99e5a7": {
+  "nome": "rsETH",
+  "migliore": null,
+  "reso": null,
+  "ammissibile": false
+ },
+ "0xf1c9acdc66974dfb6decb12aa385b9cd01190e38": {
+  "nome": "osETH",
+  "migliore": null,
+  "reso": null,
+  "ammissibile": false
+ },
+ "0x4c9edd5852cd905f086c759e8383e09bff1e68b3": {
+  "nome": "USDe",
+  "migliore": "USDC",
+  "reso": 1.0008,
+  "ammissibile": true
+ },
+ "0x356b8d89c1e1239cbbb9de4815c39a1474d5ba7d": {
+  "nome": "syrupUSDT",
+  "migliore": null,
+  "reso": null,
+  "ammissibile": false
+ },
+ "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": {
+  "nome": "cbBTC",
+  "migliore": "WETH",
+  "reso": 0.9999,
+  "ammissibile": true
+ },
+ "0xbe9895146f7af43049ca1c1ae358b0541ea49704": {
+  "nome": "cbETH",
+  "migliore": "WETH",
+  "reso": 0.9978,
+  "ammissibile": true
+ },
+ "0xae78736cd615f374d3085123a210448e74fc6393": {
+  "nome": "rETH",
+  "migliore": "WETH",
+  "reso": 0.9997,
+  "ammissibile": true
+ },
+ "0x8236a87084f8b84306f72007f36f2618a5634494": {
+  "nome": "LBTC",
+  "migliore": "WETH",
+  "reso": 0.9938,
+  "ammissibile": true
+ },
+ "0x18084fba666a33d37592fa2633fd49a74dd93a88": {
+  "nome": "tBTC",
+  "migliore": "WETH",
+  "reso": 1.0001,
+  "ammissibile": true
+ },
+ "0x68749665ff8d2d112fa859aa293f07a622782f38": {
+  "nome": "XAUt",
+  "migliore": "WETH",
+  "reso": 0.9959,
+  "ammissibile": true
+ }
+}

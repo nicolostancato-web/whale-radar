@@ -1,0 +1,27 @@
+{
+ "quando": 1794054865.946611,
+ "testa": 26363004,
+ "righe": [
+  {
+   "utente": "0xae9f7554b98d485de0b6ec8b8954a43f90c451a9",
+   "debito": 23.40628141,
+   "stato": "GIA' SOTTO",
+   "blocchi": 0,
+   "passo": 0.0
+  },
+  {
+   "utente": "0xd5e72ab342dba695a7f042a614f7635bccbb916b",
+   "debito": 6.24364258,
+   "stato": "GIA' SOTTO",
+   "blocchi": 0,
+   "passo": 0.0
+  },
+  {
+   "utente": "0x69fc3fdff69bb82c3b0870d4e3717ca77f92b978",
+   "debito": 9.76135076,
+   "stato": "GIA' SOTTO",
+   "blocchi": 0,
+   "passo": 12.713333333333333
+  }
+ ]
+}

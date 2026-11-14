@@ -1,0 +1,30 @@
+{
+ "simulati": 2360,
+ "buoni": 0,
+ "eventi": 629,
+ "quando": 1794083224.844275,
+ "oracolo_ko": 8,
+ "motivi": {
+  "pacchetto non simulabile": 612,
+  "NON era liquidabile (HealthFactorNotBelowThreshold)": 1676,
+  "l'oracolo stesso non passa": 8,
+  "garanzia da prendere ZERO (InvalidBurnAmount)": 64
+ },
+ "finestra": {
+  "da": 1794085505.377981,
+  "simulati": 0,
+  "buoni": 0,
+  "motivi": {},
+  "dopo_quale_riparazione": "sentinella esclude credito morto (garanzia < 1 $)"
+ },
+ "finestra_precedente": {
+  "da": 1794075244.2138429,
+  "simulati": 14,
+  "buoni": 0,
+  "motivi": {
+   "garanzia da prendere ZERO (InvalidBurnAmount)": 8,
+   "NON era liquidabile (HealthFactorNotBelowThreshold)": 6
+  },
+  "chiusa_perche": "riparazione del 7/11 21:20: la sentinella esclude il credito morto"
+ }
+}

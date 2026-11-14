@@ -1,0 +1,36 @@
+{
+ "quando": 1793875339.5840042,
+ "nonce": 3,
+ "da_blocco": 26348104,
+ "gwei": 30,
+ "accettata_da": {
+  "26348104": {
+   "flashbots": true,
+   "beaverbuild": true,
+   "buildernet": true,
+   "titan": true
+  },
+  "26348105": {
+   "flashbots": true,
+   "beaverbuild": true,
+   "buildernet": true,
+   "titan": true
+  },
+  "26348106": {
+   "flashbots": true,
+   "beaverbuild": true,
+   "buildernet": true,
+   "titan": true
+  }
+ },
+ "inclusa": true,
+ "nonce_ora": 4,
+ "blocco": 26348104,
+ "posizione": 6,
+ "su_transazioni": 927,
+ "costruttore": "beaverbuild",
+ "tx": "0xc1acdb9d996a6cee269de02e9b0ccc1168cb3cee003efe2ad40ca48a0cbcaec5",
+ "costo_eth": 0.000632,
+ "costo_usd": 1.53,
+ "conclusione": "nessun filtro di reputazione contro di noi: beaverbuild ci include in posizione 6 su 927 quando portiamo valore"
+}

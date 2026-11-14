@@ -1,0 +1,22 @@
+{
+ "quando": 1793752760.543285,
+ "rilette": 25,
+ "uguali": 24,
+ "cambiate": 1,
+ "mute": 0,
+ "dettagli": [
+  {
+   "posizione": "0x0f8f3f27a9626de852cff35c9ed1a261131b70fe",
+   "salute": 1.0006,
+   "prima": {
+    "gar": "0x7f39c581f5",
+    "deb": "0xc02aaa39b2"
+   },
+   "adesso": {
+    "gar": "0xcd5fe23c85",
+    "deb": "0xc02aaa39b2"
+   },
+   "premio_in_gioco": 23541.82
+  }
+ ]
+}

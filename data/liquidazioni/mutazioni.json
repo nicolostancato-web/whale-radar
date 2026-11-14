@@ -1,0 +1,52 @@
+{
+ "quando": 1794074636.3098629,
+ "fermate": 9,
+ "totale": 9,
+ "esiti": [
+  {
+   "lezione": "un solo processo armato, e la guardia lo sa",
+   "fermata": true,
+   "dettaglio": "1 sentinelle vive, guardia e processo concordano"
+  },
+  {
+   "lezione": "un fallimento non rinnova la freschezza",
+   "fermata": true,
+   "dettaglio": "un fallimento di un'ora viene riproposto"
+  },
+  {
+   "lezione": "il premio non viene dal debito",
+   "fermata": true,
+   "dettaglio": "premio calcolato -25,000.00 (<=0: credito morto, giusto)"
+  },
+  {
+   "lezione": "una rotta al 35% viene scartata",
+   "fermata": true,
+   "dettaglio": "35,41% scartata (soglia 97%)"
+  },
+  {
+   "lezione": "una stringa al confine non rompe niente",
+   "fermata": true,
+   "dettaglio": "stringa accettata, sede 0x68b3465833"
+  },
+  {
+   "lezione": "una porta che manda hash viene rifiutata",
+   "fermata": true,
+   "dettaglio": "rifiutata: manda SOLO HASH invece delle transazioni intere: inutile per"
+  },
+  {
+   "lezione": "le righe non sono i casi",
+   "fermata": true,
+   "dettaglio": "14 eventi, 12 transazioni, 2 aggregate"
+  },
+  {
+   "lezione": "la guardia conosce il costo del colpo",
+   "fermata": true,
+   "dettaglio": "un premio di 0.07 $ sotto il costo 0.14 $ verrebbe rifiutato"
+  },
+  {
+   "lezione": "la coda di ricomposizione non si accumula",
+   "fermata": true,
+   "dettaglio": "0 in coda (sotto 50: non si accumula)"
+  }
+ ]
+}

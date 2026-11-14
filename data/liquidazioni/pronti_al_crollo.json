@@ -1,0 +1,201 @@
+{
+ "quando": 1794065224.118966,
+ "margine_attuale_bp": 9000,
+ "righe": [
+  {
+   "calo_percento": 3,
+   "cadono": 7,
+   "con_ordine": 7,
+   "ordine_fresco": 7,
+   "scoperte": 0,
+   "scoperte_chi": [],
+   "senza_strada_noto": 0,
+   "premio_mediano": 413.0,
+   "premio_totale": 36559.0
+  },
+  {
+   "calo_percento": 5,
+   "cadono": 42,
+   "con_ordine": 41,
+   "ordine_fresco": 41,
+   "scoperte": 1,
+   "scoperte_chi": [
+    {
+     "indirizzo": "0xe7ff69467255600fd11c559ca442a1bd3d80e738",
+     "debito_usd": 14918.88,
+     "garanzia": "0x2260fac5e5",
+     "debito": "0xdac17f958d",
+     "ordine": "vecchio di 0.0 ore"
+    }
+   ],
+   "senza_strada_noto": 0,
+   "premio_mediano": 603.0,
+   "premio_totale": 511207.0
+  },
+  {
+   "calo_percento": 6,
+   "cadono": 57,
+   "con_ordine": 56,
+   "ordine_fresco": 56,
+   "scoperte": 1,
+   "scoperte_chi": [
+    {
+     "indirizzo": "0xe7ff69467255600fd11c559ca442a1bd3d80e738",
+     "debito_usd": 14918.88,
+     "garanzia": "0x2260fac5e5",
+     "debito": "0xdac17f958d",
+     "ordine": "vecchio di 0.0 ore"
+    }
+   ],
+   "senza_strada_noto": 0,
+   "premio_mediano": 799.0,
+   "premio_totale": 670537.0
+  },
+  {
+   "calo_percento": 9,
+   "cadono": 114,
+   "con_ordine": 111,
+   "ordine_fresco": 111,
+   "scoperte": 3,
+   "scoperte_chi": [
+    {
+     "indirizzo": "0x1cebd13797636b94c5cad7108cebe42d2fce7732",
+     "debito_usd": 4502147.65,
+     "garanzia": "0xcbb7c0000a",
+     "debito": "0x6b175474e8",
+     "ordine": "vecchio di 0.0 ore"
+    },
+    {
+     "indirizzo": "0x8856f4c5c72a00a8a7369f1e41f66bb7d179e2b3",
+     "debito_usd": 34161.07,
+     "garanzia": "0xc02aaa39b2",
+     "debito": "0xdac17f958d",
+     "ordine": "vecchio di 0.0 ore"
+    },
+    {
+     "indirizzo": "0xe7ff69467255600fd11c559ca442a1bd3d80e738",
+     "debito_usd": 14918.88,
+     "garanzia": "0x2260fac5e5",
+     "debito": "0xdac17f958d",
+     "ordine": "vecchio di 0.0 ore"
+    }
+   ],
+   "senza_strada_noto": 0,
+   "premio_mediano": 1059.0,
+   "premio_totale": 1583784.0
+  },
+  {
+   "calo_percento": 12,
+   "cadono": 228,
+   "con_ordine": 225,
+   "ordine_fresco": 225,
+   "scoperte": 3,
+   "scoperte_chi": [
+    {
+     "indirizzo": "0x1cebd13797636b94c5cad7108cebe42d2fce7732",
+     "debito_usd": 4502147.65,
+     "garanzia": "0xcbb7c0000a",
+     "debito": "0x6b175474e8",
+     "ordine": "vecchio di 0.0 ore"
+    },
+    {
+     "indirizzo": "0x8856f4c5c72a00a8a7369f1e41f66bb7d179e2b3",
+     "debito_usd": 34161.07,
+     "garanzia": "0xc02aaa39b2",
+     "debito": "0xdac17f958d",
+     "ordine": "vecchio di 0.0 ore"
+    },
+    {
+     "indirizzo": "0xe7ff69467255600fd11c559ca442a1bd3d80e738",
+     "debito_usd": 14918.88,
+     "garanzia": "0x2260fac5e5",
+     "debito": "0xdac17f958d",
+     "ordine": "vecchio di 0.0 ore"
+    }
+   ],
+   "senza_strada_noto": 0,
+   "premio_mediano": 1343.0,
+   "premio_totale": 3112487.0
+  },
+  {
+   "calo_percento": 15,
+   "cadono": 349,
+   "con_ordine": 345,
+   "ordine_fresco": 345,
+   "scoperte": 4,
+   "scoperte_chi": [
+    {
+     "indirizzo": "0x1cebd13797636b94c5cad7108cebe42d2fce7732",
+     "debito_usd": 4502147.65,
+     "garanzia": "0xcbb7c0000a",
+     "debito": "0x6b175474e8",
+     "ordine": "vecchio di 0.0 ore"
+    },
+    {
+     "indirizzo": "0x8856f4c5c72a00a8a7369f1e41f66bb7d179e2b3",
+     "debito_usd": 34161.07,
+     "garanzia": "0xc02aaa39b2",
+     "debito": "0xdac17f958d",
+     "ordine": "vecchio di 0.0 ore"
+    },
+    {
+     "indirizzo": "0xd8c22132684460e9d4cbe5d4d53ed79db2ee936c",
+     "debito_usd": 124810.98,
+     "garanzia": "0x7fc66500c8",
+     "debito": "0xdac17f958d",
+     "ordine": "vecchio di 0.0 ore"
+    },
+    {
+     "indirizzo": "0xe7ff69467255600fd11c559ca442a1bd3d80e738",
+     "debito_usd": 14918.88,
+     "garanzia": "0x2260fac5e5",
+     "debito": "0xdac17f958d",
+     "ordine": "vecchio di 0.0 ore"
+    }
+   ],
+   "senza_strada_noto": 0,
+   "premio_mediano": 1208.0,
+   "premio_totale": 4022677.0
+  },
+  {
+   "calo_percento": 20,
+   "cadono": 616,
+   "con_ordine": 612,
+   "ordine_fresco": 612,
+   "scoperte": 4,
+   "scoperte_chi": [
+    {
+     "indirizzo": "0x1cebd13797636b94c5cad7108cebe42d2fce7732",
+     "debito_usd": 4502147.65,
+     "garanzia": "0xcbb7c0000a",
+     "debito": "0x6b175474e8",
+     "ordine": "vecchio di 0.0 ore"
+    },
+    {
+     "indirizzo": "0x8856f4c5c72a00a8a7369f1e41f66bb7d179e2b3",
+     "debito_usd": 34161.07,
+     "garanzia": "0xc02aaa39b2",
+     "debito": "0xdac17f958d",
+     "ordine": "vecchio di 0.0 ore"
+    },
+    {
+     "indirizzo": "0xd8c22132684460e9d4cbe5d4d53ed79db2ee936c",
+     "debito_usd": 124810.98,
+     "garanzia": "0x7fc66500c8",
+     "debito": "0xdac17f958d",
+     "ordine": "vecchio di 0.0 ore"
+    },
+    {
+     "indirizzo": "0xe7ff69467255600fd11c559ca442a1bd3d80e738",
+     "debito_usd": 14918.88,
+     "garanzia": "0x2260fac5e5",
+     "debito": "0xdac17f958d",
+     "ordine": "vecchio di 0.0 ore"
+    }
+   ],
+   "senza_strada_noto": 0,
+   "premio_mediano": 1450.0,
+   "premio_totale": 6814818.0
+  }
+ ]
+}

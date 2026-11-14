@@ -1,0 +1,5348 @@
+[
+ {
+  "indirizzo": "0x0f8f3f27a9626de852cff35c9ed1a261131b70fe",
+  "salute": 1.000509421196222,
+  "debito": 3324212.50707315,
+  "garanzia": 3500953.61198421,
+  "soglia": 95.0,
+  "caduta_necessaria": 0.05091618183994395,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x4b2877a94ead57e8a5e07b7b044eaeb59f605886",
+  "salute": 1.0005096624145338,
+  "debito": 3637106.63442088,
+  "garanzia": 3830484.55891589,
+  "soglia": 95.0,
+  "caduta_necessaria": 0.05094027910772514,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x19647b0e6f6e3776378dac18047148d324472e02",
+  "salute": 1.000538341930433,
+  "debito": 2275290.57035342,
+  "garanzia": 2396332.0575488,
+  "soglia": 95.0,
+  "caduta_necessaria": 0.053805227433301184,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xf8f59620f260583e833d43a1940e6d210d0ce912",
+  "salute": 1.0005508963817589,
+  "debito": 5765615.88015578,
+  "garanzia": 6072412.7758766,
+  "soglia": 95.0,
+  "caduta_necessaria": 0.05505930620332,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb3c4f7d668164e3bf28f6ac377005caeb6012e1f",
+  "salute": 1.0005614293486425,
+  "debito": 2502296.49102008,
+  "garanzia": 2635475.10916752,
+  "soglia": 95.0,
+  "caduta_necessaria": 0.05611143225937587,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xbc9d1be2a5609525efd9273cd254ef7c156ac33c",
+  "salute": 1.0005956002655119,
+  "debito": 1358987.80019217,
+  "garanzia": 1431365.48809136,
+  "soglia": 95.0,
+  "caduta_necessaria": 0.059524573699287764,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xaf6e0473f86360a91fc88564927372cdf999b8ad",
+  "salute": 1.0006107967817488,
+  "debito": 6810014.43066763,
+  "garanzia": 7172814.70059531,
+  "soglia": 95.0,
+  "caduta_necessaria": 0.0610423936772686,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x1b5799899fce13c8ea3e22f1d825dbd22f3f7881",
+  "salute": 1.0006183584887633,
+  "debito": 5772752.22994927,
+  "garanzia": 6080338.80030967,
+  "soglia": 95.0,
+  "caduta_necessaria": 0.06179763578366693,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x7aeb8a4ee244f93778a947383245c834a4cba6cd",
+  "salute": 1.0006488534996822,
+  "debito": 6634542.02122867,
+  "garanzia": 6988259.86003993,
+  "soglia": 95.0,
+  "caduta_necessaria": 0.06484327618154762,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xafbf278e06d2269aba2a4898afbab2ecb2584924",
+  "salute": 1.0006562959926784,
+  "debito": 1133827.48436748,
+  "garanzia": 1194285.90610722,
+  "soglia": 95.0,
+  "caduta_necessaria": 0.06558655507457045,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb49e0ca065e4bb2fef4c3eb98dc658094d4b0492",
+  "salute": 1.000678831654839,
+  "debito": 2593867.89747451,
+  "garanzia": 2732240.73380188,
+  "soglia": 95.0,
+  "caduta_necessaria": 0.06783711550252258,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xe83f596297dc4ebbd97e7e17843716103cddbdf6",
+  "salute": 1.0006991145426543,
+  "debito": 1642159.75440268,
+  "garanzia": 1729797.69701931,
+  "soglia": 95.0,
+  "caduta_necessaria": 0.06986261229717794,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x852f79dad4e6c44a89be189dc3ecf51b3c5273c8",
+  "salute": 1.0008273308936957,
+  "debito": 701021.02027916,
+  "garanzia": 738527.36486986,
+  "soglia": 95.0,
+  "caduta_necessaria": 0.08266469831084144,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x276f389a51116055ab13c0cb6afec83b01a22f5c",
+  "salute": 1.000933376046205,
+  "debito": 1065.68556526,
+  "garanzia": 1402.12034102,
+  "soglia": 76.07,
+  "caduta_necessaria": 0.09325056677517152,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xfcc83b338ba980f501e51110c7f51791a21d4a28",
+  "salute": 1.0010176307380905,
+  "debito": 908088.72073873,
+  "garanzia": 956855.59971986,
+  "soglia": 95.0,
+  "caduta_necessaria": 0.10165962185302302,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x7231eaeea108e3ea05c993cbee21f23ddd7a44bf",
+  "salute": 1.001043675007752,
+  "debito": 2943674.3947238,
+  "garanzia": 3101838.56223214,
+  "soglia": 95.0,
+  "caduta_necessaria": 0.10425868858758847,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x4998ff53c34e25495c21652be7ce63b0e40b0995",
+  "salute": 1.0011488525993641,
+  "debito": 1284791.18620172,
+  "garanzia": 1353965.49673224,
+  "soglia": 95.0,
+  "caduta_necessaria": 0.1147534251656257,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xfd35cbcda1cd25c48bc9dfc032565f163dc43aab",
+  "salute": 1.0011567955837521,
+  "debito": 2268618.32043054,
+  "garanzia": 2390781.73482614,
+  "soglia": 95.0,
+  "caduta_necessaria": 0.1155458953936983,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x00901e253a7e666687b2bfccfd8dde7be9fba4df",
+  "salute": 1.0011696179416714,
+  "debito": 2268824.72609589,
+  "garanzia": 2391029.87810741,
+  "soglia": 95.0,
+  "caduta_necessaria": 0.11682515337171351,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x1a557354c5b8d7df38ea914209e416dc7065b158",
+  "salute": 1.0022665817474705,
+  "debito": 3099923.08416433,
+  "garanzia": 3270472.96131101,
+  "soglia": 95.0,
+  "caduta_necessaria": 0.22614559726402694,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x037a4486b28f0e3b34a4a6e7c4a915280e731a45",
+  "salute": 1.002275121145479,
+  "debito": 1221488.75644551,
+  "garanzia": 1288702.93825712,
+  "soglia": 95.0,
+  "caduta_necessaria": 0.22699567189483627,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xee2826453a4fd5afeb7ceffeef3ffa2320081268",
+  "salute": 1.0034438795348821,
+  "debito": 23736557.82084198,
+  "garanzia": 25071898.59636813,
+  "soglia": 95.0,
+  "caduta_necessaria": 0.34320599339132674,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x56b8a8dfae36edd33df91606fe4ece49e4d76ac1",
+  "salute": 1.0096118698098677,
+  "debito": 17174.72989006,
+  "garanzia": 20619.26833793,
+  "soglia": 84.09,
+  "caduta_necessaria": 0.9520361336161631,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x18a95d140a0c89714093b887dcbba2c5d0210170",
+  "salute": 1.0098038405253258,
+  "debito": 53414.52931143,
+  "garanzia": 56777.04935663,
+  "soglia": 94.99,
+  "caduta_necessaria": 0.9708658386786917,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x142a1690671db35337b3ed8007aa9c6e90b5f439",
+  "salute": 1.010484630209316,
+  "debito": 2172054.95225147,
+  "garanzia": 2310345.4160212,
+  "soglia": 95.0,
+  "caduta_necessaria": 1.0375843328902623,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x352ec9467ea15e5ad76e2f27ebe563589e93875f",
+  "salute": 1.0107312791348775,
+  "debito": 273626.44053181,
+  "garanzia": 354567.69518441,
+  "soglia": 78.0,
+  "caduta_necessaria": 1.0617341479787545,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x462a336dcac6eaf544106266914caa5a18b831d0",
+  "salute": 1.0116514828001586,
+  "debito": 13060653.31219889,
+  "garanzia": 13908241.3574998,
+  "soglia": 95.0,
+  "caduta_necessaria": 1.1517289301952394,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xadf22a37e228fda1129a8ab7eff9af7465b6559d",
+  "salute": 1.012350118385106,
+  "debito": 4885012.41396375,
+  "garanzia": 5205624.10061991,
+  "soglia": 95.0,
+  "caduta_necessaria": 1.219945368782771,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x397e780fa116e2307bd762e10c4d6a7a12207718",
+  "salute": 1.0130881129655371,
+  "debito": 897527.86633702,
+  "garanzia": 1165736.93902738,
+  "soglia": 78.0,
+  "caduta_necessaria": 1.2919027277129236,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x1987f733e4c9b95e895c3c4dec6efbf2e6167199",
+  "salute": 1.0141892865983264,
+  "debito": 5039.24619658,
+  "garanzia": 6552.24295526,
+  "soglia": 78.0,
+  "caduta_necessaria": 1.3990767587299668,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xf85f683497512bb38e2ad87b29c8dedddf6a7450",
+  "salute": 1.0164412773245848,
+  "debito": 56130.88668883,
+  "garanzia": 60267.0628243,
+  "soglia": 94.66,
+  "caduta_necessaria": 1.6175334169683198,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xf703367ef2e98d359dcebe2aa6541b69c846f084",
+  "salute": 1.0169239706446291,
+  "debito": 22948.41834739,
+  "garanzia": 28287.15426973,
+  "soglia": 82.49,
+  "caduta_necessaria": 1.664231656758075,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x78a06d662ba80b94b2462a5cbe04dd234ac5a119",
+  "salute": 1.0174441830497016,
+  "debito": 1624.95313458,
+  "garanzia": 1758.82884522,
+  "soglia": 94.0,
+  "caduta_necessaria": 1.7145100773404809,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x298e013544c56aa8cd0ca7770b8680fa3bbe0d64",
+  "salute": 1.0178023153916156,
+  "debito": 179076.46477978,
+  "garanzia": 198113.52226631,
+  "soglia": 92.0,
+  "caduta_necessaria": 1.749093622838327,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x5922369a1d651752bcf1b5bfec16ed034ad41843",
+  "salute": 1.0186750017930708,
+  "debito": 1104.4474137,
+  "garanzia": 1442.40124504,
+  "soglia": 78.0,
+  "caduta_necessaria": 1.8332639713548593,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc6b122b1933b0135a490b45e20f23803e78a73d2",
+  "salute": 1.0191869855429125,
+  "debito": 168.07445822,
+  "garanzia": 201.18102738,
+  "soglia": 85.14,
+  "caduta_necessaria": 1.8825775657537291,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa9f86d9eaf339305cd36e76bc0de7ac5b024f075",
+  "salute": 1.0193551565242827,
+  "debito": 792591.07916304,
+  "garanzia": 878186.74299999,
+  "soglia": 92.0,
+  "caduta_necessaria": 1.8987647632330962,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x1b44653227a22b5ea4845b453b7a061a9aaeb39a",
+  "salute": 1.0204966273642484,
+  "debito": 11791.9427645,
+  "garanzia": 14157.22096617,
+  "soglia": 85.0,
+  "caduta_necessaria": 2.0084953555591256,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x50fe5b3092dec443a0f641ccef83d6bd7603e6b7",
+  "salute": 1.0210413971687613,
+  "debito": 14351838.08811013,
+  "garanzia": 15756796.57357399,
+  "soglia": 93.0,
+  "caduta_necessaria": 2.060778067089819,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x84ad8621f32ec9434f16075ec761422706412662",
+  "salute": 1.0212383136948275,
+  "debito": 307494.70978129,
+  "garanzia": 330553.0304075,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.0796628377550364,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xca5a603cfbb717ba23f396da2acb12f768edb073",
+  "salute": 1.021504520251792,
+  "debito": 73366.85262802,
+  "garanzia": 78889.02273281,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.1051811152525635,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x7ed63248549e42b88efbb0e2bb796aca3e19ac29",
+  "salute": 1.0215352443835377,
+  "debito": 4175.78035057,
+  "garanzia": 4490.21768517,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.1081254417740114,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x7cd8547daac215dfb00ba4be6c1b34bda3423465",
+  "salute": 1.0215435940006978,
+  "debito": 21799681.73865208,
+  "garanzia": 23441394.98039371,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.1089255639425097,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x0441b0be4a0e015788be5cb57415424a2cadb4a2",
+  "salute": 1.0215466781196127,
+  "debito": 2302279.5585559,
+  "garanzia": 2475669.51067944,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.109221103755554,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x36336e5a260d4377f72260e48de89f459ecd3d8b",
+  "salute": 1.0215686949310725,
+  "debito": 2818.81218522,
+  "garanzia": 3031.16872138,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.1113308422717303,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb6b016601547ec504d7da6c98949cd058c15425f",
+  "salute": 1.0215816862911262,
+  "debito": 34181.43966678,
+  "garanzia": 36756.98186805,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.1125756834462273,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x7001e8f35e637fda43eed88d34adfd425ad9934e",
+  "salute": 1.0215819326370292,
+  "debito": 916973.77121179,
+  "garanzia": 986067.19723369,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.1125992881764644,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x92776c4e6ec52f52f91a877c558cd9ee15c0177b",
+  "salute": 1.0216348396125308,
+  "debito": 3223.24696087,
+  "garanzia": 3466.296202,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.117668541994522,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xaa78440a3ac8ee185d568f9d286c19685012feae",
+  "salute": 1.0216516142743943,
+  "debito": 1621.66429706,
+  "garanzia": 1743.97468095,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.1192756877080776,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc161e6585292a4d50f3cc14c009935e805b71172",
+  "salute": 1.0217186725694303,
+  "debito": 2826.91128835,
+  "garanzia": 3040.32426211,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.1256998773264923,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x8f2ad5d87f8cf7824b120d266486e722b1a264df",
+  "salute": 1.0217262158291698,
+  "debito": 61058.71460841,
+  "garanzia": 65668.72570552,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.1264224694027334,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa41d9f2656610f1ad2a57d8c80b9bfb8f0c3ca78",
+  "salute": 1.0217546944275029,
+  "debito": 155019.13143333,
+  "garanzia": 166727.92133482,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.129150425845827,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xf3f0d49d2cd90887e80c5253bf91635c01df9ac4",
+  "salute": 1.0217846259407795,
+  "debito": 61047.29900806,
+  "garanzia": 65660.20166489,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.1320173926791974,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xcebedb9ffbfd54345b527871b8030157919db06e",
+  "salute": 1.0217846338922807,
+  "debito": 8745.75632056,
+  "garanzia": 9406.60991591,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.1320181542852645,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x2c24ee81ea6fd6689ca163a5a3ad0e18b20913d5",
+  "salute": 1.0217957712517833,
+  "debito": 451619.26244884,
+  "garanzia": 485750.16061692,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.133084894751691,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x5e03895350a3cb9d9c88a15474c3e46996b2cac0",
+  "salute": 1.0217971499255392,
+  "debito": 35800.82251151,
+  "garanzia": 38506.50358658,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.133216943023142,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc9c454937a7938003fa37dc967ab0f95546f7954",
+  "salute": 1.02179922523573,
+  "debito": 8228776.6795187,
+  "garanzia": 8850692.248179,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.133415713904152,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x8b8bd2d63a0485d0dd372118277104f482d47acc",
+  "salute": 1.0218070800167063,
+  "debito": 3093.61077225,
+  "garanzia": 3327.44567358,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.134168028699679,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa5cc441cf49a29bb37c5b639469a0010c5e8d681",
+  "salute": 1.0218107074457876,
+  "debito": 313730.22784094,
+  "garanzia": 337445.16427082,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.1345154525056476,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x9ef4ee27cc95557a81df651cf5a50f1ae7c8e10d",
+  "salute": 1.021814228173879,
+  "debito": 1422480.30255518,
+  "garanzia": 1530011.17099786,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.1348526544657576,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x8acfaf8a6c519c4f674ab28e3a7ecb2792de9cd7",
+  "salute": 1.0218142412218039,
+  "debito": 3045905.65085564,
+  "garanzia": 3276157.6541708,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.13485390414212,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x50768e7c56eaca7e60c6e22c5b7d6eb55a9429f0",
+  "salute": 1.021814254606648,
+  "debito": 1420629.20259611,
+  "garanzia": 1528020.17865598,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.13485518608717,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x3f990beb1d0844a68d98e6c2dfbed4ddd00906a2",
+  "salute": 1.0218143335589511,
+  "debito": 290413.62979677,
+  "garanzia": 312367.16798655,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.134862747811772,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x56513d10b5d4cb745b754904117ca83ee7e1430a",
+  "salute": 1.0218200732019864,
+  "debito": 129343.92924404,
+  "garanzia": 139122.34026145,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.135412463919484,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x3972f108f16cc99cd899a3669d220a072b6fecbf",
+  "salute": 1.02184304250369,
+  "debito": 143693.77626289,
+  "garanzia": 154560.51107928,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.1376122941710096,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x214df06a743e564da4a6a1a485cc91fa82ea29b8",
+  "salute": 1.0218488350811588,
+  "debito": 613069.24309084,
+  "garanzia": 659435.88618575,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.1381670488887394,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xf787d120215f87593e546b8d2766ac67e5fc82ee",
+  "salute": 1.0218493228453482,
+  "debito": 4578257.53720677,
+  "garanzia": 4924515.12021721,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.138213761742158,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x2e268cc9b592e66400e9b53ef8f9245b681c9aa0",
+  "salute": 1.0218533174414564,
+  "debito": 4578238.14470292,
+  "garanzia": 4924513.51179126,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.1385963198879976,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xbdacdc5db640d6f39062a1f313adf1f977770354",
+  "salute": 1.0218608589846299,
+  "debito": 4578205.28203072,
+  "garanzia": 4924514.50747777,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.1393185571616735,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc0194af7f0279d44e1fe8387976af72b99d281ee",
+  "salute": 1.0218612126519275,
+  "debito": 16779.81928613,
+  "garanzia": 18049.1015619,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.139352426851926,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xf999387f0620aaa0bdf124cb8aa215746bc04ef4",
+  "salute": 1.0218638630824033,
+  "debito": 4943.5904917,
+  "garanzia": 5317.55418668,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.1396062501370827,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc90ab6296368fc504b865a53d192cfbe1a81bc96",
+  "salute": 1.0218659483440455,
+  "debito": 30521.21724861,
+  "garanzia": 32830.09748249,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.139805948077611,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xfb5c04dba0b0cd1323b0898b08d325c0369d8bf7",
+  "salute": 1.0218724172395983,
+  "debito": 57097.12053449,
+  "garanzia": 61416.81324,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.1404254455446248,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x7d18ce5a8c3035f2cf60a45d25608629687f144b",
+  "salute": 1.0218734666293923,
+  "debito": 2909.32214302,
+  "garanzia": 3129.43063561,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.1405259402165533,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x0e09214b23566a8300d477d4d9ce74a8dd7d4f15",
+  "salute": 1.0218748948392937,
+  "debito": 152604.7086437,
+  "garanzia": 164150.44273396,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.1406627122133037,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x00a35c9b94d849ea35ec37e4fd2ec47b391beaba",
+  "salute": 1.0218780640058833,
+  "debito": 14847.7708745,
+  "garanzia": 15971.16984846,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.140966204922601,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x649b40995da1f8baff4aaa118be87363e44ab001",
+  "salute": 1.021957396140184,
+  "debito": 274672.75998446,
+  "garanzia": 295477.74587827,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.148562770142337,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xf24ae131a225968b5162daaffba4f98d38a23716",
+  "salute": 1.0219803264178595,
+  "debito": 21134.45789131,
+  "garanzia": 22735.78965729,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.150758272901665,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x94963b928498be7f06637c3d57ea1e74d7f73423",
+  "salute": 1.0221134757672368,
+  "debito": 4093787.91225582,
+  "garanzia": 4404542.93899968,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.163504962170426,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa5704b9aa25e8945f581b8a85a7f9122a55bbc15",
+  "salute": 1.0221519690214096,
+  "debito": 8058502.0223185,
+  "garanzia": 8953275.77116942,
+  "soglia": 92.0,
+  "caduta_necessaria": 2.167189389912094,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x0591926d5d3b9cc48ae6efb8db68025ddc3adfa5",
+  "salute": 1.0224476172529684,
+  "debito": 45201589.31651632,
+  "garanzia": 50235062.27469494,
+  "soglia": 92.0,
+  "caduta_necessaria": 2.195478465026779,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x3b84d2ca0e7f68b6698f4920a0150a145794f42e",
+  "salute": 1.0226062450814217,
+  "debito": 19117934.96769447,
+  "garanzia": 20579073.35897353,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.2106500121776396,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xda43cce1263c1b8c8bfacf517fc7dd19d7dd41bd",
+  "salute": 1.0226480442669277,
+  "debito": 54870230.48171248,
+  "garanzia": 60336488.05440735,
+  "soglia": 93.0,
+  "caduta_necessaria": 2.2146470033258314,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x671730450c132914662dfa6beda90f8a1a4cf84a",
+  "salute": 1.0228330276061368,
+  "debito": 174928.30640055,
+  "garanzia": 188339.42026283,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.2323318655026014,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x5e9c1df66b6a1a5d2d7afd277a33d902c80f6f27",
+  "salute": 1.0231203781725584,
+  "debito": 17318509.54400612,
+  "garanzia": 18651494.77268274,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.2597906039028115,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x99d6d7304cfe177123212edd73fbafa99314c301",
+  "salute": 1.0237022364810162,
+  "debito": 1766674.94464387,
+  "garanzia": 1965814.23039881,
+  "soglia": 92.0,
+  "caduta_necessaria": 2.3153447981605346,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xcf0a12cbd8088fc5f84ad431e71787157041cd69",
+  "salute": 1.0237905150827336,
+  "debito": 36342704.42737355,
+  "garanzia": 40007866.7582799,
+  "soglia": 93.0,
+  "caduta_necessaria": 2.3237678736270584,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x08b6470e62235947b766ac63f584a52d25cb14e6",
+  "salute": 1.0238845064643767,
+  "debito": 8308521.74382859,
+  "garanzia": 8954701.77381945,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.3327344357278568,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x3c60b1a4abb27492e076a7d78604f1880262e10e",
+  "salute": 1.0239924126523432,
+  "debito": 234443.16151915,
+  "garanzia": 260943.49857867,
+  "soglia": 91.99,
+  "caduta_necessaria": 2.343026408779547,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xf17ee8afce3cdab7f3596f792806c910c6954eda",
+  "salute": 1.0242999470988396,
+  "debito": 267410.05922757,
+  "garanzia": 288324.32581105,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.372346807950665,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x294126dd00a23121da702d18924ea15a6702b3c6",
+  "salute": 1.0249567420956722,
+  "debito": 646750.25537091,
+  "garanzia": 720533.7333636,
+  "soglia": 92.0,
+  "caduta_necessaria": 2.4349068668639173,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xe00fc2b697ca2494746275889f1d13ce8a57b547",
+  "salute": 1.0253493919887513,
+  "debito": 2620.00699135,
+  "garanzia": 2827.81323746,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.4722686907322378,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x9c834c9694b7ae4871550e3a7bbeaf5892bc2e68",
+  "salute": 1.0255455454118452,
+  "debito": 1372240.51741395,
+  "garanzia": 1529668.64116035,
+  "soglia": 92.0,
+  "caduta_necessaria": 2.4909225656659095,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc8bdb57afa96e05dbe9d00a93bf6863dff634d59",
+  "salute": 1.0256174296013254,
+  "debito": 758.82703185,
+  "garanzia": 819.22761044,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.49775684986977,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x2f1932594797bae5c9c376d6d73226ffcc4ec73b",
+  "salute": 1.0259885210292554,
+  "debito": 450650.42500478,
+  "garanzia": 502567.56853463,
+  "soglia": 92.0,
+  "caduta_necessaria": 2.5330225920251137,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x90b7c98a7289cd0e1a2b332bc7da2ac0c45c1b47",
+  "salute": 1.026682256106242,
+  "debito": 11802.74996059,
+  "garanzia": 14425.80233071,
+  "soglia": 84.0,
+  "caduta_necessaria": 2.59888158654229,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x70ac345ab736ce145e0d4b5deced7a8bcb0e4033",
+  "salute": 1.0270129532987395,
+  "debito": 26521333.86172197,
+  "garanzia": 29287906.89757951,
+  "soglia": 93.0,
+  "caduta_necessaria": 2.6302446538745805,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xca686974913389d42f3c5f61010503daccdb487a",
+  "salute": 1.0272427201812067,
+  "debito": 21601593.15905391,
+  "garanzia": 23357978.22837293,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.6520236791165552,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa711a3a64f2b2d7e05dc3f564d3862d7499c6d69",
+  "salute": 1.0273767863318384,
+  "debito": 29121728.66406203,
+  "garanzia": 32170954.84657186,
+  "soglia": 93.0,
+  "caduta_necessaria": 2.6647269722323452,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x4f87de7d21aef48090958f7342e1f69dff790545",
+  "salute": 1.028162538297054,
+  "debito": 157480335.13488767,
+  "garanzia": 170437243.26753357,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.7391134424815444,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xf0bb20865277abd641a307ece5ee04e79073416c",
+  "salute": 1.0286735590842289,
+  "debito": 930339889.9490172,
+  "garanzia": 1007385311.3177739,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.7874303593216965,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc526070415809165fbf1d7c78f34409be2e0bdf6",
+  "salute": 1.0289646485339887,
+  "debito": 2186210.25192316,
+  "garanzia": 2445144.63422991,
+  "soglia": 92.0,
+  "caduta_necessaria": 2.8149313560243194,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x1cde180fd33935c744623d655696eb3a77e5d891",
+  "salute": 1.0293994220678737,
+  "debito": 8820763.51458315,
+  "garanzia": 9557988.27800977,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.855978101174339,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x76d089f3d42e8597e29ab053a06f8ffc20b4f779",
+  "salute": 1.0296867783316066,
+  "debito": 11685.67705061,
+  "garanzia": 15426.39378829,
+  "soglia": 78.0,
+  "caduta_necessaria": 2.883088231909503,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x68f36dd92b32fb62a33c9d602e9a04127007dbfb",
+  "salute": 1.0297317842319824,
+  "debito": 2362.52666308,
+  "garanzia": 2560.80925902,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.8873328654371533,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xf34d97c680803358a468e3c56337defaf85ca6da",
+  "salute": 1.0302906558190463,
+  "debito": 308473589.19768673,
+  "garanzia": 334544691.070884,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.9400107288138244,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb1799c5ac30cfc46c89a3d454733bbe98f394552",
+  "salute": 1.0303733289906105,
+  "debito": 341558.80560527,
+  "garanzia": 382535.96041039,
+  "soglia": 92.0,
+  "caduta_necessaria": 2.947798447031358,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x3e99e7cba3d27f6da09899519f76e6bf891a817e",
+  "salute": 1.0303743280313533,
+  "debito": 415.40077252,
+  "garanzia": 455.33860835,
+  "soglia": 94.0,
+  "caduta_necessaria": 2.9478925478847007,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa7fbfdb0d96865a365771c21b7c3030bdbec5d6e",
+  "salute": 1.0306875328402894,
+  "debito": 1879.16148959,
+  "garanzia": 2038.76665212,
+  "soglia": 95.0,
+  "caduta_necessaria": 2.9773846934698978,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x1dffdb114e58baedbd25290a1efffa9fc3726d1f",
+  "salute": 1.030909552992805,
+  "debito": 28078.72951937,
+  "garanzia": 34460.27440169,
+  "soglia": 84.0,
+  "caduta_necessaria": 2.998279810587867,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x2e3dc205e5687e02eb4bea4f657c9572a83490e5",
+  "salute": 1.031014948608955,
+  "debito": 27846430.71920588,
+  "garanzia": 30871060.57731707,
+  "soglia": 93.0,
+  "caduta_necessaria": 3.0081958220683824,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x920871836ef108c4398b6e383b9c080ee76b38c3",
+  "salute": 1.0311319220814963,
+  "debito": 2281.97695462,
+  "garanzia": 2476.86240354,
+  "soglia": 95.0,
+  "caduta_necessaria": 3.0191987479789906,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x07cfbe592106aebe7883cedd852a3e51014e98ab",
+  "salute": 1.031220117037431,
+  "debito": 952.36813023,
+  "garanzia": 1033.79071023,
+  "soglia": 95.0,
+  "caduta_necessaria": 3.027493017409577,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x9600a48ed0f931d0c422d574e3275a90d8b22745",
+  "salute": 1.031876825599993,
+  "debito": 726501480.3639253,
+  "garanzia": 789115833.0017083,
+  "soglia": 95.0,
+  "caduta_necessaria": 3.089208402510446,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x3066a92b0c47af48500aaef3b22aa9f25814158f",
+  "salute": 1.0322299312453476,
+  "debito": 277106.24640612,
+  "garanzia": 310910.17573418,
+  "soglia": 92.0,
+  "caduta_necessaria": 3.1223596865151304,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x994649b6f14e340c2878885d2e9d90bfd4ee8aae",
+  "salute": 1.032494989426119,
+  "debito": 77945.53125297,
+  "garanzia": 84714.07417563,
+  "soglia": 95.0,
+  "caduta_necessaria": 3.1472297453162823,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x35641673a0ce64f644ad2f395be19668a06a5616",
+  "salute": 1.0327023326408256,
+  "debito": 3326.91974947,
+  "garanzia": 3616.54503767,
+  "soglia": 95.0,
+  "caduta_necessaria": 3.166675585712986,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x564ac96b2b6bbfc12b566fc4bf84ee6aefda09cd",
+  "salute": 1.0327249565230736,
+  "debito": 1123178.73737955,
+  "garanzia": 1220983.90813467,
+  "soglia": 95.0,
+  "caduta_necessaria": 3.168796911159222,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x7e13ac7462cbc62440a91dd2654f1c2d1fc9180e",
+  "salute": 1.0327370726885554,
+  "debito": 350971.66781077,
+  "garanzia": 389743.49764679,
+  "soglia": 93.0,
+  "caduta_necessaria": 3.169932943661058,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xbac009aeeb30656ea6fb64c685ccf822bbaead36",
+  "salute": 1.033339481375695,
+  "debito": 531408.24898406,
+  "garanzia": 596875.13522169,
+  "soglia": 92.0,
+  "caduta_necessaria": 3.2263822273886134,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x4173018983ab21d8fc3a469ddc4e649a6138230c",
+  "salute": 1.033531855069467,
+  "debito": 16330.49755057,
+  "garanzia": 17766.40992384,
+  "soglia": 95.0,
+  "caduta_necessaria": 3.244394926483729,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x89001fe799231b8f9f9681709ce18596268db105",
+  "salute": 1.0336892099721204,
+  "debito": 4046124.85820024,
+  "garanzia": 4546125.6610017,
+  "soglia": 92.0,
+  "caduta_necessaria": 3.259123694735,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x13d0503352f34b751cacfbe27e694b58561f2983",
+  "salute": 1.034329473693567,
+  "debito": 11058203.11578963,
+  "garanzia": 12039816.21973816,
+  "soglia": 95.0,
+  "caduta_necessaria": 3.3190075857528534,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xafd55f8005db9696a6cf420e347c1e8e5dd8bedb",
+  "salute": 1.0344687554974437,
+  "debito": 132230.4256418,
+  "garanzia": 143987.62605081,
+  "soglia": 94.99,
+  "caduta_necessaria": 3.332024801548372,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc6ed8696c4885dcafdc73c5ef28511e02568b472",
+  "salute": 1.0344827848179794,
+  "debito": 368.20471183,
+  "garanzia": 400.94887966,
+  "soglia": 95.0,
+  "caduta_necessaria": 3.3333357813244535,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xd01ed156a8943959cc33c8c17b66901693606ae4",
+  "salute": 1.0349344671846914,
+  "debito": 18521.23885544,
+  "garanzia": 20835.07442006,
+  "soglia": 92.0,
+  "caduta_necessaria": 3.375524566277399,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x60d2d94acb969ca54e781007ee89f04c1a2e5943",
+  "salute": 1.0356072274158872,
+  "debito": 9264692.7666283,
+  "garanzia": 10099560.83042943,
+  "soglia": 95.0,
+  "caduta_necessaria": 3.4382946037115447,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc381c4bd16e7b3a55c03dc39a4d6a416c845e0fe",
+  "salute": 1.0356171085286827,
+  "debito": 7879.45986945,
+  "garanzia": 8869.67765953,
+  "soglia": 92.0,
+  "caduta_necessaria": 3.4392159259791,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xfddd69a80648d0356fd9ffac9b0a1cc7df29d70c",
+  "salute": 1.0356892617417086,
+  "debito": 197739.49259593,
+  "garanzia": 222605.07511289,
+  "soglia": 92.0,
+  "caduta_necessaria": 3.4459430120662216,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xeebecf2ea4bf569d29998032b95b54eed37bc889",
+  "salute": 1.0359195552685247,
+  "debito": 12076.33138035,
+  "garanzia": 13168.53456085,
+  "soglia": 95.0,
+  "caduta_necessaria": 3.467407781409615,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x39c71be23b3c8f717930fa27e6b5a04e043897d8",
+  "salute": 1.0359297827242915,
+  "debito": 486304.89216777,
+  "garanzia": 585788.0480013,
+  "soglia": 86.0,
+  "caduta_necessaria": 3.4683608216961592,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb878b8552d8e6b93b251bc0cc6149eb14eff4b45",
+  "salute": 1.0359723435133195,
+  "debito": 18095.29643956,
+  "garanzia": 22316.93649888,
+  "soglia": 84.0,
+  "caduta_necessaria": 3.4723266251805107,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa7bf267a672e3cd2664e73a1a882de33cdfe49d9",
+  "salute": 1.0360653352822764,
+  "debito": 2655617.52254865,
+  "garanzia": 2896203.4304009,
+  "soglia": 95.0,
+  "caduta_necessaria": 3.480990440863496,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x961d589108d379df4c9533415c5575bca182bad8",
+  "salute": 1.036783526587416,
+  "debito": 10194.1292663,
+  "garanzia": 14092.14038827,
+  "soglia": 75.0,
+  "caduta_necessaria": 3.547850215993431,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xfa653acca123c3d4af1f5f24daf8cf57de963beb",
+  "salute": 1.0370618450364113,
+  "debito": 2416149.10420045,
+  "garanzia": 3212430.83062204,
+  "soglia": 78.0,
+  "caduta_necessaria": 3.57373528047501,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x9d36250d3c929b5c4f70fa4125aab0951f8a250e",
+  "salute": 1.037112573023431,
+  "debito": 323251.60343314,
+  "garanzia": 399105.12163154,
+  "soglia": 84.0,
+  "caduta_necessaria": 3.578451750443923,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x357945888577fe7fecbca7bb1a5f683fb4f906b3",
+  "salute": 1.03729242890829,
+  "debito": 92439.88055698,
+  "garanzia": 100933.88234836,
+  "soglia": 95.0,
+  "caduta_necessaria": 3.5951702595129253,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x56aed2807209cd977c5a45a5adf7704698644f56",
+  "salute": 1.0373616078792942,
+  "debito": 2007767.09537561,
+  "garanzia": 2192400.52874314,
+  "soglia": 95.0,
+  "caduta_necessaria": 3.6015992490481263,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x266770abff68b28ad81326cfc5275e8a93fa76fe",
+  "salute": 1.0375188676666744,
+  "debito": 93623.68917093,
+  "garanzia": 102248.783132,
+  "soglia": 95.0,
+  "caduta_necessaria": 3.6162106382751746,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x572372831a9d6b2e3ee8fa284505599e6125fea9",
+  "salute": 1.037635072971689,
+  "debito": 9243.81667506,
+  "garanzia": 11418.70046495,
+  "soglia": 83.99,
+  "caduta_necessaria": 3.627004710230708,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x5eb64422083d002918902bb5c343f999237a8640",
+  "salute": 1.0378870094946928,
+  "debito": 394.0609937,
+  "garanzia": 444.55520327,
+  "soglia": 91.99,
+  "caduta_necessaria": 3.6503982753516295,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x8e433ca1b4910aa0d4eafa750a15210cc1136277",
+  "salute": 1.0379706084459273,
+  "debito": 6029.57327542,
+  "garanzia": 8318.088204,
+  "soglia": 75.23,
+  "caduta_necessaria": 3.6581583463887957,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x440aab3aed77bedf142706b37b9c107b68c272a0",
+  "salute": 1.0380471133439184,
+  "debito": 22085.73665552,
+  "garanzia": 26971.80609569,
+  "soglia": 85.0,
+  "caduta_necessaria": 3.665258816755934,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x2ed0ae6181bd96670c0e513ba504a90f773a5d2a",
+  "salute": 1.0382822546275856,
+  "debito": 127400.94732935,
+  "garanzia": 143780.59724979,
+  "soglia": 91.99,
+  "caduta_necessaria": 3.687075884901525,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x8b81420441ac3933c58d1190c8499c2f89eb1263",
+  "salute": 1.0383422950889944,
+  "debito": 483.25116719,
+  "garanzia": 529.77147947,
+  "soglia": 94.71,
+  "caduta_necessaria": 3.692645023740293,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x16a1c8c6898b5301b578788183d89af11baf290c",
+  "salute": 1.038761508274094,
+  "debito": 9336.83197935,
+  "garanzia": 11546.12103497,
+  "soglia": 83.99,
+  "caduta_necessaria": 3.731511801827958,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x4094adfab3366ff9b2a28b69e691e93d73b5e64b",
+  "salute": 1.0388340167347336,
+  "debito": 76978.52043948,
+  "garanzia": 96286.74762711,
+  "soglia": 83.05,
+  "caduta_necessaria": 3.7382311427187176,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xdd1c11feebe4f9fc3d950e2a56f5574a4b3d4cd8",
+  "salute": 1.0390833278750595,
+  "debito": 22766.99033436,
+  "garanzia": 24901.89502406,
+  "soglia": 94.99,
+  "caduta_necessaria": 3.761327588133423,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa8cf19d23d9331754bda7656cc0f0bd422df9d83",
+  "salute": 1.0396676373054137,
+  "debito": 15240.12646998,
+  "garanzia": 20313.67469441,
+  "soglia": 78.0,
+  "caduta_necessaria": 3.815415223294183,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x26e449a3bfbdc9c4ff8b6c160702fc9cb9c881fd",
+  "salute": 1.03978898943065,
+  "debito": 671926.51103675,
+  "garanzia": 831740.22366972,
+  "soglia": 84.0,
+  "caduta_necessaria": 3.826640773762857,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x52c4c59108d85f8ed5b593ec58893a3c902bd90d",
+  "salute": 1.0398554193142024,
+  "debito": 30754.63794539,
+  "garanzia": 41000.483252,
+  "soglia": 78.0,
+  "caduta_necessaria": 3.8327846904416374,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x19997fe22de68fd3db2fb792cbf2cf5107afe271",
+  "salute": 1.0399243679327725,
+  "debito": 18421.30307916,
+  "garanzia": 24177.61564104,
+  "soglia": 79.23,
+  "caduta_necessaria": 3.839160727826463,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x44d322a634ca8f4ecaae5d0bea3e49496f09b2d5",
+  "salute": 1.0400676558027213,
+  "debito": 129647.14919324,
+  "garanzia": 172874.11095246,
+  "soglia": 78.0,
+  "caduta_necessaria": 3.852408598534607,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xac371fe3d872f1690518e99f7ce42bd0051610b9",
+  "salute": 1.0402036399876402,
+  "debito": 2247.05569374,
+  "garanzia": 2777.19147171,
+  "soglia": 84.16,
+  "caduta_necessaria": 3.8649778218539876,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x3ab4ff4cb04b9e77f83ac7e74ab6f9ffa95c4c09",
+  "salute": 1.0402501975440956,
+  "debito": 7824.66328307,
+  "garanzia": 9690.00895944,
+  "soglia": 84.0,
+  "caduta_necessaria": 3.869280451868351,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x51627bfb684fc88eb5847858bb5dc30677c1cc92",
+  "salute": 1.0407216635160008,
+  "debito": 17029.83768544,
+  "garanzia": 21099.19167345,
+  "soglia": 83.99,
+  "caduta_necessaria": 3.9128294282282594,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x7ea988490dea9af6c66b31490769ae3df124c26e",
+  "salute": 1.0408028948228918,
+  "debito": 1978.2303008,
+  "garanzia": 2639.67669705,
+  "soglia": 78.0,
+  "caduta_necessaria": 3.920328721783106,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x4246c44b2171f4f6cb6626bc19e5b977a6be8c3f",
+  "salute": 1.0408052380924222,
+  "debito": 38262.43354896,
+  "garanzia": 47409.21578562,
+  "soglia": 84.0,
+  "caduta_necessaria": 3.920545035612011,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xcb2401d4da645271d63c623fe1500d01dcee5fa8",
+  "salute": 1.0412059250733918,
+  "debito": 15409.19527358,
+  "garanzia": 19100.17311841,
+  "soglia": 84.0,
+  "caduta_necessaria": 3.957519265027931,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x78ff401153620f6cee0bd88ac26e7998aba7af6e",
+  "salute": 1.0415616184951275,
+  "debito": 150.47431004,
+  "garanzia": 200.93367424,
+  "soglia": 78.0,
+  "caduta_necessaria": 3.9903177840958426,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x9984a1d407bc6ac53b404aabf66b80b99d96bb47",
+  "salute": 1.0415894792806293,
+  "debito": 65960.85105815,
+  "garanzia": 81790.62919496,
+  "soglia": 83.99,
+  "caduta_necessaria": 3.99288588334753,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xcc8d76aa1ecce6abc9e67bf4fe6d7fbe02cc2c85",
+  "salute": 1.0417047387652834,
+  "debito": 2010.90936753,
+  "garanzia": 2205.02507093,
+  "soglia": 95.0,
+  "caduta_necessaria": 4.003508596372074,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x77c38a0049822634a1a379db10f7b03367724fec",
+  "salute": 1.0419862707069065,
+  "debito": 1695.82855297,
+  "garanzia": 2356.04009289,
+  "soglia": 75.0,
+  "caduta_necessaria": 4.029445673830434,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xcb954495438b23e792de53f1352cafe20e14521a",
+  "salute": 1.0429417113798491,
+  "debito": 1296540.72421785,
+  "garanzia": 1609832.02611833,
+  "soglia": 83.99,
+  "caduta_necessaria": 4.117364461628037,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xe2f8c7d28e688567989bfda3ec91fb5b41662eb3",
+  "salute": 1.043476204288659,
+  "debito": 15243.07396095,
+  "garanzia": 20392.03199803,
+  "soglia": 78.0,
+  "caduta_necessaria": 4.166477789332701,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x17558b543fd39316e3ed87a77bb04a0d61af8a4a",
+  "salute": 1.0435013865322522,
+  "debito": 8730.6474341,
+  "garanzia": 10845.76512239,
+  "soglia": 84.0,
+  "caduta_necessaria": 4.168790486883333,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x69c0bb9a94d4d22b770d44c048faf5df87482527",
+  "salute": 1.0437746166072746,
+  "debito": 3749.83912568,
+  "garanzia": 4659.50828859,
+  "soglia": 83.99,
+  "caduta_necessaria": 4.193876332187618,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x3c0b05027ddeb16cfa158f3f29802e31df14fffd",
+  "salute": 1.0439550502873591,
+  "debito": 1059.48963769,
+  "garanzia": 1316.73756904,
+  "soglia": 84.0,
+  "caduta_necessaria": 4.210435140407631,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x2ce6cddc4fcd986fc0b634662c650a085dea5050",
+  "salute": 1.0445373122266275,
+  "debito": 3972.94257054,
+  "garanzia": 5320.36763367,
+  "soglia": 78.0,
+  "caduta_necessaria": 4.26383162241355,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x8d53903625b8e839b9df4bd28b0efb1cd6b8639a",
+  "salute": 1.0447574038460037,
+  "debito": 44764102.35614833,
+  "garanzia": 59958496.61936705,
+  "soglia": 78.0,
+  "caduta_necessaria": 4.283999680810191,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x2f881f41af772808b848c382370710dca0415bf9",
+  "salute": 1.0447608965379553,
+  "debito": 14437017.07219759,
+  "garanzia": 15877085.15756097,
+  "soglia": 95.0,
+  "caduta_necessaria": 4.28431966455487,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x9cd61cab43075c6c4a56a95dacadad39df555d25",
+  "salute": 1.044913140602738,
+  "debito": 4236.06682292,
+  "garanzia": 5314.2096184,
+  "soglia": 83.29,
+  "caduta_necessaria": 4.298265459350126,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x902fba36ca71b8ff947cb1a0fae9b3a4f586eb38",
+  "salute": 1.046686872350381,
+  "debito": 10806522.32766611,
+  "garanzia": 12294614.191445,
+  "soglia": 92.0,
+  "caduta_necessaria": 4.460443097518141,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xce737fc551c7d8c231d4a8b022b76540d403cb4b",
+  "salute": 1.0467627446326075,
+  "debito": 5207.1613101,
+  "garanzia": 6431.60149287,
+  "soglia": 84.74,
+  "caduta_necessaria": 4.467368070977762,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xd25b400836fc3376029bef3831c364e16c780de8",
+  "salute": 1.046833235538908,
+  "debito": 676644.90038804,
+  "garanzia": 745615.12672012,
+  "soglia": 95.0,
+  "caduta_necessaria": 4.47380097889215,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x8cbb06bca53189c04c0ab830a35b4688d1fc065f",
+  "salute": 1.0469361254936784,
+  "debito": 383.54583152,
+  "garanzia": 478.03331762,
+  "soglia": 84.0,
+  "caduta_necessaria": 4.483189026603307,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x60bbb8aa3b458c6dde14ec5bf134c953dd5fddb5",
+  "salute": 1.0469536042528143,
+  "debito": 638403.44501551,
+  "garanzia": 703556.61865937,
+  "soglia": 95.0,
+  "caduta_necessaria": 4.484783667784775,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xea7333c3a4b9c069dfab584517f9c03503deb268",
+  "salute": 1.0471008147031229,
+  "debito": 1451.88400408,
+  "garanzia": 1949.06272247,
+  "soglia": 78.0,
+  "caduta_necessaria": 4.4982120194870685,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x5baae685ce47976005da02caa39b32adaeb415d1",
+  "salute": 1.0474384803210393,
+  "debito": 195.7019421,
+  "garanzia": 220.57670107,
+  "soglia": 92.93,
+  "caduta_necessaria": 4.5289991930122175,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x19b21e9ae1d8d36a44df6c5b6121ba161581b611",
+  "salute": 1.0474522388473826,
+  "debito": 883.68471471,
+  "garanzia": 1186.68914469,
+  "soglia": 78.0,
+  "caduta_necessaria": 4.530253226590942,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xbffba3cdcdb14785c691744f78daf78cbdb97710",
+  "salute": 1.0484479834022495,
+  "debito": 9281.81459456,
+  "garanzia": 11855.27645666,
+  "soglia": 82.08,
+  "caduta_necessaria": 4.6209238960081,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xcab8cbc983454d24a2f6261e09c788ca31175226",
+  "salute": 1.0486487969923732,
+  "debito": 288.84407154,
+  "garanzia": 388.3281893,
+  "soglia": 78.0,
+  "caduta_necessaria": 4.639188747643896,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x256c75846b4b605acaf5cf8b05ae8d239eb298cd",
+  "salute": 1.048663577747821,
+  "debito": 440430.06456238,
+  "garanzia": 502024.96440401,
+  "soglia": 92.0,
+  "caduta_necessaria": 4.640532843939726,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x9ff679ef5e663a223c5ef07fd191e9e7eda90de5",
+  "salute": 1.0494920836074242,
+  "debito": 67981.15166888,
+  "garanzia": 84935.33399719,
+  "soglia": 83.99,
+  "caduta_necessaria": 4.715812951852372,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x4c4775b69555221f33bd0efcb01d3fe198facfd1",
+  "salute": 1.0498642319002225,
+  "debito": 10140.12251741,
+  "garanzia": 13648.39992066,
+  "soglia": 78.0,
+  "caduta_necessaria": 4.749588602515753,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x2dfbdc704543da65aa7293bf273d3a909d2bf6ae",
+  "salute": 1.0498822153441407,
+  "debito": 25861.09237044,
+  "garanzia": 31942.47170482,
+  "soglia": 85.0,
+  "caduta_necessaria": 4.75122014785152,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb55119b1617e8070ab57c9ffe642c10296a70029",
+  "salute": 1.050269206250688,
+  "debito": 363150.13951502,
+  "garanzia": 488981.29330547,
+  "soglia": 78.0,
+  "caduta_necessaria": 4.7863163036210405,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x3b0e01854a746d0608f0137f68194e942249a0a6",
+  "salute": 1.0504352541283277,
+  "debito": 2428054.01560824,
+  "garanzia": 2684751.09149763,
+  "soglia": 95.0,
+  "caduta_necessaria": 4.801367236115839,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xea1776733cc969df4ff004a9e1a2d87f5b60add4",
+  "salute": 1.0504783136704146,
+  "debito": 5351142.79072107,
+  "garanzia": 6110064.62500681,
+  "soglia": 92.0,
+  "caduta_necessaria": 4.805269467585793,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x5ac88d99758acdc8d7149c58c42dfbe2f6ee91a5",
+  "salute": 1.0512692782101216,
+  "debito": 35000.50987068,
+  "garanzia": 43288.18911616,
+  "soglia": 85.0,
+  "caduta_necessaria": 4.876893035189999,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x512f98be678c85f1b66f643cca4d557a36a9ad5c",
+  "salute": 1.051353705387295,
+  "debito": 9796.52700031,
+  "garanzia": 12261.11345191,
+  "soglia": 84.0,
+  "caduta_necessaria": 4.884531735052711,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc950fe241c50f93d872edb5a97066474c84c2394",
+  "salute": 1.0516013063632066,
+  "debito": 849.59083843,
+  "garanzia": 1063.60813758,
+  "soglia": 84.0,
+  "caduta_necessaria": 4.906926803054423,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x2b0af182befa3339f6f40d9428a0ffc3951ad55b",
+  "salute": 1.0517880579504009,
+  "debito": 12172.86607278,
+  "garanzia": 15241.99424569,
+  "soglia": 84.0,
+  "caduta_necessaria": 4.923811176494941,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xe98ef25f812a764a15b5bcad89e432aafc0d4a9e",
+  "salute": 1.0518100041944272,
+  "debito": 181.39744936,
+  "garanzia": 221.85540927,
+  "soglia": 86.0,
+  "caduta_necessaria": 4.925794961810426,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa2cbecf4cc35973404513dc88426d9f32f71deec",
+  "salute": 1.051910004299282,
+  "debito": 326.15542349,
+  "garanzia": 408.43589634,
+  "soglia": 84.0,
+  "caduta_necessaria": 4.934833216446233,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb79e7c99ef7bec95adfd659cd52d839fc8ed01b7",
+  "salute": 1.0519101453909248,
+  "debito": 283.71065505,
+  "garanzia": 355.28347205,
+  "soglia": 83.99,
+  "caduta_necessaria": 4.934845967440804,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xf078969e55cabf9ae3f26afeb5ec627b4430f19e",
+  "salute": 1.0519647806479098,
+  "debito": 7489558.21876399,
+  "garanzia": 8564019.10949052,
+  "soglia": 91.99,
+  "caduta_necessaria": 4.93978330870587,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xd730f2293dd77686522f0e749eb77bae89b752bb",
+  "salute": 1.0524073099205489,
+  "debito": 5435945.95378381,
+  "garanzia": 6810511.0215418,
+  "soglia": 84.0,
+  "caduta_necessaria": 4.979755407106145,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xedfcdac8c88ee9adbc3928299af335b1f5d702cf",
+  "salute": 1.052409608719391,
+  "debito": 5435926.96328908,
+  "garanzia": 6810502.1053122,
+  "soglia": 84.0,
+  "caduta_necessaria": 4.979962961680373,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x44322ff5436adbeededa7ca7dde703b3a17a34b6",
+  "salute": 1.052492162316079,
+  "debito": 20588.5991868,
+  "garanzia": 27426.91042727,
+  "soglia": 79.0,
+  "caduta_necessaria": 4.9874159823258495,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x1ee3dd96dd754123cebcdfb1d10a6609225b6ca8",
+  "salute": 1.053074637849778,
+  "debito": 177332.19304929,
+  "garanzia": 202982.6467114,
+  "soglia": 92.0,
+  "caduta_necessaria": 5.0399692426501215,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xd1a2d9df5db842da2ee81075fa441602b2352915",
+  "salute": 1.0531459090181803,
+  "debito": 34172326.48421688,
+  "garanzia": 37882574.56682802,
+  "soglia": 95.0,
+  "caduta_necessaria": 5.046395619361688,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x369ce93d8023c01d960cd0ce463870b98dec79da",
+  "salute": 1.053208935637469,
+  "debito": 902.47409611,
+  "garanzia": 1131.54021691,
+  "soglia": 84.0,
+  "caduta_necessaria": 5.052077877146333,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa1578265bc5efd32b6e97b65a22cc6d9d81b2077",
+  "salute": 1.0535045437676174,
+  "debito": 15661.84672943,
+  "garanzia": 17368.23862447,
+  "soglia": 95.0,
+  "caduta_necessaria": 5.078719791399344,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x7f6e4c9ccab9334cd205a06d0d3edc2be174f458",
+  "salute": 1.053671135088655,
+  "debito": 33310.98808941,
+  "garanzia": 41784.31741797,
+  "soglia": 83.99,
+  "caduta_necessaria": 5.093727378622659,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x7bdf03e5438746081be923738cf48943d4478a63",
+  "salute": 1.0540686370844947,
+  "debito": 373.09455768,
+  "garanzia": 418.36943821,
+  "soglia": 94.0,
+  "caduta_necessaria": 5.12951767866332,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x59abc0e437971d585c2bc4d69dc8b31f2f23e855",
+  "salute": 1.054346852120887,
+  "debito": 20594322.86083405,
+  "garanzia": 22856378.39987537,
+  "soglia": 95.0,
+  "caduta_necessaria": 5.154551560671406,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xf57af81613f9cb8f5515f2ebf8c65386cd13d568",
+  "salute": 1.0543489401699335,
+  "debito": 5358.54052652,
+  "garanzia": 7243.29681377,
+  "soglia": 78.0,
+  "caduta_necessaria": 5.15473939407326,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x19a1989b0b0d3f019e09d4ba3d0900cd29d35dfb",
+  "salute": 1.0543605194872772,
+  "debito": 376824.00091067,
+  "garanzia": 472986.13017581,
+  "soglia": 84.0,
+  "caduta_necessaria": 5.155781014421146,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x3207363359ca0c11d11073ad48301e8c958b7910",
+  "salute": 1.054845474934167,
+  "debito": 64862739.41840602,
+  "garanzia": 74369746.92102131,
+  "soglia": 92.0,
+  "caduta_necessaria": 5.199384766530835,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xf2ceea9096c918330681e5c32e3f3898d276789b",
+  "salute": 1.0551069099462438,
+  "debito": 626.56910983,
+  "garanzia": 777.76164393,
+  "soglia": 85.0,
+  "caduta_necessaria": 5.222874518853393,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x893aa69fbaa1ee81b536f0fbe3a3453e86290080",
+  "salute": 1.0553675458987608,
+  "debito": 179133168.49569637,
+  "garanzia": 199001402.5519708,
+  "soglia": 95.0,
+  "caduta_necessaria": 5.246280891801469,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x1f97b9d83379c449f528e8de986cf3dafa8fdfac",
+  "salute": 1.0557000446621903,
+  "debito": 3664.39378164,
+  "garanzia": 4959.61625421,
+  "soglia": 78.0,
+  "caduta_necessaria": 5.276124117245207,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xd67cce92218517b4963ee843b3a454d382691f6e",
+  "salute": 1.0558940735006221,
+  "debito": 183463.69316736,
+  "garanzia": 230616.9360928,
+  "soglia": 84.0,
+  "caduta_necessaria": 5.293530374246314,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x99a8af20449b218244f73978aa8a373c8b8653e4",
+  "salute": 1.0559576686063405,
+  "debito": 2716021.38252655,
+  "garanzia": 3018951.16523969,
+  "soglia": 95.0,
+  "caduta_necessaria": 5.299234076323711,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x6fdce26944a8d23158ac07f65c52d0d4a6c3b4d8",
+  "salute": 1.0565601793985822,
+  "debito": 745518.37576866,
+  "garanzia": 829142.1356285,
+  "soglia": 95.0,
+  "caduta_necessaria": 5.353237846875647,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x1593d3980018812a3f95290cf896437f3ea25343",
+  "salute": 1.0566861348506313,
+  "debito": 3973.96383625,
+  "garanzia": 5594.03016011,
+  "soglia": 75.06,
+  "caduta_necessaria": 5.3645196034150855,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xfd5595e35ab8b1dd72767bd93c34f58547453ed2",
+  "salute": 1.0567195394117426,
+  "debito": 1482.51677408,
+  "garanzia": 1865.0052889,
+  "soglia": 84.0,
+  "caduta_necessaria": 5.367511179297146,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x4663657af17797e4994322c217fd781a97d98105",
+  "salute": 1.056835429770512,
+  "debito": 1411.11716112,
+  "garanzia": 1775.37929932,
+  "soglia": 84.0,
+  "caduta_necessaria": 5.377888379731333,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xf75cdcd7d577d908eeaf6ab336f027ccd86fb17a",
+  "salute": 1.0568725513470072,
+  "debito": 3588.87958805,
+  "garanzia": 4515.46229369,
+  "soglia": 84.0,
+  "caduta_necessaria": 5.381211885437076,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x9b5be00ae53c35bf5e2f81265411ea06dfa13e0c",
+  "salute": 1.0570056387743902,
+  "debito": 1456.68888339,
+  "garanzia": 1833.0099903,
+  "soglia": 83.99,
+  "caduta_necessaria": 5.393125323388903,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xe264b8fc58aede758399adb3859418bc598cf8ee",
+  "salute": 1.057011562202863,
+  "debito": 1209499.47863474,
+  "garanzia": 1345742.0351529,
+  "soglia": 95.0,
+  "caduta_necessaria": 5.3936554945575255,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x7b02f56ed12d7b241c684f3bc1c1b797f61199a7",
+  "salute": 1.0575395396031932,
+  "debito": 86923.36599056,
+  "garanzia": 117158.38160386,
+  "soglia": 78.46,
+  "caduta_necessaria": 5.4408877822935136,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x3844b52b0056a9804ec934587a867372d6f341c6",
+  "salute": 1.0575878876210079,
+  "debito": 17158.59101266,
+  "garanzia": 21913.74617954,
+  "soglia": 82.8,
+  "caduta_necessaria": 5.445210586757854,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb8a451107a9f87fde481d4d686247d6e43ed715e",
+  "salute": 1.058009831101214,
+  "debito": 37481952.68178308,
+  "garanzia": 41743446.76441791,
+  "soglia": 95.0,
+  "caduta_necessaria": 5.4829198553699054,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xcbd8d7401972d5e9a6d7d8201ea7b3f984bf6d6f",
+  "salute": 1.0582234059656859,
+  "debito": 523653.69174389,
+  "garanzia": 662855.31071839,
+  "soglia": 83.59,
+  "caduta_necessaria": 5.501995669104853,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x6daed0eae03ba3afbb036a831aaf37347c611bd7",
+  "salute": 1.0586569190794277,
+  "debito": 3635.22474619,
+  "garanzia": 4581.49503567,
+  "soglia": 84.0,
+  "caduta_necessaria": 5.5406919864495645,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc5bf64ef4ba1d1c0e63f4d84b849a0a810f708c4",
+  "salute": 1.0589750331283856,
+  "debito": 978708.78551911,
+  "garanzia": 1219327.25713899,
+  "soglia": 85.0,
+  "caduta_necessaria": 5.569067379630632,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x91cfacede08eceb5c809baf8c8062bd7cc7f0faa",
+  "salute": 1.0590928068231888,
+  "debito": 227645.23474277,
+  "garanzia": 253786.76907752,
+  "soglia": 95.0,
+  "caduta_necessaria": 5.579568328902285,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x65ef08eef1f3149e5eaceb8146642737dc2bbba5",
+  "salute": 1.0595054434242257,
+  "debito": 677.3054969,
+  "garanzia": 917.07393559,
+  "soglia": 78.24,
+  "caduta_necessaria": 5.6163414537927725,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x55ea3a3e91457591878ea48c87e12c9ff91e69de",
+  "salute": 1.0595977045561258,
+  "debito": 4167.20684991,
+  "garanzia": 5660.97796484,
+  "soglia": 78.0,
+  "caduta_necessaria": 5.624559613508384,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x342c3aff9a8f33c35c74003503e7b95cb47db99f",
+  "salute": 1.0596966141226007,
+  "debito": 5674.02737582,
+  "garanzia": 7708.65076743,
+  "soglia": 78.0,
+  "caduta_necessaria": 5.633368393087479,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x81ec2081dfb42c5291c55e6123d527eb744a5ffb",
+  "salute": 1.0601427690860652,
+  "debito": 50253.73012843,
+  "garanzia": 75036.80086656,
+  "soglia": 71.0,
+  "caduta_necessaria": 5.673082045158262,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x92561d51c73d545a24d0525d0c616d83562ffcc2",
+  "salute": 1.060958738518055,
+  "debito": 9221.28234019,
+  "garanzia": 12080.99083069,
+  "soglia": 80.98,
+  "caduta_necessaria": 5.745627638941175,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x9f79b971035197db239b2e27b6ad6ba41b7e052c",
+  "salute": 1.0614393507569995,
+  "debito": 35452.33342988,
+  "garanzia": 50174.00237151,
+  "soglia": 75.0,
+  "caduta_necessaria": 5.788305352838297,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x89de12b45b4aac8c2841fa29c03ee3bfab1de462",
+  "salute": 1.062813918425827,
+  "debito": 40017.72580515,
+  "garanzia": 55374.343495,
+  "soglia": 76.8,
+  "caduta_necessaria": 5.910152034785443,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x019947394428cd14f11facfe2b22c9421315887d",
+  "salute": 1.062827444963335,
+  "debito": 93036.4852987,
+  "garanzia": 126771.44859486,
+  "soglia": 78.0,
+  "caduta_necessaria": 5.911349510315144,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x4c0c5e34847375d0e1b1bc52c56ffc5c1e540164",
+  "salute": 1.0632473492561478,
+  "debito": 11891.85838243,
+  "garanzia": 15052.3654204,
+  "soglia": 83.99,
+  "caduta_necessaria": 5.948507588605412,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x918d666f5815d0dadb4870c98e9091bc2e6982a1",
+  "salute": 1.0633170456756738,
+  "debito": 6578.53270693,
+  "garanzia": 8327.45947954,
+  "soglia": 84.0,
+  "caduta_necessaria": 5.954672308995068,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x3d025d18fbec14e4a398bc5c5af86d3c46da1825",
+  "salute": 1.0639834730316866,
+  "debito": 28128.20770411,
+  "garanzia": 35628.50987005,
+  "soglia": 83.99,
+  "caduta_necessaria": 6.013577715579899,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x78912275e6e1c06e64d7459bc566f9832336cfe3",
+  "salute": 1.0641193544932228,
+  "debito": 91494.7067541,
+  "garanzia": 115906.29558419,
+  "soglia": 84.0,
+  "caduta_necessaria": 6.025579200536113,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x320f477c0c7e1a5ffadb842c884c4e252c867290",
+  "salute": 1.0643578499550328,
+  "debito": 66207.65472067,
+  "garanzia": 93958.18270541,
+  "soglia": 75.0,
+  "caduta_necessaria": 6.046636472663003,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xdca6d9de6cba400d497d8fe86fe2832066d9e39a",
+  "salute": 1.06471476898136,
+  "debito": 3397667.3813047,
+  "garanzia": 3807943.83259088,
+  "soglia": 95.0,
+  "caduta_necessaria": 6.078131990530611,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xd9e758c92f7034014bb8d60c12a3578abc12989f",
+  "salute": 1.0648595488695634,
+  "debito": 3920.2123834,
+  "garanzia": 5351.89178022,
+  "soglia": 78.0,
+  "caduta_necessaria": 6.090901747410459,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xfd60f42af0afac0beedff4da364554ac24263cea",
+  "salute": 1.0648846591365733,
+  "debito": 446.46903205,
+  "garanzia": 565.99764644,
+  "soglia": 84.0,
+  "caduta_necessaria": 6.093116149234678,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x888e1d3c509c80e24cab8a4872e164b7e5a6eb10",
+  "salute": 1.0651956084120033,
+  "debito": 1650230.89753963,
+  "garanzia": 1910672.81522297,
+  "soglia": 91.99,
+  "caduta_necessaria": 6.120529215211201,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xff39825b272d7c3197a4f0593217564f8e7bf8f2",
+  "salute": 1.0659079040977835,
+  "debito": 1968863.33773504,
+  "garanzia": 2209081.04608434,
+  "soglia": 95.0,
+  "caduta_necessaria": 6.18326441190713,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x311ff47c7c13603b8e99ac187c2edae3824dc685",
+  "salute": 1.0662620306418256,
+  "debito": 73654.35851865,
+  "garanzia": 93493.86414252,
+  "soglia": 84.0,
+  "caduta_necessaria": 6.21442279079748,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb74e9387b18bd584d0410ba8794c8ab10ea4bd9f",
+  "salute": 1.066378966449492,
+  "debito": 872.36711277,
+  "garanzia": 1108.29439793,
+  "soglia": 83.93,
+  "caduta_necessaria": 6.2247070261054365,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x1fbcadcc4c250cf1f6da6b360263a6ebc3967aa9",
+  "salute": 1.0664346274679997,
+  "debito": 54264.26070354,
+  "garanzia": 68093.6848088,
+  "soglia": 84.98,
+  "caduta_necessaria": 6.229601492379633,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x49b198af8825bed9c1496a56b8bcf0e5343da1e8",
+  "salute": 1.0665390452081318,
+  "debito": 61791.3552287,
+  "garanzia": 69371.46650514,
+  "soglia": 94.99,
+  "caduta_necessaria": 6.238781928058423,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x1f374619eb71a224a4d64c6f821e2437f8044530",
+  "salute": 1.0666323435675376,
+  "debito": 2543.36244147,
+  "garanzia": 3191.56787628,
+  "soglia": 84.99,
+  "caduta_necessaria": 6.24698322429208,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x4f5a082f3fbd0ef127e1cae7492fa354847fd522",
+  "salute": 1.0668786224188207,
+  "debito": 6203.41986085,
+  "garanzia": 7193.80003851,
+  "soglia": 92.0,
+  "caduta_necessaria": 6.2686252225388035,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x03d0a5c9e1843986fb2f9335f7eb936754f7eaf0",
+  "salute": 1.0671808841380628,
+  "debito": 1033.18682092,
+  "garanzia": 1389.13816871,
+  "soglia": 79.37,
+  "caduta_necessaria": 6.295173117940845,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x962efd5e61e34342df02f8b2ec134f33c8643668",
+  "salute": 1.0678107720561127,
+  "debito": 991.46304941,
+  "garanzia": 1357.30117833,
+  "soglia": 78.0,
+  "caduta_necessaria": 6.350448396914032,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x0016a1fd031ce93edaa6a0985437db326698335c",
+  "salute": 1.0685790190859623,
+  "debito": 6139.93053623,
+  "garanzia": 7745.36569756,
+  "soglia": 84.7,
+  "caduta_necessaria": 6.417777053551288,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa6f1023676b7f0ca134a1e584d24b43673476208",
+  "salute": 1.0694106149793607,
+  "debito": 20778.93451655,
+  "garanzia": 28488.73479482,
+  "soglia": 78.0,
+  "caduta_necessaria": 6.490548532726159,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xfe7a590b782e95611445b6f3ca32ba5728dc68bf",
+  "salute": 1.0696875550707827,
+  "debito": 228760.95213633,
+  "garanzia": 291312.78998378,
+  "soglia": 84.0,
+  "caduta_necessaria": 6.514757953426075,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x009ae54bf26fccaa4c5a1443ebded3e472849371",
+  "salute": 1.0698498475075047,
+  "debito": 160449.98253734,
+  "garanzia": 220073.57438952,
+  "soglia": 78.0,
+  "caduta_necessaria": 6.528939333892336,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x53db19930bb0a817cb633248401fe0c1e6f38b04",
+  "salute": 1.070098394417489,
+  "debito": 1027226.83059604,
+  "garanzia": 1293216.21426281,
+  "soglia": 85.0,
+  "caduta_necessaria": 6.550649434031475,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x8cc6975e7f34654ec9896c342811f31c395ebc77",
+  "salute": 1.070621944449878,
+  "debito": 150742.64799549,
+  "garanzia": 215184.51587794,
+  "soglia": 75.0,
+  "caduta_necessaria": 6.596347554426963,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xba39a9c8626afc44fe81e829b08d11d16a32b58b",
+  "salute": 1.0712842221005985,
+  "debito": 86357.83463407,
+  "garanzia": 111458.31304934,
+  "soglia": 83.0,
+  "caduta_necessaria": 6.654090541987334,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x18a01f947148faca8cd3071455067947be2a2d76",
+  "salute": 1.0717001633647296,
+  "debito": 8816.26901188,
+  "garanzia": 12113.32941064,
+  "soglia": 78.0,
+  "caduta_necessaria": 6.690319346375617,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb502bcf27d3ad34ae6a26156612fbba3245f0923",
+  "salute": 1.0717090052957559,
+  "debito": 21601.80059464,
+  "garanzia": 27256.5336276,
+  "soglia": 84.93,
+  "caduta_necessaria": 6.691089180123722,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xdf1aa3dbbf1d0f425eb15a323554578b3f3ebfc4",
+  "salute": 1.0717238122227786,
+  "debito": 51388.99696529,
+  "garanzia": 70608.73276102,
+  "soglia": 78.0,
+  "caduta_necessaria": 6.692378335237493,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa0e78c625f0c7b07671b41aed7408bc69c960b8e",
+  "salute": 1.0717797019390147,
+  "debito": 107236.0249525,
+  "garanzia": 136825.47007228,
+  "soglia": 84.0,
+  "caduta_necessaria": 6.697244014712556,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x3716078b6303243783ef0194facd065a6ccd82df",
+  "salute": 1.0724334036916503,
+  "debito": 1817.03705541,
+  "garanzia": 2319.82289758,
+  "soglia": 84.0,
+  "caduta_necessaria": 6.754116707136493,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x18aa2b229909f0d60fee57cf8f1101c085672a8b",
+  "salute": 1.0725881964659458,
+  "debito": 4746.46304913,
+  "garanzia": 6105.61160046,
+  "soglia": 83.38,
+  "caduta_necessaria": 6.767573678800076,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x93ff0e88d4276590b63b6fa9c4883f9602b6dc50",
+  "salute": 1.0726636002655363,
+  "debito": 90290.12131142,
+  "garanzia": 122398.36006818,
+  "soglia": 79.12,
+  "caduta_necessaria": 6.774127531459861,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x3b44d6645bc270855796ac67644ce3a7f60487e6",
+  "salute": 1.0728969464788707,
+  "debito": 3857.02065057,
+  "garanzia": 5517.58090467,
+  "soglia": 75.0,
+  "caduta_necessaria": 6.794403387772741,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc2c5e719b2fae1c0560d4deea738f27574bffd91",
+  "salute": 1.0740301969574098,
+  "debito": 14059.01468285,
+  "garanzia": 17764.47801041,
+  "soglia": 85.0,
+  "caduta_necessaria": 6.892748189681052,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xe1e13f8f054f14b2c1071d289ecc6b63459d4a7e",
+  "salute": 1.0743841123520554,
+  "debito": 32503.45919944,
+  "garanzia": 44770.76936665,
+  "soglia": 78.0,
+  "caduta_necessaria": 6.9234188682493425,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x63a39bb672156683a0128c8a2d47edfc3a2725b0",
+  "salute": 1.0748623709356817,
+  "debito": 7013.94326941,
+  "garanzia": 8975.02820496,
+  "soglia": 84.0,
+  "caduta_necessaria": 6.964833169339912,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc2afbbbf717700b9aa3ac11de65d3f22ff2577d7",
+  "salute": 1.074993398331612,
+  "debito": 240.41660482,
+  "garanzia": 277.89920756,
+  "soglia": 93.0,
+  "caduta_necessaria": 6.9761729186431864,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xeb253a9f465233bb030a8bcfbef37bb3e5f0d8a9",
+  "salute": 1.0758172626947753,
+  "debito": 5416.50369104,
+  "garanzia": 6937.10496937,
+  "soglia": 84.0,
+  "caduta_necessaria": 7.047410868353554,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xab7a65c7bc0805192654dcab5cbb5b33ba0e79e1",
+  "salute": 1.0758458542810696,
+  "debito": 262725.54176141,
+  "garanzia": 336490.69690391,
+  "soglia": 83.99,
+  "caduta_necessaria": 7.049881168316007,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x74a60dae44deda8e6c6445cbbb067097e08b682c",
+  "salute": 1.0761806411805697,
+  "debito": 2701.43384416,
+  "garanzia": 3876.30774202,
+  "soglia": 75.0,
+  "caduta_necessaria": 7.07879683628202,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x942c80aaf741bec03339569728bcc0a09c77ea51",
+  "salute": 1.0763799259869153,
+  "debito": 3681.30217013,
+  "garanzia": 4171.0313236,
+  "soglia": 95.0,
+  "caduta_necessaria": 7.09600059819806,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xaee2ae13ebf81d38df5a9ed7013e80ea3f72e39b",
+  "salute": 1.0768211706864839,
+  "debito": 602128.40931705,
+  "garanzia": 776225.64609112,
+  "soglia": 83.53,
+  "caduta_necessaria": 7.134069498049489,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x87ff1a059f1c55e758b1fff6d6668247a5626de8",
+  "salute": 1.0770778803258587,
+  "debito": 2684.66240292,
+  "garanzia": 3649.30437159,
+  "soglia": 79.23,
+  "caduta_necessaria": 7.1562030688569696,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x28223830b4be025f7b492443b5401c54aa78ea95",
+  "salute": 1.0771613006693803,
+  "debito": 7060.86177067,
+  "garanzia": 9750.88083172,
+  "soglia": 78.0,
+  "caduta_necessaria": 7.163393321077349,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb926911b77c19d8ef22db466c9c34436c96fe621",
+  "salute": 1.0775776038895892,
+  "debito": 12322.36543343,
+  "garanzia": 14346.36696347,
+  "soglia": 92.55,
+  "caduta_necessaria": 7.199259116890289,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x0dfa39fbd4c01da42c0cdb835d943d31f2c9c5c9",
+  "salute": 1.0784214976224025,
+  "debito": 4582.93839697,
+  "garanzia": 5883.73724949,
+  "soglia": 84.0,
+  "caduta_necessaria": 7.271878184485237,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x4d48bec025de3ad0f06ab8b8562c685c373f83bb",
+  "salute": 1.0784987749568578,
+  "debito": 8065.92861058,
+  "garanzia": 10356.064435,
+  "soglia": 84.0,
+  "caduta_necessaria": 7.278522403513888,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa998a89bc88d3e3e93dcd86455a1182f83433bfd",
+  "salute": 1.0789190628881296,
+  "debito": 12829483.09451412,
+  "garanzia": 15045623.78007856,
+  "soglia": 92.0,
+  "caduta_necessaria": 7.314641626302643,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc9cea6df3a736846c5b610ff342836838ec1a84d",
+  "salute": 1.079127824708231,
+  "debito": 6955972.6880979,
+  "garanzia": 9154126.4337036,
+  "soglia": 82.0,
+  "caduta_necessaria": 7.332571999023852,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xe3c72c1041f4f118479260bdbc65d64c4c49b847",
+  "salute": 1.0791453630004435,
+  "debito": 28824.65040758,
+  "garanzia": 37030.93788982,
+  "soglia": 84.0,
+  "caduta_necessaria": 7.3340780319334,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x301c3032a382350e095b8f86ce89955624203ce8",
+  "salute": 1.0793018017765585,
+  "debito": 3549.0498973,
+  "garanzia": 4163.58255299,
+  "soglia": 92.0,
+  "caduta_necessaria": 7.347509440457312,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xebaea2eb91d2c2a10e3d7da528bae36312d627f0",
+  "salute": 1.0803222324078727,
+  "debito": 8819.34689115,
+  "garanzia": 11342.54354101,
+  "soglia": 83.99,
+  "caduta_necessaria": 7.435025402453011,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xd23b2ca9f8f0c724ae6435359bd2c950502886b4",
+  "salute": 1.0810142467182111,
+  "debito": 8844.14039941,
+  "garanzia": 11354.88935073,
+  "soglia": 84.19,
+  "caduta_necessaria": 7.494281131276259,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x870fc95b155ffef04a9a67225cbacfb96b573c15",
+  "salute": 1.0812780534051476,
+  "debito": 60549.00496154,
+  "garanzia": 79181.63071777,
+  "soglia": 82.68,
+  "caduta_necessaria": 7.516850374349849,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xbeda2328534708868726118dbe0a073a1bae0a7d",
+  "salute": 1.081554762118685,
+  "debito": 62708.03405737,
+  "garanzia": 80740.68197363,
+  "soglia": 84.0,
+  "caduta_necessaria": 7.540511583428778,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xed1ab35b1d885b561b516dfefbe925b7aa93ad99",
+  "salute": 1.081780964142135,
+  "debito": 243793.2888636,
+  "garanzia": 313965.40366458,
+  "soglia": 84.0,
+  "caduta_necessaria": 7.559845001246468,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xd99cc3857f1cb758a388859ce2d00d4094ff4701",
+  "salute": 1.082006456023233,
+  "debito": 7987.64063265,
+  "garanzia": 10301.96729977,
+  "soglia": 83.89,
+  "caduta_necessaria": 7.57910967783284,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xe7ff69467255600fd11c559ca442a1bd3d80e738",
+  "salute": 1.0820539127652649,
+  "debito": 17188.66668529,
+  "garanzia": 21881.25181416,
+  "soglia": 85.0,
+  "caduta_necessaria": 7.583163075079158,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xfe87f49ac39f81c806733d0e4df2ea813189585a",
+  "salute": 1.083155700998367,
+  "debito": 3266.58578355,
+  "garanzia": 4212.16787411,
+  "soglia": 84.0,
+  "caduta_necessaria": 7.677169673918593,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x869d38ffc5d926be99d9ff2d9832b749dc904a83",
+  "salute": 1.083306629863003,
+  "debito": 627.40518714,
+  "garanzia": 723.05553068,
+  "soglia": 94.0,
+  "caduta_necessaria": 7.690032310938422,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x5e6460ade7e94f6e83def3753bd70b1cf2588590",
+  "salute": 1.0833981506127415,
+  "debito": 582.14843703,
+  "garanzia": 750.83159531,
+  "soglia": 84.0,
+  "caduta_necessaria": 7.69783025433205,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x762eb6b5aa26c47705a2e2b97aad9b4015f15b02",
+  "salute": 1.0834043057680196,
+  "debito": 71893.9788593,
+  "garanzia": 93723.11203039,
+  "soglia": 83.1,
+  "caduta_necessaria": 7.6983546515347,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x577557e04ce02cf279b265c7a7b77540acba4a81",
+  "salute": 1.083556341015713,
+  "debito": 428641.22355272,
+  "garanzia": 488902.01663293,
+  "soglia": 95.0,
+  "caduta_necessaria": 7.711305619547959,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x66fc7ba8ee5bba0712fbe4890d1f4b87362a25a6",
+  "salute": 1.0836819174264372,
+  "debito": 14627.93823951,
+  "garanzia": 18653.64038413,
+  "soglia": 84.98,
+  "caduta_necessaria": 7.7219999781086734,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x8db224c151201f0c8ba7dde6c9e5fe2e92700d2d",
+  "salute": 1.0837897579832791,
+  "debito": 753.8214895,
+  "garanzia": 1047.41539701,
+  "soglia": 78.0,
+  "caduta_necessaria": 7.731181935064191,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x154bbb1f08a5185712bad7e90a5029eac8beef6f",
+  "salute": 1.08411857680272,
+  "debito": 263.91515644,
+  "garanzia": 310.99491717,
+  "soglia": 92.0,
+  "caduta_necessaria": 7.75916754888587,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x784ecbf6d777b7cd5512d6c6e94462d3db4f6c63",
+  "salute": 1.0844424381807636,
+  "debito": 1985431.62340917,
+  "garanzia": 2542928.04326355,
+  "soglia": 84.66,
+  "caduta_necessaria": 7.786714647798398,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xd4da14dabe00acfe3e22b0e93a76f97e7f0aac77",
+  "salute": 1.084694014197756,
+  "debito": 445816.42862481,
+  "garanzia": 644765.88208047,
+  "soglia": 75.0,
+  "caduta_necessaria": 7.808101924522548,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc2dc142198c1767815bd1e32603742605b28e16a",
+  "salute": 1.0847446174874917,
+  "debito": 7814.81102503,
+  "garanzia": 10091.75510103,
+  "soglia": 83.99,
+  "caduta_necessaria": 7.812402672601316,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x18fbbad253216cc47728ab5a5a2665618159ae88",
+  "salute": 1.0850018965841572,
+  "debito": 133761.18674595,
+  "garanzia": 204410.05695693,
+  "soglia": 71.0,
+  "caduta_necessaria": 7.834262488550792,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb8e5dc001ca3097f943e7a8d4d413f00816c0191",
+  "salute": 1.0855484413118413,
+  "debito": 3653.59029314,
+  "garanzia": 5084.80659918,
+  "soglia": 78.0,
+  "caduta_necessaria": 7.880665482643911,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x7d0fcf6f8b38af9eaa58621b630e76d83cb34af2",
+  "salute": 1.0855959765564196,
+  "debito": 18520.22354354,
+  "garanzia": 23653.50607505,
+  "soglia": 85.0,
+  "caduta_necessaria": 7.884699133459905,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xbfe84ff954c82fb9953913ab4d54a30b14511046",
+  "salute": 1.0859394293297937,
+  "debito": 82991.16121345,
+  "garanzia": 115542.78749686,
+  "soglia": 78.0,
+  "caduta_necessaria": 7.913832669547016,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xcdf0599802a9e203de7293c045e9af3620f46fb0",
+  "salute": 1.086757294340995,
+  "debito": 51801.92239204,
+  "garanzia": 67019.18692909,
+  "soglia": 84.0,
+  "caduta_necessaria": 7.983134301721373,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x4c806574b7d4259a2cd6885be4bdcf7ae75c4041",
+  "salute": 1.0872833307426206,
+  "debito": 747.31840252,
+  "garanzia": 967.31766883,
+  "soglia": 84.0,
+  "caduta_necessaria": 8.027652799846162,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x6c5c5f47689399252a4fa7f99eb742bf9c1e8c00",
+  "salute": 1.0873646459755062,
+  "debito": 2912.88364605,
+  "garanzia": 4223.15559274,
+  "soglia": 75.0,
+  "caduta_necessaria": 8.034530669987793,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x1e2799e0071e535468097e04ad23b9fe3ae5a6a5",
+  "salute": 1.0879975154902686,
+  "debito": 9573266.43720843,
+  "garanzia": 11135409.05787564,
+  "soglia": 93.53,
+  "caduta_necessaria": 8.088025407908727,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xf1f8ec9f29e5a86b142d5c8450abc5f2167bd441",
+  "salute": 1.088168581507894,
+  "debito": 409723.03936893,
+  "garanzia": 484617.10713173,
+  "soglia": 92.0,
+  "caduta_necessaria": 8.102474470060272,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x0376b46804be07379829bb321002ec170d52cbfc",
+  "salute": 1.088563364681246,
+  "debito": 410.8243447,
+  "garanzia": 532.39087019,
+  "soglia": 84.0,
+  "caduta_necessaria": 8.13580243049785,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x9d3568e562900e0eb3d4a625554eba071753e7ae",
+  "salute": 1.0890335450197024,
+  "debito": 50023.18090845,
+  "garanzia": 59214.04569336,
+  "soglia": 92.0,
+  "caduta_necessaria": 8.175463963150154,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x610795c27ef8bee6c041f5a0055f40991012bd18",
+  "salute": 1.08905921141495,
+  "debito": 1551535.07247265,
+  "garanzia": 1778645.85527337,
+  "soglia": 95.0,
+  "caduta_necessaria": 8.177628037252504,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x18c7f129039e2722484024c404e21982a49f4e49",
+  "salute": 1.0893831066260247,
+  "debito": 558021.90838274,
+  "garanzia": 723690.04775191,
+  "soglia": 84.0,
+  "caduta_necessaria": 8.204928650202492,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc02665f7d96d9c7db5c7cb3141dab9cb7837c51b",
+  "salute": 1.0904131227797074,
+  "debito": 1465836.71938688,
+  "garanzia": 2038005.02809987,
+  "soglia": 78.42,
+  "caduta_necessaria": 8.291639277893504,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa29d58aef04ba9ebefd4a93dde7358d35f6aeab3",
+  "salute": 1.0904131924157172,
+  "debito": 7239.89670601,
+  "garanzia": 10121.12676918,
+  "soglia": 78.0,
+  "caduta_necessaria": 8.29164513457642,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x24a416e5c00c7b47a5f8a300984579b53919330b",
+  "salute": 1.0910440164603257,
+  "debito": 107610.50202978,
+  "garanzia": 139771.18374748,
+  "soglia": 84.0,
+  "caduta_necessaria": 8.34466942550125,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x36b60d4ed25069714e45e0ef588631197f909d0e",
+  "salute": 1.0912198611651187,
+  "debito": 19235.22619643,
+  "garanzia": 24987.9295947,
+  "soglia": 84.0,
+  "caduta_necessaria": 8.359439230488464,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x633a6cba7b2642f83380f1c88464c3435e341191",
+  "salute": 1.0915281238465708,
+  "debito": 5012.77631279,
+  "garanzia": 7014.85426149,
+  "soglia": 78.0,
+  "caduta_necessaria": 8.385319795886115,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x4f0aa63d1473ee4c90b4b815d1f88646c2ecb9f9",
+  "salute": 1.091629763428571,
+  "debito": 62378.46659392,
+  "garanzia": 80110.92681577,
+  "soglia": 84.99,
+  "caduta_necessaria": 8.393849865432568,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xaabe7c9dc2de225c664d39f91e6d5d77eb2ed151",
+  "salute": 1.0916404938562487,
+  "debito": 4150.38491212,
+  "garanzia": 4769.18769795,
+  "soglia": 94.99,
+  "caduta_necessaria": 8.394750320458177,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xf03837a074e9bc31242feb84e255e5b27159a0ce",
+  "salute": 1.091925645850192,
+  "debito": 219.85902229,
+  "garanzia": 285.79726775,
+  "soglia": 84.0,
+  "caduta_necessaria": 8.418672663248705,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xee3d529b37d06750883800ae40084579b0685fb5",
+  "salute": 1.0924977335833872,
+  "debito": 107234.45966326,
+  "garanzia": 137827.5342874,
+  "soglia": 84.99,
+  "caduta_necessaria": 8.466629333865539,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x5c19faf7ba5f7c680c9c4da2dccd3d20947cd229",
+  "salute": 1.0925451185658714,
+  "debito": 8492.31965431,
+  "garanzia": 11089.2575733,
+  "soglia": 83.66,
+  "caduta_necessaria": 8.470599245123234,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x0c1fe07affc15d8eccef6bd1c8bf05a007cb220c",
+  "salute": 1.0926083371453494,
+  "debito": 17211.27061302,
+  "garanzia": 23079.04250194,
+  "soglia": 81.48,
+  "caduta_necessaria": 8.47589515812287,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xf7bebb847cfa73e27b5557914262ce0031424823",
+  "salute": 1.092798440518376,
+  "debito": 4896.47141875,
+  "garanzia": 6507.55700272,
+  "soglia": 82.22,
+  "caduta_necessaria": 8.491816704492772,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xcd2e456fc74acd2ca28e554f5ba54a0a728af5f9",
+  "salute": 1.0931144460225248,
+  "debito": 94612.28952885,
+  "garanzia": 125297.33173473,
+  "soglia": 82.54,
+  "caduta_necessaria": 8.518270558159479,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x5e9bda3a47c09b87632d36060b75a92179cc50a4",
+  "salute": 1.0931364665595094,
+  "debito": 240.24691901,
+  "garanzia": 312.64603351,
+  "soglia": 84.0,
+  "caduta_necessaria": 8.520113399257745,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x97787751c75a2712128408c6692e36328d6905e7",
+  "salute": 1.0938825287088507,
+  "debito": 39634.26440544,
+  "garanzia": 51522.72018564,
+  "soglia": 84.14,
+  "caduta_necessaria": 8.582505547434206,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x920ef33c3dba9ea7607ab8f6b8181ad1dac80f9a",
+  "salute": 1.0940099514238188,
+  "debito": 51170.65774612,
+  "garanzia": 71624.17643153,
+  "soglia": 78.15,
+  "caduta_necessaria": 8.593153225111704,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x2e3bc8b65dd8f0fafb6a40160e8b29f5a6136c04",
+  "salute": 1.0940239732665524,
+  "debito": 53243.28227495,
+  "garanzia": 72735.77326322,
+  "soglia": 80.08,
+  "caduta_necessaria": 8.594324764732008,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x7c912e588174d62ba25f844cc7dc5385c3bd23b7",
+  "salute": 1.094031462634834,
+  "debito": 951.53032154,
+  "garanzia": 1230.22760296,
+  "soglia": 84.61,
+  "caduta_necessaria": 8.594950496978516,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x80e104550c8d9fe2c408741c9225a151a18e8a88",
+  "salute": 1.094270520218404,
+  "debito": 46581.94654293,
+  "garanzia": 61794.47735824,
+  "soglia": 82.48,
+  "caduta_necessaria": 8.614919115210073,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x8123febbf72212faf324dfb8a9200a0ffbe97545",
+  "salute": 1.0945776766954438,
+  "debito": 27374.11358011,
+  "garanzia": 35250.69840484,
+  "soglia": 85.0,
+  "caduta_necessaria": 8.640563270116752,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xd12a16aaa884eb84303074811001b8eb087ead3c",
+  "salute": 1.0946419504490121,
+  "debito": 33919.96413133,
+  "garanzia": 44202.63773319,
+  "soglia": 84.0,
+  "caduta_necessaria": 8.645927593967217,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x6249099e4a2aacb70621c432d537fe6bbdb5251c",
+  "salute": 1.095621381220025,
+  "debito": 3096202.26944044,
+  "garanzia": 4209013.43043465,
+  "soglia": 80.59,
+  "caduta_necessaria": 8.72759357010231,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x5e33bfae6d34c979bdd80f1ec208e4b82679c91a",
+  "salute": 1.0957006729443055,
+  "debito": 3199.68560342,
+  "garanzia": 4674.53022517,
+  "soglia": 75.0,
+  "caduta_necessaria": 8.734198609839671,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xf6d6128bda3e16923aec500a8e8c4fd6fd588a75",
+  "salute": 1.0957492619706242,
+  "debito": 1281996.54656922,
+  "garanzia": 1800957.3942343,
+  "soglia": 78.0,
+  "caduta_necessaria": 8.738245627327746,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x77adce25aba76a84c493f28df90447a108fd0265",
+  "salute": 1.0959917281297518,
+  "debito": 2224.08456711,
+  "garanzia": 2901.87891454,
+  "soglia": 84.0,
+  "caduta_necessaria": 8.758435457679614,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x3f553066977767e0e63e9f3c0db0a8942062d2ea",
+  "salute": 1.096038058337635,
+  "debito": 1204.13763416,
+  "garanzia": 1389.24281528,
+  "soglia": 95.0,
+  "caduta_necessaria": 8.76229229515043,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x4f4bde18d7768b78b26ee31653edcba7269473a8",
+  "salute": 1.0960459368536721,
+  "debito": 143365.46636997,
+  "garanzia": 191479.54773021,
+  "soglia": 82.06,
+  "caduta_necessaria": 8.762948123267822,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x4024917334edcde493d26f2b26cccd2dc8907dfc",
+  "salute": 1.0974546709359037,
+  "debito": 69096.75784123,
+  "garanzia": 89479.10218333,
+  "soglia": 84.74,
+  "caduta_necessaria": 8.880063433763041,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc8097d434b46888a14be77dfc836d86971e3c40f",
+  "salute": 1.0977114901271543,
+  "debito": 25719.88758738,
+  "garanzia": 33554.79769505,
+  "soglia": 84.14,
+  "caduta_necessaria": 8.901381738824266,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x92d95a4cb77857e82e9e6887f0b545f5a430ec38",
+  "salute": 1.0977303334208552,
+  "debito": 6669.56438408,
+  "garanzia": 8715.93238511,
+  "soglia": 83.99,
+  "caduta_necessaria": 8.902945509057613,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x7baecee44f3f1af9a9d8a0535be0f47b58a7383d",
+  "salute": 1.0986660406663271,
+  "debito": 5150.8031693,
+  "garanzia": 7255.14426188,
+  "soglia": 78.0,
+  "caduta_necessaria": 8.980530663029086,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x41e41a8e67ec9cdef193f4b9b544f93cd5b9e9be",
+  "salute": 1.098818103805128,
+  "debito": 21254.10070308,
+  "garanzia": 27802.84599124,
+  "soglia": 84.0,
+  "caduta_necessaria": 8.993126656989714,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x70b1b4016b9f875d798c75f4d2c5e8d30787c187",
+  "salute": 1.0989254214340376,
+  "debito": 220057.72034027,
+  "garanzia": 310034.64488509,
+  "soglia": 78.0,
+  "caduta_necessaria": 9.002014104373469,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x51e5ab0277e8bf69d228d6ad3eb4169b13bac6ee",
+  "salute": 1.099098561772897,
+  "debito": 8724.87524284,
+  "garanzia": 12294.22798853,
+  "soglia": 78.0,
+  "caduta_necessaria": 9.016348962648667,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xd29980d59213982b011e7a6b2fcaf0bdac1b4d00",
+  "salute": 1.0991670859751352,
+  "debito": 1351.88896523,
+  "garanzia": 1905.06647655,
+  "soglia": 78.0,
+  "caduta_necessaria": 9.02202105944233,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb3506fcce7e57681f216391f7676ca8f45691959",
+  "salute": 1.0992215132622232,
+  "debito": 38758.183875,
+  "garanzia": 53789.20224687,
+  "soglia": 79.2,
+  "caduta_necessaria": 9.026525778935834,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xe19f57d6935ccc76549b436085783d796272beb0",
+  "salute": 1.0992762213160123,
+  "debito": 8452.18440877,
+  "garanzia": 10959.78875608,
+  "soglia": 84.77,
+  "caduta_necessaria": 9.031053286785607,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xd25215758734dd3ade497ce04de1c35820964126",
+  "salute": 1.0995578782888908,
+  "debito": 252291.8970439,
+  "garanzia": 355555.3659341,
+  "soglia": 78.02,
+  "caduta_necessaria": 9.054355414543592,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x13f7e378aa3ae0a2eefe41542fde60c6cfd83277",
+  "salute": 1.099605604637359,
+  "debito": 6507.44185128,
+  "garanzia": 8518.59468038,
+  "soglia": 84.0,
+  "caduta_necessaria": 9.058302742118896,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x72d1faea2ae41dac6b43d1c5dadeb763255b0a88",
+  "salute": 1.0998757744365868,
+  "debito": 139592.93329432,
+  "garanzia": 181676.00310545,
+  "soglia": 84.51,
+  "caduta_necessaria": 9.080641355861152,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x9fa71d488e16c93590da0466944fe39b9a652cfd",
+  "salute": 1.0999257605198487,
+  "debito": 130373.98480004,
+  "garanzia": 170715.56580296,
+  "soglia": 84.0,
+  "caduta_necessaria": 9.084773182566575,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x4de2526639a401ee3317aee5b7f6d7a39c7295f2",
+  "salute": 1.1003555106833414,
+  "debito": 36444.51313031,
+  "garanzia": 42212.54827064,
+  "soglia": 95.0,
+  "caduta_necessaria": 9.120280646481127,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x7bf8199dcd15ad4343ff5eb63b929e7048ccadfb",
+  "salute": 1.1008011034664342,
+  "debito": 22480.0651909,
+  "garanzia": 31701.17517719,
+  "soglia": 78.06,
+  "caduta_necessaria": 9.1570678071643,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xe0c20053d20c8d6d6de243af2093b222eb3e9c03",
+  "salute": 1.1010541256904822,
+  "debito": 3470.06355146,
+  "garanzia": 4548.48546398,
+  "soglia": 84.0,
+  "caduta_necessaria": 9.177943511824193,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xd14f076044414c255d2e82cceb1cb00fb1bba64c",
+  "salute": 1.1012902294546023,
+  "debito": 259445.70478214,
+  "garanzia": 340148.83303635,
+  "soglia": 84.0,
+  "caduta_necessaria": 9.197414700098161,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x7c6d236d3cb169a2fb63d40397b2e0f109ae55a5",
+  "salute": 1.1014778741060296,
+  "debito": 1715.5769548,
+  "garanzia": 2249.60721076,
+  "soglia": 84.0,
+  "caduta_necessaria": 9.21288357139176,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x47324c6e0705d7cc3d1f8765025a4b64e87164fe",
+  "salute": 1.1016869169503485,
+  "debito": 1240.17121659,
+  "garanzia": 1626.52429059,
+  "soglia": 84.0,
+  "caduta_necessaria": 9.230110241468115,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xf8b63e94eb4c2badefdbd2e4c570740753cc4e04",
+  "salute": 1.1017662374250812,
+  "debito": 592.54457138,
+  "garanzia": 836.9815422,
+  "soglia": 78.0,
+  "caduta_necessaria": 9.23664512201039,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x2b8eb3ea83be534f1a3783552152f73c6e0c031f",
+  "salute": 1.1021351823743475,
+  "debito": 364335.39288893,
+  "garanzia": 478031.96986556,
+  "soglia": 84.0,
+  "caduta_necessaria": 9.267028583037884,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xee7ca610d896c53ffe716b801c05748efd902954",
+  "salute": 1.1021367717996258,
+  "debito": 8802649.43623734,
+  "garanzia": 11634035.34473002,
+  "soglia": 83.39,
+  "caduta_necessaria": 9.267159431841797,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc767ecd98c87182f272386e75086a1cfacc5c724",
+  "salute": 1.1022324072997498,
+  "debito": 3390.40813773,
+  "garanzia": 4448.83062307,
+  "soglia": 84.0,
+  "caduta_necessaria": 9.275031891885565,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x0ece0b16103922a4288f17832b83b3bfcdfb64f8",
+  "salute": 1.1024470332811522,
+  "debito": 377791.8905449,
+  "garanzia": 495828.03443917,
+  "soglia": 84.0,
+  "caduta_necessaria": 9.29269435976845,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xae49fc11cc6e36353bbfa9d554817b0aeab1b91e",
+  "salute": 1.1024886139192736,
+  "debito": 217382.6297816,
+  "garanzia": 285311.75499767,
+  "soglia": 84.0,
+  "caduta_necessaria": 9.296115408841576,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x105b189290cecb5c940ef5e73595bb733a93b44d",
+  "salute": 1.1026347613279315,
+  "debito": 32783.98174806,
+  "garanzia": 46344.56134894,
+  "soglia": 78.0,
+  "caduta_necessaria": 9.308137646987092,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc020c6d9952eecec43208d3716fa0e7b8532274e",
+  "salute": 1.1029266284040038,
+  "debito": 157618.50368552,
+  "garanzia": 205520.89975616,
+  "soglia": 84.58,
+  "caduta_necessaria": 9.332137401827389,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xf7a0b2bbf94527a734458795c171ddab7cd9dda8",
+  "salute": 1.1032193312693286,
+  "debito": 16218.86111192,
+  "garanzia": 23120.85439607,
+  "soglia": 77.38,
+  "caduta_necessaria": 9.356193128937262,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x208f09ff19fd7bc0c5fa47afda47ca62adfaa329",
+  "salute": 1.1033190628329823,
+  "debito": 2278.41276527,
+  "garanzia": 3009.7482892,
+  "soglia": 83.52,
+  "caduta_necessaria": 9.364386632429866,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x1430078db0fc8b5fabb2dafbfccb23300604911a",
+  "salute": 1.1034808347931488,
+  "debito": 2219.95311533,
+  "garanzia": 3140.60988526,
+  "soglia": 78.0,
+  "caduta_necessaria": 9.377673950499254,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x80fdb82489168098cd7d7f096ae41a678ae47302",
+  "salute": 1.1035907983768352,
+  "debito": 92416.15035386,
+  "garanzia": 121416.20613325,
+  "soglia": 84.0,
+  "caduta_necessaria": 9.38670370659096,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x1d86fbad389068e19fa665eba12a0ebd4c68bb08",
+  "salute": 1.10387984897894,
+  "debito": 1189.47591106,
+  "garanzia": 1750.71798542,
+  "soglia": 75.0,
+  "caduta_necessaria": 9.410430770615685,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x1ff15c39f3cd9b972d7437859d201dc49802681b",
+  "salute": 1.1044238835790563,
+  "debito": 173267.51685335,
+  "garanzia": 232528.42849802,
+  "soglia": 82.29,
+  "caduta_necessaria": 9.455054814701636,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x5191bc74f0825c7b15b89215969f69aa22df9d6e",
+  "salute": 1.104655770390726,
+  "debito": 15116.69421095,
+  "garanzia": 19879.45653495,
+  "soglia": 84.0,
+  "caduta_necessaria": 9.474061802411837,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x4a4ffceebc80782400f2ddf1878dd4b2d33661ba",
+  "salute": 1.1047946736296181,
+  "debito": 157582.86922686,
+  "garanzia": 205821.07492506,
+  "soglia": 84.58,
+  "caduta_necessaria": 9.485443415954641,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x5025db52262ed60781e8bc1318b7ea2ef41c67bc",
+  "salute": 1.1050087154418673,
+  "debito": 594474.87632726,
+  "garanzia": 772823.43465041,
+  "soglia": 85.0,
+  "caduta_necessaria": 9.502976218597226,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc167288e9cab3747b1cd01266ab29166899cc042",
+  "salute": 1.1050245827437186,
+  "debito": 117591.52427143,
+  "garanzia": 153780.69070701,
+  "soglia": 84.49,
+  "caduta_necessaria": 9.50427568615243,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x060e51fc3e1a1956619c7785ad39f677d58eebba",
+  "salute": 1.1052278145791712,
+  "debito": 9943.23812304,
+  "garanzia": 13082.78969315,
+  "soglia": 83.99,
+  "caduta_necessaria": 9.520916248315547,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x391a19ca9cf71d30d60b1667a7643ad116f02ecc",
+  "salute": 1.105511916787315,
+  "debito": 2682.25267138,
+  "garanzia": 3554.37167512,
+  "soglia": 83.42,
+  "caduta_necessaria": 9.544168198018088,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x1acfbd88adc974b0b7a36005947335ecf3965c60",
+  "salute": 1.1058637404209746,
+  "debito": 7027.24139858,
+  "garanzia": 8446.92549769,
+  "soglia": 92.0,
+  "caduta_necessaria": 9.572946155253714,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb41150cb8e16cf5142b89df3baadbc7ffbe88a76",
+  "salute": 1.1061517560509493,
+  "debito": 310774.11792215,
+  "garanzia": 409242.07212282,
+  "soglia": 83.99,
+  "caduta_necessaria": 9.596491211108283,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb2c6eb79dd5d185d948e5b1f8a580efc79432621",
+  "salute": 1.1061864263527577,
+  "debito": 18555.55431488,
+  "garanzia": 26315.25938022,
+  "soglia": 78.0,
+  "caduta_necessaria": 9.599324654784303,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb372ed5ca2fef2b5fcdd16288e8fe9ac73696761",
+  "salute": 1.1062559750424739,
+  "debito": 25123.38895186,
+  "garanzia": 35631.92197604,
+  "soglia": 78.0,
+  "caduta_necessaria": 9.60500801257993,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb826c21a9c294cf5c8b6adf192db5976b7b0a522",
+  "salute": 1.1065461015996905,
+  "debito": 70005.49874748,
+  "garanzia": 91613.77652621,
+  "soglia": 84.55,
+  "caduta_necessaria": 9.628708776404427,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xd452f3a4b10ae872a6b6eade412e1700592db785",
+  "salute": 1.1070187151131785,
+  "debito": 41315.52975805,
+  "garanzia": 58637.26239356,
+  "soglia": 78.0,
+  "caduta_necessaria": 9.66729050305506,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x2d0372311f520d65b3c3328fb2676e2093e972e3",
+  "salute": 1.1070192095444693,
+  "debito": 15918.82353842,
+  "garanzia": 20979.09934569,
+  "soglia": 84.0,
+  "caduta_necessaria": 9.667330848622491,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x507b8588846168810f321deb8ade2a3bbed1faea",
+  "salute": 1.107043670173071,
+  "debito": 134077.14560772,
+  "garanzia": 181238.14224902,
+  "soglia": 81.89,
+  "caduta_necessaria": 9.669326789641119,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xaf911f19aedd729bd887bbddfb752d0c63fcbcaf",
+  "salute": 1.1073801223045687,
+  "debito": 800.95822834,
+  "garanzia": 1182.62029448,
+  "soglia": 75.0,
+  "caduta_necessaria": 9.696771699414287,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x1558ad8ed679d00f7c419291b4b32da1a59b06e8",
+  "salute": 1.1074882299224713,
+  "debito": 1529305.07370554,
+  "garanzia": 1822299.43257163,
+  "soglia": 92.94,
+  "caduta_necessaria": 9.70558666162944,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xeeb5f2460828d1160f55f656a288896cfb562e4d",
+  "salute": 1.1075873518909274,
+  "debito": 2614432.15180872,
+  "garanzia": 3416863.2636207,
+  "soglia": 84.74,
+  "caduta_necessaria": 9.71366743284392,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x47ef4817daf6b5879013f382cde60a8acf60efdf",
+  "salute": 1.1079932990707964,
+  "debito": 5761.94436123,
+  "garanzia": 8184.86633572,
+  "soglia": 78.0,
+  "caduta_necessaria": 9.74674658785062,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x596fc21e6421e3925d93b922aae00fc53d7cf3da",
+  "salute": 1.1088544409058314,
+  "debito": 294477.48216528,
+  "garanzia": 343718.59352183,
+  "soglia": 95.0,
+  "caduta_necessaria": 9.816837710178394,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc06055360723066ff500b0e3857c6e13784f57c0",
+  "salute": 1.1090236752502634,
+  "debito": 29796.62900018,
+  "garanzia": 39325.36091379,
+  "soglia": 84.03,
+  "caduta_necessaria": 9.830599443754974,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x9637fca508830233323c728677f9aa1b49a9afbd",
+  "salute": 1.1092120805285812,
+  "debito": 28489.68974415,
+  "garanzia": 38771.54010212,
+  "soglia": 81.5,
+  "caduta_necessaria": 9.845915172194807,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x9433d258b5325c25e14e60a93bdae180d45ea3ae",
+  "salute": 1.1097498975019136,
+  "debito": 8674.14202656,
+  "garanzia": 11482.52226597,
+  "soglia": 83.83,
+  "caduta_necessaria": 9.88960645537922,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x99da8b0cae360df0c2f1f855b8407ef69462e5f8",
+  "salute": 1.110040162245027,
+  "debito": 5716.00838164,
+  "garanzia": 7553.57008494,
+  "soglia": 84.0,
+  "caduta_necessaria": 9.913169449875914,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x0e1a18fa0216f14f79f62e2a27e25e238f9bda75",
+  "salute": 1.1101300182643687,
+  "debito": 3738.85113034,
+  "garanzia": 4932.33773688,
+  "soglia": 84.15,
+  "caduta_necessaria": 9.92046124800331,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa69123f9dc5003f0d75ba133a0ed0fe80bcc9698",
+  "salute": 1.1109311682935221,
+  "debito": 60364.34131578,
+  "garanzia": 80751.37677761,
+  "soglia": 83.04,
+  "caduta_necessaria": 9.985422270933409,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x018ddd59693e552a267c04bff6b54e8049420290",
+  "salute": 1.1113937286586713,
+  "debito": 732695.80688752,
+  "garanzia": 988974.51528051,
+  "soglia": 82.33,
+  "caduta_necessaria": 10.022886200114801,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x05ccdedfaf0603cb6753f3a80ef2342e104113f1",
+  "salute": 1.1116735247841998,
+  "debito": 287479.99060518,
+  "garanzia": 375981.34068543,
+  "soglia": 84.99,
+  "caduta_necessaria": 10.045532460249795,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x7d5b8b1863f2e9c5c9b39ce9685d82db2bec5192",
+  "salute": 1.1116876158464064,
+  "debito": 339766.61424961,
+  "garanzia": 484249.15043507,
+  "soglia": 78.0,
+  "caduta_necessaria": 10.046672667246614,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xde092a220313cede58750434b66d46b5ff494cbb",
+  "salute": 1.1130115216769039,
+  "debito": 3438.64737927,
+  "garanzia": 4556.25494299,
+  "soglia": 84.0,
+  "caduta_necessaria": 10.153670422623895,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x9506f523bdc4e74eeb077c7435c00eacef97149e",
+  "salute": 1.1130476640029268,
+  "debito": 20477.58154592,
+  "garanzia": 28138.91889397,
+  "soglia": 81.0,
+  "caduta_necessaria": 10.156587867617993,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xfd20e21f70d0d3344b65320469a9ffb3970d3024",
+  "salute": 1.1130801872771494,
+  "debito": 8898.02174953,
+  "garanzia": 11652.01378278,
+  "soglia": 85.0,
+  "caduta_necessaria": 10.15921301714745,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x1454d2f859184888be049a3b08cfcdc813497c88",
+  "salute": 1.1131574352089928,
+  "debito": 1320.38506837,
+  "garanzia": 1871.3306199,
+  "soglia": 78.54,
+  "caduta_necessaria": 10.16544754855343,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x16ad6c9de6902ccd1f04b21715c0a4ee323f10c5",
+  "salute": 1.1133333347746903,
+  "debito": 226134.31246657,
+  "garanzia": 297519.58413695,
+  "soglia": 84.62,
+  "caduta_necessaria": 10.179640834847191,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x211faa2976722eb1cc19fe4f484ec2081b7bd543",
+  "salute": 1.1143410643649718,
+  "debito": 455.49390319,
+  "garanzia": 668.82464608,
+  "soglia": 75.89,
+  "caduta_necessaria": 10.260867881605995,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x9a95af47c51562acfb2107f44d7967df253197df",
+  "salute": 1.1143715282211906,
+  "debito": 2756.60059125,
+  "garanzia": 3721.93227396,
+  "soglia": 82.53,
+  "caduta_necessaria": 10.263321102949885,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x33226c9f1ef3650aadbacfd519cce85c330d02dc",
+  "salute": 1.1145151619551013,
+  "debito": 54451.81168479,
+  "garanzia": 77804.32015208,
+  "soglia": 78.0,
+  "caduta_necessaria": 10.274885965141722,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x964a87d5b588f8f541ab45526f7d1162c1e1b956",
+  "salute": 1.1146503145867552,
+  "debito": 862.36082727,
+  "garanzia": 1022.58592277,
+  "soglia": 94.0,
+  "caduta_necessaria": 10.28576523833491,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x29359368090ce995a5c14901a269ff4008779e6e",
+  "salute": 1.1147239446484152,
+  "debito": 1593.47250515,
+  "garanzia": 2114.62137694,
+  "soglia": 84.0,
+  "caduta_necessaria": 10.291691068374709,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x552b42287c4fe1e913ea9a159b69bd7e9b81ec76",
+  "salute": 1.11502080835673,
+  "debito": 146019.45953494,
+  "garanzia": 195179.32895121,
+  "soglia": 83.41,
+  "caduta_necessaria": 10.315575054266713,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x3cb9e90f456fb818b81c835f2c587ef54578a9b9",
+  "salute": 1.1150592174695304,
+  "debito": 23249.18897606,
+  "garanzia": 31185.99826801,
+  "soglia": 83.12,
+  "caduta_necessaria": 10.318664306514691,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x6544f40f825885431c943819c251d6eb52c803e2",
+  "salute": 1.1151569392488763,
+  "debito": 47394.24734739,
+  "garanzia": 62919.07596419,
+  "soglia": 84.0,
+  "caduta_necessaria": 10.326523128344721,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa4fee4573f20ead785eea448912e45861f54d689",
+  "salute": 1.1151586700073546,
+  "debito": 246.31096955,
+  "garanzia": 334.03033092,
+  "soglia": 82.23,
+  "caduta_necessaria": 10.32666230417193,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x274fcfd62d5bcbd57746f7161860342c057369b7",
+  "salute": 1.115277325905195,
+  "debito": 663.14189066,
+  "garanzia": 870.10248766,
+  "soglia": 85.0,
+  "caduta_necessaria": 10.33620277464461,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x2cbbc470a4e1c86ae33149868b6d6ada723f5423",
+  "salute": 1.1154526282234234,
+  "debito": 333141.4088185,
+  "garanzia": 442386.16156861,
+  "soglia": 83.99,
+  "caduta_necessaria": 10.350294158820915,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x58dcef3ed403f915aac053b444e14ed1f20b4a99",
+  "salute": 1.1154701349196678,
+  "debito": 268408.95888516,
+  "garanzia": 315160.18692766,
+  "soglia": 95.0,
+  "caduta_necessaria": 10.351701162127803,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x3bc2b20ba77778fa816e7a47d112e8314ae474ca",
+  "salute": 1.1154924206431494,
+  "debito": 1803.75206494,
+  "garanzia": 2682.76234288,
+  "soglia": 75.0,
+  "caduta_necessaria": 10.3534921892666,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc6ffee966446cb809a040ff3d153855f29961ee3",
+  "salute": 1.1155935953748988,
+  "debito": 327195.2739515,
+  "garanzia": 434543.99054432,
+  "soglia": 84.0,
+  "caduta_necessaria": 10.361622355500632,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xcaa6f0e7ea422ebaa63caece7e8530e01c418f32",
+  "salute": 1.1161740208253434,
+  "debito": 323517.46248575,
+  "garanzia": 440368.03281699,
+  "soglia": 82.0,
+  "caduta_necessaria": 10.40823551326161,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xefd44f1507a40c1bfca68629bb5cdbaba756f446",
+  "salute": 1.1162101355434892,
+  "debito": 13731.92628,
+  "garanzia": 18217.64140593,
+  "soglia": 84.13,
+  "caduta_necessaria": 10.41113423386949,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x2b5d13d0b275e91f428248370e02e3800f908324",
+  "salute": 1.1168963898603228,
+  "debito": 180824.88397031,
+  "garanzia": 242720.16492053,
+  "soglia": 83.2,
+  "caduta_necessaria": 10.466180294032611,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xabc8c17e2260e1164261636bce0ab32ad504d928",
+  "salute": 1.1169592004915172,
+  "debito": 151415.62654953,
+  "garanzia": 201339.37758653,
+  "soglia": 84.0,
+  "caduta_necessaria": 10.471215102579345,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb936f0d8832ea954f465db481e7da59dfcc92f8b",
+  "salute": 1.1171001355781842,
+  "debito": 2176.54610461,
+  "garanzia": 2894.5475578,
+  "soglia": 84.0,
+  "caduta_necessaria": 10.482510193016491,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb570907b3aad35c9aed50bd9d5da68fabd4f8d2e",
+  "salute": 1.1172334955613694,
+  "debito": 20453.92144793,
+  "garanzia": 26884.47783201,
+  "soglia": 85.0,
+  "caduta_necessaria": 10.49319556092112,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x4c69f155b8dc6589c366c5c0e7c0454e0dcb1a16",
+  "salute": 1.1175100780233815,
+  "debito": 1526.974062,
+  "garanzia": 2070.26122347,
+  "soglia": 82.42,
+  "caduta_necessaria": 10.51534839231426,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x682ef980b9732fc7606d2632339fe2d8fedf1a88",
+  "salute": 1.1180128073168725,
+  "debito": 906.05342833,
+  "garanzia": 1232.75256545,
+  "soglia": 82.17,
+  "caduta_necessaria": 10.555586353263013,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa39ad1a36c6d27391f381d76bd531b924580f98f",
+  "salute": 1.1184007299026482,
+  "debito": 537981.05171109,
+  "garanzia": 768104.1235562,
+  "soglia": 78.33,
+  "caduta_necessaria": 10.58661057141428,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x2423c4fbab1e035131014db1d489c2330bfc3b0c",
+  "salute": 1.1184200431861753,
+  "debito": 298.01505907,
+  "garanzia": 396.79287528,
+  "soglia": 84.0,
+  "caduta_necessaria": 10.588154594298771,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x5314dce0ac9ceece3d51ff4ffe4dc80af79c5914",
+  "salute": 1.1186119202517384,
+  "debito": 73028.09428936,
+  "garanzia": 97250.11522065,
+  "soglia": 84.0,
+  "caduta_necessaria": 10.603491533064059,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x3a0834479fe331a14cd905fa18f864d19808f383",
+  "salute": 1.118619220266137,
+  "debito": 10652.18939595,
+  "garanzia": 14185.40928122,
+  "soglia": 84.0,
+  "caduta_necessaria": 10.604074927115548,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x0937aa6d83c851d506433ab342387a337c8b512a",
+  "salute": 1.1189374912076806,
+  "debito": 217576.30855304,
+  "garanzia": 301294.92385111,
+  "soglia": 80.8,
+  "caduta_necessaria": 10.629502732928376,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xabf76a13c5d6e388c3eb6c04930013695f574d10",
+  "salute": 1.1190586321424005,
+  "debito": 12717.66257532,
+  "garanzia": 16942.63138501,
+  "soglia": 83.99,
+  "caduta_necessaria": 10.639177315889759,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x0ed0ea598e89765471e86a060bd91f4bb2dc1fb0",
+  "salute": 1.1191623536636521,
+  "debito": 1589054.1876754,
+  "garanzia": 2175843.66298062,
+  "soglia": 81.73,
+  "caduta_necessaria": 10.647459081657484,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xeade360968127f4873b72495ff1d80c5c573515d",
+  "salute": 1.1191816245150548,
+  "debito": 7957.20947926,
+  "garanzia": 10601.86027572,
+  "soglia": 84.0,
+  "caduta_necessaria": 10.648997616155153,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xf7aa6e4c08c251a7b06f1760b74e68c655960b87",
+  "salute": 1.1195113229872382,
+  "debito": 113636.68404282,
+  "garanzia": 162495.92087816,
+  "soglia": 78.28,
+  "caduta_necessaria": 10.675311676914646,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x8ea0fc05533ea2188128a4f4dcca35738577815c",
+  "salute": 1.1202163869868826,
+  "debito": 86013.6781326,
+  "garanzia": 123305.09440589,
+  "soglia": 78.14,
+  "caduta_necessaria": 10.73153262024994,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x580dc19cf3c14026b8fee058514352747c1e5ab3",
+  "salute": 1.1203999441739168,
+  "debito": 137797.77905418,
+  "garanzia": 181633.67524658,
+  "soglia": 85.0,
+  "caduta_necessaria": 10.746157637725428,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x50873a46c41d005c5a9f0e9e1403c3307d6209ab",
+  "salute": 1.120630892697607,
+  "debito": 2917.82873852,
+  "garanzia": 3892.62979046,
+  "soglia": 84.0,
+  "caduta_necessaria": 10.764551779151976,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xe39481dc0b19d02f16fb2b8533c91b7313e3cd13",
+  "salute": 1.121142077802412,
+  "debito": 250.0174545,
+  "garanzia": 373.7401179,
+  "soglia": 75.0,
+  "caduta_necessaria": 10.805238711570485,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x38b13e0a94e8e7c84ed527d5dc92701c6c00fcd2",
+  "salute": 1.1211551180125157,
+  "debito": 1205.5613495,
+  "garanzia": 1802.16170276,
+  "soglia": 75.0,
+  "caduta_necessaria": 10.806276140208748,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xdda7af6411c859588c9103ea59870df3dc3fc6ef",
+  "salute": 1.121194940640066,
+  "debito": 25518.63062797,
+  "garanzia": 36675.18883438,
+  "soglia": 78.01,
+  "caduta_necessaria": 10.80944412493322,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x54a6c26d954d4ea45ceb80a436c7db055f70f1e1",
+  "salute": 1.1212553643020904,
+  "debito": 46716.27169161,
+  "garanzia": 62358.17885049,
+  "soglia": 84.0,
+  "caduta_necessaria": 10.814250541183723,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x2fa8fa85b6b28daa8856790aafe87501825e3e79",
+  "salute": 1.121291605288051,
+  "debito": 44803.25164642,
+  "garanzia": 59806.55947707,
+  "soglia": 84.0,
+  "caduta_necessaria": 10.817133091520127,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa88595dc697b73f23b8c4fdd045ecf377059f197",
+  "salute": 1.1215782086336992,
+  "debito": 2063.3760701,
+  "garanzia": 2733.72787589,
+  "soglia": 84.65,
+  "caduta_necessaria": 10.839922503648236,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x1cde26e9c324ffa7e5b19d3010853c5b188b1a3e",
+  "salute": 1.1217049362573175,
+  "debito": 70627.52657502,
+  "garanzia": 94313.38713672,
+  "soglia": 84.0,
+  "caduta_necessaria": 10.849995602533259,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x698fa2a4e764f3eab0cf68ef6dc90a39be09962c",
+  "salute": 1.1217373418262224,
+  "debito": 508.98977556,
+  "garanzia": 679.70576099,
+  "soglia": 83.99,
+  "caduta_necessaria": 10.852571033075387,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x53e25f03bf76e20136ca950033d19ca02b6ddbaa",
+  "salute": 1.1220110103896084,
+  "debito": 215734.16754595,
+  "garanzia": 263104.46880847,
+  "soglia": 92.0,
+  "caduta_necessaria": 10.874314891726522,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xd2b5442882de67fe65315e3d8430e1b9997c60b3",
+  "salute": 1.1220658835292405,
+  "debito": 19552.55151216,
+  "garanzia": 26962.86114776,
+  "soglia": 81.36,
+  "caduta_necessaria": 10.87867346481527,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa6866a44d745f1ef35b270ec9779cac51b0e0019",
+  "salute": 1.1225979946218725,
+  "debito": 6337.47881346,
+  "garanzia": 8469.57263289,
+  "soglia": 83.99,
+  "caduta_necessaria": 10.920916945265658,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x7165e9dbf803339d285975a28d58181d9fe78775",
+  "salute": 1.1226165441913953,
+  "debito": 99999.6340257,
+  "garanzia": 143924.67124402,
+  "soglia": 78.0,
+  "caduta_necessaria": 10.922388844689113,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xbd77c784614e95bff7c1511aa8f4c46a2d19f134",
+  "salute": 1.122861055119979,
+  "debito": 13592.69301952,
+  "garanzia": 18780.44468663,
+  "soglia": 81.26,
+  "caduta_necessaria": 10.941786123916375,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x97b90fbc8904f861f76cb06bfa0a465b72c5e662",
+  "salute": 1.1228838184567231,
+  "debito": 61201.82924814,
+  "garanzia": 81812.5678438,
+  "soglia": 83.99,
+  "caduta_necessaria": 10.943591530743857,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc2aa313591d4522b88315b952039088b7c3fac9e",
+  "salute": 1.1229140695084685,
+  "debito": 73164.00694074,
+  "garanzia": 98202.12599846,
+  "soglia": 83.66,
+  "caduta_necessaria": 10.945990690300233,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x91322fe35245d98a9ca4dc62a036247f81f758cb",
+  "salute": 1.1229258125664756,
+  "debito": 387.82839523,
+  "garanzia": 512.355901,
+  "soglia": 85.0,
+  "caduta_necessaria": 10.946921977465774,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x341c23862f92c889847b5a3df69180a0ea43aa4a",
+  "salute": 1.1230606798959852,
+  "debito": 36677.77949914,
+  "garanzia": 49037.34759688,
+  "soglia": 84.0,
+  "caduta_necessaria": 10.957616280126803,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x9b390a4a06c471b6aa23d92ca19a698612fb571a",
+  "salute": 1.1233049322782835,
+  "debito": 2285.71552429,
+  "garanzia": 3291.737849,
+  "soglia": 78.0,
+  "caduta_necessaria": 10.97697773196783,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xd6ca95805412a325430c9406769bbb0cc7b1f9db",
+  "salute": 1.1234307182157799,
+  "debito": 126676.24364501,
+  "garanzia": 182451.26046745,
+  "soglia": 78.0,
+  "caduta_necessaria": 10.98694527525571,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x1e148ad13eef55ce16c437298f41f8b557fc0fc1",
+  "salute": 1.1235334074829826,
+  "debito": 2518.12486229,
+  "garanzia": 3471.11522923,
+  "soglia": 81.5,
+  "caduta_necessaria": 10.995080934863399,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x699a2304ead3d1fe67ab9cbeb779c0e12983ad41",
+  "salute": 1.1238169799053783,
+  "debito": 26355.98074788,
+  "garanzia": 35274.20434181,
+  "soglia": 83.96,
+  "caduta_necessaria": 11.01753952105291,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xcc17289fe87f3becc33866d8861ff62551b452f4",
+  "salute": 1.1238748329002448,
+  "debito": 74943.42050519,
+  "garanzia": 100270.26690148,
+  "soglia": 84.0,
+  "caduta_necessaria": 11.022120014964331,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x180d661768ae1f2cb6ad235d96bfa20c6e3c2c23",
+  "salute": 1.1246469734874551,
+  "debito": 9585.69378092,
+  "garanzia": 13058.27552361,
+  "soglia": 82.55,
+  "caduta_necessaria": 11.083208902517494,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xdd2336db833e29e19c0f9450aaf221135bc4266a",
+  "salute": 1.1249868601166721,
+  "debito": 24885.79267349,
+  "garanzia": 32980.11292865,
+  "soglia": 84.88,
+  "caduta_necessaria": 11.11007288598107,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x4e066ca3bf01d3a14580c9a6217150cc87757370",
+  "salute": 1.1250319350098166,
+  "debito": 5192.06234481,
+  "garanzia": 6953.85231723,
+  "soglia": 84.0,
+  "caduta_necessaria": 11.113634299521069,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x33ba32b6268c360a62f2aa0444eb438640ed3875",
+  "salute": 1.1251540844488275,
+  "debito": 92493.71348282,
+  "garanzia": 123823.88657132,
+  "soglia": 84.04,
+  "caduta_necessaria": 11.123284017596212,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x2e0055234ff209359f0b1d9885fa2b52aa5783af",
+  "salute": 1.125160191186266,
+  "debito": 17317.29615194,
+  "garanzia": 22923.21441076,
+  "soglia": 85.0,
+  "caduta_necessaria": 11.123766390482459,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa09bfa48fdcf77544c741e7a2cfcbe0007e630de",
+  "salute": 1.1252099266860498,
+  "debito": 6258.96220473,
+  "garanzia": 8962.80085868,
+  "soglia": 78.57,
+  "caduta_necessaria": 11.12769481645226,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x9aa7cfe190bb5e6fcec7e5195b16ea5cea7c9e6a",
+  "salute": 1.1255098614270358,
+  "debito": 5705.74318362,
+  "garanzia": 7645.08359516,
+  "soglia": 84.0,
+  "caduta_necessaria": 11.151378208974695,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x4966fdaa99ddb09ecd10e4d2917b334e37ed7d90",
+  "salute": 1.1258193715360207,
+  "debito": 20899.75465192,
+  "garanzia": 28011.12934224,
+  "soglia": 84.0,
+  "caduta_necessaria": 11.175804460031458,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x83897407f193e2736912b191cc0d98ff53ea5533",
+  "salute": 1.1261763984167146,
+  "debito": 2636.0019634,
+  "garanzia": 3534.05142543,
+  "soglia": 84.0,
+  "caduta_necessaria": 11.203964014350266,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x8c963bb1ad4a1877e58e41f5c342e4338675caff",
+  "salute": 1.126211576242495,
+  "debito": 2966.80827213,
+  "garanzia": 3977.68311972,
+  "soglia": 84.0,
+  "caduta_necessaria": 11.206737606408613,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x2922de580da0929c0e779f64a5a9507b70ab6670",
+  "salute": 1.126282165131709,
+  "debito": 22581.71255777,
+  "garanzia": 31126.92527922,
+  "soglia": 81.7,
+  "caduta_necessaria": 11.212302657473172,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x9537c55cf6780a0fdf116b5b1b0be7e84cecbd89",
+  "salute": 1.1264459611672648,
+  "debito": 8268.32684616,
+  "garanzia": 11940.79920701,
+  "soglia": 78.0,
+  "caduta_necessaria": 11.225213239367193,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x8a8ed7e5e9dcb9a72a0c2edf5f4fd8c139e15c4e",
+  "salute": 1.126681075138471,
+  "debito": 23442.9820863,
+  "garanzia": 31443.76697791,
+  "soglia": 84.0,
+  "caduta_necessaria": 11.243738617239284,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x163f39bf4691a634935f89a53281490988031309",
+  "salute": 1.1267889538343545,
+  "debito": 73002.14036726,
+  "garanzia": 97926.19687154,
+  "soglia": 84.0,
+  "caduta_necessaria": 11.252236135516224,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x564cca2900fe9cab9d258d62f2c38790471e211d",
+  "salute": 1.1268094909374344,
+  "debito": 7866.3115162,
+  "garanzia": 10552.18404057,
+  "soglia": 83.99,
+  "caduta_necessaria": 11.253853642281353,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x69cbb53e330db8a7244798c5eef99abf93ac173f",
+  "salute": 1.1268141071991733,
+  "debito": 7519.65974225,
+  "garanzia": 11297.67823854,
+  "soglia": 75.0,
+  "caduta_necessaria": 11.254217211957386,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xbcd20ddb6dee1779cdfee046ea036fd6b306834d",
+  "salute": 1.1269190027874159,
+  "debito": 4934.51194477,
+  "garanzia": 5915.73965962,
+  "soglia": 94.0,
+  "caduta_necessaria": 11.262477824358609,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x251fe070aa31f6ad52c584c22a1d01805212900c",
+  "salute": 1.126924900028577,
+  "debito": 18952.1520439,
+  "garanzia": 25425.77624783,
+  "soglia": 83.99,
+  "caduta_necessaria": 11.262942191210644,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x0fc0d854140088835b35eeef654ac0d8cd0100f9",
+  "salute": 1.1273745865132205,
+  "debito": 320.97524125,
+  "garanzia": 430.78491653,
+  "soglia": 84.0,
+  "caduta_necessaria": 11.298337574485217,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x1239e5f0c0afe725775379fc9a8e45c7ae6d83b3",
+  "salute": 1.1273779116769254,
+  "debito": 151.76349534,
+  "garanzia": 203.68430053,
+  "soglia": 84.0,
+  "caduta_necessaria": 11.29859919709233,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x57c72f9930d0d42722b81d5b2d0d57d8dcc394ec",
+  "salute": 1.1273858901420364,
+  "debito": 43784.64757482,
+  "garanzia": 58383.1378349,
+  "soglia": 84.54,
+  "caduta_necessaria": 11.299226933378359,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x1ded480959ac0ccc36757e26d10f83df44eae808",
+  "salute": 1.1277039303514764,
+  "debito": 252975.40359178,
+  "garanzia": 337056.63965717,
+  "soglia": 84.63,
+  "caduta_necessaria": 11.324242730241652,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x6c31110f609c79a03801f02e580412328dd7009c",
+  "salute": 1.1279029956400974,
+  "debito": 48274.33569151,
+  "garanzia": 66326.35452264,
+  "soglia": 82.09,
+  "caduta_necessaria": 11.33989324742516,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb9933d047ecbe30d565f47ae7653af9a587edc01",
+  "salute": 1.127929359335286,
+  "debito": 7455.08047203,
+  "garanzia": 10355.53086536,
+  "soglia": 81.2,
+  "caduta_necessaria": 11.341965547441513,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa9944849522b2cb9185f21a83cd32c05602b1f50",
+  "salute": 1.1282011577638307,
+  "debito": 41035.19427757,
+  "garanzia": 55114.23060598,
+  "soglia": 83.99,
+  "caduta_necessaria": 11.363324428591604,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x618cf124c149771a6de3122daa3a4256f436ae29",
+  "salute": 1.1285947834816843,
+  "debito": 8997.39467755,
+  "garanzia": 13018.47781796,
+  "soglia": 78.0,
+  "caduta_necessaria": 11.394238690787928,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb050bf222bc5b600601f96f4c747cf101bdb144a",
+  "salute": 1.128610083029819,
+  "debito": 1604.62439293,
+  "garanzia": 2155.94674921,
+  "soglia": 84.0,
+  "caduta_necessaria": 11.395439839112342,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x3ddf017bca64b79dcbfeb56170a5c18e534b82f5",
+  "salute": 1.1292270333082766,
+  "debito": 110679.18050422,
+  "garanzia": 148788.00315449,
+  "soglia": 84.0,
+  "caduta_necessaria": 11.443848712130311,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xe1f728d4ce054c3b5bb8f71f887a56bed3fec58a",
+  "salute": 1.1292787519432734,
+  "debito": 3982.89589623,
+  "garanzia": 5655.27217537,
+  "soglia": 79.53,
+  "caduta_necessaria": 11.447904401000141,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb0747c983bfa8ac88248e952e2978afa1ca6fe40",
+  "salute": 1.1294503113300565,
+  "debito": 65591.36066769,
+  "garanzia": 104341.10243195,
+  "soglia": 71.0,
+  "caduta_necessaria": 11.461355141654172,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xad3864b39fc5b551769052ebfd0db9414644eda6",
+  "salute": 1.129463578332358,
+  "debito": 1058970.53415193,
+  "garanzia": 1446012.32135458,
+  "soglia": 82.71,
+  "caduta_necessaria": 11.462395141905313,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x0ea8affcc3335881389175ce6869207007f744b7",
+  "salute": 1.129581729985054,
+  "debito": 66026.75134829,
+  "garanzia": 87841.34174054,
+  "soglia": 84.9,
+  "caduta_necessaria": 11.471655971876283,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x5bfea9592f7a16974a4bd45e4a9d2226a404fc28",
+  "salute": 1.1296126662656574,
+  "debito": 14469.81740672,
+  "garanzia": 19322.28724327,
+  "soglia": 84.59,
+  "caduta_necessaria": 11.474080464601977,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x6107ea2f0ff92b68107688a61bd331073dfc278d",
+  "salute": 1.1301269552921844,
+  "debito": 1102.80195249,
+  "garanzia": 1755.36086318,
+  "soglia": 71.0,
+  "caduta_necessaria": 11.514366123453911,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xaaefc37b2e620269c3af5dc34b77c5d2d8622a23",
+  "salute": 1.1304601786742097,
+  "debito": 3467.82543572,
+  "garanzia": 4780.77873375,
+  "soglia": 82.0,
+  "caduta_necessaria": 11.540448848646035,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x034097091701b5d4c52aa1d553ed61698d448741",
+  "salute": 1.1306117355319527,
+  "debito": 7033.0012796,
+  "garanzia": 8370.09871866,
+  "soglia": 95.0,
+  "caduta_necessaria": 11.552306722740669,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x4a5d084c75d2a1e1a9f54c51c6ba994dfd43ee12",
+  "salute": 1.1311419552326785,
+  "debito": 7615.44487274,
+  "garanzia": 10262.13065594,
+  "soglia": 83.94,
+  "caduta_necessaria": 11.593766337285427,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x778b414fb4792ed9fdbfdab72e434a945c558b3c",
+  "salute": 1.1312619724074187,
+  "debito": 147309.17851576,
+  "garanzia": 196053.26122016,
+  "soglia": 84.99,
+  "caduta_necessaria": 11.603145479033683,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x1cebd13797636b94c5cad7108cebe42d2fce7732",
+  "salute": 1.13149864695205,
+  "debito": 6954929.94142573,
+  "garanzia": 9258228.26947058,
+  "soglia": 84.99,
+  "caduta_necessaria": 11.621635368833328,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb1eef67220f969b38bfc44a2a0568f70981f9d07",
+  "salute": 1.1315128894631068,
+  "debito": 28012.40135652,
+  "garanzia": 37733.80148058,
+  "soglia": 83.99,
+  "caduta_necessaria": 11.622747799674515,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xd80922784a97ccaf43efaa1bed6b8dc5df795f10",
+  "salute": 1.1319691012246997,
+  "debito": 14154.2146298,
+  "garanzia": 20541.19693979,
+  "soglia": 78.0,
+  "caduta_necessaria": 11.658366035072842,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x07e4d4c5bdadfd911a0383f4cb63753ef2d3315f",
+  "salute": 1.1319798821006042,
+  "debito": 7112.57268491,
+  "garanzia": 10166.75887658,
+  "soglia": 79.19,
+  "caduta_necessaria": 11.659207392952109,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x3d00127a68151318eb653b030fb9a05e7f844a29",
+  "salute": 1.132217436327139,
+  "debito": 350.28186965,
+  "garanzia": 558.5848457,
+  "soglia": 71.0,
+  "caduta_necessaria": 11.677742462264684,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x9ce8f85083fcf364467a827cb15730102306ed1c",
+  "salute": 1.132310409353355,
+  "debito": 63144.18785916,
+  "garanzia": 85116.10971779,
+  "soglia": 84.0,
+  "caduta_necessaria": 11.684994526272652,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xced462398bdfbb1b45d75b7f2c61172643a18009",
+  "salute": 1.1323600995553567,
+  "debito": 217151.41303565,
+  "garanzia": 327858.12757818,
+  "soglia": 75.0,
+  "caduta_necessaria": 11.688869963479853,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x6748e7bc28e965e4109add326660e206787d16c1",
+  "salute": 1.132602949640792,
+  "debito": 609.79588192,
+  "garanzia": 885.45719813,
+  "soglia": 78.0,
+  "caduta_necessaria": 11.707805430212526,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x25d9bbb4eccbf3a5e6d6bbce9813302e508f321d",
+  "salute": 1.132743562624637,
+  "debito": 158772.54810826,
+  "garanzia": 218481.81542135,
+  "soglia": 82.31,
+  "caduta_necessaria": 11.718765571005484,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xe44b9609fdccec872c0459421078f1c95bf5671d",
+  "salute": 1.1327822996376709,
+  "debito": 33756.0416316,
+  "garanzia": 48137.02564915,
+  "soglia": 79.43,
+  "caduta_necessaria": 11.721784466454178,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xffaa3e09d10f287ff88db7aba2af688d443fc4b2",
+  "salute": 1.1329922073032166,
+  "debito": 11400.75324117,
+  "garanzia": 17222.61943951,
+  "soglia": 75.0,
+  "caduta_necessaria": 11.73813963114263,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x7f62d903e8352a73966bb97af5a4f490765baf93",
+  "salute": 1.1334065807277607,
+  "debito": 155506.13981825,
+  "garanzia": 225963.69514561,
+  "soglia": 78.0,
+  "caduta_necessaria": 11.770408165629343,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc6b54b1e1d45abacd06616b32023a2c554ca8abb",
+  "salute": 1.133578089418411,
+  "debito": 79857.18816574,
+  "garanzia": 114548.22669484,
+  "soglia": 79.02,
+  "caduta_necessaria": 11.783757172560039,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa54b5d98b33e9fb8e0a9c9a0f3754e695da1b188",
+  "salute": 1.1337921553380514,
+  "debito": 146201.73269795,
+  "garanzia": 197336.16384496,
+  "soglia": 84.0,
+  "caduta_necessaria": 11.80041286298722,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x8d4f4e70779b67bff2f718e8cb09139d018aad3d",
+  "salute": 1.1340754275982965,
+  "debito": 569955.42801486,
+  "garanzia": 769491.00683086,
+  "soglia": 84.0,
+  "caduta_necessaria": 11.822443581397103,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xd18b523b83d9176a69e2e65cf580a77041d535c5",
+  "salute": 1.1341640182971644,
+  "debito": 154.04799682,
+  "garanzia": 207.9948751,
+  "soglia": 84.0,
+  "caduta_necessaria": 11.829331219535465,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x80dd721c73c73299657c7c7fcfe0be3f643b14d2",
+  "salute": 1.134205426040015,
+  "debito": 5236.68344238,
+  "garanzia": 6987.61738241,
+  "soglia": 84.99,
+  "caduta_necessaria": 11.83255016761665,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x892a3373ad84c8ea381852b56fff9dac62b90c8b",
+  "salute": 1.1344094872754829,
+  "debito": 127245.34842749,
+  "garanzia": 170348.58197896,
+  "soglia": 84.73,
+  "caduta_necessaria": 11.84841001271021,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xeca3eaf3f956ddf19901c49736e3ee6fcd0e0eb0",
+  "salute": 1.1349121724506448,
+  "debito": 45052.92801401,
+  "garanzia": 65552.71333937,
+  "soglia": 78.0,
+  "caduta_necessaria": 11.887454882021887,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa1f169bc46ca1b611824538539531fdb52125a29",
+  "salute": 1.1350872994303094,
+  "debito": 92517.66180633,
+  "garanzia": 134635.41396071,
+  "soglia": 78.0,
+  "caduta_necessaria": 11.901049328814494,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc6f03a3faeebb7bd500b934dd90c0eb61aa635d5",
+  "salute": 1.135828783397276,
+  "debito": 15954.70780461,
+  "garanzia": 22029.98747156,
+  "soglia": 82.25,
+  "caduta_necessaria": 11.958561482392682,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x6294969d39be30eabaa418357d59611b17024ee9",
+  "salute": 1.1358643767406755,
+  "debito": 74283.76107225,
+  "garanzia": 103969.21155259,
+  "soglia": 81.15,
+  "caduta_necessaria": 11.961320340948955,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xd11e108989c3d985b9f1c7ef629a9fd4597cdadf",
+  "salute": 1.135994467002379,
+  "debito": 6087.85287231,
+  "garanzia": 8433.86241328,
+  "soglia": 81.99,
+  "caduta_necessaria": 11.971402234135542,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc4a25ae53ddcbc62acacbc0c3f25a38d3bdd77fa",
+  "salute": 1.136255779007048,
+  "debito": 155516.35057236,
+  "garanzia": 246777.55741831,
+  "soglia": 71.6,
+  "caduta_necessaria": 11.991646733459893,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x3bcee5124b1bf1582e22b1956883ae3fffc64818",
+  "salute": 1.1364124461676894,
+  "debito": 252.23886439,
+  "garanzia": 382.1965132,
+  "soglia": 75.0,
+  "caduta_necessaria": 12.003779668879154,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x6bdb37efe8097b76270783622d43d0bb33187144",
+  "salute": 1.136735406116636,
+  "debito": 1624.1956225,
+  "garanzia": 2186.32597016,
+  "soglia": 84.44,
+  "caduta_necessaria": 12.028780433940845,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xeb1d5869cfe1981082817670fe1c0a1d5c7bf0d6",
+  "salute": 1.1370206015164532,
+  "debito": 21071.90224104,
+  "garanzia": 28522.84162048,
+  "soglia": 84.0,
+  "caduta_necessaria": 12.050845985878167,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa189fea7d8be09e7a644d0e5ca19c548524894d7",
+  "salute": 1.1371964054263093,
+  "debito": 2962328.27320877,
+  "garanzia": 4134840.75085845,
+  "soglia": 81.47,
+  "caduta_necessaria": 12.064442410445142,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa194d82cc241cc8d3b745f8a90853f6ada6817c5",
+  "salute": 1.1372720846907702,
+  "debito": 6737.31128753,
+  "garanzia": 9014.30123985,
+  "soglia": 84.99,
+  "caduta_necessaria": 12.0702940429682,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xaec87244d542c76ddf0f031a0c8453b14f2f7f4c",
+  "salute": 1.1373693906460485,
+  "debito": 5711.92363949,
+  "garanzia": 8378.55813847,
+  "soglia": 77.53,
+  "caduta_necessaria": 12.077816738853853,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x76c16d30066a0df283ead33355931feb2436d35c",
+  "salute": 1.1374933675649144,
+  "debito": 53063.41209235,
+  "garanzia": 71856.2848993,
+  "soglia": 84.0,
+  "caduta_necessaria": 12.087399494843021,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x0d2bf7f15fe28fe8346d9467038430943ac5b37a",
+  "salute": 1.1375772259878607,
+  "debito": 6138.76599521,
+  "garanzia": 8953.53909908,
+  "soglia": 77.99,
+  "caduta_necessaria": 12.093880120392708,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x076705d6199473c9114ccbb20c424800d35cdabe",
+  "salute": 1.1377521264703339,
+  "debito": 2740.17718324,
+  "garanzia": 3711.47906802,
+  "soglia": 84.0,
+  "caduta_necessaria": 12.107393452885418,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa8e7bbc6595addff2f0508ebd70295f17d28c048",
+  "salute": 1.1381047175394219,
+  "debito": 70118.98789211,
+  "garanzia": 94183.35498363,
+  "soglia": 84.73,
+  "caduta_necessaria": 12.134623063333205,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x9f6ed1f916e45f0bd49d9b5befca2650e24a0b07",
+  "salute": 1.1382754295034128,
+  "debito": 14611.00220018,
+  "garanzia": 21322.23692934,
+  "soglia": 78.0,
+  "caduta_necessaria": 12.147800604264747,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xce8a3b66c5509e7be0f65485f95b69159da870e4",
+  "salute": 1.138846231821247,
+  "debito": 210636.12783049,
+  "garanzia": 252507.53733176,
+  "soglia": 95.0,
+  "caduta_necessaria": 12.191833097537986,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa36cb192ca8103a9e00b7d873675c612273378df",
+  "salute": 1.1395497177025409,
+  "debito": 51278.95235077,
+  "garanzia": 68746.95961812,
+  "soglia": 85.0,
+  "caduta_necessaria": 12.24604030299693,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x2c6ed140617d76dfc5bb7ab52be0594d6bc682e3",
+  "salute": 1.1395960660356308,
+  "debito": 46020.01085656,
+  "garanzia": 62433.60181231,
+  "soglia": 83.99,
+  "caduta_necessaria": 12.249609330545564,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x572cf0670d6a02933cdd266c3595a88181a93183",
+  "salute": 1.139686171094081,
+  "debito": 1319.74984327,
+  "garanzia": 1790.59600676,
+  "soglia": 84.0,
+  "caduta_necessaria": 12.25654698959666,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xe2bfddf4f15907ab80ae40b7a6bd90c6e8ea46fd",
+  "salute": 1.1398466022975697,
+  "debito": 34490.84413572,
+  "garanzia": 46790.81995986,
+  "soglia": 84.02,
+  "caduta_necessaria": 12.268896710810317,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x30d303960b625f97d8b479afe4e4e880b3fbb045",
+  "salute": 1.1399286804423465,
+  "debito": 4042.31003227,
+  "garanzia": 5485.64897741,
+  "soglia": 84.0,
+  "caduta_necessaria": 12.275213602665701,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa149612889184c5cf1b14ee82ff05b6fbce6899d",
+  "salute": 1.1401823387104255,
+  "debito": 1100663.11023363,
+  "garanzia": 1493995.99899818,
+  "soglia": 84.0,
+  "caduta_necessaria": 12.294729882325239,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x1689b4ed037e87753723a17b4cf4522ccfa7783b",
+  "salute": 1.1405110928752165,
+  "debito": 22037.68655458,
+  "garanzia": 29718.25272235,
+  "soglia": 84.57,
+  "caduta_necessaria": 12.320011068107151,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x9301c94dbf3a25ef8a7b21b273c76f6350adfdbc",
+  "salute": 1.1405315260320568,
+  "debito": 621681.84258524,
+  "garanzia": 905218.46690965,
+  "soglia": 78.32,
+  "caduta_necessaria": 12.32158189620327,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x6f1a74e46c7823194a9dd83b12d1fd1859e4689a",
+  "salute": 1.1405625594908702,
+  "debito": 356.74204001,
+  "garanzia": 478.69013444,
+  "soglia": 84.99,
+  "caduta_necessaria": 12.323967529989332,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x8856f4c5c72a00a8a7369f1e41f66bb7d179e2b3",
+  "salute": 1.1407226260730874,
+  "debito": 34179.18190285,
+  "garanzia": 46415.4358826,
+  "soglia": 83.99,
+  "caduta_necessaria": 12.336270260328043,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x61e89a43014cec8592d6f418b6d2e0556ea5196f",
+  "salute": 1.1407288173919234,
+  "debito": 25066.00441928,
+  "garanzia": 33639.42773876,
+  "soglia": 85.0,
+  "caduta_necessaria": 12.336746056234048,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x8f64da9fef79a1cb1a8e578ee981a4d91dabd21c",
+  "salute": 1.1410221571494301,
+  "debito": 3811.22997415,
+  "garanzia": 5177.02124583,
+  "soglia": 84.0,
+  "caduta_necessaria": 12.35928296973129,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x8b222285511f3c84ec7b2eb28608bbf672ddd968",
+  "salute": 1.1414183448122524,
+  "debito": 65910.6034186,
+  "garanzia": 91848.28487356,
+  "soglia": 81.9,
+  "caduta_necessaria": 12.389703166678444,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xf9e949e3c15e14db9437d7bcd362b8e71acb414a",
+  "salute": 1.1422797246082808,
+  "debito": 28031.19412559,
+  "garanzia": 40512.08377104,
+  "soglia": 79.03,
+  "caduta_necessaria": 12.455769068042633,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb5cf991b86130a6f1d231a23d888dc658b367710",
+  "salute": 1.1423157142583933,
+  "debito": 184034.31848103,
+  "garanzia": 250268.20709966,
+  "soglia": 84.0,
+  "caduta_necessaria": 12.458527225180172,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x0fcd93be9734ffce335a6231364e79ee4242334f",
+  "salute": 1.142371049649422,
+  "debito": 13357.88044566,
+  "garanzia": 19415.11787784,
+  "soglia": 78.59,
+  "caduta_necessaria": 12.46276765269162,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xc5ec4153f98729f4eaf61013b54b704eb282ecf4",
+  "salute": 1.1424118912815795,
+  "debito": 155076.55740945,
+  "garanzia": 225995.91630468,
+  "soglia": 78.39,
+  "caduta_necessaria": 12.465897139937777,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xaaab1d80eb7b8e901cdb8c3df3ca1ea98ce08cbb",
+  "salute": 1.1425423698286996,
+  "debito": 369.45094258,
+  "garanzia": 502.51589937,
+  "soglia": 84.0,
+  "caduta_necessaria": 12.475893550457206,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x79915f6449703232cf626a70084674eb79b0d6a8",
+  "salute": 1.1425447725008633,
+  "debito": 52135.79417024,
+  "garanzia": 70221.00142058,
+  "soglia": 84.82,
+  "caduta_necessaria": 12.476077606031454,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa9a0c048c887429632f72187e49d7d6ca89bcc4a",
+  "salute": 1.1426252517433098,
+  "debito": 11104.09520717,
+  "garanzia": 16248.88777509,
+  "soglia": 78.08,
+  "caduta_necessaria": 12.482242233462426,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x78ad39f5ea5b18fc2357dc70040c22ecda452283",
+  "salute": 1.1427990375731525,
+  "debito": 186376.92870376,
+  "garanzia": 265654.71051322,
+  "soglia": 80.17,
+  "caduta_necessaria": 12.495551088002355,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x8675f08cdcfaf9b183e7a642962dcb5cf2080ab5",
+  "salute": 1.1430770550264076,
+  "debito": 1129.5025913,
+  "garanzia": 1642.72070616,
+  "soglia": 78.59,
+  "caduta_necessaria": 12.516833786249181,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x39abe773c97f8d9e722ba12895b20618a333d48f",
+  "salute": 1.143354668844763,
+  "debito": 3226.72582097,
+  "garanzia": 4353.99604876,
+  "soglia": 84.73,
+  "caduta_necessaria": 12.538075257925641,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x56cc773281b51e1509adc177218dd482e4e8a4cc",
+  "salute": 1.1435091388372378,
+  "debito": 3236.88474855,
+  "garanzia": 4381.69760405,
+  "soglia": 84.47,
+  "caduta_necessaria": 12.549889980167816,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xd8f99930426bfd583cb7a594ebe10d07ff8ff527",
+  "salute": 1.1442325426493902,
+  "debito": 820.26134664,
+  "garanzia": 1174.56129334,
+  "soglia": 79.9,
+  "caduta_necessaria": 12.605177468159567,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x3cb40619f8740ae6a8b4eba682c4096d35f19cee",
+  "salute": 1.1443341643844456,
+  "debito": 15775.97438191,
+  "garanzia": 23120.53182143,
+  "soglia": 78.08,
+  "caduta_necessaria": 12.612938499663262,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x58098a94c6ec47937557f8790a5531eaf196e939",
+  "salute": 1.1443490595996453,
+  "debito": 2740.89995924,
+  "garanzia": 3301.62767454,
+  "soglia": 95.0,
+  "caduta_necessaria": 12.614075957745474,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x62e2ceb6933a0747579f4f9f96d3253a7af0b237",
+  "salute": 1.1445035637539642,
+  "debito": 172.28847759,
+  "garanzia": 233.00038019,
+  "soglia": 84.62,
+  "caduta_necessaria": 12.625872765305635,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb12db3e45b386e474c8397a12d514889e46ed52d",
+  "salute": 1.1447106670888991,
+  "debito": 6302.61559344,
+  "garanzia": 9249.57859022,
+  "soglia": 78.0,
+  "caduta_necessaria": 12.641680666513855,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x405887eb357d0bd7c7efc642eb1ad18a1716efd5",
+  "salute": 1.1451352635485554,
+  "debito": 53987.34600515,
+  "garanzia": 72732.72199517,
+  "soglia": 85.0,
+  "caduta_necessaria": 12.674071628779382,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x976fdade0dad6150de5e56549265034ea689d2b5",
+  "salute": 1.145457735753128,
+  "debito": 8929.79282199,
+  "garanzia": 13113.71829054,
+  "soglia": 78.0,
+  "caduta_necessaria": 12.698655848484087,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x5eebd189b6aa4a0631ac30f37fa12b7d81490e52",
+  "salute": 1.1454885168185678,
+  "debito": 907.34720352,
+  "garanzia": 1237.32833619,
+  "soglia": 84.0,
+  "caduta_necessaria": 12.701001771946308,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x5c430fe30ec10f1b6001e0437379acf37c8f9e34",
+  "salute": 1.1454937513947188,
+  "debito": 56940.48081377,
+  "garanzia": 77648.76824093,
+  "soglia": 83.99,
+  "caduta_necessaria": 12.70140070319632,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x7276d2b08e5389e10546eb0a7ddc35f3fe432893",
+  "salute": 1.145958672986434,
+  "debito": 9978.01132285,
+  "garanzia": 13944.37635924,
+  "soglia": 82.0,
+  "caduta_necessaria": 12.736818214051059,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x812ba3f527c9797ed010ce78678ecf4936cac92e",
+  "salute": 1.1465570583446967,
+  "debito": 4278.8072831,
+  "garanzia": 6289.61114325,
+  "soglia": 78.0,
+  "caduta_necessaria": 12.782360657766434,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb15fda75abdc9b854f5040df042d9c4cf6cdafb9",
+  "salute": 1.146651181004433,
+  "debito": 2999.82120016,
+  "garanzia": 4409.93400252,
+  "soglia": 78.0,
+  "caduta_necessaria": 12.789519902292422,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x349048fdc56f6ffd3fa511a300b69de7069a11bd",
+  "salute": 1.147037035661824,
+  "debito": 14870.46127262,
+  "garanzia": 22742.62642276,
+  "soglia": 75.0,
+  "caduta_necessaria": 12.818856853823013,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x1a148d801c20e1714b4ec2f3ccab22bc54942d45",
+  "salute": 1.1473706390554779,
+  "debito": 15789.00651502,
+  "garanzia": 21566.47916094,
+  "soglia": 84.0,
+  "caduta_necessaria": 12.844205180010027,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xe4797e3e062b799a203fda426f916878a9f669cb",
+  "salute": 1.1476038332016016,
+  "debito": 800486.47044311,
+  "garanzia": 1087311.63533258,
+  "soglia": 84.48,
+  "caduta_necessaria": 12.861915317049299,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xef43025725a1583d834e493bb6a22a631fe96979",
+  "salute": 1.147876089685543,
+  "debito": 3868.48214163,
+  "garanzia": 5370.50531296,
+  "soglia": 82.68,
+  "caduta_necessaria": 12.88258297339857,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x51cc7e0dba0dc53efe57c6dc6cae4da9d74e321f",
+  "salute": 1.1482003522380126,
+  "debito": 1994905.04414701,
+  "garanzia": 2827018.21255568,
+  "soglia": 81.02,
+  "caduta_necessaria": 12.907185749346638,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x33d3b460a6763077491d623a882c4d5910336263",
+  "salute": 1.148351040177221,
+  "debito": 205312.15172953,
+  "garanzia": 280679.07530414,
+  "soglia": 83.99,
+  "caduta_necessaria": 12.918614168218678,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xb0ce734830a2a2d7ce13e7363d8966dc7af4012c",
+  "salute": 1.148578082112352,
+  "debito": 12063.48466744,
+  "garanzia": 18474.47211056,
+  "soglia": 75.0,
+  "caduta_necessaria": 12.935827735725347,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x060ff62e45c4c84551762289a139d586fb5ea21c",
+  "salute": 1.1486941188303919,
+  "debito": 1301203.0853584,
+  "garanzia": 1758452.15477077,
+  "soglia": 85.0,
+  "caduta_necessaria": 12.944622627805668,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x27230f80da62c260420451e9975ad93954913255",
+  "salute": 1.1488527299037434,
+  "debito": 48749.87888684,
+  "garanzia": 71803.11723285,
+  "soglia": 78.0,
+  "caduta_necessaria": 12.956641528476421,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xd3f6d3aae0bc2c948640d9cc41367d8a78865465",
+  "salute": 1.1490023696956904,
+  "debito": 97181.23831662,
+  "garanzia": 132930.32528837,
+  "soglia": 83.99,
+  "caduta_necessaria": 12.967977579989952,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0xa6c8e4705d9f6aa0c8deacb47007c24e333566b3",
+  "salute": 1.1496505259696148,
+  "debito": 5076.07040284,
+  "garanzia": 6947.27027069,
+  "soglia": 83.99,
+  "caduta_necessaria": 13.01704497054873,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x6e65dc95d8978c370a7c211484425e5a71c2f58d",
+  "salute": 1.149804560526024,
+  "debito": 500.72034584,
+  "garanzia": 767.64071626,
+  "soglia": 75.0,
+  "caduta_necessaria": 13.028697716896342,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x5ac3ff889a85164bdd990460a886bc3198b6d550",
+  "salute": 1.149850258060884,
+  "debito": 29656.5966837,
+  "garanzia": 40596.006369,
+  "soglia": 84.0,
+  "caduta_necessaria": 13.032154144452912,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x0045d5bea82f667fe0b63eed9dea10f276c24951",
+  "salute": 1.1499362491419194,
+  "debito": 12437.1484694,
+  "garanzia": 16827.69324408,
+  "soglia": 84.99,
+  "caduta_necessaria": 13.038657512866614,
+  "vecchia_di_ore": 0.2
+ },
+ {
+  "indirizzo": "0x8f2ac88bd3080b470648d2205142c37fa16dfe58",
+  "salute": 1.1499775165375266,
+  "debito": 40372.40350188,
+  "garanzia": 58501.32888515,
+  "soglia": 79.36,
+  "caduta_necessaria": 13.041778154854244,
+  "vecchia_di_ore": 0.2
+ }
+]

@@ -1,0 +1,43 @@
+{
+ "quando": 1793800748.005815,
+ "righe": [
+  {
+   "blocco": "1. Siamo vivi e armati",
+   "verifiche": 23,
+   "verdi": 23,
+   "percento": 100,
+   "rossi": []
+  },
+  {
+   "blocco": "2. Consegna: i pacchetti arrivano",
+   "verifiche": 9,
+   "verdi": 9,
+   "percento": 100,
+   "rossi": []
+  },
+  {
+   "blocco": "3. Avviso: Nicolo' lo sa",
+   "verifiche": 12,
+   "verdi": 12,
+   "percento": 100,
+   "rossi": []
+  },
+  {
+   "blocco": "4. Dati in entrata: freschi e veri",
+   "verifiche": 16,
+   "verdi": 16,
+   "percento": 100,
+   "rossi": []
+  },
+  {
+   "blocco": "5. Vendita: sappiamo liquidare",
+   "verifiche": 23,
+   "verdi": 23,
+   "percento": 100,
+   "rossi": []
+  }
+ ],
+ "non_assegnate": [],
+ "tutti_al_100": true,
+ "tornati_indietro": []
+}

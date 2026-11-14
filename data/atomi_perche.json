@@ -1,0 +1,117 @@
+{
+ "quando": "2026-10-01",
+ "chi": "io, dopo un rilievo di Grok sul denominatore congelato",
+ "non_nasce_da_un_risultato": "La decisione «atomi-congelati» vieta di aggiungere un atomo motivato da un margine gia' visto. Questo nasce da una differenza STRUTTURALE nei dati, trovata controllando un rilievo esterno, non da una combinazione che aveva funzionato. Il margine di questo atomo non e' stato guardato prima di dichiararlo.",
+ "effetto_sul_denominatore": "Gli atomi passano da 33 a 34: le combinazioni provate per giro crescono, e il metro misurato sulle rimescolate cresce con loro. Nessuna correzione a mano: il metro e' misurato.",
+ "aggiunte": [
+  {
+   "quando": "2026-10-01",
+   "atomo": "pool_a_indirizzo",
+   "perche": "Grok ha segnalato che la popolazione congelata mescola id da 42 e da 66 caratteri, sospettando un denominatore corrotto. Controllato: NON e' corrotto — il dato vero mescola gli stessi due formati nelle stesse proporzioni, perche' sono due standard di pool diversi (indirizzo di contratto contro id da 32 byte). Ma proprio per questo sono DUE POPOLAZIONI: a pari numero di scambi hanno 5 compratori mediani contro 2, su entrambe le chain, e su robinhood l'esito medio differisce di dodici punti (-23,1% contro -11,0%). E' un attributo noto PRIMA di comprare, gratis, e la ricerca era cieca perche' _pool e' un campo privato."
+  },
+  {
+   "quando": "2026-10-01",
+   "atomo": "folla_ora_prima",
+   "perche": "Tutti gli attributi guardavano DENTRO la pool: nessuno guardava il mercato attorno. Questo dato era gia' nostro — 90.000 pool con data e esito — e non l'avevamo mai incrociato. Misurato: su robinhood il quinto piu' tranquillo rende -6,7% contro -19,2%, dodici punti e mezzo. Su base la direzione si inverte, quindi non e' un vantaggio da solo: e' una dimensione nuova.",
+   "non_nasce_da_un_risultato": "Nasce da una domanda strutturale posta prima di guardare: «cosa stava facendo il mercato nell'ora in cui questa moneta e' nata?». Il margine delle combinazioni che lo useranno non e' stato guardato prima di dichiararlo.",
+   "noto_prima_di_comprare": "Si contano solo le decisioni che cadono nell'ora PRIMA di questa. Nessun esito di altre pool: quelli si sapranno solo dopo, e usarli sarebbe guardare il futuro."
+  },
+  {
+   "quando": "2026-10-01",
+   "atomo": "ora_del_giorno",
+   "perche": "Gratis, e i mercati non si comportano uguale alle 3 del mattino e alle 15.",
+   "non_nasce_da_un_risultato": "Dichiarato insieme a folla_ora_prima, prima di misurarne l'effetto."
+  },
+  {
+   "quando": "2026-10-02",
+   "atomo": "pers_copertura",
+   "cosa_misura": "su quanta parte degli scambi conosciamo la persona che ha firmato",
+   "perche": "Il campo che usavamo come «chi ha fatto lo scambio» e' il ROUTER nell'81% dei casi (misurato il 25/09: un solo indirizzo faceva il 42,6% degli scambi). Quindi cinque attributi misuravano PORTE, non gente. Questi rifanno gli stessi conti sulle PERSONE vere, prese da agents/iniziatori.py. Prova su otto scambi: i router dicono 1 compratore con 8 scambi, le persone dicono 3 con 2 ciascuna.",
+   "non_nasce_da_un_risultato": "Nasce da un difetto NOTO del dato, trovato il 25/09 e mai collegato all'insieme — non da un margine visto. Il margine delle combinazioni che li useranno non e' stato guardato prima di dichiararli.",
+   "i_vecchi_restano": "compratori, scambi_per_portafoglio, gini_portafogli, quota_primo_portafoglio e quota_portafogli_nuovi_dopo NON vengono cancellati: la ricerca giudica da sola quali dei due valgono."
+  },
+  {
+   "quando": "2026-10-02",
+   "atomo": "pers_distinte",
+   "cosa_misura": "quante PERSONE diverse hanno comprato, non quanti router",
+   "perche": "Il campo che usavamo come «chi ha fatto lo scambio» e' il ROUTER nell'81% dei casi (misurato il 25/09: un solo indirizzo faceva il 42,6% degli scambi). Quindi cinque attributi misuravano PORTE, non gente. Questi rifanno gli stessi conti sulle PERSONE vere, prese da agents/iniziatori.py. Prova su otto scambi: i router dicono 1 compratore con 8 scambi, le persone dicono 3 con 2 ciascuna.",
+   "non_nasce_da_un_risultato": "Nasce da un difetto NOTO del dato, trovato il 25/09 e mai collegato all'insieme — non da un margine visto. Il margine delle combinazioni che li useranno non e' stato guardato prima di dichiararli.",
+   "i_vecchi_restano": "compratori, scambi_per_portafoglio, gini_portafogli, quota_primo_portafoglio e quota_portafogli_nuovi_dopo NON vengono cancellati: la ricerca giudica da sola quali dei due valgono."
+  },
+  {
+   "quando": "2026-10-02",
+   "atomo": "pers_scambi_per",
+   "cosa_misura": "scambi per persona vera",
+   "perche": "Il campo che usavamo come «chi ha fatto lo scambio» e' il ROUTER nell'81% dei casi (misurato il 25/09: un solo indirizzo faceva il 42,6% degli scambi). Quindi cinque attributi misuravano PORTE, non gente. Questi rifanno gli stessi conti sulle PERSONE vere, prese da agents/iniziatori.py. Prova su otto scambi: i router dicono 1 compratore con 8 scambi, le persone dicono 3 con 2 ciascuna.",
+   "non_nasce_da_un_risultato": "Nasce da un difetto NOTO del dato, trovato il 25/09 e mai collegato all'insieme — non da un margine visto. Il margine delle combinazioni che li useranno non e' stato guardato prima di dichiararli.",
+   "i_vecchi_restano": "compratori, scambi_per_portafoglio, gini_portafogli, quota_primo_portafoglio e quota_portafogli_nuovi_dopo NON vengono cancellati: la ricerca giudica da sola quali dei due valgono."
+  },
+  {
+   "quando": "2026-10-02",
+   "atomo": "pers_gini",
+   "cosa_misura": "quanto e' concentrato il volume fra le persone vere",
+   "perche": "Il campo che usavamo come «chi ha fatto lo scambio» e' il ROUTER nell'81% dei casi (misurato il 25/09: un solo indirizzo faceva il 42,6% degli scambi). Quindi cinque attributi misuravano PORTE, non gente. Questi rifanno gli stessi conti sulle PERSONE vere, prese da agents/iniziatori.py. Prova su otto scambi: i router dicono 1 compratore con 8 scambi, le persone dicono 3 con 2 ciascuna.",
+   "non_nasce_da_un_risultato": "Nasce da un difetto NOTO del dato, trovato il 25/09 e mai collegato all'insieme — non da un margine visto. Il margine delle combinazioni che li useranno non e' stato guardato prima di dichiararli.",
+   "i_vecchi_restano": "compratori, scambi_per_portafoglio, gini_portafogli, quota_primo_portafoglio e quota_portafogli_nuovi_dopo NON vengono cancellati: la ricerca giudica da sola quali dei due valgono."
+  },
+  {
+   "quando": "2026-10-02",
+   "atomo": "pers_quota_prima",
+   "cosa_misura": "quanto pesa la prima persona",
+   "perche": "Il campo che usavamo come «chi ha fatto lo scambio» e' il ROUTER nell'81% dei casi (misurato il 25/09: un solo indirizzo faceva il 42,6% degli scambi). Quindi cinque attributi misuravano PORTE, non gente. Questi rifanno gli stessi conti sulle PERSONE vere, prese da agents/iniziatori.py. Prova su otto scambi: i router dicono 1 compratore con 8 scambi, le persone dicono 3 con 2 ciascuna.",
+   "non_nasce_da_un_risultato": "Nasce da un difetto NOTO del dato, trovato il 25/09 e mai collegato all'insieme — non da un margine visto. Il margine delle combinazioni che li useranno non e' stato guardato prima di dichiararli.",
+   "i_vecchi_restano": "compratori, scambi_per_portafoglio, gini_portafogli, quota_primo_portafoglio e quota_portafogli_nuovi_dopo NON vengono cancellati: la ricerca giudica da sola quali dei due valgono."
+  },
+  {
+   "quando": "2026-10-02",
+   "atomo": "pers_solo_compra",
+   "cosa_misura": "quante persone comprano e non vendono mai",
+   "perche": "Il campo che usavamo come «chi ha fatto lo scambio» e' il ROUTER nell'81% dei casi (misurato il 25/09: un solo indirizzo faceva il 42,6% degli scambi). Quindi cinque attributi misuravano PORTE, non gente. Questi rifanno gli stessi conti sulle PERSONE vere, prese da agents/iniziatori.py. Prova su otto scambi: i router dicono 1 compratore con 8 scambi, le persone dicono 3 con 2 ciascuna.",
+   "non_nasce_da_un_risultato": "Nasce da un difetto NOTO del dato, trovato il 25/09 e mai collegato all'insieme — non da un margine visto. Il margine delle combinazioni che li useranno non e' stato guardato prima di dichiararli.",
+   "i_vecchi_restano": "compratori, scambi_per_portafoglio, gini_portafogli, quota_primo_portafoglio e quota_portafogli_nuovi_dopo NON vengono cancellati: la ricerca giudica da sola quali dei due valgono."
+  },
+  {
+   "quando": "2026-10-01",
+   "atomo": "insider_storia",
+   "cosa_misura": "la media degli esiti delle monete PRECEDENTI dei primi compratori, chiuse da almeno sei ore",
+   "perche": "Misurato: ordinando per questo, il quinto peggiore fa -24% (robinhood) e -48% (base), il migliore -0,3% e -3,7%. Sopravvive a due attacchi: il passato CHIUSO da sei ore (senza quella regola compariva un +16% che era futuro) e il controllo coi donatori della stessa ora (una parte era il momento, non le persone). Restano 16 e 20 punti attribuibili alle persone.",
+   "non_nasce_da_un_risultato": "Nasce dalla convinzione di Nicolo' che esistano insider, espressa prima di qualunque misura, e dal materiale che era gia' sul disco.",
+   "regola_che_lo_rende_onesto": "Si usano SOLO monete precedenti il cui esito era gia' noto almeno sei ore prima della decisione. Senza quel vincolo e' informazione dal futuro, e il positivo svanisce."
+  },
+  {
+   "quando": "2026-10-01",
+   "atomo": "insider_quanti_noti",
+   "cosa_misura": "di quanti dei primi compratori conosciamo il passato",
+   "perche": "Misurato: ordinando per questo, il quinto peggiore fa -24% (robinhood) e -48% (base), il migliore -0,3% e -3,7%. Sopravvive a due attacchi: il passato CHIUSO da sei ore (senza quella regola compariva un +16% che era futuro) e il controllo coi donatori della stessa ora (una parte era il momento, non le persone). Restano 16 e 20 punti attribuibili alle persone.",
+   "non_nasce_da_un_risultato": "Nasce dalla convinzione di Nicolo' che esistano insider, espressa prima di qualunque misura, e dal materiale che era gia' sul disco.",
+   "regola_che_lo_rende_onesto": "Si usano SOLO monete precedenti il cui esito era gia' noto almeno sei ore prima della decisione. Senza quel vincolo e' informazione dal futuro, e il positivo svanisce."
+  },
+  {
+   "quando": "2026-10-03",
+   "atomo": "entita_storia",
+   "cosa_misura": "la media degli esiti delle monete PRECEDENTI della MANO che finanzia i primi compratori, chiuse da almeno sei ore",
+   "perche": "Idea di Nicolo: «portafogli con percentuali di successo collegati a main wallet». Una mano usa molti indirizzi, e il passato di un indirizzo NUOVO e vuoto per costruzione: il passato della MANO non lo e. Il legame che non si cambia a costo zero e chi paga le prime commissioni.",
+   "non_nasce_da_un_risultato": "Nasce dallo shift deciso il 3/10 — dal grafico a chi vince — prima di qualunque misura su questi attributi.",
+   "regola_che_lo_rende_onesto": "Solo monete il cui esito era noto almeno sei ore prima della decisione, come insider_storia. Senza quel vincolo compare un vantaggio che e informazione dal futuro."
+  },
+  {
+   "quando": "2026-10-03",
+   "atomo": "entita_quante_mani",
+   "cosa_misura": "di quante mani finanziatrici conosciamo il passato, fra quelle dietro i primi compratori",
+   "perche": "Idea di Nicolo: «portafogli con percentuali di successo collegati a main wallet». Una mano usa molti indirizzi, e il passato di un indirizzo NUOVO e vuoto per costruzione: il passato della MANO non lo e. Il legame che non si cambia a costo zero e chi paga le prime commissioni.",
+   "non_nasce_da_un_risultato": "Nasce dallo shift deciso il 3/10 — dal grafico a chi vince — prima di qualunque misura su questi attributi.",
+   "regola_che_lo_rende_onesto": "Solo monete il cui esito era noto almeno sei ore prima della decisione, come insider_storia. Senza quel vincolo compare un vantaggio che e informazione dal futuro."
+  },
+  {
+   "quando": "2026-10-03",
+   "atomo": "entita_portafogli",
+   "cosa_misura": "quanti portafogli controlla la mano piu' grande fra quelle presenti",
+   "perche": "Idea di Nicolo: «portafogli con percentuali di successo collegati a main wallet». Una mano usa molti indirizzi, e il passato di un indirizzo NUOVO e vuoto per costruzione: il passato della MANO non lo e. Il legame che non si cambia a costo zero e chi paga le prime commissioni.",
+   "non_nasce_da_un_risultato": "Nasce dallo shift deciso il 3/10 — dal grafico a chi vince — prima di qualunque misura su questi attributi.",
+   "regola_che_lo_rende_onesto": "Solo monete il cui esito era noto almeno sei ore prima della decisione, come insider_storia. Senza quel vincolo compare un vantaggio che e informazione dal futuro."
+  }
+ ],
+ "lanciatore_storia": "L'esito medio delle monete precedenti di chi ha lanciato questa, usando solo quelle il cui esito era noto almeno sei ore prima. Aggiunto il 4/10 perche' la decomposizione dice che quattro quinti del vantaggio viene dall'evitare le monete che muoiono, e la morte di una moneta e' una proprieta' di chi l'ha lanciata, non del suo grafico. Noto prima di comprare: l'atto di creazione del contratto e' sulla chain dal primo istante.",
+ "lanciatore_quante_note": "Quante monete passate di quel lanciatore conosciamo. Serve come CONTROLLO DI SOPRAVVIVENZA, non come segnale: un lanciatore ha un passato solo se e' ancora qui, quindi l'effetto si guarda dentro lo stesso scaglione di questo numero.",
+ "lanciatore_morte_passate": "La frazione delle monete passate di quel lanciatore che e' andata a zero. E' il bersaglio-azzeramento applicato al passato del lanciatore: se la causa della morte e' chi lancia, questo e' l'attributo che la nomina piu' direttamente."
+}

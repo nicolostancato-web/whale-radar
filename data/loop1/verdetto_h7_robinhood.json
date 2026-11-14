@@ -1,0 +1,28 @@
+{
+ "chain": "robinhood",
+ "pool": 629,
+ "viva": false,
+ "condizioni": [
+  false,
+  false,
+  false
+ ],
+ "sopravvivenza_senza_guadagno": false,
+ "terzi": {
+  "bassa": {
+   "senza_uscita": 15.789473684210526,
+   "media": 8.987925192567516,
+   "tagliata": -2.0860370058437834
+  },
+  "media": {
+   "senza_uscita": 27.272727272727273,
+   "media": -15.309229352871915,
+   "tagliata": -21.84658815939991
+  },
+  "alta": {
+   "senza_uscita": 14.691943127962086,
+   "media": -11.942507716274806,
+   "tagliata": -14.635471504764233
+  }
+ }
+}

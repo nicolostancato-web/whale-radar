@@ -1,0 +1,165 @@
+{
+ "quando": 1793725150.7243369,
+ "esiti": [
+  {
+   "che": "pescatore: processo vivo (pid dichiarato)",
+   "ok": true,
+   "dettaglio": "pid=18169 stato=SN"
+  },
+  {
+   "che": "pescatore: ha scritto da meno di 10 min",
+   "ok": true,
+   "dettaglio": "3s fa"
+  },
+  {
+   "che": "sentinella: processo vivo (pid dichiarato)",
+   "ok": true,
+   "dettaglio": "pid=18176 stato=SN"
+  },
+  {
+   "che": "sentinella: ha scritto da meno di 10 min",
+   "ok": true,
+   "dettaglio": "0s fa"
+  },
+  {
+   "che": "quaderno: processo vivo (pid dichiarato)",
+   "ok": true,
+   "dettaglio": "pid=71176 stato=SN"
+  },
+  {
+   "che": "quaderno: ha scritto da meno di 10 min",
+   "ok": true,
+   "dettaglio": "7s fa"
+  },
+  {
+   "che": "giro del laghetto: processo vivo (pid dichiarato)",
+   "ok": true,
+   "dettaglio": "pid=None stato=non dichiarato"
+  },
+  {
+   "che": "giro del laghetto: ha scritto da meno di 10 min",
+   "ok": true,
+   "dettaglio": "442s fa"
+  },
+  {
+   "che": "portafoglio operativo ha ETH",
+   "ok": true,
+   "dettaglio": "0.01634 ETH"
+  },
+  {
+   "che": "basta per un colpo (gas 0.3 gwei)",
+   "ok": true,
+   "dettaglio": "serve ~0.00050 ETH, abbiamo 0.01634 (32.8 colpi)"
+  },
+  {
+   "che": "il contratto esiste in catena",
+   "ok": true,
+   "dettaglio": ""
+  },
+  {
+   "che": "chi comanda = portafoglio operativo",
+   "ok": true,
+   "dettaglio": "padrone 0x4355962379c779009f833d81bd8d2912773749a0"
+  },
+  {
+   "che": "la cassa e' quella di Nicolo'",
+   "ok": true,
+   "dettaglio": "cassa 0x055e75aeacf141c3118d039d5e099a821152eb66"
+  },
+  {
+   "che": "relay Flashbots raggiungibile",
+   "ok": true,
+   "dettaglio": "HTTP 200"
+  },
+  {
+   "che": "pescatore ARMATO",
+   "ok": true,
+   "dettaglio": ""
+  },
+  {
+   "che": "sentinella ARMATA",
+   "ok": true,
+   "dettaglio": ""
+  },
+  {
+   "che": "margine delle vendite inerte",
+   "ok": true,
+   "dettaglio": "9000 bp"
+  },
+  {
+   "che": "guardia in dollari attiva",
+   "ok": true,
+   "dettaglio": "pretende il 25% del premio"
+  },
+  {
+   "che": "nessuna presa bloccante in sospeso",
+   "ok": true,
+   "dettaglio": ""
+  },
+  {
+   "che": "gettoni ammessi",
+   "ok": true,
+   "dettaglio": "16"
+  },
+  {
+   "che": "tutti i dati presenti",
+   "ok": true,
+   "dettaglio": ""
+  },
+  {
+   "che": "prezzi freschi",
+   "ok": true,
+   "dettaglio": "497s"
+  },
+  {
+   "che": "chiave email presente e protetta",
+   "ok": true,
+   "dettaglio": "permessi 600"
+  },
+  {
+   "che": "chiave di identita' presente",
+   "ok": true,
+   "dettaglio": "fuori dalla cartella di lavoro"
+  },
+  {
+   "che": "il relay accetta la nostra firma",
+   "ok": true,
+   "dettaglio": ""
+  },
+  {
+   "che": "Gmail accetta le nostre credenziali",
+   "ok": true,
+   "dettaglio": "login riuscito, niente inviato"
+  },
+  {
+   "che": "pacchetti accettati dal relay di recente",
+   "ok": true,
+   "dettaglio": "720 accettati negli ultimi 400 eventi"
+  },
+  {
+   "che": "la sentinella compone davvero",
+   "ok": true,
+   "dettaglio": "720 pacchetti, 24 aggiornamenti beccati"
+  },
+  {
+   "che": "dump 5%: tutte pronte",
+   "ok": true,
+   "dettaglio": "cadono 15, scoperte 0"
+  },
+  {
+   "che": "dump 6%: tutte pronte",
+   "ok": true,
+   "dettaglio": "cadono 25, scoperte 0"
+  },
+  {
+   "che": "dump 9%: tutte pronte",
+   "ok": true,
+   "dettaglio": "cadono 70, scoperte 0"
+  },
+  {
+   "che": "ordini in cassetto",
+   "ok": true,
+   "dettaglio": "877"
+  }
+ ]
+}

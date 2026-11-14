@@ -1,0 +1,211 @@
+{
+ "insieme": {
+  "quando": 1791616600,
+  "perche": "il repository era a 8,39 GB su 10 e questa corsia ripubblicava ~250 MB ogni due ore (file insieme_robinhood_sc*.jsonl.gz, fino a 67 MB ciascuno): con 1,61 GB di margine restavano pochi giri prima del limite, e al limite si ferma TUTTO \u2014 compresa la pubblicazione del database della demo, che e' la cosa da proteggere.",
+  "serviva_a": "la fase loop1 (cercare la percentuale per chain), chiusa",
+  "la_demo_dipende": "NO: verificato, prova_in_avanti/cammino/integrita non leggono quei file",
+  "come_si_riaccende": "API workflows/insieme.yml/enable, oppure dalla pagina Actions"
+ },
+ "coppie": {
+  "quando": 1791621704,
+  "perche": "il repository era a 9,00 GB su 10 (margine 1,00). Questa corsia ripubblicava data/multichain/base/coppie.json (9.0 MB), riscritto 49 volte in 24h: ogni versione nuova resta nella storia per sempre, e la storia e' gia' ~5,3 GB dei 9. Al limite si ferma TUTTO, compresa la pubblicazione del database della demo.",
+  "serviva_a": "la fase base/multichain, parcheggiata",
+  "la_demo_dipende": "NO: prova_in_avanti, cammino_posizioni e integrita_database non leggono data/multichain/base",
+  "come_si_riaccende": "API actions/workflows/coppie.yml/enable, o dalla pagina Actions"
+ },
+ "censimento": {
+  "quando": 1791621705,
+  "perche": "il repository era a 9,00 GB su 10 (margine 1,00). Questa corsia ripubblicava data/multichain/base/censimento.jsonl.gz (8.7 MB), riscritto 35 volte in 24h: ogni versione nuova resta nella storia per sempre, e la storia e' gia' ~5,3 GB dei 9. Al limite si ferma TUTTO, compresa la pubblicazione del database della demo.",
+  "serviva_a": "la fase base/multichain, parcheggiata",
+  "la_demo_dipende": "NO: prova_in_avanti, cammino_posizioni e integrita_database non leggono data/multichain/base",
+  "come_si_riaccende": "API actions/workflows/censimento.yml/enable, o dalla pagina Actions"
+ },
+ "iniziatori": {
+  "quando": 1791621706,
+  "perche": "il repository era a 9,00 GB su 10 (margine 1,00). Questa corsia ripubblicava data/multichain/base/iniziatori.json.gz (32.2 MB), riscritto 17 volte in 24h: ogni versione nuova resta nella storia per sempre, e la storia e' gia' ~5,3 GB dei 9. Al limite si ferma TUTTO, compresa la pubblicazione del database della demo.",
+  "serviva_a": "la fase base/multichain, parcheggiata",
+  "la_demo_dipende": "NO: prova_in_avanti, cammino_posizioni e integrita_database non leggono data/multichain/base",
+  "come_si_riaccende": "API actions/workflows/iniziatori.yml/enable, o dalla pagina Actions"
+ },
+ "hook": {
+  "quando": 1791621706,
+  "perche": "il repository era a 9,00 GB su 10 (margine 1,00). Questa corsia ripubblicava data/multichain/base/hook.json (6.0 MB), riscritto 8 volte in 24h: ogni versione nuova resta nella storia per sempre, e la storia e' gia' ~5,3 GB dei 9. Al limite si ferma TUTTO, compresa la pubblicazione del database della demo.",
+  "serviva_a": "la fase base/multichain, parcheggiata",
+  "la_demo_dipende": "NO: prova_in_avanti, cammino_posizioni e integrita_database non leggono data/multichain/base",
+  "come_si_riaccende": "API actions/workflows/hook.yml/enable, o dalla pagina Actions"
+ },
+ "database": {
+  "quando": 1791635242,
+  "perche": "il repository era a 9,22 GB su 10 (margine 0,78) e cresceva di 53 MB ogni 30 minuti, cioe' 2,5 GB al giorno: restavano ~7 ore. Questa corsia riscriveva data/multichain/base/coppie.json + censimento + righe per intero a ogni giro.",
+  "serviva_a": "la fase base/multichain, parcheggiata: ricostruisce l'insieme di base a ogni giro",
+  "la_demo_dipende": "NO: prova_in_avanti, cammino_posizioni, integrita_database e recap_promozione non leggono data/loop1/segnali ne' data/multichain/base",
+  "come_si_riaccende": "API actions/workflows/database.yml/enable, o dalla pagina Actions"
+ },
+ "previsioni": {
+  "quando": 1791635243,
+  "perche": "il repository era a 9,22 GB su 10 (margine 0,78) e cresceva di 53 MB ogni 30 minuti, cioe' 2,5 GB al giorno: restavano ~7 ore. Questa corsia riscriveva data/loop1/segnali.jsonl.gz (16,6 MB) per intero a ogni giro.",
+  "serviva_a": "la fase loop1, chiusa: le previsioni della ricerca per chain",
+  "la_demo_dipende": "NO: prova_in_avanti, cammino_posizioni, integrita_database e recap_promozione non leggono data/loop1/segnali ne' data/multichain/base",
+  "come_si_riaccende": "API actions/workflows/previsioni.yml/enable, o dalla pagina Actions"
+ },
+ "riparazione": {
+  "quando": 1791635243,
+  "perche": "il repository era a 9,22 GB su 10 (margine 0,78) e cresceva di 53 MB ogni 30 minuti, cioe' 2,5 GB al giorno: restavano ~7 ore. Questa corsia riscriveva data/multichain/base/riparazione_ckpt.json (4,2 MB) per intero a ogni giro.",
+  "serviva_a": "ripara i buchi dell'insieme di base, parcheggiato",
+  "la_demo_dipende": "NO: prova_in_avanti, cammino_posizioni, integrita_database e recap_promozione non leggono data/loop1/segnali ne' data/multichain/base",
+  "come_si_riaccende": "API actions/workflows/riparazione.yml/enable, o dalla pagina Actions"
+ },
+ "__base_fermata__": {
+  "quando": 1791648210,
+  "perche": "ordine di Nicolo' del 10/10: \u00abse stai facendo qualcosa su base, stoppala\u00bb. Base e' la seconda chain, non quella della prova in avanti.",
+  "come": "togliu 'base' dalla matrice chain di: arbitraggi, campione, candidati, completezza, finanziatori, insider, profitto, scoperta, segni, vivo, prova_avanti",
+  "come_si_riaccende": "rimettere 'base' nell'elenco chain: [...] dei file di corsia elencati sopra"
+ },
+ "accumulator": {
+  "quando": 1791649363,
+  "perche": "RIDUZIONE DEL 10/10, diagnosi di Nicolo': \u00abc'e' molta confusione, roba gira a caso, l'abbiamo fatto troppo grosso\u00bb. La mappa ha mostrato 19 file scritti da piu' di una corsia accesa: e' li' che nascono le sovrascritture. Per i due giorni di accumulo resta accesa solo la demo con i suoi guardiani.",
+  "serviva_a": "analisi ed esplorazione delle fasi chiuse",
+  "la_demo_dipende": "NO",
+  "come_si_riaccende": "API actions/workflows/accumulator.yml/enable"
+ },
+ "arbitraggi": {
+  "quando": 1791649363,
+  "perche": "RIDUZIONE DEL 10/10, diagnosi di Nicolo': \u00abc'e' molta confusione, roba gira a caso, l'abbiamo fatto troppo grosso\u00bb. La mappa ha mostrato 19 file scritti da piu' di una corsia accesa: e' li' che nascono le sovrascritture. Per i due giorni di accumulo resta accesa solo la demo con i suoi guardiani.",
+  "serviva_a": "analisi ed esplorazione delle fasi chiuse",
+  "la_demo_dipende": "NO",
+  "come_si_riaccende": "API actions/workflows/arbitraggi.yml/enable"
+ },
+ "assottiglia": {
+  "quando": 1791649364,
+  "perche": "RIDUZIONE DEL 10/10, diagnosi di Nicolo': \u00abc'e' molta confusione, roba gira a caso, l'abbiamo fatto troppo grosso\u00bb. La mappa ha mostrato 19 file scritti da piu' di una corsia accesa: e' li' che nascono le sovrascritture. Per i due giorni di accumulo resta accesa solo la demo con i suoi guardiani.",
+  "serviva_a": "analisi ed esplorazione delle fasi chiuse",
+  "la_demo_dipende": "NO",
+  "come_si_riaccende": "API actions/workflows/assottiglia.yml/enable"
+ },
+ "campione": {
+  "quando": 1791649364,
+  "perche": "RIDUZIONE DEL 10/10, diagnosi di Nicolo': \u00abc'e' molta confusione, roba gira a caso, l'abbiamo fatto troppo grosso\u00bb. La mappa ha mostrato 19 file scritti da piu' di una corsia accesa: e' li' che nascono le sovrascritture. Per i due giorni di accumulo resta accesa solo la demo con i suoi guardiani.",
+  "serviva_a": "analisi ed esplorazione delle fasi chiuse",
+  "la_demo_dipende": "NO",
+  "come_si_riaccende": "API actions/workflows/campione.yml/enable"
+ },
+ "candidati": {
+  "quando": 1791649364,
+  "perche": "RIDUZIONE DEL 10/10, diagnosi di Nicolo': \u00abc'e' molta confusione, roba gira a caso, l'abbiamo fatto troppo grosso\u00bb. La mappa ha mostrato 19 file scritti da piu' di una corsia accesa: e' li' che nascono le sovrascritture. Per i due giorni di accumulo resta accesa solo la demo con i suoi guardiani.",
+  "serviva_a": "analisi ed esplorazione delle fasi chiuse",
+  "la_demo_dipende": "NO",
+  "come_si_riaccende": "API actions/workflows/candidati.yml/enable"
+ },
+ "collector": {
+  "quando": 1791649365,
+  "perche": "RIDUZIONE DEL 10/10, diagnosi di Nicolo': \u00abc'e' molta confusione, roba gira a caso, l'abbiamo fatto troppo grosso\u00bb. La mappa ha mostrato 19 file scritti da piu' di una corsia accesa: e' li' che nascono le sovrascritture. Per i due giorni di accumulo resta accesa solo la demo con i suoi guardiani.",
+  "serviva_a": "analisi ed esplorazione delle fasi chiuse",
+  "la_demo_dipende": "NO",
+  "come_si_riaccende": "API actions/workflows/collector.yml/enable"
+ },
+ "completezza": {
+  "quando": 1791649365,
+  "perche": "RIDUZIONE DEL 10/10, diagnosi di Nicolo': \u00abc'e' molta confusione, roba gira a caso, l'abbiamo fatto troppo grosso\u00bb. La mappa ha mostrato 19 file scritti da piu' di una corsia accesa: e' li' che nascono le sovrascritture. Per i due giorni di accumulo resta accesa solo la demo con i suoi guardiani.",
+  "serviva_a": "analisi ed esplorazione delle fasi chiuse",
+  "la_demo_dipende": "NO",
+  "come_si_riaccende": "API actions/workflows/completezza.yml/enable"
+ },
+ "curva": {
+  "quando": 1791649365,
+  "perche": "RIDUZIONE DEL 10/10, diagnosi di Nicolo': \u00abc'e' molta confusione, roba gira a caso, l'abbiamo fatto troppo grosso\u00bb. La mappa ha mostrato 19 file scritti da piu' di una corsia accesa: e' li' che nascono le sovrascritture. Per i due giorni di accumulo resta accesa solo la demo con i suoi guardiani.",
+  "serviva_a": "analisi ed esplorazione delle fasi chiuse",
+  "la_demo_dipende": "NO",
+  "come_si_riaccende": "API actions/workflows/curva.yml/enable"
+ },
+ "curva_lanci": {
+  "quando": 1791649366,
+  "perche": "RIDUZIONE DEL 10/10, diagnosi di Nicolo': \u00abc'e' molta confusione, roba gira a caso, l'abbiamo fatto troppo grosso\u00bb. La mappa ha mostrato 19 file scritti da piu' di una corsia accesa: e' li' che nascono le sovrascritture. Per i due giorni di accumulo resta accesa solo la demo con i suoi guardiani.",
+  "serviva_a": "analisi ed esplorazione delle fasi chiuse",
+  "la_demo_dipende": "NO",
+  "come_si_riaccende": "API actions/workflows/curva_lanci.yml/enable"
+ },
+ "finanziatori": {
+  "quando": 1791649366,
+  "perche": "RIDUZIONE DEL 10/10, diagnosi di Nicolo': \u00abc'e' molta confusione, roba gira a caso, l'abbiamo fatto troppo grosso\u00bb. La mappa ha mostrato 19 file scritti da piu' di una corsia accesa: e' li' che nascono le sovrascritture. Per i due giorni di accumulo resta accesa solo la demo con i suoi guardiani.",
+  "serviva_a": "analisi ed esplorazione delle fasi chiuse",
+  "la_demo_dipende": "NO",
+  "come_si_riaccende": "API actions/workflows/finanziatori.yml/enable"
+ },
+ "insider": {
+  "quando": 1791649366,
+  "perche": "RIDUZIONE DEL 10/10, diagnosi di Nicolo': \u00abc'e' molta confusione, roba gira a caso, l'abbiamo fatto troppo grosso\u00bb. La mappa ha mostrato 19 file scritti da piu' di una corsia accesa: e' li' che nascono le sovrascritture. Per i due giorni di accumulo resta accesa solo la demo con i suoi guardiani.",
+  "serviva_a": "analisi ed esplorazione delle fasi chiuse",
+  "la_demo_dipende": "NO",
+  "come_si_riaccende": "API actions/workflows/insider.yml/enable"
+ },
+ "lanciatori": {
+  "quando": 1791649367,
+  "perche": "RIDUZIONE DEL 10/10, diagnosi di Nicolo': \u00abc'e' molta confusione, roba gira a caso, l'abbiamo fatto troppo grosso\u00bb. La mappa ha mostrato 19 file scritti da piu' di una corsia accesa: e' li' che nascono le sovrascritture. Per i due giorni di accumulo resta accesa solo la demo con i suoi guardiani.",
+  "serviva_a": "analisi ed esplorazione delle fasi chiuse",
+  "la_demo_dipende": "NO",
+  "come_si_riaccende": "API actions/workflows/lanciatori.yml/enable"
+ },
+ "piu_intelligente": {
+  "quando": 1791649367,
+  "perche": "RIDUZIONE DEL 10/10, diagnosi di Nicolo': \u00abc'e' molta confusione, roba gira a caso, l'abbiamo fatto troppo grosso\u00bb. La mappa ha mostrato 19 file scritti da piu' di una corsia accesa: e' li' che nascono le sovrascritture. Per i due giorni di accumulo resta accesa solo la demo con i suoi guardiani.",
+  "serviva_a": "analisi ed esplorazione delle fasi chiuse",
+  "la_demo_dipende": "NO",
+  "come_si_riaccende": "API actions/workflows/piu_intelligente.yml/enable"
+ },
+ "popolazione": {
+  "quando": 1791649367,
+  "perche": "RIDUZIONE DEL 10/10, diagnosi di Nicolo': \u00abc'e' molta confusione, roba gira a caso, l'abbiamo fatto troppo grosso\u00bb. La mappa ha mostrato 19 file scritti da piu' di una corsia accesa: e' li' che nascono le sovrascritture. Per i due giorni di accumulo resta accesa solo la demo con i suoi guardiani.",
+  "serviva_a": "analisi ed esplorazione delle fasi chiuse",
+  "la_demo_dipende": "NO",
+  "come_si_riaccende": "API actions/workflows/popolazione.yml/enable"
+ },
+ "profitto": {
+  "quando": 1791649368,
+  "perche": "RIDUZIONE DEL 10/10, diagnosi di Nicolo': \u00abc'e' molta confusione, roba gira a caso, l'abbiamo fatto troppo grosso\u00bb. La mappa ha mostrato 19 file scritti da piu' di una corsia accesa: e' li' che nascono le sovrascritture. Per i due giorni di accumulo resta accesa solo la demo con i suoi guardiani.",
+  "serviva_a": "analisi ed esplorazione delle fasi chiuse",
+  "la_demo_dipende": "NO",
+  "come_si_riaccende": "API actions/workflows/profitto.yml/enable"
+ },
+ "pulizia_riserve": {
+  "quando": 1791649368,
+  "perche": "RIDUZIONE DEL 10/10, diagnosi di Nicolo': \u00abc'e' molta confusione, roba gira a caso, l'abbiamo fatto troppo grosso\u00bb. La mappa ha mostrato 19 file scritti da piu' di una corsia accesa: e' li' che nascono le sovrascritture. Per i due giorni di accumulo resta accesa solo la demo con i suoi guardiani.",
+  "serviva_a": "analisi ed esplorazione delle fasi chiuse",
+  "la_demo_dipende": "NO",
+  "come_si_riaccende": "API actions/workflows/pulizia_riserve.yml/enable"
+ },
+ "riserve": {
+  "quando": 1791649368,
+  "perche": "RIDUZIONE DEL 10/10, diagnosi di Nicolo': \u00abc'e' molta confusione, roba gira a caso, l'abbiamo fatto troppo grosso\u00bb. La mappa ha mostrato 19 file scritti da piu' di una corsia accesa: e' li' che nascono le sovrascritture. Per i due giorni di accumulo resta accesa solo la demo con i suoi guardiani.",
+  "serviva_a": "analisi ed esplorazione delle fasi chiuse",
+  "la_demo_dipende": "NO",
+  "come_si_riaccende": "API actions/workflows/riserve.yml/enable"
+ },
+ "scoperta": {
+  "quando": 1791649369,
+  "perche": "RIDUZIONE DEL 10/10, diagnosi di Nicolo': \u00abc'e' molta confusione, roba gira a caso, l'abbiamo fatto troppo grosso\u00bb. La mappa ha mostrato 19 file scritti da piu' di una corsia accesa: e' li' che nascono le sovrascritture. Per i due giorni di accumulo resta accesa solo la demo con i suoi guardiani.",
+  "serviva_a": "analisi ed esplorazione delle fasi chiuse",
+  "la_demo_dipende": "NO",
+  "come_si_riaccende": "API actions/workflows/scoperta.yml/enable"
+ },
+ "segni": {
+  "quando": 1791649369,
+  "perche": "RIDUZIONE DEL 10/10, diagnosi di Nicolo': \u00abc'e' molta confusione, roba gira a caso, l'abbiamo fatto troppo grosso\u00bb. La mappa ha mostrato 19 file scritti da piu' di una corsia accesa: e' li' che nascono le sovrascritture. Per i due giorni di accumulo resta accesa solo la demo con i suoi guardiani.",
+  "serviva_a": "analisi ed esplorazione delle fasi chiuse",
+  "la_demo_dipende": "NO",
+  "come_si_riaccende": "API actions/workflows/segni.yml/enable"
+ },
+ "storico": {
+  "quando": 1791649369,
+  "perche": "RIDUZIONE DEL 10/10, diagnosi di Nicolo': \u00abc'e' molta confusione, roba gira a caso, l'abbiamo fatto troppo grosso\u00bb. La mappa ha mostrato 19 file scritti da piu' di una corsia accesa: e' li' che nascono le sovrascritture. Per i due giorni di accumulo resta accesa solo la demo con i suoi guardiani.",
+  "serviva_a": "analisi ed esplorazione delle fasi chiuse",
+  "la_demo_dipende": "NO",
+  "come_si_riaccende": "API actions/workflows/storico.yml/enable"
+ },
+ "__ciclo_a_mano_del_9_ottobre__": {
+  "quando": 1791673747,
+  "perche": "un `while true` lanciato il 9 ottobre alle 05:12 e rimasto accesso 44 ore, fuori da ogni inventario: nessuna guardia lo controllava, perche' le guardie guardano le corsie di GitHub e questo girava su questo Mac. Chiamava diplomate_dalla_chain e mercato_campione_vero in loop fino a 300 monete comprabili, e competeva per lo STESSO nodo RPC con la prova in avanti \u2014 che e' la cosa da proteggere. I 429 che la demo prende durante i recuperi hanno qui una causa plausibile.",
+  "serviva_a": "costruire il campione di mercato della fase chiusa",
+  "la_demo_dipende": "NO, al contrario: le rubava il nodo",
+  "come_si_riaccende": "rilanciarlo a mano, ma prima metterlo in un inventario che qualcuno guarda"
+ }
+}

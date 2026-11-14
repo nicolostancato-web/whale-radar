@@ -1,0 +1,9 @@
+{
+ "quando": 1793887219.344646,
+ "domanda": "con la macchina di oggi, su quante occasioni saremmo stati posizionati?",
+ "campione": "40 liquidazioni di cui abbiamo la salute registrata PRIMA della caduta",
+ "risultato": "40 su 40 dentro la fascia e su coppia vendibile, premio 119.558 dollari",
+ "LIMITE_DEL_CAMPIONE": "quelle 40 sono le liquidazioni che stavamo GIA osservando (e per questo ne abbiamo la salute precedente): il campione e selezionato sulla cosa misurata. Nei 30 giorni le liquidazioni sono 213: sulle altre 173 non si puo dire niente.",
+ "errore_corretto": "il primo conto diceva 35% non sorvegliate: era un artefatto, dopo la liquidazione il debito e zero, la salute diventa 1.16e59 e la posizione esce dalla fascia PER EFFETTO dell evento misurato",
+ "come_si_chiude": "solo il live: da oggi ogni liquidazione trova una fotografia di dove eravamo"
+}
