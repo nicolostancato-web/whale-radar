@@ -3947,3 +3947,4 @@
 {"acq": 1794618548, "agente": "coda_viva", "fonte": "catena-viva", "chain": "robinhood", "quanti": 82, "giro": "43535184683", "dettaglio": {"chiamate": 1828}}
 {"acq": 1794644728, "agente": "coda_viva", "fonte": "catena-viva", "chain": "robinhood", "quanti": 43, "giro": "43573012142", "dettaglio": {"chiamate": 1849}}
 {"acq": 1794669334, "agente": "coda_viva", "fonte": "catena-viva", "chain": "robinhood", "quanti": 243, "giro": "43606167522", "dettaglio": {"chiamate": 1776}}
+{"acq": 1794684453, "agente": "coda_viva", "fonte": "catena-viva", "chain": "robinhood", "quanti": 119, "giro": "43629105959", "dettaglio": {"chiamate": 2031}}
