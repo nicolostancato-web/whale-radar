@@ -1,0 +1,48 @@
+{
+ "quando": 1793739492.0997288,
+ "soglia": 0.93,
+ "esiti": {
+  "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": {
+   "nome": "WETH",
+   "tetto": 2000000,
+   "recupero": 0.9977,
+   "regge": true
+  },
+  "0xdac17f958d2ee523a2206206994597c13d831ec7": {
+   "nome": "USDT",
+   "tetto": 2000000,
+   "recupero": 1.0003,
+   "regge": true
+  },
+  "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": {
+   "nome": "USDC",
+   "tetto": 2000000,
+   "recupero": 0.9932,
+   "regge": true
+  },
+  "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": {
+   "nome": "wstETH",
+   "tetto": 2000000,
+   "recupero": 0.9469,
+   "regge": true
+  },
+  "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee": {
+   "nome": "weETH",
+   "tetto": 2000000,
+   "recupero": 0.9941,
+   "regge": true
+  },
+  "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": {
+   "nome": "WBTC",
+   "tetto": 2000000,
+   "recupero": 0.9944,
+   "regge": true
+  },
+  "0x9d39a5de30e57443bff2a8307a4256c8797a3497": {
+   "nome": "sUSDe",
+   "tetto": 500000,
+   "recupero": 0.9966,
+   "regge": true
+  }
+ }
+}

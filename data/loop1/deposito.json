@@ -1,0 +1,198 @@
+{
+ "quando": "2026-10-10T06:47:45Z",
+ "dove": "allegati della Release \u00abinsiemi\u00bb",
+ "file": {
+  "insieme_base.jsonl.gz": {
+   "byte": 3133479,
+   "impronta": "a3c11e84894bf0d1"
+  },
+  "insieme_base_cam168.jsonl.gz": {
+   "byte": 3949091,
+   "impronta": "e1a1db51e34ea727"
+  },
+  "insieme_base_cam720.jsonl.gz": {
+   "byte": 3541335,
+   "impronta": "43142f85baebb462"
+  },
+  "insieme_base_h168.jsonl.gz": {
+   "byte": 1752253,
+   "impronta": "38dcb1389cec7f0b"
+  },
+  "insieme_base_h24.jsonl.gz": {
+   "byte": 1725173,
+   "impronta": "7dd5484901e8ec07"
+  },
+  "insieme_base_h336.jsonl.gz": {
+   "byte": 1757188,
+   "impronta": "ef4022ee4e9da7cd"
+  },
+  "insieme_base_h720.jsonl.gz": {
+   "byte": 1758685,
+   "impronta": "b75cb6d953995a83"
+  },
+  "insieme_base_min1.jsonl.gz": {
+   "byte": 7010232,
+   "impronta": "364865eb7e533fd8"
+  },
+  "insieme_base_min10.jsonl.gz": {
+   "byte": 5524435,
+   "impronta": "ccb2652096361494"
+  },
+  "insieme_base_min3.jsonl.gz": {
+   "byte": 7586927,
+   "impronta": "fe15e5537d80ffba"
+  },
+  "insieme_base_min30.jsonl.gz": {
+   "byte": 3112558,
+   "impronta": "653616f57df51166"
+  },
+  "insieme_base_sc10.jsonl.gz": {
+   "byte": 14933711,
+   "impronta": "e101d6b491519635"
+  },
+  "insieme_base_sc25.jsonl.gz": {
+   "byte": 13755793,
+   "impronta": "2efaaf8e1175fd5a"
+  },
+  "insieme_base_sc25h336.jsonl.gz": {
+   "byte": 14259115,
+   "impronta": "31180f7d669d334f"
+  },
+  "insieme_base_sc25h720.jsonl.gz": {
+   "byte": 14667491,
+   "impronta": "7edb4ee9c972ffe4"
+  },
+  "insieme_base_sc25med.jsonl.gz": {
+   "byte": 13834984,
+   "impronta": "149327401c79305f"
+  },
+  "insieme_base_sc5.jsonl.gz": {
+   "byte": 14975121,
+   "impronta": "b486e8e308a5020f"
+  },
+  "insieme_base_sc5cnt.jsonl.gz": {
+   "byte": 14988206,
+   "impronta": "da07420d40205987"
+  },
+  "insieme_base_sc5med.jsonl.gz": {
+   "byte": 14912070,
+   "impronta": "24e3a0dc140900e9"
+  },
+  "insieme_base_sc60.jsonl.gz": {
+   "byte": 10010170,
+   "impronta": "d7a8d5c07045f985"
+  },
+  "insieme_base_t6h72.jsonl.gz": {
+   "byte": 1981441,
+   "impronta": "6ff6bf1248a9fbf9"
+  },
+  "insieme_base_tag168.jsonl.gz": {
+   "byte": 3395503,
+   "impronta": "b56b06125924eb5b"
+  },
+  "insieme_base_tag720.jsonl.gz": {
+   "byte": 3627919,
+   "impronta": "d247b5d421b2f82f"
+  },
+  "insieme_base_tardi48.jsonl.gz": {
+   "byte": 1985748,
+   "impronta": "a53486710e95145d"
+  },
+  "insieme_robinhood.jsonl.gz": {
+   "byte": 7672232,
+   "impronta": "c071744769c8e430"
+  },
+  "insieme_robinhood_cam168.jsonl.gz": {
+   "byte": 8583155,
+   "impronta": "796477d4e3b396e2"
+  },
+  "insieme_robinhood_cam720.jsonl.gz": {
+   "byte": 7473248,
+   "impronta": "2e1ed536bb72a937"
+  },
+  "insieme_robinhood_h168.jsonl.gz": {
+   "byte": 3488148,
+   "impronta": "7acf7b90905c83db"
+  },
+  "insieme_robinhood_h24.jsonl.gz": {
+   "byte": 3457980,
+   "impronta": "160cf5492dab102b"
+  },
+  "insieme_robinhood_h336.jsonl.gz": {
+   "byte": 3497496,
+   "impronta": "d1185eb60b0231cb"
+  },
+  "insieme_robinhood_h720.jsonl.gz": {
+   "byte": 3497810,
+   "impronta": "71ea5158a9f88efb"
+  },
+  "insieme_robinhood_min1.jsonl.gz": {
+   "byte": 13602125,
+   "impronta": "21da3d79acea911f"
+  },
+  "insieme_robinhood_min10.jsonl.gz": {
+   "byte": 8069697,
+   "impronta": "ebe7d4e1e4552ebe"
+  },
+  "insieme_robinhood_min3.jsonl.gz": {
+   "byte": 11613407,
+   "impronta": "889fd87ed394a9fb"
+  },
+  "insieme_robinhood_min30.jsonl.gz": {
+   "byte": 7450446,
+   "impronta": "0bea8204f8173c4e"
+  },
+  "insieme_robinhood_sc10.jsonl.gz": {
+   "byte": 27791696,
+   "impronta": "7e255422dec707c9"
+  },
+  "insieme_robinhood_sc25.jsonl.gz": {
+   "byte": 24727392,
+   "impronta": "4f09dc590d96f961"
+  },
+  "insieme_robinhood_sc25h336.jsonl.gz": {
+   "byte": 25038626,
+   "impronta": "f963c1b9229f299c"
+  },
+  "insieme_robinhood_sc25h720.jsonl.gz": {
+   "byte": 25065738,
+   "impronta": "5cf34b70417c40c8"
+  },
+  "insieme_robinhood_sc25med.jsonl.gz": {
+   "byte": 24919809,
+   "impronta": "be85fd18fa61f5a4"
+  },
+  "insieme_robinhood_sc5.jsonl.gz": {
+   "byte": 67492341,
+   "impronta": "6435e67dafa6083f"
+  },
+  "insieme_robinhood_sc5cnt.jsonl.gz": {
+   "byte": 28527541,
+   "impronta": "7e4604261e6bf974"
+  },
+  "insieme_robinhood_sc5med.jsonl.gz": {
+   "byte": 28230656,
+   "impronta": "7c130c4287e498fc"
+  },
+  "insieme_robinhood_sc60.jsonl.gz": {
+   "byte": 18519897,
+   "impronta": "4f7c4a99a7a97500"
+  },
+  "insieme_robinhood_t6h72.jsonl.gz": {
+   "byte": 3746919,
+   "impronta": "6257c74ffdca2a3d"
+  },
+  "insieme_robinhood_tag168.jsonl.gz": {
+   "byte": 7519438,
+   "impronta": "5abd7fa76dabbdc1"
+  },
+  "insieme_robinhood_tag720.jsonl.gz": {
+   "byte": 7656400,
+   "impronta": "ea616adb6cccfc1f"
+  },
+  "insieme_robinhood_tardi48.jsonl.gz": {
+   "byte": 3715288,
+   "impronta": "303ee174e92bec79"
+  }
+ }
+}

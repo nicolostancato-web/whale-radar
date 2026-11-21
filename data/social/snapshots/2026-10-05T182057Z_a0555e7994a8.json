@@ -1,0 +1,516 @@
+{
+ "run_id": "a0555e7994a8",
+ "ts": 1791224457,
+ "ts_utc": "2026-10-05T18:20:57Z",
+ "versione_prompt": "v1-2026-09-16",
+ "modello": "grok-4.20-0309",
+ "domanda": "Cerca su X memecoin / token meme che in questo momento mostrano una crescita ANOMALA\nE RECENTE dell'attenzione sociale.\n\nNON dirmi quale token salira'. NON dirmi cosa comprare. Non mi interessa la tua opinione sul\nprezzo. Mi interessa SOLO evidenza osservabile di attenzione.\n\nPer ogni token che trovi, riporta quello che vedi davvero nei post:\n- quante menzioni e da quanti account DISTINTI (se non lo sai, scrivi null)\n- rispetto a prima, l'attenzione e' accelerata? di quanto?\n- QUANDO sembra iniziata l'accelerazione (ora approssimativa UTC)\n- la discussione sembra organica o coordinata/promozionale?\n- c'e' una narrativa o un evento nuovo che la spiega?\n- segni di spam, bot, account appena creati, stesso testo ripetuto\n\nClassifica ciascun token in una di queste quattro:\n  A = attenzione che sta INIZIANDO adesso\n  B = attenzione GIA' ESPLOSA (il picco sembra passato)\n  C = attenzione COSTANTE, nessuna accelerazione\n  D = probabile SPAM o promozione artificiale\n\nCerco soprattutto la A. Un token famoso di cui si parla sempre non mi serve.\n\nRispondi SOLO con un oggetto JSON valido, senza testo attorno, in questa forma:\n{\"token\": [{\"symbol\": \"...\", \"contract\": null, \"chain\": null, \"classe\": \"A\",\n  \"menzioni\": null, \"account_distinti\": null, \"accelerazione\": \"...\",\n  \"inizio_accelerazione_utc\": null, \"organica\": true, \"narrativa\": \"...\",\n  \"indizi_spam\": \"...\", \"evidenza\": \"...\", \"confidenza\": 0.0}]}\n\nSe un dato non lo sai, scrivi null. NON inventare numeri: un numero inventato qui rovina\nl'esperimento piu' di un dato mancante.",
+ "risposta_grezza": {
+  "created_at": 1791224457,
+  "completed_at": 1791224496,
+  "id": "160a632b-42cd-9202-963d-dd9f7cc494d9",
+  "max_output_tokens": null,
+  "model": "grok-4.20-0309-reasoning",
+  "object": "response",
+  "output": [
+   {
+    "id": "rs_160a632b-42cd-9202-963d-dd9f7cc494d9",
+    "summary": [
+     {
+      "text": "Sto cercando su X memecoin con crescita anomala e recente dell'attenzione sociale.\n\nPer ogni token rilevato, analizzerò solo evidenze osservabili: menzioni e account distinti, accelerazione rispetto al passato, data di inizio, natura organica o promozionale, eventi narrativi e segni di spam. Classificherò ogni caso come classe A se l'attenzione è appena iniziata.\n\nHo definito le classi B, C e D per token con attenzione già esploduta, costante o probabilmente spam. Priorizzerò solo i casi A. Escluderò i token famosi già sempre discussi. Il JSON risponderà esclusivamente con l'oggetto richiesto.\n\nHo chiarito la struttura esatta del JSON: la chiave è \"token\" con un array di oggetti. Userò le funzioni di ricerca X per trovare post recenti sui memecoin, nuovi lanci e tendenze.",
+      "type": "summary_text"
+     }
+    ],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-c5258dc6-108a-47f5-a027-f8f8bcead59e-0",
+    "input": "{\"query\":\"(memecoin OR \\\"meme coin\\\" OR memecoins) (viral OR exploding OR \\\"blowing up\\\" OR \\\"just launched\\\" OR \\\"moon\\\" OR pumping) since:2026-10-04 min_faves:5\",\"limit\":\"10\",\"mode\":\"Latest\"}",
+    "name": "x_keyword_search",
+    "type": "custom_tool_call",
+    "id": "ctc_160a632b-42cd-9202-963d-dd9f7cc494d9_call-c5258dc6-108a-47f5-a027-f8f8bcead59e-0",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-c5258dc6-108a-47f5-a027-f8f8bcead59e-1",
+    "input": "{\"query\":\"new memecoins or tokens showing sudden recent spike in social media attention and mentions on X right now\",\"limit\":\"5\",\"from_date\":\"2026-10-04\"}",
+    "name": "x_semantic_search",
+    "type": "custom_tool_call",
+    "id": "ctc_160a632b-42cd-9202-963d-dd9f7cc494d9_call-c5258dc6-108a-47f5-a027-f8f8bcead59e-1",
+    "status": "completed"
+   },
+   {
+    "id": "tco_160a632b-42cd-9202-963d-dd9f7cc494d9_call-c5258dc6-108a-47f5-a027-f8f8bcead59e-0",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "id": "tco_160a632b-42cd-9202-963d-dd9f7cc494d9_call-c5258dc6-108a-47f5-a027-f8f8bcead59e-1",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-c5258dc6-108a-47f5-a027-f8f8bcead59e-2",
+    "input": "{\"query\":\"$ KIBBLE OR $KIBBLE since:2026-10-04\",\"limit\":\"5\",\"mode\":\"Latest\"}",
+    "name": "x_keyword_search",
+    "type": "custom_tool_call",
+    "id": "ctc_160a632b-42cd-9202-963d-dd9f7cc494d9_call-c5258dc6-108a-47f5-a027-f8f8bcead59e-2",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-c5258dc6-108a-47f5-a027-f8f8bcead59e-3",
+    "input": "{\"query\":\"(Moncock OR $MONCOCK) (memecoin OR meme) since:2026-10-04\",\"limit\":\"5\",\"mode\":\"Latest\"}",
+    "name": "x_keyword_search",
+    "type": "custom_tool_call",
+    "id": "ctc_160a632b-42cd-9202-963d-dd9f7cc494d9_call-c5258dc6-108a-47f5-a027-f8f8bcead59e-3",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-c5258dc6-108a-47f5-a027-f8f8bcead59e-4",
+    "input": "{\"query\":\"(slopcore OR \\\"SI slopcore\\\" OR EkFRff9a2jKztJHML1LG9FRmEkPJDR6XAYp3uCPdpump) since:2026-10-04\",\"limit\":\"5\",\"mode\":\"Latest\"}",
+    "name": "x_keyword_search",
+    "type": "custom_tool_call",
+    "id": "ctc_160a632b-42cd-9202-963d-dd9f7cc494d9_call-c5258dc6-108a-47f5-a027-f8f8bcead59e-4",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-c5258dc6-108a-47f5-a027-f8f8bcead59e-5",
+    "input": "{\"query\":\"$PUMPO OR $PUMPO memecoin since:2026-10-04\",\"limit\":\"5\",\"mode\":\"Latest\"}",
+    "name": "x_keyword_search",
+    "type": "custom_tool_call",
+    "id": "ctc_160a632b-42cd-9202-963d-dd9f7cc494d9_call-c5258dc6-108a-47f5-a027-f8f8bcead59e-5",
+    "status": "completed"
+   },
+   {
+    "id": "tco_160a632b-42cd-9202-963d-dd9f7cc494d9_call-c5258dc6-108a-47f5-a027-f8f8bcead59e-2",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "id": "tco_160a632b-42cd-9202-963d-dd9f7cc494d9_call-c5258dc6-108a-47f5-a027-f8f8bcead59e-3",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "id": "tco_160a632b-42cd-9202-963d-dd9f7cc494d9_call-c5258dc6-108a-47f5-a027-f8f8bcead59e-4",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "id": "tco_160a632b-42cd-9202-963d-dd9f7cc494d9_call-c5258dc6-108a-47f5-a027-f8f8bcead59e-5",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "call_id": "xs_call-c5258dc6-108a-47f5-a027-f8f8bcead59e-6",
+    "input": "{\"query\":\"$MONCOCK OR MONCOCK since:2026-10-03\",\"limit\":\"5\",\"mode\":\"Latest\"}",
+    "name": "x_keyword_search",
+    "type": "custom_tool_call",
+    "id": "ctc_160a632b-42cd-9202-963d-dd9f7cc494d9_call-c5258dc6-108a-47f5-a027-f8f8bcead59e-6",
+    "status": "completed"
+   },
+   {
+    "id": "tco_160a632b-42cd-9202-963d-dd9f7cc494d9_call-c5258dc6-108a-47f5-a027-f8f8bcead59e-6",
+    "summary": [],
+    "type": "reasoning",
+    "status": "completed"
+   },
+   {
+    "content": [
+     {
+      "type": "output_text",
+      "text": "```json\n{\"token\":[{\"symbol\":\"MONCOCK\",\"contract\":\"0x405b6330e213ded490240cbcdd64790806827777\",\"chain\":\"Monad\",\"classe\":\"A\",\"menzioni\":null,\"account_distinti\":null,\"accelerazione\":\"da menzioni sporadiche a multipli post in poche ore con aggiornamenti MC e account dedicati\",\"inizio_accelerazione_utc\":\"2026-10-04 12:00\",\"organica\":true,\"narrativa\":\"meme umoristico grezzo legato ai trending su nad.fun (Monad memecoins), post su parabolic move e Moncock Monday\",\"indizi_spam\":\"nessun testo identico ripetuto, no bot evidenti o account appena creati di massa; umorismo community-style\",\"evidenza\":\"post da account distinti inclusi influencer con video thesis, ranking MC su nad.fun, community account che posta 'much higher'\",\"confidenza\":0.55},{\"symbol\":\"SLOPCORE\",\"contract\":\"EkFRff9a2jKztJHML1LG9FRmEkPJDR6XAYp3uCPdpump\",\"chain\":\"solana\",\"classe\":\"B\",\"menzioni\":null,\"account_distinti\":null,\"accelerazione\":\"accelerazione forte e improvvisa dopo un singolo tweet\",\"inizio_accelerazione_utc\":\"2026-10-04 10:00\",\"organica\":true,\"narrativa\":\"Elon Musk ha twittato 'I love SI slopcore' innescando onda di contenuti AI surreal/slop art e token associato\",\"indizi_spam\":\"alcuni account tematici (@EliteSlopcore), contenuti video ripetitivi nello stile slop ma discussione varia, non spam testuale identico\",\"evidenza\":\"multipli post con video slop, riferimenti diretti al tweet Elon, token CA menzionato in contesto meme, engagement su contenuti artistici\",\"confidenza\":0.65}]}\n```",
+      "logprobs": [],
+      "annotations": [
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2106836755307446462",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2106836755307446462"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2106845742421684441",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2106845742421684441"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2106637952419799522",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2106637952419799522"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2106825221478961187",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2106825221478961187"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2106750668363235720",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2106750668363235720"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2106731961255698733",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2106731961255698733"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2106863695531835839",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2106863695531835839"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2106836013607788982",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2106836013607788982"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2106865002388832304",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2106865002388832304"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2106822296698597396",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2106822296698597396"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2106893629902229728",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2106893629902229728"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2106716296771768632",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2106716296771768632"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2106751341997556182",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2106751341997556182"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2106750587408908449",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2106750587408908449"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2106897039351267469",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2106897039351267469"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2106896749302567231",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2106896749302567231"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2106836359097069641",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2106836359097069641"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2106841923550122157",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2106841923550122157"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2106850428826882353",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2106850428826882353"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2106815870215557154",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2106815870215557154"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2106836974690521392",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2106836974690521392"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2106896414341300351",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2106896414341300351"
+       },
+       {
+        "type": "url_citation",
+        "url": "https://x.com/i/status/2106846273576047061",
+        "start_index": 0,
+        "end_index": 0,
+        "title": "https://x.com/i/status/2106846273576047061"
+       }
+      ]
+     }
+    ],
+    "id": "msg_160a632b-42cd-9202-963d-dd9f7cc494d9",
+    "role": "assistant",
+    "type": "message",
+    "status": "completed"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "previous_response_id": null,
+  "reasoning": {
+   "effort": "medium",
+   "summary": "detailed"
+  },
+  "temperature": 0.7,
+  "text": {
+   "format": {
+    "type": "text"
+   }
+  },
+  "tool_choice": "auto",
+  "tools": [
+   {
+    "type": "x_search",
+    "from_date": "2026-10-04",
+    "to_date": "2026-10-05"
+   }
+  ],
+  "top_p": 0.95,
+  "usage": {
+   "input_tokens": 33872,
+   "input_tokens_details": {
+    "cached_tokens": 20672
+   },
+   "output_tokens": 6432,
+   "output_tokens_details": {
+    "reasoning_tokens": 5705
+   },
+   "total_tokens": 40304,
+   "num_sources_used": 0,
+   "num_server_side_tools_used": 7,
+   "cost_in_usd_ticks": 1567144000,
+   "server_side_tool_usage_details": {
+    "web_search_calls": 0,
+    "x_search_calls": 7,
+    "x_posts_fetched": 24,
+    "x_users_fetched": 0,
+    "code_interpreter_calls": 0,
+    "file_search_calls": 0,
+    "mcp_calls": 0,
+    "document_search_calls": 0,
+    "image_generation_calls": 0
+   },
+   "context_details": {
+    "input_tokens": 14103,
+    "output_tokens": 1606
+   }
+  },
+  "user": null,
+  "incomplete_details": null,
+  "status": "completed",
+  "store": true,
+  "metadata": {
+   "system_fingerprint": "fp_1fb66439292298c7"
+  },
+  "background": false,
+  "service_tier": "default",
+  "truncation": "disabled",
+  "top_logprobs": 0,
+  "presence_penalty": 0.0,
+  "frequency_penalty": 0.0,
+  "prompt_cache_key": null,
+  "max_tool_calls": null,
+  "safety_identifier": null,
+  "error": null,
+  "instructions": null
+ },
+ "testo": "```json\n{\"token\":[{\"symbol\":\"MONCOCK\",\"contract\":\"0x405b6330e213ded490240cbcdd64790806827777\",\"chain\":\"Monad\",\"classe\":\"A\",\"menzioni\":null,\"account_distinti\":null,\"accelerazione\":\"da menzioni sporadiche a multipli post in poche ore con aggiornamenti MC e account dedicati\",\"inizio_accelerazione_utc\":\"2026-10-04 12:00\",\"organica\":true,\"narrativa\":\"meme umoristico grezzo legato ai trending su nad.fun (Monad memecoins), post su parabolic move e Moncock Monday\",\"indizi_spam\":\"nessun testo identico ripetuto, no bot evidenti o account appena creati di massa; umorismo community-style\",\"evidenza\":\"post da account distinti inclusi influencer con video thesis, ranking MC su nad.fun, community account che posta 'much higher'\",\"confidenza\":0.55},{\"symbol\":\"SLOPCORE\",\"contract\":\"EkFRff9a2jKztJHML1LG9FRmEkPJDR6XAYp3uCPdpump\",\"chain\":\"solana\",\"classe\":\"B\",\"menzioni\":null,\"account_distinti\":null,\"accelerazione\":\"accelerazione forte e improvvisa dopo un singolo tweet\",\"inizio_accelerazione_utc\":\"2026-10-04 10:00\",\"organica\":true,\"narrativa\":\"Elon Musk ha twittato 'I love SI slopcore' innescando onda di contenuti AI surreal/slop art e token associato\",\"indizi_spam\":\"alcuni account tematici (@EliteSlopcore), contenuti video ripetitivi nello stile slop ma discussione varia, non spam testuale identico\",\"evidenza\":\"multipli post con video slop, riferimenti diretti al tweet Elon, token CA menzionato in contesto meme, engagement su contenuti artistici\",\"confidenza\":0.65}]}\n```",
+ "token": [
+  {
+   "symbol": "MONCOCK",
+   "contract": "0x405b6330e213ded490240cbcdd64790806827777",
+   "chain": "Monad",
+   "classe": "A",
+   "menzioni": null,
+   "account_distinti": null,
+   "accelerazione": "da menzioni sporadiche a multipli post in poche ore con aggiornamenti MC e account dedicati",
+   "inizio_accelerazione_utc": "2026-10-04 12:00",
+   "organica": true,
+   "narrativa": "meme umoristico grezzo legato ai trending su nad.fun (Monad memecoins), post su parabolic move e Moncock Monday",
+   "indizi_spam": "nessun testo identico ripetuto, no bot evidenti o account appena creati di massa; umorismo community-style",
+   "evidenza": "post da account distinti inclusi influencer con video thesis, ranking MC su nad.fun, community account che posta 'much higher'",
+   "confidenza": 0.55,
+   "risoluzione": {
+    "risolto": true,
+    "fonte": "grok"
+   }
+  },
+  {
+   "symbol": "SLOPCORE",
+   "contract": "EkFRff9a2jKztJHML1LG9FRmEkPJDR6XAYp3uCPdpump",
+   "chain": "solana",
+   "classe": "B",
+   "menzioni": null,
+   "account_distinti": null,
+   "accelerazione": "accelerazione forte e improvvisa dopo un singolo tweet",
+   "inizio_accelerazione_utc": "2026-10-04 10:00",
+   "organica": true,
+   "narrativa": "Elon Musk ha twittato 'I love SI slopcore' innescando onda di contenuti AI surreal/slop art e token associato",
+   "indizi_spam": "alcuni account tematici (@EliteSlopcore), contenuti video ripetitivi nello stile slop ma discussione varia, non spam testuale identico",
+   "evidenza": "multipli post con video slop, riferimenti diretti al tweet Elon, token CA menzionato in contesto meme, engagement su contenuti artistici",
+   "confidenza": 0.65,
+   "risoluzione": {
+    "risolto": true,
+    "fonte": "grok"
+   }
+  }
+ ],
+ "uso": {
+  "input_tokens": 33872,
+  "input_tokens_details": {
+   "cached_tokens": 20672
+  },
+  "output_tokens": 6432,
+  "output_tokens_details": {
+   "reasoning_tokens": 5705
+  },
+  "total_tokens": 40304,
+  "num_sources_used": 0,
+  "num_server_side_tools_used": 7,
+  "cost_in_usd_ticks": 1567144000,
+  "server_side_tool_usage_details": {
+   "web_search_calls": 0,
+   "x_search_calls": 7,
+   "x_posts_fetched": 24,
+   "x_users_fetched": 0,
+   "code_interpreter_calls": 0,
+   "file_search_calls": 0,
+   "mcp_calls": 0,
+   "document_search_calls": 0,
+   "image_generation_calls": 0
+  },
+  "context_details": {
+   "input_tokens": 14103,
+   "output_tokens": 1606
+  }
+ },
+ "controllo": [
+  {
+   "symbol": "Grokdog",
+   "contract": "6UgJXgme1V5MT8P37nWF5BKSEgpab9o6JxwiBn23hkVy",
+   "chain": "solana",
+   "prezzo_allo_snapshot": 2.8870613645008843e-05,
+   "liquidita_allo_snapshot": 21598.3464,
+   "creato": "2026-10-05T18:19:46Z",
+   "fonte": "new_pools solana"
+  },
+  {
+   "symbol": "Sophie",
+   "contract": "9EHjZo1ZBaqs7kV5U3nbvMHgX6dok3JDRGjWiGJrpump",
+   "chain": "solana",
+   "prezzo_allo_snapshot": 4.241708857595369e-06,
+   "liquidita_allo_snapshot": 3364.90418907997,
+   "creato": "2026-10-05T18:19:50Z",
+   "fonte": "new_pools solana"
+  },
+  {
+   "symbol": "Mr Beast",
+   "contract": "ABEGc8wVGjocZcm4Yufq3NTNriGCs3DQ2NkPrU8kCCxv",
+   "chain": "solana",
+   "prezzo_allo_snapshot": 1.2858305337249208e-05,
+   "liquidita_allo_snapshot": 0.0,
+   "creato": "2026-10-05T18:19:49Z",
+   "fonte": "new_pools solana"
+  },
+  {
+   "symbol": "Mr Beast",
+   "contract": "ABEGc8wVGjocZcm4Yufq3NTNriGCs3DQ2NkPrU8kCCxv",
+   "chain": "solana",
+   "prezzo_allo_snapshot": 0.0003786187538494918,
+   "liquidita_allo_snapshot": 54434.9104108159,
+   "creato": "2026-10-05T18:19:49Z",
+   "fonte": "new_pools solana"
+  },
+  {
+   "symbol": "mmrich",
+   "contract": "A3Lsj7AeWEu7KhYiPfj8GxtTrSv7AjnF6Mqmt598pump",
+   "chain": "solana",
+   "prezzo_allo_snapshot": 1.169002498708379e-06,
+   "liquidita_allo_snapshot": 934.721420584179,
+   "creato": "2026-10-05T18:19:55Z",
+   "fonte": "new_pools solana"
+  },
+  {
+   "symbol": "LOAN",
+   "contract": "KKNewoUnQscoN5a5ShwhLmUN8k2DFaQML4H1aEELoan",
+   "chain": "solana",
+   "prezzo_allo_snapshot": 3.760074291045962e-06,
+   "liquidita_allo_snapshot": null,
+   "creato": "2026-10-05T18:20:06Z",
+   "fonte": "new_pools solana"
+  },
+  {
+   "symbol": "MLONG",
+   "contract": "Eif1kgYrtt8siQYdzDZukUmqYZA9m77f4vPV4Ghupump",
+   "chain": "solana",
+   "prezzo_allo_snapshot": 3.478853306932934e-06,
+   "liquidita_allo_snapshot": 2761.18489178819,
+   "creato": "2026-10-05T18:19:48Z",
+   "fonte": "new_pools solana"
+  },
+  {
+   "symbol": "TESTTT",
+   "contract": "BHC4HdqBtFwQnDW4u5BUm26VfziTYXL12tNc5HDvpump",
+   "chain": "solana",
+   "prezzo_allo_snapshot": 3.3580603518411087e-06,
+   "liquidita_allo_snapshot": null,
+   "creato": "2026-10-05T18:20:03Z",
+   "fonte": "new_pools solana"
+  }
+ ],
+ "controllo_errore": null
+}

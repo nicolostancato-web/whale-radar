@@ -1,0 +1,28 @@
+{
+ "quando": "2026-11-07",
+ "chiesto_da": "Astra e Grok, separatamente: dimostrate che lo zero e' vero",
+ "come": "stato storico al blocco-1 via eth_call su drpc e blastapi (gratis)",
+ "eventi": 12,
+ "transazioni": 10,
+ "aggregate": 2,
+ "nella_pipeline": {"eventi": 8, "premio_usd": 7527.33},
+ "solo_nel_serbatoio": {"eventi": 4, "premio_usd": 5.41},
+ "copertura_del_premio": 0.9993,
+ "liquidabili_al_blocco_precedente": 2,
+ "liquidabili_al_blocco_precedente_premio_usd": 1.33,
+ "conclusioni": [
+  "la visibilita' NON e' il buco: il 99,93% del premio era in lista corta, composto e con ordine di vendita pronto",
+  "lo zero del filtro e' VERO: 10 su 12 non erano liquidabili nel blocco prima, sono cadute dentro il blocco con l'oracolo",
+  "non esiste una corsia lenta verso i premi grossi: solo 1,33$ su 7.532$ era prendibile senza vincere la gara",
+  "l'unica occasione non contesa in 33 ore (debito 33,06$) era fuori dalla lista per 7$ di soglia"
+ ],
+ "riparazioni_fatte": [
+  "MINIMO_DEBITO 40 -> 10, misurato (cattura quella da 33,06$, esclude quella da 0,21$ che il gas mangia)",
+  "il gas entra nella guardia che spara (agents/gas_ora.py): prima a 10 gwei una posizione da 2$ di premio passava perdendo 23$",
+  "il contatore riporta eventi E transazioni con i loro nomi (12 righe erano 10 transazioni, 2 aggregate)"
+ ],
+ "resta_aperto": [
+  "la catena di produzione non ha mai attraversato un blocco vero",
+  "i costruttori ordinano per wei assoluti: un aggregatore con 3 liquidazioni al 5% batte il nostro 9,6% su una"
+ ]
+}

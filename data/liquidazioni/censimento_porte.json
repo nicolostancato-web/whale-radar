@@ -1,0 +1,88 @@
+{
+ "quando": 1794039061.831837,
+ "esiti": [
+  {
+   "porta": "wss://ethereum-rpc.publicnode.com",
+   "esito": "INTERE",
+   "dettaglio": "17 campi, input presente"
+  },
+  {
+   "porta": "wss://eth.drpc.org",
+   "esito": "SOLO HASH",
+   "dettaglio": "ignora la richiesta di transazioni intere"
+  },
+  {
+   "porta": "wss://mainnet.gateway.tenderly.co",
+   "esito": "ERRORE",
+   "dettaglio": "TimeoutError: The read operation timed out"
+  },
+  {
+   "porta": "wss://ethereum.callstaticrpc.com",
+   "esito": "ERRORE",
+   "dettaglio": "gaierror: [Errno 8] nodename nor servname provided, or not known"
+  },
+  {
+   "porta": "wss://eth.llamarpc.com",
+   "esito": "ERRORE",
+   "dettaglio": "OSError: saluto rifiutato: HTTP/1.1 525 <none>"
+  },
+  {
+   "porta": "wss://rpc.ankr.com/eth/ws",
+   "esito": "ERRORE",
+   "dettaglio": "OSError: saluto rifiutato: HTTP/1.1 404 Not Found"
+  },
+  {
+   "porta": "wss://eth-mainnet.public.blastapi.io",
+   "esito": "ERRORE",
+   "dettaglio": "OSError: saluto rifiutato: HTTP/1.1 403 Forbidden"
+  },
+  {
+   "porta": "wss://ethereum.blockpi.network/v1/ws/public",
+   "esito": "ERRORE",
+   "dettaglio": "OSError: saluto rifiutato: HTTP/1.1 403 Forbidden"
+  },
+  {
+   "porta": "wss://eth.merkle.io/ws",
+   "esito": "ERRORE",
+   "dettaglio": "OSError: saluto rifiutato: HTTP/1.1 403 Forbidden"
+  },
+  {
+   "porta": "wss://mainnet.era.zksync.io/ws",
+   "esito": "RIFIUTA",
+   "dettaglio": "{'code': -32602, 'message': 'Invalid params', 'data': 'invalid type: b"
+  },
+  {
+   "porta": "wss://rpc.payload.de",
+   "esito": "ERRORE",
+   "dettaglio": "gaierror: [Errno 8] nodename nor servname provided, or not known"
+  },
+  {
+   "porta": "wss://eth.rpc.blxrbdn.com/ws",
+   "esito": "ERRORE",
+   "dettaglio": "OSError: saluto rifiutato: HTTP/1.1 404 Not Found"
+  },
+  {
+   "porta": "wss://api.securerpc.com/v1",
+   "esito": "ERRORE",
+   "dettaglio": "gaierror: [Errno 8] nodename nor servname provided, or not known"
+  },
+  {
+   "porta": "wss://rpc.flashbots.net/ws",
+   "esito": "ERRORE",
+   "dettaglio": "OSError: saluto rifiutato: HTTP/1.1 405 Method Not Allowed"
+  },
+  {
+   "porta": "wss://virginia.rpc.blxrbdn.com/ws",
+   "esito": "ERRORE",
+   "dettaglio": "OSError: saluto rifiutato: HTTP/1.1 404 Not Found"
+  },
+  {
+   "porta": "wss://eth.public-rpc.com",
+   "esito": "ERRORE",
+   "dettaglio": "OSError: saluto rifiutato: HTTP/1.1 200 OK"
+  }
+ ],
+ "usabili": [
+  "wss://ethereum-rpc.publicnode.com"
+ ]
+}

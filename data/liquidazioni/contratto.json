@@ -1,0 +1,5 @@
+{
+ "indirizzo": "0xF76ec682dd8271788755117e83A1F681b84a43be",
+ "nota": "distribuito il 5/11 23:5x: come il precedente piu' eseguiConMancia (bfa77cf8), che paga il costruttore anche quando il debito non e' WETH convertendo il residuo. Il vecchio esegui (ce5997a4) e' identico, quindi i 1.188 ordini pronti continuano a funzionare senza rigenerazione. Costo 0,39 $ a 0,12 gwei. Motivo: tutte e 10 le liquidazioni osservate avevano debito USDC/USDT/LINK, nessuna in WETH.",
+ "selettore_atteso": "ce5997a4"
+}

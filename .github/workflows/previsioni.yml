@@ -1,0 +1,117 @@
+name: previsioni
+# L'OROLOGIO DEL LOOP 1 (22/09). Scrive previsioni oggi, che verranno giudicate domani.
+# Non compra niente e non decide niente: scrive righe in un registro. Il costo di sbagliarsi e'
+# una riga sbagliata in un file.
+#
+# PARTE PRIMA CHE LA MACCHINA SIA RIFINITA, di proposito: le previsioni non si accumulano da sole,
+# si accumulano da quando si comincia a scriverle. Ne servono centinaia per dire qualcosa, e ogni
+# giorno passato ad aspettare la perfezione e' un giorno che non si recupera.
+# Il rigore non cambia: le ipotesi sono in IPOTESI.md, scritte prima, ognuna con la condizione che
+# la ucciderebbe. Cambia solo quando parte l'orologio.
+on:
+  workflow_dispatch:
+  schedule:
+      # L'OROLOGIO E' UNA RETE, NON UN MOTORE (30/09). Suonava ogni 20-30 minuti mentre il
+      # riarmo teneva la corsia gia' in movimento: ogni suonata finiva in coda e veniva
+      # ANNULLATA. Misurato: 36 cancellazioni su 73 giri, tutte inutili, e il rumore nascondeva
+      # le cancellazioni vere (i giri uccisi dal tempo massimo).
+      # Ora suona una volta all'ora: se la catena del riarmo si rompe, riparte da qui.
+      # L'OROLOGIO OGNI SEI ORE, NON OGNI ORA (30/09). Con il riarmo che funziona, ogni suonata
+      # dell'orologio arriva mentre la corsia sta gia' lavorando: finisce in coda e viene
+      # annullata. Diciassette corsie per ventiquattro suonate fanno quattrocento cancellazioni
+      # al giorno, e il rumore nasconde le cancellazioni vere.
+      # Resta come RETE: se la catena del riarmo si spezza, entro sei ore riparte.
+      # LA RETE DEVE ESSERE PIU' STRETTA DEL BUCO (30/09, imparata a caro prezzo).
+      # Stamattina ho portato questo orologio da un'ora a sei, ragionando che col riarmo
+      # funzionante le suonate erano solo rumore. Ma un giro ANNULLATO non esegue il passo di
+      # riarmo: la catena si spezza, e l'unica cosa che puo' riprenderla e' l'orologio.
+      # Alle 11:53 hook, scoperta e censimento sono stati annullati insieme. Sono rimasti fermi
+      # TRE ORE E MEZZA — raccolta dati e pubblicazione bloccate — perche' la rete successiva
+      # era a sei ore di distanza.
+      # Una rete piu' larga dell'intervallo in cui il guasto si presenta non e' una rete.
+    - cron: "42 * * * *"      # rete di sicurezza: i cron vengono saltati sui repo occupati
+
+concurrency:
+  group: previsioni
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  # SERVE ANCHE `actions: write` PER POTERSI RIARMARE (22/09). Senza, la chiamata che rilancia la
+  # corsia viene rifiutata subito — il riarmo e' fallito in 3 secondi al primo giro, e le corsie
+  # che funzionano da giorni ce l'hanno tutte. Il ciclo dei tentativi ha fatto la cosa giusta:
+  # ha riconosciuto un rifiuto DEFINITIVO e non ha insistito cinque volte per niente.
+  actions: write
+
+jobs:
+  prevedi:
+    runs-on: ubuntu-latest
+    # «ANNULLATO» PUO' VOLER DIRE «TEMPO SCADUTO» (1/10). Questa corsia non e' mai
+    # riuscita: zero giri buoni su dieci, tutti marcati `cancelled`. Non la uccideva
+    # nessuno — sfondava il suo `timeout-minutes` (30 minuti) e GitHub marca il
+    # timeout come ANNULLAMENTO, non come fallimento. Misurato: il lavoro ne consumava
+    # esattamente i 30 concessi. Leggevo «annullato» come «superato in coda» e la rilanciavo a vuoto.
+    # E' la stessa lezione del 30/09 — tre varianti annullate in silenzio a 60 minuti —
+    # NON propagata qui. Il rimedio vero non e' dare sempre piu' tempo: se tocca anche
+    # questo tetto, il lavoro va limitato da dentro con un budget, non allargato da fuori.
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        chain: [base, robinhood]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Scrivi le previsioni e chiudi quelle scadute
+        env:
+          CHAIN: ${{ matrix.chain }}
+          FINESTRA_ORE: "6"
+          MAX_PER_GIRO: "80"
+        run: python agents/previsioni.py
+
+      - name: Consegna senza toccare il ramo
+        # NON SPINGE PIU' (29/09). Con cinquantuno corsie che scrivevano su `main`, questa perdeva
+        # la gara, moriva dopo venti tentativi e mandava una email di guasto al fondatore per un
+        # problema che non era suo. Oggi ha generato 21 fallimenti.
+        # Ora consegna in un pacco `consegna-*`: il pubblicatore li raccoglie tutti ed e' l'unico
+        # a scrivere. E' la stessa correzione gia' fatta per l'insieme e per i raccoglitori.
+        if: always()
+        run: |
+          # SOLO I FILE CAMBIATI (29/09). Consegnare tutta `data` vorrebbe dire spedire il
+          # repository intero a ogni giro: gigabyte di roba gia' su GitHub, per salvare qualche
+          # decina di file nuovi. Si mette da parte solo cio' che questa corsia ha toccato.
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          # UN FILE CANCELLATO NON DEVE UCCIDERE LA CONSEGNA (2/10). `git status` elenca anche
+          # i file CANCELLATI, e qui `[ -f "$F" ]` su uno di quelli e' falso: con `bash -e`,
+          # che GitHub usa di default, il passo moriva lì. E' successo appena ho collegato la
+          # fusione degli iniziatori, che cancella il file dei nuovi dopo averli uniti: 24.000
+          # transazioni fuse correttamente e MAI consegnate, perche' il passo dopo e' morto su
+          # un file che non c'era piu'.
+          # Con `if`/`fi` invece di `&&` il caso normale non e' piu' un errore.
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            if [ -f "$F" ]; then
+              mkdir -p "/tmp/consegna/$(dirname "$F")"
+              cp "$F" "/tmp/consegna/$F"
+            fi
+          done
+          N=$(find /tmp/consegna -type f | wc -l)
+          echo "consegno $N file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-${{ github.workflow }}-${{ github.job }}-${{ strategy.job-index }}
+          path: /tmp/consegna/data
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: ignore
+
+# SENZA RIARMO: il riarmo dormiva dentro il lavoro, il tetto scadeva mentre dormiva e il giro
+# veniva annullato buttando anche il dato raccolto. Misurato l'1-2/10: 622 minuti-macchina al
+# giorno spesi a dormire, il 52% della capacita' di venti macchine — e il riarmo esisteva
+# perche' GitHub salta gli orologi sui repository OCCUPATI, mentre era proprio quel dormire a
+# tenerli occupati. Il rimedio alimentava la malattia.
+# Propagato DOPO la prova, non prima: hook 0 successi su 10 -> riuscita in 5 e 16 minuti;
+# censimento -> riuscita in 2 minuti due volte; iniziatori annullata a 35 due volte ->
+# riuscita in 22. Cinque successi su cinque occasioni.
+# Il motore e' l'orologio; la rete e' la maglia di guardie. Vedi RIARMI_CHE_DORMONO.md.

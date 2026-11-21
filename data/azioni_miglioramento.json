@@ -1,0 +1,124 @@
+[
+ {
+  "cosa": "Scrivi agents/prova_metro.py con quattro casi congelati (acquisto contato vendita su token0 e su token1, 10x con taglia da polvere, pool non osservato fino all'orizzonte) e fai calcolare _uscita solo sulle vendite sopra la soglia di taglia, usata sia da insieme.py sia da cercatore.py; pubblica.sh lo esegue e esce 1 se fallisce, e esce 1 anche se il diff cancella un commento nelle prime 40 righe lasciando intatto l'assegnamento numerico accanto",
+  "dove": "pubblica.sh",
+  "perche": "rende impossibile ripubblicare un metro col verso, la taglia o la finestra sbagliati, e un parametro rimasto dopo la cancellazione della sua ragione",
+  "difficolta": "media",
+  "stato": "fatta",
+  "nata": "2026-09-27",
+  "chiusa": "2026-09-27 10:42",
+  "come": "prova_metro.py con 6 casi congelati; pubblica.sh lo esegue con -B e si rifiuta di pubblicare se una risposta nota cambia. Provato in tutti e due i versi.",
+  "controllo": "pubblica.sh: prova_metro (6 casi, provato rompendolo)"
+ },
+ {
+  "cosa": "Crea agents/corsie.py come unico elenco (nome, yml, prefisso, minuti, archivio) letto da heartbeat.py, sentinella.py e staffetta.py, registraci database, riparazione, insieme e soccorso, togli continue-on-error e l'exit 0 finale da sentinella.yml, e in pubblica.sh esci 1 se un yml toccato dal commit non e' nell'elenco o non ha ne' il dispatch di se stesso ne' un archivio sorvegliato",
+  "dove": "agents/corsie.py",
+  "perche": "rende impossibile creare o ottimizzare una corsia che il custode non riaccende e che la sentinella non vede ferma",
+  "difficolta": "media",
+  "stato": "fatta",
+  "nata": "2026-09-27",
+  "chiusa": "2026-09-27 09:20",
+  "come": "corsie.py deduce l'elenco dai file invece di tenerlo a mano; heartbeat e staffetta passano da 4 a 51 corsie; tolto continue-on-error alla sentinella; pubblica.sh si rifiuta di pubblicare una corsia senza riarmo ne' orario",
+  "controllo": "pubblica.sh: corsia senza riarmo (provato con una corsia finta)"
+ },
+ {
+  "cosa": "Scrivi agents/verdetto_h7.py che esce senza stampare i terzi se i pool giudicabili sono meno di 600, applica le tre soglie di IPOTESI_H7 come costanti e scrive sempre il campo sopravvivenza_senza_guadagno",
+  "dove": "agents/verdetto_h7.py",
+  "perche": "rende impossibile sbirciare H7 prima dei 600 pool o venderne la sopravvivenza come un guadagno",
+  "difficolta": "bassa",
+  "stato": "fatta",
+  "nata": "2026-09-27",
+  "chiusa": "2026-09-27 10:42",
+  "come": "verdetto_h7.py: soglie come costanti, esce senza stampare sotto i 600 pool, campo sopravvivenza_senza_guadagno sempre presente. Oggi dice 146/600.",
+  "controllo": "verdetto_h7: si rifiuta di stampare sotto i 600 pool"
+ },
+ {
+  "cosa": "Scrivi in agents/domande_grok.py le due domande versionate per X e GitHub, passando i titoli gia' in RICERCA_GITHUB.md e scartando ogni risposta il cui file_nostro non esiste nel repo; il giro le manda solo a consulta_grok.chiedi e prove() registra la versione",
+  "dove": "agents/domande_grok.py",
+  "perche": "rende impossibile ripetere domani la stessa domanda del 16/09 sui token in attenzione, che non nomina un file nostro e quindi non puo' migliorare",
+  "difficolta": "bassa",
+  "stato": "fatta",
+  "nata": "2026-09-27",
+  "chiusa": "2026-09-27 10:42",
+  "come": "domande_grok.py v2: due domande versionate, passano i titoli gia' visti, pretendono che la risposta nomini un file nostro. Tolto l'orario a social.yml che chiamava l'API a pagamento con la domanda vecchia.",
+  "controllo": "nessuno"
+ },
+ {
+  "cosa": "Crea agents/uscita.py: l'uscita deve tenere conto della TAGLIA, non solo del prezzo",
+  "dove": "agents/insieme.py",
+  "perche": "un 10x fatto di polvere passa ancora per un'uscita vera",
+  "difficolta": "media",
+  "stato": "fatta",
+  "nata": "2026-09-28",
+  "chiusa": "2026-09-28 07:15",
+  "come": "aggiunto `_uscita_pesata`: il prezzo a cui esce META' DEL DENARO invece di meta' delle stampe. NON ho sostituito `_uscita`: H7 e' in corso e le sue condizioni di morte sono scritte su quella, cambiare il metro a prova iniziata la invaliderebbe.",
+  "controllo": "incidenti: taglia (provato rimettendo il difetto)"
+ },
+ {
+  "cosa": "In pubblica.sh pretendi il riarmo, non accettare il solo cron; mettilo a heartbeat e sentinella",
+  "dove": "pubblica.sh",
+  "perche": "i due guardiani potevano morire nel modo che esistono per scoprire",
+  "difficolta": "media",
+  "stato": "fatta",
+  "nata": "2026-09-28",
+  "chiusa": "2026-09-28 07:15",
+  "come": "la porta pretende il riarmo; riarmo aggiunto ai due guardiani; provato con una corsia finta col solo cron: respinta.",
+  "controllo": "pubblica.sh: corsia senza riarmo (provato)"
+ },
+ {
+  "cosa": "In agents/domande_grok.py rifiuta di rimandare la stessa versione della domanda",
+  "dove": "agents/domande_grok.py",
+  "perche": "una domanda che non cambia non puo' migliorare",
+  "difficolta": "bassa",
+  "stato": "da fare",
+  "nata": "2026-09-28"
+ },
+ {
+  "cosa": "Fai derivare BATCH in whale_candles.py dal tempo di una chiamata invece del numero fisso",
+  "dove": "agents/whale_candles.py",
+  "perche": "il numero e' rimasto dopo che la sua ragione e' cambiata",
+  "difficolta": "media",
+  "stato": "da fare",
+  "nata": "2026-09-28"
+ },
+ {
+  "cosa": "In prove(): i documenti sono i primi 10 in ordine ALFABETICO, non i piu' recenti",
+  "dove": "agents/piu_intelligente.py",
+  "perche": "la domanda quotidiana non vede niente dopo la lettera B: guarda i fatti sbagliati",
+  "difficolta": "bassa",
+  "stato": "da fare",
+  "nata": "2026-09-28"
+ },
+ {
+  "cosa": "In agents/domande_grok.py fai sollevare SystemExit da su_x e su_github se la data in VERSIONE non e' oggi UTC o se il testo non contiene ogni id che lezioni.verifica() segna ipotesi e i titoli di commit ripetuti almeno due volte; accetta() scarta la risposta se file_citati e' vuoto o se non nomina un caso presente in incidenti.py; piu_intelligente.main chiama su_x() prima della domanda e si ferma se solleva, e prove() registra la versione. L'invio passa solo da consulta_grok.chiedi",
+  "dove": "agents/domande_grok.py",
+  "perche": "rende impossibile rimandare domani la domanda del 27/09, che non nomina una lezione ancora non provata e quindi non puo' trovare niente di nuovo",
+  "difficolta": "bassa",
+  "stato": "da fare",
+  "nata": "2026-09-29"
+ },
+ {
+  "cosa": "In agents/lezioni.py esci 1 se una lezione ha prova vuota, e per le prove porta: esegui il controllo invece di cercare la frase in pubblica.sh; aggiungi in incidenti.py il caso convenzione (cinque vendite da polvere, _uscita che sembra un guadagno, _uscita_100 a -0.98) e aggancialo a la-convenzione-che-decide; in modello.py leggi _uscita_100 al posto di _uscita; pubblica.sh lancia lezioni.py. Non toccare verdetto_h7.esito",
+  "dove": "agents/lezioni.py",
+  "perche": "rende impossibile registrare la scoperta di oggi come commento e continuare a decidere col decreto delle cinque vendite",
+  "difficolta": "media",
+  "stato": "da fare",
+  "nata": "2026-09-29"
+ },
+ {
+  "cosa": "In agents/ripara_orario.py, se questo processo ha svuotato fatti perche' VERSIONE_LOGICA e' cambiata, non salvare il segnalibro ed esci 1 quando i record con ver scritti in questo giro sono zero",
+  "dove": "agents/ripara_orario.py",
+  "perche": "rende impossibile la quarta ottimizzazione della riparazione che invalida il segnalibro, riscrive le stesse sei schegge e risulta ugualmente riuscita",
+  "difficolta": "media",
+  "stato": "da fare",
+  "nata": "2026-09-29"
+ },
+ {
+  "cosa": "In agents/sentinella.py aggiungi SMALTISCONO, controllato sull'ultimo passaggio registrato da heartbeat, e in pubblica.sh esci 1 se il diff toglie una chiave da SORVEGLIATI senza inserire la stessa stringa in SMALTISCONO; sentinella.py esce 1 se una voce di SMALTISCONO non ha un passaggio recente",
+  "dove": "agents/sentinella.py",
+  "perche": "rende impossibile zittire, dopo un falso allarme, l'unico controllo che in due giorni ha visto ogni guasto silenzioso",
+  "difficolta": "media",
+  "stato": "da fare",
+  "nata": "2026-09-29"
+ }
+]

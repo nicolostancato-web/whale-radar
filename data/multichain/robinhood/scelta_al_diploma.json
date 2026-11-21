@@ -1,0 +1,27 @@
+{
+ "chain": "robinhood",
+ "monete": 346,
+ "criterio": "vince la caratteristica con la maggiore differenza, sulla PRIMA META', fra la quota di monete che arrivano a 2x nel terzo superiore e nel terzo inferiore. Dichiarato prima di guardare i dati.",
+ "prima_meta": {
+  "compratori": -0.2281,
+  "acquisti": -0.2105,
+  "capitale": -0.1228,
+  "blocchi_per_riempirsi": -0.2105,
+  "esenti": -0.0351,
+  "tassati_99": -0.3333,
+  "vendite_sulla_curva": -0.2105,
+  "quota_venduta_sulla_curva": -0.1404,
+  "acquisto_mediano": 0.2281
+ },
+ "scelta": "tassati_99",
+ "verso": "basso",
+ "cassaforte": {
+  "monete": 173,
+  "selezionate": 57,
+  "2x_selezionate": 0.3509,
+  "2x_tutte": 0.4566,
+  "10x_selezionate": 0.0877,
+  "10x_tutte": 0.0809
+ },
+ "verdetto": "NON REGGE"
+}

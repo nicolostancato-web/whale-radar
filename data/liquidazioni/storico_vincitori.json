@@ -1,0 +1,89 @@
+{
+  "quando": 1793813727.503103,
+  "giorni": 30,
+  "liquidazioni": 213,
+  "premio_totale": 846054.03,
+  "premio_al_giorno": 28201.8,
+  "vincitori_distinti": 50,
+  "vincitori_ripetuti": 35,
+  "quota_dei_ripetuti": 99.8,
+  "quota_dei_primi_tre": 79.6,
+  "premio_mediano": 80.33,
+  "premio_massimo": 337863.12,
+  "sopra_mille": 25,
+  "sopra_diecimila": 9,
+  "classifica": [
+    {
+      "chi": "0xeef1b06e23a39f05b6b34ff1052d7a6ca3a00005",
+      "quante": 8,
+      "premio": 344470.78,
+      "quota": 40.7
+    },
+    {
+      "chi": "0xf6860780cd7b673a37cfc2716efd3742e09aedde",
+      "quante": 2,
+      "premio": 221158.94,
+      "quota": 26.1
+    },
+    {
+      "chi": "0xbde3e91f09a9489f1b53eaa21eb32c89b2fd5c64",
+      "quante": 11,
+      "premio": 107616.45,
+      "quota": 12.7
+    },
+    {
+      "chi": "0x29452e8332912533130fb708984722d92184284f",
+      "quante": 35,
+      "premio": 96395.51,
+      "quota": 11.4
+    },
+    {
+      "chi": "0x875a5cf56ebce1c6fb84d24495728e6d6f39a0be",
+      "quante": 6,
+      "premio": 43819.17,
+      "quota": 5.2
+    },
+    {
+      "chi": "0x63f74441bf49b1dd716b93d30e74cc8a621459e9",
+      "quante": 4,
+      "premio": 18045.42,
+      "quota": 2.1
+    },
+    {
+      "chi": "0xd12810b19b596347a3afac206d3ca65d08594b3f",
+      "quante": 26,
+      "premio": 11999.05,
+      "quota": 1.4
+    },
+    {
+      "chi": "0x789e3f3cad898948759402b347d1d1e007f93f79",
+      "quante": 6,
+      "premio": 8443.9,
+      "quota": 1.0
+    },
+    {
+      "chi": "0x7e9cca6d42a076e02b063a7e4d8249452b7211af",
+      "quante": 2,
+      "premio": 3347.02,
+      "quota": 0.4
+    },
+    {
+      "chi": "0xe14c836bd3b0be1d4b52ac4d4f00c163926ff069",
+      "quante": 3,
+      "premio": 2715.4,
+      "quota": 0.3
+    },
+    {
+      "chi": "0xf00003bf2dcfeb166e3dee7d0e0fff197cdfcabd",
+      "quante": 3,
+      "premio": 2528.02,
+      "quota": 0.3
+    },
+    {
+      "chi": "0xd5fd6d3eeb669dcdd3d8bf78c2745fc920de39ba",
+      "quante": 4,
+      "premio": 2148.54,
+      "quota": 0.3
+    }
+  ]
+}

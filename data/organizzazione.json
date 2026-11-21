@@ -1,0 +1,1190 @@
+{
+ "corsie": [
+  {
+   "a_mano": true,
+   "agenti": [
+    "accumulator"
+   ],
+   "consegna": "spinge",
+   "corsia": "accumulator",
+   "orologio": [
+    "21 */2 * * *"
+   ],
+   "scrive": [
+    "data/paper_state.json"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "arbitraggi"
+   ],
+   "consegna": "allegato",
+   "corsia": "arbitraggi",
+   "orologio": [
+    "11 */3 * * *"
+   ],
+   "scrive": [
+    "data/multichain/<chain>/iniziatori.json.gz",
+    "data/multichain/<x>"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "assottiglia_riserve"
+   ],
+   "consegna": "spinge",
+   "corsia": "assottiglia",
+   "orologio": [],
+   "scrive": [
+    "data/multichain/<x>/riserve"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "consulta_astra",
+    "fascicolo_astra",
+    "rianima"
+   ],
+   "consegna": "allegato",
+   "corsia": "astra",
+   "orologio": [
+    "10 6,13,20 * * *"
+   ],
+   "scrive": [
+    "CONSULENZA_<x>.md",
+    "data/consulenze/contatore.json",
+    "data/multichain/<x>/<x>",
+    "data/rilanci.json"
+   ],
+   "stato": "active"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "campione_verificato"
+   ],
+   "consegna": "allegato",
+   "corsia": "campione",
+   "orologio": [
+    "51 */2 * * *"
+   ],
+   "scrive": [
+    "data/campione_verificato_<x>.json",
+    "data/multichain/<chain>/coppie.json",
+    "data/multichain/<chain>/dettaglio_candidati.json.gz",
+    "data/multichain/<x>"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "chi_tiene_i_graduati",
+    "dettaglio_candidati",
+    "firmatari_dei_pool",
+    "perche_solo_vendite",
+    "pool_dei_graduati",
+    "rendimento_mercato_pubblico",
+    "ritardo_copia"
+   ],
+   "consegna": "allegato",
+   "corsia": "candidati",
+   "orologio": [
+    "41 */3 * * *"
+   ],
+   "scrive": [
+    "data/candidati_vincenti.json",
+    "data/multichain/<chain>/coppie.json",
+    "data/multichain/<chain>/curva_lanci.json.gz",
+    "data/multichain/<chain>/firmatari_fatti_pezzo_<x>.json",
+    "data/multichain/<chain>/firmatari_pezzo_<x>.json.gz",
+    "data/multichain/<chain>/iniziatori.json.gz",
+    "data/multichain/<chain>/tenute_fatte_pezzo_<x>.json",
+    "data/multichain/<chain>/tenute_pezzo_<x>.jsonl.gz",
+    "data/multichain/<x>"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "budget_e_tetto",
+    "censimento"
+   ],
+   "consegna": "allegato",
+   "corsia": "censimento",
+   "orologio": [
+    "3 * * * *"
+   ],
+   "scrive": [
+    "data/multichain/<x>/censimento.jsonl.gz",
+    "data/multichain/<x>/censimento_ckpt.json"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "ciclo_ipotesi",
+    "prendi_o_costruisci"
+   ],
+   "consegna": "allegato",
+   "corsia": "ciclo",
+   "orologio": [
+    "25 */3 * * *"
+   ],
+   "scrive": [
+    "data/loop1/<x>",
+    "data/loop1/insieme_<x><x>.jsonl.gz"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "collector"
+   ],
+   "consegna": "spinge",
+   "corsia": "collector",
+   "orologio": [
+    "51 */2 * * *"
+   ],
+   "scrive": [
+    "data/collector_checkpoint.json",
+    "data/pools.json",
+    "data/raw/candles/run_<x>.jsonl.gz",
+    "data/raw/whales/run_<x>.jsonl.gz"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "completezza"
+   ],
+   "consegna": "allegato",
+   "corsia": "completezza",
+   "orologio": [
+    "33 */2 * * *"
+   ],
+   "scrive": [
+    "data/multichain/<chain>/coppie.json",
+    "data/multichain/<chain>/iniziatori.json.gz",
+    "data/multichain/<x>"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "coppie_token",
+    "coppie_unisci"
+   ],
+   "consegna": "allegato",
+   "corsia": "coppie",
+   "orologio": [
+    "17 * * * *"
+   ],
+   "scrive": [
+    "data/multichain/<x>/censimento.jsonl.gz",
+    "data/multichain/<x>/coppie.json",
+    "data/multichain/<x>/coppie_ckpt.json",
+    "data/multichain/<x>/righe.json",
+    "data/multichain/<x>/universo.jsonl.gz"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "curva_per_moneta",
+    "curva_pons"
+   ],
+   "consegna": "allegato",
+   "corsia": "curva",
+   "orologio": [
+    "17 */2 * * *"
+   ],
+   "scrive": [
+    "data/candidati_vincenti.json",
+    "data/multichain/<chain>/moneta_fatte_pezzo_<x>.json",
+    "data/multichain/<chain>/moneta_pezzo_<x>.jsonl.gz",
+    "data/multichain/<x>",
+    "data/multichain/<x>/curva_fatte_pezzo_<x>.json",
+    "data/multichain/<x>/curva_fila_pezzo_<x>.json.gz",
+    "data/multichain/<x>/curva_lanci.json.gz",
+    "data/multichain/<x>/curva_scambi_pezzo_<x>.jsonl.gz",
+    "data/multichain/<x>/curva_somme_pezzo_<x>.json.gz"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "curva_pons",
+    "metro_dei_bravi",
+    "riconcilia_gettoni",
+    "storie_complete",
+    "x_di_chi_entra_prima"
+   ],
+   "consegna": "allegato",
+   "corsia": "curva_lanci",
+   "orologio": [
+    "09 */4 * * *"
+   ],
+   "scrive": [
+    "data/candidati_vincenti.json",
+    "data/multichain/<chain>/coppie.json",
+    "data/multichain/<chain>/curva_lanci.json.gz",
+    "data/multichain/<x>",
+    "data/multichain/<x>/curva_fatte_pezzo_<x>.json",
+    "data/multichain/<x>/curva_fila_pezzo_<x>.json.gz",
+    "data/multichain/<x>/curva_lanci.json.gz",
+    "data/multichain/<x>/curva_scambi_pezzo_<x>.jsonl.gz",
+    "data/multichain/<x>/curva_somme_pezzo_<x>.json.gz"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "data_analyst"
+   ],
+   "consegna": "allegato",
+   "corsia": "data_analyst",
+   "orologio": [],
+   "scrive": [
+    "ANALYSIS.md"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "database_loop"
+   ],
+   "consegna": "NIENTE",
+   "corsia": "database",
+   "orologio": [
+    "40 */5 * * *"
+   ],
+   "scrive": [],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "demo_live"
+   ],
+   "consegna": "spinge",
+   "corsia": "demo_live",
+   "orologio": [],
+   "scrive": [
+    "DEMO_LIVE.md",
+    "data/demo_live_state.json"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "demo_live_base"
+   ],
+   "consegna": "spinge",
+   "corsia": "demo_live_base",
+   "orologio": [],
+   "scrive": [
+    "DEMO_LIVE_BASE.md",
+    "data/demo_live_base_state.json"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "rianima"
+   ],
+   "consegna": "NIENTE",
+   "corsia": "deposito",
+   "orologio": [
+    "37 */6 * * *"
+   ],
+   "scrive": [
+    "data/rilanci.json"
+   ],
+   "stato": "active"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "director"
+   ],
+   "consegna": "allegato",
+   "corsia": "director",
+   "orologio": [],
+   "scrive": [
+    "STATE.md",
+    "state.json"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "edge_eval"
+   ],
+   "consegna": "allegato",
+   "corsia": "edge_eval",
+   "orologio": [],
+   "scrive": [
+    "EDGE.md",
+    "data/edge_history.jsonl"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "engine"
+   ],
+   "consegna": "NIENTE",
+   "corsia": "engine",
+   "orologio": [
+    "0 */6 * * *"
+   ],
+   "scrive": [],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "finanziatori"
+   ],
+   "consegna": "allegato",
+   "corsia": "finanziatori",
+   "orologio": [
+    "7,47 * * * *"
+   ],
+   "scrive": [
+    "data/multichain/<chain>/finanziatori.json.gz",
+    "data/multichain/<x>"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "first_buyers"
+   ],
+   "consegna": "spinge",
+   "corsia": "first_buyers",
+   "orologio": [],
+   "scrive": [
+    "data/first_buyers_checkpoint.json",
+    "data/pools.json",
+    "data/raw/firstbuyers/fb_<x>.jsonl.gz"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "guardia"
+   ],
+   "consegna": "NIENTE",
+   "corsia": "guardia",
+   "orologio": [
+    "19 * * * *"
+   ],
+   "scrive": [],
+   "stato": "active"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "team_cfo",
+    "team_security"
+   ],
+   "consegna": "spinge",
+   "corsia": "guardiani",
+   "orologio": [
+    "32 */3 * * *"
+   ],
+   "scrive": [
+    "CFO.md",
+    "SECURITY.md",
+    "data/cfo_flags.json",
+    "data/security_flags.json"
+   ],
+   "stato": "active"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "health_audit"
+   ],
+   "consegna": "spinge",
+   "corsia": "health_audit",
+   "orologio": [],
+   "scrive": [
+    "HEALTH_AUDIT.md",
+    "data/audit_history.jsonl",
+    "data/multichain/<x>/trades/<x>.jsonl.gz"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "heartbeat"
+   ],
+   "consegna": "spinge",
+   "corsia": "heartbeat",
+   "orologio": [
+    "48 */2 * * *"
+   ],
+   "scrive": [
+    "HEARTBEAT.md"
+   ],
+   "stato": "active"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "budget_e_tetto",
+    "raccogli_hook"
+   ],
+   "consegna": "allegato",
+   "corsia": "hook",
+   "orologio": [
+    "13 * * * *"
+   ],
+   "scrive": [
+    "data/multichain/<x>/<x>",
+    "data/multichain/<x>/hook.json"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "iniziatori"
+   ],
+   "consegna": "allegato",
+   "corsia": "iniziatori",
+   "orologio": [
+    "7 * * * *"
+   ],
+   "scrive": [
+    "data/loop1/decisioni_<x>.json",
+    "data/multichain/<x>/<x>",
+    "data/multichain/<x>/iniziatori.json.gz"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "insider"
+   ],
+   "consegna": "allegato",
+   "corsia": "insider",
+   "orologio": [
+    "38 */2 * * *"
+   ],
+   "scrive": [
+    "data/multichain/<chain>/iniziatori.json.gz",
+    "data/multichain/<chain>/insider.json.gz",
+    "data/multichain/<x>"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "deposita_grande",
+    "insieme",
+    "prendi_o_costruisci"
+   ],
+   "consegna": "allegato",
+   "corsia": "insieme",
+   "orologio": [
+    "47 * * * *"
+   ],
+   "scrive": [
+    "data/loop1/<x>",
+    "data/loop1/decisioni_<x>.json",
+    "data/loop1/insieme_<x>.jsonl",
+    "data/loop1/insieme_<x><x>.jsonl.gz",
+    "data/loop1/insieme_timbro.json",
+    "data/multichain/<x>/<x>",
+    "data/multichain/<x>/iniziatori.json.gz"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "ispezione"
+   ],
+   "consegna": "spinge",
+   "corsia": "ispezione",
+   "orologio": [
+    "28 * * * *"
+   ],
+   "scrive": [
+    "ISPEZIONE.md",
+    "data/ispezione.json"
+   ],
+   "stato": "active"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "lanciatori"
+   ],
+   "consegna": "allegato",
+   "corsia": "lanciatori",
+   "orologio": [
+    "23 * * * *"
+   ],
+   "scrive": [
+    "data/multichain/<x>/coppie.json"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "learner"
+   ],
+   "consegna": "spinge",
+   "corsia": "learner",
+   "orologio": [],
+   "scrive": [
+    "LEARNING.md",
+    "data/paper_bot_ledger.jsonl.gz",
+    "data/selection_model.json"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "ispezione_loop"
+   ],
+   "consegna": "NIENTE",
+   "corsia": "loop0",
+   "orologio": [
+    "*/50 * * * *"
+   ],
+   "scrive": [],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "multichain_brain"
+   ],
+   "consegna": "spinge",
+   "corsia": "multichain_brain",
+   "orologio": [],
+   "scrive": [
+    "MULTICHAIN.md",
+    "data/multichain/<x>/trades/<x>.jsonl.gz",
+    "data/multichain_history.jsonl"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "multichain_collector"
+   ],
+   "consegna": "spinge",
+   "corsia": "multichain_collector",
+   "orologio": [],
+   "scrive": [
+    "<x>/ckpt.json",
+    "<x>/pools.json",
+    "data/multichain/<x>",
+    "data/multichain/rotation.json"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "multichain_rpc"
+   ],
+   "consegna": "spinge",
+   "corsia": "multichain_rpc",
+   "orologio": [],
+   "scrive": [
+    "<x>/rpc_ckpt_<x>.json",
+    "<x>/trades/<x>.jsonl.gz",
+    "data/multichain/<x>"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "multichain_trades"
+   ],
+   "consegna": "spinge",
+   "corsia": "multichain_trades",
+   "orologio": [],
+   "scrive": [
+    "<x>/pools.json",
+    "<x>/trades/<x>.jsonl.gz",
+    "<x>/trades_ckpt.json",
+    "data/multichain/<x>",
+    "data/multichain/trot.json"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "buco_base",
+    "recupero_nascite"
+   ],
+   "consegna": "allegato",
+   "corsia": "nascite",
+   "orologio": [
+    "27 * * * *"
+   ],
+   "scrive": [
+    "data/<x>_mai_letti.json",
+    "data/multichain/<x>/<x>",
+    "data/multichain/<x>/<x>/<x>.jsonl.gz",
+    "data/multichain/<x>/nascita_vera.json",
+    "data/multichain/<x>/recupero_ckpt.json",
+    "data/multichain/<x>/righe.json",
+    "data/multichain/<x>/storico/<x>.jsonl.gz"
+   ],
+   "stato": "active"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "paper_bot"
+   ],
+   "consegna": "spinge",
+   "corsia": "paper_bot",
+   "orologio": [
+    "34 */2 * * *"
+   ],
+   "scrive": [
+    "PAPER.md",
+    "data/paper_bot_ledger.jsonl.gz",
+    "data/paper_bot_state.json",
+    "data/selection_model.json"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "piu_intelligente"
+   ],
+   "consegna": "allegato",
+   "corsia": "piu_intelligente",
+   "orologio": [
+    "55 5 * * *"
+   ],
+   "scrive": [
+    "PIU_INTELLIGENTE.md",
+    "data/azioni_miglioramento.json",
+    "data/prove_del_giorno.json"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "buco_base",
+    "budget_e_tetto"
+   ],
+   "consegna": "allegato",
+   "corsia": "popolazione",
+   "orologio": [
+    "23 * * * *"
+   ],
+   "scrive": [
+    "data/<x>_mai_letti.json",
+    "data/multichain/<x>/<x>/<x>.jsonl.gz"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "previsioni"
+   ],
+   "consegna": "allegato",
+   "corsia": "previsioni",
+   "orologio": [
+    "42 * * * *"
+   ],
+   "scrive": [
+    "data/multichain/<x>/<x>",
+    "data/multichain/<x>/riserve/<x>.jsonl.gz"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "profitto_persone"
+   ],
+   "consegna": "allegato",
+   "corsia": "profitto",
+   "orologio": [
+    "41 */2 * * *"
+   ],
+   "scrive": [
+    "data/multichain/<chain>/arbitraggi.json.gz",
+    "data/multichain/<chain>/iniziatori.json.gz",
+    "data/multichain/<x>"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "prendi_o_costruisci",
+    "prova_avanti"
+   ],
+   "consegna": "allegato",
+   "corsia": "prova_avanti",
+   "orologio": [
+    "50 5 * * *"
+   ],
+   "scrive": [
+    "data/loop1/<x>",
+    "data/loop1/insieme_<x><x>.jsonl.gz",
+    "data/loop1/insieme_<x>_sc5.jsonl.gz",
+    "data/loop1/prova_avanti_<x>.json"
+   ],
+   "stato": "active"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "classifica_errore",
+    "fondi_arbitraggi",
+    "fondi_consegna",
+    "fondi_iniziatori",
+    "fondi_pezzi"
+   ],
+   "consegna": "spinge",
+   "corsia": "pubblicatore",
+   "orologio": [
+    "*/20 * * * *"
+   ],
+   "scrive": [
+    "data/multichain/<chain>/arbitraggi.json.gz",
+    "data/multichain/<x>",
+    "data/multichain/<x>/iniziatori.json.gz",
+    "data/multichain/<x>/iniziatori_nuovi.json",
+    "data/multichain/<x>/nonce.json.gz"
+   ],
+   "stato": "active"
+  },
+  {
+   "a_mano": true,
+   "agenti": [],
+   "consegna": "spinge",
+   "corsia": "pulizia_riserve",
+   "orologio": [],
+   "scrive": [],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [],
+   "consegna": "spinge",
+   "corsia": "repo_gc",
+   "orologio": [
+    "0 3 * * *"
+   ],
+   "scrive": [],
+   "stato": "active"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "ricerca_loop"
+   ],
+   "consegna": "NIENTE",
+   "corsia": "ricerca",
+   "orologio": [
+    "0 */6 * * *"
+   ],
+   "scrive": [],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "budget_e_tetto",
+    "ripara_orario"
+   ],
+   "consegna": "allegato",
+   "corsia": "riparazione",
+   "orologio": [
+    "1 * * * *"
+   ],
+   "scrive": [
+    "data/multichain/<x>/<x>/<x>",
+    "data/multichain/<x>/riparazione_ckpt.json"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "budget_e_tetto",
+    "riserve"
+   ],
+   "consegna": "allegato",
+   "corsia": "riserve",
+   "orologio": [
+    "44 * * * *"
+   ],
+   "scrive": [
+    "<x>/<x>.jsonl.gz",
+    "data/multichain/<x>/<x>",
+    "data/multichain/<x>/riserve"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "scopritore"
+   ],
+   "consegna": "allegato",
+   "corsia": "scoperta",
+   "orologio": [
+    "11 * * * *"
+   ],
+   "scrive": [
+    "data/multichain/<x>/scopritore_ckpt.json",
+    "data/multichain/<x>/universo.jsonl.gz"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "verso_dei_segni"
+   ],
+   "consegna": "allegato",
+   "corsia": "segni",
+   "orologio": [
+    "17 */2 * * *"
+   ],
+   "scrive": [
+    "data/multichain/<x>/coppie.json"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "sentinella"
+   ],
+   "consegna": "spinge",
+   "corsia": "sentinella",
+   "orologio": [
+    "45 */6 * * *"
+   ],
+   "scrive": [
+    "data/allarmi_da_leggere.jsonl",
+    "data/loop1/sentinella.json"
+   ],
+   "stato": "active"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "recupero_soccorso"
+   ],
+   "consegna": "spinge",
+   "corsia": "soccorso",
+   "orologio": [
+    "5 * * * *"
+   ],
+   "scrive": [],
+   "stato": "active"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "domande_grok",
+    "social_loop"
+   ],
+   "consegna": "NIENTE",
+   "corsia": "social",
+   "orologio": [],
+   "scrive": [],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "solana_helius"
+   ],
+   "consegna": "spinge",
+   "corsia": "solana_helius",
+   "orologio": [
+    "5,35 * * * *"
+   ],
+   "scrive": [
+    "<x>/helius_ckpt_<x>.json",
+    "<x>/trades/<x>.jsonl.gz",
+    "data/multichain/solana"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "sperimenti_loop"
+   ],
+   "consegna": "NIENTE",
+   "corsia": "sperimenti",
+   "orologio": [
+    "20 */5 * * *"
+   ],
+   "scrive": [
+    "SPERIMENTI.md"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "storico_evm"
+   ],
+   "consegna": "allegato",
+   "corsia": "storico",
+   "orologio": [
+    "19 * * * *"
+   ],
+   "scrive": [
+    "data/multichain/<x>/storico/<x>.jsonl.gz"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "strategy_optimizer"
+   ],
+   "consegna": "spinge",
+   "corsia": "strategy_optimizer",
+   "orologio": [],
+   "scrive": [
+    "STRATEGY_LOG.md",
+    "data/strategy.json",
+    "data/strategy_history.jsonl"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "strategy_optimizer_base"
+   ],
+   "consegna": "spinge",
+   "corsia": "strategy_optimizer_base",
+   "orologio": [],
+   "scrive": [
+    "data/strategy_base.json",
+    "data/strategy_history.jsonl"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "strategy_optimizer_solana"
+   ],
+   "consegna": "spinge",
+   "corsia": "strategy_optimizer_solana",
+   "orologio": [],
+   "scrive": [
+    "data/strategy_history.jsonl",
+    "data/strategy_solana.json"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "supervisor"
+   ],
+   "consegna": "spinge",
+   "corsia": "supervisor",
+   "orologio": [],
+   "scrive": [
+    "SUPERVISOR.md"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "coda_viva"
+   ],
+   "consegna": "allegato",
+   "corsia": "vivo",
+   "orologio": [
+    "9 * * * *"
+   ],
+   "scrive": [
+    "data/multichain/<x>/coda_ckpt.json",
+    "data/multichain/<x>/universo.jsonl.gz",
+    "data/multichain/<x>/vivo/<x>.jsonl.gz"
+   ],
+   "stato": "active"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "wallet_forensics"
+   ],
+   "consegna": "spinge",
+   "corsia": "wallet_forensics",
+   "orologio": [],
+   "scrive": [
+    "FORENSICS.md",
+    "data/forensics_checkpoint.json",
+    "data/raw/forensics/fund_<x>.jsonl.gz"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "wallet_scores"
+   ],
+   "consegna": "spinge",
+   "corsia": "wallet_scores",
+   "orologio": [],
+   "scrive": [
+    "data/wallet_scores.json"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "watchdog"
+   ],
+   "consegna": "spinge",
+   "corsia": "watchdog",
+   "orologio": [],
+   "scrive": [
+    "data/results/health.json",
+    "data/state/paper_state.json"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "watchdog_quality"
+   ],
+   "consegna": "spinge",
+   "corsia": "watchdog_quality",
+   "orologio": [],
+   "scrive": [
+    "HEALTH.md",
+    "data/health_snapshot.json"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "whale_backfill"
+   ],
+   "consegna": "spinge",
+   "corsia": "whale_backfill",
+   "orologio": [],
+   "scrive": [
+    "data/pools.json",
+    "data/raw/flow/flow_<x>.jsonl.gz",
+    "data/raw/whales/backfill_<x>.jsonl.gz",
+    "data/whale_backfill_checkpoint.json"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "whale_candles"
+   ],
+   "consegna": "spinge",
+   "corsia": "whale_candles",
+   "orologio": [],
+   "scrive": [
+    "data/pools.json",
+    "data/raw/candles/meme_<x>.jsonl.gz",
+    "data/whale_candles_checkpoint.json"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "whale_enrich"
+   ],
+   "consegna": "spinge",
+   "corsia": "whale_enrich",
+   "orologio": [],
+   "scrive": [
+    "data/enrich_checkpoint.json",
+    "data/raw/enriched/feat_<x>.jsonl.gz"
+   ],
+   "stato": "disabled_manually"
+  },
+  {
+   "a_mano": true,
+   "agenti": [
+    "rianima",
+    "workflow_watchdog"
+   ],
+   "consegna": "spinge",
+   "corsia": "workflow_watchdog",
+   "orologio": [],
+   "scrive": [
+    "WATCHDOG.md",
+    "data/rilanci.json"
+   ],
+   "stato": "active"
+  }
+ ],
+ "scritti_da_piu_corsie": {
+  "data/multichain/<x>/<x>": [
+   "astra",
+   "nascite"
+  ],
+  "data/rilanci.json": [
+   "astra",
+   "deposito",
+   "workflow_watchdog"
+  ]
+ }
+}

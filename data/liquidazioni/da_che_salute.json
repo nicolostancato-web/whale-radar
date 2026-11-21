@@ -1,0 +1,322 @@
+[
+ {
+  "premio": 1212,
+  "blocco": 26306156,
+  "utente": "0xd1a992417a0abffa632cbde4da9f5dcf85caa858",
+  "1 ora prima": 1.0123,
+  "6 ore prima": 1.0224,
+  "1 giorno prima": 1.0329
+ },
+ {
+  "premio": 268,
+  "blocco": 26302988,
+  "utente": "0x50f02612ea1f79a84ef72d6912a5452f40a88edd",
+  "1 ora prima": 1.0,
+  "6 ore prima": 1.0336,
+  "1 giorno prima": null
+ },
+ {
+  "premio": 535,
+  "blocco": 26302910,
+  "utente": "0x50f02612ea1f79a84ef72d6912a5452f40a88edd",
+  "1 ora prima": 1.0,
+  "6 ore prima": 1.0283,
+  "1 giorno prima": null
+ },
+ {
+  "premio": 1070,
+  "blocco": 26302535,
+  "utente": "0x50f02612ea1f79a84ef72d6912a5452f40a88edd",
+  "1 ora prima": 1.0,
+  "6 ore prima": null,
+  "1 giorno prima": null
+ },
+ {
+  "premio": 2140,
+  "blocco": 26302499,
+  "utente": "0x50f02612ea1f79a84ef72d6912a5452f40a88edd",
+  "1 ora prima": 1.0,
+  "6 ore prima": null,
+  "1 giorno prima": null
+ },
+ {
+  "premio": 4281,
+  "blocco": 26302314,
+  "utente": "0x50f02612ea1f79a84ef72d6912a5452f40a88edd",
+  "1 ora prima": 1.0107,
+  "6 ore prima": null,
+  "1 giorno prima": null
+ },
+ {
+  "premio": 12319,
+  "blocco": 26302299,
+  "utente": "0x5975e32ef9924a2415f2cb185595e9461fb04eb1",
+  "1 ora prima": 1.0063,
+  "6 ore prima": 1.061,
+  "1 giorno prima": 1.0706
+ },
+ {
+  "premio": 382,
+  "blocco": 26302299,
+  "utente": "0xbf0fc547a8624a8540e99c8dc434e464e171f598",
+  "1 ora prima": 1.0071,
+  "6 ore prima": 1.0618,
+  "1 giorno prima": 1.0711
+ },
+ {
+  "premio": 226,
+  "blocco": 26302299,
+  "utente": "0x56cc773281b51e1509adc177218dd482e4e8a4cc",
+  "1 ora prima": 1.006,
+  "6 ore prima": 1.0595,
+  "1 giorno prima": 1.0667
+ },
+ {
+  "premio": 8561,
+  "blocco": 26302106,
+  "utente": "0x50f02612ea1f79a84ef72d6912a5452f40a88edd",
+  "1 ora prima": 1.0137,
+  "6 ore prima": null,
+  "1 giorno prima": null
+ },
+ {
+  "premio": 17122,
+  "blocco": 26301961,
+  "utente": "0x50f02612ea1f79a84ef72d6912a5452f40a88edd",
+  "1 ora prima": 1.0334,
+  "6 ore prima": null,
+  "1 giorno prima": null
+ },
+ {
+  "premio": 385,
+  "blocco": 26301961,
+  "utente": "0x8e433ca1b4910aa0d4eafa750a15210cc1136277",
+  "1 ora prima": 1.0191,
+  "6 ore prima": 1.0456,
+  "1 giorno prima": 1.0536
+ },
+ {
+  "premio": 270,
+  "blocco": 26301955,
+  "utente": "0x30d303960b625f97d8b479afe4e4e880b3fbb045",
+  "1 ora prima": 1.0282,
+  "6 ore prima": 1.0583,
+  "1 giorno prima": 1.0671
+ },
+ {
+  "premio": 39862,
+  "blocco": 26301940,
+  "utente": "0x8d4f4e70779b67bff2f718e8cb09139d018aad3d",
+  "1 ora prima": 1.0203,
+  "6 ore prima": 1.0501,
+  "1 giorno prima": 1.0589
+ },
+ {
+  "premio": 6471,
+  "blocco": 26301940,
+  "utente": "0x33ba32b6268c360a62f2aa0444eb438640ed3875",
+  "1 ora prima": 1.0161,
+  "6 ore prima": 1.0457,
+  "1 giorno prima": 1.0543
+ },
+ {
+  "premio": 464,
+  "blocco": 26301940,
+  "utente": "0x63a39bb672156683a0128c8a2d47edfc3a2725b0",
+  "1 ora prima": 1.0214,
+  "6 ore prima": 1.0513,
+  "1 giorno prima": 1.0603
+ },
+ {
+  "premio": 3657,
+  "blocco": 26301940,
+  "utente": "0x1fbcadcc4c250cf1f6da6b360263a6ebc3967aa9",
+  "1 ora prima": 1.0133,
+  "6 ore prima": 1.039,
+  "1 giorno prima": 1.1199
+ },
+ {
+  "premio": 802,
+  "blocco": 26301939,
+  "utente": "0xf3c9c9b1bae1d8463dcfb439a70c63bb7252c788",
+  "1 ora prima": 1.0196,
+  "6 ore prima": 1.1365,
+  "1 giorno prima": 1.1444
+ },
+ {
+  "premio": 900,
+  "blocco": 26301666,
+  "utente": "0x840cb0a5110c7f49b642f0d30288e8c024256b53",
+  "1 ora prima": 1.0236,
+  "6 ore prima": 1.1061,
+  "1 giorno prima": 1.1216
+ },
+ {
+  "premio": 331,
+  "blocco": 26301560,
+  "utente": "0xd4ac89483776351f3ac7147f0ce7434333754c58",
+  "1 ora prima": 1.0286,
+  "6 ore prima": 1.107,
+  "1 giorno prima": 1.1017
+ },
+ {
+  "premio": 260,
+  "blocco": 26301520,
+  "utente": "0xc593352eefa7c45863525a3194870929fd6f5948",
+  "1 ora prima": 1.027,
+  "6 ore prima": 1.1039,
+  "1 giorno prima": 1.0986
+ },
+ {
+  "premio": 351,
+  "blocco": 26301519,
+  "utente": "0x44feb8bdaae2e4d9b9fa6a19f4e9b1ffb4eff804",
+  "1 ora prima": 1.029,
+  "6 ore prima": 1.1112,
+  "1 giorno prima": 1.106
+ },
+ {
+  "premio": 316,
+  "blocco": 26301519,
+  "utente": "0x6982ef38bdbfc85b48afb849e8376c17081b085f",
+  "1 ora prima": 1.0356,
+  "6 ore prima": 1.1218,
+  "1 giorno prima": 1.1159
+ },
+ {
+  "premio": 412,
+  "blocco": 26300884,
+  "utente": "0x92561d51c73d545a24d0525d0c616d83562ffcc2",
+  "1 ora prima": 1.0534,
+  "6 ore prima": 1.0652,
+  "1 giorno prima": 1.0643
+ },
+ {
+  "premio": 965,
+  "blocco": 26300862,
+  "utente": "0x5191bc74f0825c7b15b89215969f69aa22df9d6e",
+  "1 ora prima": 1.0301,
+  "6 ore prima": 1.0319,
+  "1 giorno prima": 1.042
+ },
+ {
+  "premio": 274,
+  "blocco": 26300862,
+  "utente": "0xef43025725a1583d834e493bb6a22a631fe96979",
+  "1 ora prima": 1.023,
+  "6 ore prima": 1.0227,
+  "1 giorno prima": 1.0301
+ },
+ {
+  "premio": 262,
+  "blocco": 26300862,
+  "utente": "0x69c0bb9a94d4d22b770d44c048faf5df87482527",
+  "1 ora prima": 1.0249,
+  "6 ore prima": 1.0266,
+  "1 giorno prima": 1.0362
+ },
+ {
+  "premio": 400,
+  "blocco": 26300860,
+  "utente": "0x99da8b0cae360df0c2f1f855b8407ef69462e5f8",
+  "1 ora prima": 1.0245,
+  "6 ore prima": 1.026,
+  "1 giorno prima": 1.0361
+ },
+ {
+  "premio": 871,
+  "blocco": 26293744,
+  "utente": "0x7a0575018b57cb64434fcd794f4f0c624fd0fbd3",
+  "1 ora prima": 1.0,
+  "6 ore prima": 1.0,
+  "1 giorno prima": 1.0
+ },
+ {
+  "premio": 885,
+  "blocco": 26286758,
+  "utente": "0xe151e8be121864eddb83e7d0484b87596cad2fa5",
+  "1 ora prima": 1.0038,
+  "6 ore prima": 1.0057,
+  "1 giorno prima": 1.0049
+ },
+ {
+  "premio": 3734,
+  "blocco": 26263356,
+  "utente": "0x12915074b7057c4ab73ea30a2464b2b39912b01b",
+  "1 ora prima": 1.0007,
+  "6 ore prima": 1.0136,
+  "1 giorno prima": 1.035
+ },
+ {
+  "premio": 1842,
+  "blocco": 26263347,
+  "utente": "0x699a2304ead3d1fe67ab9cbeb779c0e12983ad41",
+  "1 ora prima": 1.0244,
+  "6 ore prima": 1.0328,
+  "1 giorno prima": 1.0474
+ },
+ {
+  "premio": 204,
+  "blocco": 26263347,
+  "utente": "0x50873a46c41d005c5a9f0e9e1403c3307d6209ab",
+  "1 ora prima": 1.0227,
+  "6 ore prima": 1.031,
+  "1 giorno prima": 1.0456
+ },
+ {
+  "premio": 3314,
+  "blocco": 26263314,
+  "utente": "0x6544f40f825885431c943819c251d6eb52c803e2",
+  "1 ora prima": 1.0218,
+  "6 ore prima": 1.0248,
+  "1 giorno prima": 1.0393
+ },
+ {
+  "premio": 502,
+  "blocco": 26263314,
+  "utente": "0xc2f590e3e340ae550324a256f3c3489ad7e65541",
+  "1 ora prima": 1.023,
+  "6 ore prima": 1.0261,
+  "1 giorno prima": 1.0405
+ },
+ {
+  "premio": 205,
+  "blocco": 26263314,
+  "utente": "0x260865391d9259fb7ceb52ef41becab9df5abda7",
+  "1 ora prima": 1.0205,
+  "6 ore prima": 1.0234,
+  "1 giorno prima": 1.0375
+ },
+ {
+  "premio": 534,
+  "blocco": 26263055,
+  "utente": "0x92561d51c73d545a24d0525d0c616d83562ffcc2",
+  "1 ora prima": 1.0187,
+  "6 ore prima": 1.0199,
+  "1 giorno prima": 1.0399
+ },
+ {
+  "premio": 1991,
+  "blocco": 26263050,
+  "utente": "0x9637fca508830233323c728677f9aa1b49a9afbd",
+  "1 ora prima": 1.0105,
+  "6 ore prima": 1.0158,
+  "1 giorno prima": 1.0306
+ },
+ {
+  "premio": 478,
+  "blocco": 26263050,
+  "utente": "0x69c0bb9a94d4d22b770d44c048faf5df87482527",
+  "1 ora prima": 1.0132,
+  "6 ore prima": 1.0172,
+  "1 giorno prima": 1.0279
+ },
+ {
+  "premio": 500,
+  "blocco": 26221599,
+  "utente": "0xef43025725a1583d834e493bb6a22a631fe96979",
+  "1 ora prima": 1.008,
+  "6 ore prima": 1.0153,
+  "1 giorno prima": 1.027
+ }
+]

@@ -1,0 +1,18 @@
+{
+ "giorni": 88,
+ "grosse_oltre_10k": 19,
+ "premio_grosse": 1110017,
+ "contratti": 12,
+ "mittenti": 15,
+ "primo_per_mittente_pct": 22,
+ "primo_fondendo_contratti_pct": 41,
+ "mittenti_con_una_sola": 11,
+ "su": 15,
+ "premio_dei_mittenti_una_sola": 563270,
+ "pct": 51,
+ "liquidatori_totali_88gg": 117,
+ "primo_su_tutto_pct": 35,
+ "primi_tre_pct": 61,
+ "primi_dieci_pct": 87,
+ "nota": "Il mittente della transazione (chi paga il gas) e' piu' vicino all'attore del contratto liquidatore. Qui i mittenti sono PIU' dei contratti: alcuni contratti sono condivisi (0xea6d5b39 da 3 mittenti). Quindi contare i contratti SOTTOSTIMA i concorrenti, al contrario di quanto temevo. LIMITE: mittenti distinti sullo stesso contratto potrebbero essere una sola entita' con piu' portafogli; non lo posso escludere a costo zero, quindi la concentrazione del primo e' fra il 22% (per mittente) e il 41% (fondendo per contratto). In nessuno dei due casi e' un monopolio."
+}

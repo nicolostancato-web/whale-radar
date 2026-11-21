@@ -1,0 +1,29 @@
+{
+ "quando": "2026-11-07",
+ "come": "quote 1inch v6.0 contro il pari valore dell'oracolo, stesse coppie e stesse taglie dei nostri numeri misurati il 3/11",
+ "wstETH_verso_USDC": {
+  "250000":  {"noi": 0.9919, "inch": 0.9963, "punti": 0.44, "gas_scambio": 1741362},
+  "500000":  {"noi": 0.9847, "inch": 0.9962, "punti": 1.15, "gas_scambio": 2656162},
+  "1000000": {"noi": 0.9717, "inch": 0.9961, "punti": 2.44, "gas_scambio": 3303462},
+  "1500000": {"noi": 0.9602, "inch": 0.9960, "punti": 3.58, "gas_scambio": 3431462},
+  "2000000": {"noi": 0.9469, "inch": 0.9960, "punti": 4.91, "gas_scambio": 3901062}
+ },
+ "quelli_che_avevamo_dichiarato_invendibili": {
+  "sUSDe_verso_USDC": {"50000": 0.9992, "500000": 0.9990, "2000000": 0.9986},
+  "rsETH_verso_WETH": {"50000": 0.9967, "500000": 0.9966, "2000000": 0.7478}
+ },
+ "cosa_cambia": [
+  "a 2 milioni il premio reale passava da 1,27% (sotto la soglia 1,75% del contratto, quindi RIFIUTATA) a circa 6%: posizioni che scartavamo diventano prendibili",
+  "sUSDe e' vendibile al 99,9% fino a 2 milioni: i 2,97 milioni di premio dichiarati irraggiungibili NON lo erano",
+  "rsETH e' vendibile fino a ~500mila, si rompe a 2 milioni (74,78%)"
+ ],
+ "il_vincolo_vero_non_e_la_rotta_ma_il_CAPITALE": {
+  "perche": "lo scambio 1inch costa 1,7-3,9 milioni di gas in piu' del nostro. Per essere VALIDA la transazione il conto deve coprire maxFee x gasLimit: con 0,0415 ETH e il gas dei grappoli (8-10 gwei) il tetto e' 5 milioni di gas totali, e le taglie oltre il milione lo sfondano.",
+  "quindi": "1inch sblocca la fascia media (250-500mila, 1,7-2,7M gas); la fascia alta resta chiusa per CAPITALE, non per liquidita'. Distinzione importante: prima credevamo fosse un problema di mercato, e' un problema di cassa."
+ },
+ "da_provare_prima_di_crederci": [
+  "prendere la calldata vera da /swap e provarla su copia della catena, come si e' fatto per la mancia: una quote non e' un'esecuzione",
+  "misurare il gas REALE dell'esecuzione, non quello stimato da 1inch",
+  "verificare che il router 1inch accetti la chiamata dal nostro contratto e che l'approvazione sia nel piano"
+ ]
+}

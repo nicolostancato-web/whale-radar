@@ -1,0 +1,116 @@
+{
+ "righe": [
+  {
+   "tx": "0x40112774de7cffa37aba9a29f95790e370376b20a1aa48a7a900bb07a5bea0b5",
+   "blocco": 26349452,
+   "utente": "0xc6b54b1e1d45abacd06616b32023a2c554ca8abb",
+   "premio_usd": 2699.79,
+   "tipo": "ORACOLO",
+   "dettaglio": "discesa non lineare: l'ha fatta cadere il prezzo (a -1 era 1.006138787)"
+  },
+  {
+   "tx": "0x95c3ee07b3a1fa5647ebfa66301a7b13a91e7608e9bbc2741c2e0e3bc4daab6d",
+   "blocco": 26349651,
+   "utente": "0x3517c43f01de48ac9aed557b986c3ae908c3d932",
+   "premio_usd": 1126.19,
+   "tipo": "ORACOLO",
+   "dettaglio": "scendeva da sola di 1.72e+10/blocco ma servivano 68196 blocchi: l'ha fatta cadere il prezzo"
+  },
+  {
+   "tx": "0x95c3ee07b3a1fa5647ebfa66301a7b13a91e7608e9bbc2741c2e0e3bc4daab6d",
+   "blocco": 26349651,
+   "utente": "0x1fbcadcc4c250cf1f6da6b360263a6ebc3967aa9",
+   "premio_usd": 1126.19,
+   "tipo": "ORACOLO",
+   "dettaglio": "discesa non lineare: l'ha fatta cadere il prezzo (a -1 era 1.004793514)"
+  },
+  {
+   "tx": "0xfee42a94b43f6738fcc9f05b34d63ae6bfc70701515b383b8d27c605df20bd7c",
+   "blocco": 26349526,
+   "utente": "0x4f0aa63d1473ee4c90b4b815d1f88646c2ecb9f9",
+   "premio_usd": 1005.31,
+   "tipo": "ORACOLO",
+   "dettaglio": "discesa non lineare: l'ha fatta cadere il prezzo (a -1 era 1.000760680)"
+  },
+  {
+   "tx": "0xa0eb265b244db1b14dd813161f819a184f3bfa0e88558257615c8df068b4e79a",
+   "blocco": 26349514,
+   "utente": "0x5ac88d99758acdc8d7149c58c42dfbe2f6ee91a5",
+   "premio_usd": 710.65,
+   "tipo": "ORACOLO",
+   "dettaglio": "discesa non lineare: l'ha fatta cadere il prezzo (a -1 era 1.002833222)"
+  },
+  {
+   "tx": "0xa0eb265b244db1b14dd813161f819a184f3bfa0e88558257615c8df068b4e79a",
+   "blocco": 26349514,
+   "utente": "0x92561d51c73d545a24d0525d0c616d83562ffcc2",
+   "premio_usd": 710.65,
+   "tipo": "ORACOLO",
+   "dettaglio": "discesa non lineare: l'ha fatta cadere il prezzo (a -1 era 1.010238361)"
+  },
+  {
+   "tx": "0xf362795eb1a6c0de2e2f5b453793c3e0622f651bd75925fb37d5d9886afca7c3",
+   "blocco": 26362964,
+   "utente": "0x928a1bc9cc5871cdd6cbe18a5f9cc03aa54664b0",
+   "premio_usd": 141.12,
+   "tipo": "DERIVA",
+   "dettaglio": "scendeva di 3.5e+09 per blocco, lineare; era a 1.21e+09 sopra l'uno = 0.3 blocchi dall'attraversamento"
+  },
+  {
+   "tx": "0xf6e8d03d1cb813da4afee3de7c3dcf4bce48001a9967bb515c444dacaed65713",
+   "blocco": 26349403,
+   "utente": "0x99da8b0cae360df0c2f1f855b8407ef69462e5f8",
+   "premio_usd": 130.39,
+   "tipo": "ORACOLO",
+   "dettaglio": "scendeva da sola di 1.16e+10/blocco ma servivano 383657 blocchi: l'ha fatta cadere il prezzo"
+  },
+  {
+   "tx": "0xf56f8ecc42334a9f25b357fe671b547e106684f19495175291c6ad6ca80dba0d",
+   "blocco": 26350931,
+   "utente": "0x9ff679ef5e663a223c5ef07fd191e9e7eda90de5",
+   "premio_usd": 18.16,
+   "tipo": "ORACOLO",
+   "dettaglio": "scendeva da sola di 2.29e+09/blocco ma servivano 1378058 blocchi: l'ha fatta cadere il prezzo"
+  },
+  {
+   "tx": "0x285157d0da154393a1265ab62ac61b4c981387e8f0f8fb3cdbf60943b09cedb9",
+   "blocco": 26351313,
+   "utente": "0x01d5f5e9eb7bd68992852c0cd3419f00efe8a16f",
+   "premio_usd": 4.0,
+   "tipo": "ORACOLO",
+   "dettaglio": "scendeva da sola di 1.61e+10/blocco ma servivano 289822 blocchi: l'ha fatta cadere il prezzo"
+  },
+  {
+   "tx": "0x303c2338b5ce97654ba0c6c46b9368eeca31c5ffb8d96a71ac5e1670bc90c913",
+   "blocco": 26351314,
+   "utente": "0x45ee82c0a6a9c2e7ef1688e221c4a7528c96e9d1",
+   "premio_usd": 1.32,
+   "tipo": "GIA' SOTTO",
+   "dettaglio": "al blocco prima era gia' 0.999918199"
+  },
+  {
+   "tx": "0x683dccc3e9eec2b2399cab2b24622a1a2dd97ce67f650ca0a9f1b39e9585e49b",
+   "blocco": 26352507,
+   "utente": "0xa2b1de04e1f39a42a0cf9626154f8a7391a92105",
+   "premio_usd": 0.08,
+   "tipo": "ORACOLO",
+   "dettaglio": "la salute NON stava scendendo da sola (da 1.003854668 a 1.003854718)"
+  },
+  {
+   "tx": "0x5d0dc50aabb3e20a18e6f386dd460157d074ab9f0b2b33e95d0e672a429b0d3c",
+   "blocco": 26352504,
+   "utente": "0x5960f026052060f2467cedf085ac430efc37e3eb",
+   "premio_usd": 0.01,
+   "tipo": "GIA' SOTTO",
+   "dettaglio": "al blocco prima era gia' 0.950815807"
+  },
+  {
+   "tx": "0x0765b2d7dcc3c9096bad39506d86f58ceb3036d2728feec5062a8ddfa065d397",
+   "blocco": 26359633,
+   "utente": "0x72da473479b17ea6f5f902050e01f4c2cea6afa3",
+   "premio_usd": 0.0,
+   "tipo": "GIA' SOTTO",
+   "dettaglio": "al blocco prima era gia' 0.695059547"
+  }
+ ]
+}

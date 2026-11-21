@@ -1,0 +1,109 @@
+name: prova_curva
+# LA PROVA DENTRO LA CURVA, FUORI DALLA MIA SESSIONE (13/10).
+# Questa prova e' l'unica cosa che produce operazioni VERE con la regola congelata: tutto il
+# resto sono conti sui cammini registrati. Finora girava solo dentro la sessione di Claude, e
+# quando la sessione e' caduta ha perso 36 ore di operazioni che non si recuperano: le entrate
+# vanno decise nell'istante in cui la riserva attraversa la soglia, non a posteriori.
+# Una prova in avanti che dipende da una finestra aperta non e' una prova in avanti.
+# COSTO ZERO: repo pubblico (Actions gratis) e RPC pubblico della chain, nessuna chiave.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "*/15 * * * *"
+
+concurrency:
+  group: prova_curva
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  prova:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 1 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+
+      # LO STATO VIVE NELL'ALLEGATO, NON SUL RAMO. Pesa 4 MB e cambia ogni giro: metterlo sul
+      # ramo ogni 15 minuti significherebbe ~400 MB di storia al giorno su un repo gia' a 7 GB
+      # di 10. Sul ramo va solo il riassunto, che pesa qualche KB.
+      - name: Riprendo lo stato dal giro precedente
+        continue-on-error: true   # al primo giro non c'e' niente da riprendere: non e' un guasto
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ID=$(gh api "repos/${{ github.repository }}/actions/artifacts?per_page=100" \
+            --jq '.artifacts[] | select(.expired==false) | select(.name=="prova-curva-stato") | .id' | head -1)
+          if [ -z "$ID" ]; then echo "primo giro: nessuno stato da riprendere"; exit 0; fi
+          gh api "repos/${{ github.repository }}/actions/artifacts/$ID/zip" > /tmp/s.zip 2>/dev/null || { echo "non scaricabile"; exit 0; }
+          mkdir -p /tmp/s && unzip -qo /tmp/s.zip -d /tmp/s || { echo "illeggibile"; exit 0; }
+          T=$(find /tmp/s -name "prova_nella_curva.json" | head -1)
+          if [ -z "$T" ]; then echo "allegato senza stato dentro"; exit 0; fi
+          # VINCE LO STATO PIU' RICCO, NON IL PIU' RECENTE (13/10). Al primo giro l'allegato
+          # non esisteva e la corsia e' ripartita da zero, mentre sul ramo c'erano 705
+          # posizioni gia' accumulate: prendere sempre l'allegato avrebbe buttato via tutto
+          # il passato ogni volta che la corsia riparte pulita. Un ripristino che puo'
+          # perdere dati non e' un ripristino.
+          mkdir -p data/multichain/robinhood
+          python agents/stato_piu_ricco.py "$T" data/multichain/robinhood/prova_nella_curva.json
+
+      # PIU' GIRI DENTRO UN GIRO. Ogni passata avanza di ~120 blocchi, cioe' due minuti di
+      # chain: una passata sola ogni 15 minuti lascerebbe scoperti 13 minuti su 15, e le
+      # entrate perse non tornano. Il ciclo interno copre la finestra per intero.
+      - name: Faccio girare la prova per 12 minuti
+        env:
+          CHAIN: robinhood
+        run: |
+          FINE=$(( $(date +%s) + 720 ))
+          N=0; ROTTE=0
+          while [ "$(date +%s)" -lt "$FINE" ]; do
+            if python agents/prova_nella_curva.py > /tmp/ultimo.txt 2>&1; then
+              cp /tmp/ultimo.txt /tmp/ultimo_buono.txt
+            else
+              ROTTE=$((ROTTE+1)); cp /tmp/ultimo.txt /tmp/ultimo_rotto.txt
+            fi
+            N=$((N+1))
+          done
+          echo "$N passate, $ROTTE fallite"
+          # UN CICLO CHE IGNORA GLI ERRORI DICE «RIUSCITO» MENTRE NON GIRA NIENTE (13/10).
+          # Con `|| true` la prova e' rimasta ferma ore per un errore di codice e il referto
+          # non l'ha mai detto: il guscio non moriva, quindi sembrava tutto a posto.
+          if [ "$ROTTE" -gt 0 ]; then
+            echo "=== l'errore dell'ultima passata fallita ==="; tail -20 /tmp/ultimo_rotto.txt
+          fi
+          if [ "$ROTTE" = "$N" ]; then
+            echo "TUTTE le passate sono fallite: la prova non ha girato."; exit 1
+          fi
+          cat /tmp/ultimo_buono.txt 2>/dev/null || cat /tmp/ultimo.txt
+
+      - name: Preparo il riassunto per il ramo
+        if: always()
+        run: |
+          rm -rf /tmp/c && mkdir -p /tmp/c/data/multichain/robinhood
+          cp /tmp/ultimo.txt /tmp/c/data/multichain/robinhood/prova_curva_referto.txt 2>/dev/null || true
+          rm -rf /tmp/stato && mkdir -p /tmp/stato/data/multichain/robinhood
+          cp data/multichain/robinhood/prova_nella_curva.json /tmp/stato/data/multichain/robinhood/ 2>/dev/null || true
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          # NIENTE prefisso `consegna-`: lo stato e' grosso e non deve passare dallo scrittore unico
+          name: prova-curva-stato
+          path: /tmp/stato/data
+          retention-days: 30
+          overwrite: true
+          if-no-files-found: ignore
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-prova-curva
+          path: /tmp/c/data
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: ignore

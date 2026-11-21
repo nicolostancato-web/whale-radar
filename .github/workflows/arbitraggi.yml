@@ -1,0 +1,83 @@
+name: arbitraggi
+# L'ELENCO DELLE TRANSAZIONI CHE SONO ARBITRAGGIO, NON POSIZIONI.
+#
+# Nata il 5/10 dopo che il controllo a campione di Nicolo' su DexScreener ha smentito un
+# nostro «182X»: i portafogli in cima alla classifica erano bot MEV che comprano nella pool A
+# e vendono nella pool B DENTRO LA STESSA TRANSAZIONE. I gettoni non si fermano mai da loro —
+# verificato sulla chain: la domanda precisa (trasferimenti di quel gettone per quel
+# portafoglio, su tutto lo storico) ha dato ZERO per sette casi su sette fra quelli riportati.
+#
+# PERCHE' UNA CORSIA A SE': un bot compra in una pool e vende in un'altra, quindi la DOMANDA
+# deve vedere tutte le pool insieme. Metterla dentro la contabilita' (che legge un file per
+# volta) catturava 2.400 casi su 50.000 e raddoppiava il lavoro, uccidendo cinque fette su otto.
+#
+# MA A FETTE SI PUO' (5/10, secondo tentativo): il primo giro scorreva 49.717 file in un filo
+# solo ed e' andato in timeout senza produrre niente. «Deve vedere tutto insieme» era vero
+# della DOMANDA, non del PROCESSO. Ogni fetta emette i due insiemi che ha visto — transazioni
+# con un acquisto, transazioni con una vendita — e l'arbitraggio e' l'INTERSEZIONE DELLE
+# UNIONI, calcolata alla fusione. L'operazione e' associativa, quindi il parallelo non cambia
+# il risultato.
+# COSTO ZERO: legge i file degli scambi che abbiamo gia'.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "11 */3 * * *"
+
+concurrency:
+  group: arbitraggi
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  elenca:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        # BASE FERMATA (10/10, ordine di Nicolo': «se stai facendo qualcosa su base,
+        # stoppala»). Non spengo la corsia: le togliu base dalla MATRICE, cosi' robinhood
+        # — la chain della prova in avanti — continua senza interruzioni. Per riaccendere
+        # base basta rimettere la voce nell'elenco qui sotto.
+        chain: [robinhood]
+        # DIECI FETTE (6/10): con sei, ogni fetta leggeva l'80% dei suoi file nel
+        # budget e cinque su dodici morivano per tempo scaduto. Dieci per chain
+        # fanno venti lavori, che e' il massimo in parallelo sul gratuito: oltre
+        # quello si accodano e il giro dura il doppio senza leggere di piu'.
+        fetta: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 1 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Elenca gli arbitraggi
+        env:
+          CHAIN: ${{ matrix.chain }}
+          FETTE: "10"
+          FETTA: ${{ matrix.fetta }}
+          # 60% del tetto, come chiede budget_e_tetto.py
+          BUDGET_SEC: "1620"
+        run: python agents/arbitraggi.py
+      - name: Consegna senza toccare il ramo
+        if: always()
+        run: |
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            if [ -f "$F" ]; then
+              mkdir -p "/tmp/consegna/$(dirname "$F")"
+              cp "$F" "/tmp/consegna/$F"
+            fi
+          done
+          echo "consegno $(find /tmp/consegna -type f | wc -l) file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-${{ github.workflow }}-${{ matrix.chain }}-${{ matrix.fetta }}
+          path: /tmp/consegna/data
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: ignore
+
+# SENZA RIARMO: l'orologio e' il motore, la maglia di guardie e' la rete.

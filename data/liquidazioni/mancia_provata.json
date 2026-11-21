@@ -1,0 +1,11 @@
+{
+ "quando": 1793880827.979794,
+ "premio_dichiarato_usd": 42348,
+ "mancia_eth": 1.0106,
+ "in_cassa_eth": 5.734749837459788,
+ "lordo_eth": 6.745349837459788,
+ "lordo_usd": 16384,
+ "rapporto_dichiarato_su_vero": 2.58,
+ "mancia_quota_del_vero": 0.15,
+ "nota": "provato in catena su fork; il divisore 2,6 e misurato su DUE prove dello stesso ordine: va cercato su altri casi"
+}

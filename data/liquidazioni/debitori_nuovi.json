@@ -1,0 +1,91 @@
+{
+ "mai_valutati": 166,
+ "letti": 155,
+ "in_pericolo": [
+  {
+   "posizione": "0x81dab767ae79bba6c68aa770935590eecaac4ab1",
+   "salute": 1.0215,
+   "debito_usd": 1158304.09
+  },
+  {
+   "posizione": "0x8cfb487a2661448e87884ecf804497c3389fb95e",
+   "salute": 1.0215,
+   "debito_usd": 1158304.08
+  },
+  {
+   "posizione": "0xc6711b84d7f79bb443bf4e870f60acf135d99a3c",
+   "salute": 1.0215,
+   "debito_usd": 11268.52
+  },
+  {
+   "posizione": "0x1184c8704919e05fe365bc8d6e00e5ad1b21f6e8",
+   "salute": 1.0215,
+   "debito_usd": 277512.45
+  },
+  {
+   "posizione": "0xbf046e5a11a05121b4c6996b6ccf981ab6ae081e",
+   "salute": 1.0358,
+   "debito_usd": 2962.27
+  },
+  {
+   "posizione": "0x37b6be5538ef5a3a0ae0e188292c0074c3def696",
+   "salute": 1.0385,
+   "debito_usd": 11530.06
+  },
+  {
+   "posizione": "0xb829557166ec4a1ce02a4fe9df9bb679e4549e7a",
+   "salute": 1.0436,
+   "debito_usd": 56519.48
+  },
+  {
+   "posizione": "0x47b3f39f57904a451dd31032a7a1ac20b31f17cd",
+   "salute": 1.07,
+   "debito_usd": 89941.15
+  },
+  {
+   "posizione": "0x9bb767e3001cbd21f30e8aaa7e084fa2941609fe",
+   "salute": 1.0868,
+   "debito_usd": 699232.86
+  },
+  {
+   "posizione": "0xff34a6fe7481d2eb5d07c89032a6875baa072952",
+   "salute": 1.09,
+   "debito_usd": 592076.02
+  },
+  {
+   "posizione": "0x3363a583e973a0a1bc829f634dcaaeb9d278c241",
+   "salute": 1.3014,
+   "debito_usd": 13279.41
+  },
+  {
+   "posizione": "0x42d8929887fef28f8e0faedb3ec318222760720c",
+   "salute": 1.492,
+   "debito_usd": 16999.34
+  },
+  {
+   "posizione": "0xafc435a2ee16a04732c3f6e81e6c2ab5a0ac7823",
+   "salute": 1.5034,
+   "debito_usd": 36075.77
+  },
+  {
+   "posizione": "0x68995ad67c9cd267d5d6c873662e49a67bca7026",
+   "salute": 1.5256,
+   "debito_usd": 48933.14
+  },
+  {
+   "posizione": "0x6d6f061cda2ba2a8eaf0902ea3d672b2b97ebbad",
+   "salute": 1.5269,
+   "debito_usd": 14977.52
+  },
+  {
+   "posizione": "0xdbf724bbbdc5bc784c97959fb09a0c468e0a8794",
+   "salute": 1.5532,
+   "debito_usd": 22848.0
+  },
+  {
+   "posizione": "0xd3fd3b75eee466c35ce852dd703af3976ba4f7cc",
+   "salute": 1.5605,
+   "debito_usd": 5998.28
+  }
+ ]
+}

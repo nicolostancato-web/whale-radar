@@ -1,0 +1,43 @@
+{
+  "quando": 1793813272.9742022,
+  "giorni": 30,
+  "minimo": 500.0,
+  "liquidazioni": 42,
+  "premio_totale": 866933.88,
+  "quota_coperta": 93.2,
+  "porte_nostre": [
+    "beaverbuild",
+    "buildernet",
+    "flashbots",
+    "titan"
+  ],
+  "costruttori": [
+    {
+      "coinbase": "0x4838b106fce9647bdf1e7877bf73ce8b0bad5f97",
+      "chi": "beaverbuild",
+      "porta": "beaverbuild",
+      "gli_consegniamo": true,
+      "blocchi": 29,
+      "premio": 654890.8,
+      "quota": 75.5
+    },
+    {
+      "coinbase": "0xdadb0d80178819f2319190d340ce9a924f783711",
+      "chi": "BuilderNet",
+      "porta": "buildernet",
+      "gli_consegniamo": true,
+      "blocchi": 12,
+      "premio": 153359.92,
+      "quota": 17.7
+    },
+    {
+      "coinbase": "0xd87f3d6c5624e8b02be13c2c92f8511b88b94d96",
+      "chi": "ignoto 0xd87f3d6c",
+      "porta": null,
+      "gli_consegniamo": false,
+      "blocchi": 1,
+      "premio": 58683.15,
+      "quota": 6.8
+    }
+  ]
+}

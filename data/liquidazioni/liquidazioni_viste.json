@@ -1,0 +1,22 @@
+{
+ "0xf5ff0c7106886a61fddb7a03ab7da7b3ae50cd4ba62e1f418b7a07f98434a3eb": {
+  "premio_vero_usd": 947638.94,
+  "debito_chiuso_usd": 23398492.25,
+  "quando": 1793820836.141171
+ },
+ "0x8a8a91779f7046bfa0eeed8b398ff146d34491825da164f3b952116ae66dae83": {
+  "premio_vero_usd": 2.78,
+  "debito_chiuso_usd": 63.72,
+  "quando": 1793820836.141173
+ },
+ "0xd56762a36a72cc967e7a24dbd9e0d8721be4d19b0e1d17d0cdc94f5c2f4bb742": {
+  "premio_vero_usd": 0.13,
+  "debito_chiuso_usd": 3.05,
+  "quando": 1793820836.141173
+ },
+ "0x71882d7d3367944c068fb3eb12b4503ab9057b9c484ee9662b68632a381def32": {
+  "premio_vero_usd": 0.08,
+  "debito_chiuso_usd": 2.08,
+  "quando": 1793820836.141173
+ }
+}

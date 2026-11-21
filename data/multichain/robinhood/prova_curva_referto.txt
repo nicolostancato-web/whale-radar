@@ -1,0 +1,17 @@
+CURVA | blocchi 92,385,653-92,385,672: 0 curve native nuove, 0 acquisti, 0 entrate, 0 chiuse
+CURVA | aperte 0, chiuse 4387, curve seguite 11,307
+CURVA | quante curve toccano ogni soglia, e quante poi si diplomano:
+   riserva >=  1.0 nativi: 1167 curve, di cui diplomate  87 (7%)
+   riserva >=  2.0 nativi:  557 curve, di cui diplomate  87 (16%)
+   riserva >=  2.5 nativi:  421 curve, di cui diplomate  87 (21%)
+   riserva >=  3.0 nativi:  300 curve, di cui diplomate  87 (29%)
+   riserva >=  3.6 nativi:  188 curve, di cui diplomate  87 (46%)
+   riserva >=  4.0 nativi:  122 curve, di cui diplomate  87 (71%)
+CURVA | come va ogni strategia, al netto del costo vero del 5,91%:
+   10-20          -1.78% ±  0.8  su  741 chiusure
+   2-2x          +14.21% ±  2.9  su  741 chiusure
+   2-3x          +12.64% ±  4.1  su  741 chiusure
+   30-5           +3.35% ±  1.5  su  458 chiusure
+   50-5           +8.27% ±  1.8  su  741 chiusure
+   diploma-1.5   -22.78% ±  5.7  su  741 chiusure
+   diploma-3.6   -17.05% ±  6.1  su  192 chiusure

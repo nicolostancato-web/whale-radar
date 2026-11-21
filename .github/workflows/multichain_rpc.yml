@@ -1,0 +1,53 @@
+name: multichain_rpc
+# A RIPOSO DAL 30/09. Ultimo giro il 26-27 agosto: si e' fermata quando il progetto ha cambiato
+# direzione, e in trentaquattro giorni nessuno se n'e' accorto. Una corsia che fallisce manda una
+# email; una che smette di esistere non manda niente — ed e' il guasto piu' silenzioso di tutti.
+#
+# NON e' cancellata: il codice resta e si lancia a mano da GitHub quando serve. Spento solo
+# l'orologio, perche' una corsia che nessuno legge consuma uno dei venti posti macchina e produce
+# rumore nei registri — e il rumore nasconde i guasti veri.
+# SENZA RIARMO: interroga i nodi a ritmo suo, con budget di tempo. Le macchine gratis in parallelo sono venti e il
+# 25/09 il riarmo su troppe corsie ha affamato quelle critiche: qui l'orologio basta.
+# Cattura giorno-0 on-chain (eth_getLogs) per Base e BSC. Base PARALLELIZZATO su 4 shard (spinta al 100% coverage),
+# BSC su 2 shard. RPC archive pubblici gratis (mainnet.base.org, bsc.rpc.blxrbdn.com). Ogni 15 min. Repo pubblico => €0.
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  rpc:
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        include:
+          - { chain: base, shard: 0, nshards: 3 }
+          - { chain: base, shard: 1, nshards: 3 }
+          - { chain: base, shard: 2, nshards: 3 }
+          - { chain: bsc, shard: 0, nshards: 1 }
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    concurrency:
+      group: rpc-${{ matrix.chain }}-${{ matrix.shard }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Giorno-0 ${{ matrix.chain }} shard ${{ matrix.shard }}
+        env:
+          CHAIN: "${{ matrix.chain }}"
+          SHARD: "${{ matrix.shard }}"
+          NSHARDS: "${{ matrix.nshards }}"
+        run: python agents/multichain_rpc.py || echo "ko"
+      - name: Salva
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add data/multichain/${{ matrix.chain }}/trades data/multichain/${{ matrix.chain }}/rpc_ckpt_${{ matrix.shard }}.json 2>/dev/null || true
+          git commit -m "rpc ${{ matrix.chain }} s${{ matrix.shard }} $(date -u +%Y-%m-%dT%H:%MZ)" || { echo niente; exit 0; }
+          for i in 1 2 3 4 5 6; do
+            { git fetch --deepen 50 -q origin main 2>/dev/null || true; git pull --rebase --autostash -q origin main || git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main; } || true
+            git push origin main && { echo pushed; exit 0; }
+            sleep $((RANDOM % 8 + 3))
+          done
+          exit 0

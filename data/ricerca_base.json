@@ -1,0 +1,162 @@
+{
+ "chain": "base",
+ "ts": 1789671530,
+ "partenza": -99.0,
+ "cfg": {
+  "entry_h": 6,
+  "tp1": 3,
+  "tp2": 15,
+  "trail": 0.6,
+  "hard": 0.5
+ },
+ "promosse": [],
+ "provate": [
+  {
+   "nome": "eta_al_primo_trade (voto)",
+   "robusta": -99.0,
+   "guadagno": 0.0
+  },
+  {
+   "nome": "eta_al_primo_trade (filtro)",
+   "robusta": -99.0,
+   "guadagno": 0.0
+  },
+  {
+   "nome": "usd_primi20 (voto)",
+   "robusta": -99.0,
+   "guadagno": 0.0
+  },
+  {
+   "nome": "usd_primi20 (filtro)",
+   "robusta": -99.0,
+   "guadagno": 0.0
+  },
+  {
+   "nome": "wallet_ripetuti (voto)",
+   "robusta": -99.0,
+   "guadagno": 0.0
+  },
+  {
+   "nome": "wallet_ripetuti (filtro)",
+   "robusta": -99.0,
+   "guadagno": 0.0
+  },
+  {
+   "nome": "compra_e_rivende (voto)",
+   "robusta": -99.0,
+   "guadagno": 0.0
+  },
+  {
+   "nome": "compra_e_rivende (filtro)",
+   "robusta": -99.0,
+   "guadagno": 0.0
+  },
+  {
+   "nome": "sbilanciamento (voto)",
+   "robusta": -99.0,
+   "guadagno": 0.0
+  },
+  {
+   "nome": "sbilanciamento (filtro)",
+   "robusta": -99.0,
+   "guadagno": 0.0
+  },
+  {
+   "nome": "volume_ultima_su_media (voto)",
+   "robusta": -99.0,
+   "guadagno": 0.0
+  },
+  {
+   "nome": "volume_ultima_su_media (filtro)",
+   "robusta": -99.0,
+   "guadagno": 0.0
+  },
+  {
+   "nome": "concentrazione_top1 x wallet_ripetuti (voto)",
+   "robusta": -99.0,
+   "guadagno": 0.0
+  },
+  {
+   "nome": "concentrazione_top1 x wallet_ripetuti (filtro)",
+   "robusta": -99.0,
+   "guadagno": 0.0
+  },
+  {
+   "nome": "concentrazione_top1 / wallet_ripetuti (voto)",
+   "robusta": -99.0,
+   "guadagno": 0.0
+  },
+  {
+   "nome": "concentrazione_top1 / wallet_ripetuti (filtro)",
+   "robusta": -99.0,
+   "guadagno": 0.0
+  },
+  {
+   "nome": "trade_al_minuto x wallet_ripetuti (voto)",
+   "robusta": -99.0,
+   "guadagno": 0.0
+  },
+  {
+   "nome": "trade_al_minuto x wallet_ripetuti (filtro)",
+   "robusta": -99.0,
+   "guadagno": 0.0
+  },
+  {
+   "nome": "concentrazione_top5 / ampiezza (voto)",
+   "robusta": -99.0,
+   "guadagno": 0.0
+  },
+  {
+   "nome": "concentrazione_top5 / ampiezza (filtro)",
+   "robusta": -99.0,
+   "guadagno": 0.0
+  }
+ ],
+ "fatte": [
+  "quali_piattaforme",
+  "come_si_gradua",
+  "tassa_e_privilegi",
+  "commissioni_e_liquidita",
+  "quanti_graduano",
+  "dati_pubblici_base"
+ ],
+ "storia": [
+  {
+   "tema": "quali_piattaforme",
+   "quando": 1791486391,
+   "secondi": 272,
+   "vuote": 0
+  },
+  {
+   "tema": "come_si_gradua",
+   "quando": 1791497696,
+   "secondi": 438,
+   "vuote": 0
+  },
+  {
+   "tema": "tassa_e_privilegi",
+   "quando": 1791510342,
+   "secondi": 511,
+   "vuote": 0
+  },
+  {
+   "tema": "commissioni_e_liquidita",
+   "quando": 1791521489,
+   "secondi": 262,
+   "vuote": 0
+  },
+  {
+   "tema": "quanti_graduano",
+   "quando": 1791533025,
+   "secondi": 276,
+   "vuote": 0
+  },
+  {
+   "tema": "dati_pubblici_base",
+   "quando": 1791545700,
+   "secondi": 266,
+   "vuote": 0
+  }
+ ],
+ "ultima": 1791545700
+}

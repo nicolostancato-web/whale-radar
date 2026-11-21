@@ -1,0 +1,70 @@
+name: completezza
+# NESSUNA X SI DICHIARA SE NON E' VERIFICABILE A MANO.
+#
+# Direttiva di Nicolo' (5/10): «dobbiamo essere sicuri al 100% che abbiamo TUTTI gli acquisti e
+# TUTTE le vendite. L'errore piu' incredibile e' avere tre acquisti e quattro vendite: poi
+# facciamo calcoli completamente sbagliati sopra dati sbagliati. In questo progetto ci siamo
+# caduti DUE VOLTE.» E verifichera' a campione: una moneta, un portafoglio, e controlla su un
+# esploratore che i numeri tornino.
+#
+# Questa corsia NON calcola multipli: decide quali posizioni hanno il DIRITTO di produrne uno,
+# e scrive accanto a ognuna acquisti e vendite con data e importo, per il controllo a mano.
+# COSTO ZERO: legge i file degli scambi che abbiamo gia'.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "33 */2 * * *"
+
+concurrency:
+  group: completezza
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  verifica:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        # BASE FERMATA (10/10, ordine di Nicolo': «se stai facendo qualcosa su base,
+        # stoppala»). Non spengo la corsia: le togliu base dalla MATRICE, cosi' robinhood
+        # — la chain della prova in avanti — continua senza interruzioni. Per riaccendere
+        # base basta rimettere la voce nell'elenco qui sotto.
+        chain: [robinhood]
+        fetta: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 1 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Quali posizioni sono verificabili
+        env:
+          CHAIN: ${{ matrix.chain }}
+          FETTE: "4"
+          FETTA: ${{ matrix.fetta }}
+          BUDGET_SEC: "1080"
+        run: python agents/completezza.py
+      - name: Consegna senza toccare il ramo
+        if: always()
+        run: |
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            if [ -f "$F" ]; then
+              mkdir -p "/tmp/consegna/$(dirname "$F")"
+              cp "$F" "/tmp/consegna/$F"
+            fi
+          done
+          echo "consegno $(find /tmp/consegna -type f | wc -l) file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-${{ github.workflow }}-${{ matrix.chain }}-${{ matrix.fetta }}
+          path: /tmp/consegna/data
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: ignore
+
+# SENZA RIARMO: l'orologio e' il motore, la maglia di guardie e' la rete.

@@ -1,0 +1,35 @@
+To: beaverbuild@riseup.net
+Subject: Searcher asking about direct submission and bundle stats
+
+Hi,
+
+I run a small independent searcher doing Aave v3 liquidations on Ethereum
+mainnet. I send bundles to https://rpc.beaverbuild.org/ today, shaped as
+[Chainlink oracle update tx, my liquidation tx], and I pay the builder from
+the proceeds inside the same transaction (coinbase transfer, not priority
+fee). Around 1,800 bundles accepted so far, zero included.
+
+Three questions:
+
+1. Is there a lower-latency submission path than the public HTTPS endpoint —
+   a direct endpoint, a persistent connection, or gRPC? From Europe I measure
+   10-13 ms ping and 27-46 ms per submission, and my useful window is about
+   80-250 ms, so the submission path is a meaningful share of my budget.
+
+2. Do you expose bundle statistics? I can see that bundles are accepted, but
+   not whether they were simulated, why they were dropped, or what the
+   winning bundle paid. Any feedback at all — even a simple
+   received / simulated / included status — would let me find my own mistake
+   instead of guessing.
+
+3. Do you publish any hint or backrun stream for pending transactions?
+
+I am a single person with a small amount of capital, so I am not asking for
+anything that costs money or has a commercial contract attached. If any of
+the above needs volume I do not have, just say so and I will stop asking.
+
+Thanks for running the endpoint openly — it is the reason someone my size can
+try at all.
+
+Best,
+Nicolo

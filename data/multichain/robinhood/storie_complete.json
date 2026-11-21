@@ -1,0 +1,4015 @@
+{
+ "acq": 1791643263,
+ "chain": "robinhood",
+ "soglie": [
+  2.0,
+  5.0,
+  10.0
+ ],
+ "portafogli": 413047,
+ "lanciatori_tolti": 149153,
+ "MANCA": "gli indirizzi esentati dalla tassa dei primi 5 secondi (fino a 32 per lancio, nella transazione di creazione) NON sono ancora esclusi: sono privilegio, non abilita'",
+ "nota": "l'eccesso e' rispetto ai portafogli con lo STESSO numero di tentativi. Il conteggio nudo e' la classifica di chi ha provato di piu'.",
+ "primi_200": [
+  {
+   "portafoglio": "0x03c3239111e983c55ed95b595e6a694cc7513daa",
+   "tentativi": 2901,
+   "capitale_messo": 43.46249999999966,
+   "capitale_tornato": 4.2751852208771804e+18,
+   "ritorno": 9.83649173627199e+16,
+   "chiuse": 2670,
+   "mai_vendute": 231,
+   "successi": [
+    362,
+    361,
+    361
+   ],
+   "eccesso_in_sigma": [
+    39.82,
+    98.41,
+    104.54
+   ],
+   "scaglione_tentativi": 10
+  },
+  {
+   "portafoglio": "0xfa5d4932a4313bb8069c12272a1efac00aa612bb",
+   "tentativi": 7,
+   "capitale_messo": 0.13,
+   "capitale_tornato": 3.1584273712354364e+16,
+   "ritorno": 2.429559516334951e+17,
+   "chiuse": 6,
+   "mai_vendute": 1,
+   "successi": [
+    6,
+    6,
+    6
+   ],
+   "eccesso_in_sigma": [
+    14.8,
+    78.22,
+    91.2
+   ],
+   "scaglione_tentativi": 2
+  },
+  {
+   "portafoglio": "0x43662d9b18defff72bbe8659fd00de9f544d695c",
+   "tentativi": 82,
+   "capitale_messo": 0.05400000000000003,
+   "capitale_tornato": 1.110002314354072e+16,
+   "ritorno": 2.0555598413964285e+17,
+   "chiuse": 72,
+   "mai_vendute": 10,
+   "successi": [
+    16,
+    16,
+    16
+   ],
+   "eccesso_in_sigma": [
+    18.3,
+    79.89,
+    89.71
+   ],
+   "scaglione_tentativi": 5
+  },
+  {
+   "portafoglio": "0x1b72333b2f4b3238c2d2ccec2a8e5274ebd87252",
+   "tentativi": 20,
+   "capitale_messo": 0.18220000000000006,
+   "capitale_tornato": 1.2076152965037322e+16,
+   "ritorno": 6.627965403423336e+16,
+   "chiuse": 14,
+   "mai_vendute": 6,
+   "successi": [
+    5,
+    5,
+    5
+   ],
+   "eccesso_in_sigma": [
+    6.91,
+    48.57,
+    76.75
+   ],
+   "scaglione_tentativi": 3
+  },
+  {
+   "portafoglio": "0x08720af67010f01ad6ede9cd7935b3844305a7a8",
+   "tentativi": 3,
+   "capitale_messo": 0.003,
+   "capitale_tornato": 2816135882802224.0,
+   "ritorno": 9.387119609340746e+17,
+   "chiuse": 3,
+   "mai_vendute": 0,
+   "successi": [
+    3,
+    3,
+    3
+   ],
+   "eccesso_in_sigma": [
+    15.44,
+    56.66,
+    62.12
+   ],
+   "scaglione_tentativi": 1
+  },
+  {
+   "portafoglio": "0x1319402928807ca1188014bd55f43c63eb794f2d",
+   "tentativi": 35,
+   "capitale_messo": 5.72289696e+18,
+   "capitale_tornato": 5.268641775728635e+18,
+   "ritorno": 0.9206249584002006,
+   "chiuse": 26,
+   "mai_vendute": 9,
+   "successi": [
+    7,
+    7,
+    7
+   ],
+   "eccesso_in_sigma": [
+    12.12,
+    52.64,
+    61.56
+   ],
+   "scaglione_tentativi": 4
+  },
+  {
+   "portafoglio": "0xef94cd44373edaeed62faa2f30523ef782043b8c",
+   "tentativi": 36,
+   "capitale_messo": 0.016451095433677548,
+   "capitale_tornato": 7719955810566465.0,
+   "ritorno": 4.692669762745832e+17,
+   "chiuse": 12,
+   "mai_vendute": 24,
+   "successi": [
+    7,
+    7,
+    7
+   ],
+   "eccesso_in_sigma": [
+    11.93,
+    51.9,
+    60.7
+   ],
+   "scaglione_tentativi": 4
+  },
+  {
+   "portafoglio": "0x22cd5ca98886347128f05e74cc3f1f2205b61262",
+   "tentativi": 5,
+   "capitale_messo": 0.055999999999999994,
+   "capitale_tornato": 2.254869078582936e+16,
+   "ritorno": 4.0265519260409574e+17,
+   "chiuse": 4,
+   "mai_vendute": 1,
+   "successi": [
+    3,
+    3,
+    3
+   ],
+   "eccesso_in_sigma": [
+    8.65,
+    46.25,
+    53.94
+   ],
+   "scaglione_tentativi": 2
+  },
+  {
+   "portafoglio": "0x39b38686a19836ac10162c490e4558e120cbbe5f",
+   "tentativi": 6699,
+   "capitale_messo": 2.5148956304604525e+19,
+   "capitale_tornato": 3.0949673461891035e+19,
+   "ritorno": 1.230654389272785,
+   "chiuse": 4872,
+   "mai_vendute": 1827,
+   "successi": [
+    286,
+    266,
+    261
+   ],
+   "eccesso_in_sigma": [
+    17.97,
+    47.01,
+    48.62
+   ],
+   "scaglione_tentativi": 11
+  },
+  {
+   "portafoglio": "0x6a96de27d21bcac2cc71a76a9cc8714653c2a02f",
+   "tentativi": 526,
+   "capitale_messo": 84.38311026951936,
+   "capitale_tornato": 131.2790340587548,
+   "ritorno": 1.5557501215521687,
+   "chiuse": 526,
+   "mai_vendute": 0,
+   "successi": [
+    159,
+    0,
+    0
+   ],
+   "eccesso_in_sigma": [
+    47.38,
+    -0.51,
+    -0.28
+   ],
+   "scaglione_tentativi": 8
+  },
+  {
+   "portafoglio": "0xb1f4db1638d75cd96c296663543744f253451d03",
+   "tentativi": 93,
+   "capitale_messo": 9.299999999999983,
+   "capitale_tornato": 8.070814994970385e+17,
+   "ritorno": 8.678295693516558e+16,
+   "chiuse": 85,
+   "mai_vendute": 8,
+   "successi": [
+    12,
+    10,
+    9
+   ],
+   "eccesso_in_sigma": [
+    12.59,
+    46.79,
+    47.29
+   ],
+   "scaglione_tentativi": 5
+  },
+  {
+   "portafoglio": "0x6509d9c8cf86ecc35e5981c656ddb9a306d59454",
+   "tentativi": 94,
+   "capitale_messo": 7.520000000000005,
+   "capitale_tornato": 4.694245317726917e+17,
+   "ritorno": 6.242347496977279e+16,
+   "chiuse": 82,
+   "mai_vendute": 12,
+   "successi": [
+    9,
+    9,
+    9
+   ],
+   "eccesso_in_sigma": [
+    9.16,
+    41.86,
+    47.03
+   ],
+   "scaglione_tentativi": 5
+  },
+  {
+   "portafoglio": "0x6d456cbbfda798ad777d6000a8f7c15e649f9dfc",
+   "tentativi": 2,
+   "capitale_messo": 0.060000000000000005,
+   "capitale_tornato": 4.435461264461696e+16,
+   "ritorno": 7.392435440769492e+17,
+   "chiuse": 2,
+   "mai_vendute": 0,
+   "successi": [
+    2,
+    2,
+    2
+   ],
+   "eccesso_in_sigma": [
+    11.85,
+    36.6,
+    45.17
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xece57e3bb61a09fc851f57462e68330e33c0bbb2",
+   "tentativi": 2,
+   "capitale_messo": 0.0024000000000000002,
+   "capitale_tornato": 2303939156442991.0,
+   "ritorno": 9.599746485179128e+17,
+   "chiuse": 2,
+   "mai_vendute": 0,
+   "successi": [
+    2,
+    2,
+    2
+   ],
+   "eccesso_in_sigma": [
+    11.85,
+    36.6,
+    45.17
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x7a198392a9fd3b24cd6f3cbf9f15ed48269c8fcf",
+   "tentativi": 8,
+   "capitale_messo": 0.23846234000000002,
+   "capitale_tornato": 3.2664316162440324e+16,
+   "ritorno": 1.3697892993266912e+17,
+   "chiuse": 5,
+   "mai_vendute": 3,
+   "successi": [
+    3,
+    3,
+    3
+   ],
+   "eccesso_in_sigma": [
+    6.68,
+    36.54,
+    42.61
+   ],
+   "scaglione_tentativi": 2
+  },
+  {
+   "portafoglio": "0x47cf4ed4e2e5f7e70eaba5ef5936c9dcc760ca6b",
+   "tentativi": 3,
+   "capitale_messo": 0.20700000000000002,
+   "capitale_tornato": 1.6188004442287622e+17,
+   "ritorno": 7.820292001105132e+17,
+   "chiuse": 3,
+   "mai_vendute": 0,
+   "successi": [
+    2,
+    2,
+    2
+   ],
+   "eccesso_in_sigma": [
+    10.23,
+    37.76,
+    41.4
+   ],
+   "scaglione_tentativi": 1
+  },
+  {
+   "portafoglio": "0x0e53877782a4ce3f794de6be5fb03352895769b8",
+   "tentativi": 3,
+   "capitale_messo": 0.00058,
+   "capitale_tornato": 470100579195945.0,
+   "ritorno": 8.105182399930086e+17,
+   "chiuse": 2,
+   "mai_vendute": 1,
+   "successi": [
+    2,
+    2,
+    2
+   ],
+   "eccesso_in_sigma": [
+    10.23,
+    37.76,
+    41.4
+   ],
+   "scaglione_tentativi": 1
+  },
+  {
+   "portafoglio": "0x1a754f6c0ae434cd9e224f089ae9dd952b1c80c8",
+   "tentativi": 42,
+   "capitale_messo": 1.7063979999999996,
+   "capitale_tornato": 3.3120797316807336,
+   "ritorno": 1.9409772700628658,
+   "chiuse": 38,
+   "mai_vendute": 4,
+   "successi": [
+    24,
+    1,
+    0
+   ],
+   "eccesso_in_sigma": [
+    39.05,
+    6.74,
+    -0.12
+   ],
+   "scaglione_tentativi": 4
+  },
+  {
+   "portafoglio": "0x3e7c18b0b1ec729819043a33115459b0ac9c000b",
+   "tentativi": 9205,
+   "capitale_messo": 7500000000000014.0,
+   "capitale_tornato": 21.53480148763611,
+   "ritorno": 2.8713068650181425e-15,
+   "chiuse": 9176,
+   "mai_vendute": 29,
+   "successi": [
+    574,
+    31,
+    0
+   ],
+   "eccesso_in_sigma": [
+    36.32,
+    -0.82,
+    -5.74
+   ],
+   "scaglione_tentativi": 11
+  },
+  {
+   "portafoglio": "0x23273de54795d237e89ee8ade40afdbf9ddbdf80",
+   "tentativi": 5,
+   "capitale_messo": 0.19895752607928924,
+   "capitale_tornato": 8.44243843126226e+16,
+   "ritorno": 4.2433370567232275e+17,
+   "chiuse": 5,
+   "mai_vendute": 0,
+   "successi": [
+    3,
+    2,
+    2
+   ],
+   "eccesso_in_sigma": [
+    8.65,
+    30.82,
+    35.94
+   ],
+   "scaglione_tentativi": 2
+  },
+  {
+   "portafoglio": "0x5d435217ff671acca62b451350e4d349726a7707",
+   "tentativi": 5,
+   "capitale_messo": 0.25192054909789025,
+   "capitale_tornato": 1.017820807837128e+17,
+   "ritorno": 4.04024527368598e+17,
+   "chiuse": 5,
+   "mai_vendute": 0,
+   "successi": [
+    2,
+    2,
+    2
+   ],
+   "eccesso_in_sigma": [
+    5.65,
+    30.82,
+    35.94
+   ],
+   "scaglione_tentativi": 2
+  },
+  {
+   "portafoglio": "0xa24ae84e8a9e21a732a80fd8603b1245a37b8862",
+   "tentativi": 5,
+   "capitale_messo": 0.19826169159053691,
+   "capitale_tornato": 6.619228746463982e+16,
+   "ritorno": 3.338632235689005e+17,
+   "chiuse": 5,
+   "mai_vendute": 0,
+   "successi": [
+    2,
+    2,
+    2
+   ],
+   "eccesso_in_sigma": [
+    5.65,
+    30.82,
+    35.94
+   ],
+   "scaglione_tentativi": 2
+  },
+  {
+   "portafoglio": "0xe8ed9f630b1fc16c1b4c399e118943bddf3262a4",
+   "tentativi": 84,
+   "capitale_messo": 10.32854194369633,
+   "capitale_tornato": 18.256573998937526,
+   "ritorno": 1.7675848245046628,
+   "chiuse": 84,
+   "mai_vendute": 0,
+   "successi": [
+    30,
+    0,
+    0
+   ],
+   "eccesso_in_sigma": [
+    34.61,
+    -0.2,
+    -0.18
+   ],
+   "scaglione_tentativi": 5
+  },
+  {
+   "portafoglio": "0x116a1c04b20f2941bf16bede9ecdfa0b717a5f0f",
+   "tentativi": 17,
+   "capitale_messo": 1.3e+17,
+   "capitale_tornato": 8.110835934969826e+16,
+   "ritorno": 0.6239104565361404,
+   "chiuse": 10,
+   "mai_vendute": 7,
+   "successi": [
+    2,
+    2,
+    2
+   ],
+   "eccesso_in_sigma": [
+    2.67,
+    21.02,
+    33.27
+   ],
+   "scaglione_tentativi": 3
+  },
+  {
+   "portafoglio": "0x79be06d528d9cd624e1f89c606665de2c7bdce23",
+   "tentativi": 6,
+   "capitale_messo": 0.3600000000000001,
+   "capitale_tornato": 1.2330438829130024e+16,
+   "ritorno": 3.4251218969805612e+16,
+   "chiuse": 5,
+   "mai_vendute": 1,
+   "successi": [
+    2,
+    2,
+    2
+   ],
+   "eccesso_in_sigma": [
+    5.1,
+    28.12,
+    32.8
+   ],
+   "scaglione_tentativi": 2
+  },
+  {
+   "portafoglio": "0xc721e04775f9112f374be2a4ed570c889a03ebbf",
+   "tentativi": 6,
+   "capitale_messo": 0.167361,
+   "capitale_tornato": 2.08907431487834e+16,
+   "ritorno": 1.2482444027451675e+17,
+   "chiuse": 4,
+   "mai_vendute": 2,
+   "successi": [
+    2,
+    2,
+    2
+   ],
+   "eccesso_in_sigma": [
+    5.1,
+    28.12,
+    32.8
+   ],
+   "scaglione_tentativi": 2
+  },
+  {
+   "portafoglio": "0xb41d9d4e6aa5608da0d1358f982af4bd9afd2b49",
+   "tentativi": 6,
+   "capitale_messo": 0.25748389924385073,
+   "capitale_tornato": 9.653100431809091e+16,
+   "ritorno": 3.7490112819314963e+17,
+   "chiuse": 5,
+   "mai_vendute": 1,
+   "successi": [
+    2,
+    2,
+    2
+   ],
+   "eccesso_in_sigma": [
+    5.1,
+    28.12,
+    32.8
+   ],
+   "scaglione_tentativi": 2
+  },
+  {
+   "portafoglio": "0x5e36c1e3d271d2f3818ecee18473101a79888180",
+   "tentativi": 6,
+   "capitale_messo": 0.25121663788908916,
+   "capitale_tornato": 1.1230007399944488e+17,
+   "ritorno": 4.470248266320035e+17,
+   "chiuse": 5,
+   "mai_vendute": 1,
+   "successi": [
+    2,
+    2,
+    2
+   ],
+   "eccesso_in_sigma": [
+    5.1,
+    28.12,
+    32.8
+   ],
+   "scaglione_tentativi": 2
+  },
+  {
+   "portafoglio": "0x41ee44d2e0d97e3002e9b18d5924153fb7929bd3",
+   "tentativi": 6,
+   "capitale_messo": 0.2582597434508873,
+   "capitale_tornato": 3.608895657210302e+16,
+   "ritorno": 1.3973899334785787e+17,
+   "chiuse": 5,
+   "mai_vendute": 1,
+   "successi": [
+    2,
+    2,
+    2
+   ],
+   "eccesso_in_sigma": [
+    5.1,
+    28.12,
+    32.8
+   ],
+   "scaglione_tentativi": 2
+  },
+  {
+   "portafoglio": "0xb0ea7bcc00e593e3e29ac2b8892967ae963d171f",
+   "tentativi": 6,
+   "capitale_messo": 0.261429925746934,
+   "capitale_tornato": 1.1733508416004602e+17,
+   "ritorno": 4.488204012023749e+17,
+   "chiuse": 5,
+   "mai_vendute": 1,
+   "successi": [
+    2,
+    2,
+    2
+   ],
+   "eccesso_in_sigma": [
+    5.1,
+    28.12,
+    32.8
+   ],
+   "scaglione_tentativi": 2
+  },
+  {
+   "portafoglio": "0x28d5ffb261f840ad2a8e21d47bdc4560bead30ad",
+   "tentativi": 6,
+   "capitale_messo": 0.2578477569257476,
+   "capitale_tornato": 8.965737113038792e+16,
+   "ritorno": 3.477143730057987e+17,
+   "chiuse": 5,
+   "mai_vendute": 1,
+   "successi": [
+    2,
+    2,
+    2
+   ],
+   "eccesso_in_sigma": [
+    5.1,
+    28.12,
+    32.8
+   ],
+   "scaglione_tentativi": 2
+  },
+  {
+   "portafoglio": "0xa7beb1e6461a79c9c46c61d1400f47b82ae998fc",
+   "tentativi": 6,
+   "capitale_messo": 0.2576088255495165,
+   "capitale_tornato": 5.277618109387286e+16,
+   "ritorno": 2.0486946043596806e+17,
+   "chiuse": 5,
+   "mai_vendute": 1,
+   "successi": [
+    2,
+    2,
+    2
+   ],
+   "eccesso_in_sigma": [
+    5.1,
+    28.12,
+    32.8
+   ],
+   "scaglione_tentativi": 2
+  },
+  {
+   "portafoglio": "0x3bbec681de601ce8ea08e04548483494b4cb389a",
+   "tentativi": 6,
+   "capitale_messo": 0.24076244258812288,
+   "capitale_tornato": 6.2905115724028776e+16,
+   "ritorno": 2.6127462011025456e+17,
+   "chiuse": 5,
+   "mai_vendute": 1,
+   "successi": [
+    2,
+    2,
+    2
+   ],
+   "eccesso_in_sigma": [
+    5.1,
+    28.12,
+    32.8
+   ],
+   "scaglione_tentativi": 2
+  },
+  {
+   "portafoglio": "0xe502f5e541d376a178988ac2900672911d8b953e",
+   "tentativi": 6,
+   "capitale_messo": 0.2770711041883803,
+   "capitale_tornato": 1.2619781587673798e+17,
+   "ritorno": 4.554708663915247e+17,
+   "chiuse": 5,
+   "mai_vendute": 1,
+   "successi": [
+    2,
+    2,
+    2
+   ],
+   "eccesso_in_sigma": [
+    5.1,
+    28.12,
+    32.8
+   ],
+   "scaglione_tentativi": 2
+  },
+  {
+   "portafoglio": "0xb3ab84a5fcc9ee154e3e50406f979d9c5dc2e8f6",
+   "tentativi": 6,
+   "capitale_messo": 0.1885006875302162,
+   "capitale_tornato": 7.16092926945126e+16,
+   "ritorno": 3.798887613236626e+17,
+   "chiuse": 5,
+   "mai_vendute": 1,
+   "successi": [
+    2,
+    2,
+    2
+   ],
+   "eccesso_in_sigma": [
+    5.1,
+    28.12,
+    32.8
+   ],
+   "scaglione_tentativi": 2
+  },
+  {
+   "portafoglio": "0xfa1045e3f04760aea2828447c728bca919aa05ee",
+   "tentativi": 6,
+   "capitale_messo": 0.262077725745433,
+   "capitale_tornato": 8.158896959422338e+16,
+   "ritorno": 3.1131592493088915e+17,
+   "chiuse": 5,
+   "mai_vendute": 1,
+   "successi": [
+    2,
+    2,
+    2
+   ],
+   "eccesso_in_sigma": [
+    5.1,
+    28.12,
+    32.8
+   ],
+   "scaglione_tentativi": 2
+  },
+  {
+   "portafoglio": "0xcc05970c548be2b5217caee33e350fe1d5d89102",
+   "tentativi": 6,
+   "capitale_messo": 0.24524493345709433,
+   "capitale_tornato": 1.0473623885833498e+17,
+   "ritorno": 4.2706790057564474e+17,
+   "chiuse": 5,
+   "mai_vendute": 1,
+   "successi": [
+    2,
+    2,
+    2
+   ],
+   "eccesso_in_sigma": [
+    5.1,
+    28.12,
+    32.8
+   ],
+   "scaglione_tentativi": 2
+  },
+  {
+   "portafoglio": "0x92b0bb310b92e435698453416a5104cba3a37c42",
+   "tentativi": 6,
+   "capitale_messo": 0.23952608387571211,
+   "capitale_tornato": 7.852347979652042e+16,
+   "ritorno": 3.2782851256093485e+17,
+   "chiuse": 5,
+   "mai_vendute": 1,
+   "successi": [
+    2,
+    2,
+    2
+   ],
+   "eccesso_in_sigma": [
+    5.1,
+    28.12,
+    32.8
+   ],
+   "scaglione_tentativi": 2
+  },
+  {
+   "portafoglio": "0x5b60f9e60f91b01abaa7afc582c5f5532d8c0b6c",
+   "tentativi": 6,
+   "capitale_messo": 0.2669003886164163,
+   "capitale_tornato": 6.039932120881189e+16,
+   "ritorno": 2.2629911302083766e+17,
+   "chiuse": 5,
+   "mai_vendute": 1,
+   "successi": [
+    2,
+    2,
+    2
+   ],
+   "eccesso_in_sigma": [
+    5.1,
+    28.12,
+    32.8
+   ],
+   "scaglione_tentativi": 2
+  },
+  {
+   "portafoglio": "0x144d31134add835090870762c34ab8c841e2e5b5",
+   "tentativi": 6,
+   "capitale_messo": 0.2311652995698169,
+   "capitale_tornato": 9.281036436760131e+16,
+   "ritorno": 4.014891704780742e+17,
+   "chiuse": 5,
+   "mai_vendute": 1,
+   "successi": [
+    2,
+    2,
+    2
+   ],
+   "eccesso_in_sigma": [
+    5.1,
+    28.12,
+    32.8
+   ],
+   "scaglione_tentativi": 2
+  },
+  {
+   "portafoglio": "0x78848d6fa448b380a2b48ca92d084f564c3b0320",
+   "tentativi": 18,
+   "capitale_messo": 7.000000000000001e+16,
+   "capitale_tornato": 6.200103980035011e+16,
+   "ritorno": 0.8857291400050015,
+   "chiuse": 9,
+   "mai_vendute": 9,
+   "successi": [
+    2,
+    2,
+    2
+   ],
+   "eccesso_in_sigma": [
+    2.56,
+    20.42,
+    32.33
+   ],
+   "scaglione_tentativi": 3
+  },
+  {
+   "portafoglio": "0x9834e69d29a4ac2fc71912d2e77c186babacea21",
+   "tentativi": 1,
+   "capitale_messo": 0.1,
+   "capitale_tornato": 1.007499083666948e+16,
+   "ritorno": 1.007499083666948e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x1f266fd58a650f3c26b559144ec824537b29fa32",
+   "tentativi": 1,
+   "capitale_messo": 0.025,
+   "capitale_tornato": 8095072204438600.0,
+   "ritorno": 3.23802888177544e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x04bc9b6b9d7ee71d2dae2ae5072b344195d12251",
+   "tentativi": 1,
+   "capitale_messo": 0.005,
+   "capitale_tornato": 4049999995902937.0,
+   "ritorno": 8.099999991805874e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xdd64f391b8c567192488c775ad9043035618c1ef",
+   "tentativi": 1,
+   "capitale_messo": 0.018,
+   "capitale_tornato": 1.6416384818974174e+16,
+   "ritorno": 9.120213788318986e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xdd0061b7c3866abf1fdddbd31e3d45c414a43307",
+   "tentativi": 1,
+   "capitale_messo": 3000000000000000.0,
+   "capitale_tornato": 3.557808955461705e+16,
+   "ritorno": 11.859363184872349,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x96c842400d6ae8220467040e8863ac874b19ab84",
+   "tentativi": 1,
+   "capitale_messo": 0.018,
+   "capitale_tornato": 1.4551957768628444e+16,
+   "ritorno": 8.084420982571359e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x071d2b76961cc9b3ccb99720125d60a35d0c8972",
+   "tentativi": 1,
+   "capitale_messo": 0.04,
+   "capitale_tornato": 3.1970343708986864e+16,
+   "ritorno": 7.992585927246716e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x23ee159e16c0c5c6758153414b49476c5608f8e1",
+   "tentativi": 1,
+   "capitale_messo": 0.014,
+   "capitale_tornato": 1.1110300380048746e+16,
+   "ritorno": 7.935928842891962e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xf2fea6b643a4eee3d97c04df65f2f2e0221c6e26",
+   "tentativi": 1,
+   "capitale_messo": 0.017,
+   "capitale_tornato": 1.3570217407260988e+16,
+   "ritorno": 7.982480827800581e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xb068888e9f4bceffb5d8faded42f657ef01131ad",
+   "tentativi": 1,
+   "capitale_messo": 0.02,
+   "capitale_tornato": 1.4370516175037754e+16,
+   "ritorno": 7.185258087518877e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xc6b38f993f383d4dc969df62741c38bc8fdab761",
+   "tentativi": 1,
+   "capitale_messo": 0.115,
+   "capitale_tornato": 6.408583397649699e+16,
+   "ritorno": 5.572681215347564e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x0dd91d5d27f5a0f87e0420cff249b95507f0fbf6",
+   "tentativi": 1,
+   "capitale_messo": 0.14500000000000002,
+   "capitale_tornato": 7.194394903318099e+16,
+   "ritorno": 4.961651657460758e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xb8f491fd8ceb2bbfe705064b2660ae865ab939b1",
+   "tentativi": 1,
+   "capitale_messo": 0.05,
+   "capitale_tornato": 3.63532455253809e+16,
+   "ritorno": 7.270649105076179e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x2fd5c62ac055d5bdff55e63b8d153581dabe5172",
+   "tentativi": 1,
+   "capitale_messo": 0.0052,
+   "capitale_tornato": 3448647043787231.0,
+   "ritorno": 6.632013545744676e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x76471af9f203805ed326aa8f061b6e81bd5b2488",
+   "tentativi": 1,
+   "capitale_messo": 0.035371556597899444,
+   "capitale_tornato": 1.0373701755605236e+16,
+   "ritorno": 2.93278067276838e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x74daffe320ef3a20ce0f71970a12439e85e8436a",
+   "tentativi": 1,
+   "capitale_messo": 0.019192469142977828,
+   "capitale_tornato": 4610018860676391.0,
+   "ritorno": 2.4019936290287654e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xd26fb248b61dfc677dfaf4901f841bfc514578aa",
+   "tentativi": 1,
+   "capitale_messo": 0.06021893157540554,
+   "capitale_tornato": 1.2986760540787012e+16,
+   "ritorno": 2.1565909924066192e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xc4f0a2a62d59b48b17675c210389fe5df96695fe",
+   "tentativi": 1,
+   "capitale_messo": 0.06459229769023915,
+   "capitale_tornato": 1.2684546386675136e+16,
+   "ritorno": 1.9637862160447587e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xd3b75b8c0dc6048ce7d238bba3472e20a490f21c",
+   "tentativi": 1,
+   "capitale_messo": 0.10057960822025322,
+   "capitale_tornato": 1.7776890689900308e+16,
+   "ritorno": 1.7674448135621853e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xccba08ab169f9f17f50b41395fcbfb75a6fa34f0",
+   "tentativi": 1,
+   "capitale_messo": 0.09529078864753315,
+   "capitale_tornato": 1.7534466459732646e+16,
+   "ritorno": 1.8401008857834205e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xc80e5a82d0218fb4f499424c2520072e4a82eb3b",
+   "tentativi": 1,
+   "capitale_messo": 0.09116266761431288,
+   "capitale_tornato": 1.5570330127775718e+16,
+   "ritorno": 1.7079721924823443e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x599bf49906c20bfa45118767e92ec14e88d9a467",
+   "tentativi": 1,
+   "capitale_messo": 0.02131304768384553,
+   "capitale_tornato": 2.2706801824886972e+16,
+   "ritorno": 1.0653944082383794e+18,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xe0fdbb4b28679299f96e6b50af3bfa47c15d4ac9",
+   "tentativi": 1,
+   "capitale_messo": 0.063,
+   "capitale_tornato": 6.040989564753314e+16,
+   "ritorno": 9.58887232500526e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xfec42967e01adf4c4314614c8faa9ff134a0ad25",
+   "tentativi": 1,
+   "capitale_messo": 0.0034089999999999997,
+   "capitale_tornato": 810084024473475.0,
+   "ritorno": 2.3763098400512614e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xaa71134205887e29b8d8914e14d925536fb6c2f0",
+   "tentativi": 1,
+   "capitale_messo": 0.08015875,
+   "capitale_tornato": 8.247981367329912e+16,
+   "ritorno": 1.0289558366778314e+18,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xddb5b94bc58a92a370089b2e6cc0dfad7f9a5570",
+   "tentativi": 1,
+   "capitale_messo": 0.060000000000000005,
+   "capitale_tornato": 2.792418332904022e+16,
+   "ritorno": 4.6540305548400365e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x8a86790820c64b2b747acae152c95f89d759f49b",
+   "tentativi": 1,
+   "capitale_messo": 0.060000000000000005,
+   "capitale_tornato": 2.599449271747827e+16,
+   "ritorno": 4.332415452913045e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xf7571caa787899c59aa65c48ccf9a19a40e6c955",
+   "tentativi": 1,
+   "capitale_messo": 0.02,
+   "capitale_tornato": 1.3825819134963036e+16,
+   "ritorno": 6.912909567481518e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x45d64336a4fa1267841d0aad6e9e14461bd06ff6",
+   "tentativi": 1,
+   "capitale_messo": 0.006468592058800959,
+   "capitale_tornato": 5753376249052217.0,
+   "ritorno": 8.89432537521725e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x81aa57d266496b187fc61eca3695e6857c556ea1",
+   "tentativi": 1,
+   "capitale_messo": 0.006300312286134919,
+   "capitale_tornato": 5642623796700620.0,
+   "ritorno": 8.956101762000476e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x935d33cf2a144e3eaa4c823678b39734c6dd11ae",
+   "tentativi": 1,
+   "capitale_messo": 0.003197634740547647,
+   "capitale_tornato": 2779909907939453.0,
+   "ritorno": 8.693644313682144e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x61f84d1aa3f81465e32f091cfa47f7be37c76515",
+   "tentativi": 1,
+   "capitale_messo": 0.005913362161962779,
+   "capitale_tornato": 5204554933121573.0,
+   "ritorno": 8.80134649387695e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x31ea7538e4e808e2948be6c02d0dd49e1a6e7afb",
+   "tentativi": 1,
+   "capitale_messo": 0.005855495090367929,
+   "capitale_tornato": 5280343620677283.0,
+   "ritorno": 9.017757745819395e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x03b64959865e51fe6078e65851bbcea977d464a2",
+   "tentativi": 1,
+   "capitale_messo": 0.004194642519764162,
+   "capitale_tornato": 3709643397795951.0,
+   "ritorno": 8.843765303758281e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xb41eaaedc7ab12cb87242f41b63c76a28ed01f4e",
+   "tentativi": 1,
+   "capitale_messo": 0.005556097513095556,
+   "capitale_tornato": 4863348486455132.0,
+   "ritorno": 8.753173382922752e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x4c7fd2b5a87aefc64a3b07b25e1e99ff4cae3f72",
+   "tentativi": 1,
+   "capitale_messo": 0.01,
+   "capitale_tornato": 7354034268734887.0,
+   "ritorno": 7.354034268734886e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x12e42e708ddf93f90997b27f0d7f317652f5d732",
+   "tentativi": 1,
+   "capitale_messo": 0.001,
+   "capitale_tornato": 856407999804677.0,
+   "ritorno": 8.56407999804677e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xa2fa6144168751d116336b58c5288feaf8bb12c1",
+   "tentativi": 1,
+   "capitale_messo": 0.04126410153979844,
+   "capitale_tornato": 3.996574457820797e+16,
+   "ritorno": 9.685354360535821e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x41d72b6ed513c120adba0f35bc258076103d98a9",
+   "tentativi": 1,
+   "capitale_messo": 0.00072,
+   "capitale_tornato": 663355248586594.0,
+   "ritorno": 9.213267341480471e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xcf2123db6cd4def5631a0dd8713e9fc5c5e8fcb7",
+   "tentativi": 1,
+   "capitale_messo": 0.016,
+   "capitale_tornato": 1.630712719238347e+16,
+   "ritorno": 1.0191954495239668e+18,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x6385502d266ffe81d675b269d059392255a5bace",
+   "tentativi": 1,
+   "capitale_messo": 0.02,
+   "capitale_tornato": 1.842563630276592e+16,
+   "ritorno": 9.212818151382959e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x66c03dd53dd14373ec1d36cace4b20dc2c087b33",
+   "tentativi": 1,
+   "capitale_messo": 0.015,
+   "capitale_tornato": 1.329675897863266e+16,
+   "ritorno": 8.864505985755107e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x67762fef096b5d38a68a73e49fbd4a1ca21cd29c",
+   "tentativi": 1,
+   "capitale_messo": 0.01,
+   "capitale_tornato": 1924943903998720.0,
+   "ritorno": 1.92494390399872e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xf7966099524c4f0fc2eb876adf01a2fa3e5d7960",
+   "tentativi": 1,
+   "capitale_messo": 0.01,
+   "capitale_tornato": 9800999999327268.0,
+   "ritorno": 9.800999999327268e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x2e4a4fdb6e8eb24fc39bc769b6d5e927eca9dc7a",
+   "tentativi": 1,
+   "capitale_messo": 0.15000000000000002,
+   "capitale_tornato": 3.875029671513546e+16,
+   "ritorno": 2.5833531143423632e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x2ebf219fc7aae2b58d8d5e024b8b190c321409a7",
+   "tentativi": 1,
+   "capitale_messo": 0.002,
+   "capitale_tornato": 1823949801162116.0,
+   "ritorno": 9.119749005810579e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x7efcf5eaa1649bbdb71ca869363d7cbb592a0831",
+   "tentativi": 1,
+   "capitale_messo": 0.00038527,
+   "capitale_tornato": 306825032997174.0,
+   "ritorno": 7.963896306413009e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x811cb2132f42e7ef12e84a7e0600839788c2a9fe",
+   "tentativi": 1,
+   "capitale_messo": 0.034271271644683604,
+   "capitale_tornato": 2.223627540925341e+16,
+   "ritorno": 6.488313488858488e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x76ec5398eb3b08f2b22b887b82578ec64fb7fcb0",
+   "tentativi": 1,
+   "capitale_messo": 0.0094,
+   "capitale_tornato": 5509754858482998.0,
+   "ritorno": 5.861441338811699e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xc2ecbeb38721b379541c086e6a7f0ea68fdf36fd",
+   "tentativi": 1,
+   "capitale_messo": 0.17,
+   "capitale_tornato": 6.0347570130652264e+16,
+   "ritorno": 3.549857066508956e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x5f8d2b7a5d92eadbad7cc2517f54bd86c0c4bd28",
+   "tentativi": 1,
+   "capitale_messo": 0.0021,
+   "capitale_tornato": 2056225181671693.0,
+   "ritorno": 9.79154848415092e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x07b378ab0cf892c346596dccf71e5037f12bf33e",
+   "tentativi": 1,
+   "capitale_messo": 0.001647500695925073,
+   "capitale_tornato": 237581499869923.0,
+   "ritorno": 1.4420722276934806e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x98e4d080339ef27680b5e0c50c7fb4dbc1a53bb8",
+   "tentativi": 1,
+   "capitale_messo": 0.001,
+   "capitale_tornato": 1561546058964137.0,
+   "ritorno": 1.561546058964137e+18,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x70af617dada66765fb1f791be3e6558c2bdfde65",
+   "tentativi": 1,
+   "capitale_messo": 0.06039,
+   "capitale_tornato": 2.7003827947777944e+16,
+   "ritorno": 4.471572768302359e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x0a1adda2a3d2548cfe0bf66ac388316336581c4c",
+   "tentativi": 1,
+   "capitale_messo": 0.06039,
+   "capitale_tornato": 2.7776508763669016e+16,
+   "ritorno": 4.5995212392232186e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x7dbfeb91c3a658a5d66d49b8cca2f07b37ef2ad5",
+   "tentativi": 1,
+   "capitale_messo": 0.06,
+   "capitale_tornato": 2.869898640290574e+16,
+   "ritorno": 4.78316440048429e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xb44e379d18f39de73e0b2becb7f8ecb2b5b13ecb",
+   "tentativi": 1,
+   "capitale_messo": 0.12,
+   "capitale_tornato": 2.0616397474920316e+16,
+   "ritorno": 1.7180331229100262e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x450a24a6c7ebebc0adbc4bd85e7ed1140bbda348",
+   "tentativi": 1,
+   "capitale_messo": 0.09215000000000001,
+   "capitale_tornato": 2.4371728836687868e+16,
+   "ritorno": 2.64478880484947e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x00a6c27259bef3f93d397478ad6cc770209d4af2",
+   "tentativi": 1,
+   "capitale_messo": 0.10591,
+   "capitale_tornato": 1.0482348857769488e+16,
+   "ritorno": 9.897411819251712e+16,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xbd91251650feee5cf37c66b0e378a5feba448118",
+   "tentativi": 1,
+   "capitale_messo": 0.011359699500843281,
+   "capitale_tornato": 1.0209821092815756e+16,
+   "ritorno": 8.98775631525978e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x5d5261028864112d50bb1fcd71a638610c619312",
+   "tentativi": 1,
+   "capitale_messo": 0.010163898547665973,
+   "capitale_tornato": 9352616728098552.0,
+   "ritorno": 9.201800553436532e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xf3506ebd52570641aaac70ceb340c0c782dbcbd6",
+   "tentativi": 1,
+   "capitale_messo": 0.011448277612292218,
+   "capitale_tornato": 1.0442754841137808e+16,
+   "ritorno": 9.121682051040794e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x2111dc8ca020a985999a515e83a86471710cdbed",
+   "tentativi": 1,
+   "capitale_messo": 0.005,
+   "capitale_tornato": 1505338323658364.0,
+   "ritorno": 3.0106766473167277e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xe5946e8b383195e9a906700fb08da23a96adaa55",
+   "tentativi": 1,
+   "capitale_messo": 0.006,
+   "capitale_tornato": 1844700940251597.0,
+   "ritorno": 3.074501567085995e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xcba9342a4886f6e1505cbd9df306c80eb3a4a6bd",
+   "tentativi": 1,
+   "capitale_messo": 0.010000000000000002,
+   "capitale_tornato": 9577017985504892.0,
+   "ritorno": 9.57701798550489e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x12c147f4fdce7b5c9092deb1898ec66c2c2270d3",
+   "tentativi": 1,
+   "capitale_messo": 0.09852999999999999,
+   "capitale_tornato": 2.102731830375409e+16,
+   "ritorno": 2.134103146630883e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x3fcf028634f949d4b7663ba7f6eb071dee88d4f7",
+   "tentativi": 1,
+   "capitale_messo": 0.074,
+   "capitale_tornato": 4.312440000089929e+16,
+   "ritorno": 5.827621621743148e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xb983fc5af9dab5169c34535f5d88e1d1fa2684b9",
+   "tentativi": 1,
+   "capitale_messo": 0.1,
+   "capitale_tornato": 4.900500001078768e+16,
+   "ritorno": 4.900500001078768e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x213cc84677ef2f3a04331dc4d8f9526b8522c8b0",
+   "tentativi": 1,
+   "capitale_messo": 0.089,
+   "capitale_tornato": 4.041729759345944e+16,
+   "ritorno": 4.541269392523533e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x01db8640046b82db0e39e4f698ba639207e558be",
+   "tentativi": 1,
+   "capitale_messo": 0.05996,
+   "capitale_tornato": 6.147389839755586e+16,
+   "ritorno": 1.0252484722741137e+18,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x8f3f58763f62638f7bef339d9bddd888b8ae6874",
+   "tentativi": 1,
+   "capitale_messo": 0.06,
+   "capitale_tornato": 5.8805999999173256e+16,
+   "ritorno": 9.800999999862209e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x47694a911f4bf2fb14f8a719eb6061b013721d65",
+   "tentativi": 1,
+   "capitale_messo": 0.001,
+   "capitale_tornato": 973203864227521.0,
+   "ritorno": 9.73203864227521e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x691ca6562e2fdc00c7981bfba21334d8d747a61b",
+   "tentativi": 1,
+   "capitale_messo": 0.075,
+   "capitale_tornato": 7.350749997338293e+16,
+   "ritorno": 9.800999996451058e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x50f8cdd566f58ab9b2076aa43e51d2a16da12b0a",
+   "tentativi": 1,
+   "capitale_messo": 0.025,
+   "capitale_tornato": 2.450249998062008e+16,
+   "ritorno": 9.800999992248032e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xa30de34dcd9b3f2fdb158e445d2929bd3dc27fbd",
+   "tentativi": 1,
+   "capitale_messo": 0.031,
+   "capitale_tornato": 3.043671517643964e+16,
+   "ritorno": 9.818295218206336e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x5a4f181cade4f0e778c4b421572e833cf46e6c2f",
+   "tentativi": 1,
+   "capitale_messo": 0.00225465,
+   "capitale_tornato": 2156167274790104.0,
+   "ritorno": 9.563201715521718e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x2a4434ca8fd483bf00af0da149c3741b7e64730d",
+   "tentativi": 1,
+   "capitale_messo": 0.00041,
+   "capitale_tornato": 394916581145643.0,
+   "ritorno": 9.632111735259585e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xe0ca0f3a88b8e1bf598cff76ced62ada91fa4993",
+   "tentativi": 1,
+   "capitale_messo": 0.1,
+   "capitale_tornato": 1.60878771428361e+16,
+   "ritorno": 1.60878771428361e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xa05498c4ce65ba7fb0249beb949f6660d97559ce",
+   "tentativi": 1,
+   "capitale_messo": 0.019,
+   "capitale_tornato": 4.017215806911256e+16,
+   "ritorno": 2.114324108900661e+18,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xbb2b10551b152adf9d9680e2d8306d8840bf0b61",
+   "tentativi": 1,
+   "capitale_messo": 0.00273540788028296,
+   "capitale_tornato": 398127023612095.0,
+   "ritorno": 1.4554576174245408e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x1b3d09edf0e07a0dd483aafb513eb870fa337198",
+   "tentativi": 1,
+   "capitale_messo": 0.0521705952285,
+   "capitale_tornato": 5.961140514932248e+16,
+   "ritorno": 1.1426245931876522e+18,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x0bb108ac2ddd43afc0cdde737099fd54a68681a2",
+   "tentativi": 1,
+   "capitale_messo": 0.043408040498,
+   "capitale_tornato": 3.3963934850087064e+16,
+   "ritorno": 7.824341863957654e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x024b3979c9c5658373177f483d6940b0a4fbd769",
+   "tentativi": 1,
+   "capitale_messo": 0.0482374573705,
+   "capitale_tornato": 3.691112957601712e+16,
+   "ritorno": 7.651964176410013e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x959deeed9f2fea29e48e45aa1a8850b6dc958237",
+   "tentativi": 1,
+   "capitale_messo": 0.050321960704,
+   "capitale_tornato": 3.830115593297499e+16,
+   "ritorno": 7.611220905772557e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xf76d4005ba35aa778eeb27a83494cf74d30984ed",
+   "tentativi": 1,
+   "capitale_messo": 0.04601975,
+   "capitale_tornato": 2.9579094274663144e+16,
+   "ritorno": 6.427478261977335e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xcc45f81467e102324fea1065312309a0966e231f",
+   "tentativi": 1,
+   "capitale_messo": 0.05174116334310373,
+   "capitale_tornato": 3.5455755618679732e+16,
+   "ritorno": 6.852523856792141e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x91ed1acf4310b571b3b5490b415ced8c462f6f97",
+   "tentativi": 1,
+   "capitale_messo": 0.5648110173211013,
+   "capitale_tornato": 1.0945861519398166e+17,
+   "ritorno": 1.937968839792536e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x9c7ab79df9bd85deda4c9644b7f2d6df4bf19575",
+   "tentativi": 1,
+   "capitale_messo": 0.13424589173268128,
+   "capitale_tornato": 2.7318070416512828e+16,
+   "ritorno": 2.034927852459743e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xd18221a8e4a4e976ce7aecd05923f3170649da1c",
+   "tentativi": 1,
+   "capitale_messo": 0.15987391814770635,
+   "capitale_tornato": 6.002625428460962e+16,
+   "ritorno": 3.75459956070832e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xab3ff7b1ef608961fb3b9996ce76f51f6c8b3fa1",
+   "tentativi": 1,
+   "capitale_messo": 0.12218242251462323,
+   "capitale_tornato": 1.9506018824014e+16,
+   "ritorno": 1.5964668585351914e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x07d46a767b1c1d5f12cf6765d12b17870d21675c",
+   "tentativi": 1,
+   "capitale_messo": 0.068671542013425,
+   "capitale_tornato": 2.309734600607113e+16,
+   "ritorno": 3.3634523601575296e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x19dd1fea5d23710a40e2e1176af71b950b4b8ca4",
+   "tentativi": 1,
+   "capitale_messo": 0.07045456857633106,
+   "capitale_tornato": 2.871375575470085e+16,
+   "ritorno": 4.075499479298085e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x37cf0127545fdd39046a1bd5731a91aa21288fb6",
+   "tentativi": 1,
+   "capitale_messo": 0.1025992911330397,
+   "capitale_tornato": 4.196343020772621e+16,
+   "ritorno": 4.090031202390332e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xe1f1c7aace613c2af8254138f2be7a3729250d62",
+   "tentativi": 1,
+   "capitale_messo": 0.1297791512805162,
+   "capitale_tornato": 4.24862815258241e+16,
+   "ritorno": 3.27373704532791e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xfccb09366efa010de2273b1d43617b652a165697",
+   "tentativi": 1,
+   "capitale_messo": 0.06577667128692498,
+   "capitale_tornato": 2.000795099597653e+16,
+   "ritorno": 3.041800474928212e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x98e8aab42182711003914ebda82afa0161e9ba18",
+   "tentativi": 1,
+   "capitale_messo": 0.11079106009628521,
+   "capitale_tornato": 4.6595271180855304e+16,
+   "ritorno": 4.2056887207650816e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x681d64c8e9e6f0a0fb2ad055aef2711c6c1d033b",
+   "tentativi": 1,
+   "capitale_messo": 0.0659942403217379,
+   "capitale_tornato": 1.2085418562583428e+16,
+   "ritorno": 1.8312838368415315e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xb88a96dfdcca45d83130a25fc8bab50d090d1648",
+   "tentativi": 1,
+   "capitale_messo": 0.10413520326115203,
+   "capitale_tornato": 2.693717430398637e+16,
+   "ritorno": 2.5867500576565702e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xb504cd32c73f27cd4978ecb46e51460def7115e9",
+   "tentativi": 1,
+   "capitale_messo": 0.049736302837130375,
+   "capitale_tornato": 7418867412608577.0,
+   "ritorno": 1.491640308871141e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x62300536b74cf8c05fed5dee290364bace6eec27",
+   "tentativi": 1,
+   "capitale_messo": 0.17787969211585475,
+   "capitale_tornato": 2.6056200724768304e+16,
+   "ritorno": 1.464821555222709e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xe22d84cba5b168e60392ddf4fa44db5be52df131",
+   "tentativi": 1,
+   "capitale_messo": 0.08999317815683182,
+   "capitale_tornato": 1.6137206334390636e+16,
+   "ritorno": 1.7931588443590912e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x8aad8c2b72e81beb03d83e9263e96da3b1afc33a",
+   "tentativi": 1,
+   "capitale_messo": 0.09989812706461283,
+   "capitale_tornato": 2.0424537968690744e+16,
+   "ritorno": 2.044536626345398e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xb38d258c6c728cb2e31bde14ad5f43648ce8653d",
+   "tentativi": 1,
+   "capitale_messo": 0.07228511564825087,
+   "capitale_tornato": 1.385000587732433e+16,
+   "ritorno": 1.9160245858525466e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x8379255e2fdb0f54f8322fd381435f11f4959185",
+   "tentativi": 1,
+   "capitale_messo": 0.04266338717627172,
+   "capitale_tornato": 5954615896822880.0,
+   "ritorno": 1.395720380151786e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xe72e76d05546cd9838c3293b4eec2a5b5c645c2f",
+   "tentativi": 1,
+   "capitale_messo": 0.08400180297698029,
+   "capitale_tornato": 1.2156862924126192e+16,
+   "ritorno": 1.4472145231760845e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xe0626266da5650222bc47d8bc662999a9fc83cfb",
+   "tentativi": 1,
+   "capitale_messo": 0.07983343130309681,
+   "capitale_tornato": 9062701453743542.0,
+   "ritorno": 1.1352012942217093e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x1186c98a226c9ad399b6cfa6f937f0c968f926e6",
+   "tentativi": 1,
+   "capitale_messo": 0.04424784281013234,
+   "capitale_tornato": 6118880328851908.0,
+   "ritorno": 1.3828652291837246e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x78f4383af80b28ff20263c3f7eb1f20feb9558c2",
+   "tentativi": 1,
+   "capitale_messo": 0.0662398753115013,
+   "capitale_tornato": 1.1097564158745836e+16,
+   "ritorno": 1.6753600616785814e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x142bd5dca816c774421c9510219719adb277c260",
+   "tentativi": 1,
+   "capitale_messo": 0.04003411062479115,
+   "capitale_tornato": 6143018268222966.0,
+   "ritorno": 1.534446044223822e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xf255fb21f1516891f42dda28ab5f965e639034e3",
+   "tentativi": 1,
+   "capitale_messo": 0.06535817601755703,
+   "capitale_tornato": 8402837589138571.0,
+   "ritorno": 1.2856597446785134e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x0cdab09322ee729d90b72381f2c74fde3759f5fb",
+   "tentativi": 1,
+   "capitale_messo": 0.11190992935865976,
+   "capitale_tornato": 1.8412207958544428e+16,
+   "ritorno": 1.6452702690513907e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xceb6c077fee729165abc8a5c9e77fc2eb899e249",
+   "tentativi": 1,
+   "capitale_messo": 0.08431074106774651,
+   "capitale_tornato": 1.0504507827611652e+16,
+   "ritorno": 1.24592758817894e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x10d0dcd77c0fe82c81bd118f4e9ca24bafb35a05",
+   "tentativi": 1,
+   "capitale_messo": 0.06035168710604306,
+   "capitale_tornato": 1.1537115187952672e+16,
+   "ritorno": 1.911647501698002e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x630a0ee43cb844b1490fc9014eadec9cb60b8c51",
+   "tentativi": 1,
+   "capitale_messo": 0.04822604144236496,
+   "capitale_tornato": 1.7427433129289326e+16,
+   "ritorno": 3.613697622293318e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xcdd9f0601af341389652db37e1e632556e948588",
+   "tentativi": 1,
+   "capitale_messo": 0.026427343547441653,
+   "capitale_tornato": 7939021256100498.0,
+   "ritorno": 3.0040935600843046e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x603b2fea01299bfb11bce5bb630316909e338b43",
+   "tentativi": 1,
+   "capitale_messo": 0.025412347713810048,
+   "capitale_tornato": 8237832023975034.0,
+   "ritorno": 3.2416650821672326e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xe066e4b20f4021d6b26a179267db3d97c6f47d88",
+   "tentativi": 1,
+   "capitale_messo": 0.0571690977297227,
+   "capitale_tornato": 2.145137748225236e+16,
+   "ritorno": 3.752267979401677e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x5b158dfb109b586ce554126c07aacc369bb6af16",
+   "tentativi": 1,
+   "capitale_messo": 0.06137093885567008,
+   "capitale_tornato": 2.9479177618113068e+16,
+   "ritorno": 4.803442503534305e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x0dae4c4c6a8a61e1f2ecb8fdef34796e3952b0ca",
+   "tentativi": 1,
+   "capitale_messo": 0.06508604064368352,
+   "capitale_tornato": 1.564424898122202e+16,
+   "ritorno": 2.4036258507207667e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xcb1a6955f7b94078821bc0697bf85ed38bc226e7",
+   "tentativi": 1,
+   "capitale_messo": 0.01,
+   "capitale_tornato": 9744153936688114.0,
+   "ritorno": 9.744153936688114e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x9079df9e7fc569cf70395a9a4ce7d3691e108c9f",
+   "tentativi": 1,
+   "capitale_messo": 0.050412170060328894,
+   "capitale_tornato": 1.668572770749052e+16,
+   "ritorno": 3.309861029097239e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xa2565ca629f0c8dad2b75ceece8c500522ca3b40",
+   "tentativi": 1,
+   "capitale_messo": 0.054302152150327444,
+   "capitale_tornato": 1.9081610627371204e+16,
+   "ritorno": 3.5139694969264934e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x09bb902d7213cc986378a657a56dcd464325474a",
+   "tentativi": 1,
+   "capitale_messo": 0.054007466382387466,
+   "capitale_tornato": 1.987778411544155e+16,
+   "ritorno": 3.6805622346179814e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x37dc17e465b6f21d1fa5f6a9521c843971524d5b",
+   "tentativi": 1,
+   "capitale_messo": 0.05390916705936762,
+   "capitale_tornato": 1.6206281166336068e+16,
+   "ritorno": 3.006219915898321e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x0575353f1475fe54bc93f53f81c2d000eef9262a",
+   "tentativi": 1,
+   "capitale_messo": 0.05362305839089578,
+   "capitale_tornato": 1.4689446929839218e+16,
+   "ritorno": 2.739389988306452e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xd94dac0857648caf4fbbc085529a275a85be3c17",
+   "tentativi": 1,
+   "capitale_messo": 0.053453210066271586,
+   "capitale_tornato": 1.6864175898025854e+16,
+   "ritorno": 3.1549416540405254e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x11f53bcbbd4ae0ba03f477faeb9652986050f172",
+   "tentativi": 1,
+   "capitale_messo": 0.05300133552481437,
+   "capitale_tornato": 1.5215809390774328e+16,
+   "ritorno": 2.8708350912498294e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xf29444ff2f71ca667943fdb66775ee1b5e2e4251",
+   "tentativi": 1,
+   "capitale_messo": 0.05287007439433207,
+   "capitale_tornato": 1.3482790474905638e+16,
+   "ritorno": 2.5501742960193488e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xae2e1b022c9066af3d0efb1e93cd9b9a5045691a",
+   "tentativi": 1,
+   "capitale_messo": 0.052792190826407195,
+   "capitale_tornato": 1.4093971521187692e+16,
+   "ritorno": 2.669707640573564e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xa40e831429512f9b0c7861395594d73fea238668",
+   "tentativi": 1,
+   "capitale_messo": 0.0526475972855091,
+   "capitale_tornato": 1.5819488447743368e+16,
+   "ritorno": 3.004788302484903e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x956579865b90b8259c15415720c9ff958a8e38e6",
+   "tentativi": 1,
+   "capitale_messo": 0.05251429607482822,
+   "capitale_tornato": 1.36038830503236e+16,
+   "ritorno": 2.5905104070973875e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x52e10191028c4acc7d83b70502b59438114a3298",
+   "tentativi": 1,
+   "capitale_messo": 0.0524841538306451,
+   "capitale_tornato": 1.4526922722668076e+16,
+   "ritorno": 2.76786833022845e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x5ef1f4cf4d75828cc757609994eb6a30c2b8eb06",
+   "tentativi": 1,
+   "capitale_messo": 0.05227169704450274,
+   "capitale_tornato": 1.3893585073046132e+16,
+   "ritorno": 2.657955616252042e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x6ac7b18453f401234585585ca240ba7d42e50bd5",
+   "tentativi": 1,
+   "capitale_messo": 0.051921338294281076,
+   "capitale_tornato": 1.261280540581809e+16,
+   "ritorno": 2.429214234488894e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x53bd1f94150d3226b00a1374773505690aac2e38",
+   "tentativi": 1,
+   "capitale_messo": 0.05168889240543603,
+   "capitale_tornato": 1.343743507858542e+16,
+   "ritorno": 2.5996755692084106e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x6808465dc8bbdd6eef98c2a092510d64c1085ce2",
+   "tentativi": 1,
+   "capitale_messo": 0.050774944378026404,
+   "capitale_tornato": 1.2100646328161016e+16,
+   "ritorno": 2.3831924340615814e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x31a20aaebbf470942517f6fa06b111199c95fb5a",
+   "tentativi": 1,
+   "capitale_messo": 0.050329390928165324,
+   "capitale_tornato": 1.0199790530194036e+16,
+   "ritorno": 2.0266071856009747e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x291ae020c0afa74f740e17f60d4c5abfc4ad38a2",
+   "tentativi": 1,
+   "capitale_messo": 0.04964092783557582,
+   "capitale_tornato": 1.2359563546128044e+16,
+   "ritorno": 2.489793016574199e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x937042cd4a6ff2bdfb75eedc548f16a671493568",
+   "tentativi": 1,
+   "capitale_messo": 0.049128787586924585,
+   "capitale_tornato": 9785697285594516.0,
+   "ritorno": 1.991845874128377e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x47a1cbecacfbd43535d7041145e3581408f8830f",
+   "tentativi": 1,
+   "capitale_messo": 0.04,
+   "capitale_tornato": 3.0258895753117356e+16,
+   "ritorno": 7.564723938279338e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x5ac7d9938c7c152d319f675ba3ef892b4d5de877",
+   "tentativi": 1,
+   "capitale_messo": 0.22864704000000002,
+   "capitale_tornato": 8.28877596287826e+16,
+   "ritorno": 3.625140287352182e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xcd0c59f0056b7a200d4ac5d0c4e0809ba21e7ba7",
+   "tentativi": 1,
+   "capitale_messo": 0.17000000000000004,
+   "capitale_tornato": 1.186413165268706e+17,
+   "ritorno": 6.978900972168856e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xa50bd0aa885406ca3a6f1c9a0687de24620128e3",
+   "tentativi": 1,
+   "capitale_messo": 0.109,
+   "capitale_tornato": 6.118716766142536e+16,
+   "ritorno": 5.6135016203142534e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xef9f94fdfd6a58eae29e210ff5afea6f7f021ad2",
+   "tentativi": 1,
+   "capitale_messo": 0.087,
+   "capitale_tornato": 5.997730027450386e+16,
+   "ritorno": 6.8939425602878e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x999996fffcbe53086d25fae302d882ba0b04ab8a",
+   "tentativi": 1,
+   "capitale_messo": 0.038,
+   "capitale_tornato": 3.4781682608597204e+16,
+   "ritorno": 9.153074370683475e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xc7fcc58375c7ab5f53e2ec45436d27a8722c5839",
+   "tentativi": 1,
+   "capitale_messo": 0.08099999999999999,
+   "capitale_tornato": 5.964157304279305e+16,
+   "ritorno": 7.36315716577692e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x01afdcbf3fb1cdda2d7c6be09bc0db17258a014b",
+   "tentativi": 1,
+   "capitale_messo": 0.035,
+   "capitale_tornato": 2.759385809328005e+16,
+   "ritorno": 7.88395945522287e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x2abd2f79672d8b9a3ed8a9ad2f41f338dbf7cc32",
+   "tentativi": 1,
+   "capitale_messo": 0.1444176474884001,
+   "capitale_tornato": 2.3253711914058684e+16,
+   "ritorno": 1.610171078013611e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x449cfd8bf8d4f052e4fa0ad06c816a09b14aa78a",
+   "tentativi": 1,
+   "capitale_messo": 0.09443124999999998,
+   "capitale_tornato": 6.483572302869209e+16,
+   "ritorno": 6.865918118069188e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x08ed495c12b870bcab934828ea5aa9f5b4a4b364",
+   "tentativi": 1,
+   "capitale_messo": 0.15589554998900954,
+   "capitale_tornato": 2.6069562906291712e+17,
+   "ritorno": 1.6722454815502807e+18,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xeb04d12d77966d411ceabeb54bc1a8ba6d1cd19a",
+   "tentativi": 1,
+   "capitale_messo": 0.18704043259308914,
+   "capitale_tornato": 1.5771767423963408e+17,
+   "ritorno": 8.432277024441693e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x843abaa0b961beb14e4febb775ce02869cae9b9a",
+   "tentativi": 1,
+   "capitale_messo": 0.18392699999999998,
+   "capitale_tornato": 2.7151677719577092e+16,
+   "ritorno": 1.4762203330439302e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x00c1fdccc05034e2ec79360c19dcda48a7eadb2c",
+   "tentativi": 1,
+   "capitale_messo": 0.1057745,
+   "capitale_tornato": 7.544464111533256e+16,
+   "ritorno": 7.132592554475092e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x8d161d12d750dbbe81cb2ebdecd1e55c4de1bbb0",
+   "tentativi": 1,
+   "capitale_messo": 0.1276446207179104,
+   "capitale_tornato": 1.0356020033114332e+16,
+   "ritorno": 8.113166050295789e+16,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xf334e7865d8b3f1770f3da5d165c6f13295f3f01",
+   "tentativi": 1,
+   "capitale_messo": 0.1169595,
+   "capitale_tornato": 1.72471673349636e+17,
+   "ritorno": 1.4746273141526426e+18,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xb01bcd90e80dc0cc61bf4e9d4618e704d28907e0",
+   "tentativi": 1,
+   "capitale_messo": 0.22407469457959522,
+   "capitale_tornato": 3491239717105368.0,
+   "ritorno": 1.558069608732734e+16,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xad115ceda1462165e47341d1c8dc23ff44724e83",
+   "tentativi": 1,
+   "capitale_messo": 0.24824067038964223,
+   "capitale_tornato": 3634912048828920.5,
+   "ritorno": 1.4642693492260994e+16,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0x339c9f4f24536e1ce2931e4bce637721ef45e23c",
+   "tentativi": 1,
+   "capitale_messo": 0.40209653536033374,
+   "capitale_tornato": 2.045357101871671e+17,
+   "ritorno": 5.0867314736714906e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  },
+  {
+   "portafoglio": "0xf59948d18aa7db01217e3df9e6bc961070113dd9",
+   "tentativi": 1,
+   "capitale_messo": 0.07660800000000001,
+   "capitale_tornato": 4.80298235573643e+16,
+   "ritorno": 6.269557168620027e+17,
+   "chiuse": 1,
+   "mai_vendute": 0,
+   "successi": [
+    1,
+    1,
+    1
+   ],
+   "eccesso_in_sigma": [
+    8.38,
+    25.88,
+    31.94
+   ],
+   "scaglione_tentativi": 0
+  }
+ ]
+}
