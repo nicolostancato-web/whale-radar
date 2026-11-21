@@ -1,10 +1,10 @@
 # 🔍 LOOP 0 · ISPEZIONE — il team sta lavorando?
-*2026-11-21 02:35 UTC · un giro ogni ora · qui NON si guarda la percentuale: si guarda che ognuno faccia il suo lavoro*
+*2026-11-21 11:29 UTC · un giro ogni ora · qui NON si guarda la percentuale: si guarda che ognuno faccia il suo lavoro*
 
-> ⚠️ **ATTENZIONE: l'ispezione precedente risale a 5.2 ore fa.** Doveva girare ogni ora: anche l'ispettore ha smesso di lavorare per un po'. Se stai leggendo un referto e non sai quando è stato scritto, non sai niente.
+> ⚠️ **ATTENZIONE: l'ispezione precedente risale a 8.9 ore fa.** Doveva girare ogni ora: anche l'ispettore ha smesso di lavorare per un po'. Se stai leggendo un referto e non sai quando è stato scritto, non sai niente.
 
 
-## 🔴 **22 COMPONENTI NON RISPONDONO** — la macchina non è pronta
+## 🔴 **20 COMPONENTI NON RISPONDONO** — la macchina non è pronta
 
 **Per chain:** base: 🔴 · robinhood: 🔴
 
@@ -16,7 +16,7 @@
 |---|---|---|---|---|
 | **Esploratore** | prova strategie: entrata, stop, take profit, segnali | mai | 240 min | ⏸️ fermo per decisione — loop 1 spento dal 17/09 |
 | **Ricercatore** | inventa segnali nuovi dai dati grezzi | mai | 360 min | ⏸️ fermo per decisione — loop 1 spento dal 17/09 |
-| **Cervello** | misura la percentuale della chain | 93249 min fa | 240 min | ❌ NON MISURA PIÙ |
+| **Cervello** | misura la percentuale della chain | 93783 min fa | 240 min | ❌ NON MISURA PIÙ |
 | **Accumulo** | i dati devono crescere | 5399 token | — | ⚠️ FERMO da oltre un'ora |
 
 ### ROBINHOOD — 🔴 1 non rispondono
@@ -25,17 +25,17 @@
 |---|---|---|---|---|
 | **Esploratore** | prova strategie sul pipeline completo | mai | 240 min | ⏸️ fermo per decisione — loop 1 spento dal 17/09 |
 | **Ricercatore** | inventa segnali nuovi dai dati grezzi | mai | 480 min | ⏸️ fermo per decisione — loop 1 spento dal 17/09 |
-| **Cervello** | misura la percentuale della chain | 93755 min fa | 2160 min | ❌ NON MISURA PIÙ |
+| **Cervello** | misura la percentuale della chain | 94289 min fa | 2160 min | ❌ NON MISURA PIÙ |
 | **Accumulo** | i dati devono crescere | 3957 token | — | ⚠️ FERMO da oltre un'ora |
 
 ## I servizi comuni (valgono per tutte le chain)
 
 | chi | cosa fa | ultimo lavoro | entro | |
 |---|---|---|---|---|
-| **Verità** | controlla che la percentuale non sia una favola | 1544.2 ore fa | 90 min | ❌ NON RISPONDE |
-| **Security** | nessuna credenziale nel repo pubblico | 1293.1 ore fa | 90 min | ❌ NON RISPONDE |
-| **CFO** | che tutto continui a costare zero | 1293.1 ore fa | 90 min | ❌ NON RISPONDE |
-| **Memoria** | ricorda cosa è già stato provato e bocciato | 1543.4 ore fa | 90 min | ❌ NON RISPONDE |
+| **Verità** | controlla che la percentuale non sia una favola | 1553.1 ore fa | 90 min | ❌ NON RISPONDE |
+| **Security** | nessuna credenziale nel repo pubblico | 1302.0 ore fa | 90 min | ❌ NON RISPONDE |
+| **CFO** | che tutto continui a costare zero | 1302.0 ore fa | 90 min | ❌ NON RISPONDE |
+| **Memoria** | ricorda cosa è già stato provato e bocciato | 1552.3 ore fa | 90 min | ❌ NON RISPONDE |
 | **Proposte** | porta all'investitore ciò che aspetta una decisione | mai | 90 min | ⏸️ fermo per decisione — fase database dal 17/09 |
 | **Operations** | i meeting sui goal, ripara ciò che si ferma | mai | 90 min | ⏸️ fermo per decisione — fase database dal 17/09 |
 | **Segretario** | scrive il verbale della riunione | mai | 90 min | ⏸️ fermo per decisione — fase database dal 17/09 |
@@ -44,10 +44,10 @@
 | **Giudice** | prova le proposte sui dati mai visti (cassaforte) | mai | 180 min | ⏸️ fermo per decisione — fase database dal 17/09 |
 | **Heartbeat** | controlla che il MOTORE sia vivo, da fuori | 0 min fa | 180 min | ✅ in orario |
 | **Forward Base** | la catena che porta al trade su Base | mai | 120 min | ⏸️ fermo per decisione — fase database dal 17/09 |
-| **Tassametro** | misura quanto costa DAVVERO entrare e uscire | 1543.6 ore fa | 240 min | ❌ NON RISPONDE |
-| **Censore** | ogni pool ha uno stato: morto o non raccolto? | 1544.2 ore fa | 240 min | ❌ NON RISPONDE |
+| **Tassametro** | misura quanto costa DAVVERO entrare e uscire | 1552.5 ore fa | 240 min | ❌ NON RISPONDE |
+| **Censore** | ogni pool ha uno stato: morto o non raccolto? | 1553.0 ore fa | 240 min | ❌ NON RISPONDE |
 | **Perito** | il token si può vendere? chi lo controlla? | mai | 240 min | ⏸️ fermo per decisione — fase database dal 17/09 |
-| **Anagrafe** | chi ha creato il token e i suoi precedenti | 1544.2 ore fa | 240 min | ❌ NON RISPONDE |
+| **Anagrafe** | chi ha creato il token e i suoi precedenti | 1553.0 ore fa | 240 min | ❌ NON RISPONDE |
 | **Contabile** | misura e modello dei costi devono dire lo stesso | mai | 300 min | ⏸️ fermo per decisione — fase database dal 17/09 |
 | **Reputazione** | chi ha creato il token ha gia' combinato disastri? | mai | 300 min | ⏸️ fermo per decisione — fase database dal 17/09 |
 | **Talento** | esiste un wallet che sa qualcosa? (excess vs comparabili) | mai | 300 min | ⏸️ fermo per decisione — fase database dal 17/09 |
@@ -74,21 +74,21 @@
 
 | processo | stato |
 |---|---|
-| **engine** | ❌ mai partito |
-| **ricerca** | ❌ mai partito |
+| **motore** | ❓ non verificabile ora |
+| **ricerca** | ❓ non verificabile ora |
 ## ⚠️ Chi non risponde all'appello
 
-- **Verità** — doveva lavorare entro 90 min, ultimo lavoro 1544.2 ore fa
-- **Security** — doveva lavorare entro 90 min, ultimo lavoro 1293.1 ore fa
-- **CFO** — doveva lavorare entro 90 min, ultimo lavoro 1293.1 ore fa
-- **Memoria** — doveva lavorare entro 90 min, ultimo lavoro 1543.4 ore fa
-- **Tassametro** — doveva lavorare entro 240 min, ultimo lavoro 1543.6 ore fa
-- **Censore** — doveva lavorare entro 240 min, ultimo lavoro 1544.2 ore fa
-- **Anagrafe** — doveva lavorare entro 240 min, ultimo lavoro 1544.2 ore fa
-- **Cervello (base) (base)** — doveva lavorare entro 240 min, ultimo lavoro 1554.2 ore fa
-- **Cervello (solana) (solana)** — doveva lavorare entro 240 min, ultimo lavoro 1546.4 ore fa
-- **Cervello (bsc) (bsc)** — doveva lavorare entro 480 min, ultimo lavoro 1546.4 ore fa
-- **Cervello (robinhood) (robinhood)** — doveva lavorare entro 2160 min, ultimo lavoro 1562.6 ore fa
+- **Verità** — doveva lavorare entro 90 min, ultimo lavoro 1553.1 ore fa
+- **Security** — doveva lavorare entro 90 min, ultimo lavoro 1302.0 ore fa
+- **CFO** — doveva lavorare entro 90 min, ultimo lavoro 1302.0 ore fa
+- **Memoria** — doveva lavorare entro 90 min, ultimo lavoro 1552.3 ore fa
+- **Tassametro** — doveva lavorare entro 240 min, ultimo lavoro 1552.5 ore fa
+- **Censore** — doveva lavorare entro 240 min, ultimo lavoro 1553.0 ore fa
+- **Anagrafe** — doveva lavorare entro 240 min, ultimo lavoro 1553.0 ore fa
+- **Cervello (base) (base)** — doveva lavorare entro 240 min, ultimo lavoro 1563.0 ore fa
+- **Cervello (solana) (solana)** — doveva lavorare entro 240 min, ultimo lavoro 1555.3 ore fa
+- **Cervello (bsc) (bsc)** — doveva lavorare entro 480 min, ultimo lavoro 1555.3 ore fa
+- **Cervello (robinhood) (robinhood)** — doveva lavorare entro 2160 min, ultimo lavoro 1571.5 ore fa
 - **Archivio sicurezza** — doveva lavorare entro 0 min, non ha mai prodotto nulla
 - **classe_ricca** — doveva lavorare entro 0 min, non ha mai prodotto nulla
 - **costo_uscita** — doveva lavorare entro 0 min, non ha mai prodotto nulla
@@ -98,8 +98,6 @@
 - **permutazione** — doveva lavorare entro 0 min, non ha mai prodotto nulla
 - **quotazione_altrove** — doveva lavorare entro 0 min, non ha mai prodotto nulla
 - **scala_conto** — doveva lavorare entro 0 min, non ha mai prodotto nulla
-- **engine** — doveva lavorare entro 0 min, non ha mai prodotto nulla
-- **ricerca** — doveva lavorare entro 0 min, non ha mai prodotto nulla
 
 > Finché c'è anche un solo componente che non risponde, la macchina NON è pronta. Non ha
 > senso discutere della percentuale: prima si aggiusta il team.
