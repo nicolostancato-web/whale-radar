@@ -1,0 +1,74 @@
+name: segni
+# QUALE FAMIGLIA DI POOL HA IL SEGNO INVERTITO. Nata il 5/10 da un'anomalia misurata: nei primi
+# sei scambi la quota di ACQUISTI e' centrata su 0,23-0,38 per le pool con indirizzo (V2/V3) e
+# su 0,63-0,72 per quelle con id (V4). Due famiglie sullo stesso mercato non possono comportarsi
+# in modo opposto: una e' letta male, e tutto cio' che deriva da compra/vende e' sospetto.
+#
+# PERCHE' UNA CORSIA E NON LA SESSIONE: provata a mano in due giri interattivi, 42 transazioni
+# esaminate e nessun caso isolabile, perche' ogni transazione passa da router e tocca molte
+# pool. Serve pazienza e un budget di chiamate, non venticinque minuti.
+#
+# COSTO ZERO: esploratore pubblico, nessuna chiave.
+# E NON APPLICA NESSUNA CORREZIONE: misura e scrive un verdetto. Invertire la famiglia sbagliata
+# raddoppierebbe il danno, quindi la correzione e' una decisione separata.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "17 */2 * * *"
+
+concurrency:
+  group: segni
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  verifica:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        # BASE FERMATA (10/10, ordine di Nicolo': «se stai facendo qualcosa su base,
+        # stoppala»). Non spengo la corsia: le togliu base dalla MATRICE, cosi' robinhood
+        # — la chain della prova in avanti — continua senza interruzioni. Per riaccendere
+        # base basta rimettere la voce nell'elenco qui sotto.
+        chain: [robinhood]
+        fetta: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 1 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Verso dei segni
+        env:
+          CHAIN: ${{ matrix.chain }}
+          FETTE: "4"
+          FETTA: ${{ matrix.fetta }}
+          # 60% del tetto, come chiede budget_e_tetto.py
+          BUDGET_SEC: "1080"
+          PAUSA: "0.25"
+          BERSAGLIO: "30"
+        run: python agents/verso_dei_segni.py
+      - name: Consegna senza toccare il ramo
+        if: always()
+        run: |
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            if [ -f "$F" ]; then
+              mkdir -p "/tmp/consegna/$(dirname "$F")"
+              cp "$F" "/tmp/consegna/$F"
+            fi
+          done
+          echo "consegno $(find /tmp/consegna -type f | wc -l) file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-${{ github.workflow }}-${{ matrix.chain }}-${{ matrix.fetta }}
+          path: /tmp/consegna/data
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: ignore
+
+# SENZA RIARMO: l'orologio e' il motore, la maglia di guardie e' la rete.

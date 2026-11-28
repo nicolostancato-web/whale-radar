@@ -1,0 +1,119 @@
+{
+ "quando": 1793808281.802075,
+ "studi": [
+  {
+   "tx": "0xf5ff0c7106886a61fddb7a03ab7da7b3ae50cd4ba62e1f418b7a07f98434a3eb",
+   "blocco": 26342152,
+   "da": "0xe476367785bc9dcec25d415201e191d22f75f286",
+   "a": "0xeef1b06e23a39f05b6b34ff1052d7a6ca3a00005",
+   "gas_usato": 633644,
+   "base_gwei": 1.247,
+   "pagato_gwei": 1.247,
+   "mancia_gwei": 0.0,
+   "costo_usd": 1.91,
+   "mancia_usd": 0.0,
+   "posizione_nel_blocco": 2,
+   "transazioni_nel_blocco": 321,
+   "indizio_su_come": "sembra PUBBLICA a prezzo base (mancia zero)",
+   "contratti_toccati": [
+    {
+     "indirizzo": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+     "chi_e": "sconosciuto",
+     "log": 7
+    },
+    {
+     "indirizzo": "0x23878914efe38d27c4d67ab83ed1b93a74d4086a",
+     "chi_e": "sconosciuto",
+     "log": 6
+    },
+    {
+     "indirizzo": "0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2",
+     "chi_e": "prestito lampo / pool Aave v3",
+     "log": 5
+    },
+    {
+     "indirizzo": "0xea51d7853eefb32b6ee06b1c12e6dcca88be0ffe",
+     "chi_e": "sconosciuto",
+     "log": 2
+    },
+    {
+     "indirizzo": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+     "chi_e": "sconosciuto",
+     "log": 2
+    },
+    {
+     "indirizzo": "0xeef1b06e23a39f05b6b34ff1052d7a6ca3a00005",
+     "chi_e": "sconosciuto",
+     "log": 2
+    },
+    {
+     "indirizzo": "0xbbbbbbb520d69a9775e85b458c58c648259fad5f",
+     "chi_e": "sconosciuto",
+     "log": 1
+    }
+   ],
+   "premio_vero_usd": 421904.76,
+   "perche_non_nostra": "ordine pronto ma in corsia LENTA (salute None, soglia 1.25)"
+  },
+  {
+   "tx": "0x0923110772f1d195ed51515c66b83aebcbaf5fb83b07a3c144f8bff2ed1e8e12",
+   "blocco": 26338631,
+   "da": "0x849c17f9c8826b676c7f60d5cedbc6d87edcc9a3",
+   "a": "0xd12810b19b596347a3afac206d3ca65d08594b3f",
+   "gas_usato": 1812634,
+   "base_gwei": 0.123,
+   "pagato_gwei": 0.123,
+   "mancia_gwei": 0.0,
+   "costo_usd": 0.54,
+   "mancia_usd": 0.0,
+   "posizione_nel_blocco": 45,
+   "transazioni_nel_blocco": 466,
+   "indizio_su_come": "sembra PUBBLICA a prezzo base (mancia zero)",
+   "contratti_toccati": [
+    {
+     "indirizzo": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+     "chi_e": "sconosciuto",
+     "log": 9
+    },
+    {
+     "indirizzo": "0x5ee5bf7ae06d1be5997a1a72006fe6c607ec6de8",
+     "chi_e": "sconosciuto",
+     "log": 6
+    },
+    {
+     "indirizzo": "0x943827dca022d0f354a8a8c332da1e5eb9f9f931",
+     "chi_e": "sconosciuto",
+     "log": 6
+    },
+    {
+     "indirizzo": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+     "chi_e": "sconosciuto",
+     "log": 5
+    },
+    {
+     "indirizzo": "0xd12810b19b596347a3afac206d3ca65d08594b3f",
+     "chi_e": "sconosciuto",
+     "log": 5
+    },
+    {
+     "indirizzo": "0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2",
+     "chi_e": "prestito lampo / pool Aave v3",
+     "log": 3
+    },
+    {
+     "indirizzo": "0x18084fba666a33d37592fa2633fd49a74dd93a88",
+     "chi_e": "sconosciuto",
+     "log": 3
+    },
+    {
+     "indirizzo": "0xf939e0a03fb07f59a73314e73794be0e57ac1b4e",
+     "chi_e": "sconosciuto",
+     "log": 3
+    }
+   ],
+   "premio_vero_usd": 588.65,
+   "perche_non_nostra": "ordine pronto ma in corsia LENTA (salute 1.1492012733741044, soglia 1.02)"
+  }
+ ],
+ "vincitori_ripetuti": []
+}

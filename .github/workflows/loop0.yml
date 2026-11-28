@@ -1,0 +1,26 @@
+name: loop0
+# IL LOOP 0 come PROCESSO PERMANENTE: ispeziona ogni 15 minuti e si ri-dispatcha da solo.
+# Non dipende piu' dai cron di GitHub, che saltano (3 volte in un giorno).
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "*/50 * * * *"    # rete di sicurezza: se il self-redispatch fallisce, riparte comunque
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: loop0
+  cancel-in-progress: false
+jobs:
+  ispeziona:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Loop 0
+        env:
+          WR_PAT: ${{ secrets.WR_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python agents/ispezione_loop.py

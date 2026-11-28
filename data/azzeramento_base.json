@@ -1,0 +1,37 @@
+{
+ "chain": "base",
+ "pool": 6140,
+ "fondale": 0.29941860465116277,
+ "metro": 0.05059231357135055,
+ "quante_passano": 4,
+ "righe": [
+  {
+   "condizione": "insider_storia>-0.2718",
+   "muoiono": 0.1256771397616468,
+   "punti": 0.17374146488951597,
+   "pool": 923,
+   "copre": 0.5366279069767442
+  },
+  {
+   "condizione": "gap_mediano<12",
+   "muoiono": 0.14553990610328638,
+   "punti": 0.1538786985478764,
+   "pool": 213,
+   "copre": 0.12383720930232558
+  },
+  {
+   "condizione": "pers_quota_prima>0.4197",
+   "muoiono": 0.15010570824524314,
+   "punti": 0.14931289640591963,
+   "pool": 473,
+   "copre": 0.275
+  },
+  {
+   "condizione": "impatto_tipico>0.03888",
+   "muoiono": 0.21691176470588236,
+   "punti": 0.08250683994528041,
+   "pool": 272,
+   "copre": 0.15813953488372093
+  }
+ ]
+}

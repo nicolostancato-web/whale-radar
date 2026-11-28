@@ -1,0 +1,42 @@
+{
+ "quando": 1791875691,
+ "accesi": [
+  {
+   "pid": 44604,
+   "ore": 0.18166666666666664,
+   "comando": "bash agents/dal_di_fuori.sh"
+  },
+  {
+   "pid": 45012,
+   "ore": 0.095,
+   "comando": "/opt/homebrew/Cellar/python@3.13/3.13.0_1/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python agents/ricerca_venditori.py"
+  },
+  {
+   "pid": 45013,
+   "ore": 0.095,
+   "comando": "/opt/homebrew/Cellar/python@3.13/3.13.0_1/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python /private/tmp/claude-501/-Users-ni"
+  },
+  {
+   "pid": 45078,
+   "ore": 0.08277777777777778,
+   "comando": "bash agents/dal_di_fuori.sh"
+  },
+  {
+   "pid": 45319,
+   "ore": 0.04583333333333334,
+   "comando": "/opt/homebrew/Cellar/python@3.13/3.13.0_1/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python /private/tmp/claude-501/-Users-ni"
+  }
+ ],
+ "sospetti": [
+  {
+   "pid": 45013,
+   "ore": 0.1,
+   "perche": "NON DICHIARATO: nessuno lo attende"
+  },
+  {
+   "pid": 45319,
+   "ore": 0.05,
+   "perche": "NON DICHIARATO: nessuno lo attende"
+  }
+ ]
+}

@@ -1,0 +1,39 @@
+name: wallet_scores
+# A RIPOSO DAL 30/09. Ultimo giro il 26-27 agosto: si e' fermata quando il progetto ha cambiato
+# direzione, e in trentaquattro giorni nessuno se n'e' accorto. Una corsia che fallisce manda una
+# email; una che smette di esistere non manda niente — ed e' il guasto piu' silenzioso di tutti.
+#
+# NON e' cancellata: il codice resta e si lancia a mano da GitHub quando serve. Spento solo
+# l'orologio, perche' una corsia che nessuno legge consuma uno dei venti posti macchina e produce
+# rumore nei registri — e il rumore nasconde i guasti veri.
+# SENZA RIARMO: e' un'analisi per una fase non ancora attiva. Le macchine gratis in parallelo sono venti e il
+# 25/09 il riarmo su troppe corsie ha affamato quelle critiche: qui l'orologio basta.
+# REPARTO WALLET_SCORES: ricalcola il track-record VIVO di ogni wallet-balena (dato derivato).
+# Nessuna chiamata esterna, solo calcolo sui nostri dati -> flag DUMB (evitare) / WATCH (smart da confermare).
+# Ogni 4h, dopo gli accumulatori. Commit data/wallet_scores.json. €0.
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: wallet_scores
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: python agents/wallet_scores.py || echo "ko, riprovo al prossimo giro"
+      - name: Salva scoreboard
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add data/wallet_scores.json 2>/dev/null || true
+          git commit -m "wallet_scores $(date -u +%Y-%m-%dT%H:%MZ)" || { echo niente; exit 0; }
+          for i in 1 2 3; do
+            { git fetch --deepen 50 -q origin main 2>/dev/null || true; git pull --rebase --autostash -q origin main || git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main; } || true
+            git push origin main && exit 0; sleep 4
+          done
+          exit 0

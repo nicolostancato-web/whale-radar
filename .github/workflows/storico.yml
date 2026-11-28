@@ -1,0 +1,187 @@
+name: storico
+# LO STORICO COMPLETO DALLA CATENA, IN PARALLELO.
+# Scoperta del 14/09: il limite delle ~300 transazioni e' della FONTE gratuita, non della catena.
+# Chiedendo una FASCIA DI BLOCCHI per tutti i pool insieme (invece di un pool alla volta) il nodo
+# pubblico risponde subito. Sei fette scavano porzioni diverse di storia contemporaneamente: ogni
+# lavoro gira su una macchina diversa, quindi ha un limite di chiamate suo.
+# Costo: €0 — repo pubblico, minuti GitHub gratuiti e illimitati, nodi pubblici gratuiti.
+on:
+  workflow_dispatch: {}
+  schedule:
+      # L'OROLOGIO E' UNA RETE, NON UN MOTORE (30/09). Suonava ogni 20-30 minuti mentre il
+      # riarmo teneva la corsia gia' in movimento: ogni suonata finiva in coda e veniva
+      # ANNULLATA. Misurato: 36 cancellazioni su 73 giri, tutte inutili, e il rumore nascondeva
+      # le cancellazioni vere (i giri uccisi dal tempo massimo).
+      # Ora suona una volta all'ora: se la catena del riarmo si rompe, riparte da qui.
+      # L'OROLOGIO OGNI SEI ORE, NON OGNI ORA (30/09). Con il riarmo che funziona, ogni suonata
+      # dell'orologio arriva mentre la corsia sta gia' lavorando: finisce in coda e viene
+      # annullata. Diciassette corsie per ventiquattro suonate fanno quattrocento cancellazioni
+      # al giorno, e il rumore nasconde le cancellazioni vere.
+      # Resta come RETE: se la catena del riarmo si spezza, entro sei ore riparte.
+      # LA RETE DEVE ESSERE PIU' STRETTA DEL BUCO (30/09, imparata a caro prezzo).
+      # Stamattina ho portato questo orologio da un'ora a sei, ragionando che col riarmo
+      # funzionante le suonate erano solo rumore. Ma un giro ANNULLATO non esegue il passo di
+      # riarmo: la catena si spezza, e l'unica cosa che puo' riprenderla e' l'orologio.
+      # Alle 11:53 hook, scoperta e censimento sono stati annullati insieme. Sono rimasti fermi
+      # TRE ORE E MEZZA — raccolta dati e pubblicazione bloccate — perche' la rete successiva
+      # era a sei ore di distanza.
+      # Una rete piu' larga dell'intervallo in cui il guasto si presenta non e' una rete.
+    - cron: "19 * * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: storico
+  cancel-in-progress: false
+jobs:
+  scava:
+    runs-on: ubuntu-latest
+    timeout-minutes: 54
+    strategy:
+      fail-fast: false
+      # DODICI FETTE, NON SEI (15/09). Misurato ieri: usiamo il 27% del tetto di UN indirizzo, e
+      # GitHub concede fino a 20 lavori in parallelo su repo pubblico — ognuno su una macchina
+      # diversa, quindi con un limite di chiamate suo. Con sei fette la copertura saliva di un punto
+      # l'ora: troppo poco per arrivare in fondo stanotte. Dodici dimezzano il tempo, e restano
+      # otto lavori liberi per le altre corsie.
+      # Le fette coprono 0, 6, 12, 18, 24, 30 giorni indietro: i pool che valutiamo hanno una
+      # mediana di 23-25 giorni, quindi la fascia giusta e' tutta dentro.
+      max-parallel: 12
+      matrix:
+        # SEI FETTE, NON DODICI (17/09, misurato). Il tetto del piano gratuito e' 20 job
+        # in parallelo e le fette ne occupavano DODICI: il 60% della capacita'. Le altre
+        # cinque corsie — controlli del database, nascite, loop0, ricerca, engine —
+        # restavano in coda: la corsia database ha aspettato 135 MINUTI.
+        # E' un'inversione di priorita': il backfill ricostruisce storia vecchia (in parte
+        # sulla finestra sbagliata, visto che le nascite erano sfasate), mentre in coda
+        # aspettano i controlli che dicono se quella storia vale qualcosa.
+        # Sei fette scavano meta' del volume ma lasciano respirare tutto il resto. Un
+        # pezzo che lavora al massimo affamando gli altri non sta aiutando.
+        include:
+          # BASE HA FINITO (15/09): copertura 96%. Tenere sei fette a scavare una chain completa
+          # e' lavoro sprecato che pesa sulla storia del repo. Ne resta UNA, per i token nuovi che
+          # nascono ogni ora. Le altre cinque passano a Robinhood, che e' al 60% e ha VENTI VOLTE
+          # piu' blocchi da coprire (847.000 al giorno contro 43.200).
+          # RIEQUILIBRIO (15/09, secondo). Base era passata a una sola fetta perche' aveva finito.
+          # Ma poi le ho aggiunto i campi mancanti — block hash, indice transazione, semantica del
+          # wallet — e i 59.000 record vecchi vanno riscritti col formato completo: e' di nuovo
+          # lavoro da fare. Robinhood intanto e' salita al 69%.
+          # Sei e sei, distanziate di 6 giorni: coprono 0-36 giorni per entrambe.
+          # ROBINHOOD ERA SPARITA DA QUI (20/09). Il commento qui sopra dice «sei e sei», ma le
+          # fette di robinhood non c'erano piu': le ho tolte io il 17/09 riducendo lo scavo da
+          # dodici a sei lavori per fermare lo starvation delle corsie di controllo — e nel farlo
+          # ho eliminato UNA CHAIN INTERA senza accorgermene.
+          # Conseguenza misurata oggi: base sta al 96% dei pool concentrati e robinhood al 60%, e
+          # in quaranta minuti lo scavo storico ha scritto 132.183 righe su base e ZERO su
+          # robinhood. Non era robinhood a essere lenta: era scoperta.
+          # Adesso due fette a base (che ha quasi finito) e quattro a robinhood (che ha venti volte
+          # piu' blocchi al giorno), restando a sei lavori per non riaprire lo starvation.
+          - { chain: base,      fetta: 0 }
+          - { chain: base,      fetta: 1 }
+          - { chain: robinhood, fetta: 0 }
+          - { chain: robinhood, fetta: 1 }
+          - { chain: robinhood, fetta: 2 }
+          - { chain: robinhood, fetta: 3 }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Scava lo storico
+        env:
+          CHAIN: ${{ matrix.chain }}
+          FETTA: ${{ matrix.fetta }}
+          FETTE: "3"
+          PAUSA: "1.4"
+          BUDGET_SEC: "1944"
+          ORE_VITA: "6"
+          TETTO_POOL: "300"
+          GIORNI_FETTA: "6"
+        run: python agents/storico_evm.py
+      # IL SALVATAGGIO DEVE URLARE SE FALLISCE (14/09). La prima versione provava otto volte e poi
+      # finiva in silenzio con esito "riuscito": sei lavori hanno raccolto dati e riportato successo
+      # senza aver spinto niente. Un passo che fallisce e dice di essere riuscito e' peggio di un
+      # passo che fallisce.
+      - name: Consegna senza toccare il ramo
+        # NON SPINGE PIU' (30/09). Misurato: 32 commit su 100 erano FUSIONI, generate dal
+        # pubblicatore mentre questa corsia gli scriveva addosso. Con un solo scrittore le fusioni
+        # spariscono per costruzione, e la cronologia smette di crescere dieci volte i dati.
+        #
+        # Sui segnalibri condivisi fra fette della stessa chain: oggi git li fondeva tenendo una
+        # versione a caso (`-X ours`), quindi la consegna non peggiora niente — e per gli archivi
+        # `.jsonl.gz` il pubblicatore FONDE riga per riga, che e' meglio di prima.
+        if: always()
+        run: |
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          # UN FILE CANCELLATO NON DEVE UCCIDERE LA CONSEGNA (2/10). `git status` elenca anche
+          # i file CANCELLATI, e qui `[ -f "$F" ]` su uno di quelli e' falso: con `bash -e`,
+          # che GitHub usa di default, il passo moriva lì. E' successo appena ho collegato la
+          # fusione degli iniziatori, che cancella il file dei nuovi dopo averli uniti: 24.000
+          # transazioni fuse correttamente e MAI consegnate, perche' il passo dopo e' morto su
+          # un file che non c'era piu'.
+          # Con `if`/`fi` invece di `&&` il caso normale non e' piu' un errore.
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            if [ -f "$F" ]; then
+              mkdir -p "/tmp/consegna/$(dirname "$F")"
+              cp "$F" "/tmp/consegna/$F"
+            fi
+          done
+          echo "consegno $(find /tmp/consegna -type f | wc -l) file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-${{ github.workflow }}-${{ github.job }}-${{ strategy.job-index }}
+          path: /tmp/consegna/data
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: ignore
+      - name: Prepara il soccorso (solo i file cambiati)
+        # SI SALVA QUELLO CHE NON E' ANCORA AL SICURO, NON TUTTO (27/09, poche ore dopo averla
+        # scritta). La rete caricava l'INTERA cartella della chain: 1,5 GB per recuperare 3.664
+        # righe. Misurato: sette allegati da 1,5 GB in tre ore, e ogni recupero costava un quarto
+        # d'ora di scaricamento per unire poche centinaia di righe nuove.
+        # I file non ancora spinti li sa git: sono quelli che risultano modificati. Solo quelli.
+        if: failure()
+        run: |
+          rm -rf /tmp/soccorso_da_salvare; mkdir -p /tmp/soccorso_da_salvare
+          N=0
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            [ -f "$F" ] || continue
+            mkdir -p "/tmp/soccorso_da_salvare/$(dirname "$F")"
+            cp "$F" "/tmp/soccorso_da_salvare/$F"
+          done
+          echo "file da mettere in salvo: $(find /tmp/soccorso_da_salvare -type f | wc -l)"
+          du -sh /tmp/soccorso_da_salvare 2>/dev/null || true
+      - name: Rete di sicurezza se il salvataggio non e' riuscito
+        # I DATI NON SI BUTTANO MAI, NEMMENO QUANDO IL PUSH FALLISCE (27/09, 04:20).
+        # Misurato stanotte: 27 giri falliti in sei ore, e QUATTRO erano di questa corsia. Ogni
+        # fallimento diceva «i dati della coda viva restano sul runner e vanno persi» — e li
+        # perdeva davvero. Non e' tempo perso come per le corsie che rifanno il lavoro: la coda
+        # viva raccoglie i blocchi di ADESSO, e quelli non tornano.
+        # Qui, se il push non ce la fa, il lavoro esce come ALLEGATO invece di morire col runner.
+        # Non cambia niente nel percorso normale: e' una rete sotto il trapezio, non un trapezio
+        # nuovo. Il recupero si fa dopo, con calma, da un allegato che esiste ancora.
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: soccorso-${{ github.workflow }}-${{ matrix.chain }}-f${{ matrix.fetta }}-${{ github.run_id }}
+          path: /tmp/soccorso_da_salvare
+          retention-days: 7
+          if-no-files-found: ignore
+
+  riarmo:
+    needs: scava
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 54
+    steps:
+      - uses: actions/checkout@v4
+
+# SENZA RIARMO: il riarmo dormiva dentro il lavoro, il tetto scadeva mentre dormiva e il giro
+# veniva annullato buttando anche il dato raccolto. Misurato l'1-2/10: 622 minuti-macchina al
+# giorno spesi a dormire, il 52% della capacita' di venti macchine — e il riarmo esisteva
+# perche' GitHub salta gli orologi sui repository OCCUPATI, mentre era proprio quel dormire a
+# tenerli occupati. Il rimedio alimentava la malattia.
+# Propagato DOPO la prova, non prima: hook 0 successi su 10 -> riuscita in 5 e 16 minuti;
+# censimento -> riuscita in 2 minuti due volte; iniziatori annullata a 35 due volte ->
+# riuscita in 22. Cinque successi su cinque occasioni.
+# Il motore e' l'orologio; la rete e' la maglia di guardie. Vedi RIARMI_CHE_DORMONO.md.

@@ -1,0 +1,13 @@
+{
+ "quando": 1793848589.115679,
+ "passata": true,
+ "utente": "0x538dcfa7b5a5584520571a591cc50223e800ceeb",
+ "garanzia": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+ "due_passaggi": true,
+ "fallite_prima": [
+  "0xba32bc3cdfc9"
+ ],
+ "provate": 2,
+ "sconto_che_la_fa_cadere": 6,
+ "in_cassa_wei": 93201815620243676
+}

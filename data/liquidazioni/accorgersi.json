@@ -1,0 +1,62 @@
+{
+ "percento": 92,
+ "titolo": "Accorgersi",
+ "cosa_e_100": "reagire alla transazione dell'oracolo mentre e' ancora in attesa, ed entrare nello STESSO blocco in cui il prezzo cambia",
+ "passi": [
+  {
+   "p": "Agganciare il giro al blocco invece di un tempo fisso",
+   "stato": "fatto",
+   "nota": "i prezzi cambiano solo quando arriva un blocco"
+  },
+  {
+   "p": "MEV-Share porta i nostri oracoli?",
+   "stato": "fatto",
+   "nota": "NO: 724 segnali/minuto, zero sui nostri. Strada chiusa"
+  },
+  {
+   "p": "Accesso alle transazioni in attesa",
+   "stato": "fatto",
+   "nota": "il filtro delle nuove costa 73 ms, 15 transazioni al secondo"
+  },
+  {
+   "p": "Byte firmati di una transazione in attesa",
+   "stato": "fatto",
+   "nota": "8 su 8. Senza questi lo stesso blocco era impossibile"
+  },
+  {
+   "p": "Capire CHI manda gli aggiornamenti",
+   "stato": "fatto",
+   "nota": "tre tentativi sbagliati per deduzione; il segnale giusto e' il selettore 0x6fadcf72, identico per tutti i 21 trasmettitori che Chainlink ruota"
+  },
+  {
+   "p": "Quanti aggiornamenti passano nella piazza",
+   "stato": "fatto",
+   "nota": "0,5 al minuto, 720 al giorno: si puo' reagire a tutti"
+  },
+  {
+   "p": "Scegliere le candidate giuste",
+   "stato": "fatto",
+   "nota": "prima le coppie DIVERSE: una coppia uguale non cade quando ETH si muove, e il pacchetto sarebbe sprecato"
+  },
+  {
+   "p": "Comporre il pacchetto [oracolo, nostra liquidazione]",
+   "stato": "fatto",
+   "nota": "quattro pacchetti con lo stesso nonce: ne entra uno, gli altri non costano niente"
+  },
+  {
+   "p": "Prova silenziosa: beccarne uno e misurare i tempi",
+   "stato": "in ascolto",
+   "nota": "20 aggiornamenti beccati in 32 minuti, composizione 121-518 ms. Riparte ora con la composizione riparata"
+  },
+  {
+   "p": "Riparare la composizione dei pacchetti",
+   "stato": "fatto",
+   "nota": "rilevava e non sparava: cast rifiutava l'offerta scritta con la virgola (12.16gwei). Ora in wei interi, e l'offerta ha tre tetti: 10% del premio, $45, 60% del saldo"
+  },
+  {
+   "p": "Armarla",
+   "stato": "da fare",
+   "nota": "solo dopo la prova"
+  }
+ ]
+}

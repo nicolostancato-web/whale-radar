@@ -1,0 +1,60 @@
+{
+ "quando": 1793893033.173673,
+ "casi": [
+  {
+   "blocco": 26349403,
+   "premio": 130.39421928645106,
+   "utente": "0x99da8b0cae360df0c2f1f855b8407ef69462e5f8",
+   "distanza": 1,
+   "cosa": "c'eravamo nel pacchetto, ha vinto lui",
+   "vincitore": "0xe14c836bd3b0be1d4b52ac4d4f00c163926ff069",
+   "nel_pacchetto": true,
+   "garanzia": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+   "debito": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+  },
+  {
+   "blocco": 26349452,
+   "premio": 2699.785957207183,
+   "utente": "0xc6b54b1e1d45abacd06616b32023a2c554ca8abb",
+   "distanza": 2,
+   "cosa": "avevamo l'ordine ma non era nel pacchetto",
+   "vincitore": "0x93b2bbac5b31614bed2eba08af3a98c9b9ca8e1d",
+   "nel_pacchetto": false,
+   "garanzia": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+   "debito": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+  },
+  {
+   "blocco": 26349514,
+   "premio": 710.6480356878455,
+   "utente": "0x5ac88d99758acdc8d7149c58c42dfbe2f6ee91a5",
+   "distanza": 1,
+   "cosa": "c'eravamo nel pacchetto, ha vinto lui",
+   "vincitore": "0xbde3e91f09a9489f1b53eaa21eb32c89b2fd5c64",
+   "nel_pacchetto": true,
+   "garanzia": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+   "debito": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+  },
+  {
+   "blocco": 26349514,
+   "premio": 144.79331937326333,
+   "utente": "0x92561d51c73d545a24d0525d0c616d83562ffcc2",
+   "distanza": 2,
+   "cosa": "avevamo l'ordine ma non era nel pacchetto",
+   "vincitore": "0xbde3e91f09a9489f1b53eaa21eb32c89b2fd5c64",
+   "nel_pacchetto": false,
+   "garanzia": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+   "debito": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+  },
+  {
+   "blocco": 26349526,
+   "premio": 1005.3097083677785,
+   "utente": "0x4f0aa63d1473ee4c90b4b815d1f88646c2ecb9f9",
+   "distanza": 2,
+   "cosa": "avevamo l'ordine ma non era nel pacchetto",
+   "vincitore": "0xd12810b19b596347a3afac206d3ca65d08594b3f",
+   "nel_pacchetto": false,
+   "garanzia": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+   "debito": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+  }
+ ]
+}

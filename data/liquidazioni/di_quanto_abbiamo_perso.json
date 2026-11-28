@@ -1,0 +1,45 @@
+{
+ "quando": 1793895493.926354,
+ "casi": [
+  {
+   "blocco": 26349403,
+   "premio": 130.39,
+   "pagato_dal_vincitore_usd": -51.97909612111652,
+   "quota_del_vincitore": -0.39864327111831066,
+   "nostra_offerta_usd": 12.537499999999998,
+   "nostra_quota": 0.09615384615384615,
+   "perche_no": null,
+   "costruttore": "0x4838b106fce9647bdf1e7877bf73ce8b0bad5f97"
+  },
+  {
+   "blocco": 26349514,
+   "premio": 710.65,
+   "pagato_dal_vincitore_usd": 14.687107850926271,
+   "quota_del_vincitore": 0.02066714676834767,
+   "nostra_offerta_usd": 68.33173076923076,
+   "nostra_quota": 0.09615384615384615,
+   "perche_no": null,
+   "costruttore": "0x4838b106fce9647bdf1e7877bf73ce8b0bad5f97"
+  },
+  {
+   "blocco": 26349651,
+   "premio": 1126.19,
+   "pagato_dal_vincitore_usd": 82.41352167582221,
+   "quota_del_vincitore": 0.07317905653204362,
+   "nostra_offerta_usd": 108.28750000000001,
+   "nostra_quota": 0.09615384615384616,
+   "perche_no": null,
+   "costruttore": "0xdadb0d80178819f2319190d340ce9a924f783711"
+  },
+  {
+   "blocco": 26349651,
+   "premio": 177.08,
+   "pagato_dal_vincitore_usd": 82.41352167582221,
+   "quota_del_vincitore": 0.4654027652802248,
+   "nostra_offerta_usd": 17.026923076923076,
+   "nostra_quota": 0.09615384615384615,
+   "perche_no": null,
+   "costruttore": "0xdadb0d80178819f2319190d340ce9a924f783711"
+  }
+ ]
+}

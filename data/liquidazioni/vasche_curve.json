@@ -1,0 +1,56 @@
+{
+ "0xf1c9acdc66974dfb6decb12aa385b9cd01190e38": {
+  "quando": 1793787555.021544,
+  "vasche": [
+   {
+    "vasca": "0xe080027bd47353b5d1639772b4a75e9ed3658a0d",
+    "coins": [
+     "0xf1c9acdc66974dfb6decb12aa385b9cd01190e38",
+     "0xae78736cd615f374d3085123a210448e74fc6393"
+    ]
+   }
+  ]
+ },
+ "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f": {
+  "quando": 1793792464.9611468,
+  "vasche": [
+   {
+    "vasca": "0x8a4f252812dff2a8636e4f7eb249d8fc2e3bd77f",
+    "coins": [
+     "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
+     "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+     "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+    ]
+   },
+   {
+    "vasca": "0x635ef0056a597d13863b73825cca297236578595",
+    "coins": [
+     "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
+     "0xf939e0a03fb07f59a73314e73794be0e57ac1b4e"
+    ]
+   },
+   {
+    "vasca": "0x670a72e6d22b0956c0d2573288f82dcc5d6e3a61",
+    "coins": [
+     "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
+     "0x4c9edd5852cd905f086c759e8383e09bff1e68b3"
+    ]
+   },
+   {
+    "vasca": "0x74345504eaea3d9408fc69ae7eb2d14095643c5b",
+    "coins": [
+     "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
+     "0x085780639cc2cacd35e474e71f4d000e2405d8f6"
+    ]
+   }
+  ]
+ },
+ "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": {
+  "quando": 1793792495.6156769,
+  "vasche": []
+ },
+ "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": {
+  "quando": 1793792497.036148,
+  "vasche": []
+ }
+}

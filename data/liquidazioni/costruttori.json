@@ -1,0 +1,16 @@
+{
+ "costruttori": {
+  "0x4838b106fce9647bdf1e7877bf73ce8b0bad5f97": {
+   "blocchi": 29,
+   "premio": 654890.8
+  },
+  "0xdadb0d80178819f2319190d340ce9a924f783711": {
+   "blocchi": 12,
+   "premio": 153359.92
+  },
+  "0xd87f3d6c5624e8b02be13c2c92f8511b88b94d96": {
+   "blocchi": 1,
+   "premio": 58681.84
+  }
+ }
+}

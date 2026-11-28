@@ -1,0 +1,79 @@
+{
+ "chain": "robinhood",
+ "pool": 21791,
+ "fondale": 0.08636512618813504,
+ "metro": 0.01202459861019739,
+ "quante_passano": 9,
+ "righe": [
+  {
+   "condizione": "pressione_delta<-0.9637",
+   "muoiono": 0.040880503144654086,
+   "punti": 0.04548462304348095,
+   "pool": 954,
+   "copre": 0.15634218289085547
+  },
+  {
+   "condizione": "insider_storia>0.04716",
+   "muoiono": 0.04265402843601896,
+   "punti": 0.043711097752116075,
+   "pool": 633,
+   "copre": 0.10373647984267453
+  },
+  {
+   "condizione": "pressione_numero>-0.6667",
+   "muoiono": 0.04940157881334352,
+   "punti": 0.03696354737479152,
+   "pool": 3927,
+   "copre": 0.643559488692232
+  },
+  {
+   "condizione": "quota_acquisti>0.1667",
+   "muoiono": 0.04940157881334352,
+   "punti": 0.03696354737479152,
+   "pool": 3927,
+   "copre": 0.643559488692232
+  },
+  {
+   "condizione": "quota_solo_compra>0",
+   "muoiono": 0.056254626202812734,
+   "punti": 0.030110499985322302,
+   "pool": 4053,
+   "copre": 0.6642084562438545
+  },
+  {
+   "condizione": "pressione_delta>0",
+   "muoiono": 0.056570155902004454,
+   "punti": 0.02979497028613058,
+   "pool": 2245,
+   "copre": 0.36791215994755816
+  },
+  {
+   "condizione": "insider_storia>-0.04419",
+   "muoiono": 0.057134971018492964,
+   "punti": 0.029230155169642072,
+   "pool": 3623,
+   "copre": 0.5937397574565716
+  },
+  {
+   "condizione": "quota_scambi_piccoli<0.1667",
+   "muoiono": 0.062342038753159225,
+   "punti": 0.02402308743497581,
+   "pool": 2374,
+   "copre": 0.389052769583743
+  },
+  {
+   "condizione": "pressione_delta>0.8002",
+   "muoiono": 0.06993569131832797,
+   "punti": 0.016429434869807066,
+   "pool": 1244,
+   "copre": 0.20386758439855784
+  },
+  {
+   "condizione": "irregolarita_tempi>0.8242",
+   "muoiono": 0.0776831345826235,
+   "punti": 0.00868199160551153,
+   "pool": 2935,
+   "copre": 0.48098983939691903
+  }
+ ]
+}

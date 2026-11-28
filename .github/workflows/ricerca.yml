@@ -1,0 +1,27 @@
+name: ricerca
+# IL TEAM DI RICERCA, in parallelo al motore: esploratore + ricercatore a tutta forza, senza rallentare
+# i meeting. Su repo pubblico i job paralleli sono gratis.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "0 */6 * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: ricerca
+  cancel-in-progress: false
+jobs:
+  cerca:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Ricerca
+        env:
+          WR_PAT: ${{ secrets.WR_PAT }}
+          HELIUS_KEY: ${{ secrets.HELIUS_API }}
+          HELIUS_KEY2: ${{ secrets.HELIUS_API2 }}
+        run: python agents/ricerca_loop.py

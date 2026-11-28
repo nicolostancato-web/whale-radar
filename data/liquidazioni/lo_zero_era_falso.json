@@ -1,0 +1,10 @@
+{
+ "quando": 1793892073.813947,
+ "trovato_da": "Nicolo, chiedendo un controllo aggiuntivo",
+ "cosa_dicevo": "zero liquidazioni nel mondo in 7,5 ore da quando siamo pronti",
+ "cosa_e_vero": "2 liquidazioni, trovate con UNA interrogazione su tutto l intervallo",
+ "causa": "leggevo a fette di 400 blocchi e archiviavo ogni fetta come letta; se una fonte risponde con elenco VUOTO invece di errore, quella fetta resta archiviata come qui non c era niente PER SEMPRE. L archivio nato per non perdere eventi li cementava.",
+ "radice": "le fette erano un ottimizzazione messa prima di servire: la finestra e di poche migliaia di blocchi e il nodo accetta una sola domanda su tutto",
+ "riparazione": "una sola interrogazione, niente fette e niente archivio; e se la rete non risponde si dice NON LO SO invece di zero",
+ "in_sospeso": "l autopsia delle due liquidazioni, appena il nodo si riprende dal 429 (l ho interrogato troppo io)"
+}

@@ -1,0 +1,28 @@
+name: watchdog
+# A RIPOSO DAL 30/09. Non gira dal 27 agosto — trentaquattro giorni — e nessuno se n'e' accorto:
+# la sorveglianza la fanno sentinella, heartbeat, guardiani e workflow_watchdog.
+# Stavo per rianimarla aggiungendole il riarmo, prima di chiedermi se serviva ancora. Non serve.
+#
+# NON e' cancellata: il codice resta e si lancia a mano da GitHub quando serve. Spento solo
+# l'orologio, perche' una corsia che gira senza che nessuno legga il suo risultato consuma uno dei
+# venti posti macchina e produce rumore nei registri — e il rumore nasconde i guasti veri.
+# REPARTO WATCHDOG: ogni ora (:30) controlla che l'accumulator giri. Se fermo >2.5h -> workflow FALLISCE
+# -> GitHub manda email automatica al founder. Cosi non scopriamo dopo 2 mesi che era fermo. €0.
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: python agents/watchdog.py
+      - if: always()
+        run: |
+          git config user.name "whale-radar-bot"; git config user.email "bot@users.noreply.github.com"
+          git add data/results/health.json 2>/dev/null || true
+          git commit -m "watchdog $(date -u +%H:%MZ)" || exit 0
+          { git fetch --deepen 50 -q origin main 2>/dev/null || true; git pull --rebase --autostash -q origin main || git pull --no-rebase --no-edit --allow-unrelated-histories -X ours origin main; } || true; git push origin main || true

@@ -1,0 +1,31 @@
+{
+ "0xdc715c751f1cc129a6b47fedc87d9918a4580502": [
+  "WBTC"
+ ],
+ "0xa5e3a55cea42b86560a5215094981c300899199d": [
+  "WBTC"
+ ],
+ "0x64c67984a458513c6bab23a815916b1b1075cf3a": [
+  "LINK"
+ ],
+ "0x7c7fdfca295a787ded12bb5c1a49a8d2cc20e3f8": [
+  "WETH",
+  "weETH",
+  "wstETH"
+ ],
+ "0xae7ab96520de3a18e5e111b5eaab095312d7fe84": [
+  "wstETH"
+ ],
+ "0xcd07b31d85756098334eddc92de755deae8fe62f": [
+  "AAVE"
+ ],
+ "0xc26d4a1c46d884cff6de9800b6ae7a8cf48b4ff8": [
+  "sUSDe"
+ ],
+ "0x9d39a5de30e57443bff2a8307a4256c8797a3497": [
+  "sUSDe"
+ ],
+ "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee": [
+  "weETH"
+ ]
+}

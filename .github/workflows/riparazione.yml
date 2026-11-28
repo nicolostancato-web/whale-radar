@@ -1,0 +1,163 @@
+name: riparazione
+# UNA CORSIA SUA PER GLI ISTANTI (20/09).
+# La riparazione degli orari e' il NONO agente su tredici nel giro della corsia database, dietro a
+# raccoglitori con budget da 150 a 420 secondi per due chain: un giro dura oltre quaranta minuti e
+# quando ci si arriva prende quel che resta. Misurato: i segnalibri di entrambe le chain fermi a
+# 2.000 e 4.280 pool per ore.
+# Ma il difetto che ripara non e' minore: lo scavo storico calcolava gli istanti per interpolazione
+# e su robinhood sbagliava di ORE, proprio mentre quella chain veniva riattivata. Le righe nuove
+# sono a posto da stamattina; tutto il passato no, e l'ordine temporale e' cio' su cui si regge la
+# domanda «chi e' entrato per primo».
+# Qui gira da sola, una fetta per chain, e si riarma.
+on:
+  workflow_dispatch:
+  schedule:
+      # L'OROLOGIO E' UNA RETE, NON UN MOTORE (30/09). Suonava ogni 20-30 minuti mentre il
+      # riarmo teneva la corsia gia' in movimento: ogni suonata finiva in coda e veniva
+      # ANNULLATA. Misurato: 36 cancellazioni su 73 giri, tutte inutili, e il rumore nascondeva
+      # le cancellazioni vere (i giri uccisi dal tempo massimo).
+      # Ora suona una volta all'ora: se la catena del riarmo si rompe, riparte da qui.
+      # L'OROLOGIO OGNI SEI ORE, NON OGNI ORA (30/09). Con il riarmo che funziona, ogni suonata
+      # dell'orologio arriva mentre la corsia sta gia' lavorando: finisce in coda e viene
+      # annullata. Diciassette corsie per ventiquattro suonate fanno quattrocento cancellazioni
+      # al giorno, e il rumore nasconde le cancellazioni vere.
+      # Resta come RETE: se la catena del riarmo si spezza, entro sei ore riparte.
+      # LA RETE DEVE ESSERE PIU' STRETTA DEL BUCO (30/09, imparata a caro prezzo).
+      # Stamattina ho portato questo orologio da un'ora a sei, ragionando che col riarmo
+      # funzionante le suonate erano solo rumore. Ma un giro ANNULLATO non esegue il passo di
+      # riarmo: la catena si spezza, e l'unica cosa che puo' riprenderla e' l'orologio.
+      # Alle 11:53 hook, scoperta e censimento sono stati annullati insieme. Sono rimasti fermi
+      # TRE ORE E MEZZA — raccolta dati e pubblicazione bloccate — perche' la rete successiva
+      # era a sei ore di distanza.
+      # Una rete piu' larga dell'intervallo in cui il guasto si presenta non e' una rete.
+    - cron: "1 * * * *"
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: riparazione
+  cancel-in-progress: false
+jobs:
+  ripara:
+    runs-on: ubuntu-latest
+    # PIU' TEMPO DI LAVORO PER GIRO (22/09). Gli operai consumavano tutti i 25 minuti di budget
+    # su un tetto di 45: erano limitati dal TEMPO, non dal nodo (misurato: base serve sei gruppi
+    # in parallelo senza errori). Alzare il budget e' la leva vera, perche' ogni giro paga comunque
+    # il costo fisso di avvio, clone e salvataggio.
+    # Il tetto sale a 60 per lasciare margine: il 21/09 un budget troppo vicino al tetto faceva
+    # UCCIDERE il lavoro prima del salvataggio, e tre giri interi sono andati persi.
+    timeout-minutes: 54
+    strategy:
+      fail-fast: false
+      matrix:
+        # CINQUE OPERAI SU ROBINHOOD, UNO SU BASE (21/09). Il lavoro non e' diviso a meta' perche'
+        # le due chain non stanno allo stesso punto: base e' al 87% e chiude in un minuto, robinhood
+        # e' al 37% con diciottomila file da verificare. Un solo operaio la portava avanti di mezzo
+        # punto ogni mezz'ora — giorni, per la misura che tiene fermo il loop 1.
+        # Le schegge si dividono i file per resto sul nome: insiemi disgiunti, nessuna tocca il file
+        # di un'altra, e ognuna tiene il proprio segnalibro.
+        include:
+          # ROBINHOOD DA CINQUE A TRE OPERAI (22/09). Il ritmo era calato da +7,2 a +2,1 punti a
+          # giro, con 11.500 record dichiarati «irrecuperabili» per operaio — mentre gli stessi
+          # blocchi, chiesti uno per uno, il nodo li serviva tutti (20 su 20).
+          # Quindi non e' il nodo a non avere i dati: e' che con cinque operai addosso rifiuta le
+          # richieste a gruppi, e ogni rifiuto butta via fino a cento blocchi per quel giro.
+          # Il limite di questa chain e' GLOBALE, non per operaio: era gia' stato misurato che tre
+          # schegge rendevano piu' di sei. Si torna a tre.
+          - { chain: robinhood, scheggia: 0, quante: 3 }
+          - { chain: robinhood, scheggia: 1, quante: 3 }
+          - { chain: robinhood, scheggia: 2, quante: 3 }
+          # BASE PASSA DA UNO A TRE OPERAI (22/09). Con uno solo era limitata dal TEMPO — 29
+          # minuti pieni di budget consumati — e avanzava di 0,2 punti a giro, mentre robinhood
+          # con cinque ne faceva 3. Il nodo di base regge gruppi da dieci (misurato: 10 ok, 15
+          # tronca) e non ha dato segnali di saturazione, quindi il collo di bottiglia erano le
+          # braccia, non il nodo. Tre e non cinque: si aggiunge quanto basta e si misura.
+          - { chain: base,      scheggia: 0, quante: 3 }
+          - { chain: base,      scheggia: 1, quante: 3 }
+          - { chain: base,      scheggia: 2, quante: 3 }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      # LA MEMORIA DEI BLOCCHI VIVE QUI, NON NEL REPO (21/09): un file riscritto a ogni giro
+      # gonfierebbe la cronologia di git di decine di mega al giorno.
+      # LA MEMORIA VECCHIA E' AVVELENATA E SI BUTTA (22/09). Conteneva orari abbinati al blocco
+      # sbagliato, e una memoria non si corregge da sola: serve un nome nuovo perche' nessuno la
+      # ritrovi. Il costo e' richiedere tutto da capo al nodo; il costo di tenerla sarebbe
+      # riprodurre l'errore per sempre, e in silenzio.
+      - name: Riprendi la memoria dei blocchi
+        uses: actions/cache@v4
+        with:
+          path: .cache_orari
+          key: orari2-${{ matrix.chain }}-${{ matrix.scheggia }}-${{ github.run_id }}
+          restore-keys: |
+            orari2-${{ matrix.chain }}-${{ matrix.scheggia }}-
+            orari2-${{ matrix.chain }}-
+      - name: Ripara gli istanti
+        env:
+          CHAIN: ${{ matrix.chain }}
+          SCHEGGIA: ${{ matrix.scheggia }}
+          QUANTE: ${{ matrix.quante }}
+          # IL BUDGET STA BEN DENTRO IL TETTO DEL LAVORO (21/09). Era 2100 secondi con un tetto
+          # di 45 minuti, e il lavoro di robinhood veniva UCCISO allo scadere: il passo di
+          # salvataggio non partiva mai e TUTTO il raccolto di quel giro andava perso — tre giri di
+          # fila, cancellati dopo 45 minuti ciascuno.
+          # Il controllo del budget stava solo fra un file e l'altro, e un file con molti blocchi e
+          # molte riprove puo' sforare da solo. Ora l'orologio comanda anche dentro la lettura degli
+          # istanti, e il budget lascia dieci minuti di margine per salvare e spingere.
+          # BUDGET AL 60% DEL TETTO (1/10). Era 40 min su un tetto di 60 (66%): il lavoro
+          # si fermava in tempo ma non restava spazio per salvare e consegnare, e il giro
+          # veniva annullato per tempo scaduto con tutto dentro. Trovato da
+          # agents/budget_e_tetto.py, che adesso boccia la pubblicazione se qualcuno ci torna.
+          BUDGET_SEC: "1944"
+        run: python agents/ripara_orario.py
+      - name: Consegna senza toccare il ramo
+        # NON SPINGE PIU' (30/09). Misurato: 32 commit su 100 erano FUSIONI, generate dal
+        # pubblicatore mentre questa corsia gli scriveva addosso. Con un solo scrittore le fusioni
+        # spariscono per costruzione, e la cronologia smette di crescere dieci volte i dati.
+        #
+        # Sui segnalibri condivisi fra fette della stessa chain: oggi git li fondeva tenendo una
+        # versione a caso (`-X ours`), quindi la consegna non peggiora niente — e per gli archivi
+        # `.jsonl.gz` il pubblicatore FONDE riga per riga, che e' meglio di prima.
+        if: always()
+        run: |
+          rm -rf /tmp/consegna && mkdir -p /tmp/consegna
+          # UN FILE CANCELLATO NON DEVE UCCIDERE LA CONSEGNA (2/10). `git status` elenca anche
+          # i file CANCELLATI, e qui `[ -f "$F" ]` su uno di quelli e' falso: con `bash -e`,
+          # che GitHub usa di default, il passo moriva lì. E' successo appena ho collegato la
+          # fusione degli iniziatori, che cancella il file dei nuovi dopo averli uniti: 24.000
+          # transazioni fuse correttamente e MAI consegnate, perche' il passo dopo e' morto su
+          # un file che non c'era piu'.
+          # Con `if`/`fi` invece di `&&` il caso normale non e' piu' un errore.
+          git status --porcelain -- data | awk '{print $NF}' | while read F; do
+            if [ -f "$F" ]; then
+              mkdir -p "/tmp/consegna/$(dirname "$F")"
+              cp "$F" "/tmp/consegna/$F"
+            fi
+          done
+          echo "consegno $(find /tmp/consegna -type f | wc -l) file"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: consegna-${{ github.workflow }}-${{ github.job }}-${{ strategy.job-index }}
+          path: /tmp/consegna/data
+          retention-days: 3
+          overwrite: true
+          if-no-files-found: ignore
+  riarmo:
+    needs: ripara
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 54
+    steps:
+      - uses: actions/checkout@v4
+
+# SENZA RIARMO: il riarmo dormiva dentro il lavoro, il tetto scadeva mentre dormiva e il giro
+# veniva annullato buttando anche il dato raccolto. Misurato l'1-2/10: 622 minuti-macchina al
+# giorno spesi a dormire, il 52% della capacita' di venti macchine — e il riarmo esisteva
+# perche' GitHub salta gli orologi sui repository OCCUPATI, mentre era proprio quel dormire a
+# tenerli occupati. Il rimedio alimentava la malattia.
+# Propagato DOPO la prova, non prima: hook 0 successi su 10 -> riuscita in 5 e 16 minuti;
+# censimento -> riuscita in 2 minuti due volte; iniziatori annullata a 35 due volte ->
+# riuscita in 22. Cinque successi su cinque occasioni.
+# Il motore e' l'orologio; la rete e' la maglia di guardie. Vedi RIARMI_CHE_DORMONO.md.

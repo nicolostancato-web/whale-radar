@@ -1,0 +1,73 @@
+{
+ "quando": 1793767319.420373,
+ "taglia_dollari": 100000.0,
+ "esiti": {
+  "weETH->WETH": {
+   "resa": 0.999,
+   "premio_reale": 0.0684,
+   "rotta": "diretta fee 0.05%",
+   "buona": true
+  },
+  "sUSDe->0xdc035d": {
+   "resa": null,
+   "rotta": "nessuna rotta"
+  },
+  "wstETH->WETH": {
+   "resa": 0.9997,
+   "premio_reale": 0.0692,
+   "rotta": "diretta fee 0.01%",
+   "buona": true
+  },
+  "sUSDe->0xc13919": {
+   "resa": null,
+   "rotta": "nessuna rotta"
+  },
+  "sUSDe->USDC": {
+   "resa": null,
+   "rotta": "nessuna rotta"
+  },
+  "rsETH->WETH": {
+   "resa": 0.0001,
+   "premio_reale": -1.0004,
+   "rotta": "diretta fee 0.05%",
+   "buona": false
+  },
+  "USDC->USDT": {
+   "resa": 0.9997,
+   "premio_reale": 0.0692,
+   "rotta": "diretta fee 0.01%",
+   "buona": true
+  },
+  "WETH->wstETH": {
+   "resa": 1.0001,
+   "premio_reale": 0.0696,
+   "rotta": "diretta fee 0.01%",
+   "buona": true
+  },
+  "WETH->cbETH": {
+   "resa": 0.9995,
+   "premio_reale": 0.0689,
+   "rotta": "diretta fee 0.05%",
+   "buona": true
+  },
+  "LBTC->WBTC": {
+   "resa": 0.7185,
+   "premio_reale": -0.2317,
+   "rotta": "diretta fee 0.01%",
+   "buona": false
+  },
+  "0x1abaea->USDT": {
+   "resa": 0.0115,
+   "premio_reale": -0.9882,
+   "rotta": "diretta fee 0.05%",
+   "buona": false
+  },
+  "WETH->USDC": {
+   "resa": 0.9993,
+   "premio_reale": 0.0687,
+   "rotta": "diretta fee 0.05%",
+   "buona": true
+  }
+ },
+ "cattive": 3
+}
